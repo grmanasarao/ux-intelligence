@@ -46,8 +46,8 @@ cd D:\ux-research-intelligence
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-pip install -r requirements.txt
-streamlit run app.py
+python - m pip install -r requirements.txt
+python - m streamlit run app.py
 ```
 
 Python 3.11 is the recommended baseline (broadest wheel availability for the scientific Python stack). Open the local URL Streamlit prints. Try it with the sample transcript at `data/sample_transcript.txt`, or paste your own.
@@ -69,10 +69,10 @@ An overlay on top of Phase 1 (`app_phase2.py`) that adds OpenAI-powered synthesi
 D:
 cd D:\ux-research-intelligence
 .\.venv\Scripts\Activate.ps1
-pip install -r requirements_phase2.txt
+python - m pip install -r requirements_phase2.txt
 $env:OPENAI_API_KEY="YOUR_API_KEY"
 $env:OPENAI_MODEL="gpt-5.6-luna"   # optional, this is the default
-streamlit run app_phase2.py
+python - m streamlit run app_phase2.py
 ```
 
 Get an API key from your OpenAI account (see the [official quickstart](https://platform.openai.com/docs/quickstart/make-your-first-api-request)). Model choice can also be changed in the Streamlit sidebar.
