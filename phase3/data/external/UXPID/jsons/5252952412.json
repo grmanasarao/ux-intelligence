@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "5252952412",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 676119638863564,
+      "user_name": "J7ZqwbAhw3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "How did you set up the [product_name] to read coils and registers on your PC? I'm working on a similar project but haven't been able to read any values. I'm using Modbus poll software as the client with [product_name] as the server. I'm not sure if my client-server connection is configured correctly, as I can't get it to work. Thank you"
+    },
+    {
+      "comment_id": 855680749527249,
+      "user_name": "lemlbtSecs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "The issue seems to be with the holding register. When writing to the PC, you should declare HR1001, but make sure to write to HR1000 first. Afterwards, it works fine. ([product_name] is the server and PC is the client)."
+    },
+    {
+      "comment_id": 962986491778810,
+      "user_name": "lemlbtSecs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Here's an example: [url]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having problems setting up communication between a [company_name] [product_name] module acting as a Modbus TCP server and a PC as the client. The main challenge involves configuring holding register addresses correctly, which affects their ability to read and write data using Modbus client software. One user notes that understanding and applying the right addressing convention for holding registers is key to successful setup.",
+    "user_expectations": "Users expect a clear and simple process for configuring Modbus TCP communication, allowing reliable reading and writing of [product_name] registers from a PC, with specific guidance for register addressing.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "modbus communication",
+      "register access",
+      "interoperability"
+    ],
+    "pain_keywords": [
+      "addressing confusion",
+      "communication failure",
+      "configuration difficulty"
+    ],
+    "feature_keywords": [
+      "modbus register mapping",
+      "coils and registers access",
+      "server-client configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

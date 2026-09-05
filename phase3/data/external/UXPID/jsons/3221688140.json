@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "3221688140",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 328554852399032,
+      "user_name": "iGe2YrqiNr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, I am encountering an issue with saving the bit memory in [product_name] when there is a power outage. My network project uses [product_name]. My program uses a network input (address V0.0) to receive control signals via Modbus communication. The [product_name] communicates with a PC over Modbus TCP/IP, where [product_name] acts as the TCP server and the PC as the client. The PC accesses coil 1 of Modbus (address V0.0 on [product_name]) to control the input. The logic control is as follows: If input=1, then output Q1=1; if input=0, then output Q1=0. Could anyone guide me on how to maintain the status of output Q1 after a power failure? Thank you in advance! The attached file contains an image of my project."
+    },
+    {
+      "comment_id": 950817657144503,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "The main issue is that the VM memory area in [product_name] is not retentive. You can resolve this in the following ways: 1) Option one: Send two bits from Modbus, each triggering a positive edge. Use the 'on' bit to set an RS block, and the 'off' bit to reset it. Retentiveness can be activated via the RS block. 2) Option two: Toggle a pulse relay with a Modbus bit. For this, continuously reset a network output with the same address as the network input using a LOW block. Here as well, enable retentive functionality through the pulse relay."
+    },
+    {
+      "comment_id": 326663813503848,
+      "user_name": "iGe2YrqiNr",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], Thank you for your quick support! I apologize for the earlier mistake in my logic control description. The correct logic is: If input=1, then Q1=1. If input=0, then Q1=0. Could you please suggest a solution for this issue? Thank you very much!"
+    },
+    {
+      "comment_id": 478029486600708,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "As mentioned before: This isn't possible because the VM memory area does not support retentiveness. If you need retentive memory, please use one of the suggested solutions."
+    },
+    {
+      "comment_id": 912996336616437,
+      "user_name": "iGe2YrqiNr",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Thank you for the strong support! I have managed to resolve the issue."
+    },
+    {
+      "comment_id": 121867689331920,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Could you please share the details of your solution with us?"
+    },
+    {
+      "comment_id": 144212413457031,
+      "user_name": "iGe2YrqiNr",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], Apologies for the delayed response. My solution was the same as what you suggested earlier."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users recognized that the VM memory area in [product_name] does not preserve states after power loss, leading to the loss of bit and output status. Achieving retentive behavior requires using specific function blocks (like RS block or pulse relay) triggered by Modbus bits, introducing added complexity for users seeking persistent states. This reveals a gap between standard product behavior and user requirements for state retention in Modbus-driven automation projects.",
+    "user_expectations": "Users expect both bit memory and output state to remain preserved in [product_name] after a power outage when operated via Modbus.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "output state retention",
+      "data persistence",
+      "automatic recovery"
+    ],
+    "pain_keywords": [
+      "non-retentive VM memory",
+      "output/state loss on power failure",
+      "complex configuration for retention"
+    ],
+    "feature_keywords": [
+      "retentive memory",
+      "Modbus TCP/IP",
+      "RS block",
+      "pulse relay",
+      "bit memory (NI1)",
+      "output Q1"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns"
+  }
+}

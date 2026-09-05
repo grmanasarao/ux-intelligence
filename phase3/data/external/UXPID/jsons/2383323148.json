@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "2383323148",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 987058115779719,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "I'm trying to read Modbus data using a float/integer approach, but I'm unsure about the process. I attempted analogue input networking but couldn't use it due to the data range. Currently, I'm using an RS422/485 converter from Waveshare, but I'm not able to read any data. The target register is point 2, which corresponds to voltage according to documentation. Some references say to subtract 1 or add 1 to the point number, but neither adjustment works. The manufacturer suggests using Modbus function code 3 or 4, possibly indicating address modifications like 3003, but I'm still confused. I've tried various combinations (2, 3, 1, 3002, 3003) without success. Any help or guidance would be appreciated."
+    },
+    {
+      "comment_id": 963726042418829,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "I don't understand why you opened a new thread for the same Modbus communication problem discussed in your previous topic."
+    },
+    {
+      "comment_id": 185272447097721,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "When [company_name] provides a Modbus driver, it tries to adhere to Modbus specifications (originally designed for Modicon PLCs) on its hardware. Modbus registers are 16-bit and mainly transmit word-sized values, typically integers in specific ranges. Floating-point (REAL) numbers require two sequential registers because they use 32 bits, formatted per IEEE 754. If volts start at address 2 in the mapping, read both address 2 and 3, and move them into a 32-bit REAL register in your [product_name] program to interpret the value. Typically, it's more important to select the correct offset than the function code (3 or 4), unless your mapping differs significantly. Here’s an IEEE 754 conversion example: If the value is 240.0 Volts, you’ll send the corresponding binary and hexadecimal 32-bit values through two Modbus registers. Hope this clarifies things. Edit: I saw your discussions with [user_name] and noticed [product_name] is involved in your setup. However, [product_name] CPUs can't process floating point numbers internally. Consider checking out an alternative in this [url] or upgrading to [version_no] PLC."
+    },
+    {
+      "comment_id": 676966316548457,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "You need to manually establish a connection between [product_name] and the Modbus device. [product_name] should act as the client, while the Modbus device functions as the server. Afterward, enter the appropriate settings in the connection table, as shown in your configuration screenshot."
+    },
+    {
+      "comment_id": 109349839778478,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "When I added the float/integer conversion, Modbus connectivity was created automatically, and I'm unclear how to configure this manually. As you mentioned, the roles are reversed: Modbus acts as the client and [product_name] is the server. I deleted and recreated the Modbus connection, but the options remain pre-configured and unchanged."
+    },
+    {
+      "comment_id": 265147777101864,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Thanks for your detailed explanation; switching to [version_no] could be a good step, but I've already made significant progress with my current setup. Perhaps I should consider upgrading the energy meter or using a different Modbus converter. I appreciate your support—this forum is meant for these questions, and as a non-expert, I rely on assistance. Your response exceeded my expectations; thank you very much."
+    },
+    {
+      "comment_id": 133375605306786,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], I didn't get responses in my previous thread, so I opened a new one. I have a question: Is it against the forum rules to ask questions that may seem basic to experts? Is it unacceptable to create a new thread for further problem-solving? I want to figure this out and appreciate any help given. If it’s not your preference to assist, feel free to ignore my questions."
+    },
+    {
+      "comment_id": 306308176275885,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "It's fine—occasionally, some members act like moderators. Everyone has better and worse days."
+    },
+    {
+      "comment_id": 619223175003098,
+      "user_name": "w8ny1LcQUj",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], To maintain an organized forum, I closed your original topic and linked it to this one. This way, users won't encounter parallel discussions and will have access to the complete conversation if visiting the original post."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience challenges working with floating point data via Modbus in a [product_name] environment because these CPUs lack built-in floating point support. There are uncertainties regarding manual versus automated Modbus connections, register mapping, and converting integer data into useful values. Some suggestions include switching hardware ([version_no]) or finding alternative solutions, but the core issue is the complicated workflow and unclear guidance for Modbus configuration when integrating [product_name] with external devices.",
+    "user_expectations": "Users expect [product_name] to have seamless Modbus float data handling, clear instructions for data mapping, and straightforward manual or automated setup options. They also seek accessible support resources and troubleshooting guidance.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy Modbus float data integration",
+      "reliable data reading",
+      "clear Modbus configuration"
+    ],
+    "pain_keywords": [
+      "data conversion complexity",
+      "no floating point support",
+      "manual setup confusion"
+    ],
+    "feature_keywords": [
+      "Modbus client/server role",
+      "float/integer data handling",
+      "connection table configuration",
+      "function code options"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

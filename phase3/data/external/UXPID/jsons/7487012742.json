@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "7487012742",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 391849420642495,
+      "user_name": "v0iQS18VR6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "I'm running a [product_name] basis module on a system that monitors temperature and pressure. The module is configured so that if an input signal is lost, the local [product_name] screen displays an error that must be acknowledged. I wanted to use the logging feature to store these errors for later retrieval. However, it appears that only digital and analog input block data can be logged, not the blocks containing message text. Has anyone else attempted this?"
+    },
+    {
+      "comment_id": 937099296960063,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "Hello, Which function are you using, and what exactly do you need to achieve? You can log errors by using a digital network input configured as an error diagnostic. If an error is detected (up to 4 can be identified), the network input will switch to \"1\". This change can be set up to trigger data logging. Hope this helps."
+    },
+    {
+      "comment_id": 769331280449439,
+      "user_name": "v0iQS18VR6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "The local text display shows a fault if any fault condition occurs, such as a loss of input to inputs I3-I6. I invert the signal to trigger the display, and a local message indicates which input has failed. I would like to save this information for future retrieval using the logging function. I can use the input status with a table to interpret the data, for example, identifying I3 as an over-temperature indicator by searching for all instances when I3 is low. I was hoping to log the actual message text as well."
+    },
+    {
+      "comment_id": 517494010387332,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "Hi, Sorry, I'm not quite sure what you are trying to accomplish. Are you looking to log when any of the inputs (I3 to I6) become \"0\"? If so, you can use data logging with the [product_name] [article_no]. Create a data record whenever an input switches to \"0\". Additionally, you can set up a custom message for each input when it is active and enable acknowledgment. The message will be displayed when the input is \"0\" and will remain until the input becomes \"1\" and you press ENTER. I've attached an image showing the setup. Hope this helps."
+    },
+    {
+      "comment_id": 216177623133663,
+      "user_name": "v0iQS18VR6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "That's exactly the method I'm using now. I was hoping the displayed message could be stored in the error log for the benefit of field technicians. I'll create a macro to reference the correct data when it's retrieved. [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are utilizing the [product_name] module for monitoring inputs and reporting errors to manage faults in their systems. A limitation has been identified: while digital and analog input states can be logged, the module does not record custom screen messages in its error logs. This restricts historical error analysis, requiring additional effort to match recorded faults with the corresponding screen messages for maintenance and troubleshooting.",
+    "user_expectations": "Users expect the error messages shown on the display to be logged along with error events, making future diagnostics more straightforward and effective.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simpler diagnostics",
+      "comprehensive error logs",
+      "field technician support"
+    ],
+    "pain_keywords": [
+      "missing message logging",
+      "manual post-processing"
+    ],
+    "feature_keywords": [
+      "error logging",
+      "display message capture",
+      "input monitoring",
+      "acknowledge function"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

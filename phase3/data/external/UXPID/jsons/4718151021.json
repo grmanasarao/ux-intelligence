@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "branch_id": "4718151021",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 877142658726896,
+      "user_name": "bPQJvgmnUg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello, I've searched for an answer to this problem but couldn't find one. I have two pt100 temperature sensors that I want to log but only get the timestamp when I try to log the data. I'm using [product_name] with [product_name] expansion module and [product_name] operator display. The temperature value is correctly shown on the screen but not logged as data. I've attached a photo with my circuit, logging setup, and csv output. Any advice would be appreciated. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 141056670711018,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Please upload your program as a ZIP file instead of a picture. Have you tried logging any other data? Regards, [user_name]"
+    },
+    {
+      "comment_id": 187385100066592,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "How did you open the csv file? Did you double-click it? You need to import it into Excel. Open Excel, go to 'Data' > 'From text', select your csv file and follow the import process. Attached is an example of a Data Log in csv format and the resulting Excel file after import."
+    },
+    {
+      "comment_id": 690264405266051,
+      "user_name": "bPQJvgmnUg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Thank you! Importing the csv file as you described made the values appear. I appreciate your help."
+    },
+    {
+      "comment_id": 637992552711158,
+      "user_name": "bPQJvgmnUg",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Thanks for the help. I've attached the program as a ZIP file. Based on previous suggestions, I imported the csv file instead of just opening it, which gave me all the values. If you could review my program and suggest improvements, that would be helpful. Thanks again."
+    },
+    {
+      "comment_id": 478353883452224,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Without knowing the intended function of your program, it's hard to give specific advice since it's quite small. I suggest adjusting the pulse generator timing for the data log: set 1/100s for HIGH and 5s and 99/100s for LOW. The HIGH block isn't needed if you negate the EN input on the Data Log block. See the attachment for reference."
+    },
+    {
+      "comment_id": 992944373732591,
+      "user_name": "bPQJvgmnUg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Thank you for the suggestion. You're correct, the program is simple—I only need it to log temperatures from PT100 sensors. As I understand it, the highest log frequency available is every 500 ms. My goal is to log both temperatures every 500 ms. I may add a button to the operator display to activate logging later, but for now, I just want this basic logging to work. Thanks for your help."
+    },
+    {
+      "comment_id": 294474205331025,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], happy to help."
+    },
+    {
+      "comment_id": 651166817636884,
+      "user_name": "bPQJvgmnUg",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "One more quick question: The temperature is logged as ten times the actual value (or maybe the decimal point is omitted). I see the same reading on the operator display and the log (B001, Ax amplified). The display shows 22.3, but the log shows 223. I tried using a math function, but then I lost the decimal, turning 22.3 into 22. It's not a major issue because I can divide by 10 in Excel, but it would be better if the logged value matched the display from the start."
+    },
+    {
+      "comment_id": 952178637715920,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Unfortunately, this can't be changed because [product_name] only stores integer values. The decimal you see on the display is actually just a scaled representation in the message text."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user had trouble logging PT100 sensor values using [product_name] and its related modules, receiving only timestamps in files while the correct values were displayed on the operator panel. The main issue was confusion over how to handle CSV files; opening them directly didn't show data, but importing them into Excel fixed this. The user also found that logged temperature readings appeared multiplied by ten compared to the display, which is due to integer-only storage in [product_name] devices and decimal handling being limited to display formatting rather than actual logged data.",
+    "user_expectations": "The user wants to log and view actual temperature readings with decimals in the exported CSV file, matching what's shown onscreen, and expects the system to handle and export data accurately, without the need for manual corrections or conversions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate data logs",
+      "decimal representation",
+      "consistent display and logging",
+      "ease of data export"
+    ],
+    "pain_keywords": [
+      "data logging confusion",
+      "integer-only limitation",
+      "manual data correction",
+      "display/log mismatch"
+    ],
+    "feature_keywords": [
+      "data logging frequency",
+      "temperature display scaling",
+      "CSV export",
+      "real-time display",
+      "decimal values"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

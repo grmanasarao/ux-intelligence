@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "branch_id": "8676510043",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 320430211824537,
+      "user_name": "muyuNrlVKL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm still having trouble with the variables memory on [product_name] and need some assistance. I have two [product_name] devices (with [article_no]) and a [product_name] communication module running on a LAN. Both devices communicate via network inputs/outputs successfully, and I can send SMS messages to the communication module to activate its outputs 1 and 2. Now, I want to set values in the variables memory using SMS messages sent to the communication module to trigger another function. The module is configured to one device (ping test passes). I added a network input on the device and, according to my understanding, configured VM address 3 and BIT 0. Is this correct? When I tried sending SMS commands like <password>;<product_name>=VM3,1,BIT, <password>;<product_name>=VM3,1,WORD, and <password>;<product_name>=VM3,1,BYTE, I received errors such as \"invalid parameter\" or \"no success.\" Could someone clarify how VM works and help resolve this?"
+    },
+    {
+      "comment_id": 991617366579494,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Try this command: <password>;<product_name>=VM3.1,1,BIT for High and <password>;<product_name>=VM3.1,0,BIT for Low."
+    },
+    {
+      "comment_id": 420892927970106,
+      "user_name": "muyuNrlVKL",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Still not working for me. When adding a network input in the device, double-clicking allows selection of variable memory (choose VB address and BIT number), remote device, or diagnostic. I used variable memory, selected VB 3 and bit 0 (any address from 0-850 and bit 0-7 possible). I assumed I could set the BIT value for this VB address—shown as 3.0 for the Network Input. In the communication module, I mapped a signal with variable memory and filled the correct address (3) and bit (0). Commands like password;<product_name>=VM3.0,1,BIT (in varying cases) don't work. The response is sometimes \"Not supported by [product_name]\" or \"No Success.\""
+    },
+    {
+      "comment_id": 757624364028756,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Do you know what firmware version your [product_name] communication module has? If it's V1.0 or V1.1, then BIT type won't work; it's supported only from firmware V2.0 onward. Firmware update V2.0 for [product_name] (with [article_no]) and [product_name] (with [article_no]) is required."
+    },
+    {
+      "comment_id": 781013959084331,
+      "user_name": "muyuNrlVKL",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "I'm using version V2.0.12. The device should be [product_name] version 8.1 or above. My device has firmware [article_no].Standard V1.08.02. Is this correct? If upgrade is needed, where can I get it? With the communication module, I can configure signals with VM - Variable memory and Data type BIT, but the module's replies seem illogical. For example, with <password>;<product_name>=VM3.0,1,BIT, the answer is either \"Not supported by [product_name]\" or \"No success,\" sometimes both."
+    },
+    {
+      "comment_id": 510736460458700,
+      "user_name": "lemlbtSecs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "You should configure the variable in monitoring / signals: [product_name] / VM - Variable memory / WORD / 3. After this, the command works. Also, in the device, add a network analog input and set it as VM3. Switch variable to number in the analog input, e.g., 10=0, 20=1. Send the SMS as password,[product_name],VM3,10,WORD or password,[product_name],VM3,20,WORD. I tested and confirmed this."
+    },
+    {
+      "comment_id": 244508764182836,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "For a detailed solution, check this thread: [url]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering issues configuring and synchronizing variable memory between [product_name] and its communication modules via SMS commands. Syntax discrepancies and error responses like 'Not supported by [product_name]' and 'No success' complicate troubleshooting. Firmware compatibility between devices remains uncertain for many, making resolution more complex and contributing to longer troubleshooting times and decreased user confidence.",
+    "user_expectations": "Users expect an easy, reliable, and well-documented process for setting specific VM addresses/bits on [product_name] via SMS using its communication module, with clear and consistent system feedback. They anticipate straightforward mapping and command compatibility between different firmware versions.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote control",
+      "bit manipulation",
+      "SMS activation",
+      "networked automation"
+    ],
+    "pain_keywords": [
+      "command syntax confusion",
+      "inconsistent error messages",
+      "firmware incompatibility",
+      "variable memory not updating"
+    ],
+    "feature_keywords": [
+      "variable memory",
+      "network input",
+      "SMS command",
+      "signal mapping",
+      "firmware version"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "5470166352",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 555951583839266,
+      "user_name": "98dANSbJEj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello, I am looking to configure a message text so that it shows the actual temperature from a PT100 sensor in degrees Celsius, instead of displaying the raw sensor value (0-1000). Currently, the AI1 displayed message updates dynamically during simulation, but only shows the 0-1000 value. I would prefer to show the temperature in °C, since the raw value is not meaningful for the end user. Is it possible to present the actual temperature reading?"
+    },
+    {
+      "comment_id": 726125135634558,
+      "user_name": "udO0a0woU9",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "There is a straightforward approach: Connect AI1 to an \"Analog Amplifier\" block, setting the sensor type to \"PT100/PT1000\" and resolution to \"x 1\". Then, display the amplified value from this block within the message texts block. This will provide you with temperature readings in the range of -50 to +200 as desired."
+    },
+    {
+      "comment_id": 470831647197120,
+      "user_name": "98dANSbJEj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "I have implemented this method and it works perfectly! Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user experienced confusion due to temperature values from a PT100 sensor being shown in a raw format (0-1000) rather than in degrees Celsius, which was unclear for end users. After applying a solution involving the Analog Amplifier block configured for the specific sensor, the user was able to display readable temperature values and confirmed the solution resolved their concern.",
+    "user_expectations": "Users want the system to present temperature values in degrees Celsius, making readings straightforward and easily understood by end users, rather than displaying sensor raw data.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "readable values",
+      "real-world units",
+      "improved display",
+      "end-user friendliness"
+    ],
+    "pain_keywords": [
+      "confusing format",
+      "uninterpretable raw values",
+      "missing real units"
+    ],
+    "feature_keywords": [
+      "message text display",
+      "sensor value scaling",
+      "Analog Amplifier block"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

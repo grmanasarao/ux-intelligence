@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "9469043199",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 524418046995784,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Hello, I have a PI controller setup where temperature is used as the process variable (PV). In the 'PI Trend View', the PV scale displays from -3 to +3, but the blue line always stays at 0, even though the analog amplifier output differs from zero. Is there a reason for this behavior, or should the result be different? Thanks! [user_name]"
+    },
+    {
+      "comment_id": 240692504608655,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "It seems that the issue might come from using two analog amplifiers in series: one block amplifier and the amplifier within the PI controller. Try adjusting the setup as shown in the attached screenshot. For block B003, I used a constant value instead of an analog input."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user notices that the process variable (PV) shown in the PI trend visualization remains at zero despite different analog amplifier outputs, with a fixed display range from -3 to +3. Another user suggests that having two amplifiers connected in sequence may be causing this, highlighting confusion with component configuration and data display in the software.",
+    "user_expectations": "The user expects the digital trend view to show accurate and real-time changes of the analog amplifier output as the PV for the PI controller.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate data visualization",
+      "real-time monitoring",
+      "correct PV display"
+    ],
+    "pain_keywords": [
+      "incorrect PV display",
+      "static trend view",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "PI Trend View",
+      "analog amplifier",
+      "PI controller",
+      "visualization scale"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

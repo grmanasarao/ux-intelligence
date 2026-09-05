@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "6070610390",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 264803756086572,
+      "user_name": "iCWms8OBzB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello, I am using a [product_name] from [company_name] connected via ethernet to an HMI panel (MT8071iE). The setup works fine on wired internet, but when both devices are connected via radio internet for remote access using EasyAccess 2.0, the HMI disconnects from the [product_name], displaying 'PLC no response'. On cable internet, everything functions correctly. Could someone assist with this issue?"
+    },
+    {
+      "comment_id": 570116350913468,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello, I think both your HMI and software (EasyAccess) use an HMI connection to the [product_name] ([product_name] TSAP 02.00), but only one HMI connection is supported at a time. This causes one device to be disconnected. To resolve this, change the TSAP setting in one device from 02.00 to another unused value, such as 20.00–27.00, since TSAP 02.00 is reserved for a single HMI. I hope this solution helps."
+    },
+    {
+      "comment_id": 814229340732697,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "What type of radio internet are you using, and what frequency does it operate on? It is possible that the amount of data exchanged between the [product_name] and HMI is too high for the radio connection's bandwidth."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user describes intermittent connectivity issues between a [company_name] PLC and a third-party HMI when using radio internet for remote access, with reliable operation on wired Ethernet. Suggestions in the thread include configuring separate TSAP addresses for each connection and considering whether the radio internet bandwidth supports the data volume required by the devices. The main discussion revolves around limitations in device configuration and the impact of network reliability.",
+    "user_expectations": "The user seeks dependable, uninterrupted remote operation and monitoring between the [company_name] PLC and HMI, regardless of whether the network medium is wired or radio internet.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote access",
+      "stable connection",
+      "reliable control"
+    ],
+    "pain_keywords": [
+      "disconnections",
+      "network instability",
+      "configuration limitation",
+      "TSAP reservation"
+    ],
+    "feature_keywords": [
+      "Ethernet communication",
+      "TSAP setting",
+      "remote HMI access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges",
+    "10": "Performance Predictability"
+  }
+}

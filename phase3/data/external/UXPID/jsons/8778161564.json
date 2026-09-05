@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "8778161564",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 687670391646699,
+      "user_name": "A0zTVcwPYC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Hi, I'm trying to scale a ratiometric potentiometer for use in a [product_name] program. The potentiometer outputs 0.5V DC at 0 degrees and 4.5V DC at 120 degrees. I followed the example program from this topic: [url] However, this solution isn't working for my situation. The [product_name] module shows values from 0.02V DC to 1.95V DC when I rotate the potentiometer through its full range, but my voltmeter reads 0.5V DC to 4.5V DC on the analog input. The simulation using [product_name] matches the expected outcome. Can anyone suggest what I'm missing?"
+    },
+    {
+      "comment_id": 596848592268369,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Give this approach a try."
+    },
+    {
+      "comment_id": 270154564645883,
+      "user_name": "A0zTVcwPYC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "I'm still facing the same issue. 0.5V DC on the multimeter results in 0.1V DC on [product_name]. 4.5V DC on the multimeter shows as 1.93V DC on [product_name]."
+    },
+    {
+      "comment_id": 132599187879418,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "I don't know the details of your potentiometer or its connections, and I can't confirm if you're measuring the voltage at the right points. Please provide a sketch of how you've connected the potentiometer to the [product_name], indicating the measurement points. I can confirm that my scaling setup in the [product_name] program is correct according to the parameters you've provided."
+    },
+    {
+      "comment_id": 477375705198491,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "You might need to experiment with the analog amplifier feature. ...sent from App"
+    },
+    {
+      "comment_id": 885340879188560,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "No."
+    },
+    {
+      "comment_id": 111150072365071,
+      "user_name": "A0zTVcwPYC",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Thank you for your response. Your scaling program is correct. I've attached the diagram showing how the [product_name] is wired to the potentiometer, which is a Novotechnik RSC3200."
+    },
+    {
+      "comment_id": 164382601402324,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "You need to ensure that the negative side of the 5V power supply and the negative side of the [product_name] power supply are connected. Otherwise, the [product_name] module can't evaluate the sensor's signal. Your measurements are also off because you're not measuring the voltage directly between the analog input (e.g., terminal I7 on the [product_name]) and the negative supply terminal of the [product_name]."
+    },
+    {
+      "comment_id": 982428949852037,
+      "user_name": "A0zTVcwPYC",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Thank you, you're correct. The setup works now!"
+    },
+    {
+      "comment_id": 834808411333631,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "That's great to hear..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user had trouble with analog input voltage scaling using a ratiometric potentiometer connected to a [product_name] module. The readings on the [product_name] did not match the expected voltages shown by a multimeter. The root cause was traced to improper wiring, specifically the absence of a shared ground between the power supplies for the potentiometer and the [product_name], which resulted in inaccurate voltage measurements. Once the grounding issue was fixed, the module showed correct readings. This thread shows that clear wiring guidelines and troubleshooting support are crucial for users configuring analog inputs.",
+    "user_expectations": "The user expected the [product_name] module to accurately read voltages from the potentiometer and deliver correct scaling, mirroring the voltages measured by a voltmeter and the simulation results.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "accurate voltage reading",
+      "successful sensor integration",
+      "correct analog scaling"
+    ],
+    "pain_keywords": [
+      "incorrect voltage readings",
+      "wiring confusion",
+      "signal reference issue"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "scaling",
+      "sensor interface"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

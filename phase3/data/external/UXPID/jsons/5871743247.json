@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "5871743247",
+    "thread_id": "3055273936",
+    "publication_year": 2007,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 385669266519479,
+      "user_name": "dmzIChuOWz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2007,
+      "comment_month": 12,
+      "comment_body": "Is it possible to connect an incremental encoder to a high speed counter and use it to control a motor in both directions and at different speeds with a frequency inverter?"
+    },
+    {
+      "comment_id": 346084929894128,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], This should be possible, but I have a few questions: How exactly do your input signals look? Are you using one or two channels (A and B)? What is the expected frequency range for these input signals? What output signals are required for your frequency inverter? Are they digital or analog outputs? How do you intend to link the input signals to the outputs? Do you need reporting or display values for monitoring? Best regards [user_name]"
+    },
+    {
+      "comment_id": 332113080359261,
+      "user_name": "dmzIChuOWz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 12,
+      "comment_body": "Hello! I am considering a 2-channel encoder with a high resolution of 250 pulses per revolution, but the counter seems limited in how high it can count. Also, I'm not clear on how to interpret the counter signal. The frequency inverter only needs digital inputs, which is not my issue—the counter setup is my main concern. I might use a proximity switch and a 10 pulses per revolution single channel, but I still don't understand how to use the counter output for positioning purposes. Any suggestions?"
+    },
+    {
+      "comment_id": 143179565756979,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], Unfortunately, the [product_name] does not include a function that can independently evaluate two-channel incremental encoders in a cycle-time independent manner. For example, evaluating signals \"A\" and \"B\" for rotational direction presents limitations. I've shared concepts and circuits for this on the German forum (\"Wie ist eine Auswertung der Signale 'A' und 'B' von Drehgebern möglich?\" [url]), focusing on direction impulse counting and maximizing information recovery (such as flank evaluation). All circuit-based solutions face restrictions on the maximum allowable signal input frequency due to direction analysis. This is based on the smallest possible system cycle time of [product_name]. With simple evaluations (like using counters), the highest signal frequency is halved, while achieving full directional information restricts it further, to an eighth of the cycle rate. I have posted circuit diagrams for various approaches (search for \"Forum_Inkrementalgeber_V03.zip\") and simulation setups. Based on your information, it sounds like you are more interested in measuring speed instead of counting impulses for position. There's a block called \"threshold trigger\" which can help measure speed, but it's generally difficult to scale results into physical units. I published a more flexible circuit for this in the forum, which you can adapt (for example: \"Display of scaled High Speed Input Values\" [url]). I prepared a modified circuit for your application with a two-channel incremental sensor. Here’s a brief overview: - B110 sets the measuring time, - B003 and B007 store previous measurement values, - B005 and B008 amplify and scale these values, - B001 handles direction by multiplying by -1, - The final direction value is processed by B012. Channel A impulses are counted during the measuring time, with a typical maximum of 2 kHz. Analog amplifiers convert the counter value to physical units. Direction can only be determined up to half the system frequency (by analyzing A and B), with a threshold of 50 Hz. Above this threshold, the last known direction is stored until speed drops below the limit. This procedure works well for motor control, as reversing direction usually involves slowing down first. There are references to dividing the signal frequency using external circuits ([document] and [document]). Sensor signals A and B can also be externally processed by ICs (see datasheet [document]) for pulse and direction output, which can then be used with [product_name]. In [product_name], you can use a simple counter, digital threshold trigger, or adapt the \"threshold trigger\" circuit for rotation sense display. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to achieve two-way motor control and speed or position measurement using incremental encoders and frequency inverters with [company_name] logic modules. The core limitation is that [product_name] cannot natively process two-channel encoder signals in a way that supports high frequencies and direction detection without complex workaround circuits. Threads discuss practical solutions and highlight the hardware and software constraints for high-resolution encoder applications.",
+    "user_expectations": "Users expect simple and direct support from [product_name] for high speed counters to fully handle incremental encoders with two channels (A and B). They want both direction and speed detection for accurate and flexible motor control, without needing complex external circuitry or custom circuit integration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "bidirectional motor control",
+      "precise position/speed feedback",
+      "flexible signal evaluation"
+    ],
+    "pain_keywords": [
+      "lack of native support for 2-channel encoders",
+      "signal frequency limitations",
+      "complex setup required"
+    ],
+    "feature_keywords": [
+      "high speed counter",
+      "A and B channel encoder input",
+      "direction detection",
+      "scalable output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "29": "Scalability Limitations"
+  }
+}

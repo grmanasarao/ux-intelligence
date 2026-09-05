@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "4702323796",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 220994041483678,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hello everyone, Issue: When placing an asynchronous pulse generator within a block diagram, and trying to use the actual value output from another block to set the TH or TL parameter, it's only possible to select minutes, seconds, 10 milliseconds, and milliseconds as units. The option for hours is missing from the dropdown menu below the block. Is this a software bug or am I missing something? I'm attempting to assign the value by connecting the Aq value from another analog block’s table to the TH or TL input of the pulse generator. I appreciate any solutions! Please refer to the attached screenshot for clarification—I want TL set to 6 hours (provided by a mathematical instruction), but the 'hours' unit can't be selected."
+    },
+    {
+      "comment_id": 566917124207586,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "The only available solution is to convert hours into minutes, using a calculation like parameter V1 (in hours) multiplied by parameter V2 (which is 60). For example, 6 hours equals 6 times 60 minutes, resulting in 360 minutes. Minutes are the largest time unit provided in the selection field; hours are not available. If you input the time directly in the block properties, the format 'Hours (h: m)' can be chosen and the hour value entered, but even in this case, the unit used internally is minutes. This method only removes the need for manual conversion, which the software then handles automatically."
+    },
+    {
+      "comment_id": 241790334670288,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Thank you for the answer. I also considered converting the unit as described. However, I need the value in hours as input for another block, meaning I’d have to use another mathematical block to convert minutes back to hours by dividing by 60. That approach does work, but having the ability to select hours directly as a unit would have simplified things."
+    },
+    {
+      "comment_id": 404232359871355,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "This added convenience is only available if you enter hours directly in the block diagram during program creation or during modification, or by entering the value via the display or operator panel (TD/E)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are facing limitations in time unit selection for the pulse generator block in the control system software. Specifically, when connecting actual values from other blocks, 'hours' cannot be chosen as a unit; the highest available is 'minutes.' This necessitates manual conversion between hours and minutes, complicating system design, especially when variable time values are involved.",
+    "user_expectations": "Users want to be able to select 'hours' as a time unit directly for block parameters, especially when providing inputs dynamically from analog or mathematical blocks.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "direct hour unit selection",
+      "streamlined parameter input",
+      "integration with other blocks"
+    ],
+    "pain_keywords": [
+      "manual time conversion",
+      "limited unit selection",
+      "extra steps"
+    ],
+    "feature_keywords": [
+      "unit selection",
+      "actual value input",
+      "block parameterization"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

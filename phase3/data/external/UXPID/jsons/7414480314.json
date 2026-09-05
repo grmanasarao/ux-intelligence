@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "7414480314",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 233452423119956,
+      "user_name": "Wz6lax00r8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I am working with several [product_name] controllers configured in a network, including a panel display. I need a reliable method to detect when any of the remote controllers have lost power, since the network inputs on the master remain in their last state when that happens."
+    },
+    {
+      "comment_id": 496989819531999,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], welcome to the forum. In your setup, the master/slave configuration with [product_name] works differently from what you might expect. I’d recommend configuring all devices as masters and using a client/server approach. With this, you can designate one controller as the central master and monitor a communication status bit for each device. Network inputs can also serve as diagnostic indicators to help identify Ethernet errors."
+    },
+    {
+      "comment_id": 924548291360737,
+      "user_name": "Wz6lax00r8",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Switching to a master-master configuration hasn’t solved the issue, as the local module’s network inputs remain high even when a remote controller is powered down. While the diagnostic input does indicate a communication error, it does not identify which remote device has been switched off."
+    },
+    {
+      "comment_id": 651827549879163,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "That's correct: the situation is as you've described. You could implement a monitoring mechanism based on a heartbeat signal (life bit) to track connectivity. Would you like an example of how to set this up?"
+    },
+    {
+      "comment_id": 265735848307963,
+      "user_name": "Wz6lax00r8",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Yes, please provide further details."
+    },
+    {
+      "comment_id": 627945978557632,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I’ll prepare an example and share it soon."
+    },
+    {
+      "comment_id": 248080410977760,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Here is the example."
+    },
+    {
+      "comment_id": 740584411280023,
+      "user_name": "Wz6lax00r8",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Thank you, your example helped me solve the problem. I ended up designing the remote module to send a regular pulse that continuously resets a timer on the master. If the timer isn’t reset, it times out, clearly indicating that the remote module is powered off."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The core issue discussed was how to reliably detect when a networked [product_name] controller is powered down, given that network inputs can remain in their previous states and available diagnostic functions may only indicate a general connectivity error without identifying the specific device. The successful approach involved implementing a heartbeat (pulse) mechanism so that a missed signal per remote device unambiguously signified power loss.",
+    "user_expectations": "The user hopes for a clear, direct notification whenever any remote [product_name] controller becomes powered off or disconnected, specifying which device is affected instead of providing only a general communication error.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable module-off detection",
+      "clear notification",
+      "unambiguous diagnostics"
+    ],
+    "pain_keywords": [
+      "ambiguous error state",
+      "cannot detect which module is off",
+      "network input status misleading"
+    ],
+    "feature_keywords": [
+      "network diagnostics",
+      "life bit monitoring",
+      "remote module state detection",
+      "diagnostic input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

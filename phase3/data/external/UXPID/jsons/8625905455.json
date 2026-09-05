@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "8625905455",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 141091111367829,
+      "user_name": "w27fQsPjdj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "Hello, How many expansion modules can be connected to a [product_name]? Can different module types be used together, for example combining a [product_name] digital module with an analog module? Currently, I have a [product_name] base module and notice on the display labels such as: I1, I2= AI3, AI4 (0..10V), I7, I8= AI1, AI2 (0..10V). What do these labels indicate?"
+    },
+    {
+      "comment_id": 561429351570440,
+      "user_name": "YAA2TKY8oF",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "Hi, Please review the compatibility overview of [product_name] base modules and their expansion modules for more information. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 629801297609441,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "Hi! You can physically attach a large number of expansion modules and create a very extended [product_name] configuration; however, the software only supports: - 24 digital inputs (channels, not modules) - 16 digital outputs - 8 analog inputs - 2 analog outputs If you connect the maximum permitted digital I/O modules (for example, 4 digital modules with 8 channels each or 2 with 16 channels, subject to supply voltage), the last 4 digital outputs cannot be controlled via software. This is due to limitations in the expansion bus communication and synchronisation, and changing it would cause older modules to lose compatibility. If you use on-board digital inputs as analog inputs (0..10V) on modules like [product_name] base modules, you can only add a limited number of expansion analog input modules (up to 3 if using 2 on-board analog, up to 2 if using all 4 on-board analog). These can be configured in the software settings. When using on-board digital inputs as analog, you can't use the same input numbers for digital handling in your program, reducing usable digital inputs. If additional modules such as communication or network modules are added, physical digital and analog inputs/outputs need to be available for mapping. As for the label question, the display tells you that certain digital inputs (such as I1, I2, I7, I8) can be used as analog inputs (AI1–AI4) depending on module version. The numbering is designed to maintain compatibility with older designs and programs. Hope this helps clarify things and supports any diagrams or reference material you’ve seen. Cheers, [user_name]"
+    },
+    {
+      "comment_id": 174110371401430,
+      "user_name": "w27fQsPjdj",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "Thank you for the detailed explanation, [user_name]. This information makes the module limits much clearer. Regarding the text display: is it correct that it can be used with any configuration and isn’t affected by the number of connected expansion modules?"
+    },
+    {
+      "comment_id": 197628446301864,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], Yes, the text display works on any [product_name] base module or CPU—even on versions without an integrated LCD. It functions either standalone or with a complete system setup. Cheers, [user_name]"
+    },
+    {
+      "comment_id": 177727753889016,
+      "user_name": "w27fQsPjdj",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "Thanks!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are clarifying the connection limits and compatibility of digital and analog expansion modules for [product_name] base modules. The main concerns center around how hardware constraints affect I/O channel availability, compatibility across versions, and system configuration. Additional details are discussed regarding dual-use inputs and the independence of text displays from expansion module numbers.",
+    "user_expectations": "Users expect to be able to combine different types of expansion modules as needed, and seek a clear understanding of the maximum supported inputs/outputs and display compatibility for flexible system design.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "maximum expandable configuration",
+      "mixed module compatibility",
+      "input/output clarity",
+      "flexible display integration"
+    ],
+    "pain_keywords": [
+      "module connection limits",
+      "input/output addressing restrictions",
+      "configuration ambiguity"
+    ],
+    "feature_keywords": [
+      "input/output channel limits",
+      "analog/digital input mapping",
+      "module mixing support",
+      "display compatibility"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

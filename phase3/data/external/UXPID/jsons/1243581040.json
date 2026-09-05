@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "1243581040",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 125338231248896,
+      "user_name": "W8oK2Zyw71",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm experiencing an issue where my web server works perfectly from a PC: analog values and scale times update and submit properly when pressing 'Enter,' and I see the usual confirmation in the display. However, when accessing the same web server from a mobile phone, although everything shows up correctly, I can only update the very last input field. If I try to submit changes in any other input box, 'Enter' simply moves the cursor, and no updates occur. I attempted to fix this by updating the relevant JavaScript function in render.js, modifying keydown and focus behavior, and I even tried preventing default events on mobile, but nothing seems to help. Has anyone else encountered this, or am I missing something? Any feedback on my attached files would be appreciated."
+    },
+    {
+      "comment_id": 395142484688596,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Is the phone's operating system Android? If so, this might be the issue. The web server only transmits values to [product_name] if you complete input with ENTER, not TAB."
+    },
+    {
+      "comment_id": 260398095568563,
+      "user_name": "W8oK2Zyw71",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Yes, the phone uses Android OS. The issue is that pressing 'Enter' does not submit all fields; sometimes 'Enter' seems to function like 'Tab.' Only the last input box accepts submission from the mobile device. Deleting the last box makes the next one work instead. On PC, all inputs work fine with 'Enter.' Maybe verifying the device in render.js and assigning both 'enter' and 'tab' for mobile could work, while preventing the default tab behavior?"
+    },
+    {
+      "comment_id": 550286468116739,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "It appears that Android OS is causing the problem. You could start a support ticket and ask [company_name] directly for assistance."
+    },
+    {
+      "comment_id": 309824894144882,
+      "user_name": "W8oK2Zyw71",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Thank you. I appreciate your input."
+    },
+    {
+      "comment_id": 928087389160159,
+      "user_name": "W8oK2Zyw71",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "My workaround is to display a submit button when a mobile device is detected. This allows users to either press 'Enter' or tap the button to submit their input, which is temporarily stored before actual submission. Here is the code that replaces the initialization function in render.js. Hopefully this helps others facing the same issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report smooth field submission on the web server from PC, but Android devices restrict 'Enter' submission to the last field only. This creates inconsistency in the input experience, leading to confusion and user workarounds, such as adding a dedicated submit button for mobile devices. The discussion highlights a need for more consistent multi-device support in web server input handling.",
+    "user_expectations": "Users expect uniform behavior for submitting writable fields using 'Enter' on the web server, regardless of whether they're on PC or mobile. Reliable input handling across platforms is desired.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "consistent behavior",
+      "mobile usability",
+      "input reliability"
+    ],
+    "pain_keywords": [
+      "mobile input limitation",
+      "inconsistent behavior",
+      "web server usability"
+    ],
+    "feature_keywords": [
+      "input submission",
+      "event handling",
+      "web editor fields"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {
+      "Android": []
+    }
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

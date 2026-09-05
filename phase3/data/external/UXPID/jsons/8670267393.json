@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "branch_id": "8670267393",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 736157928264869,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, I have 3 fixed Modbus connections and two dynamic [version_no] connections in one [product_name]. After powering up, communication doesn't automatically restart. So far, I found that switching between stop and run modes or redownloading the program to [product_name] helps. I'm unsure what the problem is. What could I do to resolve this? Would a factory reset help? [user_name]"
+    },
+    {
+      "comment_id": 926325112441010,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Why are you using 2 dynamic connections? Would static connections allow more available ones? I don't think a factory reset will solve the issue."
+    },
+    {
+      "comment_id": 489420721192340,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I opted for dynamic connections for [version_no] because drag-and-drop allows device linking. With standard connections, I lose the choice to set server or client modes. Am I mistaken? I read static connections are more stable, so I switched all connections to static and will test and share the outcome. Note, my issue is mainly with Modbus connections, which were already set as static. I mentioned factory reset as I've noticed unpredictable behavior — sometimes [product_name] requests a password on program downloads, other times it doesn't. Thank you, [user_name]"
+    },
+    {
+      "comment_id": 642426602096030,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "When creating Drag & Drop links between a [product_name] and another device, the output side becomes the client. If you drag the connection from the [product_name] to another device, [product_name] acts as client, the other as server. If you drag from the other device to [product_name], roles reverse. With poor connections (example: weak WLAN), responses are delayed, causing [product_name] to request a password even if none is set."
+    },
+    {
+      "comment_id": 836324627806012,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I've set all connections from dynamic to static, but communication still fails to start after [product_name] power up. Any advice? Regards"
+    },
+    {
+      "comment_id": 501388134750190,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "No. In my experience with many projects and connections between multiple [product_name]s, [product_name] with [version_no], [product_name] with HMI, [product_name] with other PLCs (Ethernet TCP/IP, Modbus TCP/IP), I haven't encountered a situation where communication doesn't resume after a voltage drop."
+    },
+    {
+      "comment_id": 609483518203967,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "What devices are connected on the other end of your links? Does none of the connections work after powering up the [product_name]?"
+    },
+    {
+      "comment_id": 749360241118936,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Connected to [product_name], I have an Allen Bradley PLC via Modbus TCP, a Node-Red node on Raspberry Pi (Modbus TCP and [version_no] connection), and an app that interfaces with [product_name] using Modbus TCP. All devices are communicating with Allen Bradley PLC via Modbus TCP, while also connecting with [product_name]. When both Allen Bradley and [product_name] power up simultaneously, [product_name] loses communication with all devices. If there were a network issue, I'd expect to see communication loss on the Allen Bradley PLC too, right? Or am I overlooking something?"
+    },
+    {
+      "comment_id": 452389236054772,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "It's difficult to diagnose remotely. I haven't encountered such issues with any [product_name]. One thing you could try: adjust the delay time before [product_name] program starts after restoring power. Perhaps [product_name] boot is too rapid for Allen Bradley. Go into [product_name] menu, stop [product_name], navigate to: Setup > Power-On Delay, and set the delay (1–10 seconds) using the left/right keys."
+    },
+    {
+      "comment_id": 495089424844741,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I agree, remote diagnosis isn't easy. My [product_name] lacks a display. Is there another way to set Power-On Delay? Alternatively, I could power up Allen Bradley first, then [product_name] 10 seconds later with the power switch. Would this produce the same result? Could issues stem from the Ethernet cable between [product_name] and the network switch, or from the switch itself being slow? Any further tips? Thanks."
+    },
+    {
+      "comment_id": 620552343075433,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "As far as I know, the switch-on delay can only be set via [product_name] menu. I couldn't find an option in [product_name] software. For testing, powering on AB-PLC first and [product_name] after 10 seconds should suffice. Suggestions? None at the moment. My belief is that the issue lies with the AB-PLC."
+    },
+    {
+      "comment_id": 492867919375560,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Testing the sequence — powering AB-PLC first, then [product_name] after 10 seconds — still resulted in [product_name] being unable to reestablish communication. Regarding \"I think the problem will be the AB-PLC\": I have two more devices connected jointly to [product_name] and AB-PLC, and only [product_name] fails to communicate. I don't believe AB-PLC is at fault. Here’s the error I receive from node-red: AB-PLC communicates fine, but the app reports [product_name] as offline while AB-PLC is online. Sample error: '[warn] [s7 endpoint:Master] No response from PLC, restarting communication'. Any further suggestions? What could I be doing incorrectly? Would factory reset help? Thanks."
+    },
+    {
+      "comment_id": 360570460097591,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I can't say for sure if factory reset will help. What do you expect from it? It only restores default settings, which means all custom configurations are lost. It's a last resort for troubleshooting. All settings must be redone manually. Personally, I've never had communication restart issues with [product_name] and other devices. Consider submitting a support request. Edit: Perhaps try starting the AB-PLC after [product_name] instead?"
+    },
+    {
+      "comment_id": 104917001038456,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I mention factory reset again because I've used [product_name] for over a year and recently its behavior seems different. Maybe it's just intuition, but I thought a clean start could help. By \"redo all settings\", do you mean I only need to set the correct IP and re-download the program? Is there anything else to configure? How about updating the firmware?"
+    },
+    {
+      "comment_id": 459486420956636,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Factory reset does not update firmware. All your customized settings revert to default, including: IP address, menu language, number of enabled analog inputs, passwords, etc. Everything adjustable via [product_name] menu or software is reset. Edit: The program will be deleted and restored to delivery status."
+    },
+    {
+      "comment_id": 381629134088033,
+      "user_name": "cZQANX744b",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hi, I agree with the previous comments. Do you have an MSD card installed in your [product_name]? If so, try removing it, as [product_name] might continually load the program from the card, causing the issue. Also, check if you use flag M8 — this is a startup indicator, active for one cycle when [product_name] starts, then it behaves like any regular flag. The startup timing discussion is already covered. Besides powering [product_name] after the AB-PLC, try powering [product_name] first and the AB-PLC later. Hope that helps."
+    },
+    {
+      "comment_id": 668923667225907,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hi, To update on the original topic: communication issues persist after power failures. I don’t use an MSD-card. Yes, I utilize the M8 startup flag; any concerns about this? I haven’t yet tried powering devices in the opposite order but will do so. Thanks for the suggestion."
+    },
+    {
+      "comment_id": 935434884130031,
+      "user_name": "OIS6P7lJkF",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "The issue now appears resolved. After a power interruption, [product_name] and all other devices start communicating as expected. The root cause seems related to the selected network interface used for downloads and communication — when using the VirtualBox interface (for virtual machines), downloads were slow and certain functions in [product_name] software and hardware were unreliable. This seemed to impact [product_name] startup as well. After switching to the main Ethernet controller (Realtek PCie), both the software and [product_name] behavior normalized. Small details with significant impact! I also performed a firmware update, but believe the main issue was the network interface setting. Thanks to all for your assistance."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Several users experienced persistent issues where communication connections (Modbus and [version_no]) in [product_name] would not automatically reconnect after a power cycle, necessitating manual intervention such as toggling operational modes or re-downloading configurations. Changing connection types had no effect, and the problem seemed exclusive to the [product_name], while other devices like Allen Bradley PLC functioned normally. Additional symptoms, such as inconsistent password prompts and unpredictable device responses, indicated possible network interface issues or firmware anomalies.",
+    "user_expectations": "Users expect [product_name] to automatically reestablish Modbus and [version_no] communications after power cycling, without needing manual steps or reconfiguration. Consistent and reliable post-reset behavior is desired for ease of use and stability.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "automatic communication recovery",
+      "reliable startup",
+      "stable connectivity"
+    ],
+    "pain_keywords": [
+      "connection loss after power-up",
+      "manual restart required",
+      "unpredictable behavior"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "S7 dynamic/static connections",
+      "power-on delay",
+      "Ethernet communication"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "19": "Bug Reports"
+  }
+}

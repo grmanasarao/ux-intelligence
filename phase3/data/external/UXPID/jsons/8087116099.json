@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "8087116099",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 867049288618707,
+      "user_name": "daw7mVkIvm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello everyone. I searched through the [product_name] software but couldn’t find a timer that starts on a falling edge and activates an output. Is there a way to achieve this? Any advice is appreciated."
+    },
+    {
+      "comment_id": 687231657024952,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "If the trigger event for the timer happens, you can initiate a switch-off delay using a rising edge. Once the delay ends, use a latching relay activated by a falling edge to control the output. The latching relay will then switch the output. You didn’t specify when or how the output should turn off. A suggested solution has been attached."
+    },
+    {
+      "comment_id": 973537242049353,
+      "user_name": "daw7mVkIvm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Thanks for your response. In my process, I need the timer to begin only after the input drops to zero (the falling edge). From there, it should count for 2 seconds, enable a digital output, and ideally auto reset, preferably using a single button or input. Is this setup possible?"
+    },
+    {
+      "comment_id": 324629525510753,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "You can use a retentive on-delay. See the attachment for details."
+    },
+    {
+      "comment_id": 375109348651431,
+      "user_name": "daw7mVkIvm",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Perfect. This is exactly what I needed. Thanks so much for everyone's help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user struggled to locate a timer function in the [product_name] configuration software that can be triggered by a falling edge. The lack of an obvious solution created uncertainty about whether such a function was supported. With input from other community members, the user discovered that a retentive on-delay can be used, demonstrating that flexible timer setups are possible even though they may not be immediately apparent.",
+    "user_expectations": "The user is looking for a simple and easily available function or timer block that operates on a falling edge, and can also automate subsequent actions—ideally integrated into a straightforward and intuitive workflow within the software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "ease of configuration",
+      "automation of timer actions",
+      "edge-triggered outputs"
+    ],
+    "pain_keywords": [
+      "difficulty finding feature",
+      "failing to locate falling edge timer",
+      "lack of clear documentation or examples"
+    ],
+    "feature_keywords": [
+      "timer configuration",
+      "falling edge detection",
+      "auto reset",
+      "digital output activation"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

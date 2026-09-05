@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "branch_id": "8116581001",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 905123489685575,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Is there a specific reason why I can't read data from Modbus? My [product_name] is sending requests and the Modbus device responds, and I think the mapping is correct, but somewhere it's not working. I'm unsure what the issue is."
+    },
+    {
+      "comment_id": 203507428178658,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "If I follow the setup shown in the attachment, the Modbus value is fed directly into the instruction. However, I'm unable to read it using the Float to Integer converter, even with the same address."
+    },
+    {
+      "comment_id": 390979967786267,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "What's your approach here? In your Modbus setup, you read from the server and store values in VW0 and VW2. But then in your VM mapping, you also save V1 from a math block to VW0. This overlap won't work. Remove the mapping to VW0, and in the converter, pick the VM area directly. Are you sure you're dealing with a real value and not an integer? Please provide more details about the Modbus device, and upload your program as a ZIP file instead of a picture. Regards, [user_name]"
+    },
+    {
+      "comment_id": 281802148625735,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "What I meant was the first configuration didn't read the value, but the second setup worked and let me read the Modbus value."
+    },
+    {
+      "comment_id": 141438357897731,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hey [user_name], I can't quite follow what you're showing or describing. What device are you connecting to—a PC, a [company_name] device, or a third-party one? Please try making two simple test programs for both setups, perform the tests, and attach the programs here so we can see the results directly. Also note: The 'float' in [product_name] uses a format that differs from the standard; two floating point types are present: REAL (4 bytes) and LREAL (8 bytes). Counter values are DINTs, and certain time values use BCD representation. BR"
+    },
+    {
+      "comment_id": 228512120860174,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hi, I've attached my program as a ZIP. I'm reading data from two devices. The device is Allen Bradley Powerflex 40, and I'm reading from holding register address 11 (power kW). Hi #dP, Like you mentioned, maybe I don't fully understand the converter's operation. I can access the parameter without the Float to Integer converter, but when I use it, there's no change in the Analog amplifier scaling. Please help me understand better. Thanks in advance."
+    },
+    {
+      "comment_id": 267015785934834,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "You need Modbus TCP to connect to [product_name]. I only see Modbus RTU with RS485 on an RJ45 connector at your inverter, which isn't a network connector. If that's the case, you'll need a gateway from Modbus RTU to Modbus TCP. If your inverter supports Modbus TCP, please share a link to its Modbus implementation table. Regards, [user_name]"
+    },
+    {
+      "comment_id": 888707511047005,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thanks for your response. Sorry, I forgot to mention I'm using a Modbus TCP converter. I have managed to read Modbus registers, but not through the Float/Integer converter. My question is: why can't it read the VM address when using the Float/Integer converter?"
+    },
+    {
+      "comment_id": 143409093289229,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hey [user_name], I'm not delving deep at the moment, but here's a fault-finding idea. [IMAGE] When converting values, analyze the involved registers as shown. Set your drive to a value and read the registers as raw values in the Data Table. Next, test with an internal value matching the drive’s output. Verify if the registers online match what's expected. Sometimes byte swapping is needed. Also, make sure each register is only used for one process—avoid memory overlap."
+    },
+    {
+      "comment_id": 268339562620428,
+      "user_name": "8RYb477Ela",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Try the program attached—there are floating point numbers without Modbus. I created them manually and mapped to the converters. If numbers like 1, 10, 100, and 1000 display correctly but Modbus values don't, the format may be wrong or the register may have an offset of ±1. Regards, [user_name]"
+    },
+    {
+      "comment_id": 420673164345719,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello, I had a similar issue before. Like [user_name] said, the problem in my case was choosing the wrong format. After spending time on it, I found using IEEE 754 to encode the floating point value is best. This way, two 16-bit words can be transferred via Modbus."
+    },
+    {
+      "comment_id": 596132783985348,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Is this format you mentioned something selectable in [product_name] or on the Modbus device?"
+    },
+    {
+      "comment_id": 189090754298513,
+      "user_name": "cZQANX744b",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hi, What data format are you getting from your Modbus device? Generally, if the exchange is set up correctly, the data will be stored unchanged in [product_name]'s VM memory. But Modbus supports a variety of data formats. [product_name] only handles a few. Note: Start with one holding register transfer, run an online test in your configuration tool, open the Data Table, and add the address where you expect the data. Check if the data appears. Whether [product_name] can use the data format is another question. Hope this helps."
+    },
+    {
+      "comment_id": 919276692276841,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Receiving the data works fine—I checked in the Data Table as #dP suggested and it’s all good. But the Float to Integer converter does nothing for that VM address. If I link the Modbus register directly to an Analog flag, it works too. My concern is why the Float to Integer converter block doesn't detect anything. Maybe there's no need for conversion in my case?"
+    },
+    {
+      "comment_id": 917967768192308,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "How many WORDs are used for the floating point number? One for 'float' or two for 'double'? Float means two WORDs, double means four WORDs. [IMAGE]"
+    },
+    {
+      "comment_id": 990335059127049,
+      "user_name": "8RYb477Ela",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "You might receive a value, but not every bit pattern is a valid float. For Float, you need at least 2 words (4 bytes); for Double, 4 words (8 bytes). In the Data Table, select VD0 and view it in hexadecimal, also add VD4 and VD8, and for more words, adjust incoming parameters. You can check the pattern or hexadecimal value for floats at [url]. If possible, upload your inverter's Modbus implementation table, which often includes details on number formats. Regards, [user_name]"
+    },
+    {
+      "comment_id": 989532014522954,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thanks for the suggestions. I made sure I was reading two words via the Modbus mapping table. I'll double-check again tomorrow with the [product_name], as I left the office. One question: if I enter the VM address in the Float to Integer converter, will it read two words automatically? I already set the length as two words for that register in the mapping. The data table reads the value. Tomorrow, I'll try checking the data table with two consecutive words."
+    },
+    {
+      "comment_id": 729425791357631,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "[user_name], Try examining the received data from the remote device—look at both WORDs as HEX numbers. Compare these HEX values with a simulation to see if their order matches. The image I shared shows how VD0 is copied to VD10 as two WORDs, so you know remote data reached VD0 and you can observe the HEX value. Confirm the BYTE order—sometimes rearranging helps. VD10 can be sent to the convert block. Just note: Drives may show a REAL value, but could actually use INT internally—decimals may just be position markers or require scaling."
+    },
+    {
+      "comment_id": 267997982499088,
+      "user_name": "8RYb477Ela",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "The Float converter automatically reads 2 words; Double reads 4 words. You've set up Modbus communication, so you can read sequential registers together, but watch out for register (16-bit) and VM numbering (8-bit) differences. For example, registers 1–4 might be VW10, VW12, VW14, VW16 if starting at VW10. For Modbus double registers, use register x and x+1, mapped to VD100, VD104, VD108, etc. Ensure there's no overlap in the VM area. Good luck, [user_name]"
+    },
+    {
+      "comment_id": 134629264772074,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Here's a comparison table between what I read in [product_name] VM and in the Modbus register. Both are similar, but I'm puzzled why the float converter block doesn't respond, even with different VM addresses. I tried several addresses, but nothing changes. Perhaps for my Modbus data, Float to Integer conversion isn't needed, since I'm reading from separate registers, not split across two. That means no problem with the Modbus data, but I'm still wondering about the float converter behavior. The Output power is returned as 89 via the register and the drive display shows 8.9kW, so that's fine. As mentioned, the issue now is mostly with understanding the Float to Integer converter."
+    },
+    {
+      "comment_id": 326506670372379,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hey [user_name], glad you recognized my input (others might get jealous—they don't know we're friends here). I’ve made some mistakes and want to clarify: review the useful info [user_name] shared, including the link on REAL numbers. As a demonstration, I populated VD0 with your values. [IMAGE] Notice how VW0 and VW2 are used, and a very tiny REAL result is produced. The converter is likely working as intended, but if the value is too low, it could appear as '0.0'. (Encouragement) Understanding these data structures is key to advancing in this area."
+    },
+    {
+      "comment_id": 866461138625600,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I haven't yet tried out [user_name]'s implementation. What you've said makes sense—if the value is too small, the converter might not pick it up. I'll test with larger values (like voltage or kWh) and check if the results are different. Thanks everyone for helping me understand this function better."
+    },
+    {
+      "comment_id": 800036002247884,
+      "user_name": "8RYb477Ela",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "It looks like there's nothing to convert from float to integer since the values are already integer. The main issue here is not responding to earlier questions—like requesting a complete Modbus table for the inverter. From the current info, I see continuous register numbers, but you need at least 2 for a float. The next register should go up by 2. For example: 40002, Hex 0xFA5, Dec 4005: Unit 0.01 Hz = Output Frequency 40.05 Hz; 40003: Command Frequency; 40004, Hex 0x6D, Dec 109: Unit 0.1 A = Output Current 10.9 A, etc. Typically, the full Modbus table specifies units and formats (INT, UINT, FLOAT, DOUBLE, etc.). If it's UINT, you'll have trouble displaying values above 32767, so use an analog network input linked to VWx, with an amplifier and correct decimal point adjustment. Regards, [user_name]"
+    },
+    {
+      "comment_id": 696044263228479,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hi [user_name], You're exactly right—my mistake was not checking the unit I was reading. I used some power meters with two registers forming a value, so I made the same assumption with the VFD, without confirming the output. I later realized conversion wasn't needed, and thanks to your help and #dP's explanation, I now see how the Float to Integer converter works. Learned something new today—thanks again! Topic closed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering challenges when reading values from Modbus devices into [product_name], especially when trying to use the Float to Integer converter on VM addresses. While the direct reading of Modbus data works, the conversion or mapping process using the converter often fails or produces no result. Suggestions from peers include careful memory mapping to prevent overlaps, understanding the differences between data types (REAL vs INT), validating data formats, and attention to byte order and word lengths. Troubleshooting points toward double-checking register definitions, data format compatibility (such as IEEE 754), and ensuring each memory area is used exclusively for its process.",
+    "user_expectations": "The user expects to reliably map Modbus register values to [product_name] memory and use the Float to Integer converter for further analog scaling and processing. They seek clear instructions or documentation for cases when data mapping or conversion fails, hoping for a straightforward workflow that covers various number formats and explains potential sources of conversion issues.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful register mapping",
+      "value conversion",
+      "analog scaling"
+    ],
+    "pain_keywords": [
+      "conversion failure",
+      "mapping conflicts",
+      "format mismatch",
+      "diagnostic clarity lacking"
+    ],
+    "feature_keywords": [
+      "Modbus VM mapping",
+      "Float to Integer converter",
+      "Analog amplifier scaling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

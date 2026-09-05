@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "1212943085",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 435604420701777,
+      "user_name": "t2Clh27paD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello, is there any workaround to keep block parameter values and RS retentivity when downloading a program? I manage several stations with similar logic but customized parameters, and every time I download or update the project, those unique parameter values for each station are overwritten, forcing me to reset them to their needed values instead of the project defaults. Is there a way to download only the code without overwriting existing parameter values (like timer presets or analog thresholds)? I use RS with retentivity for storing binary user settings selected via arrow keys, but unfortunately, these are lost during download. The same goes for the hours counter—even though you get a warning, there isn't an option to retain it, which seems like the most logical choice. Ideally, there should be a prompt during download asking whether to keep retentive values and block parameters. Currently, [product_name] Soft Comfort treats these volatile values as part of the nonvolatile project code. If separating them due to historic design or compatibility issues is difficult, perhaps Soft Comfort could simply read out these values before download and restore them afterwards—this would avoid a major redesign. One more inconvenience: you can’t do online simulation or monitoring if parameters are changed, as the project is flagged as \"different\". It would be more user-friendly if the current values could just be read and presented during simulation."
+    },
+    {
+      "comment_id": 615244200710345,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "No, everything—including parameter values—is always transferred together as one package. If you want [company_name] to consider your change requests, you should open a Support Request so they are officially recorded and reviewed."
+    },
+    {
+      "comment_id": 922880781927956,
+      "user_name": "t2Clh27paD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Thank you for your reply. I have submitted a request, although it seemed the form was aimed mainly at technical support rather than feature suggestions. It appears [company_name] may not prioritize feedback about new features. I doubt I’m the only person who has requested this kind of functionality. It seems [product_name] was designed for one-off programming, where updating projects and retaining previous values isn’t really expected. I’ll share any updates from support here."
+    },
+    {
+      "comment_id": 966495300641583,
+      "user_name": "udO0a0woU9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "With [product_name], only the full user program—including all data—can be downloaded. As a result, all data is lost after a program transfer. There is no option to transfer only selected elements. You can define a retentive feature during programming; if you simply stop, run, or reboot the controller, this data remains intact."
+    },
+    {
+      "comment_id": 281554443925344,
+      "user_name": "cZQANX744b",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello, function block parameters are part of the overall program, so modifying them counts as a program change. The only way to capture the current parameters is by uploading the program from the controller and then editing the logic. Retentivity saves changes in situations like a power failure, but it is not intended for parameter protection. A suggested workaround is: if parameters change, first upload the program, then edit as needed before downloading."
+    },
+    {
+      "comment_id": 283662699889194,
+      "user_name": "t2Clh27paD",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "This workflow becomes inefficient when you have a 'master' project duplicated across multiple controllers, as it forces you to maintain separate copies and update each individually—which is time-consuming. Plus, the hour counter is still reset with each download. While retentivity was designed to avoid data loss during power cycles, using RS retentivity for on/off settings is common because there aren't many better ways to store digital values. Regardless, these values do not survive a project download with the current [product_name] implementation, which is a significant limitation."
+    },
+    {
+      "comment_id": 619348678750451,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Which controller does not behave this way? Even for devices like an S7, if each CPU has unique parameter values, you must maintain a separate copy of the project for each one."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report that [product_name] Soft Comfort overwrites individually configured block parameters and retentive values whenever a project is downloaded, resulting in lost station-specific settings and operational counters. This hampers efficient fleet management and increases repetitive manual restoration efforts. Users also point out that partial or selective program transfers are not possible, and online simulation is disabled if parameters differ, further diminishing usability.",
+    "user_expectations": "Users want the ability to retain unique station parameter values and retentive data—including counters and user-defined settings—across program downloads without extra manual steps. They hope for either a selective download feature or an automated process to restore values after downloading a new project.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter persistence",
+      "efficiency",
+      "automatic restoration",
+      "reduced manual work",
+      "project updates without data loss"
+    ],
+    "pain_keywords": [
+      "parameter loss",
+      "retentivity loss",
+      "inefficient workflow",
+      "manual re-entry",
+      "no partial download",
+      "hour counter reset",
+      "simulation block"
+    ],
+    "feature_keywords": [
+      "block parameters",
+      "RS retentivity",
+      "online project download",
+      "hour counter",
+      "selective download",
+      "simulation monitoring"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "24": "Data Integrity Concerns",
+    "22": "Usability Improvement Suggestions"
+  }
+}

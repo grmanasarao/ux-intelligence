@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "branch_id": "3301691543",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 900750398086494,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, how can we specify the initial value for memory location VW0, so it is set after the program is loaded and before any manual changes occur?"
+    },
+    {
+      "comment_id": 285244251541675,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], could you clarify why you want to initialize VW0? More details will help us assist you better."
+    },
+    {
+      "comment_id": 104376346060619,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "After testing, I found that VW is set to the value of the block it is mapped to upon program load. So the initial value comes from that mapping. Each time the program loads, VW resets to the mapped value."
+    },
+    {
+      "comment_id": 863908860546638,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Is there a way to modify VM values in the simulation mode, instead of transferring the program to the device for testing?"
+    },
+    {
+      "comment_id": 985377820906165,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "If the [product_name] stops, for example due to a power supply issue, and then starts again, VW0 will be zero in your situation."
+    },
+    {
+      "comment_id": 619119842722670,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "If the VM value is mapped via Parameter VM Mapping as in your case, you are not able to change the VM value within simulation mode."
+    },
+    {
+      "comment_id": 464106251258427,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "This is my procedure: 1. Set value to 500 2. Change VW0 to 600 3. Switch off the power for about one minute 4. Restore power 5. VW0 value stays at 600 Should the value revert to 500 or 0?"
+    },
+    {
+      "comment_id": 298400619255166,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "From my experience, the VM memory area isn't protected from power failures."
+    },
+    {
+      "comment_id": 947354785088270,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "How can I update certain parameters remotely without stopping, starting, or reloading the program? I plan to deploy the same program to multiple [product_name] devices over WAN, with calibration possibly requiring different settings per device. Hard-coded values would make maintenance difficult."
+    },
+    {
+      "comment_id": 371555921316029,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "This approach won't work. If you transfer a new program to a [product_name], any previously entered parameters are overwritten—the new program adopts its own parameters. There isn’t a way around this. Where do you expect the calibration entries to come from?"
+    },
+    {
+      "comment_id": 283078580691272,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "For our machines, we use a standard program but require setting different parameters. The program has text messages and an enabled webserver, allowing parameter changes over LAN. Set up messages for all adjustable parameters, enable the webserver, and you can modify them remotely. Avoid using VWx variables; instead, make parameters directly editable via blocks in the messages. Some machines have unused sensors; for these, I use software switches with memory retention."
+    },
+    {
+      "comment_id": 986034600104749,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Are you referring to variables for editable parameters, or is this a custom webserver with mapped parameters? I haven’t tried using the webserver editor yet."
+    },
+    {
+      "comment_id": 725570535124645,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Examples include offset, gain, threshold values to trigger relay outputs, etc. The program is the same, but due to different sensor models used, adjustments are sometimes necessary. Re-entering values after reloading programs isn’t a problem as long as they're retained through power loss."
+    },
+    {
+      "comment_id": 141501816275780,
+      "user_name": "8RYb477Ela",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "No, I mean text messages containing parameters and an internal webserver, which offers virtual displays for BM and TDE. These displays let you change editable parameters regardless of hardware. As mentioned, avoid using volatile variables—they aren't retained. Have you consulted the instructions or online help for [product_name] software? Check the online help for the text message block."
+    },
+    {
+      "comment_id": 869460873774740,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "You can use Parameter VM Mapping instead of analog network inputs. This allows you to write parameters directly in VM memory and not via reference as with analog inputs. These parameters will be retained."
+    },
+    {
+      "comment_id": 258392106231789,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thanks. That's what I used—they retain values during power outages."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find it challenging to initialize and preserve default or calibration parameters (like VW0) on [product_name] systems. Program reloads and power cycling can reset or erase values, causing confusion about VM behavior. Remote updating of parameters without device interruption is desired, especially for widespread deployments, but current limitations hinder such flexibility.",
+    "user_expectations": "Users want straightforward methods to set default memory values, ensure retention through power failures and program updates, and remotely update or calibrate parameters on multiple devices, avoiding the need for program reloads or device restarts.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote calibration",
+      "parameter flexibility",
+      "maintain settings after power cycle",
+      "efficient mass deployment"
+    ],
+    "pain_keywords": [
+      "volatile memory",
+      "no remote update capability",
+      "simulation limitations",
+      "parameter loss on program reload"
+    ],
+    "feature_keywords": [
+      "VM memory",
+      "VW0 parameter",
+      "simulation mode",
+      "remote update",
+      "parameter mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "9": "Feature Requests"
+  }
+}

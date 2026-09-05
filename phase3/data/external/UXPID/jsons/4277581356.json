@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "branch_id": "4277581356",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 461582320470278,
+      "user_name": "cggXrQ3b0y",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello! I have two questions: 1. I'm attempting to use the [product_name] Monitor Multi (demo) with two [article_no] modules. Unfortunately, it is not functioning correctly. (ED and CDA are the device identifiers) ED module port: 10001 CDA module port: 10002 I am aware the port for these modules is 10001. Log messages show: 12:34:13 - Successfully connected to Module 1:ED 0.0.0.0 (server IP) 12:34:13 - Successfully connected to Module 2: CDA 0.0.0.0 (server IP) 12:34:13 - Data from module 1 skipped due to bad data format. Id: 21:7:0 12:34:13 - Data from module 2 skipped due to bad data format. Id: 21:7:0 Can someone clarify what this means, and what the possible error might be? 2. I would like to learn what functions are available in [product_name] Basic [version_no], which comes with the [product_name] [article_no] starter kit. I know the Flexible version is for HMI, but we do not intend to use that for now. I have identified [product_name] Monitor, WebNavigator, and Logger. These seem relevant but are rather expensive for us. We purchased only the [product_name] [article_no], not the starter kit."
+    },
+    {
+      "comment_id": 145024639567845,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hi, You can use either [product_name] Flex or [product_name] Basic [version_no] to create your HMI, including a connection to two [product_name] [article_no] modules. Both options feature an integrated RunTime, allowing you to launch and view the selected HMI in a window, with variables from both modules displayed in a single view. To configure this: set up two connections with their respective tags; each module requires a separate connection. Also, adjust the PG/PC Interface and choose your Ethernet interface for the S7ONLINE ([product_name]) Access point. Refer to [url] for application examples and the latest resources for using [product_name] [article_no] modules. There you'll find straightforward guidance for [product_name] Basic [version_no], which applies similarly to [product_name] Flex. Hope this provides clarity."
+    },
+    {
+      "comment_id": 255097972240446,
+      "user_name": "cggXrQ3b0y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], Thanks for your response, but we do not have an HMI at the moment, and it seems unlikely we will get one soon. Also, we do not have [company_name] controllers, and they seem too costly and unnecessary for us. Beyond HMI, what additional functionality can I access? Our goal is to reach [product_name] 7 RCE remotely, from a different city. We are seeking the most budget-friendly solution possible. [product_name] Monitor appears to offer what we need, but I'm also interested in learning more about [product_name] Basic."
+    },
+    {
+      "comment_id": 554363498468828,
+      "user_name": "cggXrQ3b0y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "A quick addition to my previous post: In [product_name] Monitor, when I attempt to connect to the module, two LEDs represent the connection status for each device. If the LED is red, there's no connection; if green, the connection is established. In my case, the LED stayed red, which contradicts the log messages I described earlier."
+    },
+    {
+      "comment_id": 426594625138831,
+      "user_name": "NE87QeXu74",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], I use [product_name] Monitor to oversee our pilot setup from home, monitoring three modules. It's particularly useful on weekends. It definitely works when set up correctly. Did you use the correct IP addresses? The IP 0.0.0.0 is likely incorrect. Port 10001 can only support one connection at a time. If your module is already connected via port 10001, another connection will be dropped quickly. We've encountered this before and resolved it by ensuring only one active connection at a time. Also, have you configured port forwarding properly?"
+    },
+    {
+      "comment_id": 197524739924705,
+      "user_name": "cggXrQ3b0y",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hi [user_name], Thank you for your assistance! I misunderstood the server IP address and port setup; that's why I withheld the actual server IP. net -> ?.?.?.? 10001 port -> 192.168.0.10 10001 port net -> ?.?.?.? 10002 port -> 192.168.0.11 10001 port A system administrator manages our port forwarding because I don't have router permissions. What did you mean by closing all connections? What should I close? I suppose you use [product_name] Monitor Multi. How many license codes did you acquire for three modules? I'm confused—can I register just one MAC address per module with Monitor Multi? Currently, I can only connect to the ED module using [product_name] Soft Comfort (assuming port 10001 is fixed). Any advice for connecting to the CDA module via port 10002? So far, it seems impossible."
+    },
+    {
+      "comment_id": 576335742582159,
+      "user_name": "NE87QeXu74",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hi [user_name], Assuming port forwarding is properly configured: When I mentioned closing connections, I meant each module only supports one active IP address connection at a time. If [product_name] Soft is connected, [product_name] Monitor cannot connect simultaneously. Regarding licensing, you need only one license—as long as the module with the license is present among the others, it covers up to ten devices. My own setup was straightforward, so it should be working for you too. Have you tried connecting within your local network? Alternatively, consider using the latest version of [product_name] Monitor."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering difficulties when attempting to remotely monitor multiple [product_name] [article_no] modules using [product_name] Monitor, facing issues with data formatting, port configuration, and conflicting connection statuses. There is uncertainty about the licensing process and cost, especially for [product_name] Monitor Multi, and questions about the necessity of using [product_name] HMI solutions for their applications. Users aim to reliably access devices remotely at minimal expense, but are challenged by the technical setup for stable remote monitoring and clear feedback on connection status.",
+    "user_expectations": "Users expect to connect easily and reliably to several [product_name] [article_no] modules remotely using cost-effective software, to receive transparent information about connection status, and to have licensing for [product_name] Monitor Multi clarified.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote monitoring",
+      "multiple device connection",
+      "affordability",
+      "clear diagnostics"
+    ],
+    "pain_keywords": [
+      "connection issues",
+      "confusing status feedback",
+      "licensing complexity",
+      "cost concerns"
+    ],
+    "feature_keywords": [
+      "multi-device support",
+      "remote access",
+      "port configuration",
+      "affordable licensing",
+      "connection diagnostics"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "18": "Cost Optimization",
+    "25": "Licensing and Pricing Transparency"
+  }
+}

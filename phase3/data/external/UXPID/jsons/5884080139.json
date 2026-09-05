@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "branch_id": "5884080139",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 769118461317227,
+      "user_name": "elPKvDHXSV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello all, I'm new to [product_name] V8, coming from microcontroller backgrounds. For a new project, I planned to use two [product_name] devices (configured as master-master) due to input/output limitations. I’m concerned about one device triggering outputs on the other and what happens if the Ethernet connection between them drops. Using a 10/100 switch in a test setup, I found that if the Ethernet link to the output device was fine but the sender’s link was unplugged, the output stayed active on the receiver for over 10 seconds. I then added a watchdog: a 50ms on/50ms off pulse was sent to the receiver, connected to a counter's reset pin. The receiver also had a similar pulse going into the counter, and if the counter reached 10, a fault message appeared on the device. During live, online tests, everything worked: the receiver’s counter always stayed at 1 due to the reset pulses. Unplugging the sender’s Ethernet cable caused the receiver’s counter to increment and eventually show the fault message. However, when I switched off online monitoring, the result was not as expected. With monitoring off and the sender unplugged, the receiver took 10 seconds or more to show the fault. Switching online monitoring back on, it worked as before. My questions to more experienced members are: What could be behind this and how can I fix it? Is there a way to shorten the time taken for outputs to clear safely if a network problem occurs? Does this timing matter from a machine builder or safety standards perspective? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 781028280273712,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hi, In my opinion, it's better to use Profinet Realtime instead of [product_name] for this scenario. Still, a static client/server connection may provide the fastest results. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users moving from microcontroller applications to [product_name] V8 experience unexpected latency and variation in fault handling when a network connection between master devices fails, especially in offline monitoring. The difference in behavior between online and offline scenarios, along with slow fault detection, causes uncertainty regarding reliability for applications involving machine safety or compliance.",
+    "user_expectations": "The user expects immediate or fast detection of network issues, prompt clearing of outputs, and rapid fault indication, regardless of whether online monitoring is active. They anticipate consistent performance between simulated (online) and actual (offline) system operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "fast fault detection",
+      "output safety",
+      "network redundancy",
+      "consistency"
+    ],
+    "pain_keywords": [
+      "delayed fault indication",
+      "inconsistent behavior",
+      "network disruption",
+      "output safety risk"
+    ],
+    "feature_keywords": [
+      "watchdog",
+      "fault message",
+      "output reset",
+      "network monitoring",
+      "online monitoring"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

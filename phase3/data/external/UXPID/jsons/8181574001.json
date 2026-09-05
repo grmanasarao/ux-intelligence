@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "branch_id": "8181574001",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 944187270079604,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "I have a remote PLC acting as a slave, and I need its inputs to reach two separate master PLCs. Is there a way to programmatically change the assigned master IP on the slave, depending on input? The configuration only allows me to set a single master IP on the slave."
+    },
+    {
+      "comment_id": 132516522769215,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "No, the slave [product_name] module can only communicate with one master at a time. If you want to exchange data with a second master, you need to route the data through the first master using VM memory areas before passing it to the slave."
+    },
+    {
+      "comment_id": 653458788833888,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "I thought so. So, it sounds like making one master act as an additional slave is necessary. I wanted to confirm. Thanks!"
+    },
+    {
+      "comment_id": 621201693240455,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "No, both Master 1 and Master 2 remain as masters, while only the slave [product_name] remains the slave. Would you like an example? If so, which module versions are you using?"
+    },
+    {
+      "comment_id": 970385255389213,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "FS04"
+    },
+    {
+      "comment_id": 736149311322427,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Here's a brief example. Make sure to set the slave [product_name] to slave mode using: Tools > Transfer > Configure Master/Slave Mode."
+    },
+    {
+      "comment_id": 352531659373102,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Field setup includes two stand-alone PLCs that need to interface with a third PLC via fiber over a long distance. PLC 3 will handle IO for both PLCs, which must remain masters because of their programming. Ideally, #3 would be a slave to both #1 and #2, but since #1 and #2 are [article_no] models, I may need to add a dedicated [article_no] for each—resulting in two #3 PLCs. Alternatively, making #2 a slave with all IO networked and keeping #3 as a slave is possible, but I'm concerned about latency and input delays. I need to look into how VM memory works."
+    },
+    {
+      "comment_id": 369770836998473,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "With a [article_no] module, you can only send network outputs to a slave of the same version. For communication between different versions like [article_no] as master or [article_no] as partner, a different approach is needed. Please specify your configuration: What is PLC1 ([article_no].FS04)? What is PLC2 ([article_no] master)? What is PLC3 ([article_no] slave)?"
+    },
+    {
+      "comment_id": 106733022116831,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Currently, there are two separate [article_no] modules in use in the field. Nearby control panels connect via discrete wiring, but a distant panel can't use direct wiring. To network the far panel with the PLCs, a PLC is needed in the remote panel. My preliminary setup involved this PLC connecting IO for both existing modules and interfacing over the network, allowing selection of the destination IP via a softkey. However, the limitation is that only one IP can be set in the new PLC. The main program runs on two [article_no] PLCs, and I had planned to use a newer model for the remote PLC, but it appears two additional [article_no] modules may be needed, unless a different master-slave arrangement is possible (perhaps all as newer modules?)."
+    },
+    {
+      "comment_id": 486560989108577,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "I'm trying to add networking to my existing program (.lld), but the NI and NQ blocks' configuration screens don't match yours. Is this because your files are .lsc? I'm having difficulty setting up the network."
+    },
+    {
+      "comment_id": 155883153143627,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Maybe I'm missing your concept—does one [product_name] module need to be a slave at any point? If all three modules are set as masters, they can fully exchange data. Note that [article_no] modules can send switching commands between each other and newer models, but direct network outputs from a [article_no] master only reach a slave of the same type. There are other ways, which I have used before. If all three run in master mode, each can have its own distinct program."
+    },
+    {
+      "comment_id": 609825688421046,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "In the attachment examples, I show how to send signals between a new model and two existing ones, all set as masters. Notes include: one block for high byte, one for low byte—these combine 15 signals into a word. Sample files (.lsc and .mnp) demonstrate the network setup among these modules."
+    },
+    {
+      "comment_id": 710086138927523,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Can this be done with LLD?"
+    },
+    {
+      "comment_id": 195263149853329,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "You probably mean FBD rather than LSC. Both LSC and LLD are just file extensions. In a network project, programming is only supported in FBD. If you're committed to using LAD, be aware that it may cause issues and limit functionality in [product_name]. If you built your [article_no] programs in LAD, consider converting them to FBD."
+    },
+    {
+      "comment_id": 429198347342542,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Setting up the network in LAD has been problematic and my configuration screens look different. I'll start over, but LAD is my only experience."
+    },
+    {
+      "comment_id": 869407072888117,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Another problem: UDFs can only be programmed in FBD and can't be converted to LAD."
+    },
+    {
+      "comment_id": 672590031690706,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "If I use all newer modules, should I be able to set it up as in your sample project \"Test_2_Master_1_Slave_0BA8\"?"
+    },
+    {
+      "comment_id": 489492241446679,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "If you upgrade the two older modules to newer models, UDFs aren't needed. However, you still cannot create a network project with LAD; you'd need to manually code each network connection and data exchange. I personally do not prefer LAD, as it leads to errors which are not always clearly indicated."
+    },
+    {
+      "comment_id": 339982278405539,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "That's unfortunate. I'll keep the older modules and just provide each with a dedicated slave, which I had working on my desk test. It will be costlier and less efficient. Thanks for your support!"
+    },
+    {
+      "comment_id": 655294943920471,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "It's possible to exchange data without using UDFs—flags can be used instead of network outputs. On the connection list, specify the sender's MB (flags byte) and the receiver's VB."
+    },
+    {
+      "comment_id": 851753892331774,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Are there any instruction manuals available for programming from [company_name]? I'm short on time and uncertain about learning new formats and networking features."
+    },
+    {
+      "comment_id": 187432954343870,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "I have provided LADDER examples for two older modules and one newer module (FS04). Check Ethernet Connections and Parameter VM Mapping in each file under Tools."
+    },
+    {
+      "comment_id": 867088223659775,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Are you aware of these [company_name] websites? Web-based training, Additional Modules, Tips and tricks videos, Easy entry in [product_name] and controllers."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "This thread covers the limitations of dynamically assigning a slave PLC to multiple masters using IP configuration. It's clear that [product_name] modules can only be set to one master IP address at a time. The conversation explores alternatives, including using additional PLCs and understanding restrictions imposed by different module versions. Users express frustration with network setup and the software's user interface when configuring network blocks.",
+    "user_expectations": "Users want a method to switch a slave PLC's master IP address based on input or to allow seamless networking between a single slave PLC and two masters for direct, efficient data exchange.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "dynamic IP assignment",
+      "efficient data exchange",
+      "flexible networking"
+    ],
+    "pain_keywords": [
+      "static IP limitation",
+      "networking setup confusion",
+      "latency concerns",
+      "unclear software interface"
+    ],
+    "feature_keywords": [
+      "dynamic IP configuration",
+      "multi-master connectivity",
+      "network IO blocks",
+      "VM area data exchange"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "13": "Integration Limitations"
+  }
+}

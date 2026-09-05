@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "9196564761",
+    "thread_id": "3055273936",
+    "publication_year": 2009,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 434368380063341,
+      "user_name": "oYWt1rQEyS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, Is it possible to connect a [company_name] QAA32 to the analog input of a [product_name] [article_no]? I've attached the datasheet for reference. Thank you."
+    },
+    {
+      "comment_id": 233130100382557,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], The [product_name] does not natively support NTC sensors, as it lacks resistance measuring analog inputs. The PT100 module measures resistance of a Pt100 temperature sensor, but it uses a bridge circuit to internally calculate the temperature value. You might be able to set up a circuit using an NTC sensor and stable resistors to create a voltage divider, then connect to either an onboard input of a [product_name] 24, 24o, 12/24RC, 12/24RCo, or use an AM2 expansion with analog inputs to get a 0–10 V or 0/4–20 mA signal into the [product_name]. You can then use analog amplifier blocks to scale your values. Direct function curve conversion as described in the datasheet is nearly impossible, so a linear approximation will be necessary with tolerances for increased error. Hope this helps!"
+    },
+    {
+      "comment_id": 958689453713987,
+      "user_name": "oYWt1rQEyS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 9,
+      "comment_body": "Thanks [user_name]!"
+    },
+    {
+      "comment_id": 618136452182810,
+      "user_name": "QNCc66w9iD",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], I've developed a simple and inexpensive NTC-to-pulse converter that lets you read temperatures using standard digital inputs on the [product_name]. You can build this module yourself, or purchase an NTC temperature component for about 0.5 EUR. With a digital input counter using a threshold trigger and a gate time of 30 seconds, example readings include: 0°C = 6 pulses, 30°C = 20 pulses, 85°C = 65 pulses, 100°C = 74 pulses, etc. Note, the pulse count is limited as the [product_name] can only detect up to 4Hz frequency at regular digital inputs. I originally designed this converter for monitoring generator temperatures in wind turbines, where analog signals can't be sent reliably over long cables. I've also used it to control water heaters, batteries, and chargers—each digital input can handle a separate temperature sensor. For more details, see [url]. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to connect an NTC thermistor ([company_name] QAA32) to a [product_name] [article_no] input. It is clarified that the [product_name] does not directly support resistance measurement for NTC sensors, only for Pt100 types via special modules. Suggestions include using voltage dividers with analog expansion modules or creating a pulse converter to allow digital input readings. These alternatives involve compromises such as reduced precision or limited measurement resolution, resulting in a less than ideal solution for applications requiring accurate temperature conversion.",
+    "user_expectations": "User anticipates that the [product_name] [article_no] will allow direct and accurate NTC thermistor connection on analog inputs to facilitate easy temperature measurement.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "temperature measurement",
+      "sensor compatibility",
+      "easy integration"
+    ],
+    "pain_keywords": [
+      "no direct NTC support",
+      "workarounds needed",
+      "inaccuracy",
+      "complex setup"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "digital inputs",
+      "sensor interfacing",
+      "curve conversion"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

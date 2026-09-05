@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "branch_id": "8785836177",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 382246651608491,
+      "user_name": "txBmFO2Ye1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello, I need to create a simple program using two network inputs, with the requirement that both cannot be active at once. Ideally, activating \"GO DOWN\" while \"GO UP\" is already on should clear \"GO UP\", and vice versa. If both are off, activating \"GO DOWN\" should cause the output to mirror the input, and turning it off disables the output. I've included a sample program that works as expected in the simulator, but fails on the actual [product_name]. On real hardware, activating \"GO DOWN\" or \"GO UP\" causes unstable switching between on and off repeatedly. Why does this setup function properly in the simulator but not on the physical device? Is this a simulation issue? Any suggestions to resolve this problem? Thank you for your support!"
+    },
+    {
+      "comment_id": 663167080791584,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], Welcome to the forum. This issue is not caused by the simulator; simulation differs from how the system operates in reality. A key point to consider: You are attempting to control a network output using the same address as the network input, such as V0.0. This approach does not work, as you've noticed. Could you clarify your intended outcome or provide more context?"
+    },
+    {
+      "comment_id": 214719022232333,
+      "user_name": "txBmFO2Ye1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi, I am working on automating roller shutters and using OpenHAB to send commands to [product_name] through network inputs. For example, activating 'pull up' for shutter 2. The logic I aim for is: when the 'pull up' command is active and the shutter moves up, sending a 'pull down' command should auto-clear 'pull up' and activate 'pull down', updating button states on the touchscreen accordingly. Similarly, when the shutter reaches the top end position (detected by a position sensor), the command should be auto-cleared. Secondly, I want to avoid both control buttons being active simultaneously. While output interlocking can help, having both buttons pressed on the control screen is inelegant and causes confusion. Third, I added both an upper position sensor and a rotation sensor to the shutter. These allow automatic detection of top and bottom positions for advanced commands, such as moving to a halfway position. I included a teaching mode: activating its network input makes the shutter move up to the top, then down, counting rotation impulses. Once the bottom is reached (no impulse for 5 seconds), teaching mode should turn off automatically (clearing the network flag). Would sharing my full control program be useful?"
+    },
+    {
+      "comment_id": 734556441695503,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Your response still does not explain why you want to write to a network output with the same address as its input. Are you aiming to reflect the output status? Using a network input and output at the same address means they reference the same memory, not two separate ones."
+    },
+    {
+      "comment_id": 345722668941311,
+      "user_name": "txBmFO2Ye1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Understood. I assumed it was possible to read a memory address with a network input and write to it with a network output. I also see that if both the input and output share an address, the output will override the input state. I'm using the network output to set the memory location where the input resides to high or low. Now I wonder: If I cannot adjust the network input state this way, what method should I use? I need a way to handle this entirely within the [product_name] program."
+    },
+    {
+      "comment_id": 268980691330706,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "That's essentially correct. You read the state with a network input and set it with a network output. Are you looking to generate a dynamic signal—acting like a button—from a static signal provided by the network input?"
+    },
+    {
+      "comment_id": 204997514881651,
+      "user_name": "txBmFO2Ye1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Are you suggesting that the static connection between network input and output should be interrupted? Should I use a network input configured as a momentary pushbutton and provide 'function active' feedback via a separate memory location in a network output?"
+    },
+    {
+      "comment_id": 172563435462103,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "The screenshot I've attached demonstrates one approach. A LOW-block resets addresses V0.0 and V0.1, so both only stay high for one cycle—creating a button effect out of a static signal."
+    },
+    {
+      "comment_id": 887459326717575,
+      "user_name": "txBmFO2Ye1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "This solution works perfectly for my needs. Thanks a lot for your assistance!"
+    },
+    {
+      "comment_id": 187638692711671,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], Glad to help – that sounds promising!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers around unexpected behavior differences between simulation and real hardware when automating roller shutters using [product_name]. Users discovered that manipulating network inputs and outputs using the same memory address works in simulation but leads to instability (frequent toggling) on the physical device, clarifying the distinction between simulation logic and hardware limitations. The thread highlights confusion about address handling in [product_name] and emphasizes designing logic that accounts for real-world constraints.",
+    "user_expectations": "Users anticipated that they could control and reset network input states with network outputs using [product_name], replicating simulator behavior. They seek a reliable and user-friendly method to ensure only the appropriate control button is active at any time on the HMI, and desire automated feedback and position teaching for operational accuracy.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "robust command logic",
+      "intuitive HMI",
+      "automatic position detection",
+      "automation integration"
+    ],
+    "pain_keywords": [
+      "simulator mismatch",
+      "input-output overlap",
+      "unstable outputs",
+      "lack of state control"
+    ],
+    "feature_keywords": [
+      "network input",
+      "network output",
+      "momentary pushbutton",
+      "feedback logic",
+      "position detection",
+      "teaching mode"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "3": "User Guidance"
+  }
+}

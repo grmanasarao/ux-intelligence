@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "4535780913",
+    "thread_id": "3055273936",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 163099976698961,
+      "user_name": "XwlpP5otmI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Hello, I am using two [product_name] analog modules to read three analog values from pressure transmitters. The fourth input remains unused and will stay that way. Additionally, I'm using three [product_name] RTD modules to read five temperature sensors, which totals eight analog inputs. From my understanding, [product_name] software likely won't allow this setup, as the unused input is still considered by the system, preventing me from reading all five temperature sensors. Is this accurate? Is there any method to disable the unused analog module input in order to read additional sensors? Thanks! [user_name], Belgium."
+    },
+    {
+      "comment_id": 409925641326864,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "No, unfortunately that isn't possible. The [product_name] analog inputs are always addressed sequentially, regardless of whether all inputs on the expansion modules are used. If the base module has no analog inputs enabled, then: First expansion module = AI1 and AI2 Second expansion module = AI3 and AI4 Third expansion module = AI5 and AI6 Fourth expansion module = AI7 and AI8"
+    },
+    {
+      "comment_id": 528130460447198,
+      "user_name": "XwlpP5otmI",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Hi, Thank you for your response! Can a temperature sensor be connected to an analog module?"
+    },
+    {
+      "comment_id": 501749063840286,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Not directly. The analog module supports 0-10V or 0/4-20mA signals. To connect temperature sensors, you need an external transmitter that converts, for example, PT100/1000 signals into 0-10V or 0/20mA signals."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are discussing how to optimize the number of analog sensors used with [product_name] expansion modules. They encounter limitations due to the way analog inputs are sequentially addressed; unused inputs still count and reduce the number of sensors that can be read. There is also confusion about connecting temperature sensors directly to analog modules, with clarification that signal converters are required for such connections.",
+    "user_expectations": "Users wish to increase the number of analog sensors by bypassing or disabling unused analog input channels, and hope to directly connect temperature sensors to analog modules without additional equipment.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "maximize sensor inputs",
+      "flexible channel configuration",
+      "direct connection capability"
+    ],
+    "pain_keywords": [
+      "input addressing limitation",
+      "unused input restriction",
+      "need for external converter"
+    ],
+    "feature_keywords": [
+      "analog input addressing",
+      "sensor compatibility",
+      "input channel configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "3": "User Guidance"
+  }
+}

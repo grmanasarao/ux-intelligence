@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "9843260635",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 637174573360039,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Can anyone assist with scaling a 4-20 mA analog input for a temperature range of -30°C to +60°C on an [product_name] module?"
+    },
+    {
+      "comment_id": 412231396572817,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Please check the attached file for more details."
+    },
+    {
+      "comment_id": 370894163750681,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you very much. Why does this process require two steps? Is it possible to achieve this with greater precision, for instance with one decimal place?"
+    },
+    {
+      "comment_id": 507505247679680,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "With a 4-20 mA signal, only 800 out of the 1000 A/D converter units are usable. The temperature range covers 90°C, so you have: 800 * X = 90, meaning X = 0.1125. To span the 90°C range, multiply the 800 units by 0.1125. However, the analog amplifier only accepts values with up to 2 decimal places, so you could only use 0.11 or 0.12, which would distort the result. Therefore, the scaling is done in two stages: first, multiply by 1.25 to convert 800 units to 1000; then multiply by 0.09 so 1000 units become 90. 1.25 * 0.09 = 0.1125. For a decimal place, set the second amplifier’s gain to 0.9, Min to -300, Max to 600, and OFFSET to -300."
+    },
+    {
+      "comment_id": 123595934972359,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Your help is greatly appreciated! I've attended two [product_name] training sessions, but they mostly cover basic setups. This kind of explanation should be included in training or documentation. It's not just about the answer, but also understanding how to apply it practically. Thank you again. I hope one day I can help others here as well!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user was challenged by the process of mapping a 4–20 mA analog signal to a specific temperature range using an [product_name] module. There was confusion about why it required multiple steps and how to achieve more accurate scaling due to limits in the analog amplifier’s configuration (restricted to two decimal places). Training and documentation were seen as lacking in practical, advanced examples, causing frustration when trying to solve real engineering problems.",
+    "user_expectations": "The user hopes to be able to scale analog values directly and simply, and wants training and documentation to include practical scenarios and advanced solutions for real-world applications.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise scaling",
+      "better understanding",
+      "more advanced training"
+    ],
+    "pain_keywords": [
+      "limited documentation",
+      "decimal precision limits",
+      "complex workflow"
+    ],
+    "feature_keywords": [
+      "analog input amplification",
+      "decimal place precision",
+      "scaling configuration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

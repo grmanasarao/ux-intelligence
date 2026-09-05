@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "1943087932",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 928606808068065,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I'm seeking advice on how to properly calibrate a pressure transducer. Everything is set up and working as expected so far. I connected my calibrated Druck DPI705 to the same source and noticed a 30 unit difference between the readings. Should I adjust the gain or the offset on the analog amplifier? Any help would be appreciated since this is my first time working with pressure transducers. I'd like to do it correctly before making any changes. The transducer is a 2.5 bar Absolute 4-20mA model used for vacuum control."
+    },
+    {
+      "comment_id": 121130936218591,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Try using two analog amplifiers in series for your setup."
+    },
+    {
+      "comment_id": 829794864640846,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thanks for your suggestion, but I'm unsure how the settings on the pre-amplifier will account for the 30 unit difference, or any adjustment at all. Could you provide more details on how it works?"
+    },
+    {
+      "comment_id": 786323802932208,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The analog input's A/D converter in a [product_name] module normally converts signals (such as 0-10V, 0/4-20mA, or PT100/1000) into a range of 0-1000 units. These units are then scaled with an analog amplifier to match the encoder's measuring range. For a 4-20mA sensor, the first 200 units represent the 4mA baseline, leaving 800 units for scaling. For example: from -1,000 to 1,500 bar is a span of 2,500 bar. So 2,500 / 800 = 3.125 for the gain factor. However, only two decimal places are supported for the gain, so rounding occurs (3.125 becomes 3.13), which introduces minor deviations in minimum, maximum, and offset. To address this, using two analog amplifiers in series helps. The first converts 800 units to 1000, and the second uses a gain factor (e.g., 2.5). The offset is then corrected so that the values align to the desired range, such as shifting 0.000 to 2.500 bar to -1.000 to 1.500 bar."
+    },
+    {
+      "comment_id": 374056529347284,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thank you for this thorough explanation. I would never have figured it out on my own. I'll add this information to my reference materials for future use."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faces challenges calibrating an analog sensor with a [product_name] module, particularly when adjusting offset and gain due to limitations in decimal precision for gain settings in the software. The process for scaling analog signals is complex and requires workarounds, such as using two analog amplifiers in sequence, which may be unfamiliar to those new to sensor calibration and unit conversion.",
+    "user_expectations": "The user is looking for an easy-to-understand and straightforward procedure for scaling and calibrating sensor inputs within the [product_name] platform, with simple methods to adjust gain and offset to resolve any measurement discrepancies.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate calibration",
+      "easy adjustment",
+      "process transparency"
+    ],
+    "pain_keywords": [
+      "unclear calibration process",
+      "limited gain control precision",
+      "setup complexity"
+    ],
+    "feature_keywords": [
+      "analog amplification",
+      "gain adjustment",
+      "offset correction"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

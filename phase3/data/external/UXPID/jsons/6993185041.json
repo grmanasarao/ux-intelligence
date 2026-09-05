@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "6993185041",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 867759851806795,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 0,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "The VW memory area does not retain values after power loss. Instead of reading the setpoint through an analog network input in the [product_name] program, set the setpoint using a parameter from a mathematical instruction and apply Parameter-VM-Mapping."
+    },
+    {
+      "comment_id": 484487051459235,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "For instance, if the setpoint is saved in VW100, refer to the attached documentation. Use Tools > Parameter-VM-Mapping."
+    },
+    {
+      "comment_id": 886188858999351,
+      "user_name": "m9l4mgl1XZ",
+      "comment_position": 2,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello. What is the simplest method to ensure VM setpoints are retained after the [product_name] loses power? [snip] Thanks, [user_name]"
+    },
+    {
+      "comment_id": 640602845777263,
+      "user_name": "m9l4mgl1XZ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Can you provide an example illustrating parameter mapping and mathematical instructions?"
+    },
+    {
+      "comment_id": 117314665307535,
+      "user_name": "m9l4mgl1XZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Does this solution persist values after power loss in the [product_name]? I tried it, but the setpoint did not save."
+    },
+    {
+      "comment_id": 584573980996683,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "For three setpoints located at B004, B006, and B011, it works. I have tested it."
+    },
+    {
+      "comment_id": 660801686971009,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Could you clarify your requirements? VM memory stores data that originates from different sources, such as blocks within the same [product_name], other connected [product_name] devices, or even external systems like HMI or PLC."
+    },
+    {
+      "comment_id": 217867642795027,
+      "user_name": "m9l4mgl1XZ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "After removing and restoring power to the [product_name], the previous VM values and setpoints no longer appear on the web interface. Each time I disconnect power, the VM setpoints reset to 0 and it also loses the IP address setting. This is urgent as the customer has installed $80,000 worth of seed in a room managed by the [product_name]."
+    },
+    {
+      "comment_id": 266885591290152,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "More details are needed. It's difficult to assess the facility and program remotely without complete information. Regarding the [product_name] losing its IP address, that's unlikely; other factors may be causing this issue. Please specify the exact model, including order number and FS version. Is there an SD card inserted with an older program state, where the setpoints and IP address differ? The method described earlier is proven—when setpoints are written to a mathematical instruction parameter, they are saved to the device's flash memory, making them resistant to power loss."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants have observed that VM setpoints and network configuration settings are lost after the device loses power, which creates significant operational risks. Guidance is offered about using parameter-VM-mapping and mathematical instruction parameters to achieve persistent storage, but the implementation remains unclear for some users. Since important customer assets depend on these retained configurations, failures can lead to costly disruptions.",
+    "user_expectations": "Users expect the device to reliably preserve setpoints and network configurations through power cycles, eliminating the need for manual reconfiguration. They seek a straightforward and effective persistence mechanism.",
+    "severity_expectation_level": "1",
+    "gain_keywords": [
+      "setpoint retention",
+      "configuration persistence",
+      "reliable control"
+    ],
+    "pain_keywords": [
+      "loss of settings",
+      "non-retentive memory",
+      "operational disruption"
+    ],
+    "feature_keywords": [
+      "retentive memory",
+      "parameter-VM-mapping",
+      "setpoint storage",
+      "IP address retention"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "30": "Data Persistence Confusion"
+  }
+}

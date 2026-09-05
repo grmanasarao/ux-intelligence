@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "branch_id": "2848792488",
+    "thread_id": "1723880927",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 186273192366248,
+      "user_name": "qomJvZp4iU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 5,
+      "comment_body": "This down counter function is available only in [product_name] [article_no]+ devices. Devices with earlier hardware versions do not support this feature. I have a [product_name] [article_no] and I'm attempting to implement downcounting and display the value on the unit, but haven't found a solution yet."
+    },
+    {
+      "comment_id": 109694047986810,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 5,
+      "comment_body": "Hello, The [product_name] [article_no] version does not allow setting a start value in the counter block, but you can implement a start value manually. Please review the attached program for reference. Regards,"
+    },
+    {
+      "comment_id": 573337082732970,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 5,
+      "comment_body": "Hi everyone, I have some feedback regarding the provided solution and have created a modified [version_no] with: - removal of unnecessary blocks, - faster pulse trigger for improved reset time, - secure reset logic (inputs at I1 are ignored during reset and all states at I1 are handled). The resulting file \"[document]\" is available in the attachment. Since the 'on' and 'off' parameters of the counter are used in this solution, I've also included an alternative with customizable parameters for the main counter, which can count up and/or down. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 691836520616481,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 6,
+      "comment_body": "Hello, Thank you [user_name] for your efforts improving and refining my initial idea into a comprehensive solution. Regards,"
+    },
+    {
+      "comment_id": 916887399227660,
+      "user_name": "qomJvZp4iU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 6,
+      "comment_body": "Thank you all! I managed to set up downcounting with this method. However, if you need to start from 30,000, you first have to count up to 30,000, which is time-consuming. My question: I need to count from 30,000 to zero in steps of 12 (since the mold has 12 cavities). I have [article_no], but it seems that upgrading to [article_no] will make this much easier, as I've heard it has better downcounting features including step-size settings. Thanks again!"
+    },
+    {
+      "comment_id": 300629600193705,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], Yes, newer [product_name] versions like [article_no] support counters with a configurable start value that can be set at each reset. However, there isn’t a direct way to set a step size—the counter only increments/decrements based on each input pulse. To generate multiple pulses per input signal, you can: a) use an \"Edge triggered wiping relay\" block to create 1 to 9 pulses, using minimal Th and TL settings, b) more efficiently, but with additional logic blocks, apply the preset counter method I previously described to create pulses that require just two [product_name] cycles. Please note: Both methods have limitations regarding the input pulse speed. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 465000564214181,
+      "user_name": "qomJvZp4iU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 6,
+      "comment_body": "Thank you for your explanation! I succeeded using two \"Edge triggered wiping relay\" blocks in series; 9+4 cycles achieve the required downcount step of 12. However, I'm curious why the wiping relay block is restricted to a maximum of 9 cycles?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users with older [product_name] units, specifically [article_no], report difficulty implementing a downcounter with a preset starting value, since this capability is absent in their hardware. The community offers workaround solutions, but these require extra programming logic and are less intuitive. Frustration emerges due to the lack of flexibility, while more recent models ([article_no]) offer improved counter features, marking a significant usability gap between product versions.",
+    "user_expectations": "Users expect to be able to set a custom starting value and step size for their downcounters directly in the device, without resorting to complex workaround circuits or logic.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy downcounting setup",
+      "customizable step value",
+      "efficiency"
+    ],
+    "pain_keywords": [
+      "manual workaround",
+      "missing counter features",
+      "tedious setup",
+      "inflexibility"
+    ],
+    "feature_keywords": [
+      "counter block",
+      "start value",
+      "step size",
+      "downcounting",
+      "display integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "29": "Scalability Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

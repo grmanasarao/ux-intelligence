@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "branch_id": "3468061102",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 124849268818746,
+      "user_name": "cdrzABgt9v",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello, I want to connect a 0-10V signal to my base unit, which is the [article_no]. What is the best way to do this? I can't find a detailed connection diagram. Thanks."
+    },
+    {
+      "comment_id": 494489490600781,
+      "user_name": "CdibE5Rdgy",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], please refer to the attached example wiring diagram."
+    },
+    {
+      "comment_id": 291504628392387,
+      "user_name": "cdrzABgt9v",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Thanks for responding. Please see the attached output from my controller. Not sure if it's compatible."
+    },
+    {
+      "comment_id": 495087927961408,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], you usually provide minimal information about your projects. Could you specify the sensor or device details? (manufacturer, type, order number) Also, does the sensor/device have a different voltage supply than your [product_name]?"
+    },
+    {
+      "comment_id": 606413448102995,
+      "user_name": "cdrzABgt9v",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "My controller is an Omega CN245 installed in the panel with a PT100 sensor attached. The manual, page 13, shows the 0-10V output: [url]"
+    },
+    {
+      "comment_id": 486352110168021,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Since the device has its own power supply, ensure that the 0-10V output shares the same potential as the input on the [product_name]. Connect the 0V (terminal 11) of your device to the M (0V) of the [product_name] power supply. Connect the 10V (terminal 12) to the analog input (e.g., I7) on the [product_name]."
+    },
+    {
+      "comment_id": 929717410486509,
+      "user_name": "cdrzABgt9v",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "This helps a lot, thank you. If possible, could you review my simple program? The output flickers. My goal is to have the temperature controller switch on at 20°C and off at 5°C. This part works, but I'm not sure about the setup with the 0-10V signal."
+    },
+    {
+      "comment_id": 413965676790163,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "What is the temperature range for the 0-10V signal? 0 - 100°C or something else?"
+    },
+    {
+      "comment_id": 281995983483388,
+      "user_name": "cdrzABgt9v",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Switches on at 20°C, switches off at 5°C."
+    },
+    {
+      "comment_id": 608165797728414,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I understood that already. But my question is: Does 0-10V represent 0-100°C, -50-200°C, or a different range?"
+    },
+    {
+      "comment_id": 668220277311778,
+      "user_name": "cdrzABgt9v",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "0-10V corresponds to 0-100°C."
+    },
+    {
+      "comment_id": 959033113489026,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "See the attached diagram with the required settings."
+    },
+    {
+      "comment_id": 679981845479423,
+      "user_name": "cdrzABgt9v",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Thank you for the sample program. I tested it in the system and it works well after adjusting the scaling as needed. I also modified some settings on the temperature controller to sync the probe for more accurate readings at the [product_name]. My main challenge is setting up the scaling and configuring the analog signal correctly. Thanks again for all your guidance."
+    },
+    {
+      "comment_id": 936422545757862,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "If you're unfamiliar with the basics: The analog input of the [product_name] converts a 0-10V signal to 0-1000 units. For 0-100°C, after amplification: GAIN = 0.1 gives 0-100 units corresponding to 0-100°C (no decimal, 1°C resolution). GAIN = 1.0 gives 0-1000 units, representing 0.0-100.0°C (one decimal place, 0.1°C resolution)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is attempting to connect a 0-10V analog signal from a third-party temperature controller to a [company_name] base module but has concerns about wiring and signal compatibility. There is confusion regarding grounding, input scaling, and interpreting the voltage range for temperature control. Lack of clear documentation and examples leads to trial-and-error attempts, with requests for confirmation and support from other users.",
+    "user_expectations": "The user seeks clear instructions for wiring a 0-10V input to the [product_name] and guidance on configuring the system to correctly interpret and utilize the signal for temperature-based control functions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable temperature control",
+      "proper wiring",
+      "correct analog input setup",
+      "automation"
+    ],
+    "pain_keywords": [
+      "unclear wiring instructions",
+      "input flicker",
+      "signal scaling ambiguity",
+      "integration confusion"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "wiring diagram",
+      "voltage range mapping",
+      "input terminal assignment"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

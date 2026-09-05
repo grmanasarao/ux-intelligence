@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "1807770198",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 771847878245072,
+      "user_name": "irdmkTgewS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, I've been experiencing some unusual behavior and am starting to think that the memory for coils and holding registers might overlap on the [product_name]. Is this true, and where can I find official documentation? In my situation: I read some parameters via Modbus and placed them in the Parameters/VM list. I also use network inputs in the configuration, and their values seem to shift unpredictably during operation on the device, but not during simulation. Could there be a memory conflict occurring? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 626176273379674,
+      "user_name": "xDdPOoK441",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, The VM memory is shared, and choosing between coils or holding registers is mostly about preference; reading a \"V\" simply accesses a bit within a particular \"VW\". In [product_name] software, you can check the Modbus address space mapping under \"Settings\" of any project, which explains this setup."
+    },
+    {
+      "comment_id": 133742321656522,
+      "user_name": "irdmkTgewS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thank you for replying so quickly! Is there anything else that might be unexpected? Are the analog input registers (IR) also mapped into the holding registers and therefore the VW? Did you mean the table that you attached? It's still a bit unclear for me, but it made me think there is something going on. I may be missing some basic understanding, as it's not obvious just from the similar naming or address ranges."
+    },
+    {
+      "comment_id": 677132055589658,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Some time ago, I created a custom table which you can find online and in some German forums. This table provides more details than the [company_name]'s official version. Depending on your Modbus device, you should use 0 or 1 as the starting address. For example, [product_name] devices start all registers (coil, holding, input) from 1, but other devices may start from 0, and you'd need to account for this offset in [product_name]. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter confusion around the memory mapping of coils, holding registers, and other register types in [product_name] when working with Modbus. They question whether different register types share memory space, as data sometimes changes unexpectedly. Existing documentation and default register mappings do not provide enough practical clarity.",
+    "user_expectations": "Users expect clearly defined separation of Modbus register types, comprehensive documentation, and consistent system behavior both during simulation and actual device operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "predictable register behavior",
+      "clear documentation",
+      "memory separation"
+    ],
+    "pain_keywords": [
+      "unclear memory mapping",
+      "unexpected value changes",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "Modbus address space",
+      "memory mapping",
+      "simulation consistency"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "10": "Performance Predictability"
+  }
+}

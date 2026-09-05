@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "7369118672",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 769660177260987,
+      "user_name": "R9gl1wyBnG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 6,
+      "comment_body": "I'm working with two [version_no] controllers set up in master-slave mode, connected either directly or via a router. When I try linking a network input to a network output—for instance, connecting a switch to a lamp—I notice I have to hold the switch longer to get the lamp to react. Is this expected behavior due to data processing delays, or is there a configuration that can fix this?"
+    },
+    {
+      "comment_id": 717326661626495,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 6,
+      "comment_body": "Hello, This delay is a known issue with LAN connections in master-slave configurations. Short pulses from inputs may be missed, so you need to keep the input active longer until the master refreshes the state from the slave. To address this, switch to a master-master setup. This allows you to use a small program to monitor inputs more effectively. In this mode, short pulses are tracked, and you can implement a digital marker or send a signal using an unused output to synchronize and clear stored inputs. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users working with [version_no] controllers in master-slave mode over LAN encounter significant latency when transmitting input signals. This means brief switch activations are not reliably passed to outputs such as lamps, requiring longer manual input. The architecture does not support rapid, real-time exchange of state changes between devices, leading to slower and less reliable reactions in time-sensitive scenarios.",
+    "user_expectations": "Users anticipate fast and dependable transfer of digital inputs, such as a switch press, to corresponding outputs within a master-slave network setup, without the need for manually extending input duration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time response",
+      "immediate feedback",
+      "reliable input recognition"
+    ],
+    "pain_keywords": [
+      "latency",
+      "signal loss",
+      "manual input delay",
+      "unreliable response"
+    ],
+    "feature_keywords": [
+      "master-slave mode",
+      "LAN input/output",
+      "digital signal propagation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

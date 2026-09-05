@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "branch_id": "7322441686",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 356364135153513,
+      "user_name": "7KfhQABxwm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm experiencing an issue with saving data to a 32GB MicroSD card. Occasionally, the [product_name] creates a new CSV file unexpectedly, and when I connect my PC and upload the log file, I sometimes only retrieve part of the data. Previously, all data from 'Day1' onward was available no matter when I accessed it; for example, if I uploaded the log on 'Day5', I had data from 'Day1' to 'Day5'. Now, if I collect the log every Monday, I sometimes only get data from the most recent days, and I’m unsure why. When I insert the SD card directly into my PC, I can see more files holding data, each saved separately and none of them being large files (e.g., 84kb, 161kb, 64kb). So, it doesn’t seem to be a memory issue."
+    },
+    {
+      "comment_id": 389765807568233,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "According to the manual: The [product_name] [version_no] features a 1024-byte buffer for data logging. When this buffer reaches 512 bytes, the data is automatically written to the microSD card. If data is generated faster than the write speed to the card, data loss may occur. To prevent this, the data log function block should be enabled at intervals of at least 500 ms. Without an SD card, only 512 bytes can be held in the buffer, and additional data will be lost. Each card can hold up to 50 log files per [product_name] Base Module. Using the same card in another Base Module allows another set of 50 files, limited by card capacity. Each log file can contain a maximum of 20,000 lines. If card memory is full when creating a new file, the system will report an error. The [product_name] assigns file names in the format '[XYZ]_[number].csv' where [XYZ] refers to the last part of the Base Module’s four-part IP address and [number] is incremented with each new file, from 1 to 50. Custom file names are not recognized. Only the most recent log file can be uploaded from the microSD card via [product_name] software. New files are generated when the circuit program is changed or when a log file exceeds 20,000 lines; the file name index increases accordingly (e.g., '135_1.csv', next '135_2.csv')."
+    },
+    {
+      "comment_id": 791382737412059,
+      "user_name": "7KfhQABxwm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Thank you for your quick response, [user_name]. Comparing the details you provided with my situation, I now understand that using [product_name] software, I can only upload data from the active CSV file within the 20,000 line limit. Any additional CSV files that have reached this threshold, stored on the SD card in the [product_name] Base Module, are only accessible by manually removing the SD card and using a PC card reader. I’ll need to find a solution for this new challenge. Thanks again."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have encountered issues with data logging on [product_name] modules, where the system splits logs into multiple CSV files, making it difficult to extract full data directly through [product_name] software. The system only permits the upload of the current, active log file, and automatically creates new files after a line count threshold. These workflow and file management constraints are not always clearly explained to users, resulting in confusion about completeness and access to logged data.",
+    "user_expectations": "Users expect to retrieve all logged data conveniently via [product_name] software, irrespective of how data is split into multiple files or the limitations on file size, without needing to physically remove and handle the SD card.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "full data access",
+      "automatic data collection",
+      "complete logs"
+    ],
+    "pain_keywords": [
+      "incomplete data",
+      "unexpected file creation",
+      "manual data retrieval"
+    ],
+    "feature_keywords": [
+      "data logging",
+      "file handling",
+      "CSV export",
+      "SD card integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "23": "File Accessibility Barriers",
+    "30": "Data Persistence Confusion"
+  }
+}

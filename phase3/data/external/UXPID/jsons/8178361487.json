@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8178361487",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 971870731181965,
+      "user_name": "DCWI3Rk4cv",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "Hello, How can I save a changed setpoint value (for example, via function keys or Ethernet) for a PI controller into the memory of [product_name]? The updated setpoint should still be available after the device is powered on again."
+    },
+    {
+      "comment_id": 598445627618180,
+      "user_name": "poCWrxC5cf",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "Hello, For the PI (proportional integral) block, this feature isn't available. There's no dedicated option for this block to store setpoints permanently. Based on the intended use of [product_name], I think adding such a function may not be logical. (Just my opinion!)"
+    },
+    {
+      "comment_id": 106469892207139,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "Hi, Usually, if you change the setpoint (for example via the display, panel, or OPC), the new value is automatically saved in the EEPROM. As long as you do not download a program with a different setpoint value, it remains stored. Hope this clarifies things."
+    },
+    {
+      "comment_id": 995919165416221,
+      "user_name": "DCWI3Rk4cv",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "Hello! Thank you for your response. I use S7 communication, linking [product_name] as client and another station as server, to change the setpoint in the PI controller. In this arrangement, [product_name] continuously reads the new setpoint from the server and writes it into its EEPROM. My concern is the limited number of write cycles the EEPROM has (about a million or less), which could eventually cause it to fail. How can I ensure that the new setpoint is written only once? I attempted to set up S7 communication with [product_name] as server and the other station as client, but was unsuccessful since [product_name]'s memory isn't recognized by the configuration tool. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user wants to ensure that a modified PI controller setpoint in [product_name] persists after a power cycle. It's noted that setpoints are typically saved automatically to EEPROM, but frequent writing could damage the memory due to its limited write cycles. The user struggles with configuring communications between [product_name] and another station to avoid repeated EEPROM writes and also faces issues with the programming tool not accessing [product_name]'s memory.",
+    "user_expectations": "The user expects to be able to remotely update the PI controller setpoint and have it reliably saved in [product_name] for restoration after a reboot, without causing excessive EEPROM writes. They also hope for seamless integration and memory access between [product_name] and their programming tool for management and control.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent setpoint saving",
+      "remote setpoint updates",
+      "integration with S7-300"
+    ],
+    "pain_keywords": [
+      "EEPROM write limits",
+      "lack of control over memory writes",
+      "integration/compatibility issues"
+    ],
+    "feature_keywords": [
+      "PI controller block",
+      "EEPROM memory",
+      "S7 communication protocol"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "2": "Product Compatibility"
+  }
+}

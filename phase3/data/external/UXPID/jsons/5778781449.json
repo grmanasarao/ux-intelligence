@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "5778781449",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 931799773498099,
+      "user_name": "Xe9NeUOQDF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 5,
+      "comment_body": "I'm feeling quite stuck trying to solve this problem and have nearly given up. I've attached a sample program for a decremental counter. Currently, I use analog blocks to set a reference value from the counter block. I can successfully count down to zero from any input using the designated inputs, then the counter resets and pauses until a hard reset. My issue is being able to input very large numbers, up to 31,000. Does anyone know a straightforward way to load a reference value into the counter using BCD thumb wheels or a potentiometer? Any help would be greatly appreciated."
+    },
+    {
+      "comment_id": 611676973743311,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 5,
+      "comment_body": "The maximum value a counter can handle is 2^15 - 1, which equals 32,767. If you require higher counts, you need to divide the value. For example, you can use a counter up to 10 and a full counter up to 32,767, allowing you to count as high as 327,670."
+    },
+    {
+      "comment_id": 880135546932670,
+      "user_name": "R40RVeEty3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 6,
+      "comment_body": "Here's a suggestion for handling larger values: 1. Divide your total digits into two or more counters. For example, if your preset value is six digits (like 999,999), split them so Counter1 handles digits 1 to 4, and Counter2 manages digits 5 and 6. 2. The input pulse for Counter2 should come from your external device, such as BCD thumb wheels or a potentiometer. 3. Counter2 resets when it reaches its maximum value (e.g., 9,999). 4. Counter1 increments with every reset of Counter2. If this explanation isn't clear, I can provide a sample program for reference."
+    },
+    {
+      "comment_id": 599905798005703,
+      "user_name": "Xe9NeUOQDF",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 6,
+      "comment_body": "Thank you for your suggestions. I've managed to get the counter working properly, but I'm still having trouble with setting the start value in the program."
+    },
+    {
+      "comment_id": 546464244502832,
+      "user_name": "ajJvgyjk7w",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 6,
+      "comment_body": ""
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having trouble setting a high starting value for a decremental counter using analog input blocks, with a goal of accepting values up to 31,000 from devices like BCD thumb wheels or potentiometers. There is uncertainty about how to input reference values directly from external hardware and confusion regarding both hardware and software limitations of the counter's value range.",
+    "user_expectations": "Users are hoping for a simple and reliable way to input large starting values into the counter, ideally through external hardware such as BCD thumb wheels or a potentiometer, rather than only setting these values within the software interface.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simple value input",
+      "external control",
+      "high-value preset"
+    ],
+    "pain_keywords": [
+      "difficulty with external input",
+      "counter preset integration",
+      "high value entry"
+    ],
+    "feature_keywords": [
+      "external value input",
+      "counter preset",
+      "analog block"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests",
+    "8": "Documentation Clarity"
+  }
+}

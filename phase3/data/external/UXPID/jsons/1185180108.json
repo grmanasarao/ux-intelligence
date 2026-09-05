@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "1185180108",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 941047410088587,
+      "user_name": "y3eQ50XebP",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hello, We have several [product_name] modules deployed. When attempting to access the web server, we encounter a 'log on fail: 601' error. Initially, we suspected the firewall's NAT/PAT translation as the cause. External users connect via a predefined port—here, port 8083—which the firewall forwards internally to the [product_name]'s IP address and port 8080. Testing direct access internally using IP address and port 8080 also leads to the same login error after entering a password. Can anyone clarify what the error 601 signifies?"
+    },
+    {
+      "comment_id": 688799622752306,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Are you referring to connections within the company's internal network? If you want to access the web server from the same network segment behind the firewall, you should simply enter the [product_name]'s IP address in the browser."
+    },
+    {
+      "comment_id": 828323738087077,
+      "user_name": "y3eQ50XebP",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hi, No, the [product_name] is on a separate subnet from the central office network. Users on the central network intermittently get the 601 error. External users accessing via firewall address translation also experience this error, more often than central users. I initially suspected routing issues and traced both user-to-[product_name] and [product_name]-to-user path. Both could route successfully. Firewall logs reveal no application or port blocks. I also considered network latency, but our average round-trip time is 96ms with high data payloads, no CRC errors or excessive retransmissions are noted. (Unfortunately, there's no direct visibility into the [product_name]'s Ethernet port.) Some modules are affected more than others. We're also seeing SSL handshake failure errors on the iOS app. I’m seeking more information on the internal logs and the cause of the 601 error from the web server."
+    },
+    {
+      "comment_id": 172710738971192,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Has anyone resolved this issue? I encounter this problem occasionally in Safari. Clearing browsing history and restarting Safari temporarily fixes it. I created a webclip (a shortcut to the web server on the iPad homescreen) for easier access. When I use it, I get directed to the login page, but logging in immediately results in a 'log in fail: 601'. Does anyone have suggestions for resolving this?"
+    },
+    {
+      "comment_id": 149230953391199,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Consider submitting a support request."
+    },
+    {
+      "comment_id": 330762392546516,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "I’ve tried several troubleshooting steps. I usually access the [product_name] web server via ddns:port, log in, and it works. However, I also saved a favorite in Safari, which automatically points to ddns:port/logo_login.shtm?!App-Language=1. Accessing this saved URL and trying to log in consistently triggers a 'log on fail: 601' error. Normal access through the browser works, but I wanted an Apple webclip for a more app-like interface. Creating a webclip with ddns:port opens Safari and login proceeds normally; using ddns:port/logo_login.shtm?!App-Language=1, it presents an app-style full-screen page, but login fails with the 601 error. Hopefully, my explanation is clear. Maybe someone here can clarify what’s happening?"
+    },
+    {
+      "comment_id": 174885556937587,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": ""
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users frequently experience intermittent 'log on fail: 601' errors while accessing [product_name] web servers, both via local network and through port forwarding with firewalls. The issue appears more common with alternative access routes such as web clips or specific saved links. Users also report SSL handshake failures on iOS devices. There is a lack of diagnostic feedback from the devices, making troubleshooting difficult. Clearing browser history sometimes restores access, suggesting issues with session management, caching, or authentication tokens.",
+    "user_expectations": "Users are seeking dependable, uninterrupted login access to the [product_name] web server from various networks and devices, with consistent functionality using URLs, bookmarks, or webclips. They expect clearer diagnostics and error information to facilitate troubleshooting.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote access",
+      "reliable login",
+      "diagnostics",
+      "mobile usability"
+    ],
+    "pain_keywords": [
+      "intermittent login failure",
+      "lack of diagnostics",
+      "error 601",
+      "SSL handshake issue",
+      "browser cache problems"
+    ],
+    "feature_keywords": [
+      "web server authentication",
+      "login page",
+      "firewall/NAT access",
+      "browser compatibility",
+      "webclip support",
+      "SSL support"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {
+      "iOS": [],
+      "MacOS": []
+    }
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "22": "Usability Improvement Suggestions"
+  }
+}

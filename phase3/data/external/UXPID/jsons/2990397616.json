@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "2990397616",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 693675273983993,
+      "user_name": "0cZuzren68",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Good morning. I am currently considering [product_name] for an automation project but am unsure if it can support a particular requirement. Specifically, I need to send and receive commands/data from a serially connected device—in this case, a weighing scale. The typical workflow involves starting the program, sending a tare command to zero the scale, running a timed filling process, and then reading and logging the weight data. Initially, my focus is on sending the tare command and retrieving the weight. I may later want to read weight data periodically during the timed process. Is it possible to connect a serial device to [product_name]? For reference, the scale uses an RS232 D9 connector, which I can access with a USB adapter cable using a Prolific chip. Thank you."
+    },
+    {
+      "comment_id": 789557029958485,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "To my knowledge, [product_name] does not support serial RS232 protocol evaluation. The latest models only allow Ethernet TCP/IP communication using industrial protocols like Modbus TCP/IP."
+    },
+    {
+      "comment_id": 389863578060522,
+      "user_name": "0cZuzren68",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thanks for your response. From my research, it seems [product_name] doesn't support RS232 directly. I will look into the possibility of using a TCP/IP adapter as a workaround. Alternatively, I am considering [product_name] as it appears to have an RS232 communication module option."
+    },
+    {
+      "comment_id": 432989865397169,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "It's not just about the physical connection, but also the protocol compatibility. The weighing scale must communicate in a way that [product_name] can interpret."
+    },
+    {
+      "comment_id": 243150605583401,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Using a TCP/IP adapter won't help, as [product_name] lacks support for free protocols. You need at least a [version_no] for proper connectivity. Alternatively, search for a peripheral that supports Modbus TCP/IP or the relevant protocol to integrate with [product_name]. Regards, [user_name]"
+    },
+    {
+      "comment_id": 457582588765929,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], If you have the latest version of [product_name], another option is an RS232 to Modbus converter. I have had success using these with various devices, including barcode scanners. Stand-alone data loggers are also worth considering if you're interested. Here's a link for reference: [url]."
+    },
+    {
+      "comment_id": 415436753725726,
+      "user_name": "0cZuzren68",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thank you for the suggestions. I will explore using a Modbus converter. However, I am inclined to use [version_no]. Can anyone confirm if pairing the RS232 communication module with [version_no] would resolve my requirements?"
+    },
+    {
+      "comment_id": 460473285305137,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I am not sure about the cost of serial-Modbus converters for this specific setup, nor do I know the exact type of scale. If available, a scale with a digital input for tare and analog output for weight might be a lower-cost solution. If 10-bit resolution for analog input on [product_name] is sufficient, you can manage tare directly in the program by using adjustable offsets. Do you have information about the scale type or a relevant link? Is the scale already installed?"
+    },
+    {
+      "comment_id": 994027213548948,
+      "user_name": "LSGjwbEgsA",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hi, In my view, the optimal solution is to use a [version_no] CPU with a communication processor [article_no]. Digital outputs can be used for sending commands like tare and read, while the weight can be read through serial communication. Using [version_no] allows you to process the data via software, including formatting conversions as needed. The cost for [article_no] is roughly equivalent to [product_name], and the CPU is about twice that. Best regards!"
+    },
+    {
+      "comment_id": 801730054827021,
+      "user_name": "0cZuzren68",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hi all, Thanks for your help and recommendations. I decided to utilize [version_no] with the appropriate communication module. Implementing the solution with P2P commands made it very straightforward to send the tare command and read back the weight from the scale, fulfilling my requirements."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user assessed the practicality of [product_name] for integrating an automation solution involving RS232 communication with a weighing scale. Forum replies clarified that [product_name] lacks native RS232 support and protocol flexibility, making it unsuitable for this use case. The discussion shifted towards adopting [version_no] controllers equipped with communication modules, which enabled reliable serial communication and met the project's needs.",
+    "user_expectations": "The user expects to easily connect an industrial automation device to an RS232-enabled weighing scale for tare and data logging functionality, using straightforward setup and programming.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "serial communication",
+      "automatic weighing",
+      "data logging",
+      "programmable automation"
+    ],
+    "pain_keywords": [
+      "protocol incompatibility",
+      "RS232 unsupported"
+    ],
+    "feature_keywords": [
+      "RS232 support",
+      "protocol compatibility",
+      "data logging",
+      "tare command"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

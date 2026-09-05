@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "branch_id": "9333082673",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 465245653756731,
+      "user_name": "9IkB8Qaptc",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I'm new to [product_name] and want to count machine parts for production. After reading reviews, I'm unsure if the counter limit is 32,768 or 999,999. I need to reach the limit of a 32-bit unsigned integer. I'm considering using three 16-bit registers: one to count up to 32,768 and reset, one to record how many times the first register reaches its max, and a third to track the number of times the second register maxes out. Then my master can read these three and compute the total. Can anyone share how to code this, with sample code? I also need the counters to map to VM and retain values after a power outage."
+    },
+    {
+      "comment_id": 949189436520449,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "You didn't mention how the counting signal from Modbus gets to [product_name]?"
+    },
+    {
+      "comment_id": 347574295841494,
+      "user_name": "9IkB8Qaptc",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The counting signal will come directly through my digital input, and the values are read by a Modbus master application."
+    },
+    {
+      "comment_id": 645819012317661,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I'm confused; you mentioned \"Modbus Master\" in the topic title. How does the digital input relate to Modbus Master in this case?"
+    },
+    {
+      "comment_id": 486721149506609,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "You edited your answer while I was writing mine. High-speed input signals can only be counted up to 5 kHz if the fast input is linked to the counting input of an up/down counter, with a maximum of 999,999. You can combine two up/down counters using a third one. However, transferring to the second counter is done cycle-by-cycle, which risks losing counts."
+    },
+    {
+      "comment_id": 610837061360399,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Please review the attached file."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are exploring how to use [product_name] for high-speed counting beyond the register limits, and are concerned about the maximum count threshold (32,768 or 999,999). Challenges include reaching the 32-bit unsigned integer range and keeping counter values after power outages. Expert replies point out the risk of missed counts when cascading counters, as transfers happen by cycle, which could reduce reliability for high-precision applications.",
+    "user_expectations": "Users would like [product_name] to enable counting up to the full 32-bit unsigned integer range, support value retention in case of power loss, and offer reliable integration with Modbus master systems.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "32bit counting",
+      "production machine counting",
+      "power loss retention",
+      "reliable data acquisition"
+    ],
+    "pain_keywords": [
+      "counting limit",
+      "possible data loss",
+      "power failure retention",
+      "complexity in cascading counters"
+    ],
+    "feature_keywords": [
+      "up/down counter",
+      "data retention",
+      "Modbus master interface",
+      "digital input counting",
+      "cascaded counter logic"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "9": "Feature Requests",
+    "10": "Performance Predictability"
+  }
+}

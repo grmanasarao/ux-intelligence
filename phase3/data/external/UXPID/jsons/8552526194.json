@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "8552526194",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 587842271686630,
+      "user_name": "eaqnc7d8Yz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Hello, I am using a [product_name] [article_no]. I created a custom block (UDF) with two AND blocks to achieve a 7-input AND function. When I run simulations, I notice two different results depending on whether I use the online or offline simulation modes. In the online simulation, inputs that are not connected are simply ignored, whereas in the offline simulation, unconnected inputs are treated as having a value of 0. Does anyone know why the offline simulation seems less reliable?"
+    },
+    {
+      "comment_id": 195578686409552,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "You should direct this question to [company_name]. To proceed, initiate a Support Request."
+    },
+    {
+      "comment_id": 662162289415603,
+      "user_name": "eaqnc7d8Yz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Thanks. I will do this."
+    },
+    {
+      "comment_id": 882438243074723,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Some things work differently between simulation and actual [product_name] hardware."
+    },
+    {
+      "comment_id": 924104296377702,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], All inputs of a UDF should be defined and connected. You can connect them to a module or, if not in use, set them to High or Low."
+    },
+    {
+      "comment_id": 287885466072229,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "I recreated your UDF in two versions, once with [article_no] hardware and once with [version_no] hardware. With both UDF versions, the issue with offline simulation doesn’t appear; if only 6 out of 7 inputs are connected, the outputs do not switch in offline simulation. However, when testing online, the output switches on. If you connect the unused input to a LOW block, then the outputs remain off. Only [company_name] can explain why this happens, since both the simulation software and firmware are developed by them. Ordinary users can’t answer this."
+    },
+    {
+      "comment_id": 978354026266575,
+      "user_name": "udO0a0woU9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "[user_name] provided the right answer. All UDF inputs must be defined in the main program; if not, random values will be used for unused inputs, and results may vary across versions and depending on simulator versus real hardware. Tip: In your specific application, connect \"High\" to all inputs you don't need."
+    },
+    {
+      "comment_id": 152832011672513,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "So is it a firmware bug? There’s a similar issue when a block output is left open: the simulation runs, but you can't transfer the program to the hardware."
+    },
+    {
+      "comment_id": 800055285662990,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "I see it a bit differently. The issue with outputs comes from careless handling in simulation, not a firmware bug. Any PLC program, regardless of the language, should be fully defined (similar to AWL programming care). However, focusing first on program logic and then setting all closures and double-checking everything can be helpful. [user_name] Sorry, translation mistake via Google."
+    },
+    {
+      "comment_id": 321936303757216,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "So it isn't a software issue? Or what exactly do you mean by the company's software?"
+    },
+    {
+      "comment_id": 252141239734931,
+      "user_name": "udO0a0woU9",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "No, it's not a bug but a programming error. When undefined values are used, results cannot be guaranteed. As noted, there is an easy solution for this."
+    },
+    {
+      "comment_id": 174189780382387,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "No, it's not a bug but a programming error. When undefined values are used, results cannot be guaranteed. As mentioned, there’s an easy fix. You may see it differently, but for me, this is still a bug and not the only one."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter inconsistent simulation results in [product_name] software when working with User Defined Function blocks and unconnected inputs. Offline simulations treat unconnected inputs as zero, while online simulations ignore them, creating confusion and uncertainty about which simulation is more trustworthy. This difference in input handling across simulation modes causes unpredictability and undermines users' confidence in simulation accuracy.",
+    "user_expectations": "Users hope for logical and consistent simulation behavior between online and offline modes in [product_name] software, particularly in how unconnected UDF inputs are managed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simulation reliability",
+      "predictable logic behavior",
+      "program validation"
+    ],
+    "pain_keywords": [
+      "inconsistent simulation results",
+      "unreliable input handling",
+      "unclear simulation logic"
+    ],
+    "feature_keywords": [
+      "offline simulation",
+      "online simulation",
+      "UDF input connection",
+      "AND block"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

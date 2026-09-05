@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "3147818256",
+    "thread_id": "4479534060",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 705519685408476,
+      "user_name": "rA4bwpLj5z",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, Can someone explain what TSAP (Transport Service Access Point) is? Specifically, why should the TSAP be set to 20.00 in [product_name]-[product_name] connections? What happens if the server and client TSAPs do not match? Why is the TSAP set to 03.00 when connecting [product_name] with [version_no], and 02.00 for HMI panels?"
+    },
+    {
+      "comment_id": 240303667721668,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello, There are several similar discussions available here if you use the search. Here’s a link that could help: [url] Regards,"
+    },
+    {
+      "comment_id": 539122126852636,
+      "user_name": "rA4bwpLj5z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Thanks for the information. However, I still do not understand why the TSAP must be 20.00 for [product_name] to [product_name] connections. If I have six [product_name] devices in a multi-master setup, should all devices have the same TSAP or should they use TSAPs like 20.00, 20.01, and so on?"
+    },
+    {
+      "comment_id": 742067066185118,
+      "user_name": "B0HZYmfLbO",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "For a multi-master connection, you need to use TSAPs such as 20.00, 21.00, 22.00, 23.00, up to 27.00."
+    },
+    {
+      "comment_id": 264017616252342,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hi, To explain, TSAP stands for Transport Service Access Point and historically comes from the time when controllers did not have built-in Ethernet. Connections required a communication processor (CP), which needed to know its place in the network configuration (now it's typically defined by rack and slot). When configuring communication between two [product_name] devices, each channel is assigned its own TSAP. [product_name] supports eight channels, so the first Ethernet connection uses TSAP 20.00, the second 21.00, and so forth. HMI panels are different; they require a TSAP of 02.00 on the controller side. If the correct TSAP isn’t used in a [product_name] to [product_name] exchange, the connection will not work."
+    },
+    {
+      "comment_id": 266603408497396,
+      "user_name": "rA4bwpLj5z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 4,
+      "comment_body": "Thank you everyone!"
+    },
+    {
+      "comment_id": 728740593691190,
+      "user_name": "wJfMMYu3ya",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "Hello, You’re mentioning the TSAP numbering on [product_name] as 20.00, but my [product_name] device shows a TSAP of 02.00. Can someone clarify which TSAP is assigned by default to [product_name], and whether this value is fixed or can be set using [company_name] software? Regards."
+    },
+    {
+      "comment_id": 103832371374304,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "Hi, You’ll see a TSAP of 02.00 on the local controller when a panel is enabled. Panels can only use TSAP 02.00. If you disable the operator panel, the TSAPs assigned will range from 20.00 to 27.00 based on the number of connections you configure. Hope this clarifies."
+    },
+    {
+      "comment_id": 699357054050614,
+      "user_name": "wJfMMYu3ya",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "Thank you [user_name] for the assistance. I still have some questions: You mentioned TSAP values depending on whether there’s a panel connected. But if I have a SCADA system (regardless of the manufacturer), which TSAP values should be configured? Do the local and remote TSAPs need to match? Thank you in advance."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "This discussion focuses on how to properly configure TSAP (Transport Service Access Point) settings for different connection scenarios involving [company_name] devices such as [product_name], operator panels, and SCADA systems. Users are seeking clarity about the default TSAP values, whether these can be customized using [company_name] software, and how mismatched TSAP values can cause connection problems. The conversation highlights ongoing confusion between panel, multi-master, and other communication setups.",
+    "user_expectations": "Users expect straightforward guidance on selecting appropriate TSAP values for various configuration scenarios, information about default assignments versus manual configuration, and assurance that following these recommendations will enable successful device communication.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "correct TSAP assignment",
+      "successful communication setup",
+      "clarity on default and configurable values"
+    ],
+    "pain_keywords": [
+      "confusing TSAP configuration",
+      "uncertainty about value assignment",
+      "potential connection failure if misconfigured"
+    ],
+    "feature_keywords": [
+      "TSAP configuration",
+      "Ethernet connection",
+      "multi-master communication",
+      "operator panel HMI integration",
+      "default TSAP values"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

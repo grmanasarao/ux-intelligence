@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "branch_id": "4417298242",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 953931849574800,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello, I am seeking guidance on programming an [product_name] for analog input scaling (0-10V). I am using an application example for reference. Additionally, I need to allow a setpoint value to be configured via the [product_name] display. There must be logic to verify if the analog input falls within a fixed range around the setpoint (either +5 or -5). For instance, if the setpoint is 95, and the input is between 90 and 95, output Q1 should send a pulse; between 95 and 100, output Q2 should pulse. If the input drops below 90, Q1 should stay ON until the value returns to 90; if above 100, Q2 should remain ON until the value falls to 100. Thanks in advance."
+    },
+    {
+      "comment_id": 895372005350471,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Based on your requirements, there may be an issue. Using your example: if the value drops below 90, Q1 will be permanently ON. When it returns to 90, you wish to send a pulse via Q1, but since Q1 was already ON, the pulse cannot be distinguished. The same logic applies to Q2 when the value falls from above 100 down to 100."
+    },
+    {
+      "comment_id": 671948848334267,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], no feedback on my previous response? Have you considered the details of your requirements and noticed the problem?"
+    },
+    {
+      "comment_id": 776635321853538,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], Thank you for your feedback. Apologies for not responding sooner; I am still working through the issue and trying to understand the problem within the specifications."
+    },
+    {
+      "comment_id": 259914362666176,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "I have programmed the timing sequence as per your requirements. Try running the simulation as the actual value increases. Q1 remains ON when the value is below 90. If the value changes from 89 to 90, a pulse occurs for Q1. However, this pulse cannot be clearly identified—it's effectively just an extension of Q1 staying ON."
+    },
+    {
+      "comment_id": 901010660854776,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], I tried simulating the program and it seems quite close to what I needed. I plan to test it with the actual device to observe its behavior. Thank you very much for your assistance—I truly appreciate it."
+    },
+    {
+      "comment_id": 391437068196266,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], I tested the program with the actual device and noticed that Q1 and Q2 are alternately pulsing ON repeatedly. I am now searching for a way to keep Q1 and Q2 OFF when the setpoint value (95) is reached. I've attached an output status diagram from the simulation. Q1 should remain ON from 0-89 and pulse for each value from 90 to 94; at 95, both outputs should be OFF. If the value rises to 96-100, Q2 should pulse as it returns from 100 to 96, and then both should turn OFF again. Pulse outputs are needed for each transition between these ranges to accurately indicate overshoot or undershoot."
+    },
+    {
+      "comment_id": 162691694857846,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Your functional description is now clearer. Initially, the intended behavior for Q1 pulsing between 90-94 and Q2 pulsing from 96-100 was not detailed. For future issues, please specify requirements using an example such as: Setpoint: 95. 0-89: Q1 always ON. 90-94: Q1 pulses continuously. 95: Both outputs OFF. 96-100: Q2 pulses continuously. 101+: Q2 always ON. This approach makes the logic much easier to follow. I'll now revisit your problem and adjust the program accordingly."
+    },
+    {
+      "comment_id": 283199649904533,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Updated version of the program."
+    },
+    {
+      "comment_id": 494690710749246,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], Thanks again for your response. I will provide examples as suggested in future posts. I recognize how the initial post may have seemed unclear after receiving your program file. Thank you for your help and recommendations."
+    },
+    {
+      "comment_id": 915577155280273,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], you're welcome."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion revolves around programming an [product_name] device for analog input scaling and setpoint-based logic, involving outputs Q1 and Q2. Initial problem descriptions led to confusion, particularly in how pulse and continuous states were determined at specific thresholds. Simulation and real-world testing revealed issues where output pulses and permanent ON states overlapped, complicating signal detection. The thread emphasizes the need for thorough and precise specification when designing analog control logic, highlighting how communication gaps can affect successful implementation.",
+    "user_expectations": "The user seeks a straightforward setup for monitoring analog values with configurable setpoints on an [product_name] device. They expect to easily differentiate continuous and pulse outputs for Q1 and Q2 based on specific input ranges, with the ability to set the threshold from the device's display. Outputs should reliably reflect the current value's position within the defined ranges, without causing confusion or overlap between pulse and permanent ON states.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate output control",
+      "reliable analog range handling",
+      "setpoint configurability"
+    ],
+    "pain_keywords": [
+      "ambiguous specifications",
+      "unclear pulse vs continuous output",
+      "difficulty distinguishing state transitions"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "setpoint adjustment via display",
+      "pulse output",
+      "range checking"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "3": "User Guidance"
+  }
+}

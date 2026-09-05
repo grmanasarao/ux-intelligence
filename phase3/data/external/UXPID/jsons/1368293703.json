@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "branch_id": "1368293703",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 677286991391695,
+      "user_name": "WNHVO4cRgY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello, any advice would be appreciated, because I'm unsure how to proceed. [product_name] has operated for 2 years and this unusual issue began three months ago. Without any clear cause, it starts toggling four outputs simultaneously on a second expansion module. It can run normally for up to two weeks, then the issue suddenly occurs, which has already damaged my pump. Here's what I've tried: replaced the second module - no improvement; swapped modules and changed communication lines - no change; moved variable addresses apart - no effect; stopped the running program while error occurred - switching stopped. These observations suggest a possible software issue. Could this be an internal problem with [product_name]? Do I need an RC filter? Thank you video: [url]"
+    },
+    {
+      "comment_id": 180747520368250,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "What does the video demonstrate? The symptoms suggest unstable power supply, possibly related to the internal 5V from the controller, or even issues with the neutral connection on the AC side. Consider that a short circuit or excessive current demand by malfunctioning contactors could be a factor. Measure the power supplies while the issue occurs. Try installing external relays (with flyback diode and LED) between [product_name] outputs and contactors to help isolate from high current loads and provide feedback. It's also possible that the program is causing the outputs to pulse. Add counters to monitor output switching, or use a CPU output connected to an indicator lamp as a mirror of the problematic output."
+    },
+    {
+      "comment_id": 770204938474472,
+      "user_name": "WNHVO4cRgY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thanks for the response. - All inputs, outputs, and power use a single phase - Disconnecting outputs makes no difference—no current or short circuit on output side - Disconnecting inputs also has no effect - Internal 5V for the module seems not the issue: swapped modules to no avail; changed both modules with new ones, including signal/power lines, but still no improvement What could be causing this—software? How do I check if I have unintended bits affecting Q12 to Q16, the four outputs that randomly switch (on the right module)? Which address or byte do these outputs correspond to, and what value would I expect in Vx.y? Thank you"
+    },
+    {
+      "comment_id": 766291887913328,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "QB0 maps to Q1-Q8 QB1 maps to Q9-Q16 or V1064.0 = Q1 V1064.1 = Q2 ... V1064.6 = Q7 V1064.7 = Q8 V1065.0 = Q9 V1065.1 = Q10 ... V1065.6 = Q15 V1065.7 = Q16 or VB1064 = QB0 = Q1-Q8 VB1065 = QB1 = Q9-Q16 However, in the actual [product_name], you can't access this memory area directly; it's only readable externally (such as via a second [product_name])."
+    },
+    {
+      "comment_id": 874353854396514,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I was also thinking about unreliable internal 5V on the controller side, as it connects to extension modules. Even the connection between the controller and expansion cards could be problematic, and there's no known way to check the bus communication functionality. Do you have access to the program and permission to make changes? The attached image shows a small modification: I1, Q1, and B001 are original resources; B002 is a counter added to monitor output switching; a start button (I1) can clear the counter. Monitoring B002 helps determine if the outputs are pulsing unexpectedly due to the program."
+    },
+    {
+      "comment_id": 626771105927545,
+      "user_name": "WNHVO4cRgY",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "After describing the issue to my local [company_name], I received [product_name] version [version_no] to test. According to [company_name], the issue could be due to a graphics memory leak—[product_name] software had previously warned of low graphics memory caused by the large program size. My program is indeed quite large, with all inputs/outputs set and the web server operating. I will update once I know if this resolves the problem."
+    },
+    {
+      "comment_id": 507071785124109,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I'm quite surprised. How does graphics layout memory size relate to random switching of physical outputs?"
+    },
+    {
+      "comment_id": 158540947544544,
+      "user_name": "WNHVO4cRgY",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "I was informed it could be a memory leak, possibly something [company_name] is aware of, though I'm not sure. After switching hardware to [product_name] version [version_no] yesterday, it's now functioning properly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user faced unpredictable output switching on a [company_name] [product_name] system that disrupted equipment (including a pump) after years of trouble-free operation. Hardware troubleshooting (swapping modules, rewiring, disconnecting outputs/inputs) did not reveal the cause, and the problem appeared intermittent and independent of physical wiring. Advice included investigating possible power instability, logic errors, or software/firmware issues. Ultimately, upgrading to a newer [product_name] version resolved the issue, pointing toward a possible software-related memory leak related to large programs.",
+    "user_expectations": "The user seeks reliable and stable hardware/software output switching from [product_name], regardless of program size or duration, along with tools or methods to help diagnose the cause of malfunctions.",
+    "severity_expectation_level": "1",
+    "gain_keywords": [
+      "stable operation",
+      "predictable output",
+      "system diagnostics",
+      "memory reliability"
+    ],
+    "pain_keywords": [
+      "random output switching",
+      "unexplained malfunction",
+      "memory leak",
+      "lack of diagnostics",
+      "equipment damage"
+    ],
+    "feature_keywords": [
+      "output control",
+      "memory management",
+      "webserver",
+      "diagnostics",
+      "expansion module integration",
+      "program size handling"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "4": "Hardware Reliability"
+  }
+}

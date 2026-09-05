@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "3698470384",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 877272432828576,
+      "user_name": "byk4caY8FO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I am receiving values from Modbus, and sometimes encounter unexpected readings. I can filter most of these, but occasionally receive a value of -10000, which falls outside the allowable range for [product_name] (-32786 to +32768), so my current filter approach does not work for this case. How can I filter this specific value? I have attached the relevant part of my program."
+    },
+    {
+      "comment_id": 693213841167232,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Could you clarify which values are expected from the Modbus device? What data type is used in this register? For example, -10000 as SInt would be 55536 as UInt."
+    },
+    {
+      "comment_id": 105163440944035,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], If there is no issue with how the data is connected as [user_name] suggested, you can implement a workaround (refer to appendix). However, the out-of-range values in the [product_name] area are already considered errors. It's preferable to ensure correct connection of the data to [product_name]. Regards [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 289336191332822,
+      "user_name": "byk4caY8FO",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "The Modbus should provide an integer value between 0 and 1000, but there seem to be occasional faults and out-of-range values sent from the device. The value is stored in a 16-bit register."
+    },
+    {
+      "comment_id": 433644273168023,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "That does not answer my question. What data type is used for the Modbus value? Is it SInt or UInt? If Modbus sends invalid values, when do you want to determine if the value is valid or invalid? In my view, this issue may need to be resolved outside of [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having trouble filtering out out-of-range values received from a Modbus device using [product_name]. Sometimes, the device sends values outside the supported range (like -10000), which current filters cannot handle. The discussion focuses on uncertainties around data types and the source of the data errors. Suggestions indicate that the problem originates from Modbus communication rather than [product_name], and that filtering might be best handled outside of the device.",
+    "user_expectations": "The user expects [product_name] to reliably detect and filter all unexpected or out-of-range values from the Modbus device, even when those values exceed supported limits.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "error filtering",
+      "input range validation",
+      "data integrity"
+    ],
+    "pain_keywords": [
+      "unexpected Modbus values",
+      "filtering limitations",
+      "data type mismatch"
+    ],
+    "feature_keywords": [
+      "input value filtering",
+      "data type support",
+      "range validation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

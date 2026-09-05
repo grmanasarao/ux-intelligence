@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "branch_id": "6528788381",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 237068495606290,
+      "user_name": "zcrm7jBbNm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hello, I've been attempting to set up a MODBUS TCP connection between a [product_name] controller (version [version_no]) and an Arduino Mega with an EN28J60 Ethernet adapter for the entire day, but haven't had success yet. My objective is to expand the I/O using the Arduino Mega; for instance, if I configure a network output on the [product_name], the Arduino should update a corresponding digital output. Similarly, digital inputs on the Arduino should be visible on the [product_name] through network input. I'm unsure if this integration is achievable, but I'm currently focusing on making the output signal from [product_name] to Arduino work. There's an Arduino library for MODBUS TCP available. Any advice on how to proceed would be appreciated. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 240743584352418,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Can you share what you have tried so far?"
+    },
+    {
+      "comment_id": 162953846986853,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I can assist only with the [product_name] controller. I don't have experience with Arduino or the specific ethernet adapter."
+    },
+    {
+      "comment_id": 532913800667057,
+      "user_name": "zcrm7jBbNm",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hi, I've uploaded a screenshot showing some settings and a test program. My input is a basic NO switch. On the Arduino side, I wrote a program for a blinking LED with variable frequency depending on the switch state sent from the [product_name]. I'm not certain if my MODBUS configuration (with [product_name] as server) is correct. The Arduino MODBUS library says it runs only as a slave, but it's unclear if 'slave' means client or server in this context."
+    },
+    {
+      "comment_id": 870611997221766,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "For MODBUS, slave is equivalent to server, while client is master."
+    },
+    {
+      "comment_id": 165121517377118,
+      "user_name": "zcrm7jBbNm",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Therefore, the [product_name] controller acts as the client and Arduino as the server. This means [product_name] can only request info from Arduino, such as reading a value from an analog input. Is it also possible to send data from the [product_name] to Arduino? For example, like in PROFINET setups, where both controller and device can share outputs and inputs mutually."
+    },
+    {
+      "comment_id": 314889692530855,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "The client directs the communication—it can both read and write. The server (slave) responds to client commands and performs requested operations."
+    },
+    {
+      "comment_id": 514770921267605,
+      "user_name": "cZQANX744b",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hello, If you've configured [product_name] as a Modbus server, and you want to read or write I/O directly, you don't need to use VM-memory. You'll want Arduino to read DI1 from [product_name] directly, which accesses the Input1 status. To control output 1, set coil 8193. The unit ID for [product_name] should be 255. Also, a program in [product_name] is necessary to switch it to RUN mode. Hope that helps."
+    },
+    {
+      "comment_id": 805243256782086,
+      "user_name": "zcrm7jBbNm",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hi, thanks for your reply. My main goal is to activate digital outputs on Arduino from the [product_name]. For instance, I could set a VM bit in [product_name], and have Arduino read it as a MODBUS coil—though I'm not fully sure if that's the right approach. I'll have time to run more tests over the weekend. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are working to set up MODBUS TCP communication between a [product_name] controller and an Arduino Mega to extend I/O capabilities. There is some confusion about MODBUS terms (slave vs server, client vs master), as well as setup details for integrating the [product_name] controller with third-party devices. Users need clearer configuration instructions and use case explanations for direct MODBUS TCP interaction between [product_name] and Arduino.",
+    "user_expectations": "Users want straightforward guidance to configure the [product_name] controller to exchange digital signals with Arduino via MODBUS TCP, making it possible to control Arduino outputs from the [product_name] controller and read inputs from Arduino, with easy-to-follow instructions and terminology.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "expanded I/O",
+      "seamless integration",
+      "remote control",
+      "real-time monitoring"
+    ],
+    "pain_keywords": [
+      "configuration confusion",
+      "unclear documentation",
+      "terminology ambiguity",
+      "integration difficulty"
+    ],
+    "feature_keywords": [
+      "MODBUS TCP support",
+      "client/server assignment",
+      "direct I/O control",
+      "VM-memory mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "12": "Network Configuration Challenges"
+  }
+}

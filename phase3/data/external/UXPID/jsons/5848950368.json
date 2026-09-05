@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "branch_id": "5848950368",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 277373567182493,
+      "user_name": "WhgYNNY28g",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hello everyone! I'm experiencing an issue with the analog threshold trigger function in [product_name] [version_no]. In [product_name] [version_no], the UP/DOWN COUNTER (B015) had a start value of 40, which was correctly referenced by the analog threshold triggers (B064 and B066) using a [article_no] device. In [product_name] [version_no], the UP/DOWN COUNTER's start value is 70 (B009), but the analog threshold triggers (B064 and B066) do not reference it, using a [article_no] device. Apologies for my English, and thank you!"
+    },
+    {
+      "comment_id": 830502299586226,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "If the value in VW0 (NAI1) is zero, did you review VW0's value using the data table?"
+    },
+    {
+      "comment_id": 625675410926994,
+      "user_name": "WhgYNNY28g",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Is that what you mean?"
+    },
+    {
+      "comment_id": 887498885672419,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "No, the data table is different. Where does the value in VW0 originate—should it come from B009? If so, is the value transferred from B009 to VW0 using the parameter WM mapping? I've attached a video demonstrating how to use the Data Table in simulation."
+    },
+    {
+      "comment_id": 143968868516105,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "See attached PDF."
+    },
+    {
+      "comment_id": 601787481130917,
+      "user_name": "WhgYNNY28g",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "VW0 is set by the HMI panel. The B002 math instruction uses reference data from the B009 Up/Down Counter (for example, start value 70 or another value in the 60-90 range). During simulation, the VM mapping table is empty, but this was also the case in [product_name] [version_no] simulation. Previously, the analog threshold trigger referenced the Up/Down counter's output data."
+    },
+    {
+      "comment_id": 794787740972587,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Without seeing the [product_name] program and the HMI project, it's difficult to identify the problem. Is the HMI from [company_name]? If so, could you upload both programs?"
+    },
+    {
+      "comment_id": 992252272805087,
+      "user_name": "WhgYNNY28g",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Yes, it's a [company_name] KPT400 basic, mono, PN. I've uploaded my old [product_name] [version_no] project. Please check the analog threshold value in the simulator after downloading—the threshold trigger automatically referenced the UP/DOWN Counter's start value before."
+    },
+    {
+      "comment_id": 492053392001032,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I'd like to review both projects, including the [product_name] [version_no] program. If you assign the up/down counter B009 to VD0 using the VM mapping parameter, you should use VW2 in NAI1 instead of VW0."
+    },
+    {
+      "comment_id": 409016234952342,
+      "user_name": "WhgYNNY28g",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 127924085999039,
+      "user_name": "WhgYNNY28g",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "VW2 works :D—why doesn't VW0 work?"
+    },
+    {
+      "comment_id": 406267119324796,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "The counter's maximum value is 999,999. To handle this, you need a double integer word (DINT), which is VD0 and consists of VW0 and VW2. Values between 0 and 32,767 are stored in VW2. If the counter value exceeds 32,767, you can't read it using this method."
+    },
+    {
+      "comment_id": 403477414090077,
+      "user_name": "WhgYNNY28g",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Thank you for your assistance!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user noticed that analog threshold trigger behavior changed when moving from [product_name] [version_no] to [version_no]. In the older version, analog threshold triggers automatically referenced the up/down counter's start value, but in the newer version, this automatic linkage has disappeared, causing confusion and workflow disruptions. The root issue seems to be changes in data mapping, simulation behavior, or parameter configuration.",
+    "user_expectations": "The user expects analog threshold triggers to automatically reference the up/down counter's start value, as was the case in the previous version of [product_name]. They want consistent functional and simulation outcomes after upgrading the software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "consistent simulation",
+      "automatic data referencing",
+      "easy software transition"
+    ],
+    "pain_keywords": [
+      "inconsistent behavior",
+      "unexpected software change",
+      "manual reconfiguration",
+      "simulation mismatch"
+    ],
+    "feature_keywords": [
+      "analog threshold trigger",
+      "up/down counter",
+      "simulation",
+      "parameter VM mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

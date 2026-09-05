@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "7403028869",
+    "thread_id": "3055273936",
+    "publication_year": 2009,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 480116527477292,
+      "user_name": "AlLzxDwXsj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "I am interested in understanding what occurs if a sensor wire breaks on the [product_name] AM2 PT100 module. Is there wire break detection available, and if so, how can this be used? If there is no detection, what value does the module provide in such a case? Thank you"
+    },
+    {
+      "comment_id": 632422200821051,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "The answer is straightforward: when the wire breaks, the temperature reading shows as maximum; if there is a short circuit, it shows as minimum. You can simply set up an error or alarm by keeping track of these minimum and maximum temperature values. -After a real-world test, a wire break resulted in a 177°C reading when grounding was imperfect and there was some static interference.-"
+    },
+    {
+      "comment_id": 500473456622569,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "Hello, On my device, if I disconnect the wire from the PT100 sensor, the analog input shows a value of 0. The official manual does not mention any wire break detection."
+    },
+    {
+      "comment_id": 916650241754403,
+      "user_name": "JMywOwHns4",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "Greetings! This is a helpful forum. On my unit ([version_no] 6), here is what happens: - Disconnecting IC leads to AI = 0 (shows -50°C). - Disconnecting M- results in AI = 907 (shows 177°C). - Disconnecting M+ causes AI to gradually rise to 1000. The increase can be either fast or slow, making the behavior unpredictable. During tests, the sensor was reading 26°C."
+    },
+    {
+      "comment_id": 624323569652526,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "Hello, perhaps static electricity could be affecting the results. I am working in a properly grounded and static-free environment at my desk. I conducted this test right before posting here; I'm working on a project using a PT100 to monitor the cooling from a diesel generator. I also require an alarm signal as part of the setup, which led me to run these tests. I'll retest in a live environment with the generator and correct grounding soon."
+    },
+    {
+      "comment_id": 911310354292295,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "Update: Following installation, I found the same results as described by another user—short circuit gives -50°C and open wire gives 177°C. I plan to add an alarm for these values in my application; this is straightforward for me. However, any application operating above 160°C should remain functional without triggering an alarm, as long as grounding and static protection are adequate (like at my workstation). Greetings from Greece"
+    },
+    {
+      "comment_id": 158260149165501,
+      "user_name": "AlLzxDwXsj",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "Thank you all for your valuable assistance."
+    },
+    {
+      "comment_id": 805422141220890,
+      "user_name": "Gmj1RoXbmU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Hello, Although this discussion is old, I am facing the same issue. I tried using the method described in the attached [document] from [url] to detect PT100 wire break with an AM2 RTD card. I loaded the example onto the actual hardware but noticed there is no difference between a short circuit and a wire break; both scenarios return 0 (raw) or -500 (scaled) from the card. Could it be that the official example is incorrect, or am I missing something? The only difference between the example and my hardware is that my [product_name] is [version_no] FS04."
+    },
+    {
+      "comment_id": 240035789107228,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Starting with the [article_no] standard, both wire breakage and short circuit yield the same monitoring result—including for [article_no] FS04."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are looking for reliable wire break detection for PT100 sensors used with [product_name] AM2 modules. Detection behavior can vary depending on the hardware version and is not officially documented, leading to situations where both wire break and short circuit result in similar or ambiguous readings. As a result, users must rely on monitoring the minimum and maximum value outputs, creating uncertainty in applications where dependable fault detection is critical.",
+    "user_expectations": "Users want [product_name] to clearly differentiate between wire break and short circuit situations for sensors, preferably with distinctive error codes or values and thorough documentation explaining the module's behavior.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable sensor monitoring",
+      "error detection",
+      "automatic alarm"
+    ],
+    "pain_keywords": [
+      "ambiguous error reporting",
+      "lack of documentation",
+      "indistinguishable fault outputs"
+    ],
+    "feature_keywords": [
+      "wire break detection",
+      "fault indication",
+      "error alarm",
+      "sensor input handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "8": "Documentation Clarity"
+  }
+}

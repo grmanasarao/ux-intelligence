@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "8065796759",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 535150337862314,
+      "user_name": "k4i7vJZ6ZX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Good afternoon, Is it possible to wire [article_no] inputs as 24V common, or does it have to be 0V? Our company currently uses Schneider TM221CE16/24T and wires 24V commons on the input. We are considering switching to the [company_name] [product_name] and want to know if both 24V and 0V wiring are options."
+    },
+    {
+      "comment_id": 667558064120216,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "See attachment."
+    },
+    {
+      "comment_id": 841211547039942,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello, Only the [product_name] 24RCE or 24RCEo supports both configurations. Unlike your current [product_name] model, this version uses relay outputs instead of transistors. Since the 24RCE/o model supports 24V AC & DC, you can wire it to read M-signals."
+    },
+    {
+      "comment_id": 894892256984194,
+      "user_name": "k4i7vJZ6ZX",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hi, thanks for the response. The units I have are [article_no]. Can I confirm that this type only allows one wiring method? I connect 24V to L+ and 0V to M—if I swap these, the device will not power on. However, our older model (likely 24RCE with DC P and DC M) works this way. Our supplier mentioned that the 12/24RCo ([article_no]) supports negative switching. The Schneider modules we previously used offered Sink (positive logic) and Source (negative logic) wiring and we always used Source wiring."
+    },
+    {
+      "comment_id": 201564534301745,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "The [product_name] 12/24 lacks sink/source selection, only supporting PNP logic. For a high input signal, you need a connection to L+. What works is to connect your NPN logic to the input and add a pull-up resistor (such as 1kOhm) from the input to L+. Calculate the resistor value based on output specs of your signals; too low, and the current will be excessive, too high, and the input voltage will dip below recognition for a high signal. You need the output specs of the signals to choose the correct resistor value. Regards, [user_name]"
+    },
+    {
+      "comment_id": 175004753428793,
+      "user_name": "cZQANX744b",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hi, Here's how you can do this with [product_name] 24RCE or 24RCEo: Power the [product_name] by connecting L of the power supply to M of the device, and M of the power supply to L+ of the device. Use M (power supply) at the inputs for detection of high signal. Other [product_name] types lack this option. For digital expansion modules, use DM8 24R. The key is that your [product_name] needs to support 24V AC/DC power, which enables rewiring of the power supply as described."
+    },
+    {
+      "comment_id": 916377115797834,
+      "user_name": "ob8b7JPNOo",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Can I reverse [product_name] power connections to use an NPN sensor? Are there any issues with this? Thanks."
+    },
+    {
+      "comment_id": 364041900617693,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "This is only possible with the [product_name] 24 RCE(o)."
+    },
+    {
+      "comment_id": 739464896989384,
+      "user_name": "ob8b7JPNOo",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Understood. Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are evaluating input wiring flexibility for the [product_name] Basis Module, questioning if it can be wired for both 24V and 0V commons, similar to competitor modules. The discussion reveals confusion about which models accept alternate wiring methods and compatibility with NPN sensors. Consensus is that only specific versions (24RCE or 24RCEo) allow both positive and negative logic connections, differentiating them from prior Schneider setups.",
+    "user_expectations": "Users expect the [company_name] [product_name] Basis Module to be as flexible in input wiring as Schneider hardware, supporting both source and sink wiring methods (positive and negative logic), to maintain compatibility with their current installation practices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "flexible wiring",
+      "compatibility with existing systems",
+      "support for source and sink logic"
+    ],
+    "pain_keywords": [
+      "input logic limitation",
+      "unclear documentation",
+      "compatibility challenge"
+    ],
+    "feature_keywords": [
+      "input wiring",
+      "sink/source logic",
+      "NPN/PNP compatibility",
+      "relay outputs"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "28": "Installation Flexibility"
+  }
+}

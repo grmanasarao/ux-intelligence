@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "7578434127",
+    "thread_id": "4479534060",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 718805864221147,
+      "user_name": "WYhUkxAQvj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I'm working on a project that requires exchanging several input and output signals between a [product_name] module and a display panel. Programming the panel is new for me, and I'm facing trouble getting output communication working properly. Mapping an input works fine—for instance, if I create a button for 'start' in the display and map it to network input V0.1, program that as an input on the [product_name] module, the input is detected as expected. Counter values also transfer smoothly. Now, I want to activate a pilot light when an output turns on. For testing, I connected a pushbutton to input 5 of the [product_name] and programmed a block NQ01, assigning it address V1.0. I made a tag in the display attached to V1.0 to use for the pilot light, but pressing the button doesn’t change the light on the display. I feel I’m missing something but can’t pinpoint the issue. My second problem is when I create a switch on the display and link it—the switch works when I press it but resets when switching screens and returning. Is this normal behavior? Any suggestions would be appreciated. Thank you in advance."
+    },
+    {
+      "comment_id": 598328446749415,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "There are several fixed addresses in the network between [product_name] and the display panel. In the Help section of [product_name] configuration software, you can find details on these addresses. Note there are differences between the [article_no] series. Search for \"vm mapping\" in the Help to find useful information. Addresses from 1064.0 (Q1) to 1071.7 represent all digital outputs from the [product_name] and can be used directly in the display panel."
+    },
+    {
+      "comment_id": 164873391463323,
+      "user_name": "WYhUkxAQvj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Thanks [user_name], I overlooked that section in the help documentation. I’ll try this suggestion tonight or tomorrow when I get home. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 531757567423671,
+      "user_name": "WYhUkxAQvj",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Update: I tested the remapped tags and now inputs and outputs display correctly as expected. I’m still seeing odd issues with NI blocks, since I can't connect them directly through parameter settings. Using flags as a workaround has resolved the issue for now. I also addressed the screen change problem with switches—when connecting a [product_name] tag, things didn’t work as intended. By switching to internal tags and modifying the event properties, it now works satisfactorily (currently, I have only a few tags attached to switches). Thanks again [user_name] for your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered challenges mapping outputs from a [product_name] module to a display panel, specifically for visual indicators like a pilot light. While input mapping was straightforward, outputs required identifying the correct address mapping, which was not immediately obvious. Additional issues were found with switches on the display resetting when changing screens, necessitating internal tags and adjusted connection methods as workarounds. Comprehensive help documentation and alternate tagging strategies led to most problems being resolved.",
+    "user_expectations": "Users anticipate clear and reliable mapping of outputs to the display, similar to inputs, and expect switches to maintain their states across screen changes within the display panels.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "output visualization",
+      "seamless HMI integration",
+      "persistent HMI switch states"
+    ],
+    "pain_keywords": [
+      "output mapping confusion",
+      "switch state loss",
+      "parameter setting limitation"
+    ],
+    "feature_keywords": [
+      "address mapping",
+      "digital output tags",
+      "event properties",
+      "internal tags"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "8": "Documentation Clarity"
+  }
+}

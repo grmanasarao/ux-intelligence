@@ -1,0 +1,175 @@
+{
+  "metadata": {
+    "branch_id": "5060844441",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 547801415688375,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I have a quick question. I'm developing a [product_name] program that needs to communicate with two different [product_name] controllers and a single [product_name] device that requires digital input and output values exchanged in both directions. I've reviewed examples for communication between a [product_name] controller and the [product_name] as well as setups with multiple [product_name] modules, but I can't find anything about connecting two controllers to one [product_name]. Is this setup possible?"
+    },
+    {
+      "comment_id": 320863637643982,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "What issue are you actually facing?"
+    },
+    {
+      "comment_id": 515976268130270,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "I don't know how to assign one [product_name] input to controller1 and controller2, and how to distinguish the inputs and outputs from the two controllers. The controllers will have different IP addresses. I need: inputs from controller1 to [product_name], inputs from controller2 to [product_name], outputs from [product_name] to controller1, and outputs from [product_name] to controller2. Each control panel has its own controller, both connected to a single panel featuring the [product_name] device."
+    },
+    {
+      "comment_id": 573120317514717,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Again, what specifically is the problem? You mentioned you understand how to connect one controller to the [product_name] and exchange data. With a second controller, you'd set up the communication similarly for both."
+    },
+    {
+      "comment_id": 447005982944176,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "The difficulty I’m facing is how to address the second controller. With two inputs going to the [product_name] from separate controllers, I'm unsure how to address each one properly. See attached illustration."
+    },
+    {
+      "comment_id": 215682206065303,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "It's not possible to control the same network input from two different controllers."
+    },
+    {
+      "comment_id": 764272635520873,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "In my program, there are two fan circuits, each starting with an input. Is it possible to set up: Fan_1 starts from output 1 on controller_1, Fan_2 starts from output 1 on controller_2. If Fan_1 faults, it sends an output to input 1 on controller_1; if Fan_2 faults, it sends an output to input 1 on controller_2. If this structure is achievable, I'm struggling with how to properly address the network inputs and outputs on the [product_name]."
+    },
+    {
+      "comment_id": 974954945863412,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "The [product_name] controller does not recognize V operands. You must handle the routing in the connection settings if the [product_name] is acting as the client and both controllers as the slaves. If the [product_name] is the server for both controllers, then configure the appropriate DB in each controller. Without clarification on which device is client or server, it's hard to give further advice."
+    },
+    {
+      "comment_id": 267791985184086,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "After reading different resources, I've decided the [product_name] should serve as the client."
+    },
+    {
+      "comment_id": 422310274229149,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Please don't misunderstand, but it's often challenging to assist when every detail needs clarification. On the controller side, you likely don't want to transfer actual output status to the [product_name]. Similarly, the network outputs of the [product_name] shouldn't be sent to the physical inputs of the controllers."
+    },
+    {
+      "comment_id": 526721927295604,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Maybe I'm not explaining clearly, but I think I know what I want! Anyway, here's a simple mock program to help illustrate my question."
+    },
+    {
+      "comment_id": 854418910712006,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "As mentioned before: What's the exact issue now?"
+    },
+    {
+      "comment_id": 931392688399736,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Does this approach work?"
+    },
+    {
+      "comment_id": 796886326261995,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "You need to create connections in the engineering project. Have you already set this up?"
+    },
+    {
+      "comment_id": 530049369758881,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Not yet, but I plan to do so."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is encountering challenges in setting up communication between two [product_name] controllers and a single [product_name] module to exchange digital input and output values in both directions. Main pain points include addressing and routing signals correctly between the devices, managing and distinguishing inputs/outputs for each controller on the [product_name] unit, and clarifying server-client roles and limitations around network input allocation from multiple controllers. There is a general lack of clear, accessible guidance for multi-device integration scenarios.",
+    "user_expectations": "The user wants to be able to easily configure and differentiate network inputs/outputs between multiple controllers and a single [product_name] module, expecting seamless assignment and clear distinction of signals from each controller to dedicated functions in the [product_name] program.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "multiple device communication",
+      "signal differentiation",
+      "seamless integration",
+      "clear assignment"
+    ],
+    "pain_keywords": [
+      "addressing confusion",
+      "inadequate documentation",
+      "network input limitation",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "network input/output addressing",
+      "client-server roles",
+      "connection list routing",
+      "multidevice communication"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "8178927766",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 157551344140038,
+      "user_name": "DDwz5LgNIo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, I've searched through the forum but haven't found a solution yet. I want to connect a two-wire 33-240 ohm level sensor to an [product_name] analog input module with a 0-10 volt range, but it isn't functioning as expected. My current setup has one sensor lead attached to the 24V DC positive terminal, the other to U1 of the [product_name], and the 24V DC negative to M1 of the same module. I’m also unsure which analog input should be used. Thanks for any assistance."
+    },
+    {
+      "comment_id": 873050634862641,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Could you provide the manufacturer, type, and order number of your sensor?"
+    },
+    {
+      "comment_id": 613827058554452,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Unfortunately, there's no standard solution for your issue. The [product_name] can handle 0-10 Volt or 0(4)-20 mA analog signals, but your sensor works by resistance. Please specify which [product_name] version and what type of power supply you're using—is it DC or AC, and what voltage? Maybe you can create a working system using a small resistor. What’s the sensor’s purpose and type?"
+    },
+    {
+      "comment_id": 573503583858792,
+      "user_name": "DDwz5LgNIo",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "The sensor is a WEMA S5U, 33–240 ohm diesel fuel level gauge. I'm using [product_name] 4 amp, 24V DC power supply and [product_name] 8 12/24RC module. Thanks for your help."
+    },
+    {
+      "comment_id": 137052441372776,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Are you referring to this specific sensor?"
+    },
+    {
+      "comment_id": 663269255695584,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Try using a resistor of 330 or 390 ohms. Connect the resistor to the positive side of your 24V DC power, and join the other end of the resistor to the analog input of the [product_name] (Ai1 or i7) as well as to the sensor. The remaining sensor wire should go to the power supply’s negative terminal. Alternatively, with an extension unit and a 0-10 Volt input, you’ll get about 10V for a full reading and 2V for empty. You can calibrate this in the [product_name] software. Note, however, this sensor isn’t built for constant connection to 24V; according to the datasheet, the power consumption must be limited to 0.125W. Using a 1000 ohm resistor, your sensor will consume 125mW, which is the maximum stated in the documentation. This will result in input signals of about 5V when full and 1V when empty. The accuracy drops, but these calculations are approximate and should be tested directly with your sensor. Avoid overheating the sensor. Also, never use this approach in explosive environments like gasoline."
+    },
+    {
+      "comment_id": 763760110970881,
+      "user_name": "DDwz5LgNIo",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thank you for your assistance."
+    },
+    {
+      "comment_id": 209745681248547,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Did your setup work?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to connect a resistive level sensor to an analog module, but are facing challenges converting resistance to a compatible voltage signal. The module supports standard voltages and currents, but not resistance-based sensors directly, making external circuitry (like resistors) necessary. There's concern about the sensor's power limit, potential overheating, and safety in hazardous materials. This adds complexity and diminishes ease of use.",
+    "user_expectations": "The user seeks a straightforward and reliable method to connect a resistive sensor to the analog module for precise measurement, without risking the sensor or needing an overly complicated setup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sensor integration",
+      "safe operation"
+    ],
+    "pain_keywords": [
+      "compatibility confusion",
+      "risk of sensor overheating",
+      "lack of native support",
+      "complex wiring"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "sensor compatibility",
+      "power supply safety"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "22": "Usability Improvement Suggestions",
+    "27": "Safety Compliance Concerns"
+  }
+}

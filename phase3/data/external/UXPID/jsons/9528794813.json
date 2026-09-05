@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "9528794813",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 247997243305912,
+      "user_name": "vISplQQeV7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello everyone, I'm currently working with the [product_name] Web Editor. It's an impressive tool, but I notice some unresolved issues. I'm transferring the TD interface to the Web Editor and most functions are working well. However, I'm facing a challenge with the weekly time scheduler. The 7-day checkbox operates correctly and the [product_name] reflects this. But I can't get the three start and end time schedulers to function properly; while they work fine on the TD interface, the numbers shown on the [product_name] Web Editor in the browser are odd. I've tried using analog and scaled time—still can't get it right. Could someone provide a simple example to view and SET the three scheduler times? Thanks a lot"
+    },
+    {
+      "comment_id": 971659353033940,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Here's the issue: The switching times of a weekly timer are BCD coded. For a readable display in the extended Web Editor, you need to set the analog input/output field to HEX format. However, a '16 #' label for hexadecimal also appears in these fields. Additionally, hours and minutes must be separated. For example: - Start time at 8:00 am: displayed as 16#8 and 16#0 - End time at 10:00 pm: displayed as 16#22 and 16#0 Please refer to the attachment."
+    },
+    {
+      "comment_id": 258755207187063,
+      "user_name": "vISplQQeV7",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "That's not the most user-friendly solution, since clients may get confused by those numbers. If you want users to set a new time, does it mean you need two additional analog inputs?"
+    },
+    {
+      "comment_id": 563918982184849,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Whether ideal or not, it's currently the only way to achieve this. When changing the value, you don't need to type '16#'; that's only shown for display purposes. I'll make a screen video for you later."
+    },
+    {
+      "comment_id": 415022971276081,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Here's the video."
+    },
+    {
+      "comment_id": 935823259432003,
+      "user_name": "vISplQQeV7",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Thank you for the video. I now understand how the timers are displayed. I'm going to start adding all the timers. Here's a snapshot of the irrigation map for a large home using the [product_name] Web Editor."
+    },
+    {
+      "comment_id": 113627329936837,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name] (and everyone), I've found a workaround for this problem. Take a look at this topic: How to remove the hex label (16#) when showing switch times for a weekly timer in the extended web server?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users value the strong functionality and versatility of the [product_name] Web Editor, especially for managing weekly timers. However, challenges arise with usability—viewing and setting multiple scheduler times is unclear due to non-intuitive BCD-coded and hexadecimal time displays. The requirement to use hexadecimal format (including the '16#' label) introduces confusion, making it difficult for end clients to input or interpret timer settings, and reducing overall accessibility.",
+    "user_expectations": "Users seek a straightforward, intuitive way to display and set multiple timer start/end times within the Web Editor—similar to the previous TD interface. They prefer solutions that hide technical formatting and eliminate the need for clients to interpret hexadecimal codes, aiming for a user-friendly experience for both viewing and editing timer settings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "intuitive scheduling",
+      "client-friendly interface",
+      "clear time input/output"
+    ],
+    "pain_keywords": [
+      "confusing BCD/hex display",
+      "unintuitive for end clients",
+      "difficult time input"
+    ],
+    "feature_keywords": [
+      "weekly timer scheduling",
+      "analog/scale time input",
+      "web-based interface"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

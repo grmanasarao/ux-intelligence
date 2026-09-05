@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "1884398554",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 431634460398317,
+      "user_name": "qOGvAQ1qwf",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Is there a way to build a 32-bit shift register using multiple blocks without output duplication? In my example, I created a 32-bit shift register setup where Block 005's output connects to Block 006's input, and so on. However, after S1.7, when S1.8 is activated, its output also turns on S2.1, causing overlap. Because of this, I end up with three 7-bit and one 8-bit register, totaling 29 bits. Does anyone have suggestions for achieving a full 32-bit register?"
+    },
+    {
+      "comment_id": 587424770846336,
+      "user_name": "tDslqAnPgb",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Could you clarify what you want this solution to achieve or simplify for the PLC? There may be easier approaches, such as using a counter. If you can provide more details about the requirements, we might suggest alternative solutions."
+    },
+    {
+      "comment_id": 658201784903186,
+      "user_name": "qOGvAQ1qwf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thank you for your response, [user_name]. I didn't see your reply for a few days. My question is for learning and experimenting. Most PLC systems typically provide an extra output bit, so an 8-bit shift register's output would become a ninth bit, enabling you to link multiple registers in a cascade. 's configuration seems unusual in this aspect. I'll think about possible workarounds."
+    },
+    {
+      "comment_id": 386365616007141,
+      "user_name": "qOGvAQ1qwf",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I've found a neat solution to this problem. Please refer to the attached animated GIF. In this setup, the memory and output blocks update only at the end of each program scan, not instantly as the diagram might suggest. Therefore, changes are visible in the subsequent scan, effectively adding a one-scan delay for both activation and deactivation. By inserting a memory block between the output of the first shift register and the input of the next, bit 2.1 will activate just as bit 1.8 deactivates. Using this approach, it's possible to cascade all four shift register blocks (maximum allowed on [product_name] V8.3) to successfully create a 32-bit shift register."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user investigates creating a 32-bit shift register with [product_name] shift register blocks but finds the process limited by block cascading, resulting in only 29 bits without output duplication. After analyzing block update timing within the scan cycle, the user devises a method to cascade all four blocks with a scan delay, achieving the intended 32-bit shift register functionality.",
+    "user_expectations": "The user expects to seamlessly cascade shift register blocks within [product_name] to build a true 32-bit register, avoiding duplicated or missing outputs.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "training",
+      "understanding shift register logic",
+      "building 32-bit logic blocks"
+    ],
+    "pain_keywords": [
+      "output handling limitation",
+      "cascading blocks barrier",
+      "non-intuitive logic building"
+    ],
+    "feature_keywords": [
+      "shift register block",
+      "cascading",
+      "scan delay",
+      "memory block (M)",
+      "program scan cycle"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

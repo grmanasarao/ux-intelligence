@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "9483102271",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 573341385118618,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "The VM addresses from 984 to 990 hold bytes for the RTC. VM 985 corresponds to the year in the RTC. Since it uses only one byte, its maximum value is 256. Is it correct that the year in the VM table starts at 2000, so the actual year equals 2000 plus the value in VM985?"
+    },
+    {
+      "comment_id": 569010298962227,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "The VM byte 985 contains only the last two digits of the full year. The calculation is '20+' plus the value in VM985, meaning a value of 20 in VM985 represents the year 2020. Similarly, if VM985 is 21, it indicates the year 2021."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants to understand how the RTC year information is stored in VM byte 985, particularly how to interpret the value as the complete calendar year. The response clarifies that only the last two digits of the year are stored, using an offset of '20+' to determine the full year. This reveals a need for improved documentation or product guidance regarding date encoding in the memory map.",
+    "user_expectations": "The user expects a reliable method to determine the full calendar year from the value found in VM byte 985 and requests explicit rules for interpreting the year offset.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate year decoding",
+      "clear memory mapping",
+      "straightforward RTC interpretation"
+    ],
+    "pain_keywords": [
+      "ambiguous date representation",
+      "byte size limitation",
+      "unclear year offset"
+    ],
+    "feature_keywords": [
+      "RTC year storage",
+      "VM byte access",
+      "memory address mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

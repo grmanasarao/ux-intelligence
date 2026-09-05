@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "3773570124",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 285021948735850,
+      "user_name": "fkZRt0TSMc",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Is it possible to configure a Modbus write so that it only sends the command when the value changes or as specified? I am using a remote Modbus device that has an EEPROM with a write limit of 100000 operations, so writing every cycle or every second will quickly use up its lifespan."
+    },
+    {
+      "comment_id": 494432139749547,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "No, that's not feasible. You can only adjust the interval timing in the connection settings."
+    },
+    {
+      "comment_id": 959375874670678,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Check if your Modbus device supports writing to EEPROM only upon receiving a specific command, like an 'enter' instruction used by some equipment. Alternatively, consider making your control system handle the memory update process instead."
+    },
+    {
+      "comment_id": 946594855598389,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Hello, could you specify which sensor you're using (is it manual?), and which register function or unit ID you're aiming to write to?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user inquired about triggering Modbus write commands only when data changes to prevent wear on a remote EEPROM-limited device. Responses clarified that such selective writing is not a built-in feature; only fixed intervals are configurable. Advice centered on using workarounds through the Modbus device’s own features or external solutions, rather than relying on [company_name] product capabilities.",
+    "user_expectations": "The user hopes the product can perform Modbus writes conditionally, triggered by data changes, instead of on a strict periodic schedule.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "conditional Modbus write",
+      "minimize EEPROM wear",
+      "efficient communication"
+    ],
+    "pain_keywords": [
+      "no condition-based trigger",
+      "forced periodic writes",
+      "hardware wear risk"
+    ],
+    "feature_keywords": [
+      "Modbus write trigger",
+      "interval settings",
+      "conditional logic"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations"
+  }
+}

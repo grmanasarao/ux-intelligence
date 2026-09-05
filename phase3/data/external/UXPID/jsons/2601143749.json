@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "branch_id": "2601143749",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 323632881263386,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "I'm having trouble retrieving Modbus data from an Intesis module that acts as a gateway between my heat pump and Modbus RTU. The Intesis is connected to the [product_name] CIM, which indicates that an S7 connection is active between the [product_name] and CIM module. With Modbus Poll and a direct RS485 laptop connection, logical data appears from Intesis. However, attempting to connect from my laptop to the CIM using Modbus Poll (Modbus TCP, slave ID 1) results in repeated read and write errors. The laptop's IP is already allowed in the CIM settings, and CIM claims a valid Modbus link. Using \"Network Analog Input\" with the provided settings only returns a value of 0, where a value near 200 (room temperature in decidegrees) is expected. I could only upload one attachment initially, but will try to add more attachments in a follow-up. How can I successfully retrieve data from my Intesis module?"
+    },
+    {
+      "comment_id": 686876508588368,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 515504664901148,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "If you need further information, just ask. Is it possible to upload my actual program here?"
+    },
+    {
+      "comment_id": 989336342688030,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Did you check if the Intesis RTU data is appearing in the CIM? If you access CIM through a web browser, use the RestFulAPI to verify if the RTU values (such as 200) are present in CIM VW0&2. You may need to offset the register number by 1. Access example: [url] This browser command shows VW0 as unsigned. If the value (like 200) is present, configure data exchange from CIM memory to [product_name] using the S7-data configuration table within CIM. That places the RTU data in [product_name] at your configured VM address. Hope this helps."
+    },
+    {
+      "comment_id": 329345545407050,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "It only displays zero for the value."
+    },
+    {
+      "comment_id": 275298657080316,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Here are the Modbus Poll settings (read values near 200 shown on lines 4 and 5). After attempting this, I reconnected the CIM to Intesis, added a new line to request HR6, and tested several links for data: [url] Using variants like vu1/vu2 at the end, I finally received results. For vu1, the outcome was 195, likely representing my real-time room temperature or setpoint times 10. However, vu1 sometimes shows 195, sometimes 50115 or 49920 upon refresh. These changing numbers don't appear when querying Intesis directly by RTU. Cable between CIM and Intesis is 20cm STP, between laptop and Intesis is the same cable at 1m. Shielding isn't connected on Intesis (no option), but is grounded at laptop and CIM. What could explain these three different values showing up while refreshing?"
+    },
+    {
+      "comment_id": 655977726578792,
+      "user_name": "cZQANX744b",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "If you read vu0 via Restful API, that's bytes 0 and 1. If vu1 returns the desired result, it's likely a question of data format or missing offset. I suggest applying a +1 offset to HR/IR as needed. The unstable value could mean multiple RTU devices are being polled, sharing the same memory area. To transfer the value to [product_name], configure an S7-data transfer from CIM (VW1) to [product_name] VM memory. The simplest method to display the result is to use a network analog input leading into an analog amplifier, then show it on the [product_name] display as a text message. Alternatively, use the online test and datatable VWx. Hope that helps!"
+    },
+    {
+      "comment_id": 638063955190124,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Applying an offset is typical—and easily done. I don't see how the CIM would be polling multiple devices if its configuration is set only for device 1, as shown in your screenshot. Polling at 1 second seems reasonable for Intesis. Experimenting with terminating resistors and power cycling didn't improve things—values change but are still sometimes illogical. Converting results to HEX doesn't reveal any Modbus error codes. The P1 LED blinks rapidly even though CIM is polling once per second—could CIM actually be polling more quickly, or is Intesis sending data at high frequency? Testing data requests with both CIM-Intesis and laptop-Intesis (using identical cables) results in: laptop—zero errors and good data; CIM—mostly incorrect results. Two data table rows in CIM, requesting the same parameter: - VU0 yields 49920 consistently - VU1 yields 195 consistently - VU2/3/4/5... all yield zero CIM Modbus settings are in the attachment. Does this point to a CIM malfunction? I'll try to read the 195 value on [product_name] tomorrow."
+    },
+    {
+      "comment_id": 525224881665861,
+      "user_name": "cZQANX744b",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "My suggestion: first, make sure only CIM, your laptop (with browser) and the ModbusRTU device are connected. This guarantees no other hardware or software interfere. Next, only link one RTU device register to one memory address in CIM. Third, determine if an address offset is needed. Test HR register variation (-1/0/+1): e.g., for HR3, also try HR2 and HR4. See the provided RTU photo. Then, use RestfulAPI to verify the value's validity and stability. If it's good in CIM, then use the S7 connection to [product_name], and confirm if the HR parameter is accurate and visible on the [product_name] display or online data table. Check your RTU if the desired parameter is truly in HR—it could be IR. Polling at a 1s rate shouldn't affect data transfer consistency. Good luck!"
+    },
+    {
+      "comment_id": 154439873660485,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "The plan seemed simple but turned out otherwise... After following the steps, RestFul API shows VU0 (Modbus register 4) stable at 195—good start. However, changing the thermostat setpoint to 20 (should show 200), the value stays at 195. Changing the register to 5 (expecting 196) returns 0. Power-cycling CIM results in a slow, unresponsive web interface. A full reset restores responsiveness, but the value switches from 195 to 0 despite carefully checking the wiring and settings. Connecting RTU cable to laptop yields flawless, logical values. Reconnecting to CIM only gives zero from RestFul API. Tweaking RTU register between 3 and 6 (expecting 195 for setpoint and ~195 for measured value) only yields zero. Swapping RTU cable does not help—values remain zero. Testing new cable with laptop again yields correct results. Just to confirm: is the CIM wiring correct? The ground at the top ties to the casing (not RTU shield), and casing is grounded with other 230V equipment. The RTU cable is 2-pair STP."
+    },
+    {
+      "comment_id": 282416268156764,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Modbus register 4's value is now fixed at 195, no matter how I change the setpoint. The measured temperature is 19.6, so expect 196 if that is the register being read. Reading as HR or IR yields no difference. Is there a way to further debug what's preventing CIM from correctly reading data from Intesis? If I were using Modbus Poll, I'd get explicit error messages—read/write timeouts, etc. Can CIM reveal such feedback?"
+    },
+    {
+      "comment_id": 222944088484534,
+      "user_name": "Jb9XAfWiN6",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Good news—I finally have the setpoint and measured temperature readings working! The main issue seemed to be wiring. I sometimes saw values and sometimes got nonsense. Eventually, I stripped a longer section of insulation so there was more copper exposed at the bottom of the CIM. With the wire pushed in as deep as possible, connection became reliable. It seems CIM's wire connector is deeper than my USB-RTU dongle, and only a small amount of copper was making contact in CIM before. This caused unreliable readings. Troubleshooting was made more difficult by some unclear points in the CIM and Sinamics tutorial, along with limited feedback from the CIM. Currently, everything is stable after one day. Is [company_name] interested in detailed feedback to improve the tutorial or to clarify the CIM interface further?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced inconsistent and unreliable data retrieval when using [product_name] CIM Module to read Modbus RTU data from an Intesis gateway. Issues include stuck or fluctuating values, unexplained communication anomalies, and degradation of the CIM's web interface after certain operations. Troubleshooting highlights that hardware connection problems, misconfiguration, and limited diagnostic feedback from CIM complicate the process. Unlike direct laptop-Modbus connections, the CIM module doesn't consistently deliver expected readings.",
+    "user_expectations": "Users expect easy, stable, and dependable Modbus RTU data access via the [product_name] CIM module, matching reliability seen in direct laptop connections. Users also want responsive web controls and accurate, real-time updates of temperature changes through the Modbus registers.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable data retrieval",
+      "stable Modbus communication",
+      "accurate temperature reading",
+      "integration"
+    ],
+    "pain_keywords": [
+      "unreliable data",
+      "unstable readings",
+      "communication anomalies",
+      "slow/unresponsive UI",
+      "register mapping confusion"
+    ],
+    "feature_keywords": [
+      "Modbus RTU integration",
+      "register offset handling",
+      "analog input mapping",
+      "S7-data transfer",
+      "RestFulAPI",
+      "web interface responsiveness"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "5535377233",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 300103691003284,
+      "user_name": "teG5BVr6RH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm trying to establish a reliable connection between an Arduino Controllino and a [product_name] [article_no] [version_no]. I managed to connect from Arduino to [product_name], but the connection only works with port 510 – the usual default port 502 doesn't work for some reason. I'm able to retrieve the correct analog value from a network analog output when it's set to local variable memory at address 2. However, if I use address 1, no value is returned, and address 3 produces a value that doesn't correspond to anything expected. I suspect I'm not fully grasping how to configure addressing in both my Arduino code and in [product_name]. I also tried writing to a holding register but couldn't get that value to be read by the Network Analog Input, set to port 510, unit 255, and address 3. I tested various addresses and unit IDs but haven't gotten it to work. Could anyone offer guidance on properly mapping these Modbus addresses? Thank you!"
+    },
+    {
+      "comment_id": 387469941053099,
+      "user_name": "VjQCxZlqYS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hi, This forum mainly focuses on [company_name] hardware rather than third-party devices, C language, or external library support. For issues related to other brands, it's best to consult their respective communities. Each device uses register types, typically starting with the physical address 0 or using an offset. You might want to learn the basics of Modbus to understand its organization; performing simple tests is helpful. It's odd that your [product_name] isn't using the standard port 502 – most likely, this is due to its configuration, so you'll need to investigate the settings to find the cause."
+    },
+    {
+      "comment_id": 408488015066142,
+      "user_name": "teG5BVr6RH",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello, I believe my problem is related to [product_name], given that it involves Modbus and could be affected by either device. I've also posted about this on the Arduino community hoping for additional feedback. Since there isn't a forum that covers both platforms, I'm seeking help here as well. I've figured out how to read from holding registers, but writing still isn't working as expected. It's still unclear to me why the device connects on port 510 instead of 502; it was new and shouldn't have any unusual configurations."
+    },
+    {
+      "comment_id": 444427447510229,
+      "user_name": "VjQCxZlqYS",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hi, The reason you can access data via port 510 is simply because that's how it's configured in [product_name]; there's no other explanation. You can easily test this with a Modbus TCP client on a PC and try connecting to [product_name]. If port 510 works, that's how it's set up internally. If not, there may be an issue with your Arduino's Modbus TCP library – consult the library creator or troubleshoot it yourself."
+    },
+    {
+      "comment_id": 971569833003361,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "To clarify: Modbus on [product_name] is a reduced feature implementation. Ports 502 through 509 are statically assigned for Modbus server connections, and [product_name] [version_no] (including the latest models) can simultaneously support up to 8 static connections. Therefore, you should create a server connection inside [product_name]; the first static server connection will use port 502. Refer to the attached [document] for more details."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are tackling integration between Arduino and [product_name] over ModbusTCP. Main issues include confusion with Modbus address mapping in [product_name], and why network port 510 is used instead of the Modbus standard port 502. Users express uncertainty regarding which addresses map to specific memory variables, and one contributor explains that [product_name] uses dedicated configuration for Modbus, with ports 502-509 reserved for static server connections. Explicit configuration in [product_name] software is required.",
+    "user_expectations": "User seeks straightforward and consistent mapping between network analog IO addresses and Modbus registers on [product_name], expecting the default ModbusTCP port 502 to be used. They want dependable read/write access using clear and well-documented configuration.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "ModbusTCP interoperability",
+      "direct read/write access",
+      "address mapping clarity"
+    ],
+    "pain_keywords": [
+      "addressing confusion",
+      "unexpected port configuration",
+      "inconsistent register access",
+      "lack of documentation"
+    ],
+    "feature_keywords": [
+      "ModbusTCP server",
+      "network analog input/output",
+      "static server connections",
+      "port assignment"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

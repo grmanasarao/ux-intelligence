@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "7449876106",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 772500313517497,
+      "user_name": "o1MIWXJZzn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm trying to configure a button so that pressing it the first time sets an input high, and pressing it again turns the input off. I've added a button and experimented with options like \"SetBit\" and \"InvertBit\" under various events (such as Click, Press, Release, Activate, etc). Additionally, I included a visual indicator to display the input state by color change. I attempted different approaches, but the input only remains high for a brief moment when the button is pressed. Currently, I'm using [product_name][version_no] together with [product_name][version_no] and a [product_name] panel. Any suggestions on how I can resolve this issue? Thanks in advance!"
+    },
+    {
+      "comment_id": 677846752389878,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], Are you working with an Input tag? Try using a Flag instead. Direct Inputs can be overwritten by [product_name] every cycle. Best regards,"
+    },
+    {
+      "comment_id": 867141742643132,
+      "user_name": "o1MIWXJZzn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], Thanks for your reply. Could you clarify what you mean by using a flag? Should it be implemented in the PLC program or in the HMI visualization? The PLC program is already complete (written by a former colleague) and I want to simulate both the original inputs and outputs via the HMI for testing purposes. Everything should be testable without the actual machine (see attached file). Appreciate your help!"
+    },
+    {
+      "comment_id": 947100258358716,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], The flag should be created in the PLC program so the HMI can write to it. If your aim is to simulate the [product_name] program, you can do so with [product_name]. This allows you to select inputs and monitor program responses. Best regards,"
+    },
+    {
+      "comment_id": 455088662309125,
+      "user_name": "o1MIWXJZzn",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], I've added the flag as shown in the attachment and set up the button event, but it still isn't working. I might be making a conceptual mistake (we use the term often in Holland, not sure about English). Regarding testing, I'm aware of the simulation option, but I prefer it working as described for actual machine testing. This program needs to communicate with a unit and I want to test PLC/HMI functionality with the unit directly, without relying on the machine or laptop—also helpful for future debugging and error tracking. Thank you!"
+    },
+    {
+      "comment_id": 178043896492643,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], If you're using \"Input 1\" and \"M1\", connect both to an OR function; the result should feed into your desired AND function. Best regards,"
+    },
+    {
+      "comment_id": 986118248118250,
+      "user_name": "o1MIWXJZzn",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Thank you! That solves my issue, so I can continue with the project (and will likely encounter more questions along the way). Hope you have a great day!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered difficulties toggling an input using an HMI button for simulation purposes, as the input remained active only briefly. Advice was given to use a flag within the PLC program—written by a previous colleague—to prevent overwriting of Input states, clarifying the distinction between visualization/HMI configuration and PLC logic. Additional help addressed logical connections required for reliable toggling, with final confirmation that the solution worked for the intended hardware simulation scenario.",
+    "user_expectations": "The user expects the HMI button to consistently toggle an input high or low, effectively simulating the hardware for reliable debugging and testing, independent of the physical machine.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable HMI-to-PLC input simulation",
+      "input toggling",
+      "standalone testing"
+    ],
+    "pain_keywords": [
+      "input state not toggling",
+      "unclear difference between flags and direct inputs",
+      "test simulation difficulty"
+    ],
+    "feature_keywords": [
+      "button toggle event",
+      "input manipulation via HMI",
+      "PLC flag use for HMI"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

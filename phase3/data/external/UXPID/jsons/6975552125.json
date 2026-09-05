@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "6975552125",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 147478540145735,
+      "user_name": "BgV1PWpt3c",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm new to [product_name] and need assistance in writing to a Modbus device register. The register in question is 406000. I've read some discussions suggesting this might not be possible. Can someone clarify this or provide guidance on how to accomplish it?"
+    },
+    {
+      "comment_id": 176323193190785,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Are you certain about the register address 406000? Could you provide more details? What Modbus device are you working with? Do you have a link or reference for the register addresses?"
+    },
+    {
+      "comment_id": 498724020817660,
+      "user_name": "BgV1PWpt3c",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Hi, yes, the Modbus device is a gas analyzer, and I'm changing the stream it's monitoring. Currently, with a SCADA application, I manually input values 1-3 and send them to S40600 (floating point, see attached image) and can also read values such as S403144 through the SCADA application. The part I wish to automate is the sending of values 1-3 to register 406000, but I'm unsure how to write or communicate this to the analyzer."
+    },
+    {
+      "comment_id": 163354268683053,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "I’m sorry, but I can’t assist further without more concrete information. Also, your screenshot doesn’t provide useful context for me."
+    },
+    {
+      "comment_id": 470220947626409,
+      "user_name": "BgV1PWpt3c",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 475136908149352,
+      "user_name": "BgV1PWpt3c",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 555557169544201,
+      "user_name": "LXBtkzco91",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "About the register 406000: The following is general Modbus information, applicable to all Modbus implementations and not tied to any specific company or device. The leading digit '4' (e.g., 406000) designates a Holding Register, not an Input Register (Input Registers start with '3'). According to the Modbus specification, Input Registers are read-only, while Holding Registers are always readable and may be writable, depending on device firmware. Device documentation will state if the register is read-only or read-write. To read Holding Registers, use Modbus Function Code 03. To write to a single Holding Register, use Function Code 06. To write to multiple consecutive Holding Registers, use Function Code 16 (decimal) or 10 (hexadecimal). Assuming register 406000 is set up as read/write, this should be possible if permitted by the device."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers around a user's attempt to automate writing specific values to a Modbus register in a gas analyzer using [product_name]. The user is unsure whether this is technically feasible and seeks guidance. Responses reveal uncertainty about register types and lack clear, detailed instruction specific to [product_name] capabilities. Overall, new users appear to struggle with understanding Modbus communications in [product_name], partly due to ambiguous documentation and limited direct support.",
+    "user_expectations": "The user expects [product_name] to provide functionality for writing to a Modbus register similar to what is available in their SCADA system. They are looking for straightforward information or confirmation that this feature is supported, along with practical advice on how to configure it.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automation",
+      "modbus integration",
+      "remote control"
+    ],
+    "pain_keywords": [
+      "lack of documentation",
+      "unclear capabilities",
+      "modbus register confusion"
+    ],
+    "feature_keywords": [
+      "modbus write",
+      "register addressing",
+      "integration with third-party devices"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

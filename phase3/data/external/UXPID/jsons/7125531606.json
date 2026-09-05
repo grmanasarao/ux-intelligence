@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "7125531606",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 960331298950591,
+      "user_name": "cOR66QWa39",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Hello everyone! I'm new to both this forum and to [product_name]. As a student, I'm working on a project to irrigate 4 types of crops. My task involves managing three pumps: tracking each pump's operating time, comparing these times, and then activating the pump with the lowest runtime. I've looked through similar discussions here but still can't figure out the program sequence to compare running times and select the correct motor. Could someone guide me through the logic to achieve this?"
+    },
+    {
+      "comment_id": 309743822615486,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "How are you measuring the running time for each pump? Are you using the operating hours counter block from [product_name] to track this?"
+    },
+    {
+      "comment_id": 853143700278657,
+      "user_name": "cOR66QWa39",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Yes, I'm tracking each pump using the hours counter block from [product_name]."
+    },
+    {
+      "comment_id": 428683755169721,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "That's where the challenge lies. The hours counter provides a value in DInt (32-bit), but the compare function in [product_name] processes only Int (16-bit) values. You can work around this by using the VM area, but it's a complex solution. I can share an example, although it might take some time to prepare."
+    },
+    {
+      "comment_id": 585618678593128,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "I initially attached an example, but I removed it since the solution wasn't functioning correctly."
+    },
+    {
+      "comment_id": 485591987826780,
+      "user_name": "cOR66QWa39",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "You put a lot of effort into this, and I wouldn't have managed it on my own. Thanks for your support!"
+    },
+    {
+      "comment_id": 531573491551040,
+      "user_name": "cOR66QWa39",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "One more question: what's the difference between 'low word hours counter' and 'high word hours counter'? I need outputs like 'q1', 'q2', 'q3' to indicate which motor (1, 2, or 3) has run for less time than the other two, and I need to adjust the logic."
+    },
+    {
+      "comment_id": 745333698508329,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "As mentioned earlier, the operating hours counter outputs a 32-bit value, but [product_name] lets users work only with 16-bit values. To handle this, you need to split the 32-bit (DWord) value into two 16-bit words. For example, let's say you have two counters whose values are stored in the VM area as double word (32-bit) at VD0 and VD4. VD0 contains VW0 (high 16 bits) and VW2 (low 16 bits); VD4 contains VW4 and VW6 similarly. First, compare VW0 and VW4 (the high words) — if VW0 is greater than VW4, then the first meter has a higher value than the second, and you don't need to check the low words. If VW0 and VW4 are equal, then compare the low words (VW2 and VW6) to determine which has run longer."
+    },
+    {
+      "comment_id": 216909706097066,
+      "user_name": "cOR66QWa39",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "That explanation makes sense now, thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are facing data format incompatibility with [product_name]'s counter: it tracks operating hours as a 32-bit value, but its comparison block accesses only 16-bit values. This mismatch complicates automated runtime comparisons for multiple pumps or motors. The workaround involves splitting the 32-bit value into two 16-bit components and comparing them—a method that's detailed, but not beginner-friendly.",
+    "user_expectations": "Users are looking for a direct and user-friendly solution in [product_name] to compare the running times of three pumps, with the goal of automating motor selection based on which has the lowest runtime.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "automated control",
+      "accurate time comparison",
+      "easy integration"
+    ],
+    "pain_keywords": [
+      "data format mismatch",
+      "complex workaround",
+      "usability challenge"
+    ],
+    "feature_keywords": [
+      "operating hours counter",
+      "compare block",
+      "VM area",
+      "DInt to Int conversion"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "5648952124",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 515797377236477,
+      "user_name": "3plE7T6mui",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Here's an update and another question. Thanks to your guidance, I was able to successfully send several test values to the [product_name] device using the HMI’s recipe function and the web server to modify them easily. However, I’m not certain this setup matches my needs. In my current setup, I am utilizing six network analog inputs out of a total of 32, which is insufficient even if I reduce the required 96 values to 48. I’m also using six analog outputs. Another challenge is that I require these values to be sent sequentially to the same output, updating every 15 minutes. Is there a block that enables this functionality? I have just one [product_name] analog module, and I was recommended to use a 4-20 mA current loop combined with PWM to connect to the power regulator. Could this mean [product_name] isn’t the right device for my project? Any advice is appreciated."
+    },
+    {
+      "comment_id": 108566653852722,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "From my perspective, [product_name] may not be ideal for your requirements, but ultimately you should decide based on your project needs. If you want to switch analog values at fixed intervals, the Analog MUX block is available. With two control inputs, it lets you switch up to four different values to the analog output. For handling more than four values, cascading several Analog MUX blocks would be necessary."
+    },
+    {
+      "comment_id": 547022031382596,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Your description is somewhat unclear, which makes it difficult to provide more specific support. Please clarify the exact number of digital and analog inputs and outputs required, as well as the purpose for so many analog values. It appears you do not need all the values simultaneously. Developing a detailed plan for when and how to use the values would help. Providing an example program with a few values could also serve as a useful starting point. Regards, [user_name]"
+    },
+    {
+      "comment_id": 299380187057961,
+      "user_name": "3plE7T6mui",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "You are correct, the values do not need to be used simultaneously. The goal is to store a fixed set of 96 values (which could be reduced to 48) so that [product_name] recognizes them and sends each one to a single analog output sequentially, updating every 15 minutes (for example, the output reads value A, then after 15 minutes reads value B, and so forth). Apologies for the lack of detail; the instructions I received were also quite vague."
+    },
+    {
+      "comment_id": 441223996968990,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Alternatively, Parameter-VM-Mapping combined with a mathematical function can be used instead of relying solely on analog input blocks."
+    },
+    {
+      "comment_id": 339547655506212,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I haven’t tried it personally, but if just one parameter needs to be active at a time, you could use a counter in the [product_name] controller to index the required value. You can view the counter value in the HMI for index-based addressing. The indexed data then provides the analog value to only a single VW address, and thus, memory space within the [product_name] controller isn’t needed. The only logic required is for counter management in the controller: increment after each step and reset after the last step. Search HMI documentation for index-based addressing or recipes that are selectable based on a counter value. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user has managed to transmit test analog values to a [product_name] device and adjust them through the web server, but faces difficulties with scaling—specifically, outputting up to 96 (or 48) analog values sequentially on a single analog output every 15 minutes, given hardware and memory constraints. Contributors highlight that [product_name] may not be suitable for such use cases due to limited analog inputs, outputs, and overall block capacity. Solutions like the Analog MUX block, cascading multiple MUXes, Parameter-VM-Mapping, or index-based recipe selection via HMI are suggested to mitigate these constraints. The primary insight is that [product_name] hardware design and software block limits pose significant challenges for managing large sequences of analog values efficiently.",
+    "user_expectations": "The user anticipates a straightforward or integrated feature within [product_name] to store, schedule, and deliver a large set of analog values sequentially via a single output, with minimal need for manual configuration or complex workarounds. They expect the device to support this type of automated analog value sequencing with ease.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated scheduling",
+      "bulk analog value management",
+      "efficient programming"
+    ],
+    "pain_keywords": [
+      "memory limitation",
+      "block limitation",
+      "sequential output complexity"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "time-triggered switching",
+      "parameter storage",
+      "recipe management"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

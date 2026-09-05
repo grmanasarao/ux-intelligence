@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "branch_id": "4412260278",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 696471424960206,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hello, I’m interested in recording activity history on my [article_no]. For example, I’d like to know if yesterday at 10am a certain input or output was high or low. Is this possible? In my [product_name] software under the tools menu, I found an option called \"load the data log\", but when I try to use it, it says that it can’t be found. What should I do? Thank you!"
+    },
+    {
+      "comment_id": 604255680266533,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "To do this, you need to set up a data log once. In your [product_name] program, you should include the data log block and configure its parameters. Keep in mind, the data log won’t trigger on its own. The block uses an enable input; when the signal changes from low to high there, an event is logged. There must be a pause of at least 500 ms between consecutive log events. Could you elaborate on exactly what you want to log and when? Do you want logs at fixed intervals, or only when certain events occur?"
+    },
+    {
+      "comment_id": 512097817869903,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "See the attached example file. This data log records the status of I1-I8, Q1-Q8, and M1-M8 every minute."
+    },
+    {
+      "comment_id": 865971287041127,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "I have 13 inputs and 15 outputs. I’d like it so that when any of them switch on (from 0 to 1), the activity is recorded with a timestamp. Also, if they switch off (from 1 to 0), the log should record it. Basically, I want to log any changes for inputs, outputs, and blocks like clocks."
+    },
+    {
+      "comment_id": 997857051922411,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "If there isn’t a guaranteed pause of at least 500 ms between state changes of inputs and outputs, logging won’t function reliably. Example: If I1 goes high, and 450 ms later Q1 goes low, there's not enough pause and only the first event will be logged."
+    },
+    {
+      "comment_id": 656558097700002,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Here’s an example file for logging when status changes occur (from 0 to 1 and from 1 to 0) on I1-I8 and Q1-Q8."
+    },
+    {
+      "comment_id": 900906889821843,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Thank you for your example. Why do you use AND EDGE and NAND EDGE blocks? For example: If I1 turns on Q1 and Q2 simultaneously, does the data log fail to record Q1 and Q2 together because there’s less than 500 ms between these events?"
+    },
+    {
+      "comment_id": 708910593602873,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "I'm afraid I can't provide specifics without seeing your program. You haven’t uploaded your setup, so I can’t know how your inputs and outputs are connected. The edge detection blocks are included to trigger logging for rising and falling events, as needed. Hopefully the basics are clear and you can now set up data logging for your requirements."
+    },
+    {
+      "comment_id": 921728645870828,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "I wasn’t sure if the example required an AND Edge block. I’ll try to adapt this to my program and hope it works smoothly. If it doesn’t, I’ll reach out for more help. Thanks again!"
+    },
+    {
+      "comment_id": 619123711992297,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Just so you know: During a logging operation, not only the state of the operand that triggers the log is recorded, but also the states of all operands specified in the data log list."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed solutions for setting up activity log tracking on a [product_name] device. There was confusion regarding the correct configuration and triggering of the logging feature in [product_name] software, and the impact of a required 500 ms minimum interval between log events. Topics focused on parameterizing the data log, the purpose of edge detection blocks, and the limitations when multiple events occur close together.",
+    "user_expectations": "Users expect the hardware and software to provide reliable, timestamped activity logs for all changes in input and output states, regardless of how quickly events occur. They want the setup to be straightforward and able to capture relevant state changes efficiently.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "timestamped activity log",
+      "event-based logging",
+      "simple configuration"
+    ],
+    "pain_keywords": [
+      "logging interval limitation",
+      "configuration complexity",
+      "lack of clear guidance",
+      "missing data log file"
+    ],
+    "feature_keywords": [
+      "data log block",
+      "edge detection",
+      "tools menu",
+      "input/output state logging"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "8": "Documentation Clarity",
+    "10": "Performance Predictability"
+  }
+}

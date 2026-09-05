@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "branch_id": "1139082827",
+    "thread_id": "3055273936",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 952354650148995,
+      "user_name": "se5bnKDDpR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I have an existing installation using [article_no] [article_no] and want to upgrade the base module to [article_no] for its integrated web server capabilities. After reviewing manuals for both the newer devices and [product_name] software, it appears that the newer base modules are not compatible with the existing expansion modules. This seems like the first time [company_name] has discontinued such compatibility. Can someone clarify if I understand this correctly? I expected newer extension modules not to work with older bases, but is it true that old extensions cannot be used with new base modules? There seems to be a solution by making the older installation a slave and using the new module as a master, mapping all inputs/outputs via networking, but this would require significant circuit modifications. I'd much prefer to simply swap the base module. Apologies if this is a common question, but I couldn't find a clear answer. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 543341079249654,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "You are correct. The newer base module cannot operate together with older expansion modules. The available workaround is to network the newer and older modules so that the older hardware can still be used."
+    },
+    {
+      "comment_id": 487820818982091,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "[user_name], Since this hardware is very new, this issue likely hasn't appeared in FAQs yet. For that reason, I wouldn't recommend basing a full design on the latest base module immediately. As you've discovered, it isn't compatible with prior versions. Your networking approach is sensible; personally, I would use the latest unit just as a data server and not as a control master, so it could be removed without affecting the control side, since the new module hasn't fully proven itself yet. Another idea is to consider a [version_no] as a data server—this works for me because I use those PLCs. I hope you find this helpful!"
+    },
+    {
+      "comment_id": 717833169451508,
+      "user_name": "se5bnKDDpR",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Thank you. The news isn't ideal, but at least I now know what upgrading will involve."
+    },
+    {
+      "comment_id": 515511799181557,
+      "user_name": "se5bnKDDpR",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "This system is for home use managing equipment around a private swimming pool, so cost is a key concern. The current setup is [article_no] + [article_no] + [article_no] + [article_no] + [article_no], so switching to the newer base module would mean starting from zero, as the existing modules can’t be reused. Using networked configuration, the cost increase would just be the additional newer base module. I see that the newer base can connect to another master device (which wasn’t possible with the previous generation) and it could be a previous-gen system. It suggests I wouldn’t need to change the current circuit. However, there’s significant user interface functionality using key combinations and the inbuilt display (I use a shift register trick to set up a menu system), which I'd prefer to make available to a web client. To do that, the system would need to run on the newer base module, or alternatively a wrapper would be needed to mirror everything. This might actually require less work than switching to slave mode, so I’ll experiment with a small subset."
+    },
+    {
+      "comment_id": 929721643689179,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "There are alternative options. Some German-language discussions on home automation cover linking LOGO V7 devices to mobile devices. @190B: Could you advise this person where to look or how to link their mobile device with their older base module?"
+    },
+    {
+      "comment_id": 497349275736527,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], I'll do my best as usual... Please refer to: [url]"
+    },
+    {
+      "comment_id": 821808917650938,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Alternatively, you can try the App, which lets you control and monitor your device via your phone's WLAN. After configuring the device address, you can adjust settings and check firmware info. You can also monitor I/O status, VM values, and diagnostics, and add trends for visualization. See: [url]"
+    },
+    {
+      "comment_id": 202730100120271,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Thank you."
+    },
+    {
+      "comment_id": 311159087381121,
+      "user_name": "se5bnKDDpR",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Yes, I know about the app, but I believe it only shows information, not enables inputs—though I could be wrong. I’d like to view the display content and be able to replicate key inputs (short and long presses), which seem to be available only in the newer base module. My current display UI features 16 navigable screens using key combinations, each with up to 4 control functions such as toggling or adjusting values, designed to be simple for family use. For status-only screens, I use the Up and Down keys to scroll by priority. I want to use the same screens and controls remotely from a PC or phone (protected by VPN if needed, as authentication on the older module isn’t possible). Remote access must support inputs. I don’t think the app supports this, but the newer base does, according to the manuals. I could develop a custom app using a library to manage data and simulate key inputs, but that requires more effort than just buying the new module, albeit less than replacing all modules."
+    },
+    {
+      "comment_id": 356000959568891,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "With the free App, you can monitor the current process values of your application via WLAN or Internet on a smartphone or tablet. This allows for switching digital signals and adjusting analog setpoints, along with diagnostics retrieval. The connection is handled via IP address—with WiFi or common Internet DNS methods."
+    },
+    {
+      "comment_id": 130077716685770,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "When expanding your application with the newer base module, you can exchange data between it and the older module. The main complication is with the custom key controls programmed in your system. One solution is to implement the same cursor behavior within the newer module’s web server, using digital flags to transfer key states to the older module. This allows those actions to be used in parallel between the two systems. Hope this explanation is clear and helpful!"
+    },
+    {
+      "comment_id": 786910492852975,
+      "user_name": "se5bnKDDpR",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Yes, that makes sense—this is the solution I arrived at when realizing the previous and current generation modules can work in master-master mode, not just master-slave. I think one of the initial suggestions was to use the new module as a data server and leave control on the older one. Thanks again to everyone on the forum for the help and insights. [user_name]"
+    },
+    {
+      "comment_id": 750600078371164,
+      "user_name": "KE4buG4gyW",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello all, From what I've read so far, can anyone confirm if a complete newer device (with its own extension module) can communicate over Ethernet with a complete older device (which also has its own extension modules)? My goal is to have inputs from the newer module accessible to outputs of the older module, and vice versa. Thank you for your replies."
+    },
+    {
+      "comment_id": 641849941073224,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Yes, this can be done, for example with a client-server connection."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Upgrading from older to newer base modules causes major compatibility problems—older expansion modules can't be reused with the new base, forcing users to replace hardware or implement complex networking solutions. The newer base offers advanced remote control and user interface options, such as a built-in web server, which are highly valued. The lack of backward compatibility raises costs and requires significant migration effort. Although remote access is improved in the new hardware, current apps are not sufficient for complete remote control and user interface emulation.",
+    "user_expectations": "Users expect hardware compatibility that allows reusing existing expansion modules when upgrading the base module, with minimal disruption to circuits. They also want rich remote access that mirrors the physical user interface, including key input control, for simple and secure operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "web server access",
+      "remote input control",
+      "reuse of existing hardware",
+      "seamless migration",
+      "home automation"
+    ],
+    "pain_keywords": [
+      "backward compatibility loss",
+      "migration complexity",
+      "increased cost",
+      "insufficient remote control features",
+      "UI duplication",
+      "manual circuit modifications"
+    ],
+    "feature_keywords": [
+      "built-in web server",
+      "input/output networking",
+      "remote user interface",
+      "ESC+Cursor key emulation",
+      "display text mirroring"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "9": "Feature Requests"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "1042362717",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 142308174506445,
+      "user_name": "t4hNzCHMBp",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, every time there is a power outage on [product_name], the analog values stored with analog flags reset to zero. Is there a way to prevent this or work around the issue?"
+    },
+    {
+      "comment_id": 983263365546422,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Could you share more details about how you use the analog flags? Please upload your program. Keep in mind that analog flags do not provide retentivity."
+    },
+    {
+      "comment_id": 544067522697231,
+      "user_name": "t4hNzCHMBp",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thank you for your response. We use analog flags to set values like set points and orders through the web browser, so operators can update them easily. This setup works well until a power loss, at which point all values reset to zero. Any suggestions to resolve this issue are appreciated. Thanks in advance for your assistance."
+    },
+    {
+      "comment_id": 995604422590514,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "The core issue is that analog flags lack retentive storage. You can try writing values via parameter VM mapping into the parameter of a mathematical instruction. This way, the data is saved in flash memory."
+    },
+    {
+      "comment_id": 830971037925478,
+      "user_name": "t4hNzCHMBp",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hello, thank you for your advice. I tried your suggestion but couldn't get it to work. I've attached a sample diagram for reference—perhaps I made a mistake. If you could kindly check it, I would appreciate it. Thanks so much."
+    },
+    {
+      "comment_id": 685286564161689,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "It would be more helpful to provide the [product_name] file in zip format instead of images. With your example, it's unclear how values are entered for retentive storage. See the attached example for the usual method: values from arithmetic blocks are mapped to the VM memory area, which you can modify via the extended webserver or a networked [product_name]. Analog flags are unsuitable for storing values; only block parameters (timers, analog, etc.) should be used. Regards, [user_name]"
+    },
+    {
+      "comment_id": 308441923861459,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], in your example, retentive storage doesn't work because you are writing by reference instead of directly into the arithmetic instruction parameter via parameter VM mapping. Referenced values won't be retained for mathematical instruction parameters."
+    },
+    {
+      "comment_id": 676318509187763,
+      "user_name": "t4hNzCHMBp",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hello, thank you very much for your assistance. I tested your solution and it worked perfectly. In the end, it was quite simple. Many thanks."
+    },
+    {
+      "comment_id": 515899786566857,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "People sometimes complicate things instead of opting for a straightforward solution. Enjoy your new program! [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced data loss after power outages because analog flags in [product_name] do not retain values. Community members clarified the product's limitations and provided practical guidance for using retentive storage with parameter VM mapping, which resolved the user's issue.",
+    "user_expectations": "The user expects analog values entered through the web browser to be stored persistently, ensuring values remain intact after a power loss rather than resetting to zero.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data retention",
+      "persistent analog values",
+      "operator usability",
+      "web-based changes"
+    ],
+    "pain_keywords": [
+      "data loss on power failure",
+      "values reset to zero",
+      "non-retentive storage confusion"
+    ],
+    "feature_keywords": [
+      "analog flags",
+      "parameter VM mapping",
+      "web browser input",
+      "retentive storage"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

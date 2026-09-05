@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "branch_id": "9924488511",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 766708896811287,
+      "user_name": "DAixK7a17B",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Hello, I want to connect a Dunkermotoren GR63X25 encoder RE20 (motor, gearbox, encoder) to a [product_name] [version_no]. I understand that inputs I3, I4, I5, and I6 can be used for high-speed counting (5 KHz). Encoder RE20 specs: ppr 100, 2 channels (A & B), 5VDC. Motor specs: 24V, 4.9A, 3350 rpm. Gearbox output: 225 rpm, type SG 80K tip. Is this setup possible? Will it function correctly? How should I program the [product_name]? Should I use the up/down counter block or a threshold trigger, etc.? Should I use analog or digital inputs for my [product_name] program? For example, I have a 2 meter sliding door and want to open it in 10 seconds. Can you assist me with programming the [product_name]? Thanks!"
+    },
+    {
+      "comment_id": 120437513989478,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Check out this relevant discussion: motor control."
+    },
+    {
+      "comment_id": 994743386285051,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "You cannot input a 5VDC (TTL) signal directly into a 12/24VDC [product_name]. Signals below 8.5VDC are interpreted as zero, so the [product_name] will not detect any changes. You need to convert the TTL signal to an HTL type for compatibility."
+    },
+    {
+      "comment_id": 630361565817723,
+      "user_name": "DAixK7a17B",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "What would you recommend? Please suggest a straightforward solution."
+    },
+    {
+      "comment_id": 137353620672835,
+      "user_name": "xDdPOoK441",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Hello, why would retrieving the direction require two counter blocks plus a threshold detection block and other functions, instead of one counter block as is typically done for an encoder (A's edge with B=1: count up; A's edge with B=0: count down)? This method is often mentioned, but it's unclear why it's necessary and some forum posts (mentioned by another user) are difficult to interpret, especially if not fluent in German. Is this approach mainly for special cases such as displaying direction or speed, or is it the only way to use a two-channel encoder for position detection? Can someone clarify? Thank you."
+    },
+    {
+      "comment_id": 462648006661328,
+      "user_name": "DAixK7a17B",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "I also need more detailed explanations!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are attempting to interface a 5VDC (TTL) encoder with a [product_name] [version_no]. They are facing hardware incompatibility due to mismatched voltage levels and are uncertain about the correct programming logic, especially regarding the use of multiple counter blocks and threshold detection for direction sensing. There is a clear demand for clarification and better guidance on implementing encoders in this setup.",
+    "user_expectations": "Users expect the encoder to work directly with [product_name] [version_no], simple programming using internal counter blocks, and accessible guides or examples for these applications.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy interfacing",
+      "direction sensing",
+      "position measurement",
+      "automation programming"
+    ],
+    "pain_keywords": [
+      "voltage incompatibility",
+      "unclear documentation",
+      "complex programming",
+      "unsupported encoder input"
+    ],
+    "feature_keywords": [
+      "high speed counter",
+      "digital input voltage threshold",
+      "direction logic",
+      "counter block configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

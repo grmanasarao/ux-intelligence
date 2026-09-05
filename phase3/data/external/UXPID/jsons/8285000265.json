@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "8285000265",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 869985650557115,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, To compare constant values (less than 19999) with an analog value efficiently, you can use a block like an \"analog threshold trigger\". Below are general techniques for testing an analog value Ax against a constant n (which can be zero): A) To test if Ax equals n: Configure the block parameters as GAIN = 1.0, OFFSET = 0; Threshold ON = n, Threshold OFF = n + 1. For example, if n = 0: ON = 0; OFF = 1. Q output is ON when Ax = 0. B) To check if Ax is greater than n: Set GAIN = 1.0, OFFSET = 0; Threshold ON = OFF = n. If n = 0: ON = 0; OFF = 0. Q output is ON when Ax > 0. This works as a positive number test. C) To check if Ax is less than n: Set GAIN = -1.0, OFFSET = 0; Threshold ON = OFF = -n. For n = 0: GAIN = -1.0; ON = 0; OFF = 0. Q output is ON when Ax < 0. This tests for negative values. D) For Ax >= n: Use GAIN = 1.0, OFFSET = 0; Threshold ON = n, Threshold OFF = n - 1. For n = 2: ON = 2; OFF = 3. Q output is ON when Ax >= 2. E) For Ax <= n: Set GAIN = -1.0, OFFSET = 0; Threshold ON = -n; Threshold OFF = -n - 1. For n = 2: GAIN = -1.0; ON = -2; OFF = -3. Q output is ON when Ax <= 2. With this block, you can also check if an analog value falls inside a range (ON = k1 - 1, OFF = k2, within limits -20000 to 20000). For values or ranges outside this domain, use a \"comparator\" block in analog mode for direct comparison between two analog values. Guidance for comparing two analog values is available at [url]. Additionally, there is an extended circuit for broader use along with parameter explanations. Please refer to the example circuit \"[document]\" attached. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 819869288602134,
+      "user_name": "sjsrlBXaEY",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 5,
+      "comment_body": "Thank you, [user_name], for the comprehensive explanation. However, it is worth asking why [company_name] has not developed a simple comparator similar to those found in competitor modules like Crouzet Millennium3. Such a feature would make analog value comparison more straightforward. Regards."
+    },
+    {
+      "comment_id": 760089268405880,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 5,
+      "comment_body": "Hello, I agree, some functions are missing in [product_name] modules compared to modules offered by other manufacturers. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are sharing methods to compare analog values using [company_name] [product_name] modules, often relying on indirect solutions such as analog threshold trigger blocks. There is a perception that essential capabilities, like a dedicated analog comparator block, are absent from [product_name], leading to more complex implementations for basic tasks. Some users note competitor products (e.g., Millennium3 from Crouzet) offer this functionality directly, suggesting [product_name] does not fully address user requirements for analog value comparison.",
+    "user_expectations": "Users hope for a simple and direct way to compare analog values or an analog value to a constant, ideally via a dedicated comparator block, in line with what is available in other PLC brands.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simplified analog value comparison",
+      "intuitive comparator block",
+      "faster configuration"
+    ],
+    "pain_keywords": [
+      "missing analog comparator",
+      "complicated analog comparison",
+      "extra configuration steps"
+    ],
+    "feature_keywords": [
+      "analog threshold trigger",
+      "analog comparator",
+      "comparison block"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests"
+  }
+}

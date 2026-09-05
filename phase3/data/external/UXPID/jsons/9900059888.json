@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "branch_id": "9900059888",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 503365629827842,
+      "user_name": "byk4caY8FO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Can anyone suggest how to read a 16-bit value from a Modbus holding register using a network analog input, modify bit 2 while keeping the other bits unchanged, and write the updated value back to the register via a network analog output? I thought of using a shift register to extract bit 2, modify it, and then return it to the register. How do I write the modified bit back? Any advice or examples would be appreciated."
+    },
+    {
+      "comment_id": 106861177529688,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "What is your intended action for bit 2? Do you want to set it, reset it, or toggle it?"
+    },
+    {
+      "comment_id": 305645622068615,
+      "user_name": "byk4caY8FO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "I need to read a data word from Modbus. If bit 2 is not set, I want to set it. If it's already set, I want to clear it, then write the value back to Modbus. The Modbus device should detect a rising edge on bit 2 when I activate an input on the controller. The other bits must remain unchanged."
+    },
+    {
+      "comment_id": 825961161323978,
+      "user_name": "byk4caY8FO",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Here is my attempt, but it requires many logic blocks to isolate bit 2. I've attached a zip file with the complete code, which currently handles only the top two bits. I'm sure there must be a more straightforward approach, but I haven't thought of it yet."
+    },
+    {
+      "comment_id": 306947582231339,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "From my understanding, this may not be possible with [product_name], since it doesn't support direct 'IF...THEN' queries or jump instructions. Plus, the logic seems off: bit 2 would just be set and then reset on each cycle, repeating endlessly."
+    },
+    {
+      "comment_id": 406582400333393,
+      "user_name": "byk4caY8FO",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "I'm using a comparator for if/then logic and a multiplexer to select the target value. If the value is zero, the bit only gets set when a button is pressed at that moment. I've shared an image and included the code at the bottom of the page in the zip archive. If anyone knows a simpler way to split an analog value into binary bits as done in the rest of the code, please share your method."
+    },
+    {
+      "comment_id": 354142360475298,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "You haven't responded to my previous comment or addressed my point. Did you see it?"
+    },
+    {
+      "comment_id": 407524122790470,
+      "user_name": "byk4caY8FO",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Regarding the if/then logic, I am using a comparator and a multiplexer, so the bit is only set if the button is pressed, and it's not constantly toggling. That wasn't the problem—my main issue was efficiently splitting an integer analog value into bits without using excessive code. The example I uploaded works, but I'm sure there must be a more efficient way. Sorry if it seemed like I ignored your post."
+    },
+    {
+      "comment_id": 656138636970777,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "I'm not sure how you actually read the holding register value into your program—whether it's stored locally or accessed remotely. Could you provide more information?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are exploring techniques to manipulate specific bits within a 16-bit Modbus holding register using [product_name] logic. The main challenge highlighted is the complexity and lack of efficient methods to isolate and modify a single bit in a value, due to the programming limitations of [product_name], which lacks direct bitwise operation blocks. This forces users to rely on multiple workaround blocks, leading to inefficient code flows and increased logic complexity.",
+    "user_expectations": "Users are looking for a simple and efficient way to isolate and modify an individual bit in a 16-bit Modbus value within [product_name] programming, aiming to minimize the code space and number of logic blocks required.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "efficient bit manipulation",
+      "minimal code blocks",
+      "retain other bits",
+      "easy Modbus integration"
+    ],
+    "pain_keywords": [
+      "complex process",
+      "inefficient code",
+      "lack of bitwise operations",
+      "excessive logic blocks"
+    ],
+    "feature_keywords": [
+      "bitwise manipulation",
+      "analog value splitting",
+      "multiplexing logic",
+      "Modbus register write"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

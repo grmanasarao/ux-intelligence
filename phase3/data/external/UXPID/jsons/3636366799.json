@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "3636366799",
+    "thread_id": "4479534060",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 546713924251276,
+      "user_name": "458Ch18ybC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Hello! I'm working with a network setup where there's a master [product_name] device and multiple slave units. Some slaves have additional expansion modules attached. Does anyone know if it's possible to read a value from an analog expansion module (such as an RTD) connected to a slave device? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 629496936301580,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Yes, that's possible. You need to use an analog network input. In the block properties, choose 'remote device' as the source, provide the IP address of the slave [product_name], and select the appropriate analog input number."
+    },
+    {
+      "comment_id": 314019910200251,
+      "user_name": "458Ch18ybC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Hello! I understand the concept, but where do I actually find the expansion analog inputs? In the dropdown, it only displays options 1-8. It seems I can have 0, 2, or 4 active on the base module, but I can't retrieve values with selections like 1, 3, 5... Do you know what I mean?"
+    },
+    {
+      "comment_id": 908462273363801,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "When you activate analog inputs on the base module, you can only choose an even number. That's how the numbering is structured. For example: - If 0 analog inputs are activated on the base module: AI1 is the first input on the first analog expansion module. - If 2 analog inputs are activated: AI3 is the first input on the first analog expansion module. - If 4 analog inputs are activated: AI5 is the first input on the first analog expansion module."
+    },
+    {
+      "comment_id": 850033196633228,
+      "user_name": "458Ch18ybC",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Thanks for the quick reply. Then it works as I expected. There might be an issue with this expansion module since I can't get it to function with the RTD input module, while regular expansion modules (input/relay) operate fine."
+    },
+    {
+      "comment_id": 931060174338825,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Keep in mind, when referring to the base module in your scenario, it's about the specific slave [product_name]. Why do you use the master/slave mode? It can have some disadvantages."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are discussing how to set up a network using [company_name] controllers with master/slave devices and expansion analog modules, specifically the challenges of reading values from an RTD module on a slave. The conversation centers around input numbering, module configuration, and software behaviors; there is some confusion about addressing and module activation, with one user unable to access values from the RTD module despite normal operation of other expansions.",
+    "user_expectations": "The user hopes to be able to access and read values from analog expansion modules attached to a slave [company_name] device, and correctly configure these inputs using the [product_name] software interface.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote analog input access",
+      "networked measurement",
+      "system flexibility"
+    ],
+    "pain_keywords": [
+      "confusing input numbering",
+      "configuration difficulty",
+      "expansion module malfunction"
+    ],
+    "feature_keywords": [
+      "analog input addressing",
+      "AM2 RTD integration",
+      "network block configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

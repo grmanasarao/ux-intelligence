@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "5315211627",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 103100682058985,
+      "user_name": "HINEPIAwp1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Hello, I need to upgrade some machines to [product_name] for more precise RPM control. I'm seeking 1 RPM accuracy, with rotations averaging 1500 RPM. My previous PLC achieved this using a special tachometer function. Having reviewed the forum’s sample programs, such as rpm.zip, errors often fall in the range of 10-12 RPM due to measuring time windows of 5-6 seconds, where pulses are simply counted per second. This doesn't provide adequate precision. I really need a solution for this, as the other PLC used is much lower in quality."
+    },
+    {
+      "comment_id": 323064905732958,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "[product_name] is not ideal for precise RPM measurement—this applies even to the latest versions. It's useful to review the HELP documentation in the [product_name] software for UP/DOWN COUNTER instructions. This function counts on 0 to 1 transitions but ignores 1 to 0 transitions. Use inputs I3-I6 for high-frequency counting (up to 5 kHz if connected directly to the Up/Down counter block) and other inputs for low-frequency counts (typically about 4 Hz)."
+    },
+    {
+      "comment_id": 860030368998307,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Your [product_name] device counts rotations accurately—if inputs and signals are correct and within frequency limits (up to 32767 whole numbers, sometimes more). If the precision seems off, it could be a programming issue. Please clarify your exact requirements."
+    },
+    {
+      "comment_id": 834331441692574,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "The issue isn't with pulse counting but with the measurement time basis. A shorter time period increases error due to extrapolation. If you want RPM (x/min), you need to count over a full minute for updates every minute—otherwise, error increases. For better detection and evaluation, consider using a threshold trigger (e.g., based on frequency)."
+    },
+    {
+      "comment_id": 434001677949327,
+      "user_name": "HINEPIAwp1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Thanks everyone. My application is to read the actual rotation of a generator and compare against a setpoint. For example, if RPM reaches 1530, an output is switched ON; if it’s below 1505, it's switched OFF. The system refreshes every 5 to 10 seconds. I'm trying to determine the time interval between pulses."
+    },
+    {
+      "comment_id": 789799859304781,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Hi, does your [product_name] have fast input channels?"
+    },
+    {
+      "comment_id": 154283376350457,
+      "user_name": "HINEPIAwp1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Yes, it does—specifically I3. I’ve checked all available options."
+    },
+    {
+      "comment_id": 485925958246885,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Mistakes occur in these kinds of programs, regardless of using a budget [product_name] or an expensive alternative from another brand. To measure RPM, set your time base (for example, 1 second), count pulses in that window, and multiply by 60 to get revolutions per minute. There will always be a margin of one pulse in each timebase, common to all PLC systems. After multiplication, the results will fluctuate by 60. To reduce fluctuations, increase the time base (e.g., 60 seconds), which narrows error to ±1 but slows the calculation cycle to once per minute. If you use revolutions per second (RPS) instead, you won't need to multiply by 60, and fluctuations are smaller. Increasing pulses per revolution (e.g., 10 pulses per revolution, multiply by 6) can also help reduce fluctuations. Just ensure you don’t exceed the input’s max frequency. These principles apply to all PLCs, not just [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing the difficulty of achieving 1 RPM measurement accuracy using [product_name] for generator applications. While [product_name] can count inputs accurately within its frequency limits, limitations in how time-based measurement works and inherent delays mean the targeted precision cannot be consistently maintained. Fluctuations and delays are present due to short sampling windows, and this is a shared challenge across various PLC platforms, not just [company_name] products.",
+    "user_expectations": "The user is looking for [product_name] to deliver near real-time, precise RPM measurement with 1 RPM accuracy, minimal delay, and stable output, to optimize machine control effectively.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate RPM monitoring",
+      "real-time control",
+      "responsive machine upgrade"
+    ],
+    "pain_keywords": [
+      "measurement delay",
+      "fluctuations",
+      "insufficient precision",
+      "refresh rate"
+    ],
+    "feature_keywords": [
+      "fast input",
+      "pulse counting",
+      "UP/DOWN counter",
+      "refresh rate"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

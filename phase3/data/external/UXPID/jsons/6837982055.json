@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "branch_id": "6837982055",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 214625668020552,
+      "user_name": "x9FJcMWDHp",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I really appreciate your support. The program structure is clear, and I've already learned a lot. Reflecting on your programming, I'm considering if instead of stepwise intervals, T1 could follow a reverse linear relationship to T2—so AQ1 PI setpoint moves smoothly from 55 to 70 as T2 shifts from +10 to -10, creating a continuous control approach?"
+    },
+    {
+      "comment_id": 444075333165332,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Thank you for your positive feedback. However, I find it a bit frustrating when the requirements change after I've developed one solution. Your new request shifts things in a different direction. I understand that those new to this area seek help in forums, but it's important not to expect users here to act as personal tutors."
+    },
+    {
+      "comment_id": 119180158854991,
+      "user_name": "x9FJcMWDHp",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I see your perspective. I initially didn't expect [company_name]'s compact controller to support such analog functionality, so your guidance opened up new possibilities for my design. As you probably know, home projects often expand beyond the original idea. Your advice on the interval-based approach was helpful, and I plan to keep it for now."
+    },
+    {
+      "comment_id": 561847596953748,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I am happy to assist others. However, the person seeking help should clearly describe their full requirements, not just fragments or vague ideas. Only with a complete understanding of the problem can effective help be given. My question now is: What exactly is the program supposed to achieve? Is it a control strategy for something like a heating mixer valve?"
+    },
+    {
+      "comment_id": 880615953118044,
+      "user_name": "x9FJcMWDHp",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello, Yes, this is for a heating mixing (shunt) valve. T1 is the water temperature going to the indoor heating system (radiators, floor heating, hot water tank, etc.). I aim to keep T1 as low as possible, but not under 55°C to avoid bacteria risks in the domestic hot water. The boiler temperature ranges between 70°C and 95°C, so a mixing valve is needed. When it's colder outside (T2, measured with a PT100 outside sensor), more heat is needed indoors, so T1 is increased to ensure enough energy and prevent too low return temperatures to the boiler. My calculations suggest that with outside temperatures above 10°C, 55°C water is enough, but at -10°C, you need 70°C for adequate heating. This is my first winter in the house, so these numbers are mostly estimates. Calculating energy needs in an old farmhouse is difficult—it's ideal to use a PLC so I can adjust values over time to optimize energy use (for example, if in the future 65°C suffices at -10°C, that's better). The interval solution would work, but if the outdoor temperature sits on a step boundary, I might see fluctuations. Also, I think continuous adjustment would save more energy, so small outside temperature changes cause small, logical adjustments. Over the winter, I plan to make further refinements."
+    },
+    {
+      "comment_id": 275708138284749,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I've attached a proposed solution, including an Excel file and a [product_name] program. The Excel sheet helps calculate the GAIN and OFFSET parameters for use in the [product_name] program. Temperatures are handled with two decimal precision. For this setup, the PI controller's setpoint is based on outdoor temperature. If the calculated setpoint falls below 55.00°C or exceeds 70.00°C, it is automatically limited accordingly."
+    },
+    {
+      "comment_id": 617339310887122,
+      "user_name": "x9FJcMWDHp",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Thank you! Adding night setback for better energy savings is a smart idea. I have some questions: A) Why do you use two analog amplifiers in series after A1? B) When adjusting the outside temperature between 5 and -20°C, the offset remains 6250 and the gain -0.600. Changing B006 to -600 does not affect the slope in the same way. C) In the text field, what do SPday and SPnight indicate beyond day/night mode and related setpoints? The setpoint of 62.5°C doesn't actually seem to apply, since the SP is always a function of the outdoor temperature, right? D) I added an analog amplifier (gain 0.8, offset 200, range 200-1000) to set the output from 200 (2V) to 1000 (10V) for the 2–10V actuator, avoiding the 0–2V range. Is this the proper approach?"
+    },
+    {
+      "comment_id": 281435210820319,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "For point A: [product_name] converts any analog input (voltage, current, or resistance) into 1000 units. For the PT 100/1000 sensor, the measurement range is -50 to 200°C, so each unit equals 0.25°C. Achieving this in [product_name] requires a 25x amplification. After applying an offset of -5000, the usable range goes from -5000 to 20000, mapping to -50.00 to 200.00°C for display. Since a single analog amplifier allows max 12.5x gain, two amplifiers are used in series: one with gain 10, followed by one with gain 2.5. For point B: There was an error in my offset calculation—I had assumed the simple scenario where Outside min and max are equidistant from zero, as in your first example. For point C: The day setpoint is only for display, to help locate where the calculated offset sits at 0°C based on the current parameters. For point D: Your analog amplifier approach is correct. Just set GAIN (0.8) and OFFSET (200); the software will calculate the Min and Max parameters automatically. Please see attached updated files."
+    },
+    {
+      "comment_id": 281130676992150,
+      "user_name": "x9FJcMWDHp",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello, Thank you again. I'm still unsure about point A—since it's possible to select a function block for PT100/1000 directly, which outputs the correct value instantly? Either way, I managed to integrate the values into my existing logic (essentially only needing AI1 as the trigger). I've also modified the message text somewhat, but after downloading to the [product_name], no message was displayed. With my previous simple setup, the text showed correctly, which is confusing. I reverted to the previous setup as I couldn't view the values on the [product_name] during testing. I've uploaded the modified file for review."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to achieve precise, stepless PI control for a heating system using [company_name]'s automation platform. The main goal is to move from interval-based controls to a linear, analog-based approach to improve efficiency and energy savings. Technical exchanges focus on analog signal scaling, amplifier usage, and display visibility challenges when implementing advanced logic.",
+    "user_expectations": "The user seeks continuous, precise PI control of a heating mixing valve based on outside temperature, with clear display of all setpoint and calculated values on the [product_name] interface and robust analog signal scaling for compatibility with control hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "energy savings",
+      "smooth temperature control",
+      "display information",
+      "flexibility for system tuning"
+    ],
+    "pain_keywords": [
+      "display not showing values",
+      "difficulty with analog scaling",
+      "unclear interaction of new functions"
+    ],
+    "feature_keywords": [
+      "analog PI control",
+      "stepless linear function",
+      "text messaging/display",
+      "analog amplifier"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

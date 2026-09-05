@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "3780439666",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 912717991360051,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I'm excited about the new [article_no] [product_name] modules. Currently, I'm working on a project to create a weather station for curtain control in a barn. I wanted to know if there's a way to push a variable to the device using a POST method or any other method. I need wind speed and direction data for my area and considered using internet data instead of installing sensors to save costs. I could write a PHP script to collect this data, but I'm unsure how to transfer it to the [product_name]. Any advice would be greatly appreciated!"
+    },
+    {
+      "comment_id": 117637822287870,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello, The device can internally log data or store it on a memory card. You can access this data via Ethernet. Refer to the manual for information on DataLog. Multiple records can be created in a file if you use an SD card with the device."
+    },
+    {
+      "comment_id": 749383587951825,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Just to clarify, I need to read a variable, not write one."
+    },
+    {
+      "comment_id": 169706020985207,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "You can download the DataLog file over Ethernet and save it as a CSV file on your PC. The CSV can be imported and analyzed in Excel."
+    },
+    {
+      "comment_id": 687171693615437,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "I think there was a misunderstanding. My goal is to send a variable from my PC to the device. Is this possible through an HTML POST method or something similar?"
+    },
+    {
+      "comment_id": 598957880640815,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "You can try using the embedded web server. The web server mirrors the device display and key inputs, and also provides an external text display option (TDE)."
+    },
+    {
+      "comment_id": 797067133343883,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello, Without some additional techniques, you can't easily transfer internet values to the [product_name]. One method could involve a PC with an OPC server, where you'd need to program the PC to fetch internet values and forward them to the correct address for the device. The device can then use network analog inputs to receive these values. I think this addresses your question. There are also other options, but you'd need to explore the communication methods: 1. Communication via TCP/IP, allowing for direct data exchange; 2. Investigating how web browser communication works with the device's web server; 3. Analyzing interaction with an HMI and simulating the HMI. However, I'm not aware of any direct solutions for this. Hope this helps."
+    },
+    {
+      "comment_id": 508147474708701,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "This answer gives me a lot of new ideas. Using the network analog input is exactly what I was searching for! Thank you, I'll experiment and share my results here."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on sending data from a PC or internet source to a [product_name] device. While product documentation and web server functionality allow users to read and log data from the device, finding a straightforward method to directly push external variables (such as wind data) into the system remains challenging. The thread exposes limitations in direct HTTP POST integration and illustrates a lack of simple solutions for connecting web-based sources to the device.",
+    "user_expectations": "Users expect the [product_name] [article_no] module to accept variables from an external script or internet source through simple means like HTTP POST or similar web-based methods.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "internet data integration",
+      "remote variable update",
+      "automation"
+    ],
+    "pain_keywords": [
+      "lack of direct data input",
+      "complex integration",
+      "HTTP POST unsupported"
+    ],
+    "feature_keywords": [
+      "web server",
+      "network analog inputs",
+      "Ethernet",
+      "data logging"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

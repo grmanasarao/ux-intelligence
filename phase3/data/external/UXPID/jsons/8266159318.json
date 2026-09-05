@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "branch_id": "8266159318",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 780297845399299,
+      "user_name": "fisvUwngkS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Here is my current issue: I'd like the elevator to go to floor 1 when I press button 1 on the web interface. I'm not sure what to set for the inputs so the action is triggered when I click. Thank you!"
+    },
+    {
+      "comment_id": 647671446818860,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Based on your screenshot, you seem to want to switch the physical inputs of the [product_name] using the web server, but that's not possible. For switching actions, you should use flags or bits from the VM area. Also, consider that the web server sends only static signals (like switches) and not dynamic signals (button behavior). If you need button behavior, you must translate the static signal to a dynamic one within the [product_name] configuration."
+    },
+    {
+      "comment_id": 906262198088735,
+      "user_name": "fisvUwngkS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Is it possible to use both at the same time? I'd like the system to work with both the physical control box buttons and the web server remote."
+    },
+    {
+      "comment_id": 509979152179035,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "No, it's not possible to remotely switch the digital inputs of the [product_name] directly—this is a limitation of the physical device. You need to connect the digital input in parallel (using an OR block) with the signal (flag or VM bit) from the web server."
+    },
+    {
+      "comment_id": 941073794439014,
+      "user_name": "fisvUwngkS",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Okay. Based on my example, if I program it as above, should it work with both the control box and web server? Thank you."
+    },
+    {
+      "comment_id": 648505797462267,
+      "user_name": "fisvUwngkS",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Is it normal that when I disconnect my ethernet cable and enter the IP address in a browser, nothing works? I get an error message, but with the ethernet cable plugged in, everything works."
+    },
+    {
+      "comment_id": 837606230991131,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 342889458615942,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "As I mentioned before, your screenshot doesn't show everything. Your programming approach could be improved, for example, avoid drawing lines through blocks."
+    },
+    {
+      "comment_id": 831209459222288,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Sorry, I don't quite understand what you mean."
+    },
+    {
+      "comment_id": 741581625223382,
+      "user_name": "fisvUwngkS",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I know my style isn't optimal, but if I add a network input and use an input block with OR logic, is that fine?"
+    },
+    {
+      "comment_id": 512756125768570,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Yes, you can do that, but keep in mind that the web server provides static signals. When you switch from the web server, the signal stays high until you switch again."
+    },
+    {
+      "comment_id": 290043175600703,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "If you want a button-type function instead of a switch, you need to set a network output to LOW constantly using a LOW block, with the same address as your input."
+    },
+    {
+      "comment_id": 129717061070275,
+      "user_name": "fisvUwngkS",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I understand how to handle the inputs, but I'm unclear about the output Q1. Why use an IO block? Is my output Q1 connected to my inputs?"
+    },
+    {
+      "comment_id": 492178839831869,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "There are two possibilities: either I'm misunderstanding your requirements and giving incorrect solutions, or you're not grasping what I'm explaining. It seems all you wanted to know is how to control the system simultaneously from both the web server and the digital inputs."
+    },
+    {
+      "comment_id": 996594946448904,
+      "user_name": "fisvUwngkS",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Probably the second option. What is the purpose of the LOW block? In my [product_name] Web Editor program, what settings should I use for my inputs?"
+    },
+    {
+      "comment_id": 933731199395985,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "As previously explained, the web server only sends static signals; clicking on the digital value sets the associated VM bit (such as V0.0) high until you click it again, which is more like a switch. If you want a momentary button effect, you need to reset the bit in the [product_name] program. That's why a network output with the same address gets reset to LOW using a LOW block, so the signal from the web server stays HIGH only for one cycle."
+    },
+    {
+      "comment_id": 505523515229434,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I've attached a screen recording that might help clarify."
+    },
+    {
+      "comment_id": 401641093381373,
+      "user_name": "fisvUwngkS",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you. Would it be better to create two separate programs—one for the control box and one for the web server?"
+    },
+    {
+      "comment_id": 919199618539351,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I'm not sure..."
+    },
+    {
+      "comment_id": 395553656731819,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You could manage everything in a single program—just use OR function blocks and appropriate logic for the web server as a controller. This way, you can monitor inputs and outputs together."
+    },
+    {
+      "comment_id": 901013801467398,
+      "user_name": "fisvUwngkS",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello everyone! I'm a bit confused about the web server setup. Could someone send me a sample program using network inputs? I've attached my diagram. For reference, I want the elevator to move to the chosen floor when a button is pressed on the web page. Thank you!"
+    },
+    {
+      "comment_id": 349715261825958,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I've previously created a complete project for you for both [product_name] Web Editor and [product_name] Soft Comfort. I hope it fits what you need."
+    },
+    {
+      "comment_id": 719892110079774,
+      "user_name": "fisvUwngkS",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you! What block settings should I use in the [product_name] Web Editor program—for buttons, sensors, and outputs? [user_name]"
+    },
+    {
+      "comment_id": 910188840154642,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I'm sorry, this was my final attempt. I've put together a full project for you so you can see and test everything. I explained the details in earlier posts. Please clarify your question again... I think I can't help further."
+    },
+    {
+      "comment_id": 614034639900182,
+      "user_name": "fisvUwngkS",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Please don't give up! I tried your program and it works nicely. In the [product_name] Web Editor program, I added digital values: Button 0 uses Block Type \"V\" and Block Number 0.0; Button 1 uses Block Type \"V\" and Block Number 0.1. This is the same for other buttons too. But on the web page, clicking the button doesn’t do anything. On the control box, when I press button 0, I see on the web page that Sensor 0 is ON and Q2 (Go down) is ON. Never give up, please."
+    },
+    {
+      "comment_id": 317317839160382,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Everything is working well, check the attached video."
+    },
+    {
+      "comment_id": 402092628237437,
+      "user_name": "fisvUwngkS",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Yes, your program works and I appreciate your patience. I do have two small issues: 1) The floor number isn't displaying on the web server. I think it's because my LCD screen isn’t linked to an input on my device—just Q3 and Q4. See attached picture. I'm using binary operations to show the numbers: When Q3 is active, A = 2^0 = 1. When Q4 is active, B = 2^1 = 2. When none is active, it shows 0. The up arrow is wired in parallel with motor relay KA2, so when KA2 is active, the up arrow shows on the LCD. Similarly, the down arrow is wired in parallel with relay KA1. 2) A minor issue: When the elevator is at sensor 1, the LCD shows “2”; at sensor 2, the LCD shows “1.” Thank you!"
+    },
+    {
+      "comment_id": 910491824503922,
+      "user_name": "fisvUwngkS",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I've resolved my problem!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to manage elevator control through both a physical panel and a web interface using [product_name] hardware. A central challenge is the misunderstanding that the same hardware inputs can be operated locally and remotely, whereas the remote interface only controls flags or VM bits. There is ongoing confusion about static versus dynamic signals, and some difficulty in programming approach and style, impacting the clarity and reliability of user experience.",
+    "user_expectations": "Users expect seamless control from both physical buttons and the web interface, with consistent and predictable responses no matter the source. They look for intuitive options for configuring inputs and outputs so combined hardware and remote operations function without conflict.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote operation",
+      "combined local and remote control",
+      "input flexibility"
+    ],
+    "pain_keywords": [
+      "input configuration confusion",
+      "remote and local input limitation",
+      "unclear programming paradigm"
+    ],
+    "feature_keywords": [
+      "web server inputs",
+      "local digital inputs",
+      "OR logic block",
+      "flags (V-bit)"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "branch_id": "1011759631",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 994897812475931,
+      "user_name": "TKW6iml1ys",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I've been using the new webserver on the latest [product_name] recently. It works perfectly on my home network, but I'm unsure how to monitor the [product_name] from the internet. Any advice?"
+    },
+    {
+      "comment_id": 330447437139421,
+      "user_name": "cqa6LAhrPL",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "To enable remote access to your [product_name], you first need to open the correct port on your firewall or router so incoming internet connections can reach your internal network. By default, routers and firewalls block these connections. If you are on a corporate network, your IT team should handle this. The following steps assume a home network setup: Web browsers usually use port 80, but you can configure your firewall or router to map any external port to the internal port that your [product_name] is set up to receive requests from. For multiple [product_name] devices, assign unique port numbers so the router can direct the requests correctly. In practice, connect using the router's IP address, not the [product_name]'s internal IP. The documentation claims port 8080 is the one [product_name] listens on, but in my experience, opening port 80 internally was required. Not sure why [company_name] specifies 8080; perhaps someone else can explain. You'll either need a fixed IP from your ISP, or use a dynamic DNS (DDNS) service because your router's external IP can change. DDNS gives you a constant domain name, like [url], which you use to access the network. Set fixed IP addresses for each [product_name] device so your router forwards requests properly. After these steps, remote monitoring should work; I'm able to monitor mine over the internet at remote locations. In some cases, I have connected devices wirelessly when Ethernet cabling is not practical. If you're not on a home network, your IT department is the appropriate contact for these changes. Hope this is useful."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants to monitor a [product_name] controller using its web server, which works on their home network but presents challenges for internet-based access. Key usability issues involve configuring network settings such as port forwarding and firewall rules, handling dynamic IP addresses, and dealing with unclear or inconsistent documentation from [company_name] regarding port requirements. This points to user confusion about secure and reliable remote web access for [product_name].",
+    "user_expectations": "Users expect clear, consistent instructions and documentation from [company_name] for straightforward and reliable remote web access to [product_name] over the internet.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote monitoring",
+      "reliable internet access",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "documentation inconsistency",
+      "port configuration",
+      "networking difficulty",
+      "unclear setup"
+    ],
+    "feature_keywords": [
+      "web server",
+      "port forwarding",
+      "remote access",
+      "IP configuration"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

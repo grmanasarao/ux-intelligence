@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "3579898495",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 452139172917913,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I have some questions about Modbus and the data transfer table. How many transfers can be done in practice? In one project, I managed 26, but in another the table only allowed adding 32 transfers. I need to do more than 32— is this possible? Also, how many holding registers (HR) and VW (variables/words) can be used? I’d like to use up to HR=151. Hoping for advice. Thanks for your help."
+    },
+    {
+      "comment_id": 122956875666137,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You can reduce the number of entries by grouping them. For example: update the line with HR11 to cover 4 words, then remove the HR13 line—this will combine HR11 and HR13 being transferred to VW0 and VW4. Similarly, set the HR15 line to 8 words and remove the HR17, HR19, and HR21 lines—this way, HR15, HR17, HR19, and HR21 are transferred to VW32, VW36, VW40, and VW44. Repeat the process accordingly, making sure the VW numbers are properly sequenced (step 2 for single registers, step 4 for double registers, etc.). You can reduce even more lines if the register and VW numbers are in ascending order on both sides, though you’ll need to organize the VW numbers in your program. Around 125 registers can be transferred at once, though I’m not certain of the exact value. Regards, [user_name]"
+    },
+    {
+      "comment_id": 476506268477261,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Okay, I’ll give it a try. Just one more question: if I transfer VW2 (2 words) to HR1 (2 words), does that mean VW2 goes to HR1 and VW4 to HR2? Am I correct? Thank you so much for your answer, [user_name]. Regards."
+    },
+    {
+      "comment_id": 487604185846641,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "VW2 (2 words) to HR1 means VW2 transfers to HR1, and VW4 to HR2. You can only enter 32 lines in a connection table, but it’s possible to use more than one connection."
+    },
+    {
+      "comment_id": 773748923486533,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The pattern is consistent in both directions: register steps of 1 correspond to VW steps of 2, and steps of 2 registers use VW steps of 4, etc. Use distinct areas for each direction and for digital or analog signals; this gives you four areas and helps with logical organization. Consider creating an Excel sheet listing all signals both ways to summarize everything clearly. Be careful not to overlap areas with different signals, as that could cause confusing results. Regards, [user_name]"
+    },
+    {
+      "comment_id": 835849574937218,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hi all, I followed the advice you suggested. It works for me up to HR=100, but does anyone know why 100 is the limit? I thought I could use more than 100 holding registers. I attached images showing the working and non-working cases. Another point: in the 'PictureItWorks' image, the assigned HR for VW=234 is 0X60 or 94 decimal. I expected 228->92, 230->93, 232->94, 234->95, but after testing I found HR=94 was correct. Not sure why. Three images are provided for reference—'VWSendValue' shows ResolucioT2=VW238 and ResolucioT3=VW242. Thanks for your help, this forum is very supportive for beginners. Regards."
+    },
+    {
+      "comment_id": 790642882433032,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The limitation is due to TCP/IP packet sizes. Modbus TCP/IP requires a header plus data values, so each register may use slightly more than two bytes. For details on packet size and protocol specifics, please review the relevant online resources ([url]). Also, clients and servers may start register counting at either 0 or 1; please check how your system does it. For example, [product_name] starts at register 1, while Arduino might start at 0—confirm this in your Arduino documentation. Make sure to align register mappings accordingly. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user encountered limits when configuring Modbus data transfers in [company_name] equipment, specifically a maximum of 32 entries per table and an unexpected ceiling of around 100 holding registers. Address mapping and discrepancies between systems also caused confusion, especially regarding register numbering starting at 0 or 1. Community advice included strategies for organizing transfer tables and grouping entries more efficiently, as well as reminders to double-check system conventions and documentation. However, documentation of exact limits and address mapping remains unclear, leaving some of the user’s concerns unresolved.",
+    "user_expectations": "The user expects [company_name] products to support more than 32 transfer entries and allow for a higher count of holding registers in Modbus setups, with clear and consistent addressing to avoid confusion when integrating with various systems.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "higher Modbus transfer capacity",
+      "clear address mapping",
+      "intuitive configuration"
+    ],
+    "pain_keywords": [
+      "transfer entry limitation",
+      "register count limit",
+      "address mapping confusion"
+    ],
+    "feature_keywords": [
+      "Modbus data transfer",
+      "data transfer table size",
+      "holding register support",
+      "address mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

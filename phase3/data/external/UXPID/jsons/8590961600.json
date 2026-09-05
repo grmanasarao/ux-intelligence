@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "8590961600",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 808258960564814,
+      "user_name": "drf7jObOL3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm observing unusual behavior with [product_name] [version_no] acting as a Modbus server. The client involved is an Arduino board set up to access the first eight holding registers, writing the last four with the values 1111, 2222, 3333, and 4444. I configured both the program and Modbus data transfer on [product_name] as shown in the screenshots ([document]), and the display reflects this setup appropriately. However, when I adjust the data transfer configuration as shown in another screenshot, the results differ unexpectedly. According to the new configuration, I anticipate seeing only the first value (VM 18) while the other three should remain zero due to remapping. Instead, the first value is missing, and the last three persist. Can someone help clarify what might be incorrect in my logic?"
+    },
+    {
+      "comment_id": 123682110113930,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "It may be possible there is a bug in your application. Have you tried creating a new test program with the current configuration to see if the issue persists?"
+    },
+    {
+      "comment_id": 506027176854337,
+      "user_name": "drf7jObOL3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Yes, I did. I encountered this issue in a more complex setup, where I'm using [product_name] as both Modbus client and server simultaneously. In that scenario, the client's VW memory was disrupted due to server-side VW settings from the PLC. The example I posted is simplified to help diagnose the problem. I've noticed that using consecutive VW addresses starting from zero seems to work reliably. I hope this approach remains stable, as I need [product_name] to function between a PV inverter (server) and smart power sockets (clients) for managing home electrical loads based on solar production."
+    },
+    {
+      "comment_id": 322579125351572,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hi, In your initial configuration, you read four holding registers with VW8 as the starting address in [product_name] VM. Then, you change the starting address to VW18 in a later setup. This change should work as expected. However, the holding registers you're reading may not all be 2-byte values. Try setting the starting address in [product_name] to VW100 and retest. If that resolves it, double-check whether each of the holding registers is indeed a 2-byte value. Hope this helps."
+    },
+    {
+      "comment_id": 986808069367573,
+      "user_name": "drf7jObOL3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Thank you for your input. As mentioned earlier, using consecutive VW addresses seems to provide better reliability. In my final implementation, both the Modbus client and server use consecutive VW addresses and everything appears to function correctly, even with a large number of holding registers on the client side."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users noticed inconsistent outcomes when changing Modbus data transfer addresses on the [product_name] [version_no] module. Altering the virtual memory mappings did not always produce the expected result, especially when remapping holding register addresses. The experience suggests that using consecutively aligned VW addresses enhances stability and compatibility between [product_name] modules and external Modbus devices.",
+    "user_expectations": "Users expect that updating Modbus holding register mappings to new VM addresses in [product_name] will cause only the mapped VM to receive the data, with unmapped VMs remaining at zero.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable data mapping",
+      "predictable memory assignment",
+      "interoperability"
+    ],
+    "pain_keywords": [
+      "unexpected VM mapping behavior",
+      "unclear address assignment",
+      "potential data corruption"
+    ],
+    "feature_keywords": [
+      "Modbus data transfer",
+      "VM/HR mapping",
+      "address configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "2": "Product Compatibility"
+  }
+}

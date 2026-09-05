@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "9738256935",
+    "thread_id": "3055273936",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 181152131933620,
+      "user_name": "DdOoPbXjLm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Hello, Although I use analogue filter components to smooth analog inputs in my [product_name] programming software (which work well in simulation), they seem ineffective when used on my [product_name] hardware with article number [article_no]. This was disappointing to discover, but I've been working with it for nearly two years. Would the analogue filter function perform better on the newer [product_name] hardware with article number [article_no]? Thank you."
+    },
+    {
+      "comment_id": 110255793016747,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Your device is a 24 CE, not a 24 RCE. The 24 RCE version does not have analog inputs. It's challenging to assess such issues remotely. I don't believe upgrading to the latest [product_name] version will resolve this. It's difficult to evaluate your signal quality and instability from afar. You also haven't specified whether your signal is 0-10V or 0/4-20mA. Installation factors such as wiring type, cable quality, cable length and cross-section, and potential external interference (for example, from converters) can strongly influence performance."
+    },
+    {
+      "comment_id": 415819301744188,
+      "user_name": "GoUonzsWEC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "The \"Analog Filter\" function samples every program cycle. The simulation environment runs much slower—possibly 10 or 20 times slower—than actual hardware. As a result, the filter time is much shorter on real hardware compared to simulation. When necessary, I first use the analog filter set to the maximum filter length, then add an \"Average Value\" block if I want the inputs to be averaged over longer periods."
+    },
+    {
+      "comment_id": 130648461791473,
+      "user_name": "DdOoPbXjLm",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Thank you for your helpful reply! Since your suggestion, I've added an average value block (8 samples over 1 second) after each analog filter on all sensor inputs, which has significantly reduced fluctuations. The filters are still set to 8 samples, but I plan to try different settings when I have more time. Much appreciated."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users notice that the analogue filter feature performs smoothly during software simulation with [product_name] but appears ineffective when used on actual [product_name] hardware. This creates dissatisfaction with analog input smoothing in real-world conditions. The issue is influenced by hardware versions, wiring, and possible external interference.",
+    "user_expectations": "Users expect the analogue filter component in [product_name] programming software to function consistently when running on actual [product_name] hardware, providing reliable input smoothing and minimizing fluctuations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable analog input",
+      "smooth signal",
+      "consistent filter behavior",
+      "reduce fluctuations"
+    ],
+    "pain_keywords": [
+      "hardware-simulation mismatch",
+      "ineffective filtering",
+      "fluctuating analogue readings"
+    ],
+    "feature_keywords": [
+      "Analogue Filter",
+      "Average Value block",
+      "filter length setting",
+      "input smoothing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

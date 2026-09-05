@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "branch_id": "2323280914",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 802788247167117,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello, I have a FLS F3.10 flow sensor from [company_name]. Its current consumption is less than 30 mA at 24 VDC, and it provides an NPN output (square signal, 15 Hz at 1 m/s, max 10 mA). I connected it to input I8 of my [product_name] ([article_no], 3-wire). However, I am not receiving any pulses. What could be causing this?"
+    },
+    {
+      "comment_id": 676195469417706,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Input I8 is a standard digital input, suitable for frequencies up to 10 Hz. For faster signals, you should use one of the fast counter inputs (I3 to I6) of your [product_name]. Refer to the attached wiring instructions. Note that the signal is inverted when using NPN type sensors."
+    },
+    {
+      "comment_id": 287960254970156,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The value <30 mA is the consumption, while the output can handle a maximum of 10 mA. It's advisable to use a resistor higher than 2.4 kOhm, such as 2.7 kOhm, 4.7 kOhm, or even 10 kOhm. Start testing with a 10 kOhm resistor and decrease as necessary."
+    },
+    {
+      "comment_id": 398071743636719,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The 30 mA is the consumption of the flow sensor, which has three wires: two for power connected to the PSU and one to the input. Is it still necessary to increase the resistance in this scenario?"
+    },
+    {
+      "comment_id": 479757575335223,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Could you clarify what you mean by 'online simulation mode'? In [product_name] programming software, there is a simulation mode and an online mode. The online mode shows current states and values from a connected [product_name]. Without seeing your program, it's difficult to determine why M1 flashes intermittently."
+    },
+    {
+      "comment_id": 873663391319862,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Having a 3-wire sensor does not guarantee direct compatibility with every input. Your sensor uses an NPN open collector output, which functions like a relay contact bridging the output to 0V. [product_name] inputs are PNP type and require a positive voltage to detect a high signal. Think of the open collector output as a relay contact connecting the input to 0V, essentially acting like an unconnected input. Combining the external resistor with the internal resistor (~72 kOhm) of the [product_name] input forms a voltage divider. For example, using a 10 kOhm resistor, when the output is open, 24V is split across both resistors, resulting in around 21V at the input—sufficient for a high signal. Reducing the resistor increases the voltage further, but isn't necessary for a high level. When the output is closed, the input drops to 0V and current through the open collector is 24V / 10kOhm = 2.4 mA; ensure it doesn't exceed 10 mA. For exact voltage levels, consult the operating instructions for your [product_name] and sensor documentation."
+    },
+    {
+      "comment_id": 811783395630711,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I use a resistor as a pull-up. For guidance on resistance value and wiring, search Google for 'Pull-up resistor' or refer to resources such as [url]."
+    },
+    {
+      "comment_id": 167635176367801,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Are you questioning my calculations? Please review previous replies, where I explained the calculation process and provided appropriate values for your specific sensor."
+    },
+    {
+      "comment_id": 382629085838680,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello, it seems to be working now. In online simulation mode, M1 is flashing, though it occasionally stops briefly. Is this normal? The pump is operating with a steady flow."
+    },
+    {
+      "comment_id": 830521947884309,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you for the explanation. I switched to a 10 kOhm resistor. However, M1 still does not flash continuously; sometimes the low period is longer or the high period lasts unusually long. Additionally, I expected a higher flow—my pump is rated at 280 l/min max, but I measure 83 l/min. Even with higher flow resistance, I anticipated a higher reading. Could you review my program? Apologies for my English."
+    },
+    {
+      "comment_id": 649924499102359,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Your calculations should be correct. I also start with a 10 kOhm resistor as recommended. If results aren't satisfactory, simply adjust the pull-up resistance as needed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced difficulties integrating a third-party NPN output flow sensor with a [product_name] module. The main issues involved signal compatibility, input selection, and proper wiring—particularly the use of a pull-up resistor. Input I8 did not register pulses due to these factors. Community members emphasized using fast counter inputs and correct resistor values for reliable detection. Even after adjustments, users noticed inconsistent pulse behavior and unexpectedly low flow measurements, prompting further examination of programming and system accuracy.",
+    "user_expectations": "Users expect reliable pulse detection from the flow sensor, straightforward integration with the [product_name] regardless of sensor output type, and measured flow values matching pump specifications.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable pulse detection",
+      "accurate flow measurement",
+      "easy sensor integration"
+    ],
+    "pain_keywords": [
+      "no pulse detection",
+      "irregular signal",
+      "inaccurate measurement",
+      "input compatibility"
+    ],
+    "feature_keywords": [
+      "digital input frequency range",
+      "fast counting inputs",
+      "simulation/online monitoring",
+      "pull-up resistor usage"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges",
+    "10": "Performance Predictability"
+  }
+}

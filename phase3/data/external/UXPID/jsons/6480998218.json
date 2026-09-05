@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "6480998218",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 730053528642952,
+      "user_name": "VbwYewpUQO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "The [product_name] hour counter does not resume counting after resetting the maintenance interval. Initially, after downloading the program, the counter works as intended—when enabled, it accumulates running hours and activates the Q output once the maintenance interval time is reached, continuing to accumulate time while enabled. Disabling the counter correctly stops time accumulation. When a reset pulse is applied, the maintenance Q output resets, but upon re-enabling the hour counter, it fails to continue accumulating time. Cycling the device's power is the only way found to make the hour counter resume its operation."
+    },
+    {
+      "comment_id": 657065240759421,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "It appears you are using [product_name] V[version_no], which has a known bug related to the hour counter functionality. For more information, similar issues are discussed in the \"Hours Counter issue\" topic."
+    },
+    {
+      "comment_id": 894207770675918,
+      "user_name": "udO0a0woU9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "I advise not using the \"R\" input of the hour counter in [product_name] V[version_no], but instead choosing \"RAL\". If you need OT as well, consider using a separate hour counter block without \"R\" or \"RAL\" inputs."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users determined that the hour counter within the maintenance module does not resume counting after the maintenance reset is triggered and the enable input is set again, unless power is cycled. This indicates a bug in [product_name] V[version_no] that affects this function. Users have to seek workarounds and are cautioned against using the problematic reset input, which complicates workflows for an otherwise straightforward task.",
+    "user_expectations": "Users expect the hour counter to continue counting reliably after a maintenance interval reset and the enable input is activated again, without needing to cycle power.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable reset",
+      "automatic resume",
+      "maintenance tracking"
+    ],
+    "pain_keywords": [
+      "does not resume after reset",
+      "requires power cycle",
+      "software bug"
+    ],
+    "feature_keywords": [
+      "hour counter",
+      "maintenance interval",
+      "reset input",
+      "enable input"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

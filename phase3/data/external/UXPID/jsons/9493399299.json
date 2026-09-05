@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "9493399299",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 247657641628657,
+      "user_name": "pAF9djTrfc",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Hello, I need to manage a closed-loop hydraulic positioning system with moderate accuracy. I have both a 0-10VDC demand signal and a 0-10VDC feedback signal. For one application, when demand matches feedback, the output should be set at 5VDC; for another, the output should follow the demand. I am currently working with the PI controller function block but am unable to achieve the desired behavior. Are there any sample programs available?"
+    },
+    {
+      "comment_id": 567393066800813,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Your description is a bit vague. Could you provide more details about which signal should influence the other and clarify the required control functionality?"
+    },
+    {
+      "comment_id": 168941723336152,
+      "user_name": "pAF9djTrfc",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Here's further clarification: A valve operates the actuator. Setting 0V means full speed in one direction, 5V stops the actuator, and 10V results in full speed in the opposite direction. For example, if the demand is 6V and feedback is 4V, the output needs to be either 3V or 7V (2V away from stop point) depending on the required movement direction. An adjustable gain should increase the difference so the actuator moves quickly toward its target and then slows down near the desired position. When demand and feedback are equal, the output should always be 5V, regardless of the actual voltage."
+    },
+    {
+      "comment_id": 771949825507452,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "A possible solution is to use two PI controllers for this application."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having trouble configuring the PI controller block to control a hydraulic actuator as needed, indicating inadequate example resources or intuitive support for custom PI control in the current software. The challenge stems from adapting the block to support specific, non-standard control logic for their hardware setup.",
+    "user_expectations": "The user looks for straightforward instructions or sample code to help implement specialized control logic with the PI Controller Block for hydraulic valve applications. They want the configuration process to be flexible and accessible for their scenario.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "example code",
+      "easy configuration",
+      "customizable control logic"
+    ],
+    "pain_keywords": [
+      "lack of examples",
+      "unclear usage",
+      "difficulty implementing control logic"
+    ],
+    "feature_keywords": [
+      "PI Controller Block",
+      "analog output configuration",
+      "gain adjustment"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

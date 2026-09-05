@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "9115036120",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 120266170858604,
+      "user_name": "OLbWeYhdCL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I'm having trouble with [product_name] [version_no] and Modbus TCP. I have a board with 8 relays, each controlled via Modbus TCP, but currently only one relay responds through [product_name]. I assigned a separate Modbus address to each relay, yet just one works. Has anyone else encountered this, or does anyone know what might be causing the issue?"
+    },
+    {
+      "comment_id": 937540959214945,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hi! Here's a simple suggestion to help fix this. I've attached my program for reference. In my setup, I use NQ1 and NQ2, similar to what you did. To troubleshoot: Go to \"Tools -> Ethernet Connections\" and ensure \"Allow ModBus access\" is checked. Set up a new \"ModBus Server\" connection, use port 502, and check \"accept all connections\". I use the ModBus Scan64 simulator, which is free for 30 days. Let me know if you need any further help."
+    },
+    {
+      "comment_id": 924353808341476,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "I've also included a table to help correctly map the Modbus addresses to each [product_name] variable."
+    },
+    {
+      "comment_id": 225377933808601,
+      "user_name": "OLbWeYhdCL",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "I followed your steps, but it didn't resolve the issue—still, only one relay operates (switches on and off every 2 seconds). When controlling just one relay coil, any from the set (1-8) works as expected. The issue appears only when trying to control multiple relays; only one works, others remain non-responsive. It seems like one active protocol is taking over and blocking access to the rest. Also, I'm seeing an extra grayed-out connection in the Ethernet settings window that I can't explain."
+    },
+    {
+      "comment_id": 991607482295663,
+      "user_name": "OLbWeYhdCL",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Here's how it appears:"
+    },
+    {
+      "comment_id": 614490432871202,
+      "user_name": "OLbWeYhdCL",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Issue resolved: It turned out the 8-relay module needed to be switched from \"client\" to \"server\" mode. Thanks to [user_name] for the support."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user experienced difficulty controlling multiple relays through Modbus TCP using [product_name] [version_no]; only a single relay responded despite unique Modbus address assignment. The main usability challenge was that control of all eight relays failed until the relay module's role was changed from 'client' to 'server'. Users were also confused by unexplained extra connections in the configuration interface, raising concerns about setup transparency.",
+    "user_expectations": "The user expects to be able to control each of the eight relays individually using [product_name] over Modbus TCP, without any protocol or configuration issues, and seeks a straightforward and clearly documented configuration process.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "multi-relay control",
+      "network configuration clarity",
+      "reliable automation"
+    ],
+    "pain_keywords": [
+      "single relay functionality",
+      "connection blocking",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "multi-relay support",
+      "Ethernet connections",
+      "client/server mode"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "6363130326",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 362125339275989,
+      "user_name": "ZkvkMuLy2f",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm exploring whether it's possible to use a [company_name] [product_name] with 24V DC to receive a digital input from a light beam and then send a signal to an inverter, allowing it to operate at a reduced frequency. When the light is interrupted by a product, the inverter should return to normal speed. Previously, I tried using [company_name] drives with a [product_name] expansion module to communicate through Modbus RTU, but found it too complex for this application. If I can get a VFD that responds to a 0-10V analog signal for frequency control, can the [product_name] be programmed—using an analog output module—to deliver 0-10V? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 896905391062152,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I'm not certain I fully understand your initial description, so I'll have to make an assumption. Are you aiming to evaluate frequency from the light sensor, then adjust the VFD setpoint—lowering it if frequency is high, or raising it if frequency is low? Is that correct?"
+    },
+    {
+      "comment_id": 738707238220732,
+      "user_name": "ZkvkMuLy2f",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Sorry for not clarifying earlier. The intended logic is: if the light beam remains unbroken for 10 seconds or more, run the VFD at 15Hz. If the beam is interrupted, run it at 50Hz. This setup is for a bottling line. When product is passing by, we want our fan at maximum speed; when production pauses, the fan should slow down to conserve energy."
+    },
+    {
+      "comment_id": 245329363351859,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "More details are needed for full guidance. However, you can implement the described program by using an analog multiplexer (MUX) function."
+    },
+    {
+      "comment_id": 104780121764358,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Most VFDs allow you to set speed using digital inputs. For example: IF Digital Input 1 is ON, run at 15Hz; IF Digital Input 2 is ON, run at 50Hz. You'll need a [product_name] with an analog input and two digital outputs. What type of sensor are you using for the light beam? I've included an example in the attachment."
+    },
+    {
+      "comment_id": 524831465817374,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "You can achieve this by using the AM2 AQ analog output module."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are discussing the practicality of using a [product_name] controller with an analog output module to regulate a VFD via a 0-10V signal, based on feedback from a light beam sensor in a bottling line scenario. The goal is to dynamically adjust VFD speed in response to the sensor, and the conversation confirms this function is technically feasible. While some confusion occurred, the exchange helped clarify potential approaches using [company_name] modules.",
+    "user_expectations": "The user wants to program the [product_name] controller to provide a 0-10V analog signal to control VFD speed, based on the state of a light beam sensor. The preferred solution should be less complex than Modbus RTU communication.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "simple control",
+      "energy saving",
+      "automatic speed adjustment"
+    ],
+    "pain_keywords": [
+      "complex communication",
+      "inadequate documentation",
+      "uncertainty about hardware capability"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "digital input",
+      "0-10V control",
+      "programmable logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "3109254172",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 619496905077842,
+      "user_name": "3ELJwwk15q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "I am currently using a [product_name] device with [product_name] version [version_no]. The LCD is set up to show the circuit status—either DEPLOYING or DEPLOYED. According to my ladder diagram, there are Momentary and Limit switches that activate the motor coil when certain conditions are met. While the LCD correctly switches between 'LEFT DEPLOYING' and 'LEFT DEPLOYED' based on the circuit status, the displayed message depends on their priority settings. I'm wondering if there is a better way to control which message is shown, perhaps using conditional logic or another method. I'm new to ladder diagram programming and open to suggestions for improving my design."
+    },
+    {
+      "comment_id": 776226011674108,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "When multiple messages are active at once, their priority decides which message gets shown. You can set the priority number when you create the message—0 is the lowest, and 127 is the highest."
+    },
+    {
+      "comment_id": 159189488631504,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "I recommend using Function Block Diagram (FBD) instead of Ladder Diagram (LAD) for this application. LAD setups can be more complex and less intuitive, especially since the message block needs to be connected to an output, flag, or open connector, which isn't obvious in LAD. The FBD approach, as illustrated in the shared sample image, makes message block connections more apparent. It's fine to have several messages active at once, and navigating between them is possible using the up and down buttons. Keep in mind that any new message activation cancels navigation and displays the highest priority message. It's best to use lower priorities (under 100) for regular settings, and set higher priorities (above 100) for alarms or notifications. Try replicating the shared example, simulating switch actions to see how messages appear. Note that the sample image lacks open connector blocks; these are essential for loading configurations to the device but not required during simulation. Use the F2 key to check compile messages."
+    },
+    {
+      "comment_id": 830582544563625,
+      "user_name": "3ELJwwk15q",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Thanks for the explanation about message priorities!"
+    },
+    {
+      "comment_id": 664220193255852,
+      "user_name": "3ELJwwk15q",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "I tried your FBD example and understand the approach now. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants discussed ways to control LCD message order on [product_name] devices when using [product_name] software. The main takeaway is that prioritizing messages determines which one displays if multiple are triggered at once—something that may be confusing for those new to the system. Using Function Block Diagram (FBD) simplifies message management and visibly clarifies connections compared to Ladder Diagram (LAD), especially for beginners. Best practices like priority assignment and message navigation were shared, helping users develop better design strategies.",
+    "user_expectations": "Users are looking for an easy-to-understand solution to ensure LCD messages appear in a logical and reliable order based on circuit status, ideally using conditional logic or clear priority settings. They seek practical, beginner-friendly advice for designing message logic and improving workflow.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clear message display",
+      "priority sequencing",
+      "beginner guidance"
+    ],
+    "pain_keywords": [
+      "unclear message priority",
+      "difficult LAD implementation",
+      "lack of conditional display clarity"
+    ],
+    "feature_keywords": [
+      "LCD message texts",
+      "priority setting",
+      "LAD and FBD programming",
+      "simulation"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

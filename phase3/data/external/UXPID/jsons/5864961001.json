@@ -1,0 +1,211 @@
+{
+  "metadata": {
+    "branch_id": "5864961001",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 943946111266893,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hello, I am working with a Hall effect water flow sensor labeled as 264 pulses and have wired it to a 24V DC PLC module. I've connected the sensor to an input using a 2.2k resistor, but the up/down counter is not incrementing as expected. Can you advise on how to resolve this issue? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 310266137160126,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Which PLC module are you using specifically? Please share the exact [article_no]. Do you have a link to the sensor's datasheet? Additionally, could you upload your program as a ZIP archive to the forum?"
+    },
+    {
+      "comment_id": 300942249102886,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 791935978408184,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 948173616383484,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hi, it seems there may be a mistake in your setup. Please ensure the following: + Your PLC supports high speed counting (only DC models support this). + Inputs I3, I4, I5, and I6 are the ones capable of handling up to 5kHz counting. + Directly connect the HSC input to an up/down counter or threshold trigger; adding another function block in between can prevent proper operation. Programming this PLC without the dedicated software is quite challenging."
+    },
+    {
+      "comment_id": 646144394337901,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hi, which input number on your PLC did you connect the signal to? Did you connect the input directly to a counter or threshold trigger, or does it go through other function blocks first?"
+    },
+    {
+      "comment_id": 284490198864820,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello, I have a PLC model 8 FS4 12/24 RCE. My flow meter specifies 264 pulse output and provides yellow and red signal wires and a black negative wire. I connected +24V DC to yellow, red wire to PLC input I5, and black to -24V DC. In my program, I5 is used for pulse and connects to an up/down counter; it works correctly in simulation, but during online testing the pulse signal constantly stays on and the counter does not change. Adding a 10k resistor in parallel impacted readings—removing and reconnecting it updates the counter. Can anyone help or provide a sample program? Regards, [user_name]"
+    },
+    {
+      "comment_id": 894236668639111,
+      "user_name": "CdibE5Rdgy",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Dear [user_name], have you considered using the current output (4-20mA) from your flow transmitter? If your system has an analog input card, this method may be significantly simpler."
+    },
+    {
+      "comment_id": 180220018984223,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], could you provide the manufacturer's name and product type for your flow meter? Alternatively, please share a link to its datasheet."
+    },
+    {
+      "comment_id": 668386915675125,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 672379304990446,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Not asking for the PLC model, but rather the manufacturer and specific type of your flow meter. What is its output type: relay or transistor? If transistor, is it NPN or PNP?"
+    },
+    {
+      "comment_id": 232930504121231,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello, here are the details for the flow meter: Manufacturer: Broil Sensotex Model: BT-PHTFS-012 Range: 50-500-5000 lph 1) Pulse output sensor: a) Hall sensor, Power voltage: 5 to 24VDC / low power 2 to 5VDC Output signal: NPN open collector High level: above 4.5VDC, Low level: below 0.5VDC b) Reed sensor c) Pick-up coil: two-wire or amplified three-wire option Regards, [user_name]"
+    },
+    {
+      "comment_id": 502499478038995,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "What output variant do you have? a) Hall sensor with NPN open collector? b) Reed sensor? c) Pick-up coil? Also, what is the sensor pin assignment?"
+    },
+    {
+      "comment_id": 835868543649462,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hi, the flow meter body marks 'pulse 204' and wires as R, Y, B (+, P, -). I selected I5 for testing; with simulation switching once or setting Hz, R = 24V DC +, P connected to I5 PLC input, B = -24V DC supply. I am unclear about the output type being referenced. Regards, [user_name]"
+    },
+    {
+      "comment_id": 444100043633287,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 858793150324009,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Try using the attachment provided."
+    },
+    {
+      "comment_id": 180759385353247,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hi, the manufacturer confirms that if your unit has three wires, it is a Hall sensor output. I'll attempt your attachment; could you clarify connections and programming for a Hall sensor output? I tried the attachment but during online testing I5 remains on and the signal does not change. Regards, [user_name]"
+    },
+    {
+      "comment_id": 196396750408787,
+      "user_name": "0AX3BsniiV",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 148895755594058,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "A new question posted by [user_name] has been split into a separate thread concerning data exchange between [product_name] and TIA Portal. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants faced difficulties integrating a Hall effect water flow sensor with a [product_name] module, leading to the up/down counter failing to register pulses. There was ambiguity surrounding correct wiring, input suitability, and the required logic blocks. Programming without specialized software was highlighted as cumbersome, and resolving the issue was further complicated by incomplete product and configuration details.",
+    "user_expectations": "The user expects straightforward pulse counting without extensive troubleshooting, clear instructions on proper wiring and input selection, and for the up/down counter’s behavior to reflect simulation results accurately.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "automatic pulse counting",
+      "hardware-software matching",
+      "clear sensor integration"
+    ],
+    "pain_keywords": [
+      "pulse not registered",
+      "configuration confusion",
+      "hardware input mismatch",
+      "poor error feedback"
+    ],
+    "feature_keywords": [
+      "High Speed Counter",
+      "input configuration",
+      "up/down counter",
+      "simulation vs hardware"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

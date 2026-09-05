@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8940731272",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 107243179157585,
+      "user_name": "efK15nH2ST",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I would like some advice. I am using a [product_name] [article_no] to manage a diesel electric start water pump, utilizing two level sensors. Programming is working except for the challenge of using a magnetic 2-wire crank pickup to monitor engine RPM and control it with a linear motor. The motor actuation setup works, using two relays to reverse polarity. The pickup generates AC voltage while the engine runs. I have added resistance so that at full RPM, the output is no more than 5V AC, and during cranking, about 1V AC. I'm connecting this to the analog input (AI1), but since the input is AC, the [product_name] doesn't recognize the signal due to polarity reversal, causing erratic readings. What is a straightforward way to convert this AC signal into DC so I can set limits for disconnecting the starter and detecting non-start or stalling? Any suggestions would be appreciated."
+    },
+    {
+      "comment_id": 602226077950865,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Only [product_name] units designed for DC power (12/24V) have analog inputs. If your [product_name] is an AC version, it doesn't include analog inputs. Analog signals are expected to be DC; if you're working with an AC analog signal, you need to convert it to DC. This can typically be achieved with a rectifier and a capacitor. Also, ensure you are using the correct [product_name] or compatible extension module."
+    },
+    {
+      "comment_id": 914050354223599,
+      "user_name": "efK15nH2ST",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Thank you for your response. For an update: I am using a 12/24 RC model (DC with analog inputs). I managed to resolve the issue by connecting a diode rectifier along with the resistor to the RPM sensor. This provides a DC analog signal that is stable enough for my monitoring needs. While a smoother analog DC signal would be ideal, the current setup works and avoids extra expenses. I may later check the signal with an oscilloscope to see if I can further smooth it in a cost-effective way. Thanks again for your help."
+    },
+    {
+      "comment_id": 636618167491571,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "To improve the smoothness of the signal, you can try using a capacitor with a higher value. Alternatively, you could implement averaging by summing the last five measurements and dividing by five, periodically updating by removing the oldest and adding the newest reading."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main issue was using an AC analog signal for engine RPM monitoring with a [product_name] module, which expects DC input. The problem was addressed by hardware modification to convert the signal to DC, but further signal smoothing is still being considered. Users clarified module capabilities and recommended methods for conditioning and averaging the input signal.",
+    "user_expectations": "Users expect the [product_name] module to reliably process analog signals, especially for monitoring engine RPM, with minimal need for additional or expensive hardware. Achieving a stable and smooth DC analog signal for automation and monitoring is a key requirement.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic engine monitoring",
+      "stable analog signal",
+      "cost-effective solution"
+    ],
+    "pain_keywords": [
+      "signal compatibility",
+      "unstable analog readings",
+      "signal smoothing"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "signal conditioning",
+      "RPM monitoring"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

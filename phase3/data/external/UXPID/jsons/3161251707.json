@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "3161251707",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 974359865058128,
+      "user_name": "yp15OYUE3Z",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello, I am currently working with a [product_name] version [version_no] of type [article_no]. Communication is set up using the S7 protocol. I understand that, in general, it is possible to read the CPU state (RUN / STOP / HALTED) on controllers like [version_no]. However, I haven't found documentation confirming whether the [product_name] allows reading the CPU state, nor details on how this can be achieved. Since the CPU state is important when working with [product_name] variables, I am interested in how one can determine the CPU state during runtime through the S7 protocol. Thanks in advance, Greetings,"
+    },
+    {
+      "comment_id": 825271043393667,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "With the [product_name], this should generally work, but I am not aware of any possibility for a [product_name] user to query the status directly. Also, these devices are quite different from [version_no] controllers in terms of functionality. In such cases, [company_name] often provides limited access to diagnostics. I typically address this using a watchdog approach: a signal is generated on the remote side that changes state every second and is sent to the [product_name] (for example, V0.0). The [product_name] then returns this signal unchanged (such as V0.1). The remote side evaluates the response; if the signal's status remains unchanged for more than 1.5 seconds, either communication is disrupted or the [product_name] is in STOP mode."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to monitor the CPU status (RUN/STOP/HALTED) on a [product_name] via the S7 protocol, similar to methods applied on [version_no] controllers. However, there is a lack of clear documentation or direct support for querying this status on [product_name], leading users to implement workarounds such as custom signaling and watchdog logic. This highlights the less straightforward diagnostic capabilities of [product_name] compared to more advanced [version_no] controllers.",
+    "user_expectations": "The user would like to directly access the CPU state (RUN/STOP/HALTED) of the [product_name] at runtime using the S7 protocol, similar to what is possible with [version_no] controllers.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "CPU runtime monitoring",
+      "system state visibility",
+      "automation reliability"
+    ],
+    "pain_keywords": [
+      "missing documentation",
+      "unclear capabilities",
+      "lack of built-in status query"
+    ],
+    "feature_keywords": [
+      "CPU state query",
+      "S7 protocol",
+      "runtime diagnostics"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests",
+    "8": "Documentation Clarity"
+  }
+}

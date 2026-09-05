@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "branch_id": "4627234243",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 236469534005543,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "How can I store setpoint values received from an [product_name] HMI and make them retentive in the [product_name] controller, so that they persist after a power cycle? I've tried my approach but it didn't work, see the attached file. The HMI sends two setpoint INT values to the controller. I want these values to be stored in retentive memory, and then use a flag to write them back to the same VM address where they originated. Any suggestions?"
+    },
+    {
+      "comment_id": 163370483705867,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Check out this related topic: Retentive word values in [product_name]."
+    },
+    {
+      "comment_id": 744890427190498,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I've reviewed that code, but it only toggles On/Off states based on the setpoint. I need to store the actual values in retentive memory, and possibly use a flag to write them back to the VM address so the HMI fields repopulate after a power cycle."
+    },
+    {
+      "comment_id": 276257366511620,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "This process is handled automatically when you restart the [product_name] controller. The flag isn't required for this functionality. Make sure to test the program with actual hardware. Did you read the entire topic I linked to?"
+    },
+    {
+      "comment_id": 657657686596213,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Another option to consider: Use the recipe feature in the HMI."
+    },
+    {
+      "comment_id": 858277068053445,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "In the example code, I can't see where the value is written back to the VM. I see the setpoint coming from the HMI at VW0 and see it stored in B007, but not how it returns to VW0."
+    },
+    {
+      "comment_id": 844260618109310,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Have you checked Parameter-VM-Mapping?"
+    },
+    {
+      "comment_id": 534555694158222,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Ah, I understand now. I'll give this method a try."
+    },
+    {
+      "comment_id": 751914753233286,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "It's still not working. After adding this code, the HMI value appears briefly but then resets to zero. I can't get the HMI value to remain stored in the controller. If I map the VM to a different address, not the one coming from the HMI, the value remains in the HMI entry field. But I still can't get the HMI value to become retentive in the controller. If you'd like to review my code, I'm happy to share it."
+    },
+    {
+      "comment_id": 916884095879876,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Yes, please send your program—with the suggested changes included."
+    },
+    {
+      "comment_id": 448612396356800,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Here is the [product_name] controller program and the HMI file."
+    },
+    {
+      "comment_id": 465786329831130,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "How do I upload the log file? The attachment feature says the file type is invalid."
+    },
+    {
+      "comment_id": 739556499203288,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Try compressing and zipping the file before uploading."
+    },
+    {
+      "comment_id": 331307231003776,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thank you."
+    },
+    {
+      "comment_id": 833296129497759,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Here are the HMI and controller programs."
+    },
+    {
+      "comment_id": 128626472894631,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I didn't have the necessary software to simulate the HMI at the time, so I could only test with the web server, where it worked. Try this: Instead of using an analog input, use a mathematical instruction and reference VW100 to parameter V1 of the instruction via Parameter-VM-Mapping. This works in HMI simulation."
+    },
+    {
+      "comment_id": 518649651207122,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "So if I use a math instruction, like B048, instead of the analog input, should I map both the new instruction V1 and the analog threshold block to VW100?"
+    },
+    {
+      "comment_id": 124598748659055,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "See the attached file—just this part."
+    },
+    {
+      "comment_id": 181333613114236,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I'm still unclear how the new retentive code operates unless there is a connection from the math instruction, and how is the retentive value written back to VW100 unless that block is mapped to it?"
+    },
+    {
+      "comment_id": 663646091289045,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "The [product_name] controller writes the value in parameter V1 into its flash memory, but only if it's written directly to V1. That's why the initial suggestion isn't needed."
+    },
+    {
+      "comment_id": 833504111876182,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "After mapping the math instruction to the retentive code with only V1 referenced, it seems to work now. Power cycles no longer erase the value."
+    },
+    {
+      "comment_id": 412741326832030,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thanks for your support."
+    },
+    {
+      "comment_id": 170367038766360,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "The first version of my code isn't required. However, I tested my program with HMI simulation and it's functioning."
+    },
+    {
+      "comment_id": 961406313289727,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Could you please clarify? Which code isn't needed? If possible, could you provide a screenshot?"
+    },
+    {
+      "comment_id": 948733328249561,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Apologies for the confusion. You don't need my program. I only wanted to say that it works for me. The [product_name] controller has several time-dependent quirks; blocks execute according to their numbers, and incorrect order can cause issues. I've attached a video showing the HMI simulation test. At one point, an error appeared indicating transfer failure—this happened when supply voltage to the [product_name] controller was switched off."
+    },
+    {
+      "comment_id": 998107923299747,
+      "user_name": "FBB82kFQdw",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Understood. Thank you again for the assistance—much appreciated."
+    },
+    {
+      "comment_id": 261192405862394,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], you're welcome."
+    },
+    {
+      "comment_id": 799578984725548,
+      "user_name": "KetfzSh1iU",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello, Could you please share a screenshot? The recommended program isn't working for me and I'm having trouble understanding the explanation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having trouble with data retention between an HMI and a [product_name] controller across power cycles. The inability to maintain HMI setpoint values in persistent memory results in values resetting or being lost after a restart. Key pain points are confusion around retention mechanisms, such as M8 flag usage, VM mapping, recipe options, and unclear instructions or examples. The problem impacts user confidence and reliable data persistence across HMI and controller interaction.",
+    "user_expectations": "The user needs input values entered in the HMI to stay stored in the controller memory and automatically reload after a restart, enabling smooth data retention and avoiding manual value re-entry.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "data persistence",
+      "automatic recovery",
+      "seamless HMI/PLC integration"
+    ],
+    "pain_keywords": [
+      "data loss after power cycle",
+      "value reset",
+      "confusing memory mapping",
+      "lack of clear documentation"
+    ],
+    "feature_keywords": [
+      "retentive setpoints",
+      "VM mapping",
+      "M8 flag",
+      "memory persistence",
+      "recipe option"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

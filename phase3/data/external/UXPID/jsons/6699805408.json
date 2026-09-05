@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "6699805408",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 928652101209325,
+      "user_name": "IALVUj4APg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello! Is it possible to transfer the time from a [product_name] controller to a Basic HMI Panel? My [product_name] controller acquires time from a GPS module ([product_name]), and I need to display this time on an HMI panel or screen. Note: My client prefers not to use the [product_name] operator device."
+    },
+    {
+      "comment_id": 542699137533980,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Yes, it can be done. Please specify which exact [product_name] you are using ([article_no]), which Basic Panel, and the TIA version, so I can provide accurate assistance."
+    },
+    {
+      "comment_id": 933906468255137,
+      "user_name": "IALVUj4APg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello! The devices I'm working with are [product_name], [article_no]; Panel is [product_name], [article_no]; TIA Portal [version_no]; and [product_name] [version_no]."
+    },
+    {
+      "comment_id": 639061231712298,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "In the TIA HMI project, select Connections, then choose HMI time synchronization mode and set it to slave. This should synchronize the time from the master device, which is your [product_name]."
+    },
+    {
+      "comment_id": 485294514763587,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "The communication driver for [product_name] in TIA does not support HMI time synchronization mode. @Anderson.Jaramillo, do you need time synchronization or just want to display the [product_name]'s time on the HMI?"
+    },
+    {
+      "comment_id": 813867959525958,
+      "user_name": "IALVUj4APg",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hi! The base module [product_name] gets its time from the GPS ([product_name] module). I need this synchronized time to be available on my HMI."
+    },
+    {
+      "comment_id": 704583672773462,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Here's a suggestion: In TIA, establish a connection using the \" S7 200\" driver instead of with [product_name] Soft Comfort. Only this driver gives access to the area pointer option, which isn't available with the [product_name] driver. Refer to the attached screenshot 1 for guidance. Next, go to the \"Area pointer\" tab, then \"Global area pointer of HMI device,\" and select \"Date/time PLC.\" Use the connection you previously made, set the address as \"VW991\" and acquisition cycle as \"1 Minute\" (see screenshot 2). The VM area in [product_name] holds time and date in hexadecimal format at these addresses: VB991 = Year, VB992 = Month, VB993 = Day, VB994 = Hours, VB995 = Minutes, VB996 = Seconds. No changes are needed in [product_name] Soft Comfort for date/time synchronization."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are exploring ways to show and synchronize GPS-acquired time from a [product_name] controller onto an HMI panel. The main challenge is standard tools in TIA Portal and the [product_name] communication driver do not provide straightforward time synchronization or display for the HMI. Recommendations include using alternative communication drivers and area pointers to access and present the time data, overcoming limitations in the default setup.",
+    "user_expectations": "Users expect that GPS time from the [product_name] controller can be reliably displayed and synchronized on the HMI panel, without using the [product_name] operator device, and with standard tools available in TIA Portal and [product_name] Soft Comfort.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "display synchronized time",
+      "HMI integration",
+      "GPS time accuracy"
+    ],
+    "pain_keywords": [
+      "driver limitations",
+      "integration complexity",
+      "lack of direct synchronization"
+    ],
+    "feature_keywords": [
+      "HMI time display",
+      "area pointer access",
+      "GPS time retrieval"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

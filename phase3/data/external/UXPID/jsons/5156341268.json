@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "branch_id": "5156341268",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 777341380645083,
+      "user_name": "u4A9AtCV70",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "How can I add timestamps or time intervals to the data log output from [product_name]? I currently have logging every 5 seconds (see screenshot). You can also find the data log below. The PLC version is [article_no]."
+    },
+    {
+      "comment_id": 726617164242639,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Sometimes a screenshot suffices, but in this case, viewing the actual Data Log file would help more. Please upload your Data Log and [product_name] program as a ZIP file for further review."
+    },
+    {
+      "comment_id": 957715502436175,
+      "user_name": "u4A9AtCV70",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "I've attached the requested files. Thank you for your assistance."
+    },
+    {
+      "comment_id": 124241167343728,
+      "user_name": "u4A9AtCV70",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "When using the webserver to record data, I noticed the data log includes some incorrect readings. For example, the webserver displays a value of 4, and I can adjust the system to increase it into the hundreds and maintain that level for about 20 seconds (verified by voltmeter and webserver). However, the log only records values between 4 and 6. Do you know what might cause this? Files are the same as previously shared."
+    },
+    {
+      "comment_id": 555554314982326,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Your datalog has a timestamp, but the date appears incorrect. Have you set the correct date and time on the real-time clock? I can't load your [product_name] program in [product_name] because it requests a diagram password."
+    },
+    {
+      "comment_id": 790423258749373,
+      "user_name": "u4A9AtCV70",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "I've set the clock, and timestamps now appear. However, the analog readings are still not accurate. The password is [user_name]. Do you have any further suggestions? Thank you."
+    },
+    {
+      "comment_id": 507595979807879,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Within your [product_name] diagram, no operand has been selected for data logging."
+    },
+    {
+      "comment_id": 531677472594590,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Additionally, you have inverted the HIGH signal on the enable input for the pulse generator, which prevents it from working properly."
+    },
+    {
+      "comment_id": 496594102666420,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "I added operands in the Data Log and removed the negation on the enable input of the pulse generator. After transferring the program to my [product_name], this was the outcome:"
+    },
+    {
+      "comment_id": 155979488294780,
+      "user_name": "u4A9AtCV70",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "I was changing which analogs were logged and may have missed uploading a test analog file. I wasn't aware that the asynchronous pulse generator had an inverted enable input. Adjusting this resolved my issue, and I could log changes when modifying the system variables. Thank you for your help!"
+    },
+    {
+      "comment_id": 510773443369197,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Glad to help! The important thing is that it's working now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered difficulties when configuring data logging for [product_name], particularly when trying to add timestamps and obtain reliable analog readings. Problems were linked to incorrect clock settings and omitting necessary operands during the setup, leading to incomplete or faulty logs. Logical configuration issues—such as negating the pulse generator enable input—also contributed to absence or inaccuracy of data until corrected.",
+    "user_expectations": "Users expected straightforward options to add timestamps and have the data log reflect accurate, real-world analog values, similar to other measurement tools. They anticipated intuitive selection of data logging operands and seamless integration with pulse generator features, aiming for reliable, easy-to-configure operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate timestamps",
+      "correct analog data",
+      "synchronized logging",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "incorrect timestamps",
+      "data mismatch",
+      "operand selection confusion",
+      "pulse generator logic issue"
+    ],
+    "feature_keywords": [
+      "data logging",
+      "timestamp",
+      "analog input",
+      "operand selection",
+      "pulse generator",
+      "real-time clock"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

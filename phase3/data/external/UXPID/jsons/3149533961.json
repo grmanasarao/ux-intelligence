@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "3149533961",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 971230813756343,
+      "user_name": "dwD6y4P3Be",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "I configured a [product_name] controller with four [product_name] analog modules, but it's not working as expected. The physical setup is the [product_name] controller below a digital module, followed by the four analog modules. I can transfer my program, but during the online test, none of the analog inputs are changing. Even when I tried with just one module, the issue persisted. The module references I used are: digital module [article_no], analog module [article_no]. The sensor uses two wires, U1 and 1V1, with a bridge between IC1 and U1 and a PT100 sensor connected. Could someone help me identify what's wrong?"
+    },
+    {
+      "comment_id": 561807586160745,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "You should connect the bridge between Ux- and ICx, with one wire on Ux- and the other on Ux+. Are none of the eight channels showing any values?"
+    },
+    {
+      "comment_id": 249665734591952,
+      "user_name": "dwD6y4P3Be",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Apologies, my earlier comment had the wrong terminal numbers. I checked my wiring and fixed it. This morning, I discovered the issue: I was sold eight thermocouples instead of PT100 sensors, the commercial technician made a mistake. I tried with one PT100, and it seems to work. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user was troubleshooting why analog inputs on their [product_name] controller setup with multiple [product_name] modules were not registering values. After reviewing the hardware setup, they found that the real problem was receiving the wrong type of sensors (thermocouples instead of PT100 RTDs), rather than any issue with the product or configuration. The main issue was a supply mix-up, not hardware malfunction.",
+    "user_expectations": "The user expects the [product_name] controller with [product_name] modules to correctly read analog values from PT100 probes when they are properly wired and configured.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog reading",
+      "hardware compatibility",
+      "system setup"
+    ],
+    "pain_keywords": [
+      "sensor mismatch",
+      "no analog input response",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "AM2 RTD",
+      "sensor type compatibility",
+      "online test"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability"
+  }
+}

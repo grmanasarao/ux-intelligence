@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "9123207735",
+    "thread_id": "1723880927",
+    "publication_year": 2011,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 606120179740253,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I need some assistance. I'm attempting to use the PI function for the first time and I'm struggling to get it working. I suspect I'm approaching it incorrectly, which is why I am seeking advice. My analog input from a sensor needs to be maintained at 220mV (I use a 10x amplifier, so the [product_name] input is actually 2.2V). The output ranges from 0 to 10V and controls a switching power supply with a current shunt as feedback (ranging 0 to 100mV). The feedback is mainly for display but can also be part of the PI control loop. My main concern is that values above 220mV up to 400mV should be regulated back down instead of increasing further. All this will be running on new hardware. The sensor’s maximum range is 400mV (corresponding to 4V at the input), minimum is 0V (I haven’t tested such low input values on the [product_name] yet, so I might use a buffer). The control loop is quite slow (I tried simulating it at 30 seconds; in practice, it will be 15 minutes). Any practical advice or example setups pointing me in the right direction would be greatly appreciated. Thank you in advance and happy new year."
+    },
+    {
+      "comment_id": 488314240056325,
+      "user_name": "2IxhYlBIWy",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Could you specify what type of sensor you are using? Signals in the 0 to 0.2V range can be very sensitive to electrical noise, and using a low-cost [product_name] may not improve accuracy. I haven’t worked with such low-level signals on [product_name], but you’d be utilizing only a fraction of the input range, which isn’t ideal for bandwidth, and the analog inputs might only offer limited resolution, potentially affecting measurement precision."
+    },
+    {
+      "comment_id": 523360925232225,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], thank you for your response. You are correct, and I should clarify that I’m using a 10x amplifier so the [product_name] input is 2.2V, not 220mV. I’ll update the original post for clarity. I'm more familiar with digital logic blocks than analog inputs. This setup is for heating control at home, using factory-installed sensors—their controller isn’t working well for my needs. Any support in configuring the PI block would be appreciated. Happy new year."
+    },
+    {
+      "comment_id": 900227878222593,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "I'm not completely clear about your issue, but you might find my program helpful. Note: The [product_name] operates internally with a scale of 0–1000. The PI setpoint should be 220, which means 2.2V. Output also ranges from 0–1000, translating to 0–10V at your [product_name] output module. You will need to fine-tune the KC and TI parameters."
+    },
+    {
+      "comment_id": 756084159669927,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Thank you [user_name], your example solved my issue. I was overcomplicating things and couldn’t move forward. Seeing a practical example was much more helpful than long explanations. I appreciate your assistance. Happy new year."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user faced challenges when first setting up a PI function using [product_name], mainly due to lack of experience with analog inputs and uncertainty regarding configuration parameters. The main issues involved accurate signal interpretation, proper scaling, and parameter setup. Community members provided details about handling low-voltage analog signals, hardware limitations, and shared a sample program, which helped the user successfully configure their PI control loop.",
+    "user_expectations": "The user is looking for clear advice and practical examples to achieve a working PI block for analog control, with guidance on signal management and scaling for stable control loop operation.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "PI block setup assistance",
+      "working example",
+      "stable sensor control",
+      "analog input handling"
+    ],
+    "pain_keywords": [
+      "lack of experience",
+      "setup confusion",
+      "analog accuracy",
+      "parameter uncertainty"
+    ],
+    "feature_keywords": [
+      "PI block",
+      "analog input",
+      "signal scaling",
+      "output voltage control"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "branch_id": "9632663990",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 882255851523081,
+      "user_name": "rjQQbkSrpZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I'm trying to set up a Modbus TCP/IP connection between a [product_name] and an inverter from [company_name]. I want to read some values from the inverter and can see them in an external Modbus tool, but haven't managed to retrieve these values in the [product_name]. Can anyone assist? Regards, [user_name]"
+    },
+    {
+      "comment_id": 120679644345431,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "This is limited information. Could you clarify which device is acting as master and which as slave? Do you have a register description or a link for the inverter? Which specific registers are you trying to access?"
+    },
+    {
+      "comment_id": 267102141633316,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "@[user_name] Usually, the number like 30772 refers to Modbus function code 3, which means holding register. Subtract 30000 from the inverter's register number and use that value in the [product_name] with HR selected. If the inverter register starts with 0 or 30000, add 1 to the result since [product_name] starts at 1. For your case, try 772 or 773 with HR and see if you get the value. Regards, [user_name]"
+    },
+    {
+      "comment_id": 450746140669163,
+      "user_name": "rjQQbkSrpZ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hi, The [product_name] is set as master and the inverter is the client. See the attached program file."
+    },
+    {
+      "comment_id": 747119211111812,
+      "user_name": "rjQQbkSrpZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "@[user_name] I've already attempted HR 771, 772, 773 but with no success. Here's a link to the inverter Modbus table."
+    },
+    {
+      "comment_id": 387862401758155,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "The PDF you linked does not show register 30772. In the [product_name] connection list, you're using unit ID 3, but the PDF specifies unit ID 2. What is the exact model type of your inverter?"
+    },
+    {
+      "comment_id": 307146939934742,
+      "user_name": "rjQQbkSrpZ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hi, Please refer to the zipped file. The inverter model is SB30-1AV."
+    },
+    {
+      "comment_id": 325231369209210,
+      "user_name": "rjQQbkSrpZ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hello, If I set the unit ID to 2, I still get no value."
+    },
+    {
+      "comment_id": 864988843822023,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I believe you're saying the [product_name] is master/client and the inverter is slave/server, which matches your [product_name] settings. To find any value, try reading multiple registers at once, enable the [product_name]'s web server, and review the variable table. Create several variables (e.g., VW0, VW2, VW4, ...) and test different start addresses, unit IDs, and HR/IR until you get non-zero results. This approach is quicker than looking for a single value. Regards, [user_name]"
+    },
+    {
+      "comment_id": 661205702917639,
+      "user_name": "rjQQbkSrpZ",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], I've tested all possible configurations without any luck. In the [product_name], I've set MODBUS CLIENT-DATA TRANSFER to: - unit id 0, 1, 2, 3, 4 - length (word): 1, 2, 4 - HR 770-774, 30770-30774 - IR 770-774, 30770-30774 I can view values on my phone app and in Modbus doctor, but the correct configuration for the [product_name] still eludes me."
+    },
+    {
+      "comment_id": 178546392300889,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "You could try setting the [product_name] as a server, if your Modbus tool works as a client, just to establish any communication for testing purposes. If successful, switch roles for the next step. There's a note in your inverter documentation about adding +123 to the ID for SunSpec, but it's unclear if that applies here. You can also check [url] for a similar German-language discussion, though not all details are translated. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing trouble retrieving data from an inverter using Modbus TCP/IP within a [product_name], even though external tools show successful data reads. Multiple Modbus configurations and register/address mapping strategies have been tried without results. The main challenge appears to be uncertainty about correct register mapping for [product_name]'s Modbus setup versus how the inverter exposes its registers.",
+    "user_expectations": "The user expects the [product_name] to reliably read specific registers from the inverter through Modbus TCP/IP, using straightforward and consistent settings, hoping for similar ease of use as observed with third-party Modbus tools.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "achieve reliable Modbus data readout",
+      "consistency across platforms",
+      "connectivity"
+    ],
+    "pain_keywords": [
+      "Modbus address mapping confusion",
+      "configuration ambiguity",
+      "inconsistent results compared to third-party tools"
+    ],
+    "feature_keywords": [
+      "Modbus TCP/IP",
+      "address mapping",
+      "register configuration",
+      "web server diagnostics"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "2": "Product Compatibility"
+  }
+}

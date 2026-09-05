@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "branch_id": "8013338099",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 448156002032524,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Hello. My computer is a Macbook Pro running Monterey on Apple Silicon. Today I installed [product_name] version 1.1.1 and experienced some issues. The compressed file lwe-macosx.tgz, when placed in the /Applications folder, wouldn't run. Moving the installer to the home directory also failed. I found a bundle.jar file inside the package and was able to launch with JavaLauncher, revealing the installation screen. Installation in the /Applications folder failed without using --jdkhome. Installing in the ~/Applications folder worked when starting with --jdkhome $(/usr/libexex/java_home), creating the project directory in my home folder. It seems I have to specify the --jdkhome parameter for Java home detection. On my previous Macbook Pro or when on Apple Silicon, running [product_name] used to work without such issues—I only saw some NSWindow errors in the console, nothing more. I always give [product_name] full system access. While I understand users encounter difficulties on Mac, it seems like a straightforward update for [company_name] to add support for newer hardware."
+    },
+    {
+      "comment_id": 330301587163621,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Further research shows: The recommended way to distribute a Java application for Mac is outlined in [document] ([url]). The executable in the bundle should not be a symlink. If the Java runtime is outdated, it should be bundled directly. If the JAVA_HOME environment variable is set to a different version, issues may arise. Symbolic links within the bundle create problems for codesigning, so macOS will block the application and users will receive no feedback, making the app appear defective. I copied the jre and included it in the previously missing bundle ([product_name] binary). Now I can run [product_name] from the command line without needing --jdkhome."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face notable difficulties installing and launching [product_name] on MacOS, especially on Apple Silicon, due to problems with Java environment management and macOS security mechanisms. Challenges include lack of bundled Java runtime, unconventional packaging with symbolic links, and insufficient official instructions. These lead to silent failures and confusion, increasing user frustration.",
+    "user_expectations": "Users expect [product_name] to install and launch reliably on MacOS, including Apple Silicon, without requiring manual setup or technical adjustments. They look for straightforward compatibility and formal support for new Mac hardware from [company_name].",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy installation",
+      "Apple Silicon support",
+      "seamless user experience"
+    ],
+    "pain_keywords": [
+      "installation failure",
+      "Java configuration issues",
+      "lack of MacOS support",
+      "codesigning problems",
+      "app appears broken"
+    ],
+    "feature_keywords": [
+      "installer behavior",
+      "Java runtime bundling",
+      "--jdkhome flag",
+      "MacOS Apple Silicon compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "MacOS": [
+        "Monterey"
+      ]
+    }
+  },
+  "topics": {
+    "3": "User Guidance",
+    "2": "Product Compatibility"
+  }
+}

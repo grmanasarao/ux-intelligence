@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "branch_id": "5713210519",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 511147296548606,
+      "user_name": "IMAQHs5skP",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm trying to connect my [product_name] V8.3 [product_name] to the cloud by following the tutorials in these videos: [url], [url]. In the cloud connection setup, the device registers successfully but when I test the connection I get an error: 'DNS server is not accessible. Check the [product_name] gateway and ensure the device is online.' I can download programs to the [product_name] using Ethernet, so it should be on the same subnet. Do I need to configure the router differently for cloud connection? Thanks in advance!"
+    },
+    {
+      "comment_id": 912506641543982,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hi, here's my setup: [product_name] 8.3 IP address set outside the router's DHCP range. I set the gateway to the DSL router's IP address. This was all I had to do and the cloud connection worked immediately. Hope this helps."
+    },
+    {
+      "comment_id": 307096539061841,
+      "user_name": "IMAQHs5skP",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Thanks for responding. I seem to have progressed since the error now switched to an 'unknown error.' When I check AWS IoT online, I see 'eu-west-3.console.aws.amazon.com' in the browser—since I'm in the Netherlands, I'm in this IoT region. But 'eu-west-3' isn't a selectable option when registering the [product_name] as an IoT device. Could this be why the connection isn't working?"
+    },
+    {
+      "comment_id": 259327411422033,
+      "user_name": "IMAQHs5skP",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Apologies if this is a basic networking/AWS issue. I found you can change your AWS IoT region in the console, and now my [product_name] is registered as an AWS IoT device. I've configured the [product_name] IP: 192.168.0.3, subnet mask: 255.255.255.0, default gateway: 192.168.178.1 (my router’s IP via 'ipconfig'). However, I don’t see a shadow in AWS IoT, and testing the connection in the settings gives 'test failed because of unknown error.' On the [product_name] device, testing the connection gives different errors: Error 81 'Unable to connect to DNS server' when the program is running, and Error e0 'Unable to establish TCP connection to Cloud server' when it is not. I’ve followed the manuals and cloud tutorials but am still stuck. Any tips would be greatly appreciated!"
+    },
+    {
+      "comment_id": 670154543757681,
+      "user_name": "cZQANX744b",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hi, try removing the DNS server setting—it’s not necessary for AWS. AWS adds new servers over time; the location you need might not have existed earlier, but you can use any server selectable in the cloud configuration tool. Specify what data you want transferred to AWS in the data table and set date/time in the [product_name]. Using the central EU region should work, since Berlin and Amsterdam are in similar time zones. Double check everything. Hope this helps."
+    },
+    {
+      "comment_id": 313174144855849,
+      "user_name": "IMAQHs5skP",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I didn’t modify the DNS server setting. Because I want this working, I’ve shared a short screencap video attached where I show my steps. I hope this clarifies things."
+    },
+    {
+      "comment_id": 745548654200181,
+      "user_name": "IMAQHs5skP",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I contacted [company_name] support, and they pinpointed my issue. My router’s default gateway was 192.168.178.1 (confirmed via 'ipconfig'), but I kept my [product_name] IP at 192.168.0.3. I should have switched it to 192.168.178.3. My settings are now: IP: 192.168.178.3, Subnet Mask: 255.255.255.0, Default Gateway: 192.168.178.1. This solved the problem for me. Thanks to [company_name] Support and [user_name] for the assistance!"
+    },
+    {
+      "comment_id": 359761068327916,
+      "user_name": "YirYWQt7ze",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello! I had the same issue. Problem solved. Thank you!"
+    },
+    {
+      "comment_id": 790230741556086,
+      "user_name": "JpTshv505v",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Hi everyone, Did you manage to resolve the issue? I set the default gateway as per the router and updated the date and time, but I’m still getting a warning. Also, testing the connection seems to stop the PLC. Is this expected? Thank you in advance."
+    },
+    {
+      "comment_id": 338912395758675,
+      "user_name": "0VMuvk9KBp",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello, When connecting the PLC to AWS Cloud, we’re seeing an error: 'DNS server is not accessible. Check the [product_name] gateway to ensure the device is online.' How can we fix this?"
+    },
+    {
+      "comment_id": 235095207181409,
+      "user_name": "hRnTLFf5GC",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hi all, I’m having the same problem. The IP and gateway are set correctly, but the same error appears. Any suggestions?"
+    },
+    {
+      "comment_id": 199667396283049,
+      "user_name": "IumAzqNGDQ",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I am facing the same issue too!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered difficulties when trying to connect their [product_name] V8.3 devices to AWS Cloud, with repeated DNS server access errors and unknown failures. The main issues were incorrect IP network configuration, mismatched AWS region settings, and limited feedback on what was going wrong. Properly setting the network gateway and choosing the correct AWS region resolved the problem for some users.",
+    "user_expectations": "Users want a simple, plug-and-play process—minimal manual network setup for reliable cloud connectivity. They expect clear diagnostic feedback, intuitive AWS region selection, and straightforward configuration within their control systems.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "cloud connectivity",
+      "remote access",
+      "IoT integration",
+      "reliable diagnostics"
+    ],
+    "pain_keywords": [
+      "network configuration",
+      "DNS server inaccessible",
+      "unknown error",
+      "region mismatch",
+      "unclear diagnostics"
+    ],
+    "feature_keywords": [
+      "cloud connection",
+      "network configuration",
+      "diagnostics",
+      "AWS region selection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

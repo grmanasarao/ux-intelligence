@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "branch_id": "9170151995",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 273442501741904,
+      "user_name": "kmVUFR8Vj3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm working with [product_name] [version_no] connected via MQTT protocol to an AWS Ubuntu machine running Node-RED. Everything operates smoothly: [product_name] publishes variable values (M, Q, V) according to the configured update frequency or upon any changes. I process these values in my Node-RED flow and display them in a dashboard. I can also change M values to modify [product_name] inputs remotely. My challenge is that if Node-RED restarts, it loses the current values from [product_name]. Although persistent Node-RED context could store these values to disk and reload them when needed, I was hoping for a more convenient option: upon Node-RED restart, sending a request to [product_name] via MQTT to republish all variable data (or a selected subset). This message would resemble the one [product_name] sends when its status changes from STOP to RUN. Is there a way to trigger such a data push? As an alternative, is it possible to remotely cause a RUN to STOP to RUN status change through MQTT so [product_name] would resend its data? Thank you in advance for your support."
+    },
+    {
+      "comment_id": 749167082972634,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "No. The RUN or STOP status of [product_name] can't be switched remotely via MQTT."
+    },
+    {
+      "comment_id": 706689199998312,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], For safety reasons, PLCs typically can't be switched between RUN and STOP from an external device—this helps protect critical systems (like infrastructure controls) from unauthorized status changes. Your issue appears related to your broker or Node-RED setup, not the PLC itself. You may want to seek further assistance from Node-RED support channels. Regards [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 831494742150434,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Is there documentation on this? [version_no] controllers can be switched between RUN and STOP using a [product_name] panel."
+    },
+    {
+      "comment_id": 768024231307785,
+      "user_name": "kmVUFR8Vj3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "I understand the safety concerns, which is why I suggested this only as a backup solution. Ideally, I'd prefer to trigger a data publish from [product_name] by sending an MQTT request. Is this technically possible?"
+    },
+    {
+      "comment_id": 108763322969789,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], Does the communication between [product_name] and Node-RED need to use MQTT? Modbus or an [version_no] connection could be more direct options. Regards [user_name] @ [user_name], [product_name] also supports start/stop via [product_name] operator devices, but what about methods outside of [company_name] products? Are there Modbus, MQTT, HTML commands, or sensor solutions for this? If you know of any, please share—they'd be useful to many."
+    },
+    {
+      "comment_id": 598343753051730,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "You wrote that, not me. It sounds very broad."
+    },
+    {
+      "comment_id": 546850202554867,
+      "user_name": "kmVUFR8Vj3",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "MQTT was my workaround after finding AWS IoT too complex and expensive for my needs. For local access, I use the [product_name]'s internal web server, but it's inaccessible externally. At this point, I'm not pursuing another solution. If no command exists to trigger this through MQTT, I'll rely on Node-RED's persistent context instead. Thanks for your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main concern is that users need a way for [product_name] devices to republish all their variable data via MQTT after a Node-RED restart, as current solutions result in lost state. Directly triggering such a data push through MQTT—without a device state change—is not supported, largely due to security and safety reasons. Users suggest relying on persistent storage in Node-RED as an alternative and discuss possible approaches for more flexible remote access and variable reacquisition.",
+    "user_expectations": "Users hope for [product_name] to offer a secure method, preferably over MQTT, that allows external systems to request all current variable values without requiring a full RUN/STOP cycle—facilitating easier recovery after external system restarts.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "variable resynchronization",
+      "cloud data reacquisition",
+      "external data request",
+      "remote update",
+      "reliability"
+    ],
+    "pain_keywords": [
+      "no on-demand data resend",
+      "state loss after restart",
+      "cannot trigger data publish",
+      "protocol limitation",
+      "remote status restriction"
+    ],
+    "feature_keywords": [
+      "MQTT protocol",
+      "data publish on request",
+      "external command interface",
+      "web server access",
+      "variable state persistence"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Linux": [
+        "Ubuntu"
+      ]
+    }
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations",
+    "6": "Security Concerns"
+  }
+}

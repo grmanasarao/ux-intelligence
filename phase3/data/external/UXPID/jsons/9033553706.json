@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "9033553706",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 233225768516465,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello, I’m working on ramping the setpoint of a PI controller over a defined period to achieve a temperature ramp with a specific rate. So far, I've found examples where the setpoint can be changed using an analog comparator input to the ramp function, allowing calculation of rate changes in steps per second. Is there a method to pass this rate value directly as a parameter in the Ramp function, or is it necessary to build a custom program with timing and calculation blocks feeding the PI controller setpoint? Any advice would be appreciated."
+    },
+    {
+      "comment_id": 362127350249974,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], welcome to the forum. Based on my experience, this is only possible externally (for example, from another PLC or HMI) through parameter mapping."
+    },
+    {
+      "comment_id": 342455592545112,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Thank you for your response. I’ve noticed you’re consistently quick and very knowledgeable. To clarify, do you mean I should calculate the ramp rate, send it to the HMI, and then use it in theRamp block as an external value?"
+    },
+    {
+      "comment_id": 478786208517707,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I'm not sure if an HMI can receive the value and send it back to [product_name]. I don't believe so. My suggestion is to use an input field on the HMI, where you manually enter the value. If you need to calculate the value with [product_name], you would have to send it to another device capable of sending the value back (for example, a second [product_name], another PLC, or a Modbus-compatible PLC)."
+    },
+    {
+      "comment_id": 403837286859542,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "To ask specifically: Can you change the 'speed of change' in an Analog Ramp Block using an external field or input, instead of opening the block and altering the value directly?"
+    },
+    {
+      "comment_id": 990125006520621,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Yes, it's done with parameter mapping. If you want to compute the value inside [product_name] and automatically transfer it to the parameter, you need to follow this workaround as described. If you’d like, I can provide an example using two [product_name] devices, which can be demonstrated in a simulation."
+    },
+    {
+      "comment_id": 430399813070293,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "That’s exactly the answer I needed—parameter mapping. Thank you for your help and time."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion focuses on adjusting the setpoint ramp in a PI controller, specifically whether the ramp rate can be changed externally rather than manually within the controller block. Users highlight limitations in making real-time parameter changes directly through the program or via external interfaces. The conversation reveals users’ uncertainty about available input methods, suggesting a need for clearer documentation and better discoverability of programming options.",
+    "user_expectations": "The user wants to dynamically modify the ramp rate parameter of the Analog Ramp Block, preferably through external inputs like an HMI or another PLC, rather than editing the block manually. They expect a straightforward approach to parameter adjustment and increased ease of automation.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "dynamic parameter adjustment",
+      "automated ramp control",
+      "external input flexibility"
+    ],
+    "pain_keywords": [
+      "manual configuration requirement",
+      "unclear external parameter control",
+      "limited user interface clarity"
+    ],
+    "feature_keywords": [
+      "Analog Ramp Block",
+      "parameter VM mapping",
+      "PI controller setpoint ramping"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

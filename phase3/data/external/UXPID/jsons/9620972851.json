@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "9620972851",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 314525090317547,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Hello everyone! I have temperature sensors and would like to show their readings on the [product_name] display and in [product_name] web editor. My idea is to make the sensor's representation disappear in both places if I remove a sensor from the bus while the program is running. If I reconnect the sensor, it should reappear in both the web editor and display automatically. I want this behavior to be real-time—the value and the thermometer should vanish upon removal, and reappear upon reconnection. Currently, removing a sensor results in a reading of -127°C, which I'd prefer to hide rather than display. Are there any tips or methods to dynamically show or hide elements in the [product_name] web editor or display based on sensor readings? Thank you very much."
+    },
+    {
+      "comment_id": 919425032439235,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "One approach is to add a rectangle over the display, which can be shown only when you do not want to see the sensor value."
+    },
+    {
+      "comment_id": 538539827748606,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "So is it possible to show or hide the rectangle depending on the value received? For example, if the reading is -127.00, display the rectangle, correct? Is this not possible on the [product_name] display?"
+    },
+    {
+      "comment_id": 649099237898115,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "The [product_name] display and the web server are quite different. The display is text-based, while the web editor is graphics-based. It's like comparing two things with distinct functions."
+    },
+    {
+      "comment_id": 771958613720887,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "I haven't been able to set up a rectangle to display only when I want. To show normal temperature, the rectangle needs to be transparent over the value, but I haven't found any transparent images in the web editor. Also, if I could remove the option to display an image when the digital value is '0', I could show the rectangle only with '1'. Do you have any suggestions for hiding images with '0' or making them transparent? Thank you!"
+    },
+    {
+      "comment_id": 205549458021699,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "You need two images: one matching the background color and one transparent. Use a digital value to select which to display—if it's 0, show the transparent image; if 1, use the background image. I've attached a transparent example."
+    },
+    {
+      "comment_id": 554035355026389,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "I've included a small example in the attachment."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users wish to dynamically control sensor visualization in both the [product_name] web editor and display, preferring invisible graphics or placeholders over showing faulty readings like -127°C when sensors are disconnected. However, differing design constraints between the text-based display and the graphic-based web editor make this challenging and cause user confusion.",
+    "user_expectations": "Users expect sensor visualizations to automatically disappear or become invisible in both the [product_name] display and web editor when sensors are unplugged, and reappear when reconnected, avoiding confusing placeholder values.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time visualization",
+      "conditional display",
+      "clarity for user"
+    ],
+    "pain_keywords": [
+      "inflexible visualization",
+      "confusing values",
+      "lack of transparency image"
+    ],
+    "feature_keywords": [
+      "conditional visibility",
+      "dynamic interface elements",
+      "transparent images",
+      "analogue value visualization"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

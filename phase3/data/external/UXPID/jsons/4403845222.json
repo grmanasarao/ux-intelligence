@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "4403845222",
+    "thread_id": "4479534060",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 456899877577454,
+      "user_name": "NqrjP3Z2cZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 4,
+      "comment_body": "Hi everyone, I'm looking for assistance with my setup. I have a [company_name] [product_name] managing my solar water heating, and though I'm new to [company_name] [product_name] PLCs, I managed to set up the function blocks so far and things seem to work. There is also a KNX module connected. My issue is that the [product_name] displays one value, while KNX bus shows another. For instance, last night, the temperature reading on the PLC was 47°C and on the KNX bus it was 36°C. Which reading is correct? Shouldn't KNX be reporting the same value retrieved from the PT100 probe via the [product_name]? Any advice is appreciated."
+    },
+    {
+      "comment_id": 996572444014249,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], I haven't worked a lot with KNX, but I'd recommend: 1) Ensure the Pt100 analog input passes through an appropriate analog block (such as an amplifier). 2) Verify the block sensor type is set to Pt100, and gain/offset are auto-generated. 3) [product_name] assumes a standard -50°C to +200°C sensor and scales readings accordingly. 4) If your Pt100 sensor covers a different range, select 'No Sensor' and manually set gains/offsets. 5) Make sure the value is displayed with the correct resolution and decimal places on the [product_name] screen or external display. 6) You can test your Pt100 with various temperatures, for example tap water (15-20°C) or hot coffee (60-80°C), if accessible. 7) In your [product_name] program, forward the analog value to the analog output so KNX can access it. 8) Within ETS software, confirm the chosen data type matches what you want to collect from the process image—KNX allows multiple analog formats like percent, integer, 2-byte, or 4-byte; try 2-byte. Hope this proves useful—please rate if this helped!"
+    },
+    {
+      "comment_id": 720807040104634,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], I'm not entirely sure, but I think it's a scaling issue. As far as I know, scaling in ETS should match the configuration in the [product_name]."
+    },
+    {
+      "comment_id": 542217925930507,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 4,
+      "comment_body": "Thanks for your reply, [user_name]. I think you're correct, but I currently don't have ETS available to verify how it's set up. I appreciate your insight!"
+    },
+    {
+      "comment_id": 590954989436673,
+      "user_name": "NqrjP3Z2cZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 4,
+      "comment_body": "I believe the problem stems from default scaling settings. My configuration currently uses 0 & 1000, which I left unchanged. Should I adjust this to -50 and 200, or perhaps to -500 & 2000, which scales by 10 as shown in your screenshot? Thanks for both of your helpful responses—eager to hear your further thoughts."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering inconsistent PT100 temperature readings between the [product_name] display and the KNX bus, which causes uncertainty over data accuracy. Discussions point to data scaling and configuration as key factors for correct value transfer, emphasizing the importance of aligning scaling and input settings in both [product_name] and KNX ETS software when integrating external modules.",
+    "user_expectations": "Users expect identical temperature values to be shown on both the [product_name] display and KNX readings, given that both should source data from the same PT100 probe.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sensor data",
+      "system consistency",
+      "easy integration"
+    ],
+    "pain_keywords": [
+      "data mismatch",
+      "configuration complexity",
+      "scaling confusion"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "KNX integration",
+      "function blocks",
+      "data synchronization"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "branch_id": "6902381593",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 933855999661673,
+      "user_name": "1mr4mlsqSC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Hello, When attempting to retrieve the data log file from [product_name], a message appears stating 'No Data log found.' The SD card is 2GB, formatted as FAT32 on a Windows 10 PC. Checking the SD card status in the menu shows OK."
+    },
+    {
+      "comment_id": 346737708072439,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Are you sure you're using datalog as outlined by [company_name]? There doesn't seem to be a program available to analyze faults. Regards, [user_name]"
+    },
+    {
+      "comment_id": 425079589292221,
+      "user_name": "1mr4mlsqSC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Yes, the datalog was configured as described by [company_name]. Refer to the attached screenshots."
+    },
+    {
+      "comment_id": 625638668461885,
+      "user_name": "1mr4mlsqSC",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Second screenshot attached."
+    },
+    {
+      "comment_id": 435820279704959,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Could you provide details about how you set up the data log parameters?"
+    },
+    {
+      "comment_id": 168309335299476,
+      "user_name": "1mr4mlsqSC",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "The SD card contains a file named 203_0, but it has zero length and contains no data."
+    },
+    {
+      "comment_id": 233909038740262,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Initially you mentioned no data log was created, but now it's being created with a file size of 0 kB. I asked about your data log setup, but haven't received an answer yet. To assist you, please highlight the 'Data Log' block in the [product_name] diagram and share its properties via screenshot. Or preferably, upload your program as a ZIP file."
+    },
+    {
+      "comment_id": 457483502069619,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "The data log first writes 512 entries into internal memory before switching to the SD card, according to the manual. How are you checking your SD card—removing it during operation and reading it on your PC? If so, try using [product_name] software, which can read the most recent file and, if there's only one file, also read from internal memory. To safely remove the SD card, stop the program first to prevent data loss. To guarantee data on the SD card, wait for at least 512 * 10s (~85 minutes) or decrease the time interval. Regards, [user_name] @user_name: He uploaded a picture showing the properties, see entries."
+    },
+    {
+      "comment_id": 192021052264411,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "@user_name, at the time he made the second post with the entries, I replied with mine."
+    },
+    {
+      "comment_id": 180061583260917,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "It's not the first 512 entries, that's incorrect. The data logging buffer is 1024 bytes. If there's an SD card in [product_name], it stores the first 512 bytes in the buffer before saving logged data onto the SD card. See attachment."
+    },
+    {
+      "comment_id": 619212762831662,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "I conducted some tests. It's evident the data log is created even if the buffer hasn't reached 512 bytes. My first test used a 1-second interval, then I downloaded the data log. Subsequent tests used 5-second and 10-second intervals, then I downloaded each log. Afterward, I transferred the data logs from the SD card to the PC. All files matched. Data logs are attached."
+    },
+    {
+      "comment_id": 273943703647164,
+      "user_name": "8RYb477Ela",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "You're correct—the measurement should be in bytes, not entries. With 10 bytes per entry and a 10-second interval, filling the buffer takes about 8 minutes. I'm missing files from your SD card ZIP; only three downloadable files are present. Regards, [user_name]"
+    },
+    {
+      "comment_id": 126527544925587,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "There are some updates."
+    },
+    {
+      "comment_id": 669734335242290,
+      "user_name": "8RYb477Ela",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "The oldest SD card file is empty, which suggests the initial data log may be stored only in internal memory. A more comprehensive explanation of data log storage would help, but so far, all I have is your shared instructions excerpt. Regards, [user_name]"
+    },
+    {
+      "comment_id": 280357059081568,
+      "user_name": "1mr4mlsqSC",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thank you all for your responses. 1. When I try to get the DataLog via [product_name] software, I receive the message 'No datalog found.' 2. If I stop [product_name] and remove the SD card to check it on a PC, I find a zero-length CSV file (the program ran for one week before reading the card). 3. The program and a screenshot showing DataLog block properties are attached."
+    },
+    {
+      "comment_id": 550511928643808,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], Could you please upload your program as a ZIP file? Thanks."
+    },
+    {
+      "comment_id": 991283709760758,
+      "user_name": "1mr4mlsqSC",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Program included in attached ZIP file."
+    },
+    {
+      "comment_id": 910218725767722,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "I transferred your uploaded program to my [product_name] device. The same error occurred: no data log available for upload and no CSV file on the SD card. I then deleted the 'Data Log' block from the diagram, copied all objects, and pasted them into a new diagram. After creating a new data log and transferring the updated program to my device, a data log was successfully created and could be uploaded and found on the SD card. Attached: - The new program (verify settings like IP address, etc.) - The uploaded data log file - Data from the SD card"
+    },
+    {
+      "comment_id": 640278588181467,
+      "user_name": "8RYb477Ela",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "This is again a damaged program that can be uploaded but does not have all functions."
+    },
+    {
+      "comment_id": 551090483915127,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "I recommend [user_name] submits a support request so [company_name] can review the source program."
+    },
+    {
+      "comment_id": 558666844863563,
+      "user_name": "1mr4mlsqSC",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "[user_name], thank you! Since [product_name] is installed at a customer site, I’ll try your solution next week."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are struggling to retrieve data logs from [product_name] devices with SD cards—either finding the log files missing or files being empty despite setting up the datalog according to [company_name] instructions. There's confusion over how the device buffers and transfers logged data, causing frustration and unclear results. Issues stem from misunderstanding how data storage works and lack of clear feedback from the device.",
+    "user_expectations": "Users expect [product_name] devices to generate and save data log files with actual data on the SD card, accessible either within the device's interface or through a PC. They assume the log files should not be empty and should be straightforward to retrieve after following official setup procedures.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy data logging",
+      "reliable file creation",
+      "accessible logs"
+    ],
+    "pain_keywords": [
+      "empty data log files",
+      "unclear data saving process",
+      "confusing error messages"
+    ],
+    "feature_keywords": [
+      "data logging",
+      "SD card saving",
+      "internal buffer",
+      "error display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": [
+        "10"
+      ]
+    }
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "5852312091",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 914501728467441,
+      "user_name": "jivfEKVdJz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I'm trying to achieve the same result, aiming to save a variable in my system after a reboot or power loss. However, I'm unable to find how to connect the web editor to the PLC. In this example, the web editor is linked to VW02 and VW03, and the math functions are B003 and B004. Can someone explain how I can assign an analog slider to a math function?"
+    },
+    {
+      "comment_id": 313200715039644,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Your explanation might be clear to you, but for me it's only apparent what you want to achieve. I can't provide a precise answer without seeing your program and project in the web editor. General question, general answer: Consider using parameter VM mapping. Additionally, you have an issue with overlapping addresses: VW02 = VB02 + VB03 VW03 = VB03 + VB04 As you can see, both words include the byte VB03. The PLC uses byte-oriented addressing, and a word consists of two bytes. Please refer to the attached file."
+    },
+    {
+      "comment_id": 609039815047341,
+      "user_name": "jivfEKVdJz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Hello, The example was for the initial post I responded to, but a moderator separated it into its own thread. [url] I'll provide my specific example (see attached image). I want to connect an analog slider in the web editor to this math function. I can't find any reference in the program to which word, dword, or byte is used by the math function B034. Could you assist me with this?"
+    },
+    {
+      "comment_id": 817517032070703,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 254533479158793,
+      "user_name": "jivfEKVdJz",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Thanks, that solved the problem."
+    },
+    {
+      "comment_id": 841060106003233,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "That's what I mentioned in my first response ..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to link an analog slider from a web editor interface to a math block in a PLC, with the goal of ensuring the variable remains available even after power cycles. The main challenge is clarity on how memory address mapping works between the web interface and the PLC, especially with potential address overlaps. Guidance on using parameter VM mapping and understanding byte/word relationships helped resolve the issue.",
+    "user_expectations": "The user looks for a straightforward way to connect a web-based analog slider with a math function in the PLC program, and wants easy access to the related memory address or variable for the function.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent variable",
+      "easy binding",
+      "memory mapping"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "memory overlap",
+      "lack of documentation"
+    ],
+    "feature_keywords": [
+      "analog slider",
+      "math function",
+      "VM mapping",
+      "variable retention"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "3": "User Guidance"
+  }
+}

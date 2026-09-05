@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "branch_id": "7340498236",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 710752879190882,
+      "user_name": "o64RyR4T05",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello, I'm trying to control an analog motor valve with two setpoints: one for normal temperature at 20°C and another for high temperature at 40°C triggered by a switch. I attempted using two PI blocks, but it seems I can’t connect both to the same analog output. How should I approach this?"
+    },
+    {
+      "comment_id": 336328170373278,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Which [product_name] module do you have? If your [product_name] supports it, you can use an analog multiplexer block. I’ve attached an example."
+    },
+    {
+      "comment_id": 572370565000847,
+      "user_name": "o64RyR4T05",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Thanks for the solutions, they work great. I’m planning to buy the [product_name] version without display, add an external display, a 2-channel analog input module for PT sensors, a 2-channel analog output, and an 8 digital output module. I have another question: I need to add an anti-freeze function to the same analog output. The anti-freeze sensor is a digital input, and whenever the input is active, the analog output should be set to maximum, regardless of all other PI or analog functions. This heating setup is for a ventilation system, where the old control unit is failing and spare parts aren’t available, so I want to prepare the program before swapping out hardware."
+    },
+    {
+      "comment_id": 474490447734000,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Would something like this work?"
+    },
+    {
+      "comment_id": 741701782975654,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Or maybe this?"
+    },
+    {
+      "comment_id": 827561137013000,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "You can set two setpoints (refer to example 190B: Setpoint switching) using an analog multiplexer and the reference button. If a frost alarm occurs, switch the multiplexer to output a fixed max value, e.g., 1000. Note: [product_name] handles analog signals internally in a 0-1000 range. 0 equals 0V (or 0mA), and 1000 equals 10V (or 20mA) at the analog output. Sending a value of 1000 means you’ll get 10V (or 20mA) on that output."
+    },
+    {
+      "comment_id": 436852499386188,
+      "user_name": "o64RyR4T05",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Thanks for the help. One last thing: In the same setup with two setpoints and anti-freeze, can I add another PT100 sensor inside the supply air channel, so I can control the maximum temperature of the air being blown into the room? The main analog input is a PT100 for measuring room temperature."
+    },
+    {
+      "comment_id": 821924452694280,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "If I understand you correctly: You want to know if it's possible to change the control value between room temperature and supply air duct temperature? If so, yes, you can do this."
+    },
+    {
+      "comment_id": 771549068877197,
+      "user_name": "o64RyR4T05",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Not exactly. PT100 sensor 1 is in the room set to 20°C; then I activate setpoint 2 at 40°C, which sets the analog output (motor valve) to max, possibly resulting in a high flow through the heating coil. The fresh air temperature entering the room can exceed 40–50°C. I’d like to add a second PT100 sensor within the ventilation channel to limit the supply air temperature. It may slow the heating process, but it will reduce central heating energy consumption."
+    },
+    {
+      "comment_id": 394353250962977,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Can you share your program file?"
+    },
+    {
+      "comment_id": 687312861022602,
+      "user_name": "o64RyR4T05",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Here’s the program."
+    },
+    {
+      "comment_id": 633932032898408,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "The attachment contains an example showing how to delay the setpoint change when switching through an analog ramp."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are aiming to configure a [company_name] control module to operate an analog motor valve with two selectable temperature setpoints, along with an anti-freeze mode that overrides normal operation. There is also interest in integrating two PT100 sensors: one for standard room temperature control and another to limit the supply air temperature, especially useful in a ventilation retrofit. Key challenges include mapping multiple setpoints to one analog output, ensuring a digital override for anti-freeze via a sensor input, and updating logic to support temperature limiting via multiple sensors.",
+    "user_expectations": "The user wants a straightforward configuration solution for managing several temperature setpoints on one analog output, incorporating a digital input for anti-freeze override, and enabling an extra PT100 sensor for supply air temperature limitation—all built into the [product_name] platform.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "multi-setpoint control",
+      "anti-freeze protection",
+      "air temperature limiting",
+      "flexible automation",
+      "energy efficiency"
+    ],
+    "pain_keywords": [
+      "difficult output sharing",
+      "anti-freeze override integration",
+      "multi-sensor control",
+      "old system unreliability"
+    ],
+    "feature_keywords": [
+      "analog mux",
+      "PI blocks",
+      "multiple analog input",
+      "PT100 integration",
+      "setpoint switching",
+      "digital override"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "12": "Network Configuration Challenges"
+  }
+}

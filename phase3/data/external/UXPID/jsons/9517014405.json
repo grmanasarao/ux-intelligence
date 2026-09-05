@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "9517014405",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 372610399020137,
+      "user_name": "jyUbS9BxdS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello, I've been working on a test project using [product_name] over the past few days. I can monitor various signals such as switches (I), loads (Q), analog data, and measurements through the browser. However, I can't control the switches (I) or loads (Q) from the browser interface—control only works when outputs are not linked to any input or switch. Am I missing something, or is this the intended behavior?"
+    },
+    {
+      "comment_id": 378332012543935,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "This isn't an issue with [product_name]; rather, it's just not possible to change the state of digital outputs through the web server when the output block (Q) is connected to an input within the program. The logic defined in the application determines the output state. For instance, if output Q1 is tied to input I1, you cannot directly set Q1 via the web interface. Direct output control via the web server is only available if the output isn't linked or referenced in the program. To allow parallel switching from the web server, you should utilize digital network inputs or flags instead."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user reports difficulty controlling outputs directly through the web interface when those outputs are assigned to inputs within the application logic. While real-time monitoring works as expected, direct switching in the browser is not available if outputs are governed by the logic program. This limitation is by design and may confuse new users who anticipate browser-based control similar to other platforms.",
+    "user_expectations": "The user would like to control digital outputs and loads directly from the browser, just as they can currently monitor output states.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "real-time switching",
+      "browser-based interface"
+    ],
+    "pain_keywords": [
+      "restricted actuation",
+      "limited remote control",
+      "confusing interface behavior"
+    ],
+    "feature_keywords": [
+      "output switching",
+      "input/output monitoring",
+      "web browser control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

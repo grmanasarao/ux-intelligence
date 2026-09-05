@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "branch_id": "7370937693",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 745158539869875,
+      "user_name": "h1KQFj8fXG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Good afternoon. I'm looking for help with connecting my weight converter, which works with load cells and uses MODBUS RTU protocol. I also have a MODBUS RTU to MODBUS TCP converter. I want [product_name] to receive accurate weight values from the converter. The connection is established, and [product_name] receives data, but the values are displayed incorrectly and fluctuate rapidly between negative and positive extremes. When I connect an OPC server to the weighing terminal, the data is correct, provided I select a byte swap option for the device. Is there a similar byte permutation function available in [product_name] so the data can be transmitted in the correct byte order?"
+    },
+    {
+      "comment_id": 828534014729193,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "To assist, we first need to know how the data is being transferred into [product_name]."
+    },
+    {
+      "comment_id": 346167366183424,
+      "user_name": "h1KQFj8fXG",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "I've made a short video showing the issue; it might help clarify the situation: [url]"
+    },
+    {
+      "comment_id": 218425716243849,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Sorry, the video quality isn’t sufficient for me to understand your issue, and I don’t read Russian. Can you specify the data format you transfer to [product_name]? Is it DInt or Float? Is it a 4-byte value, and is the byte order Little Endian or Big Endian?"
+    },
+    {
+      "comment_id": 530378547455254,
+      "user_name": "h1KQFj8fXG",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "The data format is Float and uses 4 bytes. I’m unsure about the difference between Little Endian and Big Endian."
+    },
+    {
+      "comment_id": 865025301570077,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Big-endian and little-endian refer to the order the bytes are transmitted. Do you need to swap words (from 3412 to 1234), or swap all 4 bytes (from 4321 to 1234)?"
+    },
+    {
+      "comment_id": 351722733597015,
+      "user_name": "h1KQFj8fXG",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "I believe it’s the first option, 3412 to 1234, though I’m uncertain. The byte arrangement works correctly in the OPC server and matches the weighing terminal, but reading from the terminal and displaying in [product_name] results in a noticeable offset that increases with the weight. For example, when the weighing terminal shows 557 grams, [product_name] displays 554 grams."
+    },
+    {
+      "comment_id": 425978234812455,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "You’re reading the value in [product_name] as a float with three decimal places, like \"kg.g\", for example, 15 kg 457 g would be 15.487. Is this correct?"
+    },
+    {
+      "comment_id": 577954171096628,
+      "user_name": "h1KQFj8fXG",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "I haven't loaded up to 15 kg since I don’t have those weights. At 3.086 kg, [product_name] shows 3078. I want my scale to measure with 1g precision, so it’s important for [product_name] to reflect exactly what is shown on the weighing terminal, down to each gram."
+    },
+    {
+      "comment_id": 366770054723463,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "The issue might be caused by the F/I converter in [product_name], which typically only handles 16-bit integer values."
+    },
+    {
+      "comment_id": 284088722622704,
+      "user_name": "cZQANX744b",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Try the following approach: If your scale outputs 12.123kg as 12123 in [product_name], it should work with 1g resolution. For display, use an analog amplifier to define how the value appears. This works for values up to 32755 (32.755kg), matching integer limits. You can test this in simulation by entering your scale’s values in the datatable. Ensure your scale transmits the value directly as float, then use the F/I function block with a 1.000 resolution. In this scenario, [product_name] simply translates float to integer, and the supported range goes up to 32.755kg."
+    },
+    {
+      "comment_id": 693380459642709,
+      "user_name": "h1KQFj8fXG",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Unfortunately, this didn’t resolve the problem. It seems there’s indeed an issue within the float/integer conversion block inside [product_name]. For example, weighing 1000g results in 999 displayed, weighing 1.235kg shows up as 1231g, and this offset persists across ranges (2kg becomes 1999g, 2.412kg is 2408g). I might be expecting too much accuracy from [product_name], but thank you for your suggestions."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report unstable and inaccurate data readings when connecting [product_name] to a weight converter via Modbus RTU/TCP. Values often fluctuate and do not align with true measurements, likely due to issues with byte order and data type conversion. While OPC servers with byte swap settings provide correct results, [product_name] lacks a straightforward way to adjust these settings, making it difficult for users to achieve reliable, precise measurements and resulting in frustration.",
+    "user_expectations": "Users want [product_name] to display weight readings from a Modbus RTU device with high precision matching the actual weighing terminal values in real time. They expect easily accessible configuration options for handling byte order and floating-point data types, enabling accurate and granular weight measurement.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate data display",
+      "gram-level precision",
+      "byte permutation support"
+    ],
+    "pain_keywords": [
+      "erratic data",
+      "byte order confusion",
+      "data offset",
+      "imprecise measurement",
+      "inadequate float conversion"
+    ],
+    "feature_keywords": [
+      "Modbus RTU",
+      "Modbus TCP",
+      "byte permutation",
+      "float data handling",
+      "F/I converter",
+      "high-accuracy weighing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

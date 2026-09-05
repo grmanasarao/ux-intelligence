@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "2069438806",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 594454280048722,
+      "user_name": "dr1PgvMg0s",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm experiencing unusual fluctuations (ripples) when plotting analog input values; the relays respond to these variations. This occurs with all four analog inputs on my [product_name]. Even when providing a stable input voltage, the analog input displays significant shifts, causing the relays to repeatedly open and close. My device is: [article_no] [product_name] with firmware [version_no]. I have attached videos showing the effect on one input, along with a program meant to reduce the ripple. Does anyone know what could cause this issue? Thank you in advance. [user_name]"
+    },
+    {
+      "comment_id": 332767625563800,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "First, the hardware selection you've described may not be correct. Your [product_name] ([article_no]) is actually a [product_name] [version_no], not the standard type. Second, I've transferred your program to my own [product_name] [version_no] to test AI1. The configuration of the analog amplifier (B034) seems questionable—why did you choose a gain of 9.64 and an offset of 1130? What type of sensor is connected to this analog input, and what is its output signal and measuring range? Are the sensors powered by the same supply as the [product_name]?"
+    },
+    {
+      "comment_id": 569169895021555,
+      "user_name": "dr1PgvMg0s",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Hello again, I've now provided the correct [product_name] model. Regarding your second question: I'm measuring four temperatures for a heating application, using four build-it-yourself transducers connected to affordable PT100 sensors through operational amplifiers, resulting in an output voltage ranging from 1V to nearly 10V. These simple circuits aren't very accurate at zero, nor can I precisely calibrate the slope. That's why the calibration settings in the analog amplifier appear unusual. I've attached the calibration tables, which include reference measurements from melting ice, boiling water, and my own body—resulting in sufficient accuracy and range for this project. The voltage values begin around 1V and will not reach 10V. Each sensor circuit uses a separate power supply, with two circuits per power source. A small black block can be seen on the right side in the picture."
+    },
+    {
+      "comment_id": 147353786080542,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "You may not be aware of how the analog-to-digital converter for the analog inputs operates. It converts the input voltage range (0.00 - 10.00 V) into 0–1000 units, giving a resolution of 0.01 V per unit. With a gain factor close to 10, any change in the input signal of 0.01 V becomes ±10 units after amplification. I'm not sure how steady your power supply and self-constructed converter outputs are."
+    },
+    {
+      "comment_id": 769866253461892,
+      "user_name": "dr1PgvMg0s",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "[user_name], I appreciate your advice. I understood the amplifier operation, but this is my first time working with such setups. I initially used a gain of ten to improve accuracy since the [product_name] doesn't support decimal values. Thanks to your suggestion, I checked the signal's stability with a steady battery (3.2V). During testing, I realized I'd been using the device's ground as the zero voltage reference. After correcting this, the signal stabilized. I'm truly grateful to you and everyone on this forum for your help. I hope my experience can help others as well. Regards."
+    },
+    {
+      "comment_id": 502572986223039,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "That's why I asked about the power supplies for the sensors and the [product_name]. If you use two separate power sources, their 0V (ground) levels must be connected to ensure the device and the sensors share the same reference point. Regarding the analog amplifier: if you understand how the analog-to-digital converter of the [product_name] works, you’ll see that amplifying by ten doesn't actually improve decimal accuracy, as the second decimal place will simply show zero."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered irregular analog input fluctuations which caused relays to erroneously trigger. The problem was traced to improper grounding between the sensor and controller power supplies and made worse by calibration limitations in homemade transducer circuits. After linking the ground reference between power supplies, the analog signal became stable, leading to reliable relay operation and improved automation control.",
+    "user_expectations": "Users expect stable and precise analog input readings from the controller when provided with stable voltage, and for calibration adjustments to allow relays to function as intended without unpredictable switching.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable readings",
+      "accurate analog input",
+      "reliable relay control"
+    ],
+    "pain_keywords": [
+      "input fluctuation",
+      "relay malfunction",
+      "calibration complexity",
+      "grounding issues"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "relay outputs",
+      "calibration",
+      "analog amplifier",
+      "ground reference"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability"
+  }
+}

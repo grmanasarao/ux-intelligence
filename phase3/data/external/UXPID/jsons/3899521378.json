@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "3899521378",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 983700823023268,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm using a [product_name] with an analog expansion module. I'm controlling two motor controllers with a 0-10V output. AQ2 connected to MC1 works properly and outputs the expected voltage when commanded. However, AQ1 connected to MC2 doesn't behave as intended—it only provides a partial voltage of what I set at its analog output. Swapping motor controllers shows that AQ2 works with both controllers as expected, but AQ1 doesn't. For example, a 5V output on AQ1 only results in about 3.2V, and a 10V output shows around 7V. When the output is disconnected from the motor controller and measured with a multimeter (10MΩ), the values are correct. Measuring current usage at 10V output indicates around 110 microamperes, although it should be closer to 154 microamperes. The motor controller's input resistance is approx. 65kΩ. I've also attached the project and schematic showing the device with the PLC."
+    },
+    {
+      "comment_id": 278976606035086,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "If swapping the analog outputs shows one working and one not, it indicates the issue is related to the second controller. Are both controllers from the same manufacturer?"
+    },
+    {
+      "comment_id": 813133311665345,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Both controllers are produced by my company and are identical test units used for software evaluations. The theory that the issue lies with the controller doesn't fully explain the problem, because analog output U2+ works correctly with both units, while U1+ encounters issues with both. I believe U1+ may be faulty. Is it possible the analog output circuitry differs for these channels, or could a parallel resistor help resolve this?"
+    },
+    {
+      "comment_id": 195979908995549,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Have you tried connecting only one controller to AQ1 and another to AQ2, without both being connected simultaneously?"
+    },
+    {
+      "comment_id": 160350428465831,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I've tested all possible signal rotations—running both at once, swapping signals and controllers, isolating each controller, and reversing connections. The consistent result is that U1+/Analog output 1/AQ1 can't provide more than 110 microamperes in any setup."
+    },
+    {
+      "comment_id": 526235922698040,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "In this situation, I recommend starting a support request. Alternatively, consider trying isolation amplifiers."
+    },
+    {
+      "comment_id": 744813855593663,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Have you only swapped MC1 and MC2, or also the addresses AQ1 and AQ2 in the program for [product_name]? The program layout is complicated, and it's difficult to find the enable source for B117 and B118. If analog multiplexer enable signals are unstable, this could cause the issue you're seeing. If possible, connect a free input of OR block B178 to a high potential or invert it to get a stable output for testing. If the analog output functions properly in this scenario, check the program logic leading to the multiplexer enable input. Regards, [user_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants have observed that one analog output (AQ1) on the [product_name] module with an analog extension provides unreliable voltage under load, while the other output (AQ2) behaves as expected. Correct voltages are displayed when disconnected from the load, suggesting a possible hardware fault or a configuration issue. Troubleshooting steps already performed include various combinations of device connections and program logic reviews, but the source of the problem remains unresolved.",
+    "user_expectations": "The user expects both analog outputs on the module—AQ1 and AQ2—to reliably deliver the correct programmed voltage under load conditions, matching the values measured when unloaded.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "stable analog output",
+      "correct voltage control",
+      "reliable PLC operation"
+    ],
+    "pain_keywords": [
+      "incorrect voltage output",
+      "output current limitation",
+      "difficult troubleshooting"
+    ],
+    "feature_keywords": [
+      "analog output channels",
+      "program logic stability",
+      "multi-channel consistency",
+      "enable input",
+      "multiplexer logic"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability"
+  }
+}

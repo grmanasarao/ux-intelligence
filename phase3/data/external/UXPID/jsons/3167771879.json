@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "3167771879",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 485683460999101,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello everyone, has anyone experienced an issue where copying a program from a computer to a controller works fine, but when copying it back to the computer, certain elements, like text box contents, are missing? No settings were changed, and only a few minutes passed between upload and download. This seems to happen when UDF blocks are in use. Maybe UDF blocks should be added at the very start or end of the program to avoid possible block number conflicts. I am using [product_name] software [version_no] on Windows and a controller with article number [article_no] running firmware version [version_no]."
+    },
+    {
+      "comment_id": 144931602335572,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "When transferring a program from a PC to the controller, only the program code itself is transferred. Comments and comment fields do not get transferred. If a UDF is added and there are already block numbers in use, the UDF receives new block numbers, which prevents conflicts."
+    },
+    {
+      "comment_id": 986428507007457,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "I know that comments aren't part of the transfer back to the computer. In one program I had a UDF, while another had two. When I copied different blocks between programs, I ran into this issue. Building the program from scratch fixed it. Here’s the version with the issue (copied to controller and then back to PC for simulation). The working version is in the [product_name] - Projects section under 'UDF - absolute value sample program'."
+    },
+    {
+      "comment_id": 438218839669228,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Sorry, I'm not sure what error you mean."
+    },
+    {
+      "comment_id": 201592582194900,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "I also don't understand the issue yet. Could you upload a screenshot showing what the error looks like? Greetings [user_name]"
+    },
+    {
+      "comment_id": 272918473899776,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Here are the screenshots as requested, showing the program before and after transferring between PC and controller. Two images are attached. The working version is found in the [product_name] - Projects area under 'UDF - absolute value sample program'."
+    },
+    {
+      "comment_id": 247188207126482,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "You updated your last post and removed the part where you said you uploaded a corrected version from another forum that worked. Which forum was it? And why not show us the corrected version?"
+    },
+    {
+      "comment_id": 129222835919185,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "If you had mentioned earlier that the message text B003 loses its content after reloading from the controller, it would have helped narrow down the issue sooner. Once I saw the error, I replaced B003 with another message text (B001), and that fixed the problem."
+    },
+    {
+      "comment_id": 540849666458034,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "I tried replacing the block early this morning and it resolved everything. The topic can be closed. [user_name]"
+    },
+    {
+      "comment_id": 604677571642857,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Still no response to my questions?"
+    },
+    {
+      "comment_id": 361654169839092,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Here is a link to the corrected program: [url]"
+    },
+    {
+      "comment_id": 738850474954390,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "That’s not the answer I was hoping for. Never mind..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered an issue where certain message text block contents were lost when transferring programs containing UDF blocks between PC and the controller using [product_name] software. Some program contents, especially specific message texts like B003, did not return after a roundtrip transfer, even though comments are usually not included. Rebuilding the program from scratch or replacing problematic message text blocks resolved these issues. Users noted that only the program code, not comments, is normally transferred, but in this case, unexpected loss of contents occurred when mixing UDFs and block copying.",
+    "user_expectations": "Users expect that transferring programs between PC and controller should maintain all program elements, including message text contents and UDF blocks, so that the program remains identical after roundtrip transfer.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "program integrity",
+      "content preservation",
+      "consistent roundtrip transfer"
+    ],
+    "pain_keywords": [
+      "block content loss",
+      "UDF transfer inconsistency",
+      "missing message text"
+    ],
+    "feature_keywords": [
+      "UDF blocks",
+      "message text blocks",
+      "upload/download synchronization"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "24": "Data Integrity Concerns"
+  }
+}

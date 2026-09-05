@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "3828316958",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 949792299344616,
+      "user_name": "ZwkSBzslBC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm seeking help to resolve an issue with MODBUS TCP communication on [product_name]. There is a MODBUS network with several [product_name] devices interacting with a SCADA system. Occasionally, one [product_name] unit loses communication with the SCADA. Its screen displays 0.0.0.0 for remote IP and 0 for the remote port. Sometimes, unplugging and reconnecting the network cable restores communication; other times I need to switch the device from stop to run. Could this result from IP duplication on the network? Thank you for your assistance. Best regards."
+    },
+    {
+      "comment_id": 325573666204928,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Which display on the [product_name] are you referring to? Please provide a screenshot. When [product_name] is linked to a Modbus server, it acts as the client and selects the port it uses."
+    },
+    {
+      "comment_id": 233081786552648,
+      "user_name": "ZwkSBzslBC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Thank you for responding. To clarify, I meant the SCADA server concerning the overall control system. There's a client application on the SCADA server that regularly queries the [product_name], which then functions as the server. I have two images showing the display. Best regards."
+    },
+    {
+      "comment_id": 922022105729582,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Could you upload the [product_name] configuration as a zip file?"
+    },
+    {
+      "comment_id": 955435753920239,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I see this differently—the Modbus master is currently not connected to the affected slave ([product_name]), which is why the remote port shows no data. There is simply no connection at that moment. Monitor the connection attempts and where they originate from (Modbus Master)."
+    },
+    {
+      "comment_id": 219098186469241,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Is there a potential solution for this?"
+    },
+    {
+      "comment_id": 307939968276853,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I don't observe any issue with [product_name] itself. Mine shows the same status when it isn't being polled. If there's an issue, it likely exists on the polling side—the Master. Try polling the [product_name] with a simple tool such as modpoll and monitor the outcome."
+    },
+    {
+      "comment_id": 882214225590359,
+      "user_name": "ZwkSBzslBC",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hi, a communication application (iFix 5.8 MBE driver) is continually running and querying the [product_name]. I can't see a clear reason for the MBE driver to stop randomly only for this [product_name]. Could a duplicate IP on the network momentarily cause this? Best regards."
+    },
+    {
+      "comment_id": 202567406143903,
+      "user_name": "ZwkSBzslBC",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello, I don't yet have permission to share the configuration. However, I can provide some network project and Modbus connection images—the setup is identical for all PLCs. The problematic PLC is the one on the far left. Additionally, not only is the Modbus connection lost, but I can't connect to the PLC using the Comfort software either."
+    },
+    {
+      "comment_id": 229553597175726,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Certainly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering sporadic MODBUS TCP outages between [product_name] and a SCADA system (iFix 5.8). The main indicator is a lost connection where the device displays 0.0.0.0 for remote IP and 0 for the remote port, with recovery often involving manual action like reconnecting the network cable or restarting the PLC. Forum participants suggest the root cause may be network-related, such as duplicate IPs, rather than an issue with the [product_name] hardware or its software.",
+    "user_expectations": "The user is looking for stable, uninterrupted MODBUS TCP communication between [product_name] and the SCADA system, hoping for consistent device accessibility both over MODBUS and through programming utilities.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "continuous connectivity",
+      "reliable MODBUS communication",
+      "remote access"
+    ],
+    "pain_keywords": [
+      "random disconnections",
+      "manual resets required",
+      "no remote access during issue"
+    ],
+    "feature_keywords": [
+      "MODBUS TCP",
+      "network diagnostics",
+      "remote IP/port display",
+      "server mode"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

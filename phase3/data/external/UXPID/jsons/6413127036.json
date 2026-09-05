@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "branch_id": "6413127036",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 501880143221947,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "I conducted benchmarking tests on instruction execution in [product_name]. Specifically, I compared a timer set to 30 seconds. Using memory flags and latching relays produced no noticeable delay, so it seems the delay is associated with the On-Delay function or an Up/Down counter. In one of my tests, I created two PLC functions activating Q1 and Q2, aiming for simultaneous activation. When On-Delay was set to 6 seconds On and 0 seconds Off, Q1 was slower than Q2; reducing On-Delay by 50 milliseconds made Q1 and Q2 activate almost together. All of this was done via software simulation only. From a developer's viewpoint, a 50ms lag for two instructions is significant and may not reflect real hardware conditions. So, how reliable is software simulation in [product_name_software] compared to hardware? I also tested with online simulation, where Q1 and Q2 activated together at 6 seconds On-Delay, showing the simulation differs from hardware. Online simulation seems more trustworthy for timing, but the 50ms delay per instruction was unexpected. For a counter set to 5, that's a cumulative 250ms delay. I performed the same test on both Windows 11 Pro and macOS, with no difference."
+    },
+    {
+      "comment_id": 204742874584107,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], Software simulation generally matches program logic, though it can differ slightly in execution timing because [product_name] is emulated. The simulation is usually slower due to emulation overhead and depends on operating system performance and background processes. Even block timing within a program can be affected, and online queries always involve some latency. On real [product_name], execution will always be faster than simulation on a PC. Regards [user_name]"
+    },
+    {
+      "comment_id": 521254111956273,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], You're correct that emulating a PLC can be slower. However, faster hardware or CPUs should, in theory, emulate instructions more quickly—like running old consoles on modern computers. In my case, two functions activated Q1 and Q2 after 30 seconds, one using On-Delay set to 6 seconds and a counter set to 5. Resetting the On-Delay and incrementing the counter seems like it should be quick. I don't think it's strictly a hardware difference but rather a limitation in the software simulation's accuracy versus PLC hardware. The same instructions on hardware could theoretically execute faster in PC-based simulation, depending on implementation. I suspect Java performance might factor in. A similar process in Python takes less than 1ms to execute, so the performance gap seems significant. I believe [company_name] could improve this, and that's why I'm sharing these findings—Java-based simulators may have limitations."
+    },
+    {
+      "comment_id": 374552024159428,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "You're right. Running old PC or DOS software on modern hardware would be extremely fast, but with today's resource-heavy OS like Windows 11, performance is less predictable. As you suggested, Java may contribute to issues; problems with [product_name_version_no] and the current [product_name_software] seemed to coincide with the Java transition from AWS. Still, the discussion about speed differences between [product_name_software] and [product_name] may not be critical—ultimately, actual [product_name] processing speed is what matters. For time-sensitive tasks, cycle-oriented programming is generally used. Regards [user_name]"
+    },
+    {
+      "comment_id": 358312462198744,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "I understand there is a difference between a simulator and emulator. Perhaps [product_name_software] is meant to simulate execution and logic without matching hardware performance exactly, and this is often sufficient. However, it doesn't explain why resetting a timer and increasing a counter can take 50ms. Performance is always key in software development, and improvements should be sought where possible. Sometimes optimizing leads to discovering other performance bottlenecks. I was just surprised that a timer reset and counter increment could take 50ms in Java."
+    },
+    {
+      "comment_id": 194142048546312,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "That’s exactly the intended design. Greetings [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members experienced noticeable delays when using [product_name_software] simulation, especially for time-critical functions like timers and counters—typically seeing up to 50ms delay per instruction compared to hardware. The software accurately reflects logical operations, but its speed does not match the real PLC hardware, likely due to emulation overhead and programming language limitations (e.g., Java). Users expressed surprise at the slower simulation, noting that actual devices process such instructions much faster. While online simulation can provide more realistic timing, it's still not fully representative of hardware behavior. The consensus is that [product_name_software] is suitable for logic validation, not for performance benchmarking against hardware.",
+    "user_expectations": "Users expect [product_name_software] simulation to closely approximate hardware execution times, especially for routine operations like timer resets and counter increments. Minimal delays are expected, matching or improving upon actual PLC performance, as this directly influences their ability to validate real-time functionality before deploying on hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automation accuracy",
+      "simulation reliability",
+      "timing precision"
+    ],
+    "pain_keywords": [
+      "simulation delay",
+      "timing inaccuracy",
+      "performance gap",
+      "unexpected slowness"
+    ],
+    "feature_keywords": [
+      "software simulation",
+      "online simulation",
+      "on-delay timer",
+      "counters",
+      "program execution timing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": [
+        "11 Pro"
+      ],
+      "MacOS": []
+    }
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

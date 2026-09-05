@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "5108681386",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 219596827098349,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm in the process of setting up a new [product_name] for sending email notifications. It's running [version_no] firmware. I previously had it all configured and working, but there was an issue that resulted in a reset. Unfortunately, I didn't make any backups. Now, I'm unable to get it working again despite trying ports 25, 465, and 587 with various SMTP addresses like mail.[url] and smtp.[url]. I keep seeing 'internal error identifier code 28 and 56,' and sometimes get a Server response of 220 or 0 (220 is supposedly good?). It's not a Gmail account, but it did work before with my preferred email. Is there anywhere I can check what these error codes really mean? If I can figure that out, I might be able to resolve the problem since I've tried many combinations without success."
+    },
+    {
+      "comment_id": 202433464465283,
+      "user_name": "PBHAx3cSHB",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello, Did you manage to resolve it? I also couldn't find a comprehensive list for the error codes and found your post during similar troubleshooting. Initially, I saw code 6 when there was no SIM card in the device, and then code 56 after installing the SIM but trying to send emails while the test computer wasn’t connected to the internet. Apparently, the configuration PC must be online. “The requirements are that parameters (Recipient, Subject, Text) are set in 'Users / groups' or 'Monitoring' and that the config PC is connected to the Internet.” Instead, I set a 2-minute periodic trigger to test sending emails. I'm not sure when it started working, but it turned out that all emails were going into my spam folder (and successful sends aren't shown in the log?). My test worked with smtp.gmail.com on port 587. Best of luck!"
+    },
+    {
+      "comment_id": 779849864893943,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "You're exactly right – sometimes when troubleshooting at a customer site, another perspective helps! I did a restart and tried again, but my Gmail account wouldn't work and generated new error codes. Using a different company email worked fine. It’s frustrating not knowing what caused the issue. Still wish those error codes were properly documented. Thanks for your advice on the [product_name] setup. Edit: Turns out I changed something – added an SD card, which wasn’t there before."
+    },
+    {
+      "comment_id": 739692320888615,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Regarding your note about successful emails not appearing in the log – that is concerning. One feature I would suggest: - Use LAN for sending emails when available - Fall back to 3G if LAN isn’t available Just my thoughts. I’m considering using Node-Red on an IoT solution with Arduino or Phoenix Contact for Raspberry Pi. With this setup, I’d be able to send/receive emails, tweets, and interact using Modbus."
+    },
+    {
+      "comment_id": 372906061680839,
+      "user_name": "PBHAx3cSHB",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Good to hear you got it working again. To add, when I encountered error 6 without a SIM card, my computer did have internet access (via WiFi from my phone). However, the device itself only works with a SIM card – it doesn’t have built-in WiFi. A router could solve this, and having LAN/WiFi as additional connectivity options would be helpful. For field access, I’m planning to set up DynDNS and openVPN (or HTTPS), which should be interesting. Also wondering if it’s possible to access BM counters from the web interface..."
+    },
+    {
+      "comment_id": 577324901470115,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Actually, the [product_name] is a very capable device. It’s important to understand how it was designed and the logic behind it. You can access the [product_name] using the RJ45 connector, while connected to GSM – so it supports both connections simultaneously. Yes, you can access BM values. A local representative once said this wasn’t possible, but it actually is. Some people still refer to [product_name] as a 'toy,' which I disagree with. It functions as a compact PLC, especially with the addition of an HTML frontend for BM. If a BM is connected, you can: • Remotely connect via DynDNS or VPN to upload programs • View web pages for BM • Use SMS to send/receive data from BM units • Trigger emails/SMS for events • Directly trigger outputs from BM or [product_name] • Aggregate values from multiple BM units for centralized reading GSM was originally intended for SMS, while email functionality was added relatively recently (check older manuals for reference). It predates the IoT trend; nowadays, you can use Node-Red for Modbus TCP communication with: • [company_name] IoT shield with Arduino (CE rated) • Phoenix Contact shield with Raspberry Pi • Raspberry Pi itself Then use emails, Twitter, and other media for data exchange. Despite newer IoT tools, the [product_name] still excels as a ready-to-use solution for SMS and emails, without requiring complex IoT development."
+    },
+    {
+      "comment_id": 943861520826013,
+      "user_name": "PBHAx3cSHB",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you for sharing the details! I also think it’s unfair to call it a 'toy.' It's a useful controller and the software is genuinely user-friendly. With no PLC or ladder programming experience, I was able to program the [product_name] quite easily without help. Yesterday, I set up DynDNS for it, which is progress. I haven’t managed WAN connections yet, but did successfully transfer flags/variables from BM to [product_name] and receive feedback via SMS and email. I’m still unsure about reaching BM web-based management from WAN-connected [product_name], but just found the solution in the manual: Add [product_name] as a router in the BM settings. I need to configure OpenVPN first. I’m still missing a SIM card, so testing is going slowly. However, being able to monitor and configure both devices remotely from my desktop is a significant benefit!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users configuring the [product_name] for email notifications encounter difficulties with unclear error codes, network configuration (SIM, LAN, fallback scenarios), and limitations with system logging visibility. The lack of documentation for diagnosing error codes is a significant usability challenge. While the supporting software is praised for its ease of use, users frequently mention issues with event logging and flexible networking as ongoing frustrations.",
+    "user_expectations": "Users expect thorough documentation for all error codes, resilient email functionality regardless of connectivity changes, seamless LAN and 3G fallback support, simple configuration, and complete event logging.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated email notifications",
+      "remote monitoring",
+      "device configuration flexibility",
+      "improved troubleshooting visibility"
+    ],
+    "pain_keywords": [
+      "ambiguous error codes",
+      "connectivity troubleshooting",
+      "lack of documentation",
+      "logging limitations"
+    ],
+    "feature_keywords": [
+      "email notification",
+      "SMS trigger",
+      "LAN/GSM fallback",
+      "logging",
+      "web interface",
+      "remote access",
+      "DynDNS",
+      "VPN"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "12": "Network Configuration Challenges",
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

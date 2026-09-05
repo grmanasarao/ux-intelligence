@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "4232514826",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 522507213877817,
+      "user_name": "Zl4AblV7vY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Hello all, I am trying to connect my [company_name] [product_name] [version_no] with a Danfoss VLT FC302 drive that powers a motor. I am not familiar with the VLT drives. This is for a basic tunnel ventilation setup, and the components involved are: - [company_name] [product_name] [version_no] - Danfoss VLT FC302 - Motor - Smoke detector - Four 24V contactors I have a complete diagram for the [product_name] program, detailing how the motor outputs operate, but I need advice on integrating these two products, specifically to use the VLT drive to manage motor speed via the 24V contactors. I haven't found any online tutorials that explain how to combine these specific products. If you suggest contacting product support, I will do that if necessary."
+    },
+    {
+      "comment_id": 917425189883686,
+      "user_name": "SWseeItON6",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Most VFDs include stepped frequency inputs, which should be explained in the user manual. Do you have a specific model reference? I can check the manual for details. My Omron drive, for instance, has specific inputs for speed control and for running forward/reverse. If you check the referenced diagram, you’ll notice that when S1 is activated, the inverter runs forward at a preset frequency (25 Hz). Activating S5 switches to another frequency. Typically, there are several inputs that can be set up for speed control."
+    },
+    {
+      "comment_id": 891772210617152,
+      "user_name": "Zl4AblV7vY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Thank you for the reply. Here’s the manual I’m using: [url] I appreciate your interest."
+    },
+    {
+      "comment_id": 466882876629324,
+      "user_name": "SWseeItON6",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "That isn’t the full version of the manual, as it lacks detailed programming information. On page 50 (which is page 52 in the PDF), it appears that inputs 16, 17, and 18 are available for speed reference. You might be able to configure these using parameters 3-15, 3-16, and 3-17 (see page 59). Try to locate the full programming manual—this should specify what features you can enable and how to do so. Update: The programming guide can be found at [url]. Select FC302 from the dropdown and choose 'programming guide' as the document type. You will find \"VLT Automation Drive FC 300 SW 7.62/8.1\". Refer to page 68 for details on speed input reference."
+    },
+    {
+      "comment_id": 839859948204829,
+      "user_name": "Zl4AblV7vY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I was unable to access both of your suggested links. The first shows an error, the second also fails. If possible, please provide the general site link, for example: [url], and provide instructions on where to locate the documents. Thank you for your help."
+    },
+    {
+      "comment_id": 922796118931186,
+      "user_name": "SWseeItON6",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I'm not sure why the links don't work for you; they open fine with Firefox here. I've uploaded the document for you HERE."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread discusses challenges connecting a [company_name] [product_name] [version_no] to a Danfoss VLT FC302 for tunnel ventilation motor speed control using contactors. The main problem is the absence of clear guides or documentation for integrating these devices, especially for configuring speed commands and input references via the controller to the VFD. The user also experiences trouble accessing suggested programming documentation online.",
+    "user_expectations": "The user seeks practical guidance or examples for interfacing a [company_name] [product_name] [version_no] with a Danfoss VLT FC302, particularly for motor speed control using contactors. They hope to find straightforward resources, either online or in manuals, and help with locating or downloading the necessary programming guide for the VLT drive.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "integration guide",
+      "interoperability",
+      "speed control"
+    ],
+    "pain_keywords": [
+      "lack of documentation",
+      "access issues",
+      "configuration support"
+    ],
+    "feature_keywords": [
+      "third-party interfacing",
+      "speed reference inputs",
+      "documentation access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

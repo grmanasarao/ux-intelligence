@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "branch_id": "5319901125",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 435146691995058,
+      "user_name": "V4FokZzsp8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Hello, I am using [product_name] version [version_no]. How can I configure the temperature value to remain persistent? I want to enter a set temperature, and after a power cycle, the previous value should remain intact. Is it possible to achieve this? Thanks."
+    },
+    {
+      "comment_id": 313794577125815,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "You can use mathematical instructions. If you enter the value via the device display, it will be saved to flash memory and remain after a restart."
+    },
+    {
+      "comment_id": 830574917817845,
+      "user_name": "V4FokZzsp8",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Could you provide more details? I plan to enter a value using the \"Network Analog Input\" feature, such as NAI1(VW4). I wish to retain the value stored in VW4 even after power cycles. How can I use mathematical instructions to accomplish this?"
+    },
+    {
+      "comment_id": 827610041737128,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "I need to step out of the office now. I'll provide an example for you later."
+    },
+    {
+      "comment_id": 592809263267801,
+      "user_name": "V4FokZzsp8",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Thank you, I appreciate your help and look forward to your solution."
+    },
+    {
+      "comment_id": 817222437301816,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "In your first message, you didn't mention the value comes from a network input. Initially, I thought the value was entered via the display. Network values are handled in the VM area. When [product_name] starts, the VM area is cleared. That’s why there are no values after a restart. Could you clarify where the value originates? Is it possible for the value to be set to 0?"
+    },
+    {
+      "comment_id": 971983573008458,
+      "user_name": "V4FokZzsp8",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Here's more detail about my project: I can read and write VM data using an Android app. The project involves temperature control, and I need to enter the set temperature at any time. So, the set temperature must be stored in retentive memory. In summary, through my app, I write the set temperature to VM data, and I need this value to be persistent (retentive) even after restart. That’s the core requirement."
+    },
+    {
+      "comment_id": 622252482939639,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "One question: Do you need to set the temperature value to zero or can it be negative?"
+    },
+    {
+      "comment_id": 300239304244460,
+      "user_name": "V4FokZzsp8",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "No, the set temperature will always be between +10 and +30."
+    },
+    {
+      "comment_id": 521008605338281,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "I've included a potential solution in the attachment. The setpoint received from the HMI or app is compared to the last stored setpoint. If they differ, the current value is saved. However, this only happens if the setpoint is greater than zero, since the VM area of [product_name] initializes with zero on restart."
+    },
+    {
+      "comment_id": 607216121459174,
+      "user_name": "V4FokZzsp8",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "This is a good solution. Thank you for your assistance. [snip]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face challenges maintaining temperature setpoints when entered via network using the VM area in [product_name] [version_no], as these values are not retained after a reboot. In contrast, values set through the device display are saved in flash memory and persist on restart. The distinction between input methods and retentive storage creates confusion for those needing persistent settings via external applications.",
+    "user_expectations": "Users expect that temperature setpoints input through their Android app (networked, VM area) will be saved in retentive memory and remain consistent after power cycles or reboots.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data retention",
+      "setpoint persistence",
+      "remote configuration"
+    ],
+    "pain_keywords": [
+      "non-retentive VM area",
+      "data loss on restart",
+      "network input limitations"
+    ],
+    "feature_keywords": [
+      "retentive memory",
+      "network analog input",
+      "VM data persistence"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Android": []
+    }
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

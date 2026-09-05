@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "8047877267",
+    "thread_id": "1723880927",
+    "publication_year": 2006,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 217842505237702,
+      "user_name": "3rPfKn5CvN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2006,
+      "comment_month": 6,
+      "comment_body": "The machine needs to process product through three stages: loading, centrifugation, and extraction before starting a new cycle. I tried to use the shift register block for handling these three cycles. If an emergency occurs, pressing the emergency button stops the cycle. When the emergency is cleared, I expect the cycle to restart, but it doesn't; the shift register continues from where it stopped, which isn't ideal. Has anyone found a solution? Currently, I'm using latching relay logic with AND blocks for cycle control, but I feel this isn't a technical programming approach. Regards, [user_name]"
+    },
+    {
+      "comment_id": 742897618619194,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], if I understood you correctly, the emergency button logic is part of your program. In this setup, you're right—the shift register can't be reset through code, and if you want to avoid using other function blocks, you could consider powering down the system with the emergency button. When power is restored, the shift register resets (if retentivity is off). However, I assume your controller handles more than just the shift register, so powering down completely might not be practical for your application."
+    },
+    {
+      "comment_id": 943052555113177,
+      "user_name": "3rPfKn5CvN",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 6,
+      "comment_body": "Thank you, [user_name]. Turning off power could work in theory, but I use the emergency program to activate machine safety measures (like triggering extraction), so I can't simply power down the controller. Because of this, I'll keep using several logic blocks as a workaround. Adding a reset port to the shift register block would be a helpful feature for the engineering team to consider. This would be very useful."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are experiencing a limitation with the shift register block in [product_name]: there's no way to programmatically reset the block when an emergency stop occurs, making it difficult to reliably restart automation processes. As a result, users must implement complex workarounds or rely on less efficient solutions, which hampers workflow after unexpected interruptions.",
+    "user_expectations": "Users want the ability to reset the shift register through programming so they can smoothly restart machine cycles after an emergency stop, without needing to reboot hardware or use complicated relay logic.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable restart",
+      "programmatic reset",
+      "simplified workflow"
+    ],
+    "pain_keywords": [
+      "no reset function",
+      "complex workaround",
+      "limited recovery after emergency"
+    ],
+    "feature_keywords": [
+      "shift register block",
+      "reset port",
+      "emergency stop handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

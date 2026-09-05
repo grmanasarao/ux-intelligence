@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "3991253219",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 738079618766573,
+      "user_name": "hzb9ukZ8ND",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I tried to retrieve the log file through the webserver, but it isn't working. I used a card reader to access the SD card, and added download links in the webroot/main.html file: 'CSV load'. When I click these download links in the web browser after accessing the device, I receive a 403 error saying access to the target is forbidden. It seems accessing the root directory is not permitted. I also tried copying the main.htm file to the root directory of the SD card and opening it via the browser at a specific local address, but got the same error. Another attempt was to move the CSV files from the root to the webroot directory to access them through the download link, but I'm unsure how to do the copy. It would be much simpler if [company_name] changed the next [product_name] update to allow direct downloads over HTTP or log CSV files in the webroot directory, though that might be wishful thinking. Greetings ----- Split from another thread discussing remote uploading of data log files without [product_name] configuration software."
+    },
+    {
+      "comment_id": 767878005194478,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I haven't tested it myself, but the main issue could be open log files while the controller is running. If you try some workaround, stop the controller first and test. If the error persists even with the controller stopped, there may be another condition preventing access. Regards, [user_name]"
+    },
+    {
+      "comment_id": 162591640372883,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I have an idea: create a dummy SD card with 8 wires connected to an SD card socket, and another end with a similar dummy SD card. With switchable relays between the SD card dummy and socket, you could disconnect or connect each wire as needed, allowing the device to operate normally or letting you copy log files to a USB reader on your PC. I am unsure if disconnecting the SD card while the device is running would cause errors."
+    },
+    {
+      "comment_id": 235209284856051,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "If [company_name] developed a small utility to handle log file copying, deletion, or synchronization (like [product_name] access tool), that would be very useful. There would be no need for configuration software."
+    },
+    {
+      "comment_id": 850698270589946,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "For new projects, managing log files would be easier since I've heard the latest [product_name] model supports cloud data upload and download. We may just need to wait for newer updates."
+    },
+    {
+      "comment_id": 452945146902220,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Currently, I don’t need to log data with a standalone controller. For startup in our company, we use a notebook with Profilab Expert software and Modbus communication. In future, having a tool for our clients would be helpful. Hopefully, future [product_name] models will support remote maintenance. Regards, [user_name]"
+    },
+    {
+      "comment_id": 783029866676473,
+      "user_name": "cZQANX744b",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hi, Previously, I discussed uploading data logs from [product_name] with a [company_name] technical engineer. I wanted to upload the data log file in RUN mode, whether via the configuration software, webserver, or a standalone utility. A separate tool would also have been acceptable. It is not planned to offer such a possibility. [product_name] hardware lacks resources to support these features in the usual way. Transferring data in RUN mode consumes so many resources that scan times are affected, and it’s challenging to predict how this influences application performance. Uploading data remotely in STOP mode would need extra security, but technically it’s not complicated—however, internal memory on [product_name] is insufficient. That’s the information I received. Hope it helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Several users experience difficulty downloading log files from the [product_name] web server, facing a 403 error due to access restrictions or directory limitations. Workarounds such as physically manipulating SD card connections, moving files between directories, and stopping the controller are discussed but none offer a satisfactory solution. Users are frustrated by the lack of official methods to access log files directly during device operation and desire that [company_name] improves this functionality in future software or hardware updates.",
+    "user_expectations": "Users hope to download log files directly from the [product_name] web server via HTTP during regular operation, without stopping the controller or relying on additional software. They prefer simple access through a web browser.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy log file download",
+      "remote access",
+      "web server usability"
+    ],
+    "pain_keywords": [
+      "download forbidden",
+      "no http access to logs",
+      "hardware limitations"
+    ],
+    "feature_keywords": [
+      "web server",
+      "log file download",
+      "RUN mode access",
+      "SD card management"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "23": "File Accessibility Barriers",
+    "9": "Feature Requests"
+  }
+}

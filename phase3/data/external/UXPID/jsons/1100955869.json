@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "branch_id": "1100955869",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 151528145751945,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hello, I have [version_no] of [product_name] and need to program a [product_name] ([article_no]). I prefer using Ladder Logic but can work with Function Block Diagram as well. I have 10 sensors (I1-I10) and 10 motors (Q1-Q10); each sensor should directly enable its respective motor. I require 6 motors running at all times, with a maximum of 8 running simultaneously. When more than 8 sensors are active, the extra ones should not affect motor operation. Thanks in advance!"
+    },
+    {
+      "comment_id": 145887465620672,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Which signal is used to activate a motor?"
+    },
+    {
+      "comment_id": 786497455267935,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hi, I've attached an idea that might assist you. Try simulating the logic; you'll see that after 8 motors are switched on, no additional ones can be activated. You can add a signal to reset the counter if needed. Hope it helps!"
+    },
+    {
+      "comment_id": 555959018840129,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Could you please clarify your question?"
+    },
+    {
+      "comment_id": 564515192499116,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Thanks for the suggestion. For my scenario, the signals (I1-I10) should act as switches, providing a continuous signal when an object is present, similar to a proximity sensor. Also, even if there is no signal, the first 6 motors need to remain on at all times."
+    },
+    {
+      "comment_id": 156795067204365,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "The concept is essentially complete; you only need to adjust how the digital inputs are activated. It's your turn to modify it!"
+    },
+    {
+      "comment_id": 839659220238056,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Thanks, I would like the motors to turn off when their respective signal is no longer present."
+    },
+    {
+      "comment_id": 282779133324871,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Could you specify what kind of signal you mean? Is this another digital input?"
+    },
+    {
+      "comment_id": 761773068854111,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "The signals are from individual sensors (I1-I10). In your shared program, activating I1 holds the motor on continuously. I want the motors to behave like push buttons—on when pressed (signal present), off when not pressed. Additionally, 6 motors should always be on, regardless of the sensor or button status."
+    },
+    {
+      "comment_id": 107025253210354,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], Here’s one approach: Assign a unique value to each input using muxers; if an input is active, a counter tracks the number of outputs to activate. Outputs are controlled by analog differential switches and an SR latch element; select switching values such that each output activates either by its direct input or the input value plus the count limit. Outputs reset when no inputs are active and the selection value is zero. I’ve attached a demonstration for I1-6 and Q1-6 which might serve as a template. Regards, [user_name]"
+    },
+    {
+      "comment_id": 632156162162415,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hi [user_name], Thanks for your approach. It’s close but not exactly the logic I’m after. In your program, when no input is present, all outputs are off, but I need 4 outputs (you have 6 inputs in your example) always on. Also, activating I1 should turn on Q1, I2 should turn on Q2, etc., without interrupting order up to the limit. For instance, if I5 is on and then I4, Q4 doesn’t work as expected. I’ll share my solution below, but I’m struggling with setting correct output limits and input order."
+    },
+    {
+      "comment_id": 361874655943725,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 467876924974779,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "For clarification: Are Q1 to Q6 always on, regardless of I1-I6 signals? Should Q7-Q10 only activate if some of I1-I6 are off? The total of 8 active outputs should not be exceeded—is that correct? If, for instance, I3/I4 and I8 are all off, should Q3 or Q4 be forced on? And is there a fixed order? I’ll review this further tomorrow. Regards, [user_name]"
+    },
+    {
+      "comment_id": 504410154900458,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Sorry for the delay; I’ll respond with more details and better stability soon. Thanks!"
+    },
+    {
+      "comment_id": 621962086903341,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "With some rest and a clearer perspective, I’ll try again. Maybe it’ll work better now. Regards, [user_name] P.S.: 'Max' should always be higher than 'Min'."
+    },
+    {
+      "comment_id": 306548007650608,
+      "user_name": "PsUBklxlTi",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "This is exactly what I was looking for, great job! Small note: If you sequentially activate the last four inputs (7-10) and then switch off input 7, motors Q8, Q9, and Q10 become active, exceeding the set maximum. But I understand the logic now and can build further on it—no need to worry for now."
+    },
+    {
+      "comment_id": 746370090409437,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], The previous error was bothering me, so I revised the program. Now, it sets the minimum number of outputs without exceeding the maximum, but relies on a fixed order. First it counts the active inputs and enables outputs accordingly. Then it fills outputs starting from Q1 in order until reaching the maximum. If maximum is exceeded at startup, all outputs stay off. If 'Min' or 'Max' parameters are changed during operation, a circuit reset is needed. The program is easy to scale for any desired number of outputs. Best wishes, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The core discussion is about managing control logic for 10 motors using 10 sensors with [product_name], aiming to keep 6 motors always running, permit a maximum of 8 active at once, and ensure motors respond directly to the presence of their respective sensor signals. Participants debate activation behaviors (momentary vs. continuous), input/output associations, and handling of maximum output constraints. Multiple solutions and clarifications are exchanged, but the thread does not clearly settle on a universally accepted final solution.",
+    "user_expectations": "User seeks a programming approach in [product_name] where each sensor controls its corresponding motor, six motors are always on, no more than eight motors are active simultaneously, and motors deactivate as soon as their signals turn off.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "motor control",
+      "sensor-driven activation",
+      "automatic reset",
+      "logic programming"
+    ],
+    "pain_keywords": [
+      "sensor signal type confusion",
+      "output limiting logic",
+      "constant vs. triggered activation",
+      "reset logic complexity"
+    ],
+    "feature_keywords": [
+      "simulation mode",
+      "Ladder Logic",
+      "Function Block Diagram",
+      "counters",
+      "muxers",
+      "digital input handling"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

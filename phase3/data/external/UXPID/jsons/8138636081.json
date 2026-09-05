@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "8138636081",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 227062780697730,
+      "user_name": "EJmFzPKmJN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "In this simplified diagram, I can control output Q1 using Network Input NI1. When I stop and then run the [product_name] again, the NI1 value remains unchanged. However, after a power loss, once the [product_name] powers on and runs again, if NI1 previously held a high value, it starts up with a low value instead. How can I configure retention for NI blocks and persist their high/low values?"
+    },
+    {
+      "comment_id": 828204199420849,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Retention for NI blocks is not available. The reason for the behavioral difference is: if the [product_name] is stopped and restarted, memory in the VM area stays energized and retains data. After a power failure and subsequent restart, VM area memory is cleared."
+    },
+    {
+      "comment_id": 874027561061857,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "In your situation, I would avoid working with a static signal and instead use two dynamic signals. Review the example in the attached file, where I demonstrate how to create a dynamic signal from a static one."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is experiencing inconsistent retention of the NI1 input variable with [product_name]: the state is saved during a controlled restart but lost following a power outage. Since retention for NI blocks is unsupported, this leads to unexpected system behavior and possible data loss after interruptions.",
+    "user_expectations": "The user wants the NI1 state to persist through both controlled restarts and power outages. They expect retention features for NI blocks to ensure consistent logic states regardless of the type of restart.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "state retention",
+      "reliable operation",
+      "predictable restart behavior"
+    ],
+    "pain_keywords": [
+      "loss of variable state",
+      "inconsistent retention",
+      "data loss after power outage"
+    ],
+    "feature_keywords": [
+      "NI block retention",
+      "memory retention",
+      "power outage behavior"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "branch_id": "2902586094",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 793589657457374,
+      "user_name": "zvIc9Q4CVr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "As some may know, [product_name] recently added native MQTT functionality. I can send data from [product_name] to a topic on an MQTT broker and also subscribe to topics on the broker from [product_name]. However, I can't directly link two [product_name] devices through MQTT. Specifically, I'm attempting to subscribe to a topic from one device ([product_name] 2) that is published by another ([product_name] 1), but the issue is with the JSON payload structure. When [product_name] publishes a value, the JSON appears as: {\"state\": {\"reported\": {\"VM4\": {\"desc\": \"V-word-4-1\",\"value\": [13]}}}}. However, [product_name] only recognizes a payload like: {\"state\": {\"VM4\": {\"desc\": \"V-word-4-1\",\"value\": [16]}}} — meaning the \"reported\" tag is not accepted. My current workaround involves using an intermediary client to adjust the payload and republish it so the second device can interpret the values. Is there a more efficient solution for this issue? Allowing users to define their own JSON payload formats for publishing and subscribing on [product_name] would be ideal."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users observe that native MQTT support in [product_name] allows for publishing and subscribing to topics, but a discrepancy in the expected JSON payload format—specifically regarding the presence of a 'reported' tag—prevents direct MQTT communication between two devices. This format mismatch complicates data exchange between devices.",
+    "user_expectations": "Users would like [product_name] to provide flexible MQTT payload handling or enable customization of JSON formats for both publishing and subscribing, making it possible for multiple [product_name] devices to communicate directly and seamlessly over MQTT.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "seamless device communication",
+      "payload customization",
+      "MQTT interoperability"
+    ],
+    "pain_keywords": [
+      "payload format incompatibility",
+      "lack of configuration flexibility",
+      "manual intervention needed"
+    ],
+    "feature_keywords": [
+      "MQTT support",
+      "JSON payload configuration",
+      "publish/subscribe"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

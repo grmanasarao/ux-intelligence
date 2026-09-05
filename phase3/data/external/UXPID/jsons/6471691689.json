@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "branch_id": "6471691689",
+    "thread_id": "3055273936",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 450017918782195,
+      "user_name": "9SfjUUH2WX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm new to [product_name] and not very experienced with electrical systems but I need help solving a setup issue. I have a pump with a frequency controller and want to regulate its frequency based on both pressure and flow instead of just pressure. Previously, it was adjusted only by the pressure signal, but now I want both parameters to influence the analog output (4-20mA) sent to the regulator. Pressure is connected to AI1 and flow to AI2; please see the attachment for a rough wiring attempt. My main challenge is wiring for analog signals and achieving a proper analog output. I have modules [article_no] and [article_no] (each with analog inputs and outputs). For basics, I’ve wired L+ and M to a 24V DC supply, and uploading a program works. However, wiring the analog signal and getting a working output is unclear. I tried connecting the '-' of the sensor to I1 on the analog module, the '+' to L, and the analog module's M terminals together. In the IO monitor of [product_name] software V[version_no], I see signals but without meaningful results (A1 = 2, AI2 = 2, rest = 0). When I attempt an analog output for a set value (e.g., 1000), the I/O monitor shows 1000, but I can't measure the expected 20mA at the output. Could someone share a wiring diagram or example? If I connect the pressure wires to the frequency controller, I can measure current, but I want to achieve the same when measuring from AO1 on my setup."
+    },
+    {
+      "comment_id": 490730301147921,
+      "user_name": "9SfjUUH2WX",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Could someone provide a complete wiring diagram for this setup? Thanks!"
+    },
+    {
+      "comment_id": 177813581048608,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Which [product_name] module type do you have? Is it the 12/24 RC version?"
+    },
+    {
+      "comment_id": 951844381778062,
+      "user_name": "9SfjUUH2WX",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Yes, it's the 12/24V RC version."
+    },
+    {
+      "comment_id": 273125127789877,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "From what I can tell, the wiring is generally correct except: AI1 is wired to (Di) I7 and AI2 to I8 on the main [product_name] module, both providing only 0-10V inputs. If you use an expansion unit, its first analog input will be AI3 and the second AI4. To configure analog inputs properly in [product_name] software, you can assign I1 as Analog 3 and I2 as Analog 4, and then the first analog input on the expansion unit becomes AI5. While [product_name] is running: Press the cursor down key until date and time appear on screen. Use the left or right cursor keys to navigate, and you'll see real signal values used by [product_name]: inputs, outputs, markers, and analog inputs (signals are not amplified or corrected by default). You can view all currently used and unused input/output signals. Check the analog input signal value to confirm your wiring."
+    },
+    {
+      "comment_id": 307120989633987,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Hi, There is an FAQ about connecting a 2-wire sensor to the [product_name] module — see 'Connecting a 2-Wire Sensor.' Please refer to it. Regards,"
+    },
+    {
+      "comment_id": 886761104325428,
+      "user_name": "9SfjUUH2WX",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Will an old analog module work with the new [product_name] version 8?"
+    },
+    {
+      "comment_id": 783018332477209,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "No, [article_no] requires new modules. See [url] for details."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main issue discussed involves setting up analog input and output wiring on a [product_name] controller and its analog modules for regulating a pump’s frequency based on pressure and flow readings. The user is unclear about input addressing between main and expansion modules and how to interpret readings in [product_name] software. Responses clarify input mapping, viewing live signals in the software, and verify that older analog modules are not compatible with new hardware versions. However, a full wiring diagram was not provided.",
+    "user_expectations": "The user is seeking a clear and simple wiring diagram for connecting 2-wire analog sensors and wants guidance for correct analog input/output measurements on their [product_name] system. They expect to see accurate sensor data and be able to control output directly via the [product_name] software display.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct wiring",
+      "accurate analog readings",
+      "easy setup",
+      "signal monitoring"
+    ],
+    "pain_keywords": [
+      "wiring complexity",
+      "analog input confusion",
+      "module compatibility",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "analog output",
+      "I/O monitoring",
+      "sensor wiring"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance",
+    "12": "Network Configuration Challenges"
+  }
+}

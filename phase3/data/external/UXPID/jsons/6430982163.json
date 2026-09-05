@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "6430982163",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 864589278925979,
+      "user_name": "3WbyjRDeu8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Good evening experts, Has anyone worked with PAC2200 and [product_name] FS4 communication? Is it possible to handle Double data format from PAC2200 through [product_name] to an HMI? Does [product_name] process this format, or only Float? Thanks"
+    },
+    {
+      "comment_id": 424982798565522,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "[product_name] only supports 16-bit integers. The specialized blocks \"F/I\" and \"I/F\" allow [product_name] to convert 32-bit or 64-bit floating points for certain functions (eAx / eAq)."
+    },
+    {
+      "comment_id": 920071066587996,
+      "user_name": "3WbyjRDeu8",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I see with the F/I block [article_no] that it shows my active energy import, but using the analog function as a threshold trigger or watchdog, 32767 appears. Then, the value displayed on the HMI is not correct."
+    },
+    {
+      "comment_id": 940912613432988,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "As mentioned, [product_name] only processes 16-bit integers. The block converts from float to integer internally, and if the result exceeds 32,767, that's what is output at Aq. If you just want to display the value on the HMI, transfer the 32-bit value from Modbus to VM memory, then show the value on the HMI as a float. For example: Transfer double Modbus registers (e.g., HR1 and HR2) to VW0 with two words. Create a float variable in the HMI at address VD0."
+    },
+    {
+      "comment_id": 732685410855748,
+      "user_name": "3WbyjRDeu8",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "That makes sense, I wasn't aware of that. My current challenge is I cannot configure this in VM mapping. I have starting address 30 in the Modbus connection table, PAC2200 table value 802, two words, but I get stuck. I see the value on the F/I block, and HMI as DWord at address 30, but no value appears on the HMI. I must be missing something."
+    },
+    {
+      "comment_id": 312719799252093,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Unfortunately, I can't give further feedback because I don't know your [product_name] program or your HMI project."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are working through challenges of transferring and displaying Double data from a PAC2200 device via [product_name] 8 FS4 to an HMI. The main limitation is that [product_name] only handles 16-bit integers natively, so larger numeric values or other data types result in capped values at 32,767, leading to inaccurate HMI displays. VM mapping confusion and HMI configuration add further difficulty to implementing a correct solution.",
+    "user_expectations": "The user hopes [product_name] will accurately handle Double data from PAC2200 and successfully pass it on to the HMI, presenting values without truncation or cap limitations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct data display",
+      "double data processing",
+      "seamless HMI integration"
+    ],
+    "pain_keywords": [
+      "data truncation",
+      "mapping difficulty",
+      "incorrect HMI value"
+    ],
+    "feature_keywords": [
+      "data type conversion",
+      "VM mapping",
+      "F/I block",
+      "16 bit integer limitation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "22": "Usability Improvement Suggestions",
+    "24": "Data Integrity Concerns"
+  }
+}

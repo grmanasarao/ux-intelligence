@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "branch_id": "8215470878",
+    "thread_id": "4479534060",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 421242779123848,
+      "user_name": "DdOWZl7AmR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello, I am trying to monitor five [product_name] PLCs ([version_no]) using [product_name] V [version_no]. I have set up the PC station with [product_name] V [version_no] without issues. However, when creating variables with [product_name] V10, I encounter problems. My questions are: 1) How should I set the connection parameters for my [product_name] program in this application? Should I use client or server connection? For TSAP values, there are only two options (02.00 for operator panel, or 20.00), but in [product_name], when setting the S7 connection address details, the local (PC station) and partner ([product_name] PLC [version_no]) TSAP values need to be specified, and the partner device does not offer 02.00 for TSAP. 2) How should I create variables in [product_name] V10 so they can be read and written in [product_name] V [version_no]? Thank you for any help."
+    },
+    {
+      "comment_id": 881321698810138,
+      "user_name": "0bXgoDhjrm",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], It might be helpful if you upload your program as a zip file. This would make it easier to pinpoint what might be missing."
+    },
+    {
+      "comment_id": 609988433732862,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hi, To get TSAP 02.00 in [product_name], you need to enable the \"Operator Panel\" option. When you add extra communication channels, each one receives a different TSAP, starting from 20.00 up to 27.00. One suggestion: create a second server connection in [product_name] to get TSAP 21.00 and test this with [product_name]. Also, note that [product_name] only has DB1, which should be used in [product_name]. Hope this is useful."
+    },
+    {
+      "comment_id": 108765286125724,
+      "user_name": "DdOWZl7AmR",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 2,
+      "comment_body": "Thank you for your responses! [user_name], how can I configure variables in [product_name] so they can be viewed and accessed in DB1 through [product_name]? Currently, I can only configure and access M and Q variables, but I can't seem to create variables in the database. If [product_name] has DB1, how do I set it up in [product_name]?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges configuring communication between [product_name] [version_no] and [product_name] V[version_no] using [product_name] V[version_no], especially regarding TSAP parameter settings and variable mapping. The lack of clear documentation and user-friendly setup for establishing OPC connectivity leads to uncertainty about appropriate TSAP values and how to properly configure variables, such as those related to DB1, for monitoring in [product_name].",
+    "user_expectations": "The user expects an easy-to-follow process for configuring communication parameters between [product_name] devices and [product_name] for successful integration, plus detailed instructions for variable creation and mapping, particularly for accessing DB1.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "centralized monitoring",
+      "easy SCADA integration",
+      "direct variable access"
+    ],
+    "pain_keywords": [
+      "confusing TSAP configuration",
+      "DB1 access unclear",
+      "OPC variable setup difficult"
+    ],
+    "feature_keywords": [
+      "OPC communication",
+      "TSAP assignment",
+      "Database variable mapping",
+      "SCADA interfacing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

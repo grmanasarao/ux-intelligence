@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "2251686384",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 722349129750204,
+      "user_name": "LINLqDbASg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm working on a project using a [product_name] base module and two [product_name] expansion modules. How do I determine the appropriate power supply size? The base module runs at 165 mA, and according to the datasheet, the input current for the expansion modules is 2 mA at '1'. Is that current measured per input? Appreciate any advice."
+    },
+    {
+      "comment_id": 122145137062778,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Which [product_name] base module are you using? Does it have relay or transistor outputs? Also, what type of loads do you intend to switch with these outputs?"
+    },
+    {
+      "comment_id": 129319874669387,
+      "user_name": "LINLqDbASg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "[product_name] [article_no] with relay outputs. The expansion modules use relays as well, switching additional relays from another brand, so the current draw is quite low. The setup will be used for lighting in a building."
+    },
+    {
+      "comment_id": 758352343988657,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "If your [product_name] base module and expansion modules are switching 230V loads, a 24 VDC power supply rated at 1.5 A should be sufficient for powering both the base and the expansions."
+    },
+    {
+      "comment_id": 402586702606399,
+      "user_name": "LINLqDbASg",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "[user_name], the expansion modules are switching 24 VDC loads."
+    },
+    {
+      "comment_id": 297733542784660,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "In that case, you need to include the load currents when making your calculations."
+    },
+    {
+      "comment_id": 864035498840082,
+      "user_name": "Gg0uuJOmNn",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Input currents are minimal. It's best practice to use external relays driven by the internal relay outputs. This reduces the risk of the internal relay contacts getting damaged due to inrush or overload currents and helps protect your base module, based on my experience. Tip: Use a fuse (F1A) to secure the power connections to the base and expansion modules as well as the input circuit in the control cabinet. If the input circuit is field-wired, it should have its own fuse. The load-driving relay circuit should be protected by a separate fuse (T#A for inductive loads); this enables you to test I/O without the load connected. If both circuits share a power supply, account for the combined load. Each load should also have its own power protection."
+    },
+    {
+      "comment_id": 270115861613426,
+      "user_name": "LINLqDbASg",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Fuses will be included for safety, that's clear. Let's calculate currents: 165 mA for the base module and 2 expansion modules each with 8 x 2 mA inputs, totaling 32 mA. So, 197 mA in total. However, according to this [url], the expansion module current is listed as 30 to 115 mA, which is considerably higher."
+    },
+    {
+      "comment_id": 971230969963294,
+      "user_name": "Gg0uuJOmNn",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Refer to the specifications and check the 24V DC/AC power consumption for each unit, not just the input current. You need to supply power for all modules, since only the communication bus is internally connected."
+    },
+    {
+      "comment_id": 264190227270659,
+      "user_name": "LINLqDbASg",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Thank you for all the helpful responses."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are asking for advice on selecting the power supply for a [product_name] system with a base module and expansion modules. There is confusion regarding which current values from technical data sheets should be used for accurate calculations. Experienced users stress that, in addition to input current, total unit power consumption for each module must be considered to make an informed decision.",
+    "user_expectations": "The user is looking for clear step-by-step instructions for calculating the total required power supply for all [product_name] modules, expansions, and external relay loads, distinguishing between input current and total unit consumption.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate power supply sizing",
+      "device protection",
+      "reliability"
+    ],
+    "pain_keywords": [
+      "specification ambiguity",
+      "current calculation confusion",
+      "risk of overload"
+    ],
+    "feature_keywords": [
+      "power supply requirement",
+      "input current",
+      "relay protection",
+      "data sheet documentation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "17": "Circuit Protection Guidance"
+  }
+}

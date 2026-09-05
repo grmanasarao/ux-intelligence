@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "9813697315",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 750237203473422,
+      "user_name": "jOc1Ypkzua",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, although I'm familiar with [product_name], I'm facing a scaling issue that I can't figure out. I need to scale a pressure sensor as follows: measurement from -1.0 to 9.3 bar, voltage from 0.5V to 4.5V. No matter which gain or offset I apply, the readings are inaccurate—the higher the pressure, the greater the error. For instance, at 1 bar, the reading is accurate, but at 5.5 bar, [product_name] shows a 0.5 bar discrepancy. I suspect the issue lies in the voltage range of 0.5V to 4.5V, though my understanding may be contributing. I've attached my current settings that work best so far. Any advice would be appreciated. Thank you, [user_name]"
+    },
+    {
+      "comment_id": 737883313561658,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello, could you specify the exact sensor values? Is -1.0 to 9.3 bar the sensor’s measurement range, and does 0.5 to 4.5 V refer to the output signal? What type of signal does the sensor emit—4-20mA or 0-10V? I need more details to understand your setup."
+    },
+    {
+      "comment_id": 348171092005855,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I've come across a sensor with similar characteristics—the usable range is 0.5V at -1.0 bar (vacuum) up to 4.5V at 9.3 bar, with 0 to 5V overall but saturation at the ends. I recommend expanding the engineering scale to handle 0-10V, then set checks for the upper and lower limits."
+    },
+    {
+      "comment_id": 172335557143908,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "If that matches your setup, go ahead and implement it."
+    },
+    {
+      "comment_id": 281458639909126,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thank you for providing more information."
+    },
+    {
+      "comment_id": 182901058720093,
+      "user_name": "jOc1Ypkzua",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hi, I realize I should have been clearer about the sensor’s values! The measurement range is -1.0 to 9.3 bar. It’s a ratiometric sensor—at -1.0 bar, signal voltage is 0.5V DC; at 9.3 bar, it’s 4.5V DC. The input voltage for the sensor is between 8 and 30V DC. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 686601341094068,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Yes, I understood it correctly. The example I posted outputs values from -100 to 930, which you should note. The display is set up to show two decimals from -1.00 to 9.30 bar."
+    },
+    {
+      "comment_id": 584207561687888,
+      "user_name": "jOc1Ypkzua",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thank you, [user_name], for your support. Could you share your sample program? I might be missing something, as the setup still isn’t working as expected for me. Regards, [user_name]"
+    },
+    {
+      "comment_id": 731059326659523,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "With the measuring and analog input ranges confirmed by the user, here’s my recommendation."
+    },
+    {
+      "comment_id": 131545224553643,
+      "user_name": "jOc1Ypkzua",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Great, that works flawlessly—and interestingly, I was almost there with my own approach! Sometimes it's hard to see a solution when you're so close. Thanks so much; I can finally relax and enjoy my Friday evening. Kind regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered difficulty configuring analog input scaling for a pressure sensor with a unique 0.5V to 4.5V range on a [product_name] device. The main challenge was aligning the sensor’s output to the pressure scale, particularly at higher pressures where error increased. After discussing with peers, gaining clarity on the sensor’s specifications, and receiving advice to broaden the engineering scale and clamp input limits, the user resolved the issue successfully.",
+    "user_expectations": "User expects a clear, effective method or template for scaling sensor input voltages to accurate pressure values on the [product_name] device, aiming for minimal errors throughout the range and assistance that doesn’t require complex troubleshooting.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog scaling",
+      "error-free measurement",
+      "easy configuration",
+      "sensor integration"
+    ],
+    "pain_keywords": [
+      "scaling error",
+      "inaccurate readings",
+      "configuration frustration"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "custom voltage range",
+      "engineering unit display"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

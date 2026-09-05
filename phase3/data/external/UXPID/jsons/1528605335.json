@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "1528605335",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 495127252997041,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I am using a timer (\"Stopwatch\" block) to read the cycle time from a system input (let's call it input I1). The Stopwatch counts from zero upwards while I1 is ON. If I1 turns OFF and then ON again, the count restarts from zero—marking a new cycle. I want to retain a history of the minimum and maximum cycle times for evaluation and display in a text message. Getting the maximum value is straightforward: I use a \"Min/Max\" block and can easily display the maximum in a text message. However, recording the minimum value is challenging because each cycle begins from zero, so zero remains recorded as the minimum. Instead, I need to save the count at the end of a cycle and compare it with the next ending value, then store and display the smallest non-zero value. How can this be achieved? Additionally, using I2 as a \"reset,\" I can clear the previous Min/Max data from the display whenever I want a fresh comparison after a system change."
+    },
+    {
+      "comment_id": 228312648503593,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "You can try implementing this approach..."
+    },
+    {
+      "comment_id": 697749019434597,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "That solution works, thank you. I noticed that your message displays time in a \"scaled\", larger format. I haven’t used that feature before—how is it possible to set up time display like that in a text message? It’s not needed here, but I’m curious for future reference. By default, the imported time field is not scaled."
+    },
+    {
+      "comment_id": 842910185815840,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "The analog output of the Stopwatch block represents the total units of the selected time base but isn't formatted. For example, if the Stopwatch is set to seconds, and you measure 1 minute and 28 seconds, the analog output value will be 88 (60 + 28). This value is then stored in either the minimum or maximum memory as needed. The \"Scaled time\" option allows time values to be shown in a standard time format for clarity. To access \"Scaled time\" formatting in a message, click the \"00:00\" icon. This opens a settings menu where you can choose: - Which block's value to display in time format - Which block parameter to use - The time base to apply"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are using a Stopwatch function to measure time cycles and easily log maximum cycle values, but run into issues saving the minimum non-zero value due to the block always registering zero. There’s interest in learning more about advanced time formatting, specifically using a 'Scaled time' feature for clearer display, which is not commonly known. Thread support is practical, yet some display and configuration features need clearer documentation for new users.",
+    "user_expectations": "Users are seeking a straightforward way to log the non-zero minimum timer value at the end of each cycle and methods to format time fields for improved readability in text messages.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "minimum/maximum value logging",
+      "readable timer display",
+      "flexible time formatting"
+    ],
+    "pain_keywords": [
+      "minimum timer value always zero",
+      "non-intuitive value formatting",
+      "lack of built-in min comparator for end-of-cycle"
+    ],
+    "feature_keywords": [
+      "Stopwatch block",
+      "Min/Max block",
+      "Scaled time function",
+      "Text message formatting"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

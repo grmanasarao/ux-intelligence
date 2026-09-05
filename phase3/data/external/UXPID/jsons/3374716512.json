@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "3374716512",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 974587783547674,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello, can anyone assist? I am using a [product_name] with [article_no]. I created a project with [product_name] demo software, which works well. However, I can't find the 'STOPWATCH' function block on my [product_name] device. The device includes special functions such as shift register, math error detect, PWM, analog diff trigger, comparator, astronomical clock, etc., but there doesn't seem to be a basic stopwatch function. I need a feature to display the time and date/hours-seconds when a machine starts, as well as a counter for the running time, and when the machine stops it should show the total run duration. This works with the stopwatch feature in the simulation software."
+    },
+    {
+      "comment_id": 317661304789933,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], welcome to the forum. I am not familiar with the demo version because I have always used the full version. The current demo is [product_name] [version_no]. The stopwatch is available in the full version and can be found under timers. However, no blocks in [product_name] can transfer the date."
+    },
+    {
+      "comment_id": 400007222638969,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], thanks for your quick response. I'm no longer concerned about using the demo software; I just want to achieve a setup where the device displays how long the machine has been running in a standard format (hours:minutes:seconds). Ideally, when the machine turns off, the display would freeze, showing how long the machine has run. I'm currently programming my [product_name] manually since I only have a demo license. See the attachment for reference. Not having the date isn't a big issue."
+    },
+    {
+      "comment_id": 982758073060887,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "When programming, you cannot directly access the real date and time on [product_name]. If you want a timestamp, there are no built-in blocks for that in [product_name]."
+    },
+    {
+      "comment_id": 130321484304909,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "All I need is: 1. Running stopwatch since the machine is turned ON. 2. When stopping the machine, the time display should stop and show the total running time."
+    },
+    {
+      "comment_id": 504772208736821,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Starting the stopwatch shouldn't be an issue. Connect the output Qx to the EN input of the stopwatch. If you set the stopwatch to milliseconds, you can only measure up to about 10 minutes; using seconds is better. Alternatively, use a counter with a 0.5s pulse generator (on/off), which allows for larger maximum values. If you want the stopwatch or counter to reset to 0 each time, use an AND EDGE block connected to the reset input. Adjust the setup according to milliseconds or seconds for the display message, e.g., hh:mm:ss. If you need both date and time of start, use two messages: one with the timestamp at start and another with the total run-time. Regards, [user_name]"
+    },
+    {
+      "comment_id": 156663399738970,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "[user_name], the issue is I can't find the stopwatch on my new [product_name] [version_no] with [article_no]. It seems to be missing? When using a pulse counter instead, the time displays as a number of seconds (e.g., 1523 seconds) rather than a formatted time like 1:02:53."
+    },
+    {
+      "comment_id": 600596509359371,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "The main issue arises when manually editing the program. To use a stopwatch, create a new block and assign it to an analog flag, such as AM1. Then select the input and set it to AF—this should reveal the stopwatch. I'm not sure of the exact key sequence used when testing this. This approach is inconvenient for programming or later modifications. Consider investing in the full version of the [product_name] software. Additionally, counter values can also be displayed in hh:mm:ss format; refer to the online help for message text in the demo software. Regards, [user_name]"
+    },
+    {
+      "comment_id": 830497689947972,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "[user_name], thanks for the helpful advice! I have now located the stopwatch feature in the [product_name] menu. Thank you very much!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience difficulty finding the 'STOPWATCH' function block on their [product_name] device, even though it can be used in simulation software. The manual programming process is not intuitive, especially for those using a demo version. There is a clear disconnect between simulated functionality and the real hardware interface, particularly for time-tracking features like stopwatches or run-time counters in a user-friendly time format.",
+    "user_expectations": "The user expects an easy way to display machine run-time in hours:minutes:seconds format and to have the display freeze when the machine stops, matching the behavior seen in the simulation software on the physical [product_name] device.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "run-time display",
+      "elapsed time in hh:mm:ss",
+      "clear hardware access to functions"
+    ],
+    "pain_keywords": [
+      "difficulty finding stopwatch",
+      "unclear hardware-software feature parity",
+      "time format issues"
+    ],
+    "feature_keywords": [
+      "stopwatch function block",
+      "display formatting",
+      "message text customization"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "8": "Documentation Clarity"
+  }
+}

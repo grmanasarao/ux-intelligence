@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "4575143282",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 593823047310297,
+      "user_name": "DlYl5wEDuq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello, Has anyone successfully integrated a Modbus RTU device using a gateway? I have a temperature controller that communicates via Modbus RTU RS485, and I’m considering the MGate MB3180 as a gateway between two controllers. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 381255728372277,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I believe there should not be any issues."
+    },
+    {
+      "comment_id": 948048878088156,
+      "user_name": "DlYl5wEDuq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I am struggling to read an analog temperature value from a CN7500 temperature controller via the MB3180 gateway. The controller manual lists the process value address as 1000H, and online resources suggest trying the binary number (4095 / 95) instead, but neither address seems to work. All settings in the MB3180 Gateway match the controller, and the gateway can auto-detect it. However, retrieving the value into the [product_name] is problematic. Any advice would be greatly appreciated. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 748588042291630,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Do you have a manual for Modbus register addresses that can be uploaded? Or a link to this manual?"
+    },
+    {
+      "comment_id": 131802292704339,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Have you enabled Modbus access in the file properties?"
+    },
+    {
+      "comment_id": 684622689536350,
+      "user_name": "DlYl5wEDuq",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Here is a link to the manual in PDF format. I have also added a screenshot of it. [url] Modbus is enabled. What confuses me is the manual references function codes 03H, 06H, 02H, and 05H. Should these function codes be prepended to the address so the device knows what action is being requested (read/write for that specific address)? Is there any way to test the temperature controller without the PLC to determine whether the issue is with the controller or my [product_name] logic? Thank you for your responses!"
+    },
+    {
+      "comment_id": 137425058147880,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "The [product_name] handles these function codes automatically during data exchange. They are set in the connection table depending on the type of data transfer, such as reading or writing to a holding register. Try using HR4096 instead of HR4095, as the [product_name] addresses registers with an offset of +1. So, register HR4095 in the CN7500 could map to HR4096 in the [product_name]."
+    },
+    {
+      "comment_id": 944328905669899,
+      "user_name": "DlYl5wEDuq",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I resolved the issue by using two words and an address of 4097. Thanks. [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced confusion integrating a Modbus RTU temperature controller through a gateway to [product_name] hardware. Main difficulties stemmed from proper register addressing and discrepancies between device documentation and expected register formats in the [product_name], particularly with address offsets and function codes. The thread highlights the importance of interpreting technical documentation, consistent address mapping between devices, and the need for testing and trial-and-error during such integrations.",
+    "user_expectations": "Users expect a smooth and clear integration process when connecting third-party Modbus RTU devices to [product_name] through gateways, with addressing and documentation that is easy to follow. They anticipate that standard configuration procedures should suffice for device and address setup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful integration",
+      "accurate analog value reading",
+      "clear register mapping"
+    ],
+    "pain_keywords": [
+      "register address confusion",
+      "documentation ambiguity",
+      "troubleshooting complexity"
+    ],
+    "feature_keywords": [
+      "Modbus integration",
+      "register address mapping",
+      "analog value input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

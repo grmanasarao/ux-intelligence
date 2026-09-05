@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "branch_id": "5686850445",
+    "thread_id": "1723880927",
+    "publication_year": 2009,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 333232868068536,
+      "user_name": "LtNd5vIXaE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "I'm facing an issue with understanding sensor data rather than encountering a software error. My solar heating application for a swimming pool uses two PT100 sensors to control a motor valve. During 'online test', the two analog input channels for the PT100 sensors display values around 230 to 270. Logging these values using Excel with a logging tool from the forum works well—they also show between 230 and 270 for the PT100 channels. However, I would like to extract the actual temperature, which should currently be about 5-10 degrees Celsius. When I use the 'goggles' function over the temperature block in online test, I see a value that seems to match real temperature better. Is there a way to log or read this value differently, or can I scale the Excel data to display the correct temperature graph?"
+    },
+    {
+      "comment_id": 418369537082187,
+      "user_name": "JMywOwHns4",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "Hello! You should consider using an amplifier. Check the attached file. In simulation mode, you'll notice two values per input: one reflects the actual temperature range (-50 to 200) and the other shows a 0-1000 input value. This appears to be a software-specific detail and might be best ignored. Focus on analyzing the text output for more relevant information."
+    },
+    {
+      "comment_id": 695948220430184,
+      "user_name": "LtNd5vIXaE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "Thank you for your reply. I'm currently using an analog comparator set to \"PT100\"—doesn't that function similarly to an amplifier? Should I add a separate amplifier in series? This approach is a bit unclear to me, and searching the forum for guidance on 'scaling PT100' hasn't helped. I’ve attached my file version—if you have time to review it, I’d appreciate your insights."
+    },
+    {
+      "comment_id": 472235477103098,
+      "user_name": "JMywOwHns4",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "I'm not sure how you log data specifically. Which variable are you logging? Is there a way to record the outputs from B017 and B018 in your attached file?"
+    },
+    {
+      "comment_id": 612360055136902,
+      "user_name": "LtNd5vIXaE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "I'm using an Excel file from the forum to log the status of all inputs and outputs. I don't think individual blocks can be logged separately."
+    },
+    {
+      "comment_id": 536071532956607,
+      "user_name": "JMywOwHns4",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "You could apply scaling to the analog inputs directly in Excel. A calculation like this could work: Temperature (°C) = Analog Input * 0.25 - 50."
+    },
+    {
+      "comment_id": 339515730680926,
+      "user_name": "LtNd5vIXaE",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "Thank you, that solution works well. I could also use an analog math block and configure an analog output in the software to log more practical values. Appreciate your help!"
+    },
+    {
+      "comment_id": 376660513288441,
+      "user_name": "JMywOwHns4",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "Yes, that's a good approach!"
+    },
+    {
+      "comment_id": 440811836509400,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "The logging tool cannot display detailed function values; it only records states of inputs, outputs, flags, and register bits. To see actual values, you need to convert them into analog signals (for example, using a multiplexer). You can also scale values directly in the software instead of Excel, which is necessary for proper visualization or evaluation. Use an analog amplifier and connect its output to an analog flag—Excel can also work with analog flags. That should address your needs."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are struggling to interpret raw analog data from PT100 sensors, as the logged values reflect internal codes instead of actual temperature readings. The environment displays these raw numbers, not calibrated temperatures. Users are exploring methods to translate or scale raw sensor data to real temperature values, preferring solutions implemented in the software or via Excel.",
+    "user_expectations": "Users expect to easily log and view PT100 sensor data as readable temperature values in degrees Celsius. They want a simple, practical method to convert raw input to temperature, ideally within their current software tools.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "actual temperature readings",
+      "data interpretability",
+      "easy scaling",
+      "logging meaningful values"
+    ],
+    "pain_keywords": [
+      "raw analog values",
+      "lack of direct temperature output",
+      "challenging data interpretation",
+      "limited logging capabilities"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "data logging",
+      "online test monitoring",
+      "analog comparator",
+      "amplifier",
+      "analog flag"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

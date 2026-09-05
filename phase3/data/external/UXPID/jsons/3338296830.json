@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "3338296830",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 281438360777751,
+      "user_name": "f1xnztfusD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, I am trying to implement a mathematical counter that updates every second, using floating point values, for calculating water usage over a given period. My first issue is that the result from my initial calculation block is incorrect; it should produce 1.5 from 15 divided by 10, but instead gives 2. It seems I can't obtain a result in float format. My second issue concerns setting the output operand to increment the total: Total = Total + operand. Any advice would be appreciated."
+    },
+    {
+      "comment_id": 842048727643477,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "The [product_name] does not support float operations and only works with integers, which is why results are rounded."
+    },
+    {
+      "comment_id": 673154532940338,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "The [product_name] processes only integer values. Although the Block I/F converter can output a float from an integer, arithmetic and logic operations within [product_name] are restricted to integers; floats are only made available for communication with Modbus-compatible devices. The value for VW500 hasn't been specified—whether it is integer or float—so I can't advise further. Accumulating integer values recursively leads to errors, but using the MAX/MIN block allows for more accurate results. After passing through MAX/MIN, dividing by 10 improves the result. For display purposes, multiply the VW500 value by 10 and configure your panel to show the decimal. Perhaps the attached example will be useful."
+    },
+    {
+      "comment_id": 556118062302817,
+      "user_name": "f1xnztfusD",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thanks, since only integers are supported, I will calculate in ml/sec instead of liter/sec for greater accuracy. The MIN/MAX block functions well, but the counter quickly reaches its maximum limit. Is it possible to increment another counter (traditional Up/Down type) when the mathematical counter value passes 1000? For instance, with a counter reading 1026, increase the liter counter by 1 and keep the extra for future counts (so 26 would carry over). Would an analog compare block work for this, or is this not feasible in [product_name]? Thank you."
+    },
+    {
+      "comment_id": 901708513651933,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Yes, combining an analog comparator with mathematical instruction and other logic blocks can accomplish this."
+    },
+    {
+      "comment_id": 350813077654622,
+      "user_name": "irdmkTgewS",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "If I understood correctly, you're seeking to measure flow rate. I've implemented several flow rate measurement systems, each with unique benefits and drawbacks. To choose the best option, consider these questions: How often do you want to update? (I'm guessing every second.) How many pulses does your measurement device generate per second? What's the measurement range and desired precision? How much delay is acceptable? Counting more pulses yields more precise and stable measurements but increases the measurement time (affecting the update rate). The attached example uses a constant PLC cycle time and involves counting PLC cycles between flowmeter pulses, then calculating ml/min. If no pulses occur for two seconds, a new calculation is triggered. This works because the PLC’s cycle frequency far exceeds the pulse rate of the flowmeter—results are quick but can fluctuate. However, heavy network usage can disrupt cycle frequency. For display, this method is okay; for control, I use an average flow measured over 20 seconds, updating every 2 seconds."
+    },
+    {
+      "comment_id": 417451831285019,
+      "user_name": "f1xnztfusD",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thank you for the quick response. My goal is to calculate the consumption of a projection system based on a theoretical flow rate constant. I have two projection systems: one with a flow rate of 15 liters/min and adjustable projection time (1 to 5 seconds), and another at 2.4 liters/min with adjustable time (0.1 to 2 seconds). I planned to use a fast time-based incremental counter (every 0.1 seconds); with each pulse, the counter increases. Since floats aren’t supported, I’ll use milliliters as the unit. When the counter exceeds 1000ml, I’ll increment a total liter counter and carry over the excess above 1000. Thanks for your help."
+    },
+    {
+      "comment_id": 107994374443852,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Why don’t you post in English?"
+    },
+    {
+      "comment_id": 298783076140728,
+      "user_name": "f1xnztfusD",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Sorry about that, I used a translator but pasted the French text by mistake..."
+    },
+    {
+      "comment_id": 849647677455959,
+      "user_name": "8RYb477Ela",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "A useful approach for summing flows to calculate volume or, for example, voltage and current for energy metering is included in the attachment. This tank-filler example can operate in manual or automatic modes, based on another user’s request. The flow is added every second in an arithmetic block. When whole liters are reached, an up-counter increments and the full liter amount is subtracted from the arithmetic block. To avoid overflow (value > 32767), full liters are subtracted up to eight times per one-second cycle. Feel free to use or adapt this program as needed or ask for further clarification."
+    },
+    {
+      "comment_id": 783625078341622,
+      "user_name": "f1xnztfusD",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thanks a lot, [user_name]! This solution fits perfectly. For my project, the input isn’t from an analog sensor but is set via a variable that users enter through the webserver or directly on the [product_name] display (System/Program/Set parameter). I swapped it with a Network analog input and it works. Is there a method to change values directly on [product_name]? I changed the units from l/minx10 to milliliters, so I replaced 599 by 5999 and 600 by 6000, and that's fine. I don’t understand the purpose of the B013 block with 8 pulse cycles and 5x1/100sec (TH and TL)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users found that [product_name] has notable restrictions regarding floating-point math, leading to lower accuracy due to integer-only calculations and rounding errors. Accurate computation of water consumption and volume over time is affected, prompting discussion of alternative solutions using integer operations, MAX/MIN blocks, analog comparators, and incremental counters. However, lack of float support remains a core frustration for users.",
+    "user_expectations": "Users wish to perform division, accumulation, and continuous updates using float values for higher precision in [product_name], particularly for scenarios where count limits are easily exceeded. They are looking for ways to enhance accuracy beyond integer arithmetic.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate measurement",
+      "precise calculation",
+      "robust automatic counting"
+    ],
+    "pain_keywords": [
+      "lack of float support",
+      "limited accuracy",
+      "counter overflow",
+      "arithmetic limitations"
+    ],
+    "feature_keywords": [
+      "float arithmetic",
+      "incremental counters",
+      "arithmetic instruction blocks",
+      "analog comparator",
+      "MAX/MIN blocks"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

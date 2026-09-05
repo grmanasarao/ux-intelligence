@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "branch_id": "3401995051",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 933452911913054,
+      "user_name": "X4rTsUEmZr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello, I have a question about M flags. Is it possible for the program to set an M bit using a rising edge, and then have the same bit reset by a command from the HMI? I've been able to do this with other controllers, but this specific controller seems unable to retain the M state. SR relays are not suitable since I need to use the same bit. Thank you."
+    },
+    {
+      "comment_id": 404444408050590,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Flags in this controller do not have retentivity. Once a flag is used as an input in the program, it cannot be remotely controlled. If you clarify your application, we should be able to suggest a solution."
+    },
+    {
+      "comment_id": 909305266013447,
+      "user_name": "X4rTsUEmZr",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I'm looking for a retentive bit that can be set to 1 by a rising edge in the program, and later reset to 0 via the HMI. This works well with other PLCs, but I am unsure how to do it with this controller."
+    },
+    {
+      "comment_id": 642979225078447,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Please check the screenshot attached. You can use a pulse relay in the program. For HMI operations, use a bit in the VM area (Vx.x) and configure the action as \"Set bit on click.\" The bit is automatically reset in the program, as the network output with the same address as the network input is written to zero via a LOW block."
+    },
+    {
+      "comment_id": 230459791484791,
+      "user_name": "X4rTsUEmZr",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Referring to the picture below, my goal is to use the HMI to log the counter value when triggered (e.g. using M1). An event happens every hour, and the rising edge sets the bit to 1 (it should be retentive), allowing the HMI to log the counter value by event trigger. After logging, the bit should be set back to 0."
+    },
+    {
+      "comment_id": 132246401551572,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "How large can the counter value get within one hour? Does it stay below 32,768, or does it exceed this value?"
+    },
+    {
+      "comment_id": 552973770691912,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "If the counter value doesn't go above 32,767, the approach shown in the attachment will work. The value in the mathematical operation will remain until the counter is reset."
+    },
+    {
+      "comment_id": 610640403500419,
+      "user_name": "X4rTsUEmZr",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I have considered that, but the requirement is to set a bit (from the program) to notify the HMI that logging should occur. The HMI then completes the logging routine, resets the bit (from the HMI), and the falling edge resets the counter. Overflow is not a concern because the counter will not reach 32,767 in one hour."
+    },
+    {
+      "comment_id": 645901970684721,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "How do you propose this should work? You don't want to use a storage block like a latch relay. There isn't a retentive bit that's set by the program and reset by the HMI with this controller. You also declined the previous suggestion. Unfortunately, I'm unsure how to assist further."
+    },
+    {
+      "comment_id": 131901208068825,
+      "user_name": "8RYb477Ela",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "1. In your example, you use M1 and need it to be retentive. With a rising edge, M1 stays on for only one cycle. There's no need to reset the bit unless you're using latching or pulse relays, which are retentive. 2. If you want to log data every hour via HMI, consider using a timer event in the HMI instead of handling this in the controller. This would be simpler. Regards, [user_name]"
+    },
+    {
+      "comment_id": 857836515003575,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], Based on your screenshot, I see a way to achieve your goal. You may also replace the network input and output with two markers."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience limitations with this controller regarding M flag retentivity. They expect to control a memory bit from both the internal logic and HMI, as is possible with other PLCs. The lack of a retentive bit that can be both set by the controller and reset by the HMI interrupts familiar workflows, especially for users accustomed to other products.",
+    "user_expectations": "Users expect this controller to provide retentive bits (flags) that can be set by program events and reset through HMI operations, similar to capabilities offered by other PLCs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "retentive bit",
+      "event-driven logging",
+      "HMI interaction"
+    ],
+    "pain_keywords": [
+      "lack of memory retentivity",
+      "shared control limitation",
+      "unmet cross-platform expectation"
+    ],
+    "feature_keywords": [
+      "M flag",
+      "retentive memory",
+      "HMI trigger interface"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "2683957564",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 818664664344112,
+      "user_name": "t67E0hpgWS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Hello, I have a [product_name] with an analog expansion module. I use the analog signal to control the speed of a driver. The manual for the driver states that the analog speed reference input is not isolated and the 0V of the control circuit is shared with the mains. Since the analog outputs of the [product_name] are not isolated either, I want to understand the risks of not using an isolator (possible damage to the [product_name], signal inaccuracies, etc.). Thanks."
+    },
+    {
+      "comment_id": 631355169568158,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "If the 0V of your driver's control circuit is not isolated and is connected to mains 0, it's generally not a major issue for your [product_name]. The [product_name] can still operate, but you should be aware that the wiring for the 24VDC supply and connections on the [product_name] are not isolated from earth and 0V. You should treat and isolate all connections for the [product_name] and 24VDC as if they were 230V. So, the 24VDC supply is not a PELV or SELV circuit. It's unusual, since these types of drives typically have 3-phase line inputs and not a direct connection to mains 0V. If you have a compact drive (single-phase input, three-phase output), you shouldn't use a standard power plug for mains, but instead make a direct connection. With a plug, you can't be certain about the configuration of line and neutral."
+    },
+    {
+      "comment_id": 892054375252458,
+      "user_name": "t67E0hpgWS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Hello, thank you for your quick reply. Your explanation is very helpful and detailed. As you mentioned, the drive is a small single-phase unit, and regarding your note about the plug, I now realize the implications and have another question. Could using the power plug cause harm to the [product_name]? Before connecting the [product_name], the drive's speed was adjusted using a potentiometer (installed by the manufacturer) connected between a 5V DC from the control circuit and the 0V point. The drive has always used a power plug without issues. Doesn't the electronics handle the 0V reference properly regardless of whether line or neutral is swapped? Otherwise, wouldn't the potentiometer or electronic components have already been damaged?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "This discussion centers on user concerns about connecting non-isolated analog outputs from a [product_name] to a non-isolated input on a motor drive. Participants are mainly interested in the risk of device damage and signal reliability due to shared grounding and non-isolated power circuits. There is a clear need for detailed advice about proper wiring and ground reference management when working with such systems.",
+    "user_expectations": "The user seeks straightforward information about the risks of using non-isolated analog signals, aiming to prevent hardware damage or malfunction in either the [product_name] or the motor drive.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "hardware safety",
+      "signal accuracy",
+      "clarity on isolation"
+    ],
+    "pain_keywords": [
+      "non-isolated analog output",
+      "potential hardware damage",
+      "electric shock risk",
+      "signal inaccuracy"
+    ],
+    "feature_keywords": [
+      "analog output isolation",
+      "wiring safety",
+      "ground reference"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "17": "Circuit Protection Guidance"
+  }
+}

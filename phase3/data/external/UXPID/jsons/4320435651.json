@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "4320435651",
+    "thread_id": "3055273936",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 566179881849560,
+      "user_name": "LHt69q7vZg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I'm looking to install a pressure sensor with a range of -1 to 0 bar into the [product_name] controller, without using a converter module. What settings should I use? I also need to convert the readings to mbar."
+    },
+    {
+      "comment_id": 242611844216017,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Could you specify which exact [product_name] device you have? Please provide the full [article_no]. Do you have an analog expansion module?"
+    },
+    {
+      "comment_id": 931642011770287,
+      "user_name": "TQKMwiXSLF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "You can connect a 4-20mA pressure sensor to an analog expansion module for [product_name]. If you require -1000 mbar for 4mA and 0 for 20mA, the scaling would be: Gain = 1.25, Offset = -1250."
+    },
+    {
+      "comment_id": 230251382513936,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "With scaling, achieving exactly 0.001 bar (= -1000 mbar) isn't possible, you can only get -0.01 bar resolution."
+    },
+    {
+      "comment_id": 127916088768634,
+      "user_name": "TQKMwiXSLF",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "The method described above will work; you should test it out. Note: For this setup, set 'Decimal places in a message text' to zero in the analog block parameters."
+    },
+    {
+      "comment_id": 766272599690868,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Apologies for the earlier confusion. I misread the sensor range in the initial post as -1 to 10 bar instead of -1 to 0 bar. Your earlier statement was correct."
+    },
+    {
+      "comment_id": 840960262242419,
+      "user_name": "LHt69q7vZg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I don't have the analog module. Is it possible to use the I7 and I8 inputs instead? Can the sensor be directly connected?"
+    },
+    {
+      "comment_id": 517587811168541,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "If your [product_name] base unit includes analog inputs on I7/I8, these support 0-10V only, not 0/4-20mA. To connect a 4-20mA sensor to these inputs, you would need a 500 Ω resistor as a converter."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers around integrating and scaling a -1 to 0 bar (4-20mA output) pressure sensor with a [product_name] system, aiming to avoid extra conversion hardware. Users address matching sensor output types to the device's available inputs, adjusting scaling parameters, and mention confusion about module types, compatibility, and accuracy of resolution.",
+    "user_expectations": "The main expectation is to connect a 4-20mA pressure sensor directly to the [product_name] system without needing additional conversion devices, and to properly scale sensor readings to mbar for use in the application.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "direct sensor connection",
+      "accurate mbar scaling",
+      "simple setup"
+    ],
+    "pain_keywords": [
+      "hardware compatibility",
+      "conversion requirement",
+      "scaling confusion"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "scaling parameters",
+      "sensor signal type compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges",
+    "28": "Installation Flexibility"
+  }
+}

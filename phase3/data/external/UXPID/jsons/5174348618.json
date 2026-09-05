@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "5174348618",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 780078734200560,
+      "user_name": "pM7YTIjlfZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm attempting to activate digital inputs (such as I11-I12-I13) using an external application. I plan to utilize these inputs for an up/down counter. My aim is to convert CSV values into digital inputs that the counter in [product_name] can process. I've read that directly controlling digital inputs remotely might not be possible. If that's the case, could you suggest alternative ways to store CSV values in a usable format within [product_name] for the counter? Also, what's the recommended approach for reading the counter value for export back to a CSV file? Thank you for your support."
+    },
+    {
+      "comment_id": 332421846347739,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Welcome to the forum. The [product_name] doesn't have native capability to read or write directly to CSV files. The only exception is when the data log feature records values to a CSV file on an mSD card. Remotely writing to physical digital inputs on [product_name] isn't supported."
+    },
+    {
+      "comment_id": 232215212490234,
+      "user_name": "pM7YTIjlfZ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Thank you for your response. My external software can read CSV files and assign values to [product_name] variables using an S7-type connection. I'm able to use analog markers for the operation I described, but they're not compatible with counters. Is it possible to save or write digital values (such as frequency information) in a local memory variable that could be used with the counter? Or is connecting actual hardware digital inputs the only solution?"
+    },
+    {
+      "comment_id": 467311074064361,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I'm not familiar with your external software's specific capabilities. For [product_name] up/down counters, the value is a 32-bit double integer, which doesn't fit into an analog marker. For exchanging data with external devices or software, [product_name] typically utilizes VM memory space. Instead of physical digital inputs, you can use bits (Vx.y) from VM memory. You can transfer the counter value using a double word from the VM memory area (VDx)."
+    },
+    {
+      "comment_id": 574290930924424,
+      "user_name": "cZQANX744b",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "You can use VM memory or digital flags as placeholders. Once your data is stored in [product_name], you can proceed with counting as required. Hope this advice is helpful."
+    },
+    {
+      "comment_id": 577985039323322,
+      "user_name": "pM7YTIjlfZ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I've set up a system using NI1, NI2, and NI3 along with an up/down counter, as shown in my diagram. I'm transmitting network input signals from another application. The counter isn't operating as intended—when NI1 activates, Q1 should deactivate, and the counter should reset to zero, but it remains at seven. Also, when NI3 is on, NI2 displays an unexpected value like 16777216. Could this be due to NI2 not representing a frequency? If so, how can NI2 be configured as a frequency input? Any suggestions or experiences are welcome. Thank you in advance."
+    },
+    {
+      "comment_id": 116441179876863,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "You've configured a start value of 7 on the counter. Resetting the counter won't set it to zero because the starting value is 7. If you want the reset to yield zero, set the start value to 0."
+    },
+    {
+      "comment_id": 584404537571994,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "It's important to note that NI2 is a digital network input and can only assume values of 0 or 1."
+    },
+    {
+      "comment_id": 493232288812133,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "If detailed assistance is needed, please provide more information about your external software and the [product_name] configuration. A screenshot alone isn't enough to diagnose the issue. The value 16777216 is hexadecimal 100000, likely pointing to incorrect assignments in your external application—this may be the source of the unexpected value."
+    },
+    {
+      "comment_id": 721032457196165,
+      "user_name": "pM7YTIjlfZ",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Is it possible for NI inputs to take integer values representing frequency, similar to the mode selection 'Frequency' for digital input values?"
+    },
+    {
+      "comment_id": 988810193435021,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "An NI functions just like a physical digital input but as a network input. For integer-type inputs, you need to use a network analog input (NAI), not a digital input."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are facing difficulties in integrating CSV-sourced data with [product_name] for simulating digital inputs and managing counters. Key issues include inability to remotely write to actual digital inputs, lack of direct CSV file integration, confusion regarding suitable data types, and problems with the expected operational behavior, particularly with frequency representation and memory assignments.",
+    "user_expectations": "Users anticipate being able to remotely simulate digital input events using CSV data for counting tasks, and seek straightforward methods for reading and writing variable values between [product_name] and third-party applications. They look for flexible mechanisms to connect non-hardware-based information to logic controls.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote simulation",
+      "automated counting",
+      "CSV integration"
+    ],
+    "pain_keywords": [
+      "remote input limitation",
+      "memory assignment confusion",
+      "data type mismatch",
+      "limited CSV functionality"
+    ],
+    "feature_keywords": [
+      "remote digital input simulation",
+      "VM memory usage",
+      "counter integration",
+      "frequency mode"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "30": "Data Persistence Confusion"
+  }
+}

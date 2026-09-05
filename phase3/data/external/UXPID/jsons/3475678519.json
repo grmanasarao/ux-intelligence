@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "3475678519",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 602306731201787,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Good morning, I would like to connect a PT100 sensor (2 wires: red and white) to a [product_name] base module without using the [product_name] RTD expansion module. I've reviewed previous forum topics regarding connecting a 2-wire PT100 to a [product_name] RTD module, and it appears that the red wire connects to U1+, while the white wire connects to both U1- and IC1. Does this mean I need to connect the red wire to +24V, and the white wire to both 0V and, for example, an analog input like AI7? Or is it not possible to connect the PT100 sensor to the base module without the RTD expansion? I've attached a sample of my program: I'm unable to make output Q1 switch between 0 and 1, indicating the sensor is not working with the described setup. Thank you in advance."
+    },
+    {
+      "comment_id": 994320163739250,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Here's an illustration showing the connection with the RTD module. [IMAGE] It is not possible to connect a PT100 sensor without a compatible RTD or PT100 module. Additionally, refer to the provided instructions [url]; they show how to wire the PT100 and note that in your program image, the analog amplifier block might not be correctly configured for the PT100 sensor. Also, ensure both function blocks use the same analog input and not SF001."
+    },
+    {
+      "comment_id": 516446692606928,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Connecting a PT100 sensor to a 0-10V analog input on the base module is possible, but you will require an external PT100 signal converter."
+    },
+    {
+      "comment_id": 567714846726690,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Thank you both for your assistance. I will proceed with getting the RTD expansion module."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on connecting a PT100 sensor to a [product_name] base device without the RTD expansion. Users are uncertain about proper wiring and highlight that direct connections are not supported without either the RTD module or an external PT100 converter. This indicates users lack information about limitations and hardware requirements for integrating RTD sensors with the base module's analog inputs.",
+    "user_expectations": "The user hopes to connect a PT100 sensor directly to the [product_name] base module, expecting it to process the signal and control outputs, ideally without needing a separate RTD expansion module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simple PT100 integration",
+      "cost-effective setup",
+      "signal processing"
+    ],
+    "pain_keywords": [
+      "hardware compatibility confusion",
+      "sensor connection limitations",
+      "lack of direct support"
+    ],
+    "feature_keywords": [
+      "analog input support",
+      "RTD/temperature sensor compatibility",
+      "expansion module requirements"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "28": "Installation Flexibility"
+  }
+}

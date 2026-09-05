@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "5024265351",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 236939998755442,
+      "user_name": "PkdzOtUSWo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hardware: [product_name] [article_no] Software: [product_name] [version_no] I'm trying to understand if changes to program parameters are saved automatically by the device. When I edit a parameter but don't use the 'Save prg>sd' command, and then reboot, the changes still seem to be there. I checked the .bin file on the SD card using the software, and it reflects the updated program. Is this expected behavior, or am I missing something? Thank you!"
+    },
+    {
+      "comment_id": 418745965591778,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "When you change parameters on the actual [product_name], those changes also get stored in the bin file on the SD card, even without using the save command from the device menu. Here's some background: On startup, the device first checks if there’s a program on the SD card. If it exists, it compares the SD card program to what’s in flash memory. If there’s a difference, it loads the SD card program into flash memory. If parameter changes weren’t automatically saved to the SD card, each restart would revert to old parameters."
+    },
+    {
+      "comment_id": 478283698980957,
+      "user_name": "PkdzOtUSWo",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I did a series of tests: - At each startup, if the SD card is present, the program loads from it. - Changing a parameter while the program is running results in the modification being automatically saved to the SD card's bin file. - If I change a parameter while the program is stopped, the change is not saved automatically to the SD card unless I manually use the 'Save to card' command. Is my understanding correct, or am I missing something? Thank you."
+    },
+    {
+      "comment_id": 178251925563058,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "You're correct—when editing parameters in Stop mode, saving to the SD card has to be done manually. Whether this is a bug is unclear."
+    },
+    {
+      "comment_id": 642268438223341,
+      "user_name": "PkdzOtUSWo",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thanks for clarifying. I wasn't expecting this behavior because the manual suggests that unsaved changes would be lost after reboot, regardless of the program's status. Anyway, now that I know, it makes sense for me. Thank you again,"
+    },
+    {
+      "comment_id": 779614434035474,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I don’t consider this a bug. In fact, I use it as a useful safety feature. I have about 84 [product_name] devices installed as extra control/monitor units on multiple ships. Engineers often like to tweak settings to avoid alarms and other issues. Previously, without the memory card, this led to improper system operation and required sending a new device or going onboard to reinstall the original program. Now, I either install or send a pre-programmed SD card. By stopping the device, inserting the card, and powering up, the correct program loads automatically. If changes are made and issues arise later, I simply advise a power cycle. If this resolves the issue, I know someone altered the settings. This setup provides a reliable safety backup for situations where users modify system settings. So far, no one has figured out how to save their adjustments permanently to the SD card, so I haven’t had to explain its real purpose."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users shared their experiences with how parameter changes are saved on [product_name] devices. Automatic saving occurs if changes are made while the program is running; otherwise, a manual save is needed if the program is stopped. Initially, users found this distinction unclear but later saw it as a helpful safety measure to prevent unintended permanent updates to system settings.",
+    "user_expectations": "Users expect every parameter change to be saved to the SD card automatically, regardless of whether the program is running or stopped, as implied by the documentation. They want modifications to remain after a reboot, without needing to manually save changes.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "automatic saving",
+      "data persistence",
+      "process safety"
+    ],
+    "pain_keywords": [
+      "unexpected save behavior",
+      "manual intervention",
+      "parameter loss risk"
+    ],
+    "feature_keywords": [
+      "automatic save",
+      "manual save",
+      "SD card backup",
+      "parameter change"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "8314101383",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 457298079069465,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I'm looking for a solution to output a fixed analog voltage value (for example, 5V or 3V) to control device speed. Ideally, I'd use a contact from an internal relay to set the output to one fixed voltage, and then another relay contact to switch to another voltage on the same output. The idea is to have a fan motor run at a higher speed when the output is at 5V, and then lower the speed to 3V once a certain setpoint is reached, where the setpoint is determined by a temperature measurement from another analog input."
+    },
+    {
+      "comment_id": 762272926754417,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Can you clarify what you mean by 'M relay'? Could you provide more details or confirm if this is what you're trying to achieve?"
+    },
+    {
+      "comment_id": 297500611626265,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "To switch between different fixed voltage values on an analog output, you should use a multiplexer function block. Remember that the analog outputs from a typical PLC module are meant for controlling compatible devices and should not be wired directly to hardware like a fan motor, as this can damage the output module. Best regards, [user_name] (translated by Google)"
+    },
+    {
+      "comment_id": 330225726700023,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Sorry for any confusion. I don't have an analog input for this; I'm using two internal contacts—one for low speed and one for high speed. What I want to do is use a 0–10V output: for example, when in high-speed mode, the output to the inverter should be 6V DC to increase the speed, while switching to low-speed mode (which turns off the high-speed contact) should set the output to 3V. The goal is not to read an input voltage, but rather to programmatically drive a fixed output voltage using the PLC, as the speed controller accepts the 0–10V signal to adjust the drive's speed. I hope this makes the requirements clearer."
+    },
+    {
+      "comment_id": 503284644183551,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Can you clarify the values? Initially, you mentioned 5V and 3V, but now you're referring to 6V and 3V."
+    },
+    {
+      "comment_id": 539890528305717,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 427977266691746,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "I don't know the exact voltage values yet; my question is more about the principle. One voltage will be higher than the other—those numbers were just examples."
+    },
+    {
+      "comment_id": 976592914690393,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "This is the functionality I was hoping for—thank you, I'll try it out."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants to programmatically select between different fixed analog voltage outputs via PLC logic to control the speed of an external device with an inverter. The discussion includes clarification of terminology, reminders about proper output wiring (not connecting hardware directly to the analog output), and recognition of the typical automation need to integrate PLC analog signals with speed controllers. The user clarified that the concern is choosing between two setpoints, not the exact voltage values.",
+    "user_expectations": "The user expects to set a specific analog output voltage from the PLC in response to internal logical states, without needing analog input signals, and to use the PLC's analog output directly for inverter speed control.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "simple speed switching",
+      "PLC-inverter integration",
+      "automated voltage output"
+    ],
+    "pain_keywords": [
+      "lack of clear wiring/programming guidance",
+      "risk of hardware misuse",
+      "misunderstood module functionality"
+    ],
+    "feature_keywords": [
+      "analog output voltage control",
+      "internal logic switching",
+      "output setpoint programmability"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "12": "Network Configuration Challenges"
+  }
+}

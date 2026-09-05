@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "branch_id": "8741735604",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 372975057780180,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm new to PI controllers and I'm having trouble understanding something. I set up a small test to learn how a PI controller works, with the setpoint at 200 and the direction set to upwards (+). I expected that if the process value goes above 200, my analog output would increase, and if the value drops below 200, the output would decrease. However, I'm seeing the opposite behavior. Can someone clarify this for me?"
+    },
+    {
+      "comment_id": 149479005827647,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "The PI controller in [product_name] only operates in one direction at a time, so you need to select the appropriate control direction. For upward control direction (Dir = +): If the process value drops below the setpoint, the controller reacts and tries to bring the process value back up to the setpoint. If the process value goes above the setpoint, the controller does not respond. For downward control direction (Dir = -): If the process value exceeds the setpoint, the controller adjusts and tries to bring the process value back down to the setpoint. If the process value is less than the setpoint, the controller does not respond."
+    },
+    {
+      "comment_id": 503241549535550,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Thanks for the explanation, I got the directions mixed up. However, I'm still unclear about your statement regarding the controller not working when the process value exceeds the setpoint for positive direction or falls below for negative direction. Based on my tests and what the internal help says, in the negative direction, if the process value goes below the setpoint, the analog output decreases, and if it goes above, the analog output increases."
+    },
+    {
+      "comment_id": 722743584753199,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "The PI controller's output never goes below zero—it ranges from 0 to 1000. For upward control: If the process value is less than the setpoint, the controller gives an output between 0 and 1000. If the process value goes above the setpoint, the output drops to 0. For downward control: If the process value exceeds the setpoint, the output is between 0 and 1000. If the process value is below the setpoint, the output drops to 0. Does this clarify the behavior?"
+    },
+    {
+      "comment_id": 268112821357980,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I understand your point. For example, with negative direction, the output ranges only from 0 to 1000. If the process value rises above the setpoint, the output increases. If the process value matches the setpoint again, the output stays at its last value. However, when the process value falls below the setpoint, the output doesn't instantly go to zero; it gradually decreases, and if the process value returns to the setpoint before reaching zero, the output stabilizes at that last value, as far as I know."
+    },
+    {
+      "comment_id": 528004706195421,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Sorry if my previous message didn’t cover all possible output scenarios for every process value. My main intention was to explain the overall principle."
+    },
+    {
+      "comment_id": 115775370854144,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Thanks for the clarification, I was a bit confused."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The key user experience issue involves confusion about how the PI controller's direction setting affects its output behavior in [product_name]. Users are unsure whether the response matches their expectations, particularly regarding how and when the controller reacts based on whether the process value is above or below the setpoint.",
+    "user_expectations": "Users expect the PI controller output to respond predictably and be well documented. They want detailed, transparent explanations for how the analog output should behave according to the selected control direction.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clarity",
+      "predictable logic",
+      "learning"
+    ],
+    "pain_keywords": [
+      "confusion",
+      "ambiguous documentation"
+    ],
+    "feature_keywords": [
+      "PI controller",
+      "control direction",
+      "analog output"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

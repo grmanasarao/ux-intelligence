@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "7573120172",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 473969705813517,
+      "user_name": "FEuYkk6wKj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello, I have a [product_name] and would like to know if it's possible to connect a digital temperature sensor like the DS18B20 to its digital input, or if a PT100 sensor can be connected to its analog input."
+    },
+    {
+      "comment_id": 587910323981512,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "The DS18B20 uses a '1 wire' bus output, which is suitable for platforms like Arduino but not for [product_name] inputs. A PT100 or PT1000 sensor should not be connected directly to a 0-10V analog input via a voltage divider. It's best to use a PT100 or PT1000 converter for this type of connection."
+    },
+    {
+      "comment_id": 329613442143854,
+      "user_name": "FEuYkk6wKj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Thank you, so the only solution would be to use an external module or a 0-10V adapter. [url]"
+    },
+    {
+      "comment_id": 385840145367547,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "That's heading in the right direction. Just make sure to select a measuring range that fits your needs. Avoid using a 0-600°C range unless necessary. Maybe something like -30°C to 70°C is more suitable, depending on your application."
+    },
+    {
+      "comment_id": 306780477320279,
+      "user_name": "FEuYkk6wKj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "So, to confirm, the [product_name] analog inputs only accept 0-10V voltage signals, not 0-20mA current signals? Does the [product_name] series have significant advantages for connecting temperature sensors? Thank you."
+    },
+    {
+      "comment_id": 278023650282729,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "The analog inputs on the basic modules of [product_name] only process 0-10V voltage signals, not current signals. If you want to use a 4-20mA signal on the analog inputs, you’ll need to either use an external transmitter that converts 4-20mA to 0-10V, or use a 500-ohm precision resistor (1% tolerance, minimum 0.5 watts) as a load to convert the current into a 2-10V voltage drop, which the analog input can then read."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users want to connect temperature sensors to the analog inputs of a [product_name] module and are unsure about the compatibility with digital sensors like DS18B20, as well as the supported signal types (voltage vs. current) for the analog inputs. There is a recognized limitation since the inputs only accept voltage signals (0–10V), not current (4–20mA), so external modules or adapters are needed for wider sensor compatibility.",
+    "user_expectations": "Users expect to be able to connect common temperature sensors directly to the analog inputs of the [product_name] module without needing much extra equipment or complex signal conversions.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "direct sensor integration",
+      "simple wiring",
+      "temperature monitoring"
+    ],
+    "pain_keywords": [
+      "input compatibility limitations",
+      "need for signal conversion",
+      "incompatibility with 1-wire sensors"
+    ],
+    "feature_keywords": [
+      "analog input signal type",
+      "digital input compatibility",
+      "0-10V vs 4-20mA"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

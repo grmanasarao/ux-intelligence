@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "branch_id": "7397882217",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 118608260369642,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "I'm not sure about the intended function either. To get back to specifics: I'd like to use a cursor arrow to switch between Automatic and Manual mode, but only after holding the button for 3 seconds, to avoid accidental switching. This setup works well in the [product_name] simulator and on the actual device. However, when trying through the web server or [company_name] app, the cursor button acts only as a momentary switch. Even if I set it as 'Switch' in the simulation, it doesn't behave as intended. On the web server, the state changes instantly no matter how long I hold it. How can I achieve the desired behavior?"
+    },
+    {
+      "comment_id": 342452767877823,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "For the web server, it's not possible to use the virtual cursor and F keys to detect if a key is held down for a set time period. Regarding your second question about 'Protection active' setting, [snip] ..."
+    },
+    {
+      "comment_id": 842324960324775,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Perhaps a counter could help? You would need to press the cursor key twice within one second for the relay to toggle. If you press once, the counter resets after a second."
+    },
+    {
+      "comment_id": 209726147202068,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "This method works well for me—I tested it using both the web server and mobile app. Thanks!"
+    },
+    {
+      "comment_id": 738371643348030,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "I found additional information regarding cursor key behavior on the web server at [url]. To create PULSE inputs, click or tap the relevant cursor or function key. For CONTINUOUS high-level inputs, double-click or double-tap the cursor or function key."
+    },
+    {
+      "comment_id": 334019540594843,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Have you tried it yourself? It seems to only work for pulse input, not continuous."
+    },
+    {
+      "comment_id": 444750891248199,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "In my test with [product_name] [article_no], the web server buttons (cursor and function keys) only functioned as pulse inputs, contrary to the manual's description. After retesting with the latest [product_name] [version_no], I found that web server signals remain active as long as the mouse holds the button. This allows detection of minimum keystroke durations. This update wasn't highlighted before, so I hadn't tried it until now. I appreciate [user_name] for raising this topic again."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users ran into obstacles when trying to use the cursor arrow to change between modes via the web server or [company_name] app, as these interfaces only supported instant momentary actions and not the 'press for 3 seconds' safeguard available on the simulator and physical device. Workarounds like counters or double-clicks were explored and tested. Variations in web server behavior across different product versions caused confusion, especially since official documentation did not always align with actual results. Users identified misleading documentation and noted changes in product updates.",
+    "user_expectations": "Users expect the virtual cursor button in both the web server and [company_name] app to operate just like the physical button, supporting a 'press and hold' functionality to avoid accidental activation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe interaction",
+      "consistency",
+      "remote control",
+      "user prevention of accidental switching"
+    ],
+    "pain_keywords": [
+      "inconsistent interface behavior",
+      "documentation mismatch",
+      "momentary switch limitation"
+    ],
+    "feature_keywords": [
+      "cursor key",
+      "hold button",
+      "Automatic/Manual mode",
+      "web interface",
+      "virtual keys"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "8": "Documentation Clarity",
+    "19": "Bug Reports"
+  }
+}

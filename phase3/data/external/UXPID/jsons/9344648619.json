@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "9344648619",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 292316875521979,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I'm adjusting a value using display keys and want to send that value via a network analog output. Currently, when I try connecting the counter block where the value changes to the network analog output block, I encounter an error stating the connection isn't possible. Is there a way to send the value, changed by the keys, as a VW format? My goal is to transmit this value through Modbus. (I've included an attachment with my code and the connection issue) Thank you for your attention. Best regards."
+    },
+    {
+      "comment_id": 873405224797499,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Using VM parameter mapping can address your requirement. This feature lets you transfer the counter's value into VM memory. However, note that counter values above 32,767 require a double word (VD, 4 bytes) for VM mapping. If your count stays below 32,768, there are alternate options available. What is your maximum value?"
+    },
+    {
+      "comment_id": 316214351839082,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Here’s one approach for counter values ranging from 0 to 32,767."
+    },
+    {
+      "comment_id": 913709956963914,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name]. The highest value is 60, so your suggested code works for my needs. Thank you very much!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced an issue linking a counter block to a network analog output for transmitting a display-modified value via Modbus, due to the software’s restriction in block connectivity. Users were guided toward VM memory mapping as a workaround, with explanations on data size limitations and applicable solutions for smaller value ranges.",
+    "user_expectations": "The user hopes to transfer a display-modified value conveniently through a network analog output block to Modbus, ideally with a simple, intuitive setup in the programming environment.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "network value transfer",
+      "user input integration",
+      "Modbus connectivity"
+    ],
+    "pain_keywords": [
+      "block connection restriction",
+      "workaround requirement"
+    ],
+    "feature_keywords": [
+      "display key value handling",
+      "network analog output",
+      "VM mapping",
+      "Modbus"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

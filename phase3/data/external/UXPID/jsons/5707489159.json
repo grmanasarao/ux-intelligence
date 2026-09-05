@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "branch_id": "5707489159",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 817192567374272,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Do float flags always reset to zero after a power cycle? On my device, they don't seem to preserve their previous status when the power is turned off and then on again."
+    },
+    {
+      "comment_id": 896986769982237,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Could you clarify what you mean by \"float flags\"? Are you referring to analog flags? Flags on [product_name] modules, whether digital or analog, do not have retentive memory. They are different from flags used in typical PLC systems."
+    },
+    {
+      "comment_id": 879404366046851,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Can you explain why you are asking this question? Perhaps we could suggest an alternative solution."
+    },
+    {
+      "comment_id": 605007871738420,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Dear [user_name], I use float flags to save the status of digital on/off, which are controlled via a web interface. Due to limited resources, I utilize flags to manage status inputs through a customized page. This setup works well until the device loses power; at that point, the flag status is reinitialized to LOW."
+    },
+    {
+      "comment_id": 823699669368211,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "If there is available memory, a retainable logic element such as a pulse relay can be used. If flags could retain their logic status, there would be no need for additional function blocks, allowing for more efficient memory usage."
+    },
+    {
+      "comment_id": 291826036680749,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I still don’t fully understand what you mean by \"float flags.\" The entire VM memory area is also non-retentive. This is a limitation of [product_name]. If possible, upload your configuration files and project to the forum and specify which blocks you’re referring to."
+    },
+    {
+      "comment_id": 657306789102366,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "A float flag, as I define it, is a digital flag that isn’t connected to any input or output, essentially functioning independently."
+    },
+    {
+      "comment_id": 342348837785195,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "However, the status of a float flag can be read by another [product_name] module over network communication."
+    },
+    {
+      "comment_id": 936717909518246,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I’m sorry, but it’s still not clear what you mean. All data transmitted via network is also not persistent after a power cycle."
+    },
+    {
+      "comment_id": 880612497127572,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I’ve found the answer: float flags reset to LOW when the [product_name] module is powered off. So this question is resolved."
+    },
+    {
+      "comment_id": 484498590330638,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Please upload your [product_name] program and specify which block you are referring to."
+    },
+    {
+      "comment_id": 298608836957984,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I’m unable to upload the file. I’m not sure why it’s not working."
+    },
+    {
+      "comment_id": 198770070413521,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "LSC files cannot be attached directly. Please zip the file before uploading."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users working with [product_name] modules encounter uncertainty about whether internal flag statuses persist after a power cycle. Some assume that 'float flags', used for saving digital statuses and facilitating communication, would retain their values, but discover otherwise, leading to confusion and frustration. Limited documentation about flag retention causes misunderstandings and hinders optimal memory use, particularly in environments where resources are tight.",
+    "user_expectations": "Users expect digital flags, including so-called 'float flags', in [product_name] modules to preserve their status through power cycles, or that the retention behavior would be clearly documented and configurable.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "memory optimization",
+      "status persistence",
+      "resource efficiency"
+    ],
+    "pain_keywords": [
+      "status loss after power cycle",
+      "unclear retention behavior",
+      "workarounds due to resource limits"
+    ],
+    "feature_keywords": [
+      "digital flags",
+      "flag retentivity",
+      "network input",
+      "function blocks"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

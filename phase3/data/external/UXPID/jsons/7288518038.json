@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "7288518038",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 216196850284598,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I'm adding an offset to the temperature controller based on the mode of operation. I can set the offset, but the value sent to the PI controller seems wrong. For instance, the temperature is 33, I set an offset of +2, so the value entering the PI controller's PV should be 35, but instead, it's showing as -41? Any suggestions?"
+    },
+    {
+      "comment_id": 672045101531461,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Have you reviewed what you've programmed? If you look at it, the Mathematical Instruction output (B126) is 35, which then goes into the analog amplifier (B072). The amplifier's parameters are set to a gain of 0.25 and an offset of -50. Calculation: 35 x 0.25 = 8.75 (rounded to 9), then 9 + (-50) = -41. So, the logic works according to your programming."
+    },
+    {
+      "comment_id": 208936610823120,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I'm not seeing that in my program—my offset calculation output (aq) is 35, which matches what I want. I must be missing something obvious."
+    },
+    {
+      "comment_id": 325349172804354,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I'm not sure what you're thinking or trying to achieve. All I can say is the program works as programmed. I don't know the intent behind using analog amplifier B072."
+    },
+    {
+      "comment_id": 617759148757444,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I've tested the logic with and without the amplifier; I added it to observe its effect. I need the output of B126 (aq) to feed directly into the PI controller PV, as that's the correct result."
+    },
+    {
+      "comment_id": 127921746165887,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "You could use an analog amplifier with a gain of 1.00 and an offset of 0—that way, your value will remain unchanged."
+    },
+    {
+      "comment_id": 292347684957681,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I'm finding this difficult because the values still aren't correct. Can I ask how you would approach entering a temperature offset (positive or negative) into the control logic?"
+    },
+    {
+      "comment_id": 456235715649003,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Please upload your complete program. With only a partial screenshot, it's hard to give constructive feedback."
+    },
+    {
+      "comment_id": 243006927783353,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thanks, I've resolved the issue. I used the analog amplifier settings you recommended, but the real problem was I had the PI control set for PT100 input instead of NO SENSOR input. Setting gain to 1.00 and offset to 0 solved it. Appreciate your guidance! As [user_name] once said, 'I have not failed. I've just found 10,000 ways that won't work.'"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The issue stemmed from parameter settings in the analog amplifier and an incorrect sensor type configuration for the PI controller. Users clarified the confusion by reviewing calculation details and adjusting both gain and offset parameters, ultimately setting the PI controller to the appropriate sensor input. This highlights the importance of careful parameter review and transparent documentation when configuring software logic.",
+    "user_expectations": "The user expects the temperature offset entered in the control logic to accurately and directly affect the value used by the PI controller, without unexpected alterations or calculation mistakes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate output",
+      "correct offset application",
+      "program transparency"
+    ],
+    "pain_keywords": [
+      "unexpected output",
+      "configuration confusion",
+      "hidden settings"
+    ],
+    "feature_keywords": [
+      "analog amplifier",
+      "gain/offset setting",
+      "PI controller input",
+      "sensor input type"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "10": "Performance Predictability"
+  }
+}

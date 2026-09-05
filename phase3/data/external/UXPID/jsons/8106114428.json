@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "8106114428",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 375317255681388,
+      "user_name": "D4Y6cFo6aO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm experiencing issues with high-speed pulse counting using a [product_name] controller ([version_no], Fv [version_no]) together with [product_name] software ([version_no]). The setup includes an encoder (connected to I6), pulsing at approximately 1.5 kHz, directly wired to [article_no], and configured to count in both directions. When counting down, it appears to either register 25 upward pulses before switching to downward count, or miss the first 50 downward pulses. I have implemented a 0.5 second delay ([article_no]) to ensure the counting direction is set before triggering relay ([article_no]), but the issue persists. Is this a configuration mistake, or could it be a hardware or software problem? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 571008097730253,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "The synchronization between the counter and direction signals is problematic. In my experience, this [product_name] controller isn’t suited for encoder tasks requiring precise position feedback. Whether you use a two-channel encoder (phase A and phase B) or a single-channel pulse encoder, stable position measurement is unreliable. You may want to search forum discussions for 'encoder' topics, possibly also in German language sections if accessible. There are several suggested solutions available, but in practice, most seem insufficient for reliable operation. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 484041042902092,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "It seems the controller needs at least one operating cycle to switch the counter direction. If there are remaining pulses before the direction change, a pulse intended for counting down may still be processed as an upward count. This is just my hypothesis. Using basic AND logic and separating the counter blocks for upward and downward counting might improve function."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users note frequent issues with reliable high-speed pulse counting when using the [product_name] controller and [product_name] software with encoder inputs at 1.5 kHz. Problems are especially evident in the handling of down counting, where timing and direction logic fail to process inputs correctly. This highlights limitations in using this hardware/software combination for accurate encoder-based position measurement.",
+    "user_expectations": "Users expect the [product_name] hardware and [product_name] software to manage high-speed encoder inputs with consistent accuracy, ensuring seamless counting of pulses in both directions without timing-related errors or overlooked counts.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable high-speed counting",
+      "precise pulse tracking",
+      "accurate encoder processing"
+    ],
+    "pain_keywords": [
+      "unreliable counting",
+      "missed/delayed pulses",
+      "direction logic lag"
+    ],
+    "feature_keywords": [
+      "high-speed counter",
+      "direction input handling",
+      "pulse processing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

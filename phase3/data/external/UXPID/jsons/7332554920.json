@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "7332554920",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 575825641587651,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I'm currently working with [company_name] [product_name] [article_no] and would like to know more about VM mapping. 1. Can VM mapping be done offline if I am not connected to the [product_name]? 2. Are there any limitations for offline mapping? I noticed that only variables not physically wired, such as analog comparators, are shown offline. Any assistance would be appreciated. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 385101307375557,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "The VM area is a dedicated memory space used for data exchange between the [product_name] and external devices. Setting up VM mapping offline allows you to configure how data from the [product_name] will be transferred to a partner device. Once online, the mapped VM area will send or receive data according to the predefined addresses between the [product_name] and the external device."
+    },
+    {
+      "comment_id": 103591020689482,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Thank you for your reply. My question is whether it's necessary to map the physical I/O in the VM Mapping Tool to expose the tags for my HMI device? I'm awaiting further clarification. Supporting [document] would also be appreciated. Thanks."
+    },
+    {
+      "comment_id": 788121430076678,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Within the VM area, fixed addresses are designated for various types of I/O, including: - digital inputs - digital outputs - analog inputs - analog outputs - digital network inputs - digital network outputs - analog network inputs - analog network outputs - digital flags - analog flags"
+    },
+    {
+      "comment_id": 304650704866182,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Extensive information about fixed and variable addresses can be found in the help section of [product_name] software. Look up 'VM Mapping'. Be aware that some addresses in [article_no] differ from those in [article_no]."
+    },
+    {
+      "comment_id": 234642860029619,
+      "user_name": "lemlbtSecs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "For VM mapping specific to [article_no], refer to the attached [document]."
+    },
+    {
+      "comment_id": 811221231204803,
+      "user_name": "INWVUFR8NU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "How is VM mapping structured for general access? For example, does VB1 overlap VW1 (or perhaps VW0), or are byte-addressable and word-addressable memory areas stored in different tables? Is it: | VB0|VB1| (VW0) Or: |VB0| --- | (VW0) |VB1| --- | (VW1) Or do you have separate memory regions: |VW0| ... |VWn| ... |VB0|...|VBn|"
+    },
+    {
+      "comment_id": 527398612073632,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "V0.0 - V0.7 corresponds to VB0 V1.0 - V1.7 corresponds to VB1 V0.0 - V1.7 equals VB0 plus VB1, representing VW0 V0.0 - V3.7 includes VB0, VB1, VB2, VB3, resulting in VW0 plus VW2 or VD0. Addressing is organized by bytes. In case of words (VW) or double words (VD), the address (e.g., VD4) starts from the first byte (for VD4, it's VB4). The address for a V bit (Vx.y) combines the byte address (x) and the bit address (y). For example, V0.4 is bit 4 within byte 0."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are inquiring about VM area mapping for [product_name] [article_no], focusing on the ability to configure memory mapping offline and how this relates to both physical and non-physical inputs. There are questions around address assignment, accessibility in offline mode, and variations between hardware versions. Detailed explanation and documentation are needed to clarify address allocation and memory organization.",
+    "user_expectations": "Users expect the ability to map VM areas independently of physical connection and seek clear, intuitive mapping interfaces showing all relevant variables, including physical I/O. They also wish for thorough documentation and consistency in address allocation regardless of hardware version.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "offline mapping",
+      "clarity",
+      "comprehensive documentation"
+    ],
+    "pain_keywords": [
+      "unclear offline options",
+      "addressing confusion",
+      "version discrepancies"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "memory addressing",
+      "physical I/O variable mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

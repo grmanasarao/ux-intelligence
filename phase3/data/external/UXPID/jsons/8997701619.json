@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "8997701619",
+    "thread_id": "1723880927",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 773954323056965,
+      "user_name": "HlkSqTCpfi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 2,
+      "comment_body": "I want to measure between 1-2 V with three digits on the display panel. I connect a 0-2 V source to the analog input and use an analog amplifier after the input, set for 1-10V sensor, gain of 10, and offset of 0. When I check the voltage at the analog input, it shows, for example, 1.064V, but the display only shows 1.020V, and adjusting the voltage does not change the last digit on the display. How can I fix this issue? Sorry for my English."
+    },
+    {
+      "comment_id": 118770368306410,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 2,
+      "comment_body": "Hello, The analog input shows values from 0 to 1000, which corresponds to a voltage range of 0 to 10V. This means the smallest step you can measure is 10V divided by 1000 digits, which equals 0.01V per digit. No matter how you scale or multiply, the lowest voltage change the system detects on an analog input is 0.01V. Hope this answers your question."
+    },
+    {
+      "comment_id": 847261723642725,
+      "user_name": "UF0eWIXiiQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], Unfortunately, the system can only measure down to 0.01V, and you require 0.001V resolution, so it's not possible to achieve the accuracy you need. If you use a highly accurate amplifier before the input to convert your 1-2V signal into a 0-10V signal, you may get closer. However, the amplifier must be very linear, and the system input itself typically does not perform better than about 0.02V ± 1 bit, and may vary more (there might be documentation about this, but I can't locate it right now). Therefore, achieving a true 0.001V reading is not possible with this setup. I have used a Weidmuller module for a similar task on the system, but the required accuracy was lower than yours."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to use [company_name] hardware and operator display panels for analog voltage readings with precision beyond the system’s capabilities. The feedback points out that the analog input’s minimum detectable voltage change is restricted by the hardware’s resolution of 0.01V per digit for a 0-10V range. Users are frustrated because the display does not show changes at the desired level of precision, and the hardware cannot deliver the accuracy needed for three decimal places.",
+    "user_expectations": "User wants the system to detect and show analog input voltages with a precision of 0.001V (three decimal places) on the display panel.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "high measurement precision",
+      "accurate voltage display",
+      "resolution"
+    ],
+    "pain_keywords": [
+      "insufficient accuracy",
+      "hardware limitation",
+      "cannot detect small changes"
+    ],
+    "feature_keywords": [
+      "analog input resolution",
+      "AI4",
+      "voltage amplification",
+      "display update precision"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "29": "Scalability Limitations"
+  }
+}

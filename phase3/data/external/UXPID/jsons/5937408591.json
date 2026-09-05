@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "branch_id": "5937408591",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 288774216975883,
+      "user_name": "43IINRc1CV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I have a [product_name] [article_no] unit, and wrote a program using four analog inputs. When I transfer the program to the controller, I'm notified it will switch to 4 analog inputs and reboot. However, I don't notice a reboot and only get one reading on the third analog input. Analog input 1 and input 3 are connected to the same signal and show roughly 700, but the third input value remains fixed on one value as seen through the web interface. It seems like the third analog input reverts to digital. Each program transfer from PC prompts the controller to change to 4 analog inputs and reboot again, but the issue persists. Since my device lacks a display, direct configuration on the module isn't possible. Is there another way to permanently set it to 4 analog inputs?"
+    },
+    {
+      "comment_id": 155962653538465,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "This behavior likely occurs because the default setting on the [product_name] basic module enables only 2 analog inputs. To use inputs 3 and 4, you need to activate 4 analog inputs. You can adjust this in the software under the File > Properties > I/O Settings menu, then transfer the updated program to the controller."
+    },
+    {
+      "comment_id": 796220501078358,
+      "user_name": "43IINRc1CV",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I've enabled 4 analog inputs, so the software indicates a settings mismatch during transfer. I get a single reading from the third input at download, which suggests it tries switching from 2 to 4 inputs, then reverts back to 2. Inputs 1 and 3 are connected to the same source, and the fixed value on the third input matches the continuous readings from input 1."
+    },
+    {
+      "comment_id": 984676540467819,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Are you using a micro SD card in your [product_name], perhaps with an older program configured for 2 analog inputs? If so, every reboot could cause the controller to revert back from 4 to 2 analog inputs due to the card."
+    },
+    {
+      "comment_id": 284963980745513,
+      "user_name": "43IINRc1CV",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "There's no SD card present. I've revised my setup to currently need only 2 analog inputs, but having the option to enable 4 in the future would be useful."
+    },
+    {
+      "comment_id": 240209230657967,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I have two [product_name] [article_no] modules (one with display, one without). I have no trouble changing the activation to 0, 2, or 4 analog inputs."
+    },
+    {
+      "comment_id": 576537157391023,
+      "user_name": "43IINRc1CV",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I must be overlooking something, as I still can't get the third analog input to function. Please check the attachment for details; any suggestions are appreciated."
+    },
+    {
+      "comment_id": 219682525055053,
+      "user_name": "43IINRc1CV",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "It finally works now. I switched from 2 inputs to 0, then to 4, and that resolved the issue. Unsure if selecting 0 was the key, but it's operating as intended and I can use analog inputs 3 and 4."
+    },
+    {
+      "comment_id": 131904226337921,
+      "user_name": "sTrMPzr4CX",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hopefully this late reply helps others. We faced similar trouble: analog inputs 3 and 4 weren't working, and all standard procedures from manuals and software settings were followed, including activating 4 analog inputs in [product_name] software. Firmware and software versions were [version_no]. Even trying the trick of selecting 0 analog inputs first didn't help. The solution for us was enabling 4 analog inputs using the operator display, after which everything worked smoothly. Unfortunately, this took half a day to figure out."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter significant trouble activating and permanently retaining all four analog inputs on a [product_name] module, especially when configuring via software and without a built-in display. Software alone does not always reliably switch input modes, leading to inconsistent behavior and forcing users to try various workarounds, including using hardware like an operator display. These issues can hinder usability for users seeking straightforward configuration and persistent settings.",
+    "user_expectations": "Users wish to enable and utilize all four analog inputs solely with software configuration on the [product_name] module, without needing external displays or additional hardware, and expect these settings to be retained across program transfers and reboots.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable AI activation",
+      "all analog inputs functional",
+      "persistent settings",
+      "simple configuration"
+    ],
+    "pain_keywords": [
+      "AI inputs stuck",
+      "settings revert",
+      "need for display",
+      "inconsistent activation",
+      "time-consuming troubleshooting"
+    ],
+    "feature_keywords": [
+      "analog input activation",
+      "I/O Settings in software",
+      "displayless operation",
+      "AI mode persistence"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

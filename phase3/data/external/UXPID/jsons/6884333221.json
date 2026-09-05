@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "6884333221",
+    "thread_id": "1723880927",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 775217204303502,
+      "user_name": "xdGYahHQrL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Hello, I'm building a test unit for 0 to 50 Bar measurements, aiming for 0.05 Bar increments. The only pressure sensor available to me is 0 to 60 Bar (4-20mA), which I plan to connect using a 500 Ohm resistor to produce a 2-10V input. Could someone advise on how to set the gain and offset appropriately? It's important for me to maintain the 0.05 Bar increments. Thanks for your help."
+    },
+    {
+      "comment_id": 756367758958405,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "It's best to use an analog amplifier for processing analog signals. Connect the analog input to the amplifier first, where you can set the sensor’s minimum and maximum values; offset and gain are adjusted automatically. You can then use the amplifier’s output for further analog processing. Quick calculation: for a 2-10 Volt input representing 0-60 Bar, you'll need to map that range to 0-10 Volt. 10-2=8 Volts, so 60/8*10=75 (range), and 60-75=-15. Settings should be: Max Value 60 (or 600 for greater accuracy), Min Value -15 (or -150 for greater accuracy)."
+    },
+    {
+      "comment_id": 246357550231454,
+      "user_name": "xdGYahHQrL",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Thank you—I've implemented your suggestion and it works. I applied a threshold to restrict measurement to 50 Bar. Is there a way to achieve a resolution of 0.05 Bar, with output values like 0.00, 0.05, 0.10, etc.? Or would it be more effective to use a 0-50 Bar (0-10V) sensor directly?"
+    },
+    {
+      "comment_id": 431396880025855,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "The resolution is determined by the capabilities of the [product_name] device. Changing the sensor won't address the resolution limitations. In [product_name], resolution is 10 bits (1024 steps), so 60/1024 = 0.06 Bar per step. Alternatively, if you use a sensor with a narrower range, such as 40-60 Bar, you would get a resolution of 20/1024 = 0.02 Bar per step."
+    },
+    {
+      "comment_id": 940571996601662,
+      "user_name": "xdGYahHQrL",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Thank you again. I think sourcing a 0-50 Bar sensor will be necessary since I need to test the full range, and the 0.05 Bar resolution allows for clear and precise setpoints, such as 2.00 Bar. Furthermore, using a 0-10V sensor means I can connect it directly without extra components like a 500 Ohm resistor. Unless there's another approach I should consider?"
+    },
+    {
+      "comment_id": 753062140301879,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], hello [user_name], Some information provided above may not be entirely accurate: [product_name] outputs values from 0 to 1000 for 0 to 10 V or 0 to 20 mA signals, resulting in a resolution of 0.01 V or 0.02 mA. When connecting a sensor with a 4-20 mA (or 2-10 V) range for 0 to 60 Bar, you’ll only get [product_name] values from 200 to 1000, which means 800 different measurements and a maximum resolution of 0.075 Bar for that range. Since [product_name] uses integer calculations, all computations must be scaled appropriately (factor of 100), and you should configure two decimal places in block properties for display. To reach a 0.05 Bar resolution within a 0-50 Bar range, a sensor matching that range with a 0-10 V or 0-20 mA output is needed. Best regards, [user_name] Useful links: [document], [document], [document], [document]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are addressing the technical challenge of achieving high-resolution (0.05 Bar increments) readings from a 0-60 Bar pressure sensor when interfaced with a [product_name] device. The main obstacles include the limited analog input resolution of [product_name], increased measurement span from using a sensor with a wider range than required, and the limitation to integer calculations within its processing blocks. Members note that [product_name] hardware and software features make it difficult to achieve the desired measurement and display accuracy without additional hardware or an appropriately ranged sensor.",
+    "user_expectations": "The main expectation is to obtain 0.05 Bar resolution measurements over a full 0-50 Bar span, enabling precise, easily readable setpoints. Users prefer a simple sensor interface and reliable value scaling handled within the [product_name] system, without additional complex hardware or conversion steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate scaling",
+      "high resolution measurement",
+      "clean value display",
+      "easy setup"
+    ],
+    "pain_keywords": [
+      "resolution limitation",
+      "scaling difficulty",
+      "integer-only calculations",
+      "hardware/software mismatch"
+    ],
+    "feature_keywords": [
+      "analog input resolution",
+      "scaling",
+      "display formatting",
+      "analog block properties"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

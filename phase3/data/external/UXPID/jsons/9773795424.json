@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "branch_id": "9773795424",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 460983099785289,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "We are considering expanding usage of [product_name]. To enable external device communication (non-[company_name] clients), we need to implement the S7 protocol. Since S7 is a modified form of Snap7, what type of license is required to use the S7 protocol for communicating with [product_name]? Also, is there any sample code for connecting to [product_name]'s S7 server using the standard Snap7 library? This topic relates to [product_name] and python-snap7 communication. Thank you for any advice."
+    },
+    {
+      "comment_id": 599183855147212,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "[product_name] uses the same protocol as the [version_no] series. In the HELP section of [product_name] software, reserved addresses for special functions and usable addresses for values are explained. Refer to the Parameter VM mapping."
+    },
+    {
+      "comment_id": 785271767448827,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Thank you. However, the question remains: is such use permitted by license or not?"
+    },
+    {
+      "comment_id": 156986029399606,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Hello, based on what I know, S7 communication originates from [company_name], not Snap7. Many applications communicate with [product_name] using Libnodave, which is available freely for communication. Have you asked Snap7 if their library supports [product_name] communication via S7 protocol over TCP/IP? They should know. Hope this is useful."
+    },
+    {
+      "comment_id": 643764646481727,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Snap7 states: [company_name] offers FB/FC (PLC-side), NET software (PC-side), and detailed documentation for usage, but does not disclose internal protocol specifications. Our aim is to create a low-power control cloud managing many PLCs (e.g., [product_name]), so PC-based platforms do not meet our requirements. Our cloud must communicate directly with PLCs, requiring our own protocol library. We have OSI transport protocol expertise, but without official specs, progress is not possible."
+    },
+    {
+      "comment_id": 652641968716356,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Will the [product_name] be on the same network, or accessed remotely via the Internet?"
+    },
+    {
+      "comment_id": 290126269367851,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "In our setup, every [product_name] is connected to a local cloud interface controller through a short-distance network (<1m)."
+    },
+    {
+      "comment_id": 620714853563237,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "So your local controller needs to extract data from [product_name]. The only way I know is using Libnodave or similar software tools, as [company_name] does not publish the S7 protocol. Hope this clarifies."
+    },
+    {
+      "comment_id": 649788420683395,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "This has been handled by developing new code using Libnodave methods. However, how do you: start or stop the [product_name] program using S7, obtain system parameters (firmware, product version), retrieve diagram names or IDs, and fetch actual time? Libnodave does not offer reliable solutions for these needs, especially with CP-200 ([product_name] version 8). Any advice is appreciated."
+    },
+    {
+      "comment_id": 524446987216967,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "As far as I know, only your fifth item is achievable. Refer to the help section in [product_name] software and search for VM addresses. VM memory holds date and time info for [product_name]. VB985 = Year, VB986 = Month, VB987 = Day, VB988 = Hour, VB989 = Minute, VB990 = Second. Hope this is of use."
+    },
+    {
+      "comment_id": 690232038559518,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Already tested that. Unfortunately, [product_name] version 8 returns 0 for all those addresses. It appears that mapping applies to version 7, while version 8 uses a different VM memory structure."
+    },
+    {
+      "comment_id": 348496162640465,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "[user_name]'s details are correct. Check the attached documentation on pages 108 and 109. On the [company_name] website, there is an example for \"Clock Synchronization [product_name] HMI\": [url]"
+    },
+    {
+      "comment_id": 434008941042625,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "We obtained information from the [product_name] Online Help, specifically \"Tools -> Parameter VM Mapping ([article_no] only)\". This is the only verified source we found for VM address mapping. The mapping referenced by [user_name] is in the chapter for input/output and VM addresses for [product_name] [article_no]."
+    },
+    {
+      "comment_id": 909524827895884,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "If more than 7 bytes are read from address 985, the result becomes corrupted for those and adjacent reads. To correctly fetch RTC data, read exactly seven bytes from VM address 985. At 985, a diagnostic byte is always returned as 8. Attempts to start/stop a program via S7 get a \"Function not implemented\" response."
+    },
+    {
+      "comment_id": 793926878445897,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "START/STOP functionality via S7 protocol is unsupported. There is no function block in [product_name] enabling STOP mode remotely—only manual actions or through the official configuration software are possible. Hope this helps."
+    },
+    {
+      "comment_id": 683945147464727,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Thank you to [user_name] and others for the assistance!"
+    },
+    {
+      "comment_id": 911933499427303,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Is that all? No further feedback? Apologies, but I expected answers to all my questions."
+    },
+    {
+      "comment_id": 267442103199251,
+      "user_name": "mcYMGHSoNk",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "A new topic regarding data exchange between [product_name] version 8 and [version_no] has been posted to a separate thread. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 552690095192825,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "There seems to be a misunderstanding. We still do not know the licensing conditions or specification for the [product_name] S7 protocol. I contacted [company_name] support in mid-January."
+    },
+    {
+      "comment_id": 718871461780618,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "I received official information on the S7 license. Apparently, S7 is not an open protocol. If included in [company_name] products, you may use it legally, but implementation in other software requires explicit permission. For permission, you need to contact an authorized sales representative. However, sales staff in my country and Germany were unaware of any authorized contact. This appears to be a dead end."
+    },
+    {
+      "comment_id": 419013906494763,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "To reiterate: [company_name] does not publish the S7 protocol, and based on what I know, there is no way to obtain an official S7 license, neither free nor for sale. You may try contacting [company_name] across various regions, but you likely will not succeed. Most other software tools that communicate with [product_name] rely on Libnodave. I cannot confirm how Libnodave's developer accessed S7 protocol details, but you could inquire directly. Hope this clarifies."
+    },
+    {
+      "comment_id": 674606195072746,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Here is a link to a company that reportedly offers a S7 communication library: [url]. With this library, you can query and control S7 devices, including [product_name] from version 7, for business products. Publishing this link is hopefully within forum guidelines."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users aiming to increase [product_name] deployment encounter major challenges due to inaccessible S7 communication protocol details when trying to integrate non-[company_name] client devices. S7’s proprietary status and lack of public documentation prevent development of custom low-power communication libraries. Third-party libraries (Libnodave, Snap7) offer partial support, but essential features for advanced control, metadata access, and system information are unreliable with [product_name] version 8, inhibiting cloud and automation scenarios.",
+    "user_expectations": "Users seek clear, transparent licensing information and publicly-available documentation for S7 protocol use with [product_name], along with comprehensive sample code or libraries that allow complete device management and access to system information programmatically.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "full device integration",
+      "low-power control",
+      "cloud scalability",
+      "automation"
+    ],
+    "pain_keywords": [
+      "closed protocol",
+      "lack of documentation",
+      "limited library support",
+      "incomplete functionality"
+    ],
+    "feature_keywords": [
+      "S7 protocol",
+      "program start/stop",
+      "system parameters",
+      "V-Memory access",
+      "diagram metadata"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

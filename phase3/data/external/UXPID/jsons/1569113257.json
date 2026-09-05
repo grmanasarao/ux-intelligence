@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "1569113257",
+    "thread_id": "1723880927",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 119292267936861,
+      "user_name": "mFlG8hCK0n",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 3,
+      "comment_body": "Good morning, everyone. I'm developing a [product_name] ladder logic application. During download, I encountered this error: *** PC --> [product_name] Blocks without connection to an output: B048 Return T [Message texts] Download PC --> [product_name] failed. There is no block named B048 in my project. Through trial and error, I identified the problematic block, but is there a straightforward way to link BLOCK numbers from error messages to the reference numbers assigned in the program? In this case, B048 actually refers to Block SF038, which isn't very intuitive. Thank you. [user_name] Live long, prosper, and hopefully be less confused!"
+    },
+    {
+      "comment_id": 310631968150200,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 3,
+      "comment_body": "Hello, These hidden function blocks often show up when you copy and paste in ladder diagrams. The easiest way I've found to locate them is switching to the function block diagram view, then pressing F2 to navigate directly to the block and fix it. There isn't a direct link between FB and SF numbers since in [product_name], the FB numbers are generated automatically as you add blocks. SF flags are internal requirements in ladder logic and begin at 1. So, for example, adding FB results in FB100, and if it needs an SF, that SF will take the next available number starting at 1—this can't be changed. I recommend using function block diagrams instead of ladder diagrams."
+    },
+    {
+      "comment_id": 274806375652340,
+      "user_name": "mFlG8hCK0n",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 3,
+      "comment_body": "Thanks a lot for explaining. I guess I just have to cope since I'd rather not switch to function block diagrams! [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience confusion when error messages in [product_name] ladder logic applications reference internal or hidden blocks using obscure identifiers, making the debugging process less straightforward. The software does not offer an easy way to cross-reference error message codes to visible program blocks, which hinders troubleshooting for those who prefer not to change diagram types.",
+    "user_expectations": "Users want a simple, direct way to match blocks cited in error messages with their actual program blocks, without needing to switch to a different diagram format for debugging.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easier debugging",
+      "clear error references",
+      "efficient troubleshooting"
+    ],
+    "pain_keywords": [
+      "unclear error messages",
+      "confusing block numbering",
+      "manual trial and error",
+      "LAD/FBD inconsistency"
+    ],
+    "feature_keywords": [
+      "error reporting",
+      "block reference mapping",
+      "diagram mode"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

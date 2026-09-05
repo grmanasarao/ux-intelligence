@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "4279590011",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 771191650640194,
+      "user_name": "lqXfjt8ARk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello, I'm new to this and working on improving an existing program. Currently, I have a controller running a popnut machine that monitors nut installation and pressure. Text messages showing pressure and counter readings appear on the device’s display. I recently found the web editor feature, which seems to be a useful upgrade. I can create a web page showing I/O status, but I’d like to show the same info from the device display in the web editor. Is there a simple solution for this? Thanks in advance for any assistance!"
+    },
+    {
+      "comment_id": 674136956697270,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Welcome to the forum. The software used for creating custom web pages ([product_name] Web Editor) does not allow you to directly display the device’s screen content. To see the display, you’d need to use the device’s simple web server. However, it is still possible to display analog values such as pressure or counters using the extended web server. Please share more details. Also, keep in mind that not all controllers with [article_no] support the extended web server; only certain versions with the matching order number do."
+    },
+    {
+      "comment_id": 814752628029469,
+      "user_name": "lqXfjt8ARk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I've attached a screenshot of the program. Could you clarify your approach regarding analog values? I tried adding an analog flag but wasn’t able to write to it. I have the correct controller version with a web server and have tested the web editor successfully for displaying digital/analog signals. My main goal is to display the same info on the web server as is shown on the device display. Appreciate any help!"
+    },
+    {
+      "comment_id": 387932678518171,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Please upload your program as a zip file. A screenshot is not sufficient."
+    },
+    {
+      "comment_id": 127699923244482,
+      "user_name": "lqXfjt8ARk",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Uploading the requested zip file now."
+    },
+    {
+      "comment_id": 326242565623349,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I'll create an example using your project. Please wait a moment."
+    },
+    {
+      "comment_id": 138068587835796,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "See attachment for the example and your file, now extended with parameter-VM-mapping. To display and set counter values and their setpoints, you need to transfer parameters to VM memory, which requires 4 bytes (a double word). In the device, this is referred to as 'VD'. Use the 'Parameter-VM-mapping' feature found under Tools > Parameter-VM-mapping. In the web editor, assign the relevant ‘VD’ for each analog value; enable 'writable' for setpoints, but not for counter values. You need to upload the web editor project to the device using an mSD card."
+    },
+    {
+      "comment_id": 648254488393684,
+      "user_name": "lqXfjt8ARk",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "The solution was using 'VD'. I'd tried VM-mapping before but hadn't realized it needed a double word. Everything works fine now! Thank you for the quick help!"
+    },
+    {
+      "comment_id": 656384844974774,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Glad I could help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members were looking to display custom information such as pressure and counter readings from the device’s display on a web page using the [product_name] Web Editor. The discussion clarified the need for proper variable mapping (VD, VM memory) to make these parameters accessible in the editor, and highlighted difficulties experienced in setting this up. The setup process for exposing internal device information to the web editor was initially not clear to users.",
+    "user_expectations": "Users want an easy way to replicate all of the device’s display text and numerical data, such as pressure and counter values, on a custom web page using the [product_name] Web Editor.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "display real-time data",
+      "web-based monitoring",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "unclear variable mapping",
+      "inaccessible text display",
+      "difficult memory configuration"
+    ],
+    "feature_keywords": [
+      "web editor",
+      "variable mapping",
+      "VM memory",
+      "analog/digital visualization"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

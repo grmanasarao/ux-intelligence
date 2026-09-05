@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "8968929797",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 317411397912678,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Using the variable memory configuration window, I can map block parameters to VM locations, for example assigning a weekly timer's on time to word location 2. Reading this value with a Network Analog Input from VM location 2 works, with the timer info available in BCD format for calculations. However, writing to VM location 2 through a network analog output to change the weekly timer on time does not work. When using unused VM locations for the network outputs/inputs, changes made through the analog output appear correctly on the analog input. The [product_name] Online Help manual indicates that weekly timer values in VM should be writeable, but my experience differs. Is it possible that only value copying occurs during each cycle, and I'm misunderstanding how VM operates in [product_name]?"
+    },
+    {
+      "comment_id": 539359275089183,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm not completely clear on your explanation. As I understand it, you wish to modify the ON/OFF times of a weekly timer. Which device or interface do you intend to use for making these adjustments?"
+    },
+    {
+      "comment_id": 686123875073210,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "My goal is to set a timer's ON and OFF times programmatically, using FBD logic, based on another timer's times. I understand the timer data is stored in BCD, and I have functions that convert between BCD and decimal, so I can calculate and create BCD values for timers. However, I'm unable to write these calculated values to a timer. I've attached the appropriate file I'm using to test read/write operations for a timer's value. Through parameter mapping, timer 1's ON time is assigned to VW0, and timer 1's OFF time to VW2. The timer OFF time can be read properly with my network analog input block (8496 decimal matches hex 2130, representing the timer's OFF time). Nonetheless, my analog output block is trying to write 8 to VW2, which isn't updating the timer OFF time or the value being read."
+    },
+    {
+      "comment_id": 143885453901644,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "These timer parameters can't be modified within the [product_name] program by using VM mapping or analog network outputs. There are two possible methods: either use the operator device in a message for displaying and changing these settings, or employ an external device like an app or HMI. In the latter case, the transmitted data must already be in BCD format."
+    },
+    {
+      "comment_id": 163076620205227,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "A new question posted by [user_name] has been moved to a separate thread titled '[product_name] receive a text message (SMS) and write a value'. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find they can read timer parameters from VM locations in [product_name] using network analog inputs, but writing changes programmatically does not work as expected. Online help documentation states these VM timer values should be writable, but actual behavior is inconsistent, making it unclear which parameters can reliably be written during operation. This creates challenges for implementing dynamic automation scenarios.",
+    "user_expectations": "Users expect to programmatically update timer ON/OFF times in BCD format via mapped VM locations using block logic, enabling flexible changes during system operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dynamic timer programming",
+      "automated updates",
+      "runtime flexibility"
+    ],
+    "pain_keywords": [
+      "cannot write timer parameters",
+      "ambiguous manual instructions",
+      "restricted programmability"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "network analog input/output",
+      "timer parameter writing",
+      "BCD conversion"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

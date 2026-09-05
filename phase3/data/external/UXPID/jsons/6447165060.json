@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "6447165060",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 989869616862317,
+      "user_name": "7NnKRjukmX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I created a ladder program using [product_name] which utilizes initial parameters, such as motor running times, set through an arithmetic instruction. I want the operator to modify these parameters from a webpage and ensure the values do not reset to zero or get lost during a power failure. Currently, this value appears as an output in an analog block on the webpage, but I'm unsure how to configure it as an input for modification. Thank you for your assistance."
+    },
+    {
+      "comment_id": 263900054358772,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Could you upload the [document] for your project, along with the relevant web editor project, in a ZIP file?"
+    },
+    {
+      "comment_id": 621765810399052,
+      "user_name": "7NnKRjukmX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I have uploaded a ZIP file containing page 1 of the [document] and an excerpt from the web editor project. The analog slider is intended for balancing two reagents, labeled A and B. Thank you for your ongoing help."
+    },
+    {
+      "comment_id": 779296544303699,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Consider using a mathematical instruction instead of NAI1. Transfer VW8 through Parameter-VM-Mapping. In the web editor, change the slider's block format from Unsigned to Signed. Writing the HMI value directly into a parameter of a mathematical instruction ensures it is stored in flash memory."
+    },
+    {
+      "comment_id": 107889170044515,
+      "user_name": "7NnKRjukmX",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thank you for your help. If I understood correctly, analog parameters (such as analog bar, slider, value) that users need to overwrite should be configured in a mathematical instruction using mapping."
+    },
+    {
+      "comment_id": 596950965767224,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Storing setpoints from the HMI by writing them via Parameter-VM-Mapping into a mathematical instruction parameter is the optimal approach. The values are then saved in the controller's flash memory and remain persistent after a power outage."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are addressing how to allow operator-editable parameters in a [company_name] ladder program to be modified through a web interface and reliably saved, even during power failures. The discussion centers on proper methods for mapping analog input from the HMI so that changes persist in memory, with questions and clarifications about establishing this process.",
+    "user_expectations": "The user seeks a solution that lets operators adjust parameters through a web interface, with all changes consistently retained in the controller's memory after power interruptions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter persistence",
+      "web-based operator input",
+      "easy parameter adjustment"
+    ],
+    "pain_keywords": [
+      "parameter loss after power cut",
+      "unclear input method",
+      "mapping confusion"
+    ],
+    "feature_keywords": [
+      "parameter-VM-mapping",
+      "analog input slider",
+      "webpage HMI",
+      "parameter persistence"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "5073704803",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 236330626665899,
+      "user_name": "aG9K9YXorI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Good evening, as the topic suggests, how many slave modules can a [product_name] master communicate with? Is it possible to set up a master device with 44 I/O (24 inputs and 20 outputs), and have 4 slave modules each with 44 I/O (24 inputs and 20 outputs)? Thanks."
+    },
+    {
+      "comment_id": 103495061030585,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Yes, you can configure this, but it's not ideal. You can connect up to 9 [product_name] units, all as masters. This way, each device runs its own program, giving you more capacity—8 x 400 blocks in total. If you use a single master and up to 8 slaves, only one program is available, and typically 400 blocks can't handle so many inputs and outputs. Refer to the operating instructions, chapter 2, for details. Regards, [user_name]"
+    },
+    {
+      "comment_id": 728795412231713,
+      "user_name": "udO0a0woU9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "I also suggest using masters rather than slaves, since a slave can only handle 32 bits (inputs plus outputs). So, the configuration of 24 inputs and 20 outputs you plan is not feasible. Overall, a [product_name] device supports a maximum of 64 inputs and 64 outputs. With 4 slaves, you might exceed these input or output limits."
+    },
+    {
+      "comment_id": 984992876438203,
+      "user_name": "aG9K9YXorI",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thanks for clarifying. I’ll use more masters instead. I need 4 [product_name] units which will be sufficient for the 64 inputs and 64 outputs needed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing the limits and configuration options for connecting multiple slave modules to a [product_name] master. There is some confusion regarding how much I/O can be managed through slave connections, as well as program capacity constraints when using a centralized approach. The discussion highlights that a master-slave configuration can significantly restrict usable I/O and reduce program flexibility, leading users to prefer multiple master units for enhanced functionality.",
+    "user_expectations": "The user hopes to link a [product_name] master with several slave modules while maintaining a high number of I/O for each and centralizing control. They expect clear advice regarding system limitations and configuration options.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "expandable I/O",
+      "central control",
+      "scalable architecture",
+      "clarity on system limits"
+    ],
+    "pain_keywords": [
+      "I/O limitation",
+      "program capacity",
+      "slave restrictions",
+      "system confusion"
+    ],
+    "feature_keywords": [
+      "master-slave communication",
+      "I/O expansion",
+      "program block limits"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "29": "Scalability Limitations"
+  }
+}

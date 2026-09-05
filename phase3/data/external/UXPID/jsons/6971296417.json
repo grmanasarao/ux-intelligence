@@ -1,0 +1,175 @@
+{
+  "metadata": {
+    "branch_id": "6971296417",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 197413240327928,
+      "user_name": "VJ3oVPJypG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Is this achievable? How should I proceed?"
+    },
+    {
+      "comment_id": 562147779306714,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Yes, you can do this. Please check the attached example."
+    },
+    {
+      "comment_id": 128872729694676,
+      "user_name": "VJ3oVPJypG",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Thank you for your reply. I noticed you used block type VD and block number 0 for visualizing the counter. Could you clarify when to use VD, VB, or VW, and explain how the block numbers work? You displayed the parameter OT, but what if I want to show MI or MN? What should I do if there are multiple hour counters in the program? Also, is it possible to modify parameters directly through the webpage?"
+    },
+    {
+      "comment_id": 664122457165379,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "It's challenging to answer this quickly; some foundational knowledge is necessary. In the [product_name] program, using an hour counter means dealing with 32-bit values—two words or a double word (DWord). In the VM area, VD refers to a double word, and VD at address 0 covers bytes 0, 1, 2, and 3. This means VB 0, VB 1, VB 2, VB 3, VW 0, and VW 2 can't be reused, as they're part of VD 0. Without knowing your background, where should I begin explaining? Please refer to the attachment for more information on the V-area, and let me know if you'd like an extended example to include MI and MN."
+    },
+    {
+      "comment_id": 338250794649555,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "I have a similar issue. I need to update VM values for a yearly timer. How can I read and modify values in VM memory via a customized web interface using [product_name] Web Editor? Reading month and date values sometimes gives unexpected results. When I add the item to the VM table in [product_name] [document], the VM type is VW. Any advice?"
+    },
+    {
+      "comment_id": 242347138281795,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "This is indeed the same problem."
+    },
+    {
+      "comment_id": 956211632174340,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Thanks, I followed your example and was able to modify time parameters through the [product_name] web server. There wasn't a physical [product_name] Operator Device connected, but it worked via the virtual web server. I appreciate your help. If you have an example for adjusting parameters on a customized webpage, that would be very helpful."
+    },
+    {
+      "comment_id": 713858880101391,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "I can share my test files, but they're in German. Let me know if you'd still like them."
+    },
+    {
+      "comment_id": 897557740695160,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "That's fine, thank you! I noticed that values such as timers are stored as bytes, which makes them hard to interpret. There should be a way to translate these back to understandable values like year, month, and day, and then convert them back into the original byte format for VM memory."
+    },
+    {
+      "comment_id": 566311036620133,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Here are my test files attached."
+    },
+    {
+      "comment_id": 642686403545607,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "I understand that time values in [product_name] Web Editor must use Hex format. Thanks! I will focus next on how to handle date, month, and year in VM memory."
+    },
+    {
+      "comment_id": 378571379291710,
+      "user_name": "ofAeh9EDA2",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Your example works well, but I have several hour counters in my project. How can I find the addresses for each one? I'm unable to locate them."
+    },
+    {
+      "comment_id": 365460672918797,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Welcome to the forum. You need to assign the addresses for each hour counter yourself. The addresses are set within the [product_name] program using VM mapping parameters."
+    },
+    {
+      "comment_id": 137272015770358,
+      "user_name": "ofAeh9EDA2",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Everything's clear now. Thanks for the help and prompt response!"
+    },
+    {
+      "comment_id": 263061455015493,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "You're welcome!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are looking for efficient ways to display and interpret internal values, such as counters and timer data, using a web editor for [product_name]. They struggle with understanding VM memory types (VD, VW, VB) and finding clear methods to convert memory formats into readable values, especially when handling multiple or complex counters. Editing these values through both built-in and custom web interfaces is considered doable but requires clearer explanations and practical examples.",
+    "user_expectations": "Users expect straightforward solutions for visualizing and modifying parameter values like counters and timers via web interfaces, along with clear instructions on using VM data types. They want simple mapping between stored bytes and readable information, using accessible examples and guides.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter visualization",
+      "human-readable values",
+      "remote parameter adjustment",
+      "web interface"
+    ],
+    "pain_keywords": [
+      "data format confusion",
+      "unclear memory mapping",
+      "byte conversion",
+      "lack of documentation"
+    ],
+    "feature_keywords": [
+      "hour counter visualization",
+      "VM data editing",
+      "webserver",
+      "custom web page integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

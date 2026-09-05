@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "5782601974",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 737769712708168,
+      "user_name": "wOvfxUHrHj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm new to [product_name]. I'm working with analog temperature and humidity sensors that require scaling: Temperature uses a 2-10V signal mapped from -40 to 140F: T = 0.225x -85F Humidity uses a 2-10V signal mapped from 0 to 100%RH: RH = 0.125x -25% Since the analog amplifier only allows gains with 2 decimal places, I've added two amplifiers in sequence for each sensor: the first uses a gain of 0.1, followed by gains of 2.25 for temperature and 1.25 for humidity. Monitoring the process via the software, I notice the temperature resolution is quite coarse—around 2 degrees—even though the underlying analog input value (ranging from 0 to 1000) updates smoothly. Is there a more effective way to achieve better resolution? Am I missing something? Thanks!"
+    },
+    {
+      "comment_id": 607887155254008,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "The issue arises because [product_name] only operates with integers in the range of -32,768 to 32,767; any decimal points are purely for display. Gains can be set with two decimal places, but this is just for visual presentation. Internally, the values are handled as integers multiplied by 100 (e.g., a gain of 1.00 equals 100). If you set a gain of 0.1 followed by 2.25, the intended output is 0.225, but in [product_name], the calculation is 10/100 * 225/100 = 0.225. Due to integer rounding, this becomes 0.23, meaning the actual total gain is 0.23. Such rounding introduces noticeable value jumps with small gains. As an alternative, consider using a single gain of 2.25 and displaying one decimal place. You can compare the results using the example provided."
+    },
+    {
+      "comment_id": 264511786002247,
+      "user_name": "wOvfxUHrHj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Thank you for your clear explanation. Looking through the program, I'm still unsure about the specifics of the second calculation, although it seems closer to what I'm aiming for. Could you further clarify what's happening with how the range and scaling are being handled? Is the output value in the calculation (when it shows a decimal) suitable for use as an input to other calculations, such as subtracting from a reference temperature, or is it only meant for display? My goal is to use reference temperature values for heating/cooling control, preferably using floating-point values similar to what your second calculation shows. Thank you!"
+    },
+    {
+      "comment_id": 987750623254707,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "In the second example, the amplification factor is multiplied by ten. With the first method, after analog amplification, you get output values between -40 and 140, which are shown as such. With the second method, you receive values from -400 to 1400, corresponding to a displayed range of -40.0 to 140.0 if you display a decimal place in the analog amplifier. If you use the second approach and, for instance, set up an analog threshold trigger, remember to account for the decimal place in your calculations. For example: ON = 100 (which is 1000 when considering 100.0); OFF = 75 (which equates to 750 for 75.0)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are attempting to scale analog sensor data for temperature and humidity control with precise resolution. They face challenges due to [product_name]'s integer-only calculations, resulting in misleading display precision and limited accuracy when performing further computations. There is ongoing confusion about whether display values with decimals can be used reliably in logic operations or are just for presentation.",
+    "user_expectations": "Users expect to achieve accurate scaling of analog inputs from sensors, enabling finer control and the ability to use floating-point values in subsequent calculations for advanced heating and cooling logic.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate scaling",
+      "fine resolution",
+      "usable analog values",
+      "sensor data control"
+    ],
+    "pain_keywords": [
+      "poor resolution",
+      "integer-only processing",
+      "misleading decimal display",
+      "unexpected scaling jumps"
+    ],
+    "feature_keywords": [
+      "amplifier gain decimal precision",
+      "display vs. calculation values",
+      "analog threshold triggers"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "29": "Scalability Limitations"
+  }
+}

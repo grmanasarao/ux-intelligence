@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "branch_id": "6576395496",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 272047406969104,
+      "user_name": "uXzbmQU7xz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], I have another question: I purchased the [product_name] PLC, the [product_name] display panel, and the [product_name] interface to advance my programming work. I've completed most of the program, but when trying to write to the PLC, I get a notice: \"The diagram exceeds BM memory limit. Only block location is saved.\" After accepting, the whole program appears to transfer, but some procedures do not function as expected. When verifying my PLC needs, the [article_no] was suggested, with a list of program parameters as follows: *** Determine [product_name] Resources used: Function Blocks: 205/400 REM: 72/250 Digital Inputs: 6/24 Digital Outputs: 3/20 Flag: 36/64 Analog Inputs: 2/8 Text Box: 43/50 Text contents: 44/50 Analog outputs: 0/8 Program memory: 2944/8500 Block names: 0/100 Analog flags: 0/64 Cursor keys: 3/4 Shift register: 0/4 Shift register bits: 0/32 Open connectors: 23/64 [product_name] function keys: 4/4 Network inputs: 0/64 Network analog inputs: 0/32 UDF types: 0/16 UDF instances: 0/64 Data Log: 0/1 Network outputs: 0/64 Network analog outputs: 0/16 Analog Filters: 0/8 Layout memory: 49125/30000 Maximum nesting depth: M50-B180-B183-B196-B201-B232-B228-B134-B164-B063-M30 Recommended [product_name]: [article_no].Standard What does this mean? --- Split from M30 Flag ([product_name] Amber Backlight) missing in [product_name] Software [version_no]."
+    },
+    {
+      "comment_id": 998583290311105,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "The program is transferred in full to the controller and can be reloaded to the PC. All blocks and connections are included, although separated connections will be re-established."
+    },
+    {
+      "comment_id": 389041222776383,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "The issue is the layout memory. Your program uses 49,125 locations, but the system only allows for 30,000."
+    },
+    {
+      "comment_id": 335500632078987,
+      "user_name": "uXzbmQU7xz",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "To clarify, do all of my blocks get written completely with links preserved? What exactly is layout memory, and how does it affect our programs? Also, why did [company_name] make it so limited, such that programs under 400 blocks still trigger warnings? Additionally, I tried saving the program to a memory stick (micro SD card) in *.bin format but received a java.lang.NullPointerException and the file size is 0 bytes. If one can export the network project to an SD card (which I couldn’t), does the controller load it from the card on startup and move it to its own memory, or does it run directly from the card?"
+    },
+    {
+      "comment_id": 357054064182773,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "I believe the warning isn’t critical. The layout memory tracks the visual arrangement of the program in FBD format, so after upload the blocks appear as you originally designed. In older software versions, uploaded blocks were placed arbitrarily rather than following their programmed order."
+    },
+    {
+      "comment_id": 572481468592089,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Hello, The message at the start is a WARNING, not an error. As long as your program doesn't exceed the 30,000kB local memory, all function blocks and signals appear in the same positions when uploading from the [product_name]. If your program needs more layout memory, function blocks will keep their positions, but other elements (signal lines and connectors) could be re-arranged or reconnected differently after uploading from [product_name] [version_no]. It’s possible to increase this memory, but doing so would raise the price of the device. Would paying more for extra memory be worthwhile? To keep all block and signal line positions intact, you should reduce the program size. Previously, in older [product_name] versions, all blocks and signals would be arranged differently after an upload. Hope this helps."
+    },
+    {
+      "comment_id": 238914781290555,
+      "user_name": "YiN7as5Rv9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Hi, please clarify: In [product_name] [article_no], if the layout memory is exceeded, for example using 45,000kB but fewer than 400 function blocks (say 350), and there's no issue with mixed connection lines after upload, will my program run successfully despite the layout warning? Is it just a graphical concern? Does creating a UDF from a function block help reduce layout memory usage? Thanks."
+    },
+    {
+      "comment_id": 292987987560790,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "The program can be transferred and runs properly in the device. However, if you haven't backed up your program and load it back from the controller to the PC, the visual arrangement of blocks might be incorrect and may be placed randomly within the diagram."
+    },
+    {
+      "comment_id": 546529263999706,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "That’s a great question! I tested it and YES, using a UDF does reduce layout memory consumption. It’s not required to make the program run, but as detailed above, it helps with layout memory and readability, though it doesn’t lower other memory usage. Each UDF block, even reused, still increases the instruction count. UDF improves layout memory and (human) readability only."
+    },
+    {
+      "comment_id": 574776907367236,
+      "user_name": "hRbpxFMCl9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Good afternoon. I need to add a line in my program for a text display, but the following message appears: \"The diagram exceeds BM local memory limit. A single local block is saved.\" Even after deleting the new line, I see the same message and cannot finalize the program name in [product_name] Software. Does anyone know how to resolve this?"
+    },
+    {
+      "comment_id": 570081093100339,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, I couldn't find much in Portuguese, so I used Google Translate. This message is just an indication, not an error message. You can transfer and use the program in the [product_name] controller without problems. Issues only arise when restoring from the controller, at which point the block arrangement may be randomized in the diagram."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter a warning about the diagram exceeding layout memory when transferring large programs with many function blocks to [product_name] controllers using [product_name] software. Although programs transfer and execute properly, uploading the program back to a PC scrambles the layout, causing frustration over organizational loss. Users are confused about small memory limits compared to block counts and are frustrated with workflow interruptions. One user reports a java.lang.NullPointerException when saving to a microSD card.",
+    "user_expectations": "Users want to transfer large programs without layout memory warnings, maintaining intact and organized function blocks and connections after re-uploading or backup. They also expect exporting projects to storage devices like microSD cards to work without system errors.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless program upload",
+      "intact graphical layout",
+      "reliable export",
+      "large project support"
+    ],
+    "pain_keywords": [
+      "layout memory limitation",
+      "graphical arrangement loss",
+      "export error",
+      "memory constraint confusion"
+    ],
+    "feature_keywords": [
+      "layout memory",
+      "FBD graphical arrangement",
+      "program transfer",
+      "export to microSD card",
+      "UDF memory optimization"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "19": "Bug Reports"
+  }
+}

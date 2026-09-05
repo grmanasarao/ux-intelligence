@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "9950913099",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 500276983586767,
+      "user_name": "f1xnztfusD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Hello, Is there a way to show the accumulated total operating time from an hours counter block in days? To set the MI input parameter, I use a mathematical instruction [version_no] (in days) x 24, which I inject into the MI parameter. This works, but the hours counter provides no output. Is there another solution? I considered mapping the operating time variable to a VD... Or maybe using timers and counters to build this logic myself? Thanks."
+    },
+    {
+      "comment_id": 890228098690195,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "You could use the operating time value (which is the total time in minutes) and calculate minutes, hours, and days for display manually. This is only workable as long as the total minutes do not exceed 32,767, because the [product_name] only processes integer values within -32,768 to 32,767. Alternatively, you could create your own operating hours counter using cascaded up/down counters. Use a pulse generator to provide a one-second signal to a seconds counter. When the seconds counter reaches 60, it triggers a transfer to a minutes counter and the seconds counter resets. Follow the same for minutes to hours and then hours to days, transferring and resetting at each threshold."
+    },
+    {
+      "comment_id": 828165609152620,
+      "user_name": "f1xnztfusD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Hi [user_name]. How do you access the operating time variable from the hours counter block for conversion? There doesn't seem to be an available output connector."
+    },
+    {
+      "comment_id": 320647728427890,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Try using Parameter-VM-Mapping to write the operating time into a VD (DWord) variable. Then you can read the low word through a network analog input. Keep in mind that the maximum value is 32,767. If the operating time exceeds this, the values may be incorrect."
+    },
+    {
+      "comment_id": 251034684467141,
+      "user_name": "f1xnztfusD",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Thanks. I tried mapping but I only receive the value 1 despite having 3 hours. I'll stick to the timer and counters approach: using a TON set to 60 seconds connected to a counter set at 1440 to count a full day (24 hours), then another counter for days. Appreciate the assistance."
+    },
+    {
+      "comment_id": 458095928777866,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Did you encounter rounding errors when dividing integers? Attached is a sample program that converts total minutes from the operating time of the hours counter into days, hours, and minutes."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking ways to display accumulated operating time in days using a [product_name] hours counter block. Standard outputs provide minutes but don't allow direct conversion to days, and integer limits (32,767 minutes) impact accuracy. Suggestions include manual calculation, cascaded counters, and Parameter-VM-Mapping, but users report issues such as mapping errors and rounding inaccuracies.",
+    "user_expectations": "Users expect to conveniently retrieve and display total operating time in days directly from the hours counter block, with accurate conversion and no restrictions caused by value limits. An accessible output or variable for further processing is also anticipated.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "display time in days",
+      "accurate operating time conversion",
+      "direct data access"
+    ],
+    "pain_keywords": [
+      "output limitation",
+      "integer restriction",
+      "mapping errors",
+      "lack of days display"
+    ],
+    "feature_keywords": [
+      "hours counter block",
+      "output connector",
+      "VM-mapping",
+      "custom cascaded counters"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "1770075995",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 564632706037316,
+      "user_name": "DzEtEV8W7I",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hello, I need assistance with scaling a weight sensor that outputs 4-20 mA (representing 0 to 100 kg, with 4 mA = 0 kg, 20 mA = 100 kg). I want this measurement to be as precise as possible and displayed on a basic screen, which is already set up. I only need guidance on implementing proper scaling. I'm using [product_name] [version_no] with an analog input module."
+    },
+    {
+      "comment_id": 879449306963066,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "You seem familiar with scaling. Achieving greater accuracy mainly depends on extensive testing, allowing you to identify and compensate for any offsets found during the process."
+    },
+    {
+      "comment_id": 941958776969504,
+      "user_name": "DzEtEV8W7I",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "That's correct, I mentioned that the most precise approach is to scale values from 400 to 2000, meaning 400 = 0 kg and 2000 = 100 kg. However, I'm interested in knowing whether direct scaling is possible. My main issue is that [product_name] can't work with real (decimal) variables."
+    },
+    {
+      "comment_id": 608454505197085,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Yes, that's accurate. [product_name] doesn't handle real number variables, so decimal values aren't supported. However, direct scaling can be performed. You can configure the sensor as 4-20 mA and set values from 0-100. For increased resolution, you could set it as 0-1000 and divide by 10 after scaling."
+    },
+    {
+      "comment_id": 319131649223655,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Here's an example of displaying weight with a single decimal place for simulation: Value of analog input: 200 = 0.0 kg (4 mA), 600 = 50.0 kg (12 mA), 1000 = 100.0 kg (20 mA)."
+    },
+    {
+      "comment_id": 705339320478966,
+      "user_name": "DzEtEV8W7I",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Great, thanks! One last question: Is it possible to display values like 1.56 kg—not just 1.5 kg?"
+    },
+    {
+      "comment_id": 879550544256691,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "No, the resolution dictates what can be shown. The analog input typically converts the signal into 0-1000 units. With a 4-20 mA sensor, you effectively use 800 units, as 4 mA accounts for the first 200 units unused. 100 kg divided by 800 units gives a resolution of 0.125 kg per unit, which the [product_name] cannot directly represent. 1 unit = 0.125 kg (shows as 0.1 kg on display); 2 units = 0.25 kg (shows as 0.3 kg on display)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to achieve precise weight measurements and display using [product_name] [version_no] and an analog input module, along with a basic HMI. Main limitations result from [product_name]'s restriction to integer values, causing limited display resolution for 4-20 mA analog inputs. They are unable to present two decimal precision (e.g., 1.56 kg) due to system constraints.",
+    "user_expectations": "The user aims for high accuracy in analog measurement and wants to display weight readings with two decimal places on the HMI, utilizing either direct or staggered scaling techniques.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate measurement",
+      "high precision display",
+      "decimal weight readout"
+    ],
+    "pain_keywords": [
+      "integer variable restriction",
+      "resolution limitation",
+      "imprecise decimal display"
+    ],
+    "feature_keywords": [
+      "analog input precision",
+      "decimal place display",
+      "scaling of input range"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

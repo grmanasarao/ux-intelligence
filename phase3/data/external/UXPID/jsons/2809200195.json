@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "2809200195",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 912647978176218,
+      "user_name": "eHEuT8WV8S",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I'm facing problems where the results from online testing differ from those seen during simulation. When I simulate, I can set Output Q4 to high after counting the analog input 5 or 6 times. I've already tried running the same program on two separate [product_name] devices without success."
+    },
+    {
+      "comment_id": 376104124898332,
+      "user_name": "eHEuT8WV8S",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Here is the program code."
+    },
+    {
+      "comment_id": 689409814516499,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I don't notice any difference in Q4's operation between the simulation and the actual [product_name] device. Could you clarify what you mean?"
+    },
+    {
+      "comment_id": 128917677014873,
+      "user_name": "eHEuT8WV8S",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "When I run the program online on the [product_name] 12/24 RCE - (...) - [article_no], Q4 output won't turn on. Is this a hardware compatibility issue? Are these function blocks unsupported with [article_no]?"
+    },
+    {
+      "comment_id": 265923949225290,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Q4 switches and the program executes, but I can't confirm if the function is correct because I don't know your expectations. Output Q4 is only HIGH for a single cycle. Q4 increments the counter C001 by one. The output of C001 is set so that it activates at 1, which then triggers Q6. Q6 subsequently resets all counters on the next cycle, including Q4, so Q6 and Q4 are only HIGH for a cycle. It's unclear to me if this matches what you want, but that's how the function is programmed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The primary concern is a mismatch between simulation results and actual hardware behavior for Output Q4 of the [product_name] controller. While simulation shows Q4 turning on as intended, this does not reliably happen on the physical device. The user is questioning whether this discrepancy is due to hardware compatibility or limitations of specific function blocks, and is uncertain if the logic should perform identically in both simulation and real environments.",
+    "user_expectations": "The user anticipates that simulation and hardware will exhibit identical output behavior, especially regarding Q4, and expects supported function blocks to operate consistently regardless of the device version or execution context.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simulation fidelity",
+      "identical hardware behavior",
+      "predictable logic operation"
+    ],
+    "pain_keywords": [
+      "simulation difference",
+      "hardware inconsistency",
+      "output not switching"
+    ],
+    "feature_keywords": [
+      "output Q4",
+      "function block compatibility",
+      "counter logic",
+      "cycle-based output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "2": "Product Compatibility"
+  }
+}

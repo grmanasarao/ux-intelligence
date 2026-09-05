@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "9519122584",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 844865932182976,
+      "user_name": "RHzLJHXz3q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Is it possible to scale a value ranging from 0 to 400 within the [product_name] module so that it appears as a floating point value, like 0.0 to 40.0, on [product_name] Runtime? I tried using the Integer/Float block, but it transmitted a larger number instead. The only connection options I have for [product_name] in [product_name] engineering software are those shown by default. Thank you."
+    },
+    {
+      "comment_id": 214852373276303,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello! [product_name] modules can only handle integers. If you transfer floating point values from another system over the network using the Modbus protocol, [product_name] cannot process them directly. However, by using the Integer/Float Converter function block, you can convert integers to floats by applying a resolution to the value range and store the results in memory. You can then transfer these results over the network. You need to set an appropriate resolution for the output float when configuring parameters. Typically, both the Float/Integer and Integer/Float converter blocks are needed to complete the task. A standard workflow is: 1) Transfer floats from an external system via network (with Modbus protocol) and store them in memory. 2) Use the Float/Integer converter to change floats in memory to integers. 3) Process the integer data in the module. 4) Use the Integer/Float converter to transform the result back to floats and store them. 5) Transfer floats to the external system again via network."
+    },
+    {
+      "comment_id": 176014801598404,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "I have attached a test program and a screenshot to help you simulate this scenario on your computer. Hope this assists you!"
+    },
+    {
+      "comment_id": 423458385238112,
+      "user_name": "RHzLJHXz3q",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "That's similar to what I've attempted, but I haven't found an option for a float data type on the [product_name] Runtime system. Am I missing something on the [product_name] side? I'm currently using the [product_name] connection type in the runtime project. Thank you."
+    },
+    {
+      "comment_id": 806393303717584,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "If you have another PLC from [company_name] on the same network, you can convert DWord into Floating Point values as well. If not, consider using DWord format for the data transfer."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are trying to transfer and scale integer values from [product_name] modules to [product_name] Runtime for displaying as floating point numbers. The modules only support integer data, which restricts direct representation of floating point values. There is confusion about available data types and function block methods in both the module settings and the runtime interface. Solutions explored include using Integer/Float converter blocks and specific connection types, but users have not yet found clear floating point support within the current setup.",
+    "user_expectations": "Users expect to easily convert and send integer data from [product_name] modules to [product_name] Runtime and have it displayed as floating point numbers. They anticipate straightforward data type configuration and simple workflow for this process.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "float display",
+      "scaling values",
+      "seamless transfer"
+    ],
+    "pain_keywords": [
+      "data type limitations",
+      "lack of float option",
+      "unclear workflow"
+    ],
+    "feature_keywords": [
+      "integer/float conversion",
+      "LOGO connection",
+      "data type selection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

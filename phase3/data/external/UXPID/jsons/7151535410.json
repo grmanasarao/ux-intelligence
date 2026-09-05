@@ -1,0 +1,353 @@
+{
+  "metadata": {
+    "branch_id": "7151535410",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 951459039931504,
+      "user_name": "byk4caY8FO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I am able to read 16-bit unsigned integers from a Modbus client, but I cannot access 32-bit IEEE float values (spanning 2 registers). Both types read correctly on my PC with Modbus Poll, so would appreciate advice on how to obtain the float values in [product_name] since they only show as zero."
+    },
+    {
+      "comment_id": 100489049545802,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "You should use the F/I converter block."
+    },
+    {
+      "comment_id": 697254973427014,
+      "user_name": "byk4caY8FO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Using [product_name] V8.3.0, I can't find the F/I converter among the available instructions, although it does appear in the help documentation. Are there any special steps to access this block? Any help is appreciated."
+    },
+    {
+      "comment_id": 814549862354092,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "From your screenshot, you've set up a [article_no].Standard as your hardware device. The [article_no].Standard doesn't support Modbus, which is why the F/I converter is missing. This block is only available in [product_name]8.FS4 or [product_name]8.3."
+    },
+    {
+      "comment_id": 831176107303917,
+      "user_name": "byk4caY8FO",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "My last step is transferring data from the Modbus device to a VM value. I am currently sending to a VW into NAI1. In Parameters VM Mapping, AI is unavailable. Which block should I use for transferring two Modbus register values for VM Mapping?"
+    },
+    {
+      "comment_id": 301896445354815,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "You can't transfer a 32-bit float to a NAI since a NAI only supports 16 bits. Use the F/I converter as previously suggested, and set the VM address, for example VM1."
+    },
+    {
+      "comment_id": 612339013305244,
+      "user_name": "byk4caY8FO",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "My question is how to move value from the Modbus location to VM1. I can read it into VW1 but unsure how to move it from VW to VM. Alternatively, is it possible to read directly from Modbus HR 1 and HR 2 into VM1?"
+    },
+    {
+      "comment_id": 857231722966692,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Follow the connection table setup. VM address 1 corresponds to VD1 (double word in the VM area starting at address 1): VD1 = VW1, and VW3 = VB1 + VB2 + VB3 + VB4. So, two HR words (starting at address 1) go to [product_name] VW1 (address 1) for two words."
+    },
+    {
+      "comment_id": 596995984907214,
+      "user_name": "byk4caY8FO",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I tried as shown in the attached screenshot, using both odd and even HR addresses, but still get zeros. Here's what Modbus Poll reads."
+    },
+    {
+      "comment_id": 890406038192670,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Your first screenshot does not show the online test, so I can't determine if values are arriving in [product_name]."
+    },
+    {
+      "comment_id": 885611158461773,
+      "user_name": "byk4caY8FO",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "This screenshot should provide better clarity."
+    },
+    {
+      "comment_id": 276702415658265,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "To see the actual values, place the cursor on a block (like the F/I converter) and look for a glasses icon. Clicking it opens an output field with the current value."
+    },
+    {
+      "comment_id": 827994463018200,
+      "user_name": "byk4caY8FO",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "It should look like this."
+    },
+    {
+      "comment_id": 949414333011045,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Yes, this is correct. Now I can confirm the actual values are zero, so [product_name] is not communicating with Modbus Poll. I can't explain why."
+    },
+    {
+      "comment_id": 130710576760771,
+      "user_name": "byk4caY8FO",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Can you recommend a tool for debugging communication?"
+    },
+    {
+      "comment_id": 977589034438560,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Sorry, I can't suggest one."
+    },
+    {
+      "comment_id": 626441021686335,
+      "user_name": "cZQANX744b",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "If you're reading HR154 from your Modbus device, did you try using an offset (+1)? Remove all lines except lin1, set HR154 to 155, and retry. In [product_name] memory, start online test in the [product_name] software and open the data table. Add VD1 and select float format. Make sure other settings are correct and you have a ModbusTCP connection. Hope this assists."
+    },
+    {
+      "comment_id": 868353472451982,
+      "user_name": "byk4caY8FO",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I noticed if I directly configure a NAI port for 16-bit integer, it works. However, linking the Modbus device to [product_name] doesn't work. Possibly, the Modbus device's port is set to 'Assigned' and greyed out, preventing change to Port 502 as in the previous example. How can the port setting be enabled?"
+    },
+    {
+      "comment_id": 601558405470366,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "The port number is editable because you've created a dynamic connection on the [product_name] side."
+    },
+    {
+      "comment_id": 652396874845559,
+      "user_name": "byk4caY8FO",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I tried starting a new project and adding devices one by one, but the port field is always greyed out. What steps should I follow to enable this setting?"
+    },
+    {
+      "comment_id": 434246650008516,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "We need complete screenshots showing all steps you've taken, as it's hard to guess without enough information."
+    },
+    {
+      "comment_id": 841650896663693,
+      "user_name": "byk4caY8FO",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Let me know which parts you need to see and I will provide corresponding screenshots."
+    },
+    {
+      "comment_id": 108094860476649,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Best option is to send screenshots and your program (in a ZIP archive)."
+    },
+    {
+      "comment_id": 943516701036870,
+      "user_name": "byk4caY8FO",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Thanks. I switched to a static link, but the port remains fixed so I changed the Modbus device port to 503. The NAI integer connection works, but the VW still only returns zero."
+    },
+    {
+      "comment_id": 985760308787649,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "This is what I meant—we can't see your exact steps because not all screens are shown. With NAI, you are using ID 27 and connection ID 0."
+    },
+    {
+      "comment_id": 453693122643475,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Check values in VW0 and VW2. Your simulator may use Little Endian whereas [product_name] uses Big Endian format."
+    },
+    {
+      "comment_id": 665502142987763,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Static connections use fixed port addresses: Connection 1 = 502, Connection 2 = 503, Connection 3 = 504, Connection 4 = 505, Connection 5 = 506, Connection 6 = 507, Connection 7 = 508, Connection 8 = 509."
+    },
+    {
+      "comment_id": 947606995891596,
+      "user_name": "byk4caY8FO",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I tried your code with unit number 27 and tested addresses 152, 153, and 154, but clicking the glasses icon still shows zero. Modbus Poll reports a value of 131 (32-bit signed big-endian), but [product_name] responds with zero for those addresses."
+    },
+    {
+      "comment_id": 585858588527483,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 28,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I'm sorry, but I don't see any further way to assist. You mentioned sending float values, yet Modbus Poll's screenshot only shows integer or double integer values."
+    },
+    {
+      "comment_id": 972185881058315,
+      "user_name": "byk4caY8FO",
+      "comment_position": 29,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "I've investigated further but still no luck. Using the NAI method to read from Modbus only supports integer values, not floating point. The Modbus connection table also seems limited to integer options. Which variable should store the Modbus float for conversion with the F/I block?"
+    },
+    {
+      "comment_id": 786689460587948,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 30,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "It seems you misunderstand my instructions. A holding register (HR) has two words (4 bytes). A word in the VM area of [product_name] is 2 bytes. For one HR with 2 words (4 bytes), write them into the VM area sequentially starting from a given address. Example: HR1 (2 words) -> VW1 (start address, uses 2 words). So HR1 goes into VW1+VW2+VW3, and the next available address is VW4, VW5."
+    },
+    {
+      "comment_id": 387757692037928,
+      "user_name": "8RYb477Ela",
+      "comment_position": 31,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "It appears the Modbus connection setup is incorrect. For VM mapping, [product_name] is used as server and the Modbus device as client; for NAI mapping, [product_name] is client and Modbus device is server. Your application needs [product_name] to be the client reading from the Modbus server. Try the attached program, which is in diagram mode (easier for single [product_name] setups). Use only locally mapped variables instead of green NAIs. In menu: tools -> ethernet connections -> Connection1 (Modbus Client), the VM mapping is inside. A float requires 2 registers (4 bytes); for example, map to VM0 (uses VB0-VB3, VW0 and VW2). For double, 4 registers (8 bytes)—increase mapped registers if needed. To read several registers in sequence, simply alter the read/write word count. For example, 6 registers (for 3 floats starting at HR500) mapped to VW0 correspond to VM0, VM4, VM8. Adjust the HR and ID (27?) as needed and the correct value should appear in the display."
+    },
+    {
+      "comment_id": 606538395346478,
+      "user_name": "byk4caY8FO",
+      "comment_position": 32,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Thank you for your help. Sorry for repeated questions, but the help system isn't very clear. An online tutorial would be helpful for these issues."
+    },
+    {
+      "comment_id": 138616385795601,
+      "user_name": "8RYb477Ela",
+      "comment_position": 33,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "The main challenge is locating all relevant information. Details of the controller are in the online help or instruction manual for [product_name]. Start by understanding variable memory—this is a byte area from VB0 to VB850. Prefer even numbering (VW0, VW2, VW4) for words as each takes two bytes (VW0=VB0+VB1). For double words, use quad numbering (VD0, VD4, VD8), each is four bytes (VD0 uses VW0+VW2 or VB0+VB1+VB2+VB3). Use the memory as needed but avoid overlapping areas. Learn about Modbus registers via search engines and the Modbus device manual's value table. Many Modbus devices begin at register 0 while [product_name] starts at 1, so often there's a +1 offset. Additional notes: HR (holding registers) for read/write of stored/calculated values, IR (input register) for analog input reads, Coil for read/write bits (status or commands), DI for digital input bits, etc. This is a broad topic—there's always more to learn."
+    },
+    {
+      "comment_id": 187023963086625,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 34,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Please refer to the attachment for further detail."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main technical challenge involves reading 32-bit IEEE float values via Modbus on [product_name] hardware. While 16-bit unsigned integers read correctly, float values appear as zero. A third-party PC tool reads both data types successfully, pointing to potential limitations or configuration issues in [product_name], specifically with the [article_no].Standard model that lacks necessary blocks for 32-bit float conversion. Hardware and software version mismatches affect block availability, and without the required F/I converter, mapping and transferring 32-bit data is unsuccessful.",
+    "user_expectations": "The user expects [product_name] to reliably support reading and accurate handling of 32-bit IEEE floats from Modbus, allowing mapping of these values into their program as easily as with 16-bit data and third-party software.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable Modbus float reading",
+      "complete data mapping",
+      "compatibility with standard protocols"
+    ],
+    "pain_keywords": [
+      "incompatible hardware",
+      "missing function blocks",
+      "zero readings",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "32-bit float support",
+      "F/I converter block",
+      "VM Mapping",
+      "Modbus compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

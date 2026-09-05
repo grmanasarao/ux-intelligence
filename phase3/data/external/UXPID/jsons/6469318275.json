@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "6469318275",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 278595292264111,
+      "user_name": "tmb9GRUYLO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 1,
+      "comment_body": "Hello, I have a 0-10V transmitter and I want to connect it to a [product_name] module. I've configured an analog input (AI1) to receive this signal. Can you let me know if this is correct: do I wire the '+' of the transmitter to I7 and the '-' to M, or is this incorrect? Any suggestions would be appreciated! Thank you!"
+    },
+    {
+      "comment_id": 420579134422564,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 1,
+      "comment_body": "You've set it up properly! When the analog signal enters the [product_name], it is represented internally as a value from 0 to 1000. If you'd like to display the value using the original units from the sensor (for example, 'bar pressure'), you can use an analog amplifier block or other analog processing blocks, which allow you to select the input type and scale it for display purposes. A user from this forum, [user_name], has made a useful spreadsheet for scaling and managing analog amplifier configurations. Good luck!"
+    },
+    {
+      "comment_id": 360197025479304,
+      "user_name": "tmb9GRUYLO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 1,
+      "comment_body": "Thank you for the advice! After wiring the temperature sensor and assigning the analog input to a threshold trigger, nothing changes in the monitoring view when I heat the sensor. Do you have any suggestions? Thanks for your assistance! Regards, [user_name]"
+    },
+    {
+      "comment_id": 336919918412206,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 1,
+      "comment_body": "Please post your program so we can review it and possibly assist you further."
+    },
+    {
+      "comment_id": 771895260353699,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 1,
+      "comment_body": "Hi [user_name]! 1) For your temperature sensor, what temperature range are you measuring? - Connect the 'negative' wire to 'M' on the [product_name] module - Connect the 'positive' wire to I7 on the [product_name] module 2) I7 will be available as AI1 in your [product_name] program. 3) In your programming software, add an analog input block for AI1. 4) Add an analog threshold trigger block. 5) Use the wiring tool to connect AI1 to the threshold trigger. 6) Add a digital output or marker block and connect it to the threshold trigger output. 7) To test, place the sensor in hot coffee and cold water (if suitable for immersion). 8) Download the program and start it on the [product_name]. 9) Enter monitoring mode (bottom left icon; if it's unavailable, you might have a demo version or older [product_name] hardware that doesn't support this feature). 10) Click the green triangle to start monitoring, then use the glasses icon to view the relevant block (analog threshold trigger). 11) You should now see the analog value displayed. Alternatively: - Before downloading, add a message text block to your program. - Double-click the EN input to set it to always ON. - Add an Open connector, then wire them together (ensures the program will download and not just run in simulation). - Open message text block's parameters, select analog threshold trigger, insert the relevant parameter. Once the program runs, you should see your scaled value on the module's LCD. Does this help? Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to wire and configure a 0-10V transmitter to an analog input on a programmable logic module for temperature measurement. While initial guidance confirmed the wiring method, practical issues with monitoring the sensor output were reported. Community members provided detailed advice on hardware connection, program setup, and diagnostic steps in the associated configuration software, emphasizing key steps for successful analog signal acquisition and display.",
+    "user_expectations": "The user expects a simple setup process where wiring and configuration lead to real-time changes in the analog reading, visible during monitoring in the software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog readings",
+      "easy monitoring",
+      "correct wiring configuration"
+    ],
+    "pain_keywords": [
+      "no change in analog value",
+      "uncertainty in monitoring",
+      "setup confusion"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "monitoring",
+      "threshold trigger",
+      "on-line monitoring",
+      "message text block",
+      "scaling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

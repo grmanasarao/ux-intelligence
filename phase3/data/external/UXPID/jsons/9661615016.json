@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "branch_id": "9661615016",
+    "thread_id": "4479534060",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 411467510408030,
+      "user_name": "qWJFMZ8R4D",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I developed a small Android application to communicate with [company_name] devices using the libnodave library (port 102). It works, but I'm disappointed because the transfer time is about 250 ms for reading each element block (inputs, outputs, memory, etc.), which totals roughly 1.5 seconds at best. I attempted to use linodave in a virtual machine with port 10001 (similar commands as for serial connection) to read and receive all variable states in one go. I found forum posts about accessing different element locations (input, output, memory, analog inputs, etc.) for [version_no] but not for [version_no]. Using the control sequence Chr $ (85) + Chr $ (19) + Chr $ (19) + Chr $ (0) + Chr $ (170), I can successfully receive data with a control socket. Could someone share the correct command to read the VM and its memory locations? Thanks for any help [user_name]"
+    },
+    {
+      "comment_id": 481122800103314,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Hi, When configuring parameters for forwarding to other devices, utilize the VM-mapping table, which provides the VM address for each parameter. You should be able to retrieve data at DB1DBB (x), where (x) is the VM address listed in the VM-mapping table. To get more details about reading information from a [product_name], open the help section in [product_name] software [version_no] and search for 'VM.' The initial suggestion will guide you to a comprehensive table with all relevant information (digital inputs, digital outputs, memory, analog inputs, analog outputs, etc.). Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are attempting to communicate with [company_name] controllers on Android using third-party libraries, but encounter slow data transfer rates during block reads. The core issue is accessing variable states more efficiently in a single operation, as current methods accumulate significant delays. Users lack guidance on the correct memory mapping and command structure, particularly for newer hardware versions.",
+    "user_expectations": "Users expect to obtain clear documentation and specific instructions for [version_no] regarding variable memory mapping and optimized command usage, enabling rapid bulk data transfer.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "faster data transfer",
+      "clear documentation",
+      "bulk data access"
+    ],
+    "pain_keywords": [
+      "slow transfer",
+      "unclear documentation",
+      "memory mapping confusion"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "bulk variable read",
+      "port configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Android": []
+    }
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "3": "User Guidance"
+  }
+}

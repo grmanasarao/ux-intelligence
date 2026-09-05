@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "7161404428",
+    "thread_id": "1723880927",
+    "publication_year": 2008,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 137869493706912,
+      "user_name": "BXdtBqVOhM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Hello, Here’s a quick summary of my [product_name] program: Start → 30 second delay → switch on green light. The delay works fine, but I'd like to add a PAUSE button. Specifically, when pressing PAUSE, the countdown stops, and it resumes when this input is released. Is it possible to achieve this with [product_name]? Thanks!"
+    },
+    {
+      "comment_id": 768249959210803,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Hi! Try this approach. Hope it helps!"
+    },
+    {
+      "comment_id": 193125275646343,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Hi, Here’s more context related to [user_name]'s solution: The approach is correct since [product_name] does not have a timing block that can be paused using an external signal. The only option is to create a custom timer using a pulse generator and counter(s), similar to [user_name]'s suggestion. To minimize timing errors (especially if the pause signal frequency is high), set TH = TL and keep TH + TL small. You’ll also need a sufficiently high [product_name] cycle frequency. In some cases, it may help to add a pre-divider between the pulse generator and main counter (constructed with a counter and a marker at the counter output, and a signal line to the CLR pin of this counter—ON = OFF sets the pre-divider value). With this, you can achieve a time base of 0.05 s + 0.05 s = 0.1 s and use a secondary counter for full seconds. See also similar questions: \"Can I pause timers or programs\". Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are trying to add pause functionality to a countdown timer controlled via [product_name]. They note that built-in timing features do not allow pausing with an external signal, leading to discussions about custom workarounds using pulse generators and counters. This reveals a gap between users’ expectations of straightforward timer control and the actual options provided by the [product_name] platform.",
+    "user_expectations": "Users expect to be able to pause and resume a countdown timer with a simple configuration using an external input, such as a pause button, in [product_name] devices.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "countdown pause",
+      "external signal control",
+      "flexible timer"
+    ],
+    "pain_keywords": [
+      "missing pause feature",
+      "manual workaround",
+      "inflexible timing block"
+    ],
+    "feature_keywords": [
+      "pause button",
+      "timer",
+      "external input",
+      "impulse generator",
+      "counter"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests"
+  }
+}

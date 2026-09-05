@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "branch_id": "3646930819",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 326695823251025,
+      "user_name": "9pYK25InuJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm encountering issues connecting via VPN to the [product_name] module. Here's my setup: I inserted a SIM card, configured mobile connectivity, confirmed SMS works, and set up DNS with No-IP, omitting certificates since they're not mandatory. The device's IP updates in No-IP each time it changes. OpenVPN-PSK is active, I've generated a key and saved the standard server config for client use, renaming the extension to .ovpn. On my Windows 10 PC, I've installed OpenVPN (v3.2.0), imported the client profile created from the module. Trying to connect, I get a 'Missing external certificate' popup, and the connection fails. Event logs show: ssl_context_error: OpenSSLContext: CA not defined. Any guidance would be helpful. I've referenced the official [company_name] documents ([document]) but haven't found a solution after reading many forum posts. Thanks!"
+    },
+    {
+      "comment_id": 800413033364051,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hi, OpenVPN 3 typically expects certificates by default. Try adding these lines to your configuration profile: 1) client-cert-not-required 2) username-as-common-name"
+    },
+    {
+      "comment_id": 643948479172507,
+      "user_name": "9pYK25InuJ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Thanks for your response. Where in the config file should I add these options? I've added both but it didn't work, so I wonder if I'm making a mistake."
+    },
+    {
+      "comment_id": 263660647056651,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Add those lines in your server configuration. For example: port [port_no] proto tcp dev tun0 ca ca.crt cert server.crt key server.key dh dh2048.pem server [ip_address] 255.255.255.0 ifconfig-pool-persist ipp.txt push \"dhcp-option DNS 8.8.4.4\" push \"dhcp-option DNS 8.8.8.8\" cipher AES-128-CBC comp-lzo persist-key persist-tun status openvpn-status.log verb 3 client-cert-not-required plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so login"
+    },
+    {
+      "comment_id": 108551989526256,
+      "user_name": "9pYK25InuJ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Thanks for explaining. Have you personally tried this approach successfully in a similar case? I can't access the configuration file directly on the server ([product_name] module). I only have the client configuration file, which the server generates and claims is ready for use according to the [company_name] manual, but editing it didn't help. Do you have any other suggestions? Thanks!"
+    },
+    {
+      "comment_id": 404880462087326,
+      "user_name": "9pYK25InuJ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "This might provide more context for troubleshooting. I'm presently trying to connect using OpenVPN-GUI on my Windows 10 PC (client), with the SIM card IP specified in the client config file (on line 3) instead of my DDNS hostname. Below are the client config file and OpenVPN-GUI logs, which repeatedly show reconnect attempts without success: [snip]"
+    },
+    {
+      "comment_id": 293777323304226,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hi, 1) In your client configuration file, replace \"client-cert-not-required\" with \"verify-client-cert none\" as the correct option has changed in OpenVPN. 2) Keep \"username-as-common-name\". This adjustment resolved the issue for me. Unfortunately, I'm unable to upload or check files while I'm away from the office for a few weeks on business."
+    },
+    {
+      "comment_id": 485357984345425,
+      "user_name": "9pYK25InuJ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thank you for your assistance. I've finally identified the issue and solved it. My mobile carrier was assigning a private IP (10.xxx.xxx.xxx) to my SIM card, preventing VPN access to the module. The fix was updating the APN, username, and password, as my carrier provides two APNs—one for private IPs and another for public IPs. Hope this helps anyone facing a similar problem."
+    },
+    {
+      "comment_id": 777089605668580,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "That's great news! Thanks for sharing your solution."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user struggled to set up a VPN connection between their PC and the [product_name] communication module, facing certificate-related errors due to OpenVPN expecting certificates in its configuration. Attempts to clarify the difference between server and client configuration adjustments didn't resolve the problem until the underlying network issue was discovered: the user's SIM card was being assigned a private IP address by the carrier, which blocked incoming VPN connections. Switching to an APN that provided a public IP solved the connectivity issue.",
+    "user_expectations": "None",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote access",
+      "VPN connectivity",
+      "reliable configuration"
+    ],
+    "pain_keywords": [
+      "VPN connection failure",
+      "certificate error",
+      "private IP assignment"
+    ],
+    "feature_keywords": [
+      "OpenVPN support",
+      "certificate handling",
+      "APN configuration",
+      "remote SIM access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": [
+        "10"
+      ]
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "branch_id": "4472312361",
+    "thread_id": "4479534060",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 911708870555292,
+      "user_name": "5xUJIjuVOw",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello, I am looking for advice on how to set up communication between a [product_name] PLC [article_no] and [product_name] V7.2. I have also tried with OPC Scout v10, but the configuration process on both ends is unclear to me. Any suggestions would be appreciated."
+    },
+    {
+      "comment_id": 622428440549923,
+      "user_name": "5xUJIjuVOw",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Could someone explain how to get started with programming using OPC Scout v10? Is there a guide available for beginners?"
+    },
+    {
+      "comment_id": 784684811538680,
+      "user_name": "SiBSBJihCh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello, Some time ago, I ran tests with OPC for a [product_name] PLC and managed to establish communication. I am sharing a PDF document with screenshots from that setup (I don’t recall all details, but the images may help). First, on the PLC side, you need to create a server connection as shown in the first screenshot. You’ll see Local Properties set to TSAP 21.00 and Remote to 21.11. On the second page, you mirror this connection in NetPro for OPC—Local TSAP 21.11 and Remote TSAP 21.00. In the Variable Memory definition, specify which PLC variables you want to access from OPC. In OPC, you can use an address format like [Logo]DB1,W4,1. In my NetPro example, the connection is called “Logo”, and it always maps DB1 as the area. Hope this helps."
+    },
+    {
+      "comment_id": 117831285337675,
+      "user_name": "5xUJIjuVOw",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Thank you, [user_name]. I previously checked 'Connect with an Operator Panel (OP)' and set TSAP 02.00 on both sides (I’m not an expert). However, in your screenshot, that option is unchecked. I understand up to the third image, but your fourth screenshot could be expanded under the \\S7:Logo tree. When I try, there’s no DB list or a way to create a new item under DB. I’ll try your approach and report back."
+    },
+    {
+      "comment_id": 906297653155414,
+      "user_name": "5xUJIjuVOw",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "I attempted to configure using OPC Scout v10, but I'm still encountering the same issue. I’m not sure how to add a DB address. Please review the attached screenshot."
+    },
+    {
+      "comment_id": 410005917293389,
+      "user_name": "SiBSBJihCh",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "If you select “Logo_TCP1” on the left, you’ll see various items listed on the right, one of which is “&statepath”. Drag this to the watch list to read its value—it should show 'UP', 'DOWN', or 'RECOVERY'. If it's 'UP', your PLC connection is active. Note that the connection won't be established until you poll a value, so you need to specify an address. For example, you can also drag “IB0” to the watch list. I’m unsure if [product_name] supports browsing of datablocks as standard S7 CPUs do, which may explain why DB1 isn't visible."
+    },
+    {
+      "comment_id": 932216151234464,
+      "user_name": "5xUJIjuVOw",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "I need a way to manually enter addresses like DB1.DBW0 somewhere, but there’s only an option to input the Item ID or name in the Watch list."
+    },
+    {
+      "comment_id": 500679319842456,
+      "user_name": "SiBSBJihCh",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "[user_name], I ran some tests and found that the [product_name] PLC does not automatically provide DB1 in OPC Scout, so you must enter the address manually. You have a couple of options: drag “&statepath” to see the syntax and copy it to another line. When you click in the 'ID' column, a button lets you open a dialog to change the 'Item ID/name.' Depending on which PLC address you wish to access, you can enter: S7:[Logo_TCP1]DB1,INT2,1 or S7:[Logo_TCP1]DB1,INT4,1. The PLC always uses DB1 for addressing. 'INT2' maps to DBW2 as an integer, and ',1' means only one element is read (an integer). Another example would be: S7:[Logo_TCP1]DB1,X0.0,1. If you prefer, you can set up symbolic addressing by entering these addresses into the OPC Symbol Editor. Then, within 'Communication Settings -> [product_name] NET configuration -> OPC Settings -> Symbols,' load the symbol file and see your symbolic names in a '\\SYM:' folder."
+    },
+    {
+      "comment_id": 582797797876393,
+      "user_name": "5xUJIjuVOw",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Thanks a lot, [user_name]. I have now successfully connected [product_name] [article_no] with [product_name] v7.2."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users struggled to configure OPC communication between a [product_name] PLC and [product_name] v7.2, particularly with the correct settings for OPC and manual entry of data block addresses. The main trouble stemmed from the lack of automatic datablock browsing like in conventional S7 controllers, requiring users to input addresses manually. Step-by-step instructions and practical guidance were important in overcoming these setup obstacles.",
+    "user_expectations": "Users are seeking a clear, guided process for OPC connection setup, including mapping of variable addresses, reliable integration between the PLC and [product_name], and solutions for manually or symbolically entering PLC variable addresses for monitoring.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful OPC communication",
+      "manual address entry",
+      "symbolic variable definition",
+      "correct connection"
+    ],
+    "pain_keywords": [
+      "OPC configuration confusion",
+      "inability to browse DB1",
+      "lack of documentation",
+      "difficult manual address input"
+    ],
+    "feature_keywords": [
+      "symbolic address entry",
+      "OPC variable mapping",
+      "DB address input",
+      "connection setup"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

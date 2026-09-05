@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "3031169058",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 240823998569132,
+      "user_name": "8j6K5aAccE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Hello programmers, I'm posting for the first time. I have a working PI control program on a [product_name] device that manages an analog output from 0 to 10 volts. I need to restrict the output between 2 and 5 volts. I've set up logic so when the output goes below 2 or above 5 volts, control is switched to the analog multiplexer. However, the PI controller still tries to reach up to 10 volts in the background. If conditions change, the controller must move from 10 volts back down, not from 5 volts, which causes delays I want to avoid. How can I set the PI controller to only regulate between 2 and 5 volts?"
+    },
+    {
+      "comment_id": 447606793532446,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "You can try the following: The controller can maintain its full range between 0 and 1000 units. Multiply the controller's output (0 - 1000) by 0.3, making the range 0 to 300. Then add 200 to this result. This way, you send a value between 200 and 500 (matching 2 to 5 volts) to the analog output."
+    },
+    {
+      "comment_id": 146689811825904,
+      "user_name": "8j6K5aAccE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "That solution works perfectly. Thanks a lot!"
+    },
+    {
+      "comment_id": 756067472023444,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Alternatively, you could use a second method..."
+    },
+    {
+      "comment_id": 232932958159505,
+      "user_name": "8j6K5aAccE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "That approach uses one fewer block. I'll keep the math instruction handy as a reminder of this technique."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users exchanged solutions on restricting a PI controller’s output voltage range in a [product_name] hardware and software environment. The discussion highlights that although limiting the output with external logic is possible, the internal PI controller state may still operate outside the defined boundaries, causing response delays when limits are relaxed. Proposed methods, such as output scaling, offered more predictable and manageable control performance.",
+    "user_expectations": "The user wants the PI controller to regulate solely within the 2 to 5 volt range so it never overshoots and always responds quickly within those set limits as conditions change.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise output control",
+      "responsive adjustment",
+      "voltage limiting"
+    ],
+    "pain_keywords": [
+      "overshoot",
+      "slow recovery",
+      "output limitation"
+    ],
+    "feature_keywords": [
+      "PI controller",
+      "analog output voltage range",
+      "output scaling",
+      "value limiting"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

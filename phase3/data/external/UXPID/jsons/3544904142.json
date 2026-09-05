@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "branch_id": "3544904142",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 696921128714507,
+      "user_name": "rOdK0b3T7E",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I am developing a program with two analog sensors and would appreciate some advice. I have a pressure sensor (0-10 bar, 4-20mA output) that I'll connect to the analog input (0-10V) using a 500 ohm resistor, resulting in 2-10V at the input. I want to display the pressure range (0-10 bar) on the screen. Are readings accurate with this connection, or should I use a [product_name] expansion module for 4-20mA signals? Additionally, I want to set a pressure threshold (e.g., 5 bar) on the screen. If the inverter signal drops below this value, a digital output activates, and when exceeded, it deactivates. I also plan to use a PT100 sensor and need a 0-10V converter. Should the converter's temperature range match the sensor's range? I'd like to see the temperature and configure a threshold (e.g., 90 degrees) to cut a digital output when exceeded."
+    },
+    {
+      "comment_id": 612041528931322,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Yes, converting a 4-20mA signal into 2-10V with a 500 ohm resistor is possible. For temperature, you can choose a converter with a measurement range suited to your needs—there are models that let you select the range."
+    },
+    {
+      "comment_id": 602426858744812,
+      "user_name": "rOdK0b3T7E",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Thanks for the quick response. I have another question regarding programming: When using a pressure sensor (4-20mA, converted with a 500 ohm resistor to 2-10V), how should I calculate the settings for analog input modules (like minimum/maximum range, gain, offset) if I change the pressure transducer's range to 0-50 bar?"
+    },
+    {
+      "comment_id": 266063259290905,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Every analog input on the [product_name] converts signals (0-10V, 0-20mA, 4-20mA, PT100) to 0-1000 units. For a 4-20mA sensor (or 2-10V), you can only use units 200-1000, since 0-200 units correspond to 0-4mA. To scale 800 usable units up to 1000, amplify the signal by 1.25 and apply an offset of -250. This means: 1000 units * 1.25 = 1250 units, offset -250 = range from -250 to 1000 units. 0 mA = -250 units, 4 mA = 0 units, 20 mA = 1000 units. On the [product_name] display, 0-1000 units (with two decimal places) map to 0.00-10.00 bar. So, for a 5 bar switching threshold, use input value 500—this equals 5.00 bar."
+    },
+    {
+      "comment_id": 656398797611860,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "From experience: Reading PT100 sensors directly with a basic 0-10V analog input involves a lot of effort, especially if your power supply isn't stable and resistor tolerances vary. Using a [product_name] RTD expansion unit for PT100 temperature measurement is much more reliable—just install, wire, and select PT100 in the function block. If you're installing a standalone PT100 sensor (for pipes or similar), this is easiest. Alternatively, a third-party temp/humidity unit with 0-10V output can work, especially for room air monitoring. Most pressure transducers allow you to select output as 0-10V or 4-20mA, so you may not need a 4-20mA expansion module. In general, avoid using external resistors where possible, as it complicates the setup and increases troubleshooting time. I do sometimes use resistors for monitoring supply voltage, which isn't natively supported by [product_name]."
+    },
+    {
+      "comment_id": 754103906628274,
+      "user_name": "rOdK0b3T7E",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hi again [user_name]. I followed your guidance on the pressure sensor with the 500 ohm resistor, and everything works perfectly. My question: Without the sensor connected, I see -2 bar on the [product_name] screen (similar to a broken sensor cable). When connected but inactive, the display shows 0 bar. Is there a way to trigger an error in the program when pressure drops below 0 bar, based on your suggestions?"
+    },
+    {
+      "comment_id": 343863548297730,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "0 mA corresponds to -250 units. On a scale from 0.00 to 10.00 bar, -250 units represent -2.50 bar, indicating a wire break."
+    },
+    {
+      "comment_id": 618118070088981,
+      "user_name": "Q5BYDx70aC",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "But doesn't the range with two decimal places go from 0.00 to 0.10?"
+    },
+    {
+      "comment_id": 390948137887861,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "No. For a 4-20mA sensor with a range of 0-10 bar and gain of 1.25 (1250 units), and an offset of -250 (range -250 to 1000 units), two decimal places correspond to -2.50 to 10.00 bar. Does that make sense?"
+    },
+    {
+      "comment_id": 419533823996787,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], here's an example for your reference."
+    },
+    {
+      "comment_id": 532387780011555,
+      "user_name": "Q5BYDx70aC",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Dear [user_name], I appreciate your clear explanation. I'm working to transform a 4-20mA analog signal into a 0-10V range, but need it mapped as shown in the attached document: 4mA equals 0m3/h, 20mA equals 12m3/h. I use an analog amplifier and a math instruction, but I'm not confident about the decimal accuracy. Thank you."
+    },
+    {
+      "comment_id": 556439447057782,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "1) If you convert 4-20mA through a 500 ohm resistor, you get 2-10V, not 0-10V. For 0-10V, you'd need 0-20mA. 2) See the attached document for correct amplifier settings for a 4-20mA sensor and a 0.00 to 12.00 m3 range (2 decimal places on the [product_name] display)."
+    },
+    {
+      "comment_id": 435663477242552,
+      "user_name": "Q5BYDx70aC",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thank you, [user_name]. But I'm curious: why select 4-20mA settings on the analog amplifier? Since we only use a 500 ohm resistor, the input is already a voltage signal, not requiring the expansion module."
+    },
+    {
+      "comment_id": 953548503249555,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Choosing the sensor type is just for parameterization—the default values are loaded into the amplifier for convenience. You could select 0-10V as the sensor type and manually calculate parameters. For 4-20mA, the [product_name] software does the math automatically—all you need is to enter the minimum and maximum values, and it calculates the gain and offset for you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are exchanging advice on how to connect and configure pressure and temperature sensors—including PT100—using [company_name] [product_name] modules and displays. Topics include signal conversion (current to voltage), programming for accurate input scaling, reliable sensor error detection (such as wire break alerts), and minimizing hardware complexity. Recommendations lean toward using dedicated expansion modules over custom resistor circuits to simplify setup and improve reliability, with emphasis on correct parameter mapping in the software.",
+    "user_expectations": "Users anticipate that the [product_name] hardware should accept analog sensor signals, accurately display measured values (pressure in bars, temperature in degrees), reliably detect sensor issues like wire breaks, and support configurable thresholds for output activation. They seek straightforward wiring and clear programming instructions without unnecessary complexity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "ease of setup",
+      "accurate sensor reading",
+      "threshold-based output",
+      "error detection",
+      "visualization"
+    ],
+    "pain_keywords": [
+      "complicated scaling",
+      "wiring complexity",
+      "sensor error handling",
+      "input conversion confusion"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "display configuration",
+      "threshold setpoint",
+      "error/wire-break detection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

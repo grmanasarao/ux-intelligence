@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "1993998848",
+    "thread_id": "4479534060",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 541297888516034,
+      "user_name": "GKOJUAIUh2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I developed a program for our packing machine that requires more than 24 inputs and 16 outputs. To achieve this, I used two [product_name] controllers, designating one as master and the other as slave. The master is set with IP address 192.168.0.1, while the slave is at 192.168.0.2. I created the program in [product_name] programming software [version_no] and utilized two basic modules of [version_no]. For remote control, I added an HMI (KTP 600 Mono PN) and configured it with [product_name] [version_no]. All devices are networked through a [product_name] network switch. The issue arises when I connect both master/slave controllers and HMI to the network using RJ45 cables. The slave device does not display any active inputs, outputs, or any other functions. However, if I disconnect the HMI from the network, all inputs and outputs on the slave work properly and I can observe them in the simulation software. Why does the slave controller stop functioning when the HMI is networked? I would appreciate assistance, as I am unable to activate the slave unit with the HMI connected."
+    },
+    {
+      "comment_id": 765493359044228,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hello, Based on your setup, you seem to want to display information from the slave device on the HMI. This isn’t feasible because the HMI requires a configured communication channel to access data. In this configuration, the slave only communicates with the master, and additional communication channels on the slave are not supported. I hope this clarifies the limitation."
+    },
+    {
+      "comment_id": 860255227837317,
+      "user_name": "GKOJUAIUh2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Thank you for your response. I don't want to display any slave information on the HMI—my goal is for the inputs and outputs assigned to the slave (e.g., NI1 and NQ1 for this program) to function correctly. None of the slave’s I/O are linked as tags in the HMI; all tags and functions are mapped to the master controller. How can I use the slave controller to increase inputs and outputs for the same program? Is this configuration possible? Please advise on a solution to operate with two [product_name] controllers and one HMI."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user tried to expand the input/output capabilities of a packing machine by using two [product_name] controllers in a master-slave arrangement with a single HMI, programmed using [product_name] development software and HMI configuration tools. Upon integrating these devices into a shared network, the slave controller failed to function properly when the HMI was connected. The discussion highlighted network communication limitations—specifically, the HMI can only access data via the master device, not directly from the slave. This constraint makes it difficult to scale the system’s I/O without losing the function of the slave controller.",
+    "user_expectations": "The user expects to increase input/output capacity by using two [product_name] devices, while maintaining remote control and monitoring through a single HMI. They anticipate seamless integration and operation across all devices without impairing the slave controller's I/O functions.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "increase I/O",
+      "remote control",
+      "seamless network integration"
+    ],
+    "pain_keywords": [
+      "network communication failure",
+      "slave I/O inactive",
+      "multi-device configuration limitation"
+    ],
+    "feature_keywords": [
+      "networked I/O expansion",
+      "master/slave communication",
+      "HMI integration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "29": "Scalability Limitations"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "branch_id": "1067464491",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 429131398123292,
+      "user_name": "vISplQQeV7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm having trouble setting up remote DNS for the [product_name]. The router’s port forwarding for 8080 is already used by the Genset. I tried changing different TCP port numbers, but I still can't log in. The manual says to set up port 8080 for the [product_name], but it's currently occupied. Here are the router configuration details: Router: 192.168.1.1 Genset: 192.168.1.2, TCP 80, 8080, Active TouchPanel: 192.168.1.49, TCP 89, 89, Active [product_name] Main: 192.168.1.50, TCP 90, 90, Active [product_name] Power: 192.168.1.51, TCP 91, 91, Active How should I set up the TCP ports on the router for logging in and updating both [product_name] units and the HMI touch panel? Also, I have to compliment [company_name] because the [product_name] and HMI setup is fantastic! I'm very satisfied using only [company_name] controllers. Here’s a demo video showing the new large hydrogen generator, fully controlled by two [product_name] units and HMIs: [url] Best regards, hoping for suggestions to resolve remote login."
+    },
+    {
+      "comment_id": 776256222872358,
+      "user_name": "vISplQQeV7",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "I've resolved the TCP port issue on the router, and now I can connect to every device with these settings: Genset: 192.168.1.2, TCP 80, 8080, Active TouchPanel: 192.168.1.49, TCP 80, 8083, Active [product_name] Main: 192.168.1.50, TCP 80, 8082, Active [product_name] Power: 192.168.1.51, TCP 80, 8081, Active I enabled remote connection, web server, and the [product_name] App in programming. The test connection in [product_name] software shows green, but I can’t read any more information from the [product_name] units or update the software. The web server lets me view the remote [product_name] display on both devices — that works fine. However, the [product_name] App consistently fails to connect (error transferring [url] - server replied: Not Found). Can anyone help me identify where I went wrong? Thank you."
+    },
+    {
+      "comment_id": 974109816174113,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello, The [product_name] manual explains port 8080 is used for [product_name] programming software, browsers, and the app. Here’s how to check if your settings are correct: directly connect the [product_name] (no other devices) by cable to your PC and open [product_name] programming software. - Click upload and configure DNDNS - Target device: <IP of [product_name]> :8080 Now, the [product_name] software uses port 8080 for programming transfers, similar to remote connection. If this works, your [product_name] settings are correct and the problem is located elsewhere. Hope this helps."
+    },
+    {
+      "comment_id": 497041671042723,
+      "user_name": "vISplQQeV7",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], I tried your test with IP: xxxx:8080 and direct RJ45 cable, PC to [product_name]. Uploading is a bit slower, but it works. However, when connecting via DNS, the test connection recognizes the [product_name], but asking for any device information causes the connection popup to stay active, and there’s no result. Uploading new software prompts for connection, which works, then again the same popup appears with no further progress. The web server works perfectly, but the [product_name] App cannot connect (server not found). On the router, I’ve opened port forwarding for IP: xxxxxxx:8080 and IP: xxxxxx:8081, and with the web server I connect to both [product_name] units. For router internal ports, I leave it as 80; when I set 8080, nothing works at all. Any suggestions for connecting via DNS over the internet?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users can operate [product_name] controllers and HMIs remotely using the web server with adjusted port settings. However, remote programming and app connections are problematic if port 8080 is unavailable or replaced. While web access remains reliable after changing ports, uploading, device information access, and app usage are unsuccessful unless the default port is maintained, as specified in documentation. This leads to confusion about flexible port configuration, frustration over limited remote functionality, and inconsistent experiences outside web server control.",
+    "user_expectations": "Users expect to remotely program, monitor, and update both [product_name] units and the HMI through different tools such as the programming software, web server, and app, regardless of the specific port configuration. They assume port changes should not interfere with full device functionality.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "programming access",
+      "web monitoring",
+      "complete device management"
+    ],
+    "pain_keywords": [
+      "port conflict",
+      "remote programming failure",
+      "inconsistent connectivity",
+      "limited app support"
+    ],
+    "feature_keywords": [
+      "remote login",
+      "web server",
+      "port forwarding",
+      "app connectivity",
+      "remote programming"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "28": "Installation Flexibility"
+  }
+}

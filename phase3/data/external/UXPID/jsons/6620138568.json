@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "6620138568",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 312952051623596,
+      "user_name": "eLjgUnrlqK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I need some assistance. I am using a [product_name] RTD PT100 module with two PT100 sensors (4-wire versions) and it worked fine previously. After replacing the sensors with similar 4-wire PT100 ones, both sensors consistently report the lowest value of -50°C on the [product_name]. I verified the disconnected resistance (around 104 ohms across ground to signal wires; 1 ohm between signal wires), which seems correct. For connecting a 4-wire sensor to a 3-wire controller, I linked both ground wires and attached the two signal wires as done before. The software configuration has not been changed. Any suggestions?"
+    },
+    {
+      "comment_id": 355760597534860,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Analog inputs on an extension module can be mapped differently, such as starting at Ai1, Ai3, or Ai5, depending on the type of [product_name] and how the software is set up. Try experimenting with different analog inputs. Note: true 4-wire PT100 or PT1000 sensors are not supported by [product_name]; only 2-wire or (preferably) 3-wire configurations are compatible. Leaving one wire unconnected may resolve the issue."
+    },
+    {
+      "comment_id": 420413693866311,
+      "user_name": "eLjgUnrlqK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], I have actually connected just three wires from the sensor, joining the two ground wires together as advised. My temperature inputs are connected to Ai3 and Ai4. I’m starting to suspect the module itself may be faulty."
+    },
+    {
+      "comment_id": 556197809121132,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "There is a status LED on the extension module. It should be green when the module is working correctly, and red if there is a problem. Note that when powering on, the LED will briefly show red. Also, have you connected 12V or 24V DC to the extension module?"
+    },
+    {
+      "comment_id": 498219773495530,
+      "user_name": "eLjgUnrlqK",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "The LED shows green and the system operates on 24V DC, with six modules in total."
+    },
+    {
+      "comment_id": 688899434935746,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Please share your program so we can review it."
+    },
+    {
+      "comment_id": 495273665395033,
+      "user_name": "eLjgUnrlqK",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Attached are both the program and an image displaying the operation. You can see that Ai3 and Ai4 are reading as zero."
+    },
+    {
+      "comment_id": 300283941951965,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hi, the [product_name] AM2 RTD will detect which sensor (PT100 or PT1000) is connected on each channel at power on. Try disconnecting all other expansion modules, leaving only the [product_name] basic module and the AM2 RTD module. Ensure any capacitors used for analog signal stabilization are also disconnected. Then power on and observe what happens. What temperature should be read at power on?"
+    },
+    {
+      "comment_id": 731580107495993,
+      "user_name": "eLjgUnrlqK",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], At power on, I expect around 10–12°C, just as before. So you recommend turning off all [product_name] modules, disconnecting the RTD module, then reconnecting and retrying? I don't use any capacitors."
+    },
+    {
+      "comment_id": 165054231540264,
+      "user_name": "eLjgUnrlqK",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hi [user_name], I tried your suggestion, disconnecting and restarting, but the issue persists."
+    },
+    {
+      "comment_id": 116790023279719,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Check your program '050312': B010, B002, and B051 all have no sensor selected. This program will not process analog values correctly. Set the sensors in B010, B002, and B051 to the appropriate type."
+    },
+    {
+      "comment_id": 196596488239268,
+      "user_name": "eLjgUnrlqK",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "If set to 'no sensor', the 0–1000 raw value just passes through the amplifier function. When you select PT100/1000, it scales the range from 0–1000 to –500 up to 2000."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing unreliable readings from a [product_name] analog expansion module when interfacing 4-wire PT100 sensors adapted for 3-wire input. Even with correct wiring and a normal module status indicator, temperature inputs remain stuck at the minimum reading (–50°C), indicating potential compatibility or detection problems. Key pain points include insufficient feedback on sensor wiring/compatibility issues and the complexity of setting up correct analog input mapping for extension modules.",
+    "user_expectations": "The user expects to be able to swap one set of 4-wire PT100 sensors for another without needing configuration changes, and for the [product_name] analog module to automatically detect and accurately report temperature readings as before.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable sensor readings",
+      "easy hardware swaps",
+      "minimal reconfiguration"
+    ],
+    "pain_keywords": [
+      "incorrect temperature readings",
+      "compatibility confusion",
+      "lack of error diagnostics"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "sensor auto-detection",
+      "3-wire vs 4-wire PT100 compatibility",
+      "input channel mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "22": "Usability Improvement Suggestions"
+  }
+}

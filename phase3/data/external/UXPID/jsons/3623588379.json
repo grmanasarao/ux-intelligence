@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "3623588379",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 596524396690773,
+      "user_name": "utGWhpJzyX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hello everyone! We received a project machine from another company featuring a [product_name] controller ([article_no]) and two expansion modules ([article_no]). In this setup, there are 24 inputs, 4 power outputs on the controller, and 16 outputs on the expansions. All inputs and outputs appear active in online mode, but when measuring at the outputs, there is no voltage on any of them. Even the first four outputs do not close when tested. The machine functioned before at the other company, but the program was lost due to long inactivity. Does anyone have suggestions for the cause of this problem? Kindest regards, [user_name]"
+    },
+    {
+      "comment_id": 165125958775652,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "The main module has relay outputs, while the expansion modules use transistor outputs. It's hard to offer advice without being physically present at the hardware."
+    },
+    {
+      "comment_id": 474583457471078,
+      "user_name": "utGWhpJzyX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Yes, the first four outputs are relay-type, but when I measure across Q1, the relay doesn't close even when set high in the program, same with Q3 and Q4."
+    },
+    {
+      "comment_id": 799965934626131,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "As mentioned, it's challenging to assess such cases remotely. Are the terminals covered or wired correctly? If not, try tightening the terminals, as loose connections may affect measurements."
+    },
+    {
+      "comment_id": 426004864646576,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "If the date and time are shown on the display and the controller is running: Use the left or right cursor to view actual inputs, outputs, and markers on the [product_name] device. This shows which signals are active in the program and the status of all inputs. If you're unable to share the program, further help might be limited."
+    },
+    {
+      "comment_id": 784703077176065,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], the user [user_name] wrote:"
+    },
+    {
+      "comment_id": 681102154455581,
+      "user_name": "utGWhpJzyX",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "@ [user_name] I understand it's difficult, but maybe someone knows the cause. @ [user_name] Is the date and time significant? The device is running, and I see the program working in online mode (like the glasses in [product_name]), with inputs and outputs activating. I can't show you the program right now as it's at my workplace, but it's simple: when I1 to I21 are high, output Q5 activates; if not and I22 is high, Q6 activates; if Q6 stays high for 5 seconds, Q7 activates; Q7 can be reset with I22. However, even with a test where I forced every output, none worked."
+    },
+    {
+      "comment_id": 349535950696117,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Try creating a new simple program that turns all outputs ON and download it to the device. If that still doesn't work, your [product_name] module may be defective."
+    },
+    {
+      "comment_id": 257840706739960,
+      "user_name": "utGWhpJzyX",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thanks everyone for your help! The issue was the clock wasn't set."
+    },
+    {
+      "comment_id": 466736024335776,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "It's surprising to hear that digital outputs wouldn't switch to relay when the device's internal clock isn't set. Based on your description, you were in online mode and saw outputs activate. I also have an older [version_no], and the relays switch regardless of whether the internal clock is set."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced an issue where outputs on both relay and transistor modules of a [product_name] controller—including expansions—would not activate, even though the logic and output states appeared correct in online mode. The root of the problem was traced to the device's internal clock not being configured, which kept outputs from working despite correct program logic being shown. This highlights a disconnect between user feedback (visible online status) and actual hardware state—since a required but hidden setup (the clock) led to costly troubleshooting and confusion.",
+    "user_expectations": "Users expect physical outputs to function if logic states and outputs look correct in online mode, without needing extra and undocumented steps such as setting up the internal clock.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "correct output activation",
+      "straightforward troubleshooting",
+      "status transparency"
+    ],
+    "pain_keywords": [
+      "outputs not working",
+      "misleading system status",
+      "hidden dependencies",
+      "lack of error/warning"
+    ],
+    "feature_keywords": [
+      "hardware outputs",
+      "relay outputs",
+      "transistor outputs",
+      "internal clock",
+      "online mode display"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

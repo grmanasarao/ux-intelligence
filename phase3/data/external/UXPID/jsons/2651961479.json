@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "branch_id": "2651961479",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 958648009525657,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello, I'm interested in calculating the cumulative average temperature monitored through an analog input. Initially, I checked the built-in average function, but it requires a fixed monitoring period to be set ahead of time, which I don’t know. My goal is to monitor the average temperature only during operational cycles of a heating system (excluding pauses), but these periods vary each time. Sometimes the cycle is 20 minutes, sometimes 50, and pauses also change. The calculated average should cover all periods until a reset is triggered, not just one cycle. I think a program that uses a clock to calculate the average every minute could be a solution, but I’m unsure how to implement it on [product_name] hardware. Any suggestions would be appreciated."
+    },
+    {
+      "comment_id": 650921614494586,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "It’s not possible to directly transfer all functions of an S7 function block into [product_name] programming. Also, I’m not clear why the average shouldn’t be calculated continuously. The logic behind this isn’t obvious to me."
+    },
+    {
+      "comment_id": 643675207246243,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Perhaps this is similar to what you’re looking for."
+    },
+    {
+      "comment_id": 699301069287488,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Continuous calculation makes sense, but since the sample time isn’t known beforehand, I chose 1 minute as an interval. However, I need a cumulative average covering entire periods (e.g., 20 min, 45 min, or any variable length) and across multiple periods until reset. Regarding your program: I’m having trouble understanding it enough to test effectively. I’ve modified it slightly to better fit my needs (please see version 2). Could you clarify a few things: - Where can I check the average output? Is it B005 Aq? - Is sampling every minute? How can I change it, if needed? - Is there a way to reset the calculated average and start over? Testing as follows, I received unexpected results: - First minute: Set A1 to -10°C (output B005Aq displays -10° as expected) - Second minute: Quickly set A1 to +10°C (after one more minute, expected average for both minutes is 0, but display shows 10°) It seems to only calculate the last minute’s value, not cumulative average. It behaves like the regular average block. I added B007 for comparison. For I1 (simulating active period): If set to zero (pause), the average should freeze until a new active period starts. It doesn’t seem to work this way; the output keeps updating, which is problematic. Maybe I just don’t fully understand how to use the program."
+    },
+    {
+      "comment_id": 128277596415271,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Maybe this chart showing the temperature over various ON periods will clarify: I want the average to include all ON cycles, not just the last minute."
+    },
+    {
+      "comment_id": 873477983055250,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I misunderstood your requirements. You may need to use another PLC for this task. The reference to S7 and the FB works in other PLCs, but not in [product_name], since [product_name] lacks data block memory. Based on this, I won’t provide a full explanation. In my view, some users expect too much from [product_name]. [company_name] even categorizes the device as a programmable relay, not a full PLC like the S7."
+    },
+    {
+      "comment_id": 168760366357301,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "[user_name], calculating an average from a limited number of values isn't difficult. Even S7 FB average can’t handle infinite samples because you must sum all values (X1, X2, X3…Xn) and divide by n, which requires storage space for each value. Depending on available resources, handling 50 values may be possible (using 50 Min/Max blocks plus arithmetic blocks). Check the attachment for a sample using 9 blocks and arithmetic operations. The computation is split—groups of three need one arithmetic block, then a final block combines these. Supporting more samples means a larger, more complex program. The provided example uses a pulse generator for simulation; adjust its timing to change sample intervals (e.g., to 1 minute). You can expand the Min/Max chain depending on available resources. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 848510744275869,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Thanks, I didn’t expect this to be so complex or demanding in terms of resources. Ideally, I'd like to average at least one ON cycle, even if it lasts anywhere between 20 to 180 minutes. This only seems possible by changing the average sampling interval to 20 minutes instead of 1 minute in your example. I asked a friend (an S7 programmer) for advice; he proposed an S7 block-based solution, but I wasn’t able to adapt it to [product_name], hence my question here. Please let me know if the concept is correct and if it can be implemented with [product_name]. (Assumed network I/O would behave similarly to data blocks in S7) P.S. He suggested triggering samples based on value changes rather than using a clock—unsure which approach would be best for processing."
+    },
+    {
+      "comment_id": 579897710987965,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "There are two general methods for calculating the arithmetic average. The first is to store all values, sum them, and divide by the count. There’s also a second method, usable in S7: accumulate values directly and track a counter. This method doesn’t work in [product_name] due to 16-bit integer limits (-32768 to +32767). Some tricks might enable higher values (like 32-bit), reducing block usage, but that gets complex. For that, I’d need details about your value range: e.g., -100 to +100, -1000 to +1000, etc. If you’re not committed to [product_name], it’s better to use a logic controller supporting 32-bit integers instead. You can add larger values many times before overflow, unlike in [product_name]. Also, check if arithmetic average is the correct calculation type for your needs—Wikipedia lists arithmetic, geometric, harmonic averages... Best regards, [user_name]"
+    },
+    {
+      "comment_id": 463020978004076,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Yes, I understand the difference. Regarding values: after 0-10V conversion, max readings are -20°C to 60°C, but realistically the heating system operates between 20°C and 55°C. Monitoring and analysis are important because output temperature affects heat pump efficiency. I’ll review the explanation of averaging. Correction: 20.0 to 55.0 is just a display format (one decimal point); actual calculated values range from 200 to 550."
+    },
+    {
+      "comment_id": 806353472066845,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "My questions relate to possible solution options. I once assisted someone in another forum to build an energy meter by accumulating power in an arithmetic block every second. When the block exceeded 3600, I increased a counter and subtracted 3600, allowing precise kWh counting. A similar method could work for you, summing values every minute. The challenge is dividing the sum by n (number of samples/minutes), since it’s split across counters and arithmetic blocks. You’ll need to consider overflow or scheduled resets (daily, monthly, yearly). Is your range -20°C to +60°C as whole numbers or with decimal? [product_name] only uses integer values. So there’s work involved if you want to use [product_name]. Best regards, [user_name] P.S. For monitoring, you could save temperature readings every minute to an SD card, then use Excel for later analysis."
+    },
+    {
+      "comment_id": 806678392166619,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "In practice, the integer values will be from 200 to 550."
+    },
+    {
+      "comment_id": 588043951207160,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "See attachment for a possible solution and try to follow the basic principle; comments are included throughout. There may be some errors in the program. After startup, the average may be inaccurate because the counter begins at zero. You may need to add options like reset or manual adjustment in the next step once you’ve tested this version. The timer is configured in B002 (sum of TH and TL determines the interval). For simulation, you can change TL to adjust the timing. When the sum in the arithmetic block surpasses 9999, 10000 is subtracted, and the counter increases accordingly. Both counters must stay below 32767, so this version works only for a 'short' period: 32767 / 24h / 60min = about 22.7 days. The value counter won’t overflow in that time with your max value of 550. Longer periods may be possible with different setups, but this is what I can provide now. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 603278332627397,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Thank you very much for working on this over the weekend. If I follow correctly, this should operate for about 22.7 days. Is this calculation based on the maximum temperature of 550? If actual temperatures are lower, does the period increase, or is that unrelated? What happens after 22.7 days—does the output freeze? A notification when nearing the system’s resource limit would be helpful, so the calculation could be reset manually. I’ll add this section to the program and test as suggested with a data logger and Excel. It may take a few days. Thank you again."
+    },
+    {
+      "comment_id": 578268560215149,
+      "user_name": "8RYb477Ela",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Certainly, a more comfortable solution could use 50-60 blocks, but the device might only allow 30 blocks total. You need to fully study my description: the counter for total measurements will surpass 32767; beyond this, arithmetic operations become inaccurate. You can use the counter output as an indicator; when approaching 32000, you have time to reset values and start anew. Calculate the measurement durations yourself. For 1-minute intervals, divide 32767 by 60 to get hours, then by 24 for days. Longer intervals (e.g., every 2 minutes) extend the usable period accordingly. Best regards, [user_name] P.S. In the program, the measurement counter only increases when the function is active (e.g., using I1). The period depends on the system’s duty cycle. If activation is only 10%, the period may last ten times longer."
+    },
+    {
+      "comment_id": 397679399159268,
+      "user_name": "k2GXUNpGKe",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Understood. With normal operation around 17-20 hours per day, I may be able to reach a month before needing a reset."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users attempting to implement cumulative and dynamic temperature averaging using [product_name] hardware and programming found significant hurdles, particularly with unpredictable cycle durations, limited memory, and 16-bit integer restrictions. The inability to adapt averaging intervals and insufficient storage makes complex analytics impractical, and attempts to port solutions from advanced PLCs like S7 revealed key hardware limitations. Quickly, resource constraints and block limits set a boundary for advanced functionality, confirming that [product_name] is sized only for simpler control tasks.",
+    "user_expectations": "Users expect [product_name] hardware and its software environment to support cumulative averaging over variable, unpredictable intervals, with simple reset options and flexible sampling times. They hope all active periods are considered in the calculation, ignoring idle time, and that this can be programmed in a user-friendly way.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate ongoing average",
+      "data monitoring",
+      "statistical analysis of heating cycles"
+    ],
+    "pain_keywords": [
+      "memory limitation",
+      "fixed averaging period",
+      "inflexible block functions",
+      "resource constraints",
+      "no support for cumulative calculation"
+    ],
+    "feature_keywords": [
+      "average value computation",
+      "programmable sampling time",
+      "resettable calculation",
+      "memory/data storage",
+      "analogue input handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "13": "Integration Limitations"
+  }
+}

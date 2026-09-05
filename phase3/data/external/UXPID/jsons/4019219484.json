@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "branch_id": "4019219484",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 302996286726048,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The Modbus protocol suddenly stopped working. Previous tests were successful, but recent tests with the CR6 resulted in failure. The issue isn't clear—perhaps it's related to register size or another factor. The Modbus connection status now shows 'disconnected' and I’m unsure how to resolve this. When using the Modbus Server software (which used to work), the [product_name] device no longer reads any data from the server. I verified with Modbus Poll software and it worked fine (see attachment). IP settings were checked across the computer, [product_name], and LSC—all seem correct (see attachments). The [product_name] displays a disconnected message (see attachment, Spanish language). I also performed a network ping test between the computer and [product_name] (see attachment). Lastly, the tested program was previously shared in this forum (see Modbus-Client attachment), where [product_name] acts as client and the computer simulates the CR6 as the server."
+    },
+    {
+      "comment_id": 890058440637860,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Listing of attachments."
+    },
+    {
+      "comment_id": 831975636508164,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "In your poll test, the client ID is set to 1, but it looks like the Modbus client in [product_name] uses ID 255. Change the ID in [product_name] to 1 and try again. You'll find the IDs at the end of the lines mapping HR numbers to VW numbers. Regards, [user_name]"
+    },
+    {
+      "comment_id": 534225893916612,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thanks for the fast response. I already tried your suggestion but didn’t get results. The 'Ignore Unit ID' is selected in the Modbus Slave software. Changing IDs as you mentioned still led to no communication. Could the issue be with [product_name]? The disconnected message continues to show on its display."
+    },
+    {
+      "comment_id": 308163635536320,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Did you select 192.168.0.4 for the server during setup? It should probably be 192.168.0.3 (the [product_name] IP). In [product_name]'s Modbus client, try entering your PC's IP address where the server runs. You could also try using 'any address'. Regards, [user_name]"
+    },
+    {
+      "comment_id": 945724366658048,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I tried all three options you suggested. First, setting the same address for both the PC and [product_name] caused an error. Then, using a fixed IP (192.168.0.4) on the computer—as required by Modbus Slave—was already in place from the start. Finally, with 'any address', [product_name] didn’t seem to know where to get data. When I tested [product_name] as slave and the computer as master, using Modbus Poll, it worked well. So, ethernet and cables aren’t the problem. How do I confirm if [product_name] working as Master is actually sending requests? Because the display still shows 'disconnected'."
+    },
+    {
+      "comment_id": 562880535954827,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "That is odd—your Modbus server should recognize its IP? Maybe your server software has settings I can't see. You could test with a different Modbus server (see attached link). I’ve run my tests with [product_name] and it works. There’s no installer—just launch the .exe file. If 'show protocol information' is checked, you’ll see the messages on screen. You can select and test coils, input registers, and holding registers. Check your values and see how they display on [product_name]. I’ve included an example screenshot. Regards, [user_name]"
+    },
+    {
+      "comment_id": 750272476607232,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "[user_name], I'm installing the Java Environment to try the server software you provided. If possible, please try the program I’m using—it's worked before and I have a video showing it functioning. Let me know if you want to see it."
+    },
+    {
+      "comment_id": 947229991348615,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "How do I run the file you sent? Since it’s a .jar file, I assumed Java was needed, but after installing Java and double-clicking the file, nothing happens."
+    },
+    {
+      "comment_id": 369451726899040,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I found and tried an older version of the EasyModbus Server (2.4). It didn't connect (see attachment), although Modbus Poll connects internally on the computer but not to [product_name]. I suspect the issue is with [product_name] not making requests, as it always appears disconnected and isn’t performing any actions. How do I verify this? Should I reset it to factory settings? Could you provide an example setup for [product_name] as a master? I’d appreciate a fresh configuration to test. Thank you."
+    },
+    {
+      "comment_id": 127161445987229,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Sorry about the Java version confusion; there’s also a .net version, but it looks like you found it. I prefer not to install additional Modbus simulators—your program seems to have a 10-minute limit before needing a license, maybe that’s causing problems? You don’t need a factory reset, just upload a new program to [product_name] with the correct settings. Double-check all IP addresses and subnet masks match. In your last screenshot, I saw 192.168.1.4, but it should be 192.168.0.4. For your own example, connect NAI1 (VW0) to an analog amplifier with an analog flag, add a Modbus client in Ethernet settings, transfer HR1 to VW0 with the correct direction, set the server’s IP address, and use the same unit ID and port (typically 502). You could also try alternate ports (503, 504, etc.). My server simulator runs fine with this setup. Regards, [user_name]"
+    },
+    {
+      "comment_id": 266721823068382,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "[user_name], I performed a new test as per your guidance (see attachment). I created a basic setup with [product_name] as server and the PC as client. The computer’s IP is 192.168.0.4; [product_name] is 192.168.0.2, and both use the same subnet mask. I used the program you recommended and kept the port at 502. Still, there’s no connection. Could you test this setup on your [product_name]? I've attached an image of the [product_name]'s LCD saying MODBUS is Disconnected. Should the local and remote ports be the same, and could that be the issue? I’m stumped!"
+    },
+    {
+      "comment_id": 742657043792860,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I tested your program on my [product_name] with no issues, changing just the IP addresses for my hardware and removing the gateway (not necessary on the same subnet). Is your [product_name]-PC link direct or via router? I typically use a router and leave my PC’s DHCP IP unchanged to maintain internet access, with [product_name] set to a fixed IP outside the DHCP range—this configuration works for me. Do you have another [product_name] device or a different PC to test other setups? Can you try with or without a router and swap the patch cable? See attached screenshot of my test. Regards, [user_name]"
+    },
+    {
+      "comment_id": 905487981107697,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Sounds like [product_name] could be the issue, since you’ve tested with another PC and swapped cables with no change. You haven’t tried using a router yet—maybe test that tomorrow. Unfortunately, without another [product_name] device, troubleshooting is limited. I don’t understand why [product_name] functions as server but not as client—the display stays disconnected and polling doesn't occur. I’m not sure how to change this."
+    },
+    {
+      "comment_id": 486568570459692,
+      "user_name": "8RYb477Ela",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Which exact [product_name] model do you use, including order number and firmware version?"
+    },
+    {
+      "comment_id": 528860023918628,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "This is my model."
+    },
+    {
+      "comment_id": 514693876988632,
+      "user_name": "8RYb477Ela",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Consider updating the firmware to version 1.82.02 for the latest release. My test device uses 1.82.01 and it works without problems. Double-check the entire [product_name] menu for unexpected or mismatched settings. Did you remove the gateway entry (unneeded on a single subnet)? Have you tried a port other than 502? Beyond that, I’m not sure what else to suggest. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user consistently faces challenges restoring Modbus communication between the [product_name] hardware acting as a client and PC-based server software, despite prior success. Alternative setups (with [product_name] as slave and PC as master) work as expected, narrowing the communication issue to [product_name] in master mode. The 'disconnected' status persists on [product_name]'s display, causing doubts about its ability to make client requests and overall device health.",
+    "user_expectations": "The user expects [product_name] to reliably establish and display an active Modbus connection in client mode after having worked before, with clear feedback on its display. Additionally, the user looks for ways to debug and verify whether [product_name] is generating Modbus requests as a client.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable Modbus connection",
+      "accurate status feedback",
+      "troubleshooting capability"
+    ],
+    "pain_keywords": [
+      "disconnected status",
+      "no communication",
+      "ambiguous diagnostics"
+    ],
+    "feature_keywords": [
+      "Modbus client",
+      "connection status display",
+      "network configuration",
+      "diagnostic feedback"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

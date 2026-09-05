@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "3630098083",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 497872095494150,
+      "user_name": "drf7jObOL3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "I'm using a modbus-compatible device (arduino board) on a TCP/IP network. Everything works well, and I can read a remote register from the [product_name] continuously. The issue is that the remote register is a 16-bit counter displayed on the [product_name] operator interface. While the counter updates as expected, disconnecting the network cable from the remote device causes the display on the [product_name] to freeze, with no indication of connection loss or timeout. As a result, it's unclear whether the variable has stopped or if the connection is down. This makes supervision difficult, since it's crucial to know whether the value being monitored is still live. Is there a way in the [product_name] diagram to identify connection issues with a remote modbus device?"
+    },
+    {
+      "comment_id": 460482142714759,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "It's possible to use a network input as a diagnostic signal."
+    },
+    {
+      "comment_id": 925624690222326,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Alternatively, you can implement a life bit between the [product_name] and the Arduino board, provided the Arduino can send a status bit back to the [product_name]. By setting up an asynchronous pulse generator (for example, 2 seconds on and 2 seconds off), the Arduino returns the status of this bit to the [product_name], which reads it using a network input. In the [product_name], you then monitor the network input; if the signal remains high or low for longer than the pulse interval, this indicates a connection problem."
+    },
+    {
+      "comment_id": 879109569199980,
+      "user_name": "drf7jObOL3",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "I've tried using the network input approach and it works well when the [product_name]'s connection is interrupted (for example, with the cable disconnected at its end). However, if the connection breaks at the remote device, the diagnostic input does not trigger, and analog network inputs reset to zero after around 10 seconds. When this happens, the network input display remains frozen. A practical solution is to set up a remote register that continuously changes as a heartbeat, and have the [product_name] monitor it for changes, raising an error if updates stop. This method works effectively."
+    },
+    {
+      "comment_id": 480756512492529,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "That’s the same method I was describing."
+    },
+    {
+      "comment_id": 171371045656860,
+      "user_name": "drf7jObOL3",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "True, but you don’t necessarily need to set an output to the Arduino just to get a response. I've programmed the Arduino to toggle the register continuously, so the [product_name] only needs to watch for toggling—no additional output required."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered difficulty detecting Modbus TCP/IP communication loss between a [product_name] and an Arduino-based device. The main usability issue is that the [product_name] doesn't alert users when it loses connection to a remote register, causing the display value to freeze and leading to challenges in supervising processes. Users discussed using a heartbeat (life-bit) mechanism for more reliable connection monitoring.",
+    "user_expectations": "Users expect the [product_name] to provide clear notifications when connection to the Modbus device is lost or when a remote variable stops updating, to enable effective process supervision.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic connection monitoring",
+      "real-time supervision",
+      "remote status reliability"
+    ],
+    "pain_keywords": [
+      "no connection loss notification",
+      "value freeze",
+      "no error detection",
+      "unreliable supervision"
+    ],
+    "feature_keywords": [
+      "diagnostics",
+      "network input",
+      "heartbeat monitoring",
+      "connection status error"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

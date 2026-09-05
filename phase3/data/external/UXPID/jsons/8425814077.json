@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "branch_id": "8425814077",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 265342315723116,
+      "user_name": "2weDt2z6xB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "I've been troubleshooting a [product_name] project for several days. I'm using a [product_name] communication module to exchange data between KNX and [product_name]. While basic operations are working, whenever I upload a new program diagram to the [product_name], the data previously stored in memory flags (which were set by the communication module) gets lost. Switching to variable memory did not solve the issue; after transferring a new diagram, some states in those memory positions are still reset unexpectedly. For example, the bit that tracks the pool cover position set by the communication module sometimes resets to 0 after a new program is uploaded, even though the value remains 1 on KNX. Is there a better approach for managing the two data points—pool cover position and user input (open/close)—to reliably produce the output signal as in my diagram?"
+    },
+    {
+      "comment_id": 704721975385160,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "The main issue here is that both variable memory and flags in [product_name] are not persistent. When you transfer and start a new program, all VM memory bits and flags revert to zero. I'm not familiar with the specific KNX details or whether signals sent to the communication module can be configured to have dynamic or static behavior."
+    },
+    {
+      "comment_id": 655628381469061,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Hello, I'm fairly sure KNX works by sending telegrams based on its configuration. For instance, a KNX button only sends a telegram when pressed. If you download a new program to [product_name], KNX does not transmit a telegram, and previous telegram statuses are reset. Try power cycling [product_name] and the communication module—this could trigger a refresh of the latest KNX telegrams."
+    },
+    {
+      "comment_id": 703631696619768,
+      "user_name": "2weDt2z6xB",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Thanks for the clarification and reference image. Does this mean that when [product_name] stops and starts, the flags and VM memory are retained, but when uploading a new diagram and restarting, all flags and VM are reset?"
+    },
+    {
+      "comment_id": 669972496675098,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Yes, that's correct."
+    },
+    {
+      "comment_id": 245282900390405,
+      "user_name": "2weDt2z6xB",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "This makes sense now. I checked the configuration in the communication module and ETS/KNX, and by default the channels aren't set with the ETS update flag. Once I enabled the update flag, when a new diagram is uploaded and [product_name] stops and starts, the communication module sends a read request to the KNX group, and the pool cover sensor responds. With the update flag active, the module writes the received value back to [product_name], keeping it updated."
+    },
+    {
+      "comment_id": 558862532831557,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "So, has your issue now been resolved?"
+    },
+    {
+      "comment_id": 940473366656836,
+      "user_name": "2weDt2z6xB",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "This brings up another challenge: Is there any way to store or retain data solely within [product_name]? For instance, the user input (open/close) is saved in variable memory in the diagram. If it is set to OPEN and the pool cover sensor confirms OPEN, but [product_name] is reset for a new program upload, the logic assumes the user input defaults to CLOSED. Since KNX/ETS can't respond as the pool sensor does (it's just a telegram group meant for sending data to [product_name]), this doesn't solve the issue."
+    },
+    {
+      "comment_id": 523143616393109,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "After transferring a new program to [product_name], the system performs an absolute cold start, meaning no state is retained. Even latching relays with retentivity set lose their state; they revert to zero after a program transfer and a restart of [product_name]."
+    },
+    {
+      "comment_id": 976164443751620,
+      "user_name": "2weDt2z6xB",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "So, is there a method within [product_name] to act only on signal edges—like when the value transitions from LOW to HIGH? That way, I could bypass this issue. I tried using the edge AND function combined with a latching relay; is this an appropriate solution?"
+    },
+    {
+      "comment_id": 355215845794998,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "No, that's not quite right. When you use a latching relay and set its retentivity, it retains its state only during a power loss or stop condition. However, transferring a new or modified program to [product_name] followed by a restart triggers a cold start, resetting the relay regardless of its retentivity setting."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing persistent loss of memory state in [product_name], both for variable memory and flags, whenever a new program diagram is transferred. This interrupts automation tasks like tracking pool cover position and user inputs. Though integration with KNX generally works, memory elements lose state after a program upload, a problem present even with retentive relays, revealing a fundamental limitation in [product_name]'s data retention after cold starts or program transfers.",
+    "user_expectations": "Users expect [product_name] devices to retain or restore memory states for flags and variable memory after program uploads and cold starts, so that automation states like pool position and user commands remain unchanged even after reprogramming.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "state retention",
+      "automation reliability",
+      "data persistence"
+    ],
+    "pain_keywords": [
+      "memory loss",
+      "no retentivity",
+      "state reset on upload"
+    ],
+    "feature_keywords": [
+      "VM memory",
+      "M-flags",
+      "program upload behavior",
+      "retentive relay",
+      "KNX telegrams",
+      "ETS flag U"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "30": "Data Persistence Confusion"
+  }
+}

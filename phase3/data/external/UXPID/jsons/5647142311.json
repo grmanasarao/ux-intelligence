@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "branch_id": "5647142311",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 796669564626718,
+      "user_name": "cdMZn3VQsx",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "I'm working with [product_name] [version_no] and I need an analog output that only updates when the current analog input value differs by more than a certain threshold (e.g., 0.3 °C), and ideally after the value has remained stable for a short period. My goal is to avoid frequent updates by using the 'update on change' option in the IoT table, updating only for meaningful changes to help reduce costs. I'm seeking the simplest solution possible with minimal blocks, as I have many NAQ values to transmit. Suggestions or examples are welcome—maybe there's a block that meets these requirements. Thanks in advance."
+    },
+    {
+      "comment_id": 920345062042872,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "There are two relevant blocks in [product_name] Soft Comfort: Analog filter and Average value. These help achieve stable average results."
+    },
+    {
+      "comment_id": 213099114486430,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Filtering processes always introduce some delay. Advanced filtering is possible through custom filters, though these require multiple functions. Another method is to compare the last stored value with the current value and update if the difference exceeds the set deviation. For larger changes, a switch-off delay can keep the multiplexer open briefly. See the German forum section for more ideas. An example is attached. Regards, [user_name] (translated via Google)"
+    },
+    {
+      "comment_id": 865833093961143,
+      "user_name": "cdMZn3VQsx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hello all, thanks to [user_name] and [user_name], especially for the example and useful forum link. It helped me clarify the filtering logic. I adapted your solution into ladder diagram format for better visualization, since I'm a beginner. My target is to avoid sending intermediate values, reduce MQTT message frequency from [product_name] [version_no], and prevent short spikes (like jumps from 200 to 1000 back to 201) from causing updates—so I don't trigger a value change for every spike. I'm using an on-delay timer, triggered by meaningful value changes, combined with a condition to check if the difference exceeds the threshold. However, for fast spikes up to 999, the value 1000 is never sent; if the threshold is 100, this leads to misleading output, as it doesn't show that the value reached nearly 1000 or 0. Additionally, at startup, AQ1 shows 0 during the delay, which is also not ideal. Any tips for retaining anti-spike behavior but ensuring only significant value changes are sent? Thanks again! [user_name]"
+    },
+    {
+      "comment_id": 943926334374017,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], You're right—if a value remains within the mask window (+/- 1), it won't be recorded, which is the main issue with extreme values. Variables can react differently, sometimes causing excessive update messages (hundreds or even a thousand just to transition from 0 to 999), which is what you want to avoid. Fixed frequency updates are safer, but can lead to unnecessary messages when values are stable. For now, I don't plan to use additional hardware after [product_name], even though it might be more efficient long-term, as it adds maintenance. Definitely use Average value first, as suggested by [user_name]. I’m deciding whether to stick with your initial program (plus a short safety delay, like 5s) or try my own version allowing fast extreme values through instantly—though it’s not perfect and needs more blocks. Either way, your support helped a lot. Thanks again! Best regards,"
+    },
+    {
+      "comment_id": 937425142698124,
+      "user_name": "cdMZn3VQsx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], I've improved my 'Filter circuit' draft. Now the analog value only outputs after the hold-open time for B004 is finished; this is just a default time since I don't know your spike duration—you'll need to experiment a bit with B005's timing. The spike issue (e.g. 999) still remains. I also included the other suggestion from the German forum, 'Spikefilter with median average', in the zip file. Here, you’ll need to set the clock rate (TL) of B001 to suit your needs; the time must be greater than the spike's duration. Calculating the median of three values means response is established in the second cycle of B001. For stronger spike interference protection, increase the median calculation window to five or seven values, but this will make the program larger and response slower (three or four cycles). Best regards, [user_name] (machine-translated)"
+    },
+    {
+      "comment_id": 358796166045343,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], Thanks again—I’ve tested your initial program and it’s working well for my requirements. I use time values in seconds, mainly for validation rather than signal smoothing. These act as a safety margin when sending data to the cloud using the 'on change' setting, aiming to reduce costs rather than perfect the signal. I also set up a fallback periodic update ('frequency' mode) to catch missed values or rare cases (like the 999 spike that stays just under the threshold), running every few minutes. At the moment, your solution gives me a good balance between simplicity and robustness. Thank you again for sharing! Best regards, [user_name] PS: I’ve implemented similar debouncing logic for digital signals to stop multiple MQTT messages from being sent due to contact bounce or missed readings, which might be useful for others."
+    },
+    {
+      "comment_id": 828955702631735,
+      "user_name": "cdMZn3VQsx",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hi Ella_68, Thanks again — I’ve been testing your first program, and it’s actually working quite well for my needs. I’m using time values in seconds — not so much for filtering, but more as a kind of validation logic. For me, those seconds act as a safety margin when using the “on change” setting to send data to the cloud. The main goal is to reduce costs, not necessarily to smooth out the signal. I also have a redundant periodic update configured (using \"\"frequency\"\" mode), in case a value is lost — or in edge cases like the 999 issue (a long change that stays just under the trigger threshold). That update is set to run every few minutes. So for now, your first solution gives me a really good balance between simplicity and reliability. Thank you again for sharing it! Best regards, PierHB PS: To avoid surprise costs, I’ve had a similar need with digital signals as well — implementing debouncing to prevent multiple MQTT messages from being triggered (or missed) due to contact bounce or signal noise. I mention this in case it’s useful for other readers ..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users working with [product_name] [version_no] are looking for granular analog output filtering that triggers only on significant input changes and after stability confirmation, to prevent unnecessary MQTT messages and reduce costs. Built-in filter/average functions help but don't fully prevent missed spikes or duplicate messages, with startup behavior and timing adding complexity. The conversation features workarounds like custom logic, timing tweaks, and periodic failsafes, showing that existing solutions need significant user customization for reliable operation.",
+    "user_expectations": "Users expect [product_name] [version_no] to provide a simple, efficient, reliable analog filtering and change detection method that prevents excessive MQTT traffic, accurately manages spikes, and avoids noisy or misleading updates. The solution should be easy to set up, robust to signal anomalies, and maintainable without requiring extra hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "cost reduction",
+      "efficient messaging",
+      "reliable updates",
+      "spike filtering",
+      "minimal logic blocks"
+    ],
+    "pain_keywords": [
+      "redundant updates",
+      "spike detection misses",
+      "startup glitches",
+      "complex programming",
+      "unintuitive filtering logic"
+    ],
+    "feature_keywords": [
+      "analog change threshold",
+      "on change update",
+      "average/median filtering",
+      "on-delay timer",
+      "MQTT messaging",
+      "debounce logic"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

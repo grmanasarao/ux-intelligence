@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "6218484323",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 519643043104781,
+      "user_name": "xocQnH6Yxy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 10,
+      "comment_body": "I have a level transmitter with a fixed 4-20mA output connected to my [product_name] controller and displaying the level on the [product_name] display. When the tank is full, the transmitter only provides a 16mA signal. Since adjusting the transmitter isn't possible, how can I scale the 16mA signal so the display reads 100%?"
+    },
+    {
+      "comment_id": 800460127491310,
+      "user_name": "8KBUCHi1Ds",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 10,
+      "comment_body": "You can use an analog amplifier function block. This block allows you to set measurement range, gain, and offset for your analog variable."
+    },
+    {
+      "comment_id": 969164327841652,
+      "user_name": "xocQnH6Yxy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 10,
+      "comment_body": "I'm currently using an analog threshold trigger block with a measurement range of 0 - 104, a gain of 0.13, and an offset of -26. When I adjust the measurement range, both gain and offset change, which causes my display to start at a negative percentage."
+    },
+    {
+      "comment_id": 593135786163617,
+      "user_name": "UF0eWIXiiQ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 10,
+      "comment_body": "You'll need to adjust both gain and offset values to achieve the correct scaling. Set the gain for the empty-to-full range, and the offset so that zero corresponds to empty. Using the formula y=mx+c (where m is gain, c is offset, y is % full, and x is the input value): 16mA (100%) is read as 800, and 4mA (0%) as 200 (approximate values). Therefore, m=100/(800-200)=0.1666, c=100-(0.1666*800)=-33.28. Double-check these calculations and logic before applying."
+    },
+    {
+      "comment_id": 810818675945901,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 10,
+      "comment_body": "There is an Excel file available, created by [user_name], which helps calculate gain and offset values by entering your measurements. See [url] to download the zip file. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to scale a non-standard analog signal from a transmitter so that a controller display accurately shows tank levels. The process requires manual adjustment of gain and offset, and users are finding it difficult to correlate measurement range, gain, and offset, which sometimes results in incorrect readings. Calculation aids such as spreadsheet tools are beneficial, but straightforward configuration support is lacking.",
+    "user_expectations": "Users expect a simple scaling solution for non-standard analog signals that avoids negative readings and complex manual calculations, allowing for intuitive setup and accurate display results.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate percentage display",
+      "easy analog signal scaling",
+      "straightforward calibration"
+    ],
+    "pain_keywords": [
+      "confusing manual gain and offset adjustment",
+      "negative readings",
+      "non-intuitive scaling setup"
+    ],
+    "feature_keywords": [
+      "analog amplifier block",
+      "gain/offset parameters",
+      "analog threshold trigger block"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

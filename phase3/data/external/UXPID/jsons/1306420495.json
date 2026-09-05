@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "branch_id": "1306420495",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 288110361278769,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "This issue seems simple, but it's proving frustrating! I'm using a [product_name] 24VDC module with relay output, powered by a [company_name] 24V PSU. I need a 5V supply for a temperature sensor, so I connected a DC-DC converter from the PSU output to generate 5V. The sensor outputs are wired to two [product_name] inputs (0-10V range). However, I'm not seeing any input readings in the [product_name] software. Any advice would be appreciated!"
+    },
+    {
+      "comment_id": 458024473779890,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Is the 0V for your 5VDC supply at the same potential as the 0V of the [product_name] power supply? If not, connect both 0V lines together."
+    },
+    {
+      "comment_id": 326480831477184,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Thanks, I just tried connecting both 0Vs while waiting for a reply. Is there a preferred input I should use for these two sensor signals, and a recommended threshold trigger setting? I’ve attached my current setup and welcome suggestions."
+    },
+    {
+      "comment_id": 919454956672743,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "For temperature measurement with an NTC, you can't directly evaluate it using a 0-10V input since it's not linear. Only the humidity signal can be connected to a 0-10V input, but it outputs 1 to 4VDC for 0-100% RH, so value scaling in the [product_name] is required."
+    },
+    {
+      "comment_id": 974705444926432,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Here’s a suggestion for measuring humidity."
+    },
+    {
+      "comment_id": 462734064111125,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Hello, thanks for the guidance. I downloaded your ladder diagram and connected the humidity sensor output, which shows 2.13V, but nothing appears on the display. Do I need to adjust gain and offset for proper operation?"
+    },
+    {
+      "comment_id": 485804839091122,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "In my program, I used AI1, but your screenshot shows AI7. The gain and offset settings are correct in my program. Did you select the right analog input?"
+    },
+    {
+      "comment_id": 750917615267672,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "The analog input at terminal I7 on the base module is actually AI1. AI7 would only be available on an expansion module."
+    },
+    {
+      "comment_id": 596406487441772,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Hi, I copied your diagram and connected it to I1. Is there anything I need to change in the software configuration?"
+    },
+    {
+      "comment_id": 340758717877870,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "AI1 is not terminal I1 on the base module. AI1 is terminal I7."
+    },
+    {
+      "comment_id": 877839631461443,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Sorry, still not working. The program simulates correctly but displays nothing when powered."
+    },
+    {
+      "comment_id": 509486329557015,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Did you check if the two 0V lines are connected? I can’t be certain about the wiring remotely. Have you measured the voltage at the analog input? Which [product_name] module are you using exactly? Please provide the full order number."
+    },
+    {
+      "comment_id": 465421912273104,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Hi, the input voltage is 2.31V and both 0V lines are linked. We're using a [product_name] 8 module with order number [article_no] (24 RCE)."
+    },
+    {
+      "comment_id": 108553196636266,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Unfortunately, you have the wrong module. The [product_name] 24 RCE ([article_no]) can run on 24VDC and 24VAC, but only modules with a dedicated DC power supply have analog inputs. Here are the versions with and without analog inputs: [article_no] with analog inputs, [article_no] without."
+    },
+    {
+      "comment_id": 499259022551856,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "That definitely clarifies the situation! Thanks, I’ll pay closer attention."
+    },
+    {
+      "comment_id": 998398891555072,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Apologies, I wish I could share better news."
+    },
+    {
+      "comment_id": 221882040131667,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Sorry, did I say anything unpleasant?"
+    },
+    {
+      "comment_id": 854869441069626,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "No, you haven't done anything wrong. I just meant that I regret having to deliver disappointing news. I would have preferred sharing something positive."
+    },
+    {
+      "comment_id": 142995651736704,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "No worries, thank you for your help. It’s greatly appreciated!"
+    },
+    {
+      "comment_id": 638220735009943,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "You're welcome."
+    },
+    {
+      "comment_id": 884243446600292,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "You were correct about the wrong [product_name] 8 module. Everything works now with your program—thank you! I also have a [product_name] AM2 RTD for a PT100 thermocouple. How can I set up a basic program with three outputs: two for cooling and one for heating? Thanks again!"
+    },
+    {
+      "comment_id": 901454430382079,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Here’s a basic example. The analog input number depends on how many are active and if they're on the base module or expansion module. For the base module with none enabled: the first analog input on an expansion is AI1. With two enabled: it’s AI3. With four enabled: it’s AI5. You can view or change these settings via File > Properties > Offline > I/O settings. The default is two enabled."
+    },
+    {
+      "comment_id": 227934471982703,
+      "user_name": "Bfo9AJrEs6",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Thanks for your help! A couple of follow-ups: How do you make setpoints selectable on the [product_name] operator device? What’s the simplest way to switch between pages, such as a welcome page, heating page, and cooling page, on the [product_name] operator device? Thanks again!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered problems connecting a temperature/humidity sensor to a [product_name] 8 24VDC module and monitoring inputs in the associated software. Key challenges included unclear mapping between module terminals and software analog inputs, handling signals with non-linear characteristics, and lack of immediate feedback in the software. The discussion highlighted missing documentation and guidance regarding terminal-to-analog input mapping and managing analog signal types, leading to user confusion and experimentation.",
+    "user_expectations": "The user expects that connecting sensor outputs to module analog input terminals and configuring the [product_name] software will facilitate instant sensor data visualization. They anticipate a straightforward setup or clear instructions about terminal analog input mapping and signal scaling in the software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "sensor integration",
+      "real-time data display",
+      "easy setup"
+    ],
+    "pain_keywords": [
+      "input mapping confusion",
+      "no data on display",
+      "signal compatibility issue"
+    ],
+    "feature_keywords": [
+      "analog input terminal mapping",
+      "gain/offset adjustment",
+      "real-time analog input display"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity",
+    "2": "Product Compatibility"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "6017191787",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 486758476413417,
+      "user_name": "rNOLJTuyMH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm working on displaying sensor data within my control program. I have several analog sensors: two temperature sensors (0-10V, -50 to 50°C), two humidity sensors (0-10V, 0-100%), and a PT100 probe, with plans to add another PT100 later. The sensors should trigger different outputs and control analog outputs to inverter drives, but setting up analog inputs is proving difficult. I'm using [product_name] [version_no], and the firmware and hardware have been updated. An HMI is connected and working, but I can't get the analog inputs to read correctly. Here are actual measured voltages compared to program readings: some are significantly off, such as a -500 value reported when voltage is around 4.77V. These sensors function well on another control system, reading expected temperature and humidity values. Can anyone advise on the issue? Program is attached. Thanks in advance."
+    },
+    {
+      "comment_id": 558423745043790,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Your [product_name] base module does not include analog inputs, but your program assigns analog inputs to it. Which expansion modules have you installed? Please provide the exact [article_no] for your modules."
+    },
+    {
+      "comment_id": 258718687297519,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "In the initial [product_name] program, all analog multiplexers (MUXs) are not operating because the enable input (EN) isn't set to high. You should apply a HIGH signal or invert the connector at EN."
+    },
+    {
+      "comment_id": 129068900615306,
+      "user_name": "rNOLJTuyMH",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], thanks for the feedback. I've set all MUXs to HIGH—some were negated, but a few were missed. Unfortunately, the inputs still aren't reading correctly. My current hardware configuration is: Slot 1: [article_no], Slot 2: [article_no], Slot 3: [article_no], Slot 4: [article_no], Slot 5: [article_no]."
+    },
+    {
+      "comment_id": 288720560858862,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Based on your hardware config: Slot 1: [article_no] = base module without analog inputs. Slot 2: [article_no] = digital expansion module. Slot 3: [article_no] = analog expansion module for PT100/100 sensors. Slot 4 & 5: [article_no] = analog output expansion modules. To clarify again: the base module in your setup lacks analog inputs. Only specific base modules for DC power have analog inputs; modules designed for AC power do not. With your configuration, the first channel of the analog input module starts as AI1, followed by AI2."
+    },
+    {
+      "comment_id": 524075661298863,
+      "user_name": "rNOLJTuyMH",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Thanks, [user_name], I didn't understand your point before. Swapped for a different unit and it's now working. Frustrating I overlooked the hardware difference. Really appreciate your assistance."
+    },
+    {
+      "comment_id": 575243212755388,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "[product_name] base modules specifying AI inputs will show if analog inputs are present; typically, you can select 2 or 4 analog inputs with any base module, but it only works if the hardware supports it. Alternatively, you can use two analog expansion modules to add four extra analog inputs. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main challenge was inaccurate analog sensor readings due to a misunderstanding: not all base modules support analog inputs. Exchange among users clarified that hardware compatibility and correct module addressing are essential for proper analog input operation. The issue was resolved by changing to a compatible model.",
+    "user_expectations": "The user expects to connect analog sensors, view accurate readings in both the control software and HMI, presuming the hardware is designed to support such input functionality.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "correct sensor readings",
+      "hardware compatibility",
+      "accurate analog input",
+      "sensor integration"
+    ],
+    "pain_keywords": [
+      "incorrect analog readings",
+      "hardware limitation confusion",
+      "unrecognized input signals"
+    ],
+    "feature_keywords": [
+      "analog input channels",
+      "hardware compatibility indication",
+      "expansion module support",
+      "addressing of inputs"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

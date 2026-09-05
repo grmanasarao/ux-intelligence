@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "branch_id": "5839207920",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 205447062674254,
+      "user_name": "ofw6HMWivH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I'm experiencing an issue when attempting to remotely change the time zone for the Astronomical Clock. Values that are zero or positive work correctly, but negative values do not apply. I've tried modifying it in steps, altered the byte sequence, and followed the instructions from [url]. Approaches via [product_name], [product_name] and node-red all yield the same outcome. When adjusting the variable in the function block settings in [product_name], both [product_name] and node-red display: Reading Low Byte - For positive and zero values, Low Byte is \"00000000\"; for negative values, it's \"11111111\". Reading High Byte - For positive values: +2 is \"00000010\", +1 is \"00000001\"; zero is \"00000000\"; for negative -1 is \"11111111\", -2 is \"11111110\". Reading Whole Word - For +2: \"16#0002\", Int \"2\"; for +1: \"16#0001\", Int \"1\"; zero: \"16#0000\", Int \"0\"; for -1: \"16#FFFF\", Int \"-1\"; for -2: \"16#FFFE\", Int \"-2\". Reading seems logical and writing zero or positive works, but I can't solve writing negative values to the parameter."
+    },
+    {
+      "comment_id": 349438996513668,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Welcome to the forum. It appears bit 15 of the word acts as the sign bit. Therefore, this should be interpreted as two bytes: the high byte representing the sign and the low byte holding the actual value. I can't say why [company_name] chose such a complicated structure."
+    },
+    {
+      "comment_id": 969702113775737,
+      "user_name": "ofw6HMWivH",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Thanks for your response. I've noticed a significant difference for negative values. For (+6), the result matches. For (-6), your result is \"2#1000_0000_0000_0110\" but mine is \"1111_1111_1111_1010\". Both bytes differ for negative numbers. My [product_name] version is [version_no], and the hardware is [version_no]. Other parameters work fine, and even writing each byte separately didn’t help. All function blocks used work seamlessly otherwise. I've spent many hours on this and suspect it’s a bug."
+    },
+    {
+      "comment_id": 806141576826845,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I tested this with [product_name] [version_no] and a [product_name] [article_no]: using a negative value."
+    },
+    {
+      "comment_id": 798189387829924,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I also tested with the built-in expanded webserver. It’s not possible to change the time zone to negative values (like -6); positive values can be changed. If you link the \"Time zone\" parameter to a message text, then it’s possible to adjust negative values via the [product_name] display. So, I agree—this appears to be a software bug."
+    },
+    {
+      "comment_id": 345869350150864,
+      "user_name": "ofw6HMWivH",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Was this result from a simulation? My simulation yields the same results. However, when online and exchanging data with other devices, results are inconsistent. Reading and writing other parameters using the same format is not an issue. The only parameter I can't write negative values to is Time Zone."
+    },
+    {
+      "comment_id": 675257931749041,
+      "user_name": "ofw6HMWivH",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "It seems we agree this is a software bug. Thank you for your time."
+    },
+    {
+      "comment_id": 100007780521912,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Whether viewing values in simulation or online, negative values cannot be entered remotely. Only the sign bit (Bit15) changes for negative numbers, while the low byte changes for the value itself, making it confusing. This does not correspond to a true integer representation. I represented -6 as an integer in VW2 in the data table."
+    },
+    {
+      "comment_id": 151167410455454,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I've been thinking about this... Since [company_name] often uses legacy formats (even with [product_name]), I suspect it's a signed 3-digit BCD."
+    },
+    {
+      "comment_id": 126606081681975,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I checked earlier – it isn’t BCD. I used GMT -10, and the response came as \"16#800A\". Strange."
+    },
+    {
+      "comment_id": 992231104961603,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "If I were in your position, I’d open a support request."
+    },
+    {
+      "comment_id": 747374563308770,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "You’re right. I tried with the extended web server using signed, unsigned, hex, and binary formats. In all scenarios, negative values cannot be set. Looks like it’s on [company_name]'s \"To do\" list."
+    },
+    {
+      "comment_id": 166114557828248,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "You’re correct. The displayed values differ between Simulation and Online Test, which is quite odd."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are unable to remotely write negative values to the Astronomical Clock time zone parameter in [product_name] controllers, while reading and writing positive or zero values works as intended. Multiple tools such as [product_name], [product_name], node-red, and integrated web server have been tested without resolution. This problem is specific to negative values, indicating a likely software bug; it leads to confusion regarding data representation and limits remote functionality.",
+    "user_expectations": "Users expect to remotely set both positive and negative time zone values using standard configuration tools, with the process functioning smoothly and reliably, as it does for other similar parameters.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote parameter configuration",
+      "full range time zone setting",
+      "predictable control",
+      "multi-tool support"
+    ],
+    "pain_keywords": [
+      "cannot write negative values",
+      "remote configuration failure",
+      "inconsistent data representation",
+      "potential software bug"
+    ],
+    "feature_keywords": [
+      "Astronomical Clock",
+      "time zone parameter",
+      "remote value writing",
+      "signed value representation",
+      "function block"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "30": "Data Persistence Confusion",
+    "13": "Integration Limitations"
+  }
+}

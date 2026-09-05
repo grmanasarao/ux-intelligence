@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "branch_id": "6764451684",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 350507296404185,
+      "user_name": "Q1kloOwuRk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm trying to use the \"welcome\" title function to show a small message on a [product_name] module with firmware [version_no]. I created the text in the editor and saved it, but at power-up, only the date and time appear. Is there something I might be missing? (EDIT: The system is set to display \"date and time\" on the \"power up\" menu. I tried switching to \"inputs/outputs\" with no change.) Thanks!"
+    },
+    {
+      "comment_id": 394026005918036,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The message shown in the [product_name] text display is only there to confirm the display starts up after power is restored. If you want to show a custom startup message when [product_name] powers up, you need to set the message text with the lowest priority so it is always active."
+    },
+    {
+      "comment_id": 128688235688342,
+      "user_name": "Q1kloOwuRk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Sorry, I don't understand. What does \"TDE\" mean?"
+    },
+    {
+      "comment_id": 487915176556014,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The \"TDE\" (or \"TD\" for [product_name] [article_no]) is an extra text display with buttons. What you're editing is the startup screen for the text display. For more info, see [document]."
+    },
+    {
+      "comment_id": 445329911332211,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Here’s an example to illustrate."
+    },
+    {
+      "comment_id": 968298750575103,
+      "user_name": "Q1kloOwuRk",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Thanks, that's much clearer. Now, I'm trying to add a text block to my ladder diagram, but I get an upload error saying \"block without link to output\". I tried connecting a dummy output to the text block, like in your example, but it still doesn't work."
+    },
+    {
+      "comment_id": 185482303030098,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Use a \"make contact\" function, choose the SF number of the message text, and connect it to a \"relay coil\". For the relay coil, pick a free \"open connector\"—see the attached example."
+    },
+    {
+      "comment_id": 556588369870902,
+      "user_name": "Q1kloOwuRk",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Is there any way to not use any output at all? I just want to display a text, not trigger any output... But the system won't let me upload my diagram with only the text block."
+    },
+    {
+      "comment_id": 556481136873330,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Every block needing an output must be connected—digitally or analog—otherwise you can't transfer your program to a [product_name], as you’ve noticed. For digital blocks: connect the output to another digital block input, or use digital flags, outputs, or open collectors. For analog blocks: connect analog outputs to another analog block input, or use analog flags or outputs. The only exceptions are flags and outputs themselves. Sorry, but that's just how the system works at [company_name]."
+    },
+    {
+      "comment_id": 371166496955338,
+      "user_name": "udO0a0woU9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "In future versions, [product_name] will also require a connection to a hardware or virtual output, as diagrams are computed backwards from outputs. If you check your diagram in the editor, it starts with outputs or flags. For your message blocks, simply add an open connector to resolve the issue."
+    },
+    {
+      "comment_id": 857866369230164,
+      "user_name": "Q1kloOwuRk",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Thanks! It's a bit unusual, but if those are the rules, I'll follow them. Appreciate the support."
+    },
+    {
+      "comment_id": 554056397339352,
+      "user_name": "Q1kloOwuRk",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "It's working fine now. [snip]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user had trouble showing a custom welcome message on a [product_name] module at startup and only saw the default date and time. The discussion clarified that the title message function is designed for the additional text display, and in the configuration software, every functional block must be linked to an output, including message blocks. This requirement led to an error during upload that confused the user.",
+    "user_expectations": "The user hoped to display a startup message on the main display of the [product_name] module without needing to assign or connect outputs, whether hardware or virtual.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "custom startup message",
+      "ease of configuration",
+      "no unnecessary outputs"
+    ],
+    "pain_keywords": [
+      "unexpected error message",
+      "inflexible output rules",
+      "confusing TDE/main module distinction"
+    ],
+    "feature_keywords": [
+      "title/welcome message display",
+      "output connection requirement",
+      "message block logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "branch_id": "4576109211",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 855585449576513,
+      "user_name": "l2jg81lYex",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I need to operate an LED dimmer controller that generates a 1-10V signal for its own control—I found this out when the module arrived. Normally, a potentiometer is connected between the '-' and '+' terminals to adjust it. However, I want to control it using a [product_name] with an analog output module [product_name]. I am having trouble getting this to work. Any suggestions on how I can achieve control? The module in question is a HERA 24V Dimm-Controller 1-10V sn: [article_no]."
+    },
+    {
+      "comment_id": 614539109284147,
+      "user_name": "irdmkTgewS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "You could try connecting different resistors—start with 10k, then go lower step by step—and observe whether it dims and how the voltage changes. How many connections does the dimming interface have?"
+    },
+    {
+      "comment_id": 530521921690050,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "The voltage output from the [product_name] analog module functions properly only with standard 0-10V interfaces, not with 1-10V interfaces. The dimmer module interface is not what’s considered standard, which is likely causing issues. You might experiment with resistors (10 kOhm or smaller) parallel to the 0-10V output, or use a 0-10V isolation amplifier."
+    },
+    {
+      "comment_id": 868398981003565,
+      "user_name": "l2jg81lYex",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thank you for your advice. I'll start by trying out resistors."
+    },
+    {
+      "comment_id": 883523530867364,
+      "user_name": "l2jg81lYex",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "To resolve this, I used a 0-10V to DALI interface. I learned that 0-10V and 1-10V dimming signals are different, which isn’t immediately obvious. 0-10V is produced from the controller side (the analog output module), while 1-10V originates on the driver or receiver side and is controlled by a resistor or potentiometer. My project now uses: [product_name] > 0-10V > DALI. Is there any chance that [company_name] will develop a direct DALI interface for [product_name]? I generally prefer to avoid extra interface devices."
+    },
+    {
+      "comment_id": 152381395086006,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "I doubt that will happen, but you'll only know for sure if you contact [company_name] directly, for example via their support request."
+    },
+    {
+      "comment_id": 684343084823082,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "An alternative might be using a [product_name] variant with transistor outputs and controlling voltage via a PWM board. That way you can dim the LED according to your needs."
+    },
+    {
+      "comment_id": 822266212812971,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "I'm interested in hearing more about your idea. According to the specs for the [product_name]:"
+    },
+    {
+      "comment_id": 673371267449143,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "The manual also states: The maximum switching rate is determined solely by the program's cycle time."
+    },
+    {
+      "comment_id": 374863102008858,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thanks! If the transistor output doesn't support high-frequency switching, it limits its capabilities."
+    },
+    {
+      "comment_id": 389876297768561,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Anyone with the transistor-output model could test whether it supports switching in the kHz range."
+    },
+    {
+      "comment_id": 196203897213699,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "The switching rate for the [product_name] really depends on many factors: First, the cycle time is influenced by the module version and the size/type of program. Second, with the PWM block, you can set a minimum period of 0.01s. That’s why [company_name] doesn’t give exact info about cycle time and switching rate for transistor outputs."
+    },
+    {
+      "comment_id": 991884325151315,
+      "user_name": "udO0a0woU9",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "According to the manual, the transistor outputs support: Ohmic load: 10 Hz Inductive load: 0.5 Hz. I've seen higher values on standalone modules but those are not guaranteed and depend on many factors. Operation in the kHz range isn't achievable."
+    },
+    {
+      "comment_id": 644963861809103,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "The manual also notes that the maximum switching rate is determined solely by the program cycle time."
+    },
+    {
+      "comment_id": 105171081422359,
+      "user_name": "cZQANX744b",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hi, in practical use, the maximum frequency depends on the cycle time of the [product_name], but this cycle time isn't constant. It's affected by using extra features, such as I/O status, web server, access tools, data logging, online tests, and communication with HMI, Modbus, PLC, etc. In some PLCs, timer interrupts can help manage this, but [product_name] lacks programmable interrupts. The numbers—10Hz and 0.5Hz—are more typical for these circumstances."
+    },
+    {
+      "comment_id": 423139701594870,
+      "user_name": "udO0a0woU9",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "If you want to know how fast the actuator behind the transistor output can switch, the cycle time isn’t too important, since it's often much smaller than 100ms/2000ms. If the module’s output pin is used internally in the [product_name] program diagram, then only the cycle time matters—here, the output pin works like a flag. There’s a section in the manual (chapter B) on measuring cycle times, and it’s already established here that cycle time is not constant."
+    },
+    {
+      "comment_id": 614224284960203,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Attached are screenshots from tests with a [product_name] module. They show the test program, the simple web server, and the extended web server. The measured cycle frequency is about 25 Hz higher without the simple web server enabled. These cycle frequencies also fluctuate."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered compatibility challenges when trying to control a 1-10V LED dimmer with [company_name] analog output modules, which are intended for 0-10V standards. The main user insight is uncertainty and lack of clarity about differences between 0-10V and 1-10V control protocols, resulting in integration failures. Users expressed frustration regarding the need for extra interface devices (like 0-10V to DALI converters), noting a desire for direct integration or inbuilt solutions from [company_name]. There's also a feature request for a dedicated DALI interface module for [product_name], indicating users feel limited by current hardware options.",
+    "user_expectations": "Users expected simple, direct operation of a 1-10V dimming controller using [company_name] modules, anticipating compatible signal standards and minimal need for additional hardware. They hope for an integrated DALI interface for [product_name] modules in the future.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless control",
+      "standard compatibility",
+      "direct dimming",
+      "avoiding extra interfaces"
+    ],
+    "pain_keywords": [
+      "interface incompatibility",
+      "need for extra hardware",
+      "limited module capability",
+      "complex setup"
+    ],
+    "feature_keywords": [
+      "0-10V analog output",
+      "DALI interface",
+      "PWM control",
+      "standard dimming interface"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "9": "Feature Requests",
+    "13": "Integration Limitations"
+  }
+}

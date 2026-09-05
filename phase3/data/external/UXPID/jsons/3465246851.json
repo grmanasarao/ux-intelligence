@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "branch_id": "3465246851",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 840111737840648,
+      "user_name": "an7m9VhVWE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello, I am working with a [product_name] PLC, article no [article_no]. My question concerns variable memory mapping. I'm updating a program someone else started and need to configure VM mapping to connect to a data platform. For each network input (mapping VM from 1246 to 1261), I assigned the local variable memory. For VB and B, e.g., Input V7.2 implies VB = 7 and bit = 2. How do I correctly address this in my parameter VM mapping? More specifically, what should I enter for the address? The connection uses a JSON file where V7.2 is mapped to a device-specific address."
+    },
+    {
+      "comment_id": 477720815192532,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I'm not sure I fully understand your goal. Addresses 1246 to 1261 in variable memory refer to network input addresses. You can only read—not write—to these addresses. To assign an address to a network input, you must do so within the [product_name] program by adding the network input to your diagram and specifying its address."
+    },
+    {
+      "comment_id": 166302377292698,
+      "user_name": "an7m9VhVWE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Thanks for your feedback. I'll try to clarify. The program image below shows multiple network inputs managed by a communication tool. In my data platform, which interacts with the controller, there's a JSON file example: { \"EV_ESD\": [ { \"trigger\": \"EV_ESD_OK\", \"logic\": false, \"device_id\": 466, \"iport\": false, \"logo_address\": \"V4.0\" } ] }. Does the network input labeled V1 in my program need to be linked in VM mapping to the [product_name]? How do I ensure the connection works properly? Right now, it's not functioning."
+    },
+    {
+      "comment_id": 671944763281727,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "No offense, but it seems you’re still learning about VM area addressing and block functions. The \"Parameter-VM assignment\" lets you assign a byte, word, or double word to parameters in certain blocks—this is not a bitwise mapping. If you set a bit in VM memory remotely (value 0 or 1), your [product_name] program checks this with a network input NI. You must assign the VM memory address to the network input, e.g., V4.0. As shown in your diagram excerpt, VM address V4.0 is assigned to NI9 (if that's correct). It's difficult to confirm due to the diagram’s clarity."
+    },
+    {
+      "comment_id": 570157034815858,
+      "user_name": "an7m9VhVWE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "You're correct that my knowledge is limited on this topic. In my program (not originally written by me, just modified), I notice certain V addresses. Do I need to link the V address to a site device? For instance, V4.0 triggers an error message in my test setup, but this doesn’t translate to the controller. Do I need to link this somewhere else for proper functioning? I've set up my network input, but I suspect a connection in the local variable memory is still missing."
+    },
+    {
+      "comment_id": 675523108534634,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Which [product_name] version are you using? Is it a version_no 8.3?"
+    },
+    {
+      "comment_id": 551469534943978,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "That's exactly the approach: you link the network input to VM storage by assigning the corresponding VM storage address to the network input."
+    },
+    {
+      "comment_id": 675688028965016,
+      "user_name": "an7m9VhVWE",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "My controller is version_no 8.3."
+    },
+    {
+      "comment_id": 778569113878820,
+      "user_name": "an7m9VhVWE",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "So, should it work now, or do I still need to create additional links?"
+    },
+    {
+      "comment_id": 886009069020203,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Have you enabled S7 or Modbus access in the file properties?"
+    },
+    {
+      "comment_id": 270072914948344,
+      "user_name": "an7m9VhVWE",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I am using the following [product_name]: [article_no]."
+    },
+    {
+      "comment_id": 469126727472864,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Yes, it is a [product_name] version_no 8.3. Have you enabled access? Is there a connection established between the remote device and the controller? Which system is acting as client or server?"
+    },
+    {
+      "comment_id": 322857277323176,
+      "user_name": "an7m9VhVWE",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "To clarify: The controller receives signals V1, V2, etc., from a data platform. If certain conditions are met, another output is triggered and an error message shows on the screen, which turns red. These V1.0, V4.0, etc., are sent via Ethernet to the controller. I’ve already configured the network input in the Ethernet settings to the appropriate V address. There is only one controller unit."
+    },
+    {
+      "comment_id": 958789756233523,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Sorry, but I can't follow your explanations anymore and you haven't answered my questions, so I'm unable to continue helping."
+    },
+    {
+      "comment_id": 365132706817899,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "You can have up to 64 network inputs, starting at addresses 1246 to 1253. Calculation: 53 - 46 + 1 = 8; 8 multiplied by 8 equals 64."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is working to configure variable memory mapping in a [company_name] [product_name] version_no 8.3 device for integration with a data platform using JSON-based communication. The main challenge lies in the user’s limited familiarity with address assignment and VM memory mapping, making it difficult to set up correct links between network input addresses and the external data platform. There's confusion distinguishing between reading from addresses and correctly assigning network input addresses for data flow, and uncertainty about enabling necessary network access permissions.",
+    "user_expectations": "The user expects a straightforward process to map and link memory addresses from network inputs to device addresses specified in a JSON configuration, ensuring smooth data transfer between the controller and external systems.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless integration",
+      "correct data linkage",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "unclear mapping process",
+      "configuration confusion",
+      "address assignment difficulties"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "network input configuration",
+      "S7/Modbus access",
+      "memory address assignment"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "9459116455",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 522336912984929,
+      "user_name": "waNDvtwgaw",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm facing an issue when writing to a VW entry of the [product_name]. I can read the value correctly, but when I try to write a 1 through my application, the [product_name] receives 1156 instead, and similar mismatches happen with other values. I'm not sure if I'm missing something in my setup. Any guidance would be appreciated."
+    },
+    {
+      "comment_id": 603213810443537,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "More details are needed to analyze the difference between reading and writing. Try sending values such as 1, 2, 4, 8, 16, 32 to see how the bits are shifting in the result. Please also specify which value you're writing to which address. It is recommended to use a free address range with a single VW address in the middle to avoid overlapping entries. Regards, [user_name]"
+    },
+    {
+      "comment_id": 879151316332351,
+      "user_name": "waNDvtwgaw",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thank you for your response. I found that since the VM is represented only by WORD, reading displays a different number combination. Now, my question is about handling negative values: within the [product_name], these variables appear as negative, but in my C# program I'm unable to read them as such. Is there a method to correctly read negative numbers?"
+    },
+    {
+      "comment_id": 929918621712301,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "It depends on the declarations you use for the variables in C#. The values from [product_name] can be of different types based on the function. All analog values in arithmetic operations are signed integers (15 bits plus sign) stored in a word, for example VW0, VW2, VW4. Counter values are unsigned double integers (32 bits) stored in a dword, like VD100, VD104, VD108. Some specific functions use only 1 byte (8 bits) or BCD format (4 x 4 bits) in a word. Refer to the [document] or online help for detailed information about all functions and formats. [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main discussion revolves around the differences in value representation when writing to and reading from VW entries in [product_name] devices through a C# application. Users are encountering confusion due to the different data types and the way internal signed integers are handled in [product_name] compared to their C# program, especially concerning negative values. The conversation highlights complexities in bridging data conversion between [company_name] hardware and external software.",
+    "user_expectations": "Users expect straightforward reading and writing of both positive and negative VW values between [product_name] and their C# application, with the same values represented consistently in both systems.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate value exchange",
+      "signed data handling",
+      "external device integration"
+    ],
+    "pain_keywords": [
+      "data type mismatch",
+      "negative number handling",
+      "confusing variable representation"
+    ],
+    "feature_keywords": [
+      "signed/unsigned conversion",
+      "VW data access",
+      "data type documentation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

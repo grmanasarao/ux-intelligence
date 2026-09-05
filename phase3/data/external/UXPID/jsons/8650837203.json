@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "8650837203",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 310876556621489,
+      "user_name": "WrXPvhsBkD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello, I would like to know how you configured PUT communication from [product_name] to [product_name]. I can perform GET operations and read data from [product_name] without issues, but PUT does not work for me. I require both PUT and GET on [product_name], with [product_name] set as the server, because I want to trigger communication periodically by using a REQUEST input with the PUT function block. I have attached my configuration as a .zip file. Thanks for your assistance."
+    },
+    {
+      "comment_id": 703165829027678,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], On the German forum, I provided an example for communication between [product_name] and [product_name]. In this setup, [product_name] acts as the client and [product_name] is the server. You may find this example useful. The S7 project and project are attached, but please note the description is only available in German."
+    },
+    {
+      "comment_id": 183771934905154,
+      "user_name": "WrXPvhsBkD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Thank you, your input was very helpful."
+    },
+    {
+      "comment_id": 473122784258604,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Has your problem been solved now?"
+    },
+    {
+      "comment_id": 866636782477456,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Here's an example where [product_name] is the client and [product_name] serves as the server. Under protection settings, you must enable 'Access via PUT/GET communication through remote partners.' You don't need the PUT/GET function blocks for this, but the active connection should be deselected in 'Special connection properties.' When [product_name] is the client, data exchange is simpler compared to PUT/GET communication using extra function blocks and data blocks."
+    },
+    {
+      "comment_id": 514479003024338,
+      "user_name": "WrXPvhsBkD",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Thank you. I've resolved my issue with the PUT function block. We previously configured [product_name] as the client and now want to test reversed communication because our connection occasionally drops. Multiple [product_name] units are linked to a single [product_name] in our setup. It seems that frequent cyclic communication from [product_name] to [product_name] causes the connection to crash momentarily; we measured this using Wireshark. By using active connection establishment with PUT/GET blocks on [product_name], we can trigger communication requests only when needed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants addressed configuration issues and reliability concerns regarding PUT/GET communication between different [product_name] devices. While GET (read) operations function normally, PUT (write) communications can be unstable, especially in projects with multiple [product_name] units acting as clients. Solutions focused on specific configuration settings and flexible role assignment, emphasizing the importance of establishing communications only when needed for enhanced stability.",
+    "user_expectations": "Users expect robust and easily configurable PUT/GET communication between their [product_name] devices, seeking the ability to trigger data transfers as required to improve overall system reliability and performance.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable communication",
+      "triggered control",
+      "stability"
+    ],
+    "pain_keywords": [
+      "communication crashes",
+      "configuration difficulty",
+      "instability with many clients"
+    ],
+    "feature_keywords": [
+      "PUT/GET blocks",
+      "active connection establishment",
+      "server/client switching"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "10": "Performance Predictability"
+  }
+}

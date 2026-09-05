@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "8569730580",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 550963448919519,
+      "user_name": "gka9Haauyt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi, Can someone clarify why when I use a mathematical instruction block in [product_name] the maximum input value for V1, V2, V3, or V4 is 65535? I am monitoring total units left on a production line by inputting the job amount and subtracting a counted value, but I can't start with more than 65535 units. What causes this restriction?"
+    },
+    {
+      "comment_id": 909278049077659,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "For mathematical operations, the value range in [product_name] is from -32,768 to 32,767 because it only supports Integer data type. It's not possible to manually enter values higher than 32,767 for parameters V1 to V4. If other blocks, such as counters, reference values above 32,767, those values are automatically capped at 32,767."
+    },
+    {
+      "comment_id": 128359359883987,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Here is a relevant excerpt from the online help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face constraints with mathematical instruction blocks in [product_name], especially regarding the maximum value allowed for input parameters. The device limits integer values to 32,767, even though the interface may display higher limits like 65,535. This discrepancy is due to the internal data type used, which affects use cases that demand larger values.",
+    "user_expectations": "Users expect to be able to input and process numbers higher than 65,535 in [product_name]'s mathematical blocks for job monitoring tasks without data overflow or loss. They assume the hardware or software should accommodate large quantities typical in production monitoring.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "monitor large job quantities",
+      "accurate production tracking"
+    ],
+    "pain_keywords": [
+      "value limitation",
+      "cannot enter large numbers",
+      "unexpected input restriction"
+    ],
+    "feature_keywords": [
+      "mathematical function block",
+      "integer data type",
+      "input parameter maximum"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "3427974255",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 201418424694630,
+      "user_name": "sP46DwS1TY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "I am trying to create a User Defined Function (UDF) that utilizes a mathematical instruction block, but it seems this causes the UDF to be invalid. I made a simple test UDF, but it's not accepted as long as I include the mathematical instruction. What could be the issue?"
+    },
+    {
+      "comment_id": 282999822695768,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], All open outputs of a block need to be terminated. For analog outputs, use an analog flag; for digital outputs, terminate with a flag or an open terminal. Greetings [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 242447984080857,
+      "user_name": "sP46DwS1TY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "Thank you! Using an analog flag didn't solve the issue since those outputs remained. When I connected the output to an analog comparator and then terminated the boolean output with the \"Open connector,\" the UDF was accepted."
+    },
+    {
+      "comment_id": 254721802529528,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "However, it's odd that only your method works. Placing an analog flag at the output of an analog block should also work. I've been doing it this way since 2014."
+    },
+    {
+      "comment_id": 506545959307461,
+      "user_name": "sP46DwS1TY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "You are correct; after switching back to using the flags, it worked as expected! I probably made another mistake earlier. Sorry for the mix-up."
+    },
+    {
+      "comment_id": 565354695509309,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "You are correct; after switching back to using the flags, everything worked fine! I must have made a different mistake before. Sorry for the confusion! No worries, all sorted."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main user experience concern involved difficulties creating a User Defined Function (UDF) containing mathematical instruction blocks within a specific configuration tool. Initially, there were issues with output termination, especially for analog outputs, leading to UDF validation failures. Through discussion and experimenting, users clarified the importance of properly terminating outputs to validate UDFs. The thread highlights the need for clearer guidance on UDF validity and output termination within the configuration software.",
+    "user_expectations": "Users expect to be able to create and validate UDFs using mathematical blocks smoothly, with clear, actionable feedback and support in the configuration environment.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "successful UDF creation",
+      "clear error feedback"
+    ],
+    "pain_keywords": [
+      "UDF rejection",
+      "output termination confusion"
+    ],
+    "feature_keywords": [
+      "UDF",
+      "mathematic instruction block",
+      "analog output termination",
+      "output flag"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

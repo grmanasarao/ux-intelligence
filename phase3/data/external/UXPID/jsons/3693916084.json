@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "3693916084",
+    "thread_id": "3055273936",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 664088700486375,
+      "user_name": "jXgh6fR9QF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hi, I want to upgrade our small building management setup with a [product_name]. Throughout the building, temperature is measured via Ni1000 sensors (QAA24 [company_name], 2-wire system), which can't be replaced. Has anyone worked with this type of sensor? I'm looking for advice on wiring with the AM2 module and connecting it to the analog inputs of the [product_name]. Also, how does the signal behave typically? When I connect it to a 10V input, the measured value only shifts by a few digits (2 to 5) across a temperature span of 20 degrees, which doesn't seem correct. Thanks in advance, [user_name]"
+    },
+    {
+      "comment_id": 482991727796903,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello, You can't connect an LG NI-1000 sensor directly to the AM2 module. These sensors need a transmitter to convert their resistance value into a 0-10V or 0/4-20mA signal."
+    },
+    {
+      "comment_id": 311969179004221,
+      "user_name": "jXgh6fR9QF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Thanks for the fast reply, even if it's not the answer I was hoping for. [url] -- Would this be a possible solution? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 906768247272390,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "No, that's not a solution."
+    },
+    {
+      "comment_id": 997598113302596,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "If you use an extension unit like the AM2-RTD, a PT1000 sensor can be connected directly. Since you have a Landis&Gyr Q.. Ni1000 sensor, it's similar but not identical to the PT1000, so you can still connect it to the AM2-RTD extension unit. Keep in mind, if it's 100 degrees Celsius, you might see about 60 degrees in the [product_name] reading. You can use arithmetic and analog amplifier blocks in the [product_name] programming to adjust the temperature readings to be accurate. Check the manual for the extension unit for maximum temperature with PT1000, then translate this to the NI1000 sensor to see if it fits your needs. The manual also shows wiring instructions. Both PT1000 and Ni1000 sensors are typically 2-wire, but you can also use 3 wires if needed. The manual is available for free on the [company_name] site. Note that readings may not be exact since the sensor characteristics differ."
+    },
+    {
+      "comment_id": 557081110363863,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello, Additionally, you can find sensor characteristics at [url]. Regards,"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are experiencing compatibility issues integrating existing Ni1000 temperature sensors with [product_name] analog input modules in a building management system. The main challenge is correctly wiring, translating signals, and calibrating readings since direct connection does not provide accurate values and may require extra hardware or programming adjustments. There is confusion around signal interpretation and hardware methodology for correct sensor integration.",
+    "user_expectations": "Users expect to connect Ni1000 sensors directly to [product_name] analog modules for precise temperature monitoring, using existing wiring, and preferably without additional complex hardware or conversions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate temperature measurement",
+      "reuse existing sensors",
+      "system integration"
+    ],
+    "pain_keywords": [
+      "incompatibility",
+      "signal accuracy",
+      "need for conversion",
+      "calibration complexity",
+      "incorrect readings"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "RTD module compatibility",
+      "temperature compensation",
+      "wiring options"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

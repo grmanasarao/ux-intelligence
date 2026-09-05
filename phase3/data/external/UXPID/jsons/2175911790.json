@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "branch_id": "2175911790",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 638276197397509,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello everyone, I'm looking to create a PWM controller for a 24V DC motor, with speed adjustment using arrow keys. I'm facing difficulties mapping counter values to the PWM output. I've attached an initial version of my program. Appreciate any advice! [user_name]"
+    },
+    {
+      "comment_id": 487763905627308,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "In my experience, this kind of control isn't feasible with the [product_name]. Although there is a block named 'PWM', it doesn't generate a true PWM signal. The output only allows changing the pulse/pause ratio, but not the actual frequency. Also, a [product_name] with transistor outputs is needed, and even then, output switching heavily depends on the cycle time."
+    },
+    {
+      "comment_id": 532356530027176,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "An easier solution would be to use an external module that converts 1-10V signals (from the analog output module) into a workable PWM signal. The arrow key control for outputting 1-10 volts works reliably."
+    },
+    {
+      "comment_id": 408528571934526,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Correct. However, you might encounter issues with the PWM module, as most accept 1-10V rather than pure 0-10V inputs. This means a potentiometer could also be used instead, and the internal voltage may conflict with the analog output module, resulting in imprecise control. Without knowing the specifications for the module you plan to use, I can't offer a precise recommendation."
+    },
+    {
+      "comment_id": 609365958946716,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "For my application (which is a stirring device), exact RPM isn't critical, but adjustability is required. I'll check what's available and integrate it into my setup. Thank you very much for the quick help!"
+    },
+    {
+      "comment_id": 538946781572253,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Could you provide more details about the required speed ranges and the frequency needed for your mixer?"
+    },
+    {
+      "comment_id": 556944586706357,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The motor operates from 0 to 4000 rpm. It's an ebm papst model VDC-3-54.14. I'm unsure about the required PWM frequency. We tested it with a frequency generator and found it worked smoothly between 10 to 20 kHz. I've attached the relevant product catalog pages."
+    },
+    {
+      "comment_id": 752011909036291,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I had to smile – these frequency requirements are well beyond what the [product_name] cycle time can handle. Achieving a suitable PWM signal for your needs with the [product_name] isn't realistic."
+    },
+    {
+      "comment_id": 842157523790272,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "As mentioned earlier, I'm new to working with [product_name] devices and still learning about their capabilities. Today, I realized PWM control isn't possible here, so I'm looking for other solutions. This forum and your advice are very helpful. Regards"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user tried creating a PWM controller for a DC motor using [product_name], aiming for speed adjustment via keys. Forum discussion made it clear that [product_name] modules can't generate the high-frequency PWM signals needed for effective motor control, especially in the 10-20kHz range. Limitations in output type and signal accuracy prevent suitable PWM generation for this application.",
+    "user_expectations": "The user hopes [product_name] can deliver a true, adjustable high-frequency PWM signal for motor speed control and allow for smooth adjustment through function keys. Reliable correlation between set values and PWM output is also expected for optimal motor performance.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "adjustable motor speed",
+      "PWM control via keys",
+      "reliable mapping"
+    ],
+    "pain_keywords": [
+      "PWM output limitations",
+      "high-frequency requirements",
+      "imprecise mapping"
+    ],
+    "feature_keywords": [
+      "PWM signal generation",
+      "cursor/function key control",
+      "transistor output compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

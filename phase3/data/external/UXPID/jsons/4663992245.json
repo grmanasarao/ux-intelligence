@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "4663992245",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 867544329122649,
+      "user_name": "vreKZHEBnw",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello, I need to record temperature samples twice per day and want to store data for the last month, resulting in a total of 62 data points. My question is: Can I configure the data log to have exactly 62 entries, so when new data is added, it overwrites the oldest entry and always keeps just 62 records? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 870239585608968,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "It is not possible to set the number of Data Log entries to 62. The [product_name] keeps writing data until the data log is full. If you use an mSD card for storage, each Data Log file can hold up to 20,000 lines."
+    },
+    {
+      "comment_id": 601501029197667,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello, There are two ways to handle datalogging with [product_name]: 1. With an inserted mSD card, as previously described. Data will be saved in records on the card, and once 20,000 lines are reached a new record is created (up to 50 records). Only the current record can be uploaded via [product_name] configuration software, while older records require removing the card to read them on a PC. 2. Without an mSD card, the data log uses internal memory, which can hold up to 200 lines. Once this limit is reached, the oldest entries are overwritten automatically (FIFO). These records can be uploaded using the [product_name] configuration software. Note: Neither method allows you to set a custom number of lines like 62. Based on your requirements, the second option may be more suitable, as you could record up to 200 values per day if needed. Hope this helps."
+    },
+    {
+      "comment_id": 854466375533983,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "What happens to your logged data in option 2 if there is a power outage?"
+    },
+    {
+      "comment_id": 142738973188173,
+      "user_name": "cZQANX744b",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Data in option 2 is stored in internal EEPROM memory, so data is retained even in the event of a power failure."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main concern is that [product_name] does not allow users to define a custom data log table size such as 62 entries. Data logging relies on fixed-size buffers (200 lines in internal memory or 20,000 lines per file on mSD card), using a FIFO overwrite system when full. Users also have questions about how reliably data is kept during power disruptions, and what logging setup best fits regular sampling needs.",
+    "user_expectations": "The user would like to be able to specify a maximum table size, with automatic overwriting of older entries, so that only the newest 62 records are stored at all times.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "cyclic log",
+      "recent data retention",
+      "table size control"
+    ],
+    "pain_keywords": [
+      "inflexible log size",
+      "manual data management",
+      "limited access to old records"
+    ],
+    "feature_keywords": [
+      "FIFO data log",
+      "max log size",
+      "data overwrite behavior",
+      "EEPROM persistence"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "30": "Data Persistence Confusion"
+  }
+}

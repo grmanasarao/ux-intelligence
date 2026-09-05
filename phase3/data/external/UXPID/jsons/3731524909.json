@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "branch_id": "3731524909",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 787287148497086,
+      "user_name": "f1xnztfusD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Hello, in my program I calculate flow from pulses over a duration of 9 seconds. The value updates every 9 seconds, but I want more frequent updates by running three 9-second periods staggered by 3 seconds each. That way, the display could refresh every 3 seconds. I tried two approaches: the first didn't work because I couldn't delay the blocks without an enable mode, so their periods overlapped. In the second, I created my own version of a threshold trigger block, which did work, but the display update was affected by the analog MUX block because inputs S1 and S2 change state at different times (try varying I3's frequency to see this). Eventually, I plan to use a 30-second period so the refresh would be every 10 seconds. Do you have any suggestions for a simpler solution? Thank you!"
+    },
+    {
+      "comment_id": 284223362254079,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "I'm sorry, but I don't understand your programming approach or the reasoning behind it."
+    },
+    {
+      "comment_id": 770515060454066,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Let me clarify: You want to count pulses in 9 seconds using three counters, each offset by 3 seconds? For that, I'd use a clocked counter that resets at the ninth second. You can implement 9-second delays triggered by three analog differential threshold switches at 0, 3, and 6 seconds to activate the counters. Timing is critical and some delay between periods introduces minor inaccuracies in counting. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 129193099248728,
+      "user_name": "f1xnztfusD",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Here's an example for reference: Flowrate with pulses LOGO 8. My water flowmeter gives pulses between 0.33 and 5.55 pulses per second, and I want the momentary flow every 10 seconds, but a 10-second sample isn't very accurate, so 30 seconds is better. Is it possible to run three samples delayed by 10 seconds each? Every 10 seconds, calculate and display the flow rate from the results of these samples. I'm struggling to understand how."
+    },
+    {
+      "comment_id": 520815268524730,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "A program can demonstrate much more than descriptions. Here's an example. I used reset pulses for individual counters, so the first run may count the same value and might need adjusting to suit your requirements. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 633667948670080,
+      "user_name": "f1xnztfusD",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Thanks [user_name], I've made two versions including your sample. I used a MUX timer to avoid display glitches. For testing, I set a refresh every second, so with three counters the total period is three seconds. The results differ between versions, especially at a test frequency like 100Hz. Thanks!"
+    },
+    {
+      "comment_id": 622029224498751,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "How did you perform your test? Was it on real hardware or with the [product_name] simulator? The simulator runs slower and suffers from timing variations due to the operating system, which can be problematic for time-sensitive logic. Also, there's a 'dead' interval from clock generator delays or internal block processing, noticeable at high pulse rates. Why not use a simple threshold switch for fast inputs, capturing for three seconds and extrapolating to nine seconds? [user_name]"
+    },
+    {
+      "comment_id": 809682066578472,
+      "user_name": "f1xnztfusD",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Yes, I've realized the added 0.01s introduces dead time as well. I replaced the asynchronous pulse generator with a timer-on-delay, which improved results but I'm still only simulating because I don't have the hardware. Thank you for the reassurance! Check the attachment from my first post: There's a simple example with a threshold switch, but I don't see how to have three equally long periods offset in time since only the gate time parameter exists, and no enable connector. If that were possible, it'd be much easier. In reality, the sampling period will be 30 seconds or possibly one minute. If using 30 seconds, the user would wait that long for an update, which is too slow. By staggering three 30-second periods by 10 seconds each, the user only waits 10 seconds for updated flow data."
+    },
+    {
+      "comment_id": 353414570479803,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], I'm unclear on your intent: If the user only sees the first 10 seconds out of a 30-second measurement before it's replaced, the remaining 20 seconds seem irrelevant. It would be simpler to record pulses for 10 seconds then multiply by six to estimate the per-minute flow, since the user is interested in the current value. This method is less complex, more stable, and you could even shorten the sample interval to one second (multiply by 60) if the pulse rate is high enough. Why the need for three offset measures if two-thirds aren't used? [user_name]"
+    },
+    {
+      "comment_id": 581032986178617,
+      "user_name": "f1xnztfusD",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "The 30-second window is needed because the pulse rate is quite low. Longer measurement periods improve accuracy but make updates slower. With three staggered periods, you count pulses for 30 seconds and get updated results every 10 seconds. This method allows three measuring periods with results more frequently. I hope this explanation is clearer now."
+    },
+    {
+      "comment_id": 283316164287753,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Now I understand your approach! Best regards, [user_name]"
+    },
+    {
+      "comment_id": 203016173526545,
+      "user_name": "f1xnztfusD",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Do you think a solution is possible using threshold triggers? It seems simpler than using many blocks."
+    },
+    {
+      "comment_id": 732659613617068,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "I don't think that's feasible since the module sets its own interval duration. You might be able to simplify your program by optimizing the block use, but only slightly. With your structure, measurement outliers persist until all measurement cycles are complete, which lowers result accuracy. For example, if you continuously count 100 pulses in 10 seconds, the result is 100. An irregular count (e.g., 102) in the first cycle would affect all counters and skew the next two results. Capturing impulses in just one period (as I suggested) would let such irregularities disappear by the next cycle's output, which is more accurate. If the pulse count is still too low, consider increasing the sample time or using a transmitter with a higher pulse output."
+    },
+    {
+      "comment_id": 873810840115568,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "@ [user_name], check the attached program—maybe it'll suit you. The logic measures the time between two pulses and converts it into quantity. The pulse value is set in parameter V2 of block B005 (e.g., 10 ml in the demo)."
+    },
+    {
+      "comment_id": 959397669752784,
+      "user_name": "f1xnztfusD",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Thank you [user_name]. I considered your solution: measuring the interval between two pulses (Solution 2), instead of counting for a fixed period (Solution 1). I'm unsure about the limits and accuracy of this with the [product_name] module. In practice, the flow ranges from 1 to 20 m³/h. The pulse factor K is either 1L or 10L per pulse, depending on the transmitter, which I can choose. Which solution is more appropriate? For K=1L: - @ 1m³/h = 0.278 pulses/sec: Solution 1: 8 pulses/30sec, 16/60sec. Solution 2: 3.60s between pulses. - @ 20m³/h = 5.56 pulses/sec: Solution 1: 167 pulses/30sec, 333/60sec. Solution 2: 0.18s between pulses. For K=10L: - @ 1m³/h = 0.028 pulses/sec: Solution 1: 0 pulses/30sec (too short), 1/60sec. Solution 2: 36s between pulses. - @ 20m³/h = 0.56 pulses/sec: Solution 1: 17 pulses/30sec, 33/60sec. Solution 2: 1.8s between pulses. I prefer K=1L/pulse and Solution 1, with a 60-second sample period, either a single 60-sec threshold trigger or my variant with three staggered periods and value refresh every 20 seconds. For Solution 2, can the module handle intervals as short as 0.18 seconds? Also, how do I reset to zero when no pulses are received? A 5% error margin is acceptable; more than that is not. Thank you both for your help. (translated from French)"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking to improve the update speed and accuracy of flow measurements in a pulse-driven water flowmeter using [product_name] modules. They run into issues with function block limitations, such as missing enable features and lack of flexible timing connectors, resulting in complex solutions and confusion. Differences in simulated versus real hardware add timing errors, and staggered measurement periods sometimes produce incorrect or unstable results when pulse frequencies are high or inconsistent.",
+    "user_expectations": "Users want to program multiple, offset measurement intervals of equal length using [product_name], reducing wait times for display refresh yet maintaining accuracy. Ideally, the programming workflow should be straightforward with block features like an enable input, leading to real-time, dependable readouts of changing flow rates.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "high accuracy",
+      "fast refresh",
+      "real-time feedback",
+      "programming simplicity"
+    ],
+    "pain_keywords": [
+      "timing complexity",
+      "no enable input",
+      "inconsistent refresh",
+      "simulation vs hardware differences"
+    ],
+    "feature_keywords": [
+      "staggered measurement periods",
+      "threshold trigger block",
+      "enable connector",
+      "timing configuration",
+      "MUX block behavior"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

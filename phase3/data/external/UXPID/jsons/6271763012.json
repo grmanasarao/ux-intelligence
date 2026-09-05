@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "6271763012",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 860594860095403,
+      "user_name": "Qkew66HYhH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Hello, how can sunrise and sunset times be displayed correctly on the [product_name] operator device? How is the coding done for this? The hours for sunrise seem accurate, but the minutes can be off, and sunset values are significantly incorrect, e.g.: [product_name] 20:23 becomes 32 35 on the HMI; 20:20 becomes 32 32; 17:12 becomes 23 18, etc. Thank you."
+    },
+    {
+      "comment_id": 295716538836038,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "It appears that the [product_name] sends these times to the operator device coded in hexadecimal."
+    },
+    {
+      "comment_id": 251511531559289,
+      "user_name": "Qkew66HYhH",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "That's resolved, thanks for the quick response. This follows from the clock synchronization example between [product_name] and the operator device where the bytes are defined as decimal values rather than hex. Thank you."
+    },
+    {
+      "comment_id": 817743280338930,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "That's right. You meant the VB985 - VB990 range, and also VB991 - VB996, where the same values are stored as HEX. The manual explains this further on page 109."
+    },
+    {
+      "comment_id": 691800106182169,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "I developed a similar program for another user on the German section of the forum. Unfortunately, simulation and real device tests do not match, as [company_name] did not implement this consistently. The actual function can't be properly observed in simulation, but works as expected on the real [product_name]. For better understanding, review the parameter VM assignment."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users encountered inconsistencies when displaying sunrise and sunset times between a [product_name] and an operator device. Problems mainly resulted from different data coding approaches (hexadecimal vs decimal), causing incorrect minute and hour readings. Users highlighted that simulation environments do not always reflect real device behaviors due to differences in how [company_name] has implemented synchronization. Accurate testing on real hardware is necessary.",
+    "user_expectations": "Users expect the operator device to display sunrise and sunset times accurately, matching those calculated or managed by the [product_name]. They hope that documentation and examples will clearly explain how data should be handled and displayed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate time display",
+      "device synchronization",
+      "clarity in documentation"
+    ],
+    "pain_keywords": [
+      "incorrect time display",
+      "coding confusion",
+      "simulation mismatch"
+    ],
+    "feature_keywords": [
+      "astronomical clock",
+      "HEX/decimal data coding",
+      "HMI display integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "30": "Data Persistence Confusion"
+  }
+}

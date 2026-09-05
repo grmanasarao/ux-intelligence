@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "2954170921",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 160451964746288,
+      "user_name": "a7wJSk7A1Z",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hello, I need to connect my [product_name] to the [product_name] App through my router and the internet. My device has a fixed address like 192.168.1.13. The router uses DHCP; I reserved a static address for the device. I created a NAT rule in the router: internal port 8080, external port 8080, protocol TCP and UDP. I have a DNS server that converts my dynamic router address into a static address such as \"[user_name].dyndns.fr\". In the app's edit connection page, I set: Name: [user_name], IP Address/Hostname: [user_name].dyndns.fr, Port: 8080. It doesn’t work and I get errors trying to connect the app. Can anyone help?"
+    },
+    {
+      "comment_id": 120732511896019,
+      "user_name": "GX1XIDGhEQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Do a lookup to see which IP address you get from your dynamic DNS. I think the issue may be with how the app handles host lookup."
+    },
+    {
+      "comment_id": 266130946807939,
+      "user_name": "a7wJSk7A1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "I only have the domain name from dynamic DNS, like [user_name].dyndns.fr, not the actual IP address. In the app, I configured: Name: PC-7 (the DHCP name for the device), IP Address/Hostname: [user_name].dyndns.fr."
+    },
+    {
+      "comment_id": 296119384825154,
+      "user_name": "GX1XIDGhEQ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "On your computer, use nslookup or install the PingTools app from Google Play to do a DNS lookup there. With your dynamic DNS settings, you should find the IP address."
+    },
+    {
+      "comment_id": 859188022489547,
+      "user_name": "a7wJSk7A1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "When I use nslookup on my PC, the default server is livebox.home, address 192.168.1.1. When I perform a DNS lookup on my phone using PingTools and enter my domain name, I receive my router’s address. Does this mean it is configured correctly?"
+    },
+    {
+      "comment_id": 192302551005377,
+      "user_name": "GX1XIDGhEQ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "This seems incorrect. If you use nslookup with your dynamic DNS address such as [user_name].dyndns.fr, it should return your internet router’s external address, not 192.168... (which is internal and not reachable over the internet). If you send me your real dynamic DNS address in a private message, I can check it for you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encounters issues connecting their [product_name] device to the [product_name] App remotely via the internet, despite configuring NAT and using a dynamic DNS domain name. There’s confusion around DNS resolution, particularly regarding how the app interprets hostnames and returns addresses, highlighting a lack of clarity and feedback in network setup and DNS handling within the application.",
+    "user_expectations": "The user anticipates effortless remote access to their [product_name] device using a custom domain from dynamic DNS, following NAT forwarding setup. They expect to control and access the device through the [product_name] App with their DDNS hostname over the internet.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote access",
+      "internet connectivity",
+      "mobile control"
+    ],
+    "pain_keywords": [
+      "connection failure",
+      "DNS resolution confusion",
+      "lack of diagnostics"
+    ],
+    "feature_keywords": [
+      "remote connection",
+      "hostname resolution",
+      "port forwarding (NAT)"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Android": [],
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

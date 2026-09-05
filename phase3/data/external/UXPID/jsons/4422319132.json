@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "4422319132",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 126173208279481,
+      "user_name": "7BBJFM3na0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I thought I did it correctly, but sometimes the signal follows the wrong route. It looks like the controller is reacting too quickly. How can I set a condition so that the button must be held for 1 second before continuing? I think the function should be placed after the analog threshold trigger and before the OR gate. Should I use a threshold trigger with a 1 second delay? Or is that only for digital signals?"
+    },
+    {
+      "comment_id": 398615669414944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Could you explain what specific function you're aiming to achieve?"
+    },
+    {
+      "comment_id": 471043572134226,
+      "user_name": "7BBJFM3na0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "If the analog value is between 150 and 250, and I hold the pushbutton for one second, it should proceed to the next step. Something similar to: if (button is active) { holdTime = millis() - startTime; if (value > 100 && value < 150 and holdTime >= 1000) { do something... } }"
+    },
+    {
+      "comment_id": 761431352682449,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Is this the kind of solution you're looking for?"
+    },
+    {
+      "comment_id": 355385979707296,
+      "user_name": "7BBJFM3na0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "It's similar, but the controller software won't let me set it up like that."
+    },
+    {
+      "comment_id": 290307908588144,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I'm not sure I understand your requirements. An analog input is not a push button. Please clarify what you're trying to accomplish. Avoid using high-level programming language examples. If you need an output to remain high for at least one minute after a threshold trigger, place an on-delay after the threshold trigger output."
+    },
+    {
+      "comment_id": 139455933883157,
+      "user_name": "7BBJFM3na0",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "In my setup, I have two buttons connected to an analog input with a voltage divider. The voltage difference allows me to select different functions. However, when the analog signal rises from 0 to 7 volts, it passes through 5 volts and triggers another unintended function in the controller. To prevent this, I need a way to detect that the button is being pressed. I think another analog threshold might solve this."
+    },
+    {
+      "comment_id": 585450826300606,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Here's an example: If you press button 1, the analog input reads 3V. If you press button 2, it reads 5V. Refer to the attached settings and adjust them to match your voltage levels."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is facing challenges implementing a holding-time condition with analog inputs on their controller. Rapid changes in input signals are causing unintended activations, and the user is looking for a method to implement a 'hold for 1 second' requirement. There is uncertainty about the difference between handling analog and digital signals, and the user requires guidance on configuring threshold and delay logic appropriately within the controller software.",
+    "user_expectations": "The user expects the controller software to offer a simple way to create a time-based holding action using analog inputs, and seeks to avoid unwanted triggers when voltage levels move through transitional states.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable input detection",
+      "custom button logic",
+      "prevent false triggering"
+    ],
+    "pain_keywords": [
+      "false signal activation",
+      "difficulty combining analog and timed logic",
+      "unclear configuration process"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "time-based trigger",
+      "threshold adjustment",
+      "input filtering"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

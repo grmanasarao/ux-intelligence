@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "1288765093",
+    "thread_id": "3055273936",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 551620493496878,
+      "user_name": "TM0DLAOMvI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Hello, I am using a PT100 sensor to measure temperature with an RTD [product_name] module. However, I'm experiencing an issue—the temperature reading on the [product_name] display fluctuates widely, even though the actual temperature remains constant. For example, when the true temperature is 22°C, the display shows values ranging from 8 to 23°C, changing rapidly. I'm not sure why this is happening. My [product_name] base module is supplied with 220VAC—could this be causing the problem? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 321782292064692,
+      "user_name": "xZRuBVhg2W",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Please ensure that the RTD cable is shielded and properly connected to a clean earthing system. Also, try to keep these cables separate from any power cables. Hope this helps."
+    },
+    {
+      "comment_id": 683320913115356,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Here are a few points to consider: 1. Make sure the signal from your PT100 sensor is stable. 2. Use the provided example from [company_name] to calculate the average signal [url]. 3. For certain [product_name] modules, you can use the analog filter function block to stabilize readings. Some users also recommend adding a capacitor to improve stability, but be aware that this may impact automatic sensor detection in some RTD modules. Hope this helps."
+    },
+    {
+      "comment_id": 330803161887764,
+      "user_name": "TM0DLAOMvI",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "To [user_name]: I have shielded my sensor, but there was no improvement—I still have the same issue. To [user_name]: I checked the signal and it's stable. I will try using the averaging example. If I use a [product_name] controller, would I encounter the same problem or is it more stable? Best regards"
+    },
+    {
+      "comment_id": 460224055779473,
+      "user_name": "TM0DLAOMvI",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Hello, I tried the averaging example but the issue persists. I still have fluctuating readings. What else can I do to resolve this problem? Multiple machines are experiencing the same issue. Best regards"
+    },
+    {
+      "comment_id": 382456983544487,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "How is your PT100 connected—2-wire, 3-wire, or possibly 4-wire? For a 2-wire PT100, make sure to connect M1+ and IC1 (or M2+ and IC2). There are two inputs on the RTD module—have you tried the other input? Is your power supply to the RTD module a steady 12 or 24 VDC? See also: [url] Are you using shielded cable for the PT100? Connect the shield to the negative terminal of your DC power supply and to ground/earth. Let us know if you find the solution."
+    },
+    {
+      "comment_id": 513175931051126,
+      "user_name": "2IxhYlBIWy",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Assuming you have checked all cables, sensors, and the power supply and everything is functioning correctly—there is a technique I use for temperature processes: update the display value only after a few seconds to avoid the user seeing rapid fluctuations. I have applied this approach with other programmable controllers by using a timer to periodically update a memory variable with the actual temperature value."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users observe unstable and oscillating temperature readings on the [product_name] display when using a PT100 sensor with an RTD module, even though the measured temperature should be constant. Forum members suggest checking hardware and wiring—such as cable shielding, grounding, and connection type—as well as implementing software solutions like averaging and timed updates to stabilize readings. The primary concern is the system's inability to consistently present true temperature values, causing user frustration and operational challenges.",
+    "user_expectations": "The user expects consistently accurate and stable temperature readings on the [product_name] display that match the actual value measured by the PT100 sensor.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "stable readings",
+      "accuracy",
+      "reliable temperature display"
+    ],
+    "pain_keywords": [
+      "fluctuating readings",
+      "signal instability",
+      "inaccurate display"
+    ],
+    "feature_keywords": [
+      "RTD analog input",
+      "display smoothing",
+      "signal averaging",
+      "input wiring options"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

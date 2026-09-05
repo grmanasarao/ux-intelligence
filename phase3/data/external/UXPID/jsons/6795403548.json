@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "6795403548",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 492156652920906,
+      "user_name": "KaNPkCwUnO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, Could someone explain how many logic modules (CPU) can be connected to the same [product_name] text display (6-line)? The model is [article_no]. I found some details in an official presentation, but they weren’t clear: • Maximum configuration per single [product_name]: 24 digital inputs (DI), 20 digital outputs (DO), 8 analog inputs (AI), and 8 analog outputs (AO). • In network operation: 88 DI, 84 DO, 40 AI, 24 AO. Am I correct in understanding that this means only 11 logic modules (with 8 digital inputs each) can be linked in the same LAN network?"
+    },
+    {
+      "comment_id": 935859934385284,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "First, all details concern the device series [version_no]. 1) The [product_name] text display can communicate with only one logic module at a time. However, if multiple logic modules exist in a network, you can switch which one communicates with the display by changing its IP address in the display settings. This only works with modules in Master mode, as Slave modules lack their own program. 2) The information from [company_name] refers to Master/Slave setups in networked logic modules. Each [version_no] device can have up to 24 digital inputs using expansion modules, and up to 64 digital inputs can be accessed from Slave modules via network inputs (limit: 64). For example, 1 master module with extensions means 24 DI, and 3 slave modules with extensions would mean 72 DI. But the master module can only read 64 DI over the network, so the total is 24 + 64 = 88 DI. Output, analog input, and analog output situations are similar. Note: The slave modules don’t run programs; the master module just uses their hardware (DI, DO, AI, AQ). Furthermore, one [version_no] module can connect with up to 16 others (8 static and 8 dynamic connections available)."
+    },
+    {
+      "comment_id": 876091493719516,
+      "user_name": "KaNPkCwUnO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Thank you for the clarification. For my current project—with 100 panels divided into 10 groups, each group having one [product_name] text display and 10 logic modules (1 master, 9 slaves)—it seems there won’t be issues. Thanks again."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The original poster wanted details on how many logic modules could simultaneously connect to a [product_name] text display and the related network limits. Responses explained that while only one logic module can actively communicate with the display, switching is possible by altering the IP address. A device from [version_no] series can connect with up to 16 other logic modules (mix of static and dynamic connections). Master-Slave architecture imposes hardware and network input/output limits, which are clarified in the responses.",
+    "user_expectations": "The user wants to connect numerous logic modules to a single [product_name] text display for seamless operation and seeks a clear understanding of network connectivity and hardware restrictions.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "network scalability",
+      "clarity on system limits",
+      "multi-controller management"
+    ],
+    "pain_keywords": [
+      "connection limitations",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "multi-module connectivity",
+      "text display",
+      "master-slave operation",
+      "digital/analog expansion"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

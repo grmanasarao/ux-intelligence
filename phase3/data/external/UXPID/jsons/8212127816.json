@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "8212127816",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 132748862062076,
+      "user_name": "EJmFzPKmJN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello, In the image attached from the manual of [product_name] on page 125, there is a format for SMS commands to change inputs and outputs of the [product_name] connected to the [product_name] module. This SMS command requires knowing the Variable Memory (VM) and its number for each item. Can someone explain how to identify the VM type and number for my inputs, outputs, and flags in the [product_name]? For instance, I want to send an SMS command to set digital output Q1 from 0 to 1. What is the VM and its type?"
+    },
+    {
+      "comment_id": 197378574533933,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "The VM area in [product_name] is a specific memory section used for sharing data with remote devices. Addressing is as follows: - Bit: V - Byte: VB - Word: VW - DWord: VD Users can access and modify addresses in the following byte range: VB 0 to 850. This means for bits: V0.0 to V850.7, for bytes: VB0 to VB850, for words: VW0 to VW849, for double words: VD0 to VD847. Access to this memory in [product_name] is possible via network input/output or via Parameter-VM-Mapping under tools."
+    },
+    {
+      "comment_id": 554059580008308,
+      "user_name": "EJmFzPKmJN",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "So my input or output in [product_name] is represented as VB-XX. How can I find the specific VB number for my input (e.g. I1) or output (e.g. Q1)?"
+    },
+    {
+      "comment_id": 427684842254545,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "You need to write or read the VM addresses in [product_name] through network input/output. For example: I1 may be mapped to network output at address V0.0."
+    },
+    {
+      "comment_id": 324177513231182,
+      "user_name": "EJmFzPKmJN",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "If I want to use Variable Memory and network input/output blocks, do I need to insert an SD card in the [product_name]?"
+    },
+    {
+      "comment_id": 449070600424554,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "No, an SD card is not required for this purpose in the [product_name] base module. The VM memory area operates as internal memory, and the SD card does not function as a memory expansion for such tasks."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users expressed difficulty in understanding and configuring variable memory (VM) addresses for handling I/O operations via SMS commands with [product_name] modules. There was uncertainty about mapping physical I/O to VM addresses and whether hardware components like SD cards are needed for these functions. The feedback highlighted the challenge of navigating documentation and finding clear, practical instructions for configuring VM areas.",
+    "user_expectations": "Users expect straightforward guidance for identifying and using correct VM addresses for specific inputs and outputs, as well as clarity on whether additional hardware such as SD cards is necessary for utilizing VM functions.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote control",
+      "easy configuration",
+      "clear documentation"
+    ],
+    "pain_keywords": [
+      "unclear memory mapping",
+      "confusing documentation",
+      "uncertainty about hardware requirements"
+    ],
+    "feature_keywords": [
+      "variable memory mapping",
+      "network input/output",
+      "SMS command integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

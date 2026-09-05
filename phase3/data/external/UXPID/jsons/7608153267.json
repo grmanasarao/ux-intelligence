@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "7608153267",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 763525570499893,
+      "user_name": "pGfBUDtkUm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm trying to scale pressure transmitters for use in my [product_name] program so I can use the actual values in a PI controller. One transmitter operates from 0 to 25 Bar with a 4-20mA output, while the other ranges from -1 to 20 Bar with the same output type. Here is some data about the transmitters: [url]. When I set the analog amplifier to sensor type 4-20mA and match the transmitter range, the system tells me this is incompatible with a gain/offset. Can anyone advise how to set this up properly? Thanks in advance from someone new to [product_name] programming."
+    },
+    {
+      "comment_id": 414148834833407,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 2,
+      "comment_body": "Hi, here's an example setup for both sensors. The ranges are 0 to 25 Bar and -1 to 20 Bar. If you remove every second Analog Amplifier in the sequence, the range changes to 0 to 250 and -10 to 200. Hope this helps."
+    },
+    {
+      "comment_id": 104653778351910,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 2,
+      "comment_body": "If you can't represent the exact value range due to internal calculation limitations, try to minimize calculation error. For example, if 0-25 Bar can only be set as 0-24 Bar (so there's a 1 Bar difference), use finer resolution. A range from -1 to 2503 would work well in this case. This way, the calculation error is shifted to the second decimal place and becomes negligible."
+    },
+    {
+      "comment_id": 452852881978153,
+      "user_name": "pGfBUDtkUm",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 2,
+      "comment_body": "Thanks, now I understand how to approach this!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are experiencing challenges when scaling 4-20mA analog pressure transmitters in [product_name] software, particularly due to incompatibility errors associated with configuring gain and offset for specific transmitter ranges. The platform indicates these settings are not supported, leading users to seek calculation-based solutions. Feedback reflects a learning curve and a need for strategies or setting adjustments to achieve accurate analog input scaling.",
+    "user_expectations": "Users expect that the analog amplifier configuration in [product_name] software will directly support the 4-20mA sensor ranges, enabling straightforward scaling to real-world values without requiring manual calculations or adjustments.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate sensor scaling",
+      "seamless integration",
+      "real-world value conversion"
+    ],
+    "pain_keywords": [
+      "incompatible gain/offset",
+      "calculation error",
+      "manual workaround",
+      "scaling limitation"
+    ],
+    "feature_keywords": [
+      "analog amplifier",
+      "gain/offset support",
+      "sensor type selection",
+      "scaling precision"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

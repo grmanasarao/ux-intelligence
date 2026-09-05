@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "branch_id": "7984434647",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 606653078464275,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I'm attempting to generate random analog (0-10V) values with the Random Generator function. I know how to use it for random digital output but am unsure how to apply it to analog outputs. Is it possible? Any advice is appreciated."
+    },
+    {
+      "comment_id": 702156536094512,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello, Try using VM storage—this may help. Best regards, [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 651360029686796,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 750619158395246,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], Perhaps try this approach? Good night,"
+    },
+    {
+      "comment_id": 446023398710405,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "That's very helpful, although it's quite different than what I imagined—clearly, I have more to learn. In the web editor, I can use the slider to control AQ1 and display its value, but I was unable to show AQ1's value using your example. It appears to require the same process, so I must be missing something. Thank you for your assistance. I figured it out—moving forward!"
+    },
+    {
+      "comment_id": 282716076479716,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I've encountered an issue. I can't get any analog voltage output. Just to confirm—if I close physical input 1, AQ1 should oscillate based on your program, correct? It works perfectly in simulation but doesn’t work on the actual controller; no voltage is generated. Could the AM2 module be faulty? What could I be missing?"
+    },
+    {
+      "comment_id": 840664761444128,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], This demonstrates how simulation may not match real device behavior. The issue was timing during processing. I swapped the AND with positive edge (B007) for NAND with negative edge. By using the signal length TH from B005, I allowed more time for B002 to adopt values from NAI1. Best regards, [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 536489279141231,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Good morning, The updated program works well, so the AM2 module seems fine. However, after making adjustments, I’m now trying to implement both auto random and manual control using the web interface. Reviewing the attached files, I see that auto random works, but manual control fails—the slider resets to zero and I can't figure out why. I assume an analog input needs to be linked with the AQ output in manual mode, but I haven’t managed that yet. Would value your feedback. Thanks for your ongoing support."
+    },
+    {
+      "comment_id": 778156775999615,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], This is a common beginner mistake. You can't assign an output or flag more than once. Assigning AQ1 in the web editor makes it unavailable for use in the controller program. You need to link the slider value into the program using a free marker or analog network input, and alternate between manual and random using a muxer. The OR logic won’t function as expected; activating one switch blocks the other. It's easier to switch modes with a button and use a pulse relay, where the relay state is shown in the web editor via network output or marker. I’ve integrated these changes into my previous example. Hope this helps. Best regards, [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 971549161174158,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Sorry, I have another question. In the web editor, how do I link the slider in the controller software? I’ve tried multiple methods but the slider is always disabled, both in manual and random mode. I noticed you set NA12 as block 10 but don’t know how to define that in the web editor."
+    },
+    {
+      "comment_id": 939437178453976,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "A program often illustrates better than words. I added a message to my example program and modified your web interface project accordingly. Note, switching between manual and random involves two elements: a button (with images, no text) queried by the controller with NI11, and a status indicator with text/images controlled by NQ1. Analog network input NAI2 checks the slider’s position. Review the web editor settings—I set the slider’s address to VW10. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 220109676175195,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I've reviewed your example and am starting to understand it, but analog logic is still confusing. You’re right, I’m new to this but learning. In your example, how do I set a minimum analog value? The random generator currently selects between zero and ten seconds. How would I adjust this to get values between, for example, three and ten seconds? I’ve tried several methods but couldn't make the proper connections."
+    },
+    {
+      "comment_id": 494229806971072,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Look at the two instructions marked by blue arrows in the image. To read help on the instruction: hover over for the tooltip, then select the '?' symbol marked by the red arrow. Reviewing each instruction helps beginners understand which program blocks are available."
+    },
+    {
+      "comment_id": 835322844071671,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Thank you for your support. I’ve found the '?' and right-click help tools valuable. When you mention those two blocks, are you referring to my sample program in discussion with @[user_name] or giving general advice? I’m trying to use a math formula block before block 001 to set '3' as the base instead of zero, but my attempts aren't working—I end up with values like 32767 by only adding an offset of 1. If I want random analog values between, say, 3 and 6, I should set the random generator block 001 to 0–3 seconds, then add 3. This total is referenced in VM54—is this correct? I'm unsure how to establish these parameter relationships. Your advice is appreciated."
+    },
+    {
+      "comment_id": 940630191949011,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], The random generator’s time values generate corresponding numerical values. Ten seconds translates to a max value of 1000. To obtain values from 300 to 1000, subtract min from max and add the minimum (offset). In the program, set the random generator to seven seconds (=700 = 1000 max minus 300 min) and add 300 in an arithmetic block (B011). Manual input is also capped at the minimum. If the maximum should be limited to 1000, adjust the math after the slider. Or, if you only want to restrict the random value (not the slider), move B011 as needed. Best regards, [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 574247855733518,
+      "user_name": "Ua71F0nYA4",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], I've noticed in your example, when running a simulation or deploying on the controller, the value of B005 Random generator is retained and immediately written to AM1 when restarted. It doesn't reset to zero as expected. How can I ensure everything starts from zero?"
+    },
+    {
+      "comment_id": 301186613987761,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "B005 only sets the interval for the next random value, ensuring a new value for each interval. Thus, the total time of TH+TL of B005 should never be less than TH of B001. The actual randomization occurs in B001. When the controller starts, AQ1 outputs zero. B001 then provides a new random value, so it won’t reset to zero when toggling between slider and random. To implement an on/off function, replace B003’s permanent activation with an input. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants were able to generate random analog outputs using automation modules but encountered conceptual and real-world challenges—especially when integrating analog web-based controls. Users had difficulty replicating simulation results on physical hardware, configuring dual-mode (automatic/manual) control through the web interface, and understanding output assignment and logic. Community responses clarified program logic, configuration steps, and common beginner mistakes, illustrating both the product’s flexibility and the initial learning hurdles faced by new users.",
+    "user_expectations": "Users expect to smoothly generate and manage analog outputs in both automatic and manual modes, using intuitive controls like a web-based slider—with easy mode switching and accurate feedback. They want a close match between simulated results and real hardware, and clear, practical guidance when configurations are not working as intended.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless analog output control",
+      "efficient manual and automatic switching",
+      "accurate simulation to real-life correspondence"
+    ],
+    "pain_keywords": [
+      "manual/automatic mode confusion",
+      "slider interface not working",
+      "assignment conflict",
+      "simulation vs real mismatch"
+    ],
+    "feature_keywords": [
+      "Random Generator function",
+      "analog output assignment",
+      "manual/auto mode switch",
+      "web slider control",
+      "LWE assignment"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "branch_id": "4127538716",
+    "thread_id": "3055273936",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 844441582203663,
+      "user_name": "4gr6FQx7qZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Hello, I am using the following hardware: • [article_no] [product_name] • CCT50-203 current sensing device (refer to the attached [document] – self-powered, outputting 0-10VDC). My goal is to measure current. I set up the CCT50-203 for a 100A range, aligning with the maximum cable current. The cable is passed twice through the sensor to enhance sensitivity (Measured Amps = Actual Amps × Number of loops). For wiring, I planned: • Connecting the sensor’s positive to A7 and its negative to the [product_name] negative input. • The sensor specifies a minimum internal impedance of 100K ohms, but the [product_name] has only 72K ohms. • I tried increasing the impedance to 94K ohms by placing a 22K ohm resistor in series on the positive side (and attempted higher resistances too, with no improvement). Thinking the current might struggle, I added a 470 ohm resistor in parallel. Still, it didn’t work. For the software setup: • I opened the [product_name] settings, enabled two analog inputs (2AI) in the onboard AI configuration. • AI1 was wired to an analog amplifier, set for the sensor’s 0-10V range, with the measurement range at 0-1000 (one decimal place), targeting up to 100A. • However, with the sensor’s 0-100A range and double cable looping, the detection drops to 0-50A, and the voltage divider causes a drop of 2.24V, so the maximum voltage at the input becomes roughly 7.75V, limiting measurable current to approximately 39A out of 50A. This setup failed to work. Any advice? I am new to [product_name] modules and it’s my first project with this current sensor."
+    },
+    {
+      "comment_id": 210635560959780,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Is your sensor’s output 0-10V? Does it have two wires? I don’t see in the [document] that its minimum required load resistance must be at least 100K ohm. Have you checked the sensor’s output using a standard volt-meter? Could you specify the exact type of current sensor? In my opinion, you might have better results using a sensor with a 4-20 mA output."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is attempting to connect a third-party 0-10V current sensing device to a [product_name] module for measuring electrical current, but is encountering compatibility issues, mainly due to input impedance mismatches and signal scaling limitations. Multiple hardware changes, including resistor adjustments and voltage dividers, did not resolve the issue. Another contributor recommends clarifying sensor specifications and considers using a 4-20 mA sensor for improved integration.",
+    "user_expectations": "The user wants to accurately measure currents up to 100A (doubled for sensitivity using cable loops) with the existing [product_name] module and a 0-10V analog sensor, expecting direct and precise readings after calibration in the system software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "current measurement",
+      "accurate readings",
+      "sensor integration",
+      "system compatibility"
+    ],
+    "pain_keywords": [
+      "input impedance mismatch",
+      "signal scaling",
+      "sensor compatibility",
+      "setup failure"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "impedance",
+      "signal scaling",
+      "analog amplifier",
+      "measurement range"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

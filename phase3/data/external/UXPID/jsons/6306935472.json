@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "branch_id": "6306935472",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 893133489783526,
+      "user_name": "Tmrx0DGzO7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I'm experiencing an issue: Several outputs from a [product_name] expansion module are not functioning, and I’m unable to identify the cause. Here’s what I’ve observed: - Output voltage for a failed channel: both high and low state = 0.0V - Output voltage for a working channel: low = 0.4V, high = 23.7V - On one module, 5 outputs failed; on another, 6 outputs failed. Circuit details: - 24V 4A power supply - [product_name] controller: 24VDC transistor outputs - 2 expansion modules, [product_name]: each with digital inputs/outputs - Loads: 1 relay per output (24V DC coil, 22mA, includes diode for back-EMF protection, output 250V AC, 16A) Does anyone know what could lead to these failures?"
+    },
+    {
+      "comment_id": 123037658003656,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "There are some inconsistencies in your description that need clarification."
+    },
+    {
+      "comment_id": 485650622187555,
+      "user_name": "Tmrx0DGzO7",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Apologies for the mistake: all expansion modules in use are [product_name]."
+    },
+    {
+      "comment_id": 369826157476358,
+      "user_name": "Tmrx0DGzO7",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "To add more context: The failures appeared during initial commissioning on new hardware—not after any prolonged use."
+    },
+    {
+      "comment_id": 707658077226668,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Are you certain these outputs are actually defective? I’m doubtful. Each output should have short-circuit protection at 1A, and your load is only 0.3A per channel."
+    },
+    {
+      "comment_id": 972874486089262,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "If I were in your position, I would initiate a support request..."
+    },
+    {
+      "comment_id": 343769442424555,
+      "user_name": "Tmrx0DGzO7",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thanks for responding so quickly. For troubleshooting, I disconnected all external wires and programmed all outputs to a constant high state. As previously mentioned, only a few outputs reach 24V while the rest stay at 0V. I'll contact [company_name] support as recommended and provide updates."
+    },
+    {
+      "comment_id": 111786163190657,
+      "user_name": "udO0a0woU9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Based on your description, you’re using all transistor outputs similarly, yet some won’t work. A 4A supply is typically sufficient for [product_name] and expansion modules, but if all outputs are active together, that may not be enough. Maximum consumption: - [product_name] base: 1.2A - 2 x [product_name] modules: 2 x 1.2A - [product_name]: 2.4A Total: 6.0A required Check if your supply meets these needs. If you still notice failures when testing modules individually, some transistors could be faulty. Since these modules are new, I’d recommend exchanging them. Keep in mind each transistor can handle up to 0.3A."
+    },
+    {
+      "comment_id": 538492381289965,
+      "user_name": "Tmrx0DGzO7",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thank you for your feedback. I agree about the power supply concerns. However, in my test—after removing all external wiring and setting all outputs to constant high—only a few outputs showed proper voltage; most remained at 0V. It's likely both modules are faulty. How likely is it for two supposedly new modules to be defective? When delivered, the box seals were broken and the supplier insists the modules are new, refusing returns. My concern is that the issue may be in my setup, causing repeated failures if I replace modules. Each output controls a relay as described earlier. Even though the documentation mentions protection against overload/short circuit, what else might lead to output destruction?"
+    },
+    {
+      "comment_id": 727331523899856,
+      "user_name": "8RYb477Ela",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "To avoid any confusion about the output circuit for the [product_name] controller, posting a full circuit diagram would help for analysis. Typically, these outputs only fail if exposed to external voltage, possibly from induced voltage. If you’re sure the relays have proper protection against induction and wiring is correct, I don’t have further suggestions on where to check. Regards, [user_name]"
+    },
+    {
+      "comment_id": 781105652649664,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "If I recall, [product_name] controllers and extensions with transistor outputs have used Infineon ITS4140N drivers. From the datasheet: Negative voltage at the output is clamped for inductive loads, so an external clamping diode isn't necessary but also won't cause any issues."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Several users are troubleshooting output failures on [product_name] expansion modules during initial tests using transistor outputs, with some outputs consistently showing no voltage response. Despite built-in protection features, these new modules are malfunctioning, raising doubts about hardware reliability, potential defects, and supplier trust. The repeated nature of failures—with correct wiring and protective measures assumed—suggests possible underlying design, circuit, or handling issues that might impact new devices regardless of correct usage.",
+    "user_expectations": "Users expect that every output channel of the expansion modules will operate as documented, with built-in safeguards reliably protecting against hardware faults, especially during setup and first-time use. They also anticipate that new modules will function without defects and be supported by their supplier if returned due to issues.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable output function",
+      "hardware protection",
+      "new hardware trust",
+      "troubleshooting clarity"
+    ],
+    "pain_keywords": [
+      "output failure",
+      "hardware defect",
+      "uncertainty in cause",
+      "initial use malfunction"
+    ],
+    "feature_keywords": [
+      "transistor outputs",
+      "short circuit protection",
+      "overload protection",
+      "24V operation",
+      "current limit per output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "24": "Data Integrity Concerns"
+  }
+}

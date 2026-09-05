@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "2014275094",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 482977753458304,
+      "user_name": "muyuNrlVKL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "I'm uncertain about the version of my device's BM. When I check the firmware version, it displays '[article_no].Standard V1.08.02'. To troubleshoot, I reviewed notes on Version 2 of [product_name] as I need to send SMS to the BM (via the [product_name]) and modify a BIT variable memory. The documentation states VM signals of type BIT can now be used, provided the hardware is [product_name] Version 8.1 or higher. For SMS, the syntax given is 'Password; [product_name] = VM1.3,1, BIT'. Is my BM version sufficient? If not, is there a way to upgrade the firmware? Thanks for your help."
+    },
+    {
+      "comment_id": 239412730415517,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "According to the firmware update description for the [product_name], a [product_name] Version 8.1 does not exist as hardware; it's actually the version of [product_name] programming software. Most likely, the intended hardware is [product_name] [article_no] (FS04 or newer) with firmware version V1.81.01 or above. Your device shows firmware V1.08.02, which corresponds to [product_name] with FS02, so BIT manipulation isn't supported with this version."
+    },
+    {
+      "comment_id": 911819044155356,
+      "user_name": "muyuNrlVKL",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "So, I would need to replace my current BM device with a newer one, right?"
+    },
+    {
+      "comment_id": 427930229958613,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "For older [product_name] devices with [article_no], specifically models with firmware V1.08.01 to V1.08.03 (FS01-FS03), you can only switch one bit in the VM range using the 'BYTE' type. As an example for VM bit V3.0: Password; [product_name] = VM3,1, BYTE (for V3.0 = High) Password; [product_name] = VM3,0, BYTE (for V3.0 = Low)"
+    },
+    {
+      "comment_id": 261966733618712,
+      "user_name": "muyuNrlVKL",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Typing the command with BYTE works. Thank you."
+    },
+    {
+      "comment_id": 670849832326241,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Hello, The difference is: for [product_name] Version 8 up to ES03, a whole Byte is always transferred, resulting in a loss of 7 bits when addressing a single bit. Since [product_name] Version 8 FS04 and [product_name] FW V2, you can directly address individual bits—instead of a byte, now a single bit is transferred and all 8 bits can be individually used. Hope this clarifies things."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users found it challenging to differentiate between hardware and software versions of [product_name], especially when attempting bit-level operations via SMS using the [product_name] Communication Module. Documentation inconsistencies in version naming created confusion regarding which hardware version supports individual bit manipulation, leading users to rely on workarounds like the BYTE command unless they upgrade to newer hardware.",
+    "user_expectations": "Users want clear guidance on how to identify compatible hardware and firmware combinations for bit-level SMS operations and either wish for their existing devices to support this feature or seek advice on upgrading or enabling it.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "bit-level control",
+      "remote variable manipulation",
+      "hardware compatibility"
+    ],
+    "pain_keywords": [
+      "version confusion",
+      "feature limitation",
+      "documentation clarity"
+    ],
+    "feature_keywords": [
+      "bit operation via SMS",
+      "firmware compatibility",
+      "VM bit variable support"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "32": "Product Naming Clarification"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "branch_id": "6545573143",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 602688507990194,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "[product_name] Soft Comfort typically uses port 8080 to connect to the [product_name] Basis Module. When the [product_name] Basis Module is behind a router, additional challenges arise. First, the remote site's 8080 port may be used by other applications, preventing access. Second, if multiple [product_name] modules are behind a router, port 8080 will only refer to one [product_name] Basis Module, so others cannot be accessed using the same port. Third, port 8080 is commonly targeted by attackers. Is it possible to redirect [product_name] Soft Comfort communication to a different port, similar to changing ports in a browser (for example a.b.c.d:3456 instead of a.b.c.d:8080)? Thanks for any advice."
+    },
+    {
+      "comment_id": 403490902793536,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "[product_name] [article_no] uses ports 102 or 8080 for communication: 8080 for its web server, and 102 for HMI and compatible controllers. With the newer [product_name] [version_no], port 8080 is also used for communication with Modbus devices. These port assignments are fixed and cannot be changed by users. Changing port numbers generally does not improve security. If you connect a [product_name] over the internet, using a VPN tunnel is the safest option."
+    },
+    {
+      "comment_id": 671233918657483,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Hackers tend to target common ports, such as 80 or 8080. Running a web server service on a non-standard port can lower the risk of attack and significantly improve security. However, sometimes a VPN-capable router is not available where online [product_name] program updates are needed. In those cases, you can open a port for the soft comfort connection to download new programs, but this port cannot be 8080 if it is used by another application."
+    },
+    {
+      "comment_id": 923877660068048,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "If attackers get access to your network, the port number makes little difference. Hackers use port scanners to detect all open ports, including newly selected ones. In the [product_name] software or through the [product_name] menu, the port number cannot be changed. If you have concerns, consider submitting a support request."
+    },
+    {
+      "comment_id": 582188300535708,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Each port is typically assigned to a specific service. Using a standard web port like 80 or 8080 makes the protocol easy to identify, as they are defaults. If you change to a non-standard port, attackers must scan a larger range and match the protocol, which takes more time and resources. As a workaround, if you run Soft Comfort under Linux, you can translate ports using an SSH client and server, allowing remote [product_name] connections over a non-standard port. This enables program loading and full functionality of Soft Comfort. On Windows, this option is not available."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report major limitations due to the fixed port configuration of [product_name] Soft Comfort. The lack of port customizability leads to security concerns, network conflicts, and access difficulties in remote settings. Frustration arises from the software's inflexible default communication port, impacting both security and ease of use in multi-device environments.",
+    "user_expectations": "Users expect the ability to customize the communication port in [product_name] Soft Comfort, aiming to avoid port conflicts and improve network security, particularly for remote or multi-device scenarios.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "customizable port",
+      "improved security",
+      "multi-device access",
+      "compatibility"
+    ],
+    "pain_keywords": [
+      "fixed port limitation",
+      "security risk",
+      "network conflicts",
+      "restricted remote access"
+    ],
+    "feature_keywords": [
+      "port configuration",
+      "remote programming",
+      "web server communication"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": [],
+      "Linux": []
+    }
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "6": "Security Concerns",
+    "22": "Usability Improvement Suggestions"
+  }
+}

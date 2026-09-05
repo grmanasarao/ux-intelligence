@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "6655089949",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 629099829381071,
+      "user_name": "KJOOxlNE1o",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 2,
+      "comment_body": "Hello all, I have tried using a [product_name] [version_no] and a [product_name], connected over the network, and it works well. However, when I remove the power, both [product_name] and HMI lose the parameter settings, such as the PI-regulator setpoint. Is there a way to make these values persistent? Best Regards, [user_name]"
+    },
+    {
+      "comment_id": 631127137510295,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 3,
+      "comment_body": "Hi [user_name], Within the block properties of certain blocks in [product_name] programming software, you can enable \"retentivity\" to retain data after a power loss. Consider these two steps to improve data communication between your [product_name] and HMI: First: Go to \"Tools > Ethernet Connections\" in [product_name] software and double-click the connection to open its properties. For server connections, there is an \"Enable the Keep Alive function for this connection\" checkbox. Ensure it's checked, so the connection is regularly verified (for example, every five seconds on some base modules). Second: In your HMI software project, go to the tag table and select the relevant parameter. Under properties, choose \"settings\" and make sure \"Acquisition mode\" is set to \"Cyclic in operation\" and acquisition cycle is set to \"100ms\". Please let me know if this resolves your issue. Regards, [user_name]"
+    },
+    {
+      "comment_id": 597876646768530,
+      "user_name": "KJOOxlNE1o",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 3,
+      "comment_body": "Dear [user_name], Thanks for your reply! I didn't explain the issue well previously. The real problem is that the HMI doesn't restore the last values for tags after a power cut (see attachment). Is there any solution for this? Best Regards [user_name]"
+    },
+    {
+      "comment_id": 474182923750579,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 3,
+      "comment_body": "Hi, One way to address this is to use the SP parameter of the PI block in the HMI instead of VM and NAI. To do this, use the VM mapping table in your [product_name] programming software [version_no]. Select PI SP as the parameter, and don’t overwrite an existing VM address. Next, in the HMI software, create a tag for the specified connection and assign the VM address for the PI SP from the VM mapping table. If your HMI allows read/write access, you can modify the FB parameter directly (if permitted by the FB). In the VM mapping table, you’ll see which parameters can be changed (look for \"book & pen\" icons). Actual and referenced values can’t be altered, but other parameters with this symbol can be edited via HMI. Hope this helps!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered a problem where the HMI panel and [product_name] controller do not retain parameter values like PI-regulator setpoints after losing power. This lack of persistence affects workflow, as user-defined settings are not automatically restored. The conversation shows attempts to resolve this by adjusting settings in both the [product_name] programming interface and HMI configuration, but points to ongoing usability issues.",
+    "user_expectations": "Users expect that parameter values, such as PI-regulator setpoints configured through the HMI, will be preserved even after a power outage and automatically restored upon restart. Seamless data retention and integration between [product_name] and HMI devices are important for their workflow.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter persistence",
+      "reliable data retention",
+      "automatic value restoration"
+    ],
+    "pain_keywords": [
+      "loss of parameter values",
+      "manual re-entry after power cycle",
+      "lack of persistent data storage"
+    ],
+    "feature_keywords": [
+      "retentivity",
+      "parameter mapping",
+      "HMI tag persistence"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "22": "Usability Improvement Suggestions"
+  }
+}

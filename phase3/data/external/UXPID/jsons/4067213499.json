@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "branch_id": "4067213499",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 810173697909877,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, During my tests with the block \"stop watchwatch\" of the [product_name] ([article_no]), I observed the following: - The block's output can range from 0 to 65636 for each permitted time unit. The documentation and online help do not mention this. - The \"time base\" parameter can be set using a text message, but its usefulness is limited since the entry only allows seven characters, making it hard to clearly represent value and unit. Also, when \"10 msec\" is selected, the unit shown as \"msec\" does not match the actual output value (which isn't true milliseconds). - For presenting output values, having an optional date format such as hh:mm:ss.xx0 would greatly help. - The block's internal time base for \"s\", \"m\", and \"h\" units is not 0.01s but somewhat less, which means that activating blocks with input pin \"En\" in parallel, especially with frequent ON/OFF switching, produces inconsistent end-time values. Please refer to the attached circuits: - Test_Stopuhr_01 ([article_no]).lsc: Demonstrates how, using a trick with the \"switching delay\" block, a value display can be achieved through two units. Particularly, with the 10 ms setting, only durations up to 32 seconds can be shown. This is because the \"Ta\" parameter in the \"switching delay\" block requires value input in ms, but the allowed solution is only 10 ms, and the referred value's unit is simply cut off without rounding. A required multiplier for the output value of \"Stop watchwatch\" prevents its value range from being exhausted. - Test_Stopuhr_02 ([article_no]).lsc: Shows that using an \"analog comparator\" block, you can achieve at least a 65-second display duration with a resolution of 0.01 s, using a time format of ss:xx0 seconds and another trick. - Test_Stopuhr_03 ([article_no]).lsc: Demonstrates a demo, where, according to my own findings, a time indication with a maximum duration of 99 hours and 59 minutes at a resolution of 0.01s can be achieved. (Hint: In PC simulation, switch to \"font 2\" in the text message area for a suitable date display...) My conclusion: If you need times at a 1/100 s resolution (which is not fully supported by [product_name]), the \"Stop watchwatch\" block provides a useful alternative to complex circuit solutions required for [version_no]. For other time units, it's worth considering whether a circuit-based solution using impulse generator and counter blocks might be more effective, depending on your needs. Enjoy experimenting!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users testing the 'stopwatch' block in [product_name] ([article_no]) identified inconsistencies and limitations in value ranges, unit labelling, time resolution, and display formats. Lack of clear documentation and ambiguous output units create confusion, especially for applications needing fine resolution (1/100 s) or more readable time displays. These issues make it difficult for users to apply the block effectively for precise time measurements and presentations.",
+    "user_expectations": "Users expect precise, clearly documented value ranges, accurately labelled units, and adjustable display formats so elapsed times can be measured and shown in an intuitive way. They want output to reliably match unit settings, and for time values to be easy to format for operator display.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clear time representation",
+      "precise measurement",
+      "flexible output formatting",
+      "better documentation"
+    ],
+    "pain_keywords": [
+      "ambiguous output",
+      "documentation gaps",
+      "unit mismatch",
+      "display limitations"
+    ],
+    "feature_keywords": [
+      "stopwatch block",
+      "output value range",
+      "unit labelling",
+      "time formatting",
+      "text message"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "8": "Documentation Clarity"
+  }
+}

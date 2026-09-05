@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "branch_id": "1424143426",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 159043385095457,
+      "user_name": "GqgLPs2OD0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, I have [product_name] running on a Raspberry Pi to monitor my [product_name] setup. It generally works well except for the function block diagram shown in the attachment. My goal is for the garage light to stay on for a set period, then turn off automatically. On the RS block, I must invert the Reset; without this inversion the entire diagram behaves incorrectly. The other inputs are typically network-based, but I've set them as regular inputs for testing. These are necessary to display on/off status in [product_name]. Removing the invert connector causes functionality issues."
+    },
+    {
+      "comment_id": 462456232055804,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "If I've got your question right, the screenshot you posted offers a working solution. One thing that isn't clear: If the light is supposed to turn off with a delay after pressing I4, why use a comfort switch? Wouldn't a simple delayed switch-off accomplish this?"
+    },
+    {
+      "comment_id": 612979072090325,
+      "user_name": "GqgLPs2OD0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "If I want to keep the light on in the garage longer, I hold I4 for 2 seconds—this keeps the light on until I switch it off again. Usually, I just switch the light on when entering, and after 2 minutes it automatically turns off. That's the function I'm aiming for, and I want this to be visible in [product_name]."
+    },
+    {
+      "comment_id": 612330746815650,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Try the following setup: After switching on, if you want to turn the garage light off, make sure that I4 is not pressed for more than 0.99 seconds during the light-on duration."
+    },
+    {
+      "comment_id": 643139680075626,
+      "user_name": "GqgLPs2OD0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Thanks for your help. This resolves my issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user faced challenges setting up a function block diagram for automated garage lighting, attempting to integrate both timed switch-off and manual override while ensuring feedback in external monitoring software. The main difficulty was implementing logic for the invert connector to achieve desired behavior and display status in [product_name]. The user sought flexible control and accurate visualization.",
+    "user_expectations": "The user expects the lighting logic to handle both timed automatic switch-off and manual override via button, with status accurately shown in [product_name]. Stable and reliable operation from both the hardware and the monitoring software is anticipated.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "logic flexibility",
+      "manual override",
+      "automatic timer",
+      "visualization",
+      "remote monitoring"
+    ],
+    "pain_keywords": [
+      "logic configuration",
+      "invert connector confusion",
+      "third-party visualization integration"
+    ],
+    "feature_keywords": [
+      "invert connector",
+      "RS block",
+      "switch-off delay",
+      "function block diagram",
+      "manual override"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

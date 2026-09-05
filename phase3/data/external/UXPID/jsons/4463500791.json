@@ -1,0 +1,340 @@
+{
+  "metadata": {
+    "branch_id": "4463500791",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 474167664058792,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "While attempting to install the free upgrade of [product_name] [version_no], the Setup.app fails due to lack of execution permission, as Unix doesn’t detect the execute bit. The underlying issue is with the 'Setup' file inside the Setup.app package rather than Setup.app itself. Adjusting this with chmod allows it to execute, but then a damaged file error appears. Testing this on three macs with macOS 11, 13, and 14 produced the same result. Is there a step-by-step procedure or guide available for proper installation? The free update was downloaded from [url]."
+    },
+    {
+      "comment_id": 856909252801549,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hi, did you review the note for MAC provided with the upgrade?"
+    },
+    {
+      "comment_id": 764943407321898,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I already have Java installed because [product_name] [version_no] is on my system. I’m unsure if the upgrade requires Java directly. I’ve tried installing Java 11 (Corretto), which is needed for [product_name] [version_no], but it didn’t resolve the issue. The previous version requires Java 8 and won’t work with Java 11, while [product_name] [version_no] only works with Java 11, as mentioned elsewhere. Unzipping the download seemed normal with the default macOS tool, and I also tried TheUnarchiver based on a suggestion, but there was no improvement. Where is that note located? Stuff Expander was originally for ancient macOS versions, and now there’s a much newer version."
+    },
+    {
+      "comment_id": 223772646274763,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hi, the note is included in the upgrade and can be found in install.htm. Although I’m not a Mac user, I recall two important points from earlier MAC upgrades: first, the default MacOS 'unzipp' tool may not work properly; second, it’s recommended to download on Windows, transfer to Mac, and run the installation. Hope that helps."
+    },
+    {
+      "comment_id": 618906785028638,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I tried extracting 'upgrade_Web_Installers_[product_name][version_no]_sw_all.zip' on Windows, then moved the folder to my Mac, but encountered the same issue. There are nested zip files remaining after extracting the parent zip, since only the first level is expanded with default tools. I'm unsure how the installer handles these inner zip files."
+    },
+    {
+      "comment_id": 996082347313438,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I tried unzipping every zip file, including those in sub-folders, on Windows then removed the zip files before moving the result to my Mac. The installer progressed further but ended with a Fatal Application Error due to a Java exception, though the error itself seems less relevant—what matters is the progress. This suggests the downloaded zip file isn’t universally compatible across all Macs. How are other users successfully upgrading? Do they simply double-click Setup and have it work? Notably, the error is the same whether I use Oracle Java 8 or Corretto Java 11."
+    },
+    {
+      "comment_id": 468743474654960,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "After reading forum posts, I attempted a new approach for Setup to run: (1) installation must be on macOS 12 or lower; (2) you need Java 11—either Coretto or Oracle JDK; (3) use TheUnarchiver to unzip the file as alternatives didn't work, and Windows unzip failed. Now, [product_name] [version_no] works on macOS 11 with lingering bugs, which also appeared in the previous version. I ignored them before as I didn't use that computer for work, and my other macs don't have those bugs. The DVD for the prior version installs on macOS 14 (Sonoma). Ideally, I’d like [product_name] [version_no] running on newer macOS versions, but haven’t succeeded yet. It seems copying the installed folder from macOS 11/12 to newer macOS and running it should work, as suggested. I'll try that next."
+    },
+    {
+      "comment_id": 540842711642828,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "The solutions I posted recently don’t consistently work. To fix display errors with both [product_name] [version_no] and the prior release, I performed a factory restore of my MacBook and now only have macOS 11 and Java installed. After restoring, here’s what I did: first, optionally install the previous [product_name] version from DVD; this is usually not required, as the upgrade can validate the DVD path, but in my case, the upgrade didn't work until I installed it. This earlier version needs Java 8 (Oracle JRE 8), since Java 11 won’t work unless Oracle JRE 8 was installed before. The older release works on macOS 10.15–14, except you can't save certain project types, resulting in a Java security exception. This issue only affects version [version_no] base modules but not earlier models. The latest [product_name] release doesn’t have this bug. Second, for the upgrade from the downloaded zip, the Setup utility inside the folder fails due to missing execution permissions on Unix executables, fixable with 'chmod a+x Setup', as detailed in the Readme file (which is accessible only after installing). Alternatively, unzipping with TheUnarchiver fixes this. At this stage, you need Java 11, with Corretto 11 suggested by [company_name]. It worked previously, but after the latest restore, it again reports 'Setup is damaged and cannot be opened,' just like before. Oddly, I’m using the same MacBook and files as when it worked previously. I might have skipped an unnoticed step last time. Any further suggestions?"
+    },
+    {
+      "comment_id": 472888975289750,
+      "user_name": "udO0a0woU9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hi [user_name], this situation can be escalated to the [company_name] Support Team for individualized free assistance. Please check the 'My Forum' area for personal support options. Regards, [company_name] Support"
+    },
+    {
+      "comment_id": 765671451528406,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I’ve already contacted [company_name] support. The first support agent wasn't familiar with macOS and gave suggestions, some of which weren't applicable. My case was then handed over to another agent. This person promised to test instructions themselves and update me. That was about a week ago. Meanwhile, I’m seeking advice from other forum users who've succeeded. However, such responses seem rare or those users aren't present."
+    },
+    {
+      "comment_id": 622060547917092,
+      "user_name": "silUa8S8Kz",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I have the same problem and am currently out of options—finding a solution would be very helpful."
+    },
+    {
+      "comment_id": 910407412823977,
+      "user_name": "ZJiN4fetzT",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I'm encountering the same issue. On my MacBook Pro M3 with Sonoma 14.3.1, I can't install the initial [product_name] version 8.0 from DVD. The error message says the application must be updated by the developer to function on this macOS version. Is there any support for resolving this?"
+    },
+    {
+      "comment_id": 762861298644661,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Support from [company_name] may be limited since [product_name] [version_no] is officially compatible with macOS 12 and not above. Still, DVD installation for the prior version works on macOS 14 for me (MacBook Pro M2). As for the latest update, I’m awaiting a fix for supported macOS 12 in hopes it works on 14 too. [company_name] support has acknowledged the upgrade problem on macOS 12 and escalated it to the [product_name] development team. I hope for a prompt resolution."
+    },
+    {
+      "comment_id": 156809446924302,
+      "user_name": "silUa8S8Kz",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I've managed to install the [version_no] upgrade on macOS Sonoma 14.2.1 using the following steps: Extract Setup.zip, open Terminal, navigate to Setup.app’s folder and its Setup executable, run 'chmod a+x Setup', then './Setup'. If you receive a damaged file error, use 'sudo xattr -c Setup', and finally allow execution in System Settings > Privacy and Security."
+    },
+    {
+      "comment_id": 395837001849405,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Great news—the procedure you described worked for me on macOS 13; I’ll try macOS 14 and 11 as well. Notably, using TheUnarchiver to unzip negates the need for the 'chmod' command. There are both 'Setup.app' and a nested 'Setup' inside it that require attention. The 'xattr -c' command clears extended attributes, and 'chmod a+x' gives execute permissions. I still have a support ticket open for this on macOS 11, and this will certainly help expedite things."
+    },
+    {
+      "comment_id": 322062303897356,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Unfortunately, I couldn't install the upgrade on macOS 11 or 14; Setup doesn’t appear in the Privacy and Security settings, so allowing execution isn’t an option. This step did work on macOS 13. There might be a Java-related issue affecting the installer."
+    },
+    {
+      "comment_id": 348485870512625,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Default permissions for /Applications on macOS are system-based, not user-based, so applications are typically installed in a user's home directory. Installation in the system folder demands admin rights, which most installers request. [company_name] [product_name] doesn’t follow the standard macOS installation approach, possibly limiting install locations to those with user permissions. With the application installed, you can move its folder to the system Applications folder. Java issues may arise when users have multiple applications using different Java versions; some developers include Java within the app, others don't. For [product_name] [version_no], AWS Corretto version 11 is needed. To check your macOS Java version, use /usr/libexec/java_home. Importantly, choose the x86_64 (Intel) binary, not aarch64."
+    },
+    {
+      "comment_id": 688484638637978,
+      "user_name": "ylFBnUnas8",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "You’re absolutely right—there are no good results so far. I'm facing the same issue. [company_name] should release an update from [version_no] to a new patch that supports macOS 13 and 14. It’s disappointing to be unable to work on an iMac with a 5K monitor. Let’s hope for a fix soon. Many greetings."
+    },
+    {
+      "comment_id": 346313836415420,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "A useful tip: my previous version stopped working on macOS 14 after a few days. Removing Oracle JRE aarch64 and reinstalling the Intel x64 version made it work again. So it's best to avoid the ARM version. Still, the Setup for the upgrade fails on macOS 14, reporting it's damaged. For context, that's a MacBook Pro M2. This same Setup did work on macOS 13 (iMac 5K 2018). If anyone knows which Java version is needed for running the upgrade Setup (not the main app), please share. According to [company_name] support, the [product_name] team asked me to try JDK 8 for the Upgrade Setup, but it failed. For this support case, I'm using macOS 11 on a MacBook Air 2014, as it’s officially referenced in the manual."
+    },
+    {
+      "comment_id": 608761608992290,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Here’s a screenshot from macOS Sonoma showing how to install [product_name] [version_no]. The installer needs Java 8, while the application requires AWS Corretto 11 x86_64 afterward. The Setup.app isn’t signed, so macOS flags it as damaged; you can resolve this by right-clicking and removing the quarantine attribute: xattr -d com.apple.quarantine file_path (replace file_path with the path to Setup.app)."
+    },
+    {
+      "comment_id": 762284452785213,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thanks for the help, [user_name]. Installation worked here for [product_name] [version_no] on macOS 14 (Sonoma), and the same approach succeeded on macOS 11. I’ll update [company_name] support about this. For reference, I’ve created instructions that detail the upgrade steps for [product_name] [version_no] on macOS 14, with small tweaks needed for macOS 13 (see PDF)."
+    },
+    {
+      "comment_id": 563716894563714,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Within the [product_name] [version_no] app bundle, there’s an info.plist file where users can change the jre_path key to force Java 8 usage, rather than AWS Corretto 11. Debugging by directly opening the Mach-O binary can expose hidden errors that don’t appear when launching from Finder. By default, [company_name] leaves the jre_path empty, so the system/global JRE is used, determined by /usr/libexec/java_home. Installing another JRE later may render the app unusable. Some developers bundle the JRE with the application to avoid conflicts; this isolates the Java environment. It's tricky when Java bytecode and JRE versions don’t match, or with Python if dependencies break on version changes."
+    },
+    {
+      "comment_id": 785068642316221,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Here’s a user-friendly method for managing Java on macOS: Java runtimes are stored in /Library/Java/JavaVirtualMachines, and /usr/libexec/java_home helps select among installed runtimes. [product_name] [version_no] requires Java 11, while the InstallAnywhere installer needs Java 8. Both must be x86_64 binaries. In Terminal, after extracting Setup.app, run: export JAVA_VERSION=1.8; open Setup.app. This sets the environment for Java 8 during install, switching to Java 11 for app usage later. The info.plist file JVMVersion key is set to 1.8, but macOS may still use another installed version, so explicit environment setup is needed."
+    },
+    {
+      "comment_id": 799830980202829,
+      "user_name": "ylFBnUnas8",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thank you for sharing the setup summary—it worked for me. My only challenge is clean installation of [product_name] [version_no] from DVD, as it isn’t compatible with macOS 13. I couldn’t recover my older installation due to disk failure. Is there a way to install the older version directly on Ventura 13.6.4, and then upgrade to [product_name] [version_no] on an iMac M1?"
+    },
+    {
+      "comment_id": 849795744278931,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "The most reliable method is to install the software in a supported environment first, then transfer the installed files, including the Java runtime, to your new macOS setup. The DVD is from an older Mac OS X, and much has changed since then. Versions up to [version_no] use Java 8, which dates to 2014; the installer may use 32-bit code, and Mojave was the last macOS to support that."
+    },
+    {
+      "comment_id": 398287043005922,
+      "user_name": "ylFBnUnas8",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "That's what I thought. No worries—I'll look for someone with a Mac running Mojave. Do you remember the specific folders or paths I should copy from Mojave? Thanks again for your help."
+    },
+    {
+      "comment_id": 122676082002344,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "You don’t need to install the previous [product_name] version itself. Just run Setup for the [version_no] upgrade and keep your old DVD mounted. When prompted for the path, direct the installer to the DVD location, not your Mac. If needed, on the DVD, look under 'Mac > Application' to locate a usable [product_name] installation for the upgrade, and under 'CDROM_Installers > Disk1 > InstData > MacOSX > NoVM' for the Setup program."
+    },
+    {
+      "comment_id": 484413658435995,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I’m not sure if that covers your question, [user_name]. For me, [product_name] was always installed at /Users/[username]/Applications, and you should point there during upgrades. I installed version 8.0 on macOS High Sierra in 2018, upgraded through 8.2 on an iMac 5K, then updated to macOS 11 before moving up to 8.3 in 2020. By end of 2022, updated to macOS 13 (Ventura), I had both versions in the Applications folder."
+    },
+    {
+      "comment_id": 701566803718713,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 28,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I’ve submitted my procedure to [company_name] Technical Support. My assigned agent said it’ll be relayed to the development group ([product_name] dev team). Hopefully, a new installer will arrive soon."
+    },
+    {
+      "comment_id": 578963883365374,
+      "user_name": "ylFBnUnas8",
+      "comment_position": 29,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello all. I finally restored all [product_name] versions to operate on OSX Ventura 13.6.4. I tracked down an old Mac with High Sierra, installed everything from [product_name] 8.0 and updated sequentially, adjusting attributes and running each Setup. See the guide PDF for details: use 'chmod a+x Setup.app/Contents/MacOS/Setup' and 'xattr -d com.apple.quarantine Setup.app'. For 8.0 and 8.1, use Java 6; for 8.2 and 8.3, Java 8; for 8.4, Amzn Corretto 11.0.22 x64. Transfer all files to Ventura, repeating attribute and execution fixes: 'chmod a+x /Users/AccountName/Applications/[product_name]_V8.4/[product_name].app' and 'xattr -d com.apple.quarantine /Users/AccountName/Applications/[product_name]_V8.4/[product_name].app'. Same applies for LWE application. Confirmed: [product_name] [version_no] works only with Amzn Corretto 11.0.22 x64, not ARM builds. Note: on OSX 13.6, [product_name] and LWE 1.1.0 work with Java 8. Thanks everyone for your help."
+    },
+    {
+      "comment_id": 159044588097359,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 30,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "If you move an installed folder between macOS systems, you may not need extra steps for execution permission—the upgrade Setup typically handles the rest. That’s how I first installed [product_name] [version_no] on macOS 14 (Sonoma) before owning the DVD for version 8.3. This method should also work for [version_no] upgrades."
+    },
+    {
+      "comment_id": 907673794612910,
+      "user_name": "Croe8miXXL",
+      "comment_position": 31,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello, I posted a separate thread detailing my successful process: [url]. Hope it assists others."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter persistent installation issues with the [product_name] [version_no] update across various macOS releases, notably with missing execution permissions, installer integrity errors, and Java compatibility challenges. Numerous troubleshooting steps—including using specific unzip utilities, modifying file permissions, and consulting both support and community members—have produced inconsistent and unreliable outcomes, particularly on macOS 13 and 14. Support responses vary, with guidance often incomplete or slow, leading to frustration and a lack of clear, universal solutions.",
+    "user_expectations": "Users expect a seamless and dependable upgrade for [product_name] [version_no] on supported macOS platforms, transparent error handling, and assured compatibility with current macOS and necessary Java versions.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful upgrade",
+      "macOS compatibility",
+      "easy installation",
+      "Java compatibility"
+    ],
+    "pain_keywords": [
+      "installation error",
+      "damaged setup",
+      "Java version conflict",
+      "unzip issues",
+      "permissions error",
+      "support knowledge gap"
+    ],
+    "feature_keywords": [
+      "upgrade installer",
+      "ZIP file handling",
+      "execution permissions",
+      "Java runtime support",
+      "OS compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "MacOS": [
+        "11",
+        "13",
+        "14",
+        "10.15",
+        "14 (Sonoma)"
+      ],
+      "Windows": []
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

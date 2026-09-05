@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "7889354624",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 598065317343750,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Hello, How can I display the analog output value on the [product_name] display, not using a function block?"
+    },
+    {
+      "comment_id": 123586326746434,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "This isn't possible. You can only show the output value from the block that controls the analog output."
+    },
+    {
+      "comment_id": 535740014402577,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Is there any way to achieve this? My requirement is: I'm using an analog input for 0-10V temperature input, and need to send those values as 4-20mA to the SCADA system. The logic works physically, but I'd like to display the AQ readings on the HMI."
+    },
+    {
+      "comment_id": 975186665644892,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "You cannot read the value of an analog output directly. What exactly do you want displayed on the HMI? The current in mA, or the actual temperature value?"
+    },
+    {
+      "comment_id": 216941502276200,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "On the output module, I can physically read the mA with a multimeter. I want those values to be shown on the HMI."
+    },
+    {
+      "comment_id": 422455543893751,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Use an analog amplifier block with the range set to 40–200, matching your temperature value range. Divide by 10 and display that block output on the HMI."
+    },
+    {
+      "comment_id": 259262280253230,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "For example, transfer the value from the analog amplifier block to the HMI. This will correspond to a value between 4.00 and 20.00 mA."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user cannot directly show analog output values, such as current in mA, on the [product_name] display or HMI without using logic/function blocks. The discussion points out that there is no direct mapping feature from analog output to HMI display, and workarounds involving function blocks are necessary for monitoring.",
+    "user_expectations": "The user expects to view analog output values directly on the [product_name] display or HMI, reflecting real-time mA measurements, without setting up extra logic.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "visualize analog output",
+      "HMI monitoring",
+      "simple display setup"
+    ],
+    "pain_keywords": [
+      "cannot view AQ on display",
+      "no direct mapping",
+      "requires workaround"
+    ],
+    "feature_keywords": [
+      "analog output display",
+      "HMI value visualization",
+      "analog amplifier block"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

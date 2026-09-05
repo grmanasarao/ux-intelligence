@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "3396953414",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 771713056238548,
+      "user_name": "VfJ4ZIgj7K",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm trying to create a block using mathematical instructions to process the analog input module, which ranges from 0 to 100 and divides it by 100. However, if the input is in the range 0-49, the output should be 0, and if it's 50-100, the output should be 1. Is it possible for the result to be 0.6 when the input is 60?"
+    },
+    {
+      "comment_id": 585510360448226,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "The controller performs internal calculations using floating-point arithmetic, but externally it only provides values as fixed-point numbers. The result always shows at least one decimal place, rounded accordingly: values below 0.5 are rounded down, and values of 0.5 or above are rounded up."
+    },
+    {
+      "comment_id": 358197887794621,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Keep in mind that the analog outputs internally in the controller use values from 0 to 1000. Here, 0 corresponds to 0 Volt or 0 mA (or 4 mA depending on configuration), and 1000 represents 10 Volts or 20 mA. Adjust the mathematical block settings so your output falls within 0 to 1000. For example, if your math block outputs 60, you'll see 0.6 V (or 1.2 mA) at the analog output."
+    },
+    {
+      "comment_id": 883154653349170,
+      "user_name": "VfJ4ZIgj7K",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "How can I apply a mathematical formula like X/100 × (Y-Z) + Z, where X is the analog input (0-100%)? Is there a way to do this directly?"
+    },
+    {
+      "comment_id": 137062936700718,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "You should first multiply, then divide, and finally add Z. In other words: X/100 × (Y-Z) + Z is equivalent to calculating X × (Y-Z), then dividing by 100, and finally adding Z. What are your actual input signal (analog input), and what do you use for X, Y, and Z?"
+    },
+    {
+      "comment_id": 280919286243205,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "To perform such formula calculations, use the \"Arithmetic Instructions\" function block. As mentioned before: internally, the controller uses floating-point numbers, but results and parameter entries must be fixed-point values only."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "User struggled to understand how mathematical instruction blocks handle analog input scaling and the difference between floating-point and fixed-point arithmetic in the [product_name] controller. Other users explained that although calculations are done using floating-point values internally, only fixed-point outputs are shown, causing results to be rounded. This affects the precision of analog outputs, especially when decimal values are expected from formulas.",
+    "user_expectations": "User wants the output of a mathematical block to provide an accurate decimal result (like 0.6) and expects analog input scaling formulas to work exactly as intended without automatic rounding to integers. They wish to input and use standard mathematical formulas directly with analog inputs.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "precise analog output",
+      "mathematical formula accuracy",
+      "scaling analog values"
+    ],
+    "pain_keywords": [
+      "forced rounding",
+      "fixed-point limitation",
+      "unexpected output",
+      "decimal value loss"
+    ],
+    "feature_keywords": [
+      "arithmetic instruction block",
+      "analog input scaling",
+      "fixed-point vs floating-point output"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "10": "Performance Predictability"
+  }
+}

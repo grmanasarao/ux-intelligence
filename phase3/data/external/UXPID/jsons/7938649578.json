@@ -1,0 +1,228 @@
+{
+  "metadata": {
+    "branch_id": "7938649578",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 562613159898487,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello, I am new to [product_name] programming and, after completing some basic projects with guidance from this forum, I’ve been assigned a pump control project involving a pressure sensor and frequency regulator. Initially, we considered using a [company_name] controller similar to an [version_no], which is managed via UTP cable—a setup that seems incompatible with [product_name]. We then looked at a drive with analog and digital inputs, and I want to know how to connect it so the frequency can be changed and monitored via an HMI. Currently, I am using [product_name] [version_no]. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 637623816442459,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "If the converter has analog and digital inputs, you can transmit setpoints and control signals from the HMI via [product_name]. However, I can’t advise on the parameterization required for the converter itself."
+    },
+    {
+      "comment_id": 818167789664074,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thank you for your quick answer. If possible, I hope someone else can provide more details about what to parameterize and how to program this in [product_name] for setting a setpoint."
+    },
+    {
+      "comment_id": 960008459821520,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "It’s unlikely you’ll find much help on parameterizing the converter via [product_name] since it's not a [company_name] device. I can help with programming [product_name] and the HMI if you specify exactly what you want to achieve."
+    },
+    {
+      "comment_id": 276606920472157,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I am attaching a diagram to clarify. The controller has a digital output (for ON/OFF) and two digital inputs (for status feedback), which I can manage easily. The main issue is transmitting an analog value from the HMI, so that pump speed is adjustable from 0-100% (4-20mA) using [product_name]. How can I send this analog value from [product_name] to the controller’s input? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 330762920087064,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Do you want to set just the pump speed (0–100%) and ON/OFF from the HMI? If so, I can create an example for you, but I’m not sure if I’ll have time today or tomorrow."
+    },
+    {
+      "comment_id": 992399444157199,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "It’s not just ON/OFF; I want to control the full range in between as well. There’s no rush—next Monday works. Thanks for your support! Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 781988880232833,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Start/stop (ON/OFF) is a digital signal for the drive unit, not the analog setpoint. Your diagram shows only one digital input; that’s what I wanted to clarify."
+    },
+    {
+      "comment_id": 913520938613938,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Yes, that’s correct—the 0–100% is solely for pump speed (Hz), which can be varied."
+    },
+    {
+      "comment_id": 716707623440205,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Please find an example attached. You just need to update the IP addresses in your [product_name] configuration and in the programming environment as per your setup."
+    },
+    {
+      "comment_id": 372604020775915,
+      "user_name": "3M1xKYrDpD",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hi, The FC202 controller has a built-in PID function and can manage pump operation automatically. If you’re using [product_name] only to connect an HMI to the drive with digital/analog I/O, it’s best to use the FC202’s internal logic for auto mode and [product_name] PLC for manual control. You can use digital inputs for auto or manual selection and analog inputs for feedback. The FC202 supports two analog inputs—one for the sensor, one for feedback—and has analog outputs for pressure or speed feedback to [product_name]. You could also add a network card and use Modbus communication. [user_name]"
+    },
+    {
+      "comment_id": 909789604864776,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Which type of Modbus? [product_name] [version_no] supports only Modbus TCP/IP directly. If it's not TCP/IP, you will need a gateway. Older versions like [version_no] can't handle Modbus TCP/IP."
+    },
+    {
+      "comment_id": 218207138295029,
+      "user_name": "3M1xKYrDpD",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "The drive model MCA122 is a Modbus TCP card."
+    },
+    {
+      "comment_id": 701103334279904,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thanks for your response! I am unable to work on this project week, but I’ll update you once I have progress. Thanks again. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 137068970146672,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Hello, After some delays, I finally tested the setup and it works as intended. However, it seems better to change the input from 0–100% (4–20mA) to 0–50Hz, since 50Hz is maximum at 20mA. Is it possible to use the analog amplifier so that, for instance, sending 5 would mean 5Hz or 30 would mean 30Hz? I’d appreciate anyone’s thoughts. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 687052262034153,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "If you use the [product_name] and focus on the provided diagram, yes, it’s possible. However, a single analog amplifier may not be sufficient since its max gain is 10. You’ll need two amplifiers in series—one with gain 10 and another with gain 2. That way, a 50 value from the HMI multiplied by 20 corresponds to the needed scale at the analog output."
+    },
+    {
+      "comment_id": 660167017229689,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Alternatively, you could set the HMI to input values from 0.0 to 50.0 Hz, which would appear as 0–500 to [product_name], and you’d only need one amplifier."
+    },
+    {
+      "comment_id": 113684473039823,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "See the attachments for both solution approaches."
+    },
+    {
+      "comment_id": 709133139746081,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Hi, I may not fully understand; the second option means setting 0–500 on the HMI instead of 0–50? For the amplifier, should the settings be min: -5000, max: 5000, gain: 10, offset: -500? My calculations might be off, as analog signal processing is tricky for me. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 682338253723944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "With input 0.0–50.0, you send 0–500 to [product_name], so you only need a single amplifier with a gain of 2 and no offset."
+    },
+    {
+      "comment_id": 667552363625395,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Have you checked my previous post from 11/25/2020 in this thread? Both options are explained there."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to link [product_name] with an external drive unit for pump control, facing difficulties with analog output and parameterization for non-[company_name] hardware. Digital control is clear, but sending analog setpoints (e.g., for pump speed) from [product_name] to the converter via HMI is less straightforward. Technical help is available mainly for the [company_name] side, not for configuring third-party devices.",
+    "user_expectations": "The user wants to fully control the pump, not just ON/OFF, using the HMI and [product_name], sending analog speed setpoints to the frequency converter and monitoring status information. The expectation is for easy programming advice and guidance on parameterization for successful integration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "integrated pump control",
+      "analog value transmission",
+      "HMI-driven variable speed",
+      "system monitoring"
+    ],
+    "pain_keywords": [
+      "analog output confusion",
+      "parameterization ambiguity",
+      "third-party hardware integration difficulty"
+    ],
+    "feature_keywords": [
+      "analog setpoint control",
+      "digital ON/OFF control",
+      "HMI integration",
+      "status feedback"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

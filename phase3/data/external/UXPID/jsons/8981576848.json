@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "8981576848",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 916340006973633,
+      "user_name": "4gXBolZ9SH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "I've looked through the forum and found some tips that helped me get the Modbus connection partially working. My task is to control a door system using a Universal Robots controller connected to a [product_name] via Modbus, with the [product_name] as server. The robot sets outputs to open or close the door, and the [product_name] manages relay outputs to issue commands to the door controller and monitor their status. So far, closing the door is handled, but I need the robot to receive input signals indicating if the door is closed, open, or if there's an error. All input states are initially low, and opening the door should set the relevant input high. At this point, the system properly reacts to output 0—the relays cycle as expected—but I'm stuck on implementing how the robot can read when the door is open. I want this to work through memory (virtual inputs), so the robot checks memory to determine high/low states without extra hardware inputs. My next issue: only output 0 responds. I tried to set up another input for Q3, but nothing happens. Could someone explain how to achieve reliable multiple input and output functions with this setup?"
+    },
+    {
+      "comment_id": 377287392863433,
+      "user_name": "4gXBolZ9SH",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Posting to share my test configuration inside the Universal Robots controller."
+    },
+    {
+      "comment_id": 750066913868395,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "If I understand your screenshot correctly, then it seems the [product_name] may be acting as the client for the robot, rather than as the server."
+    },
+    {
+      "comment_id": 441533507914084,
+      "user_name": "4gXBolZ9SH",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Actually, isn't it the server? I enter the IP of the [product_name] into the robot, which then connects and begins polling the status of various inputs and outputs."
+    },
+    {
+      "comment_id": 892292872106421,
+      "user_name": "4gXBolZ9SH",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "I resolved part of the issue by keeping it on VB0 and incrementing by one bit, which allows handling multiple inputs. I'm still struggling to create these virtual inputs."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is aiming to establish seamless Modbus-based input and output communication between a Universal Robots controller and a [product_name]. While outputs from the robot successfully trigger relays via the [product_name], challenges remain in creating virtual (memory-based) inputs and enabling more outputs. There is confusion regarding Modbus server/client roles and the intricacies of Modbus memory mapping, which is affecting progress.",
+    "user_expectations": "The user expects to set up and access several virtual Modbus inputs and outputs on the [product_name], ensuring real-time exchange of status signals with the robot controller without adding hardware. They want flexible memory mapping to present defined door statuses, including virtual states, to the robot.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless Modbus communication",
+      "virtual input/output expansion",
+      "status feedback"
+    ],
+    "pain_keywords": [
+      "limited Modbus input/output access",
+      "unclear virtual input configuration",
+      "server/client role confusion"
+    ],
+    "feature_keywords": [
+      "virtual input mapping",
+      "Modbus memory management",
+      "output control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "branch_id": "5448994487",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 899721517287613,
+      "user_name": "df85l6oVLJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello Forum, I am currently setting up a single [product_name] for use in a starter. My goal is to control this [product_name] from a SCADA system (not from [company_name]). Eventually, I plan to design a complete switchboard with multiple [product_name] modules involved. For now, the initial setup is functional. Now, I'm facing more complex challenges. I've connected the [product_name] to a switch, forming a small network with my laptop. Communication between the laptop and [product_name] has been established using qModMaster, and I am able to read discrete inputs, coils, and holding registers. I managed to assign an analog value to a flag with VM and can successfully read it. Modbus was set to port 510 (instead of the typical 502), as discussed previously in this forum. Apparently, changing the slave address does not affect the ability to read values. However, I noticed the [product_name] Modbus mapping details appear inaccurate; output coils map correctly starting at address 8190, but holding registers seem misaligned. My main questions: 1) I used a network input, but what specific setting needs to be entered for the [product_name] to accept input data? 2) Is it necessary to overwrite the value repeatedly, or is a single write sufficient for proper operation? Thank you in advance for any help. I have attached screenshots and a sample program. Setup uses [product_name] [article_no] and [product_name] Soft Comfort [version_no]."
+    },
+    {
+      "comment_id": 898223801773682,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "qModMaster acts as a client, communicating with slave devices, but the network connection of [product_name] is also set up as a client, so this configuration will not work. Avoid using mapped network I/Os (such as NI, NAI, NQ, NAQ) via Modbus, as only local VM addresses (Vx.y or VWx) should be mapped. You can directly access all VM addresses with qModMaster once you set up the [product_name] as a Modbus server. If needed, I may share an example later. Please refer to the attached Modbus implementation table (Excel format). You can adjust register offsets based on your requirements (0 or 1). To directly set output Q1, do not connect Q1's input, and use the correct mapping number from the provided Excel file. Typically, Modbus port 502 works well if connections are set properly. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 390575509787344,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Refer to the attachment for a custom client application for Windows PC and a simple server setup example using [product_name]. Extract the zip to any directory; inside, you'll find 'micro client.exe' along with supporting files—this is a small client application built with Profilab Expert. 'Micro Server.lsc' is an example for [product_name], and 'Setup example.jpg' illustrates how to configure settings in Profilab. If the app hangs after initial launch, please wait a few seconds—this is normal. Then update the IP address to your [product_name] and set the start address to 8193 for Q1 or 8257 for M1. The switch lets you select a low or high signal, and the button sends the settings. Q1 or M1 will keep their previous state until signaled again or until [product_name] shuts down. You can use your own client/master for this, but note that your client may require addresses that begin at 0 (e.g., 8192 or 8256 in this example). Best wishes, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are working to establish MODBUS communication between a [product_name] module and a third-party SCADA system. While reading data using qModMaster is successful, there is ongoing confusion regarding accurate register mapping and the process for writing data, particularly relating to network input configuration and Modbus address offsets. Advice from experienced users highlights issues such as client/server conflicts, proper I/O mapping, and port usage, suggesting that improved documentation and clearer setup guidance could aid more intuitive MODBUS server configuration and external control.",
+    "user_expectations": "Users expect smooth and accurate MODBUS integration, including straightforward register mapping and dependable data writing from an external client to the [product_name]. They seek practical guidance for necessary network configuration and expect clarity on how value writing behaves within the [product_name]'s control system.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy MODBUS setup",
+      "read/write access",
+      "accurate mapping",
+      "scalable configuration"
+    ],
+    "pain_keywords": [
+      "mapping confusion",
+      "write operation unclear",
+      "documentation gaps"
+    ],
+    "feature_keywords": [
+      "register mapping",
+      "network input handling",
+      "MODBUS server/client mode",
+      "external control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

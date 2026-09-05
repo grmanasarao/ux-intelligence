@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "branch_id": "6974959934",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 371780187743492,
+      "user_name": "UG7jEmZtZI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm encountering issues with [product_name] connecting to [product_name]; both my PC and the device are on the same switch. When I use the PC's standard network interface, the connection is immediate with no problems. However, when I enable VLANs on the PC, the connection becomes slow, and a password prompt appears. Entering the device's web server password works for simple tasks like toggling between RUN and STOP modes. I've noticed one key difference in the network traffic: Without VLAN, [product_name] connects to the device on port [article_no], but with VLAN, it tries port [article_no], which the device isn't set up to use. Based on my understanding, port [article_no] is correct for hardware version [article_no], whereas port [article_no] is for [article_no]. My main confusion is that there shouldn't be any difference for either [product_name] or the device, since all the IP addresses remain the same and both PC and device stay within the same subnet. There are no VLAN tags applied, as the VLAN is set to untagged on both switch ports. Even the PC's MAC address doesn't change. The only possible variable is that the network interface name assigned by Windows differs. Without VLAN, the name is something like \"Ethernet 4\"; with VLAN, it's \"Intel(R) Ethernet Connection I219-V - VLAN : [product_name]\", which gets trimmed to just \"VLAN\" by [product_name] due to its length. Multiple entries appear if several VLANs are configured. Could someone explain what might be happening here and suggest how to resolve it? Thank you for any advice. -- [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user describes inconsistent connection behavior when using [product_name] with specific hardware versions based on different Windows network interface configurations. A direct connection works reliably, but enabling VLANs causes slow connection, unexpected password prompts, and the software tries to use an incorrect port depending on the hardware. This highlights uncertainty in how the software manages network interface names and port selection logic when VLANs are involved.",
+    "user_expectations": "The user expects [product_name] to connect seamlessly to the hardware, regardless of whether a VLAN-enabled or standard Windows network interface is used.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless connectivity",
+      "reliable VLAN support",
+      "consistent network handling"
+    ],
+    "pain_keywords": [
+      "connection delays",
+      "incorrect port usage",
+      "unexpected password prompts",
+      "VLAN incompatibility"
+    ],
+    "feature_keywords": [
+      "network interface selection",
+      "port assignment",
+      "VLAN support",
+      "password authentication"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

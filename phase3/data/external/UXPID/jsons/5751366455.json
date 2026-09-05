@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "5751366455",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 968310900428009,
+      "user_name": "697zXBmzve",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, Previously, I set up an OPC server connected to several [product_name] modules, using both [article_no] models. I've reached the maximum number of TSAP connections (8) that can be assigned in my [product_name] software project, with values ranging from 20.00 to 27.00—for a total of 8 [product_name] modules. These are server connections initiated by the [product_name] towards the OPC server. In the OPC server settings within [product_name] engineering environment, I configure the IP address of each [product_name] along with its TSAP connection number. Is there any method to add more [product_name] modules to this setup so they can connect to the same OPC server, or is the limit strictly 8? For example, is it possible to use TSAPs like 28.00 to 38.00? The challenge is that I can only configure one TSAP connection in the OPC server software, even if the [product_name] has a different IP address. Since the OPC server can handle only 8 channels (defined by IP address and TSAP from 20.00 to 27.00), I’d like to extend this range—such as assigning TSAP 28.00 to a new [product_name]. Can anyone advise if this is possible? If so, how should it be configured? Thank you! Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 349176947908709,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello, If your OPC server supports only 8 connections, unfortunately you can't expand beyond that due to the fixed TSAP range in the [product_name] modules. However, the latest [product_name] model features 8 static connections (TSAP 20.00 to 28.00) and also offers a dynamic server, which can support up to 16 additional devices (refer to page 27 in the [document]). In such cases, you may use Network mode and connect devices to the designated connection points of the [product_name] module. If your goal is to increase the number of [product_name] modules connected directly to the OPC server, the limitation ultimately depends on how many connections the OPC server allows. When it only permits 8, that's the upper bound. A workaround is to gather data in one [product_name] module and have the OPC server communicate with it. That module can then forward information to other [product_name] modules using peer-to-peer communication. Hope this information is useful."
+    },
+    {
+      "comment_id": 202909803077709,
+      "user_name": "697zXBmzve",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Thanks for your suggestions. I will try the workaround you mentioned, using [product_name] modules to relay their data. I think this approach will work well for my application."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face a restriction of 8 TSAP server connections when integrating [product_name] modules with an OPC server through engineering software, limiting direct monitoring. The maximum cannot be increased due to hardware and software constraints, creating scalability challenges. Alternative solutions, like centralizing data in one [product_name] module and forwarding it through internal communication, help bypass the limitation but add complexity.",
+    "user_expectations": "Users expect to connect more than 8 [product_name] modules directly to an OPC server by expanding the TSAP range and configuring additional server connections beyond the default limit.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "scalability",
+      "OPC integration",
+      "multi-device monitoring"
+    ],
+    "pain_keywords": [
+      "connection limitations",
+      "scalability constraints",
+      "configuration inflexibility"
+    ],
+    "feature_keywords": [
+      "TSAP server connection range",
+      "dynamic server mode",
+      "OPC connectivity"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

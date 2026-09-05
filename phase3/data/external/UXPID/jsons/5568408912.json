@@ -1,0 +1,243 @@
+{
+  "metadata": {
+    "branch_id": "5568408912",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 656056037214129,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I'm developing a program to handle relay control through both a pulse switch input and a flag, which is also managed from a web application. My issue is making the flag act like a pulse switch. Is there a way to achieve this, or any alternative methods to synchronize relay control between a main program and a web interface?"
+    },
+    {
+      "comment_id": 735225563611971,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Welcome to the forum. Can you clarify which web application you're using? Is it the extended web server or the standard one?"
+    },
+    {
+      "comment_id": 796261422405109,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I've attached two example solutions for you to consider."
+    },
+    {
+      "comment_id": 157558926358708,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I'm building the web application using [product_name] Web Editor."
+    },
+    {
+      "comment_id": 798071138360344,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "It's recommended to use an available bit in the virtual memory. The attached solution demonstrates the programming logic. Make sure the network input address matches the network output address."
+    },
+    {
+      "comment_id": 533503903003584,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Thanks a lot! This approach seems to solve the issue."
+    },
+    {
+      "comment_id": 366463126706542,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I've got the first solution working, but the second one isn't functioning yet. How do you operate the network input in the Web Editor?"
+    },
+    {
+      "comment_id": 723174514058713,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Never mind, I've figured it out. Both methods are working now. Thank you!"
+    },
+    {
+      "comment_id": 959231798028947,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "The first method isn't ideal—the second one is preferable. The V bit only produces a '1' signal for one cycle in the system. After this, it's reset to '0'. That's why it's important to match the network output address. I've used this technique many times, and the Web Editor's digital value acts like a button, unlike the flag-based approach."
+    },
+    {
+      "comment_id": 532622202331777,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "A quick question on your second example: you use a network output to reset the vbit at the end of each cycle. If I remove this part, the digital value in the web interface still behaves like a button, and I see no difference. Could you explain this further? Thanks!"
+    },
+    {
+      "comment_id": 974226874159592,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Where specifically are you not seeing any change? Is it at the button in the extended web server?"
+    },
+    {
+      "comment_id": 984970968961554,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Yes, that's right. When I disconnect the network output (NQ1 - linked to V0.0) from the Low block, the button still functions as expected in the web editor."
+    },
+    {
+      "comment_id": 719397542060238,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "That's unusual. Without your program and web project, I can't give precise feedback. You may have overlapping use in virtual memory. Are you using V0.0, VB0, VW0, or VD0 anywhere else in your project?"
+    },
+    {
+      "comment_id": 857743912681197,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I've attached a straightforward example to show the difference between using a network input as a switch versus as a button."
+    },
+    {
+      "comment_id": 723168858322597,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Thanks for your example—I've finally had time to review it and still have a couple of questions. 1. In your example, you connect NI1 (V0.0) right to the output. When you press the button, its state stays 'off'; it never switches 'on'. With a flag, the button stays 'on'. This was my initial issue. Does V0.0 get reset after every cycle, meaning I can't retain the '1' state outside the loop? 2. In the second case, you use NQ1 to set V0.1 to low, but I don't see why this is necessary. As mentioned, V0.1 never seems to stay 'on', at least it doesn't show this in the web interface—the button always returns to 'off'."
+    },
+    {
+      "comment_id": 951383811945264,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Did you try transferring only my program and LWE project to your controller? Only then will you see the intended result. As I've mentioned before, I suspect memory overlap in your configuration—it’s hard to say without seeing your full files. If you'd prefer, you can share them privately."
+    },
+    {
+      "comment_id": 746555424296571,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Uploading my project isn't an issue. The diagram and web project are attached."
+    },
+    {
+      "comment_id": 477434860728858,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "After loading your sample for the second time, I now understand—the button in the first example switches 'on' when clicked. I see why NQ1 is needed to reset the V0.1 bit. I’m unsure why my project behaved differently, but I’ll try rebuilding it to see if the issue persists."
+    },
+    {
+      "comment_id": 734577354060764,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I've created a screen recording for you."
+    },
+    {
+      "comment_id": 871312864033806,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I adjusted your diagram, removing the connection of Low to NQ1, and now the second button remains in the 'ON' state. Your program works correctly, and everything makes sense now. My program probably malfunctioned due to excessive modifications. Thanks for your patience and help! Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 973271949646990,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "In your setup, even though the network output with address V0.0 isn't connected to the LOW block anymore, it hasn't been deleted. To follow recommendations, ensure your configuration matches the given advice. Experimenting without a clear understanding can cause confusion. Here’s a recap: Switch function: Network input only. Pushbutton function: Network input with matching network output, network output linked to a LOW block. A network output without a LOW block functions the same, but isn't logical. Is your issue resolved now?"
+    },
+    {
+      "comment_id": 687958306967216,
+      "user_name": "HGXj44WSMd",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Yes, I understand now. My issue is resolved. Thanks so much!"
+    },
+    {
+      "comment_id": 955383924382089,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Glad to hear it’s working for you. Enjoy your programming, and feel free to ask if you have more questions. No one is penalized for asking for help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wanted to control a relay via both a physical pulse switch and a web interface flag, ensuring the flag can mimic the pulse switch action. Two programming techniques were discussed—one functional but less optimal, and the other offering more precise control of pulse behavior using specific bits and output actions. Through collaborative troubleshooting and project sharing, the user understood the technical reasons behind proper bit control and achieved the desired relay behavior.",
+    "user_expectations": "The user looks for a straightforward way to manage relay switching both physically and through a web interface, ensuring consistency in pulse-switch functionality. Clear guidance on configuring memory bits and their behavior within web applications is also expected.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "combined relay control",
+      "web and physical input parity",
+      "pulse switch behavior"
+    ],
+    "pain_keywords": [
+      "flag not acting as pulse",
+      "uncertainty using web editor bits",
+      "unclear memory bit behavior"
+    ],
+    "feature_keywords": [
+      "web interface relay control",
+      "pulse switch logic",
+      "memory bit mapping"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

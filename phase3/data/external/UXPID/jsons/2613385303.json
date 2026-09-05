@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "2613385303",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 626563194606921,
+      "user_name": "v8VLyC1evb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "I have [article_no] [version_no] with the [product_name] and [product_name] installed in order. I'll use the 8 inputs on the [version_no] as digital inputs. I plan to connect one analog input to the first terminal on the [product_name]. My question is how the controller assigns software inputs. I assume I1 through I18 in the software map to I1-I8 of the [version_no], and I9-I16 map to I1-I8 of the [product_name]. Then, AI1 should correspond to I1 on the [product_name], is that correct? Thanks."
+    },
+    {
+      "comment_id": 830307338236219,
+      "user_name": "B0HZYmfLbO",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "No, that's not correct. The base module reserves two analog inputs by default, so the I1 on the [product_name] is assigned as AI3."
+    },
+    {
+      "comment_id": 567578924745020,
+      "user_name": "v8VLyC1evb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "I'll set the option to use only two analog inputs, assigning I1/I2 for digital input. I don't want to use I7/I8 as analog inputs, just as digital inputs. I need the expansion module [product_name] for analog because the signal is 4-20mA. The manual indicates I7/I8 support only 0-10V for analog mode. The issue is, according to the manual, I7/I8 can be switched between digital and analog; this is set in the circuit program. I programmed I7 and I8 as digital (using the digital contact tool instead of the analog contact tool), so they're now assigned as digital inputs. If I connect a 4-20 mA sensor to terminal I1 of the [product_name] expansion module, can I access it as AI1? Or do I still need to treat AI1/AI2 as unavailable and use AI3? Thanks."
+    },
+    {
+      "comment_id": 369626828242060,
+      "user_name": "poCWrxC5cf",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], If you've set inputs 7 and 8 as digital in the software, then on your [product_name] module, the first input will be your first analog input as AI1 in the software. Also, keep in mind that [company_name] recommends arranging modules as digital first, then analog modules to ensure optimal and fast communication between the base module and expansions. Good luck."
+    },
+    {
+      "comment_id": 722874578077272,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hi, If you're unsure how to use analog inputs, with [product_name] [version_no] it's straightforward. In [product_name] V7 open: Tool; Transfer; I/O Status. In the following window, ensure analog inputs are enabled. Then change the value on your analog input and observe the table. At the top, you'll find the correct AIx. In general, [user_name] is right. A [product_name] has 2 or 4 onboard analog inputs. If nothing is changed, 2 are enabled by default. So, the first analog input from [product_name] is AI3 (since AI1 and 2 are onboard and cannot be disabled). Hope this helps."
+    },
+    {
+      "comment_id": 793490114452890,
+      "user_name": "poCWrxC5cf",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Dear [user_name], Thank you for your continual assistance. I'm unclear about some points. I've attached a snapshot from page 26 of the official [document] provided by [company_name]. As [user_name] mentioned, the first eight inputs are set for digital functions, and an [product_name] module is installed for analog signals. The question is: What is the correct analog input number for the first terminal on [product_name] in the software? Based on the attached photo, I believe the analog input number (located at the first terminal of [product_name]) is 1 (AI1). Best regards"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience confusion regarding how [product_name] software assigns analog and digital input numbers, especially when both base and expansion modules are present. There is uncertainty about whether changing input modes in the software adjusts analog assignment for expansion modules, with conflicting information from documentation and in-app behavior.",
+    "user_expectations": "Users seek clear guidance on mapping hardware inputs to software, expecting flexibility in reassignment or disabling inputs, and logical designation for expansion module analog inputs.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clarity in configuration",
+      "correct input assignment",
+      "4-20mA signal acquisition"
+    ],
+    "pain_keywords": [
+      "uncertain input mapping",
+      "conflicting documentation",
+      "ambiguous software settings"
+    ],
+    "feature_keywords": [
+      "input assignment",
+      "analog input configuration",
+      "mode switching"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

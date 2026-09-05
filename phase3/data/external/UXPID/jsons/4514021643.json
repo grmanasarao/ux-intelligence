@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "branch_id": "4514021643",
+    "thread_id": "4479534060",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 705961504474331,
+      "user_name": "RMZ0cyEWnK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I'm facing a persistent issue. I have three symbolic input/output fields set to input on an HMI screen, each allowing values from 1 to 6. These values are then used in [product_name] to set the initial value for up/down counters (one per input/output field) so I can store them in retentive memory. Each HMI input/output field uses a Dint data type assigned to addresses VD1, VD2, and VD3. In [product_name], I've configured variable memory so the counters serve as the blocks, the initial value is set as the parameter, the type is Dword, and the addresses are 1, 2, and 3 respectively. Everything functions correctly when changing a single field—the counter updates as expected. The issue arises when I modify a different field; the previously adjusted field jumps to an unexpected value in the thousands and system behavior becomes erratic. Does anyone know what I might be doing wrong?"
+    },
+    {
+      "comment_id": 103721566351980,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "Hello, The problem is with overlapping memory areas. VD1 utilizes bytes VB1, VB2, VB3, and VB4. VD2 uses VB2, VB3, VB4, and VB5. VD3 covers VB3, VB4, VB5, and VB6. It's best to use distinct memory spaces. Based on current info, I recommend using VD2, VD6, and VD10. What results do you get after adjusting the memory areas? w"
+    },
+    {
+      "comment_id": 859507703767647,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "For each input/output field in the HMI, the tag is a Dint data type with addresses VD1, VD2, and VD3. Dint requires four bytes in [product_name]. So, the first Dint should be at VD0, the second at VD3, the third at VD7."
+    },
+    {
+      "comment_id": 712255789500950,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "Hello, You're correct; maybe [user_name] can start at VD0. I assumed there was a reason to begin at VD1. If we continue to nitpick, we won't finish today. (smile) A suggestion: review all proposals carefully. Note that VD0 uses VB0, VB1, VB2, and VB3. Regards, w"
+    },
+    {
+      "comment_id": 168188799487500,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "The second Dint at VD3? The third Dint at VD7? Should be VD0, VD4, VD8..."
+    },
+    {
+      "comment_id": 254667378857397,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "Oh, yes. That was a mistake on my part. Sorry about that."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Community reports occurrences of data corruption when using multiple Dint memory tags on HMI screens connected to counters in [product_name]. Assigning closely spaced VD addresses (VD1, VD2, VD3) leads to unexpected behavior: changing one input can trigger high, erratic values in others. Discussions reveal overlapping memory space as the root cause, with members debating and clarifying the correct allocation of non-overlapping addresses for complex data types. The thread demonstrates a widespread lack of clarity about memory addressing, often resulting in difficult-to-diagnose runtime issues.",
+    "user_expectations": "The user expects that each symbolic input/output field (Dint) correctly reads and writes a unique, independent value to its linked counter in [product_name], maintaining reliable and isolated retention for every operation without interference between fields.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable memory mapping",
+      "independent data storage",
+      "predictable counter initialization"
+    ],
+    "pain_keywords": [
+      "memory overlap",
+      "data corruption",
+      "unexpected value changes"
+    ],
+    "feature_keywords": [
+      "Dint memory addressing",
+      "symbolic I/O fields"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

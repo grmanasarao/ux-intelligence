@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "6426937451",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 139966712749920,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "I'm having trouble with the [product_name] [product_name] module for Modbus RTU communication. My RS485 KWh meter is connected through a universal Modbus TCP/IP-to-RS485 converter to a [company_name] [product_name], and I am able to read all values this way. However, when I try to read the same KWH meter using the [product_name] [product_name] module, it doesn't work. Attached is my current configuration. I'm also unable to retrieve variables through the RESTful API; every attempt just shows 0. I've attempted commands like [url]. I have a few questions. Firstly, is the correct direction Modbus address to UDM, then from UDM to [version_no]? You’ll see in the attachment I experimented with routing. What is the function of the variable list in the Data Management? I included all variables there just to be safe since the manual isn't clear. Secondly, is it possible the wiring between the KWH meter and [product_name] is wrong? I connected A and B, and ground to ground. I have the standard [product_name] Modbus RTU setup working. Yet, I still cannot read values through RESTful API even though the rest of the configuration works."
+    },
+    {
+      "comment_id": 336143515597124,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, please review a few aspects: Is a [product_name] module linked to [product_name] with S7-communication set up? Without this, [product_name] won't communicate. Make sure the ModbusRTU Unit ID on your meter is 1. Remove the marked lines in your S7 data transfer table. The ModbusRTU data transfer table appears correct otherwise. If you have removed overrides, use the RESTful API to check whether there is a value in the CUM UDM memory. Confirm you are receiving data in [product_name] VM-Memory at VW26, VW31, VW37, and VW43. Also, note that [product_name] only supports signed integer values and cannot handle certain data formats from ModbusRTU devices. Hope this helps."
+    },
+    {
+      "comment_id": 162518683416992,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thank you for your swift reply. For your info, I already have two active projects using the [company_name] [product_name] module: one for a temperature/humidity sensor and another for Modbus RTU communication example with a VFD. The sensor also uses a universal TCP/IP-RS485 converter. I adapted the KWH meter project using the experience gained from these projects, but it's still not working. Reading [url] always returns 0 (as do vw20 and vw30, so [product_name] also displays nothing). Attached are my updated [product_name] settings and a snapshot of the CAS Modbus scanner, showing the unit number is set to 1, matching the KWH meter. The HR addresses are 40002 (volts), 40008 (amps), 40014 (watts). The KWH meter works perfectly with the universal TCP/IP-RS485 inverter and seems compatible with [product_name] according to the CAS Modbus scan. Data from the KWH meter just isn't reaching [product_name]. I've tried setups with and without termination resistors. I'm trying to get this KWH meter working reliably on the [product_name] module."
+    },
+    {
+      "comment_id": 579407119142367,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, let's approach systematically: Change your data table to only use one HR, for example HR2, and delete the others for clarity. Configure reading HR2 (3W) into VW8, and HR3 (3W) into VW18 to check if an offset is necessary. Also, try HR40002 to VW28 and HR40003 to VW38 to verify if addressing HR2 or HR40002 is needed. You will then read HR3 to VW8, HR3+1 to VW18, HR40002 to VW28, and HR40003 to VW38. Use the RESTful API to check each value, e.g., [url] for VW8, VW10, VW12. This helps locate where the value resides in V-memory since a 3W register spans 6 bytes. Once this works, repeat for other registers. Transfer values from UDM-memory in [product_name] to VM-Memory in [product_name]; data format can be adjusted as needed. For example, a 3W HR value ranging -32767 to +32767 is suitable for a VW in [product_name]. Good luck!"
+    },
+    {
+      "comment_id": 408984299569491,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thank you for your advice. Your method for checking data flow is smart, but unfortunately, I still can't get it working. I've spent hours on different configurations, including intermediate HR addresses, unit numbers, HR vs IR, and more. I set the Modbus start address length to 3, but is that correct? You previously mentioned that [product_name] only supports signed integer values and cannot handle all ModbusRTU device formats. Can I check if everything works using a universal RS485-to-TCP/IP module as a reference? I’ve read swapping A and B connections can sometimes help but I’m hesitant to try—my measurements show A is positive compared to B. For troubleshooting, I replaced the [product_name] module with the universal converter; then, everything works instantly and all values display on the [product_name] screen. The [product_name] also works with my temperature/humidity sensor, with values visible via RESTful API. What else can I check or try? Thanks for your insights."
+    },
+    {
+      "comment_id": 442349717390651,
+      "user_name": "cZQANX744b",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, have you wired the ModbusRTU devices directly to the [product_name] ModbusRTU interface? Is a [product_name] basis module properly configured with S7-communication to [product_name] (even if you do not need [product_name])? For testing, the data format does not matter. Any data—regardless of its format—is transferred to [product_name] UDM, or to [product_name] memory without alteration. So, if you set up a value spanning 4 words, you'll receive a 4 word value in memory, even with formats not supported by [product_name]. These data can be forwarded to HMIs, databases, cloud platforms, etc. [product_name] can't process unsupported formats directly, but forwarding works. In some cases, if the value fits within [product_name]'s limits, it can be handled. Let's focus on getting your configuration to function first. Hope this clarifies things!"
+    },
+    {
+      "comment_id": 821858961264025,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thanks again for your detailed reply. Yes, I connected the RTU module straight to the [product_name] basis module. I’m unsure of the signal type from the KWH meter and realize [product_name] can't handle every signal, but how can I determine signal compatibility? When the KWH meter is connected using an RS485-to-ethernet module, it works perfectly, so I’d assume [product_name] could handle these signals too (see attachment). Could it be that the data isn’t reaching [product_name] at all? For some VFD examples, resistors are connected to the 10V output of the inverter, but I just wired A and B directly to [product_name]."
+    },
+    {
+      "comment_id": 907518512614743,
+      "user_name": "cZQANX744b",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, the resistors you referenced are for RS485 line termination. To clarify, you are testing two setups: 1) [product_name] + ModbusRTU-2-TCP gateway + ModbusRTU device; 2) [product_name] + [product_name] + ModbusRTU device. Setup 1 works perfectly. Are your ModbusRTU settings in [product_name] matched to the requirements for the ModbusRTU device (RS485, baud rate, protocol configuration)? Is the Unit ID set properly in the transfer table? Try reading one register and its next for comparison, ensuring you don’t overwrite memory in UDM. Suggest mapping these to VW0 and VW10 in UDM. Then use RESTful API on each address to identify which is correct ([url], [url], etc.). Typically, the required registers and formats are shown in your ModbusRTU device documentation. Hope this assists."
+    },
+    {
+      "comment_id": 775654561258268,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thanks again for your continued help. I feel confident with most aspects of [product_name] now, but this [product_name] module is proving challenging. I’m not giving up—I want to find out why it won’t work, or what’s wrong. Per your advice, I tried changing the Unit ID and Modbus addresses. Configuration 1 works with [product_name] + ModbusRTU-2-TCP gateway + ModbusRTU device without issues. From this, can I assume that the [product_name] module should also be capable of processing the data from the ModbusRTU device?"
+    },
+    {
+      "comment_id": 386166224444475,
+      "user_name": "cZQANX744b",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, you still have an overlap in [product_name] UDM memory allocation. In line 1, you read three registers and store them starting at VW0—so VW0, VW2, and VW4 are used. In line 2, you transfer three more registers starting at VW2, which overwrites VW2 and VW4 from the first line. This is why I recommend testing only one register and the next, with a large gap between their mapped addresses (e.g., VW0 and VW100), and use a single register length—never blocks—to avoid overwriting. Suggestions: Your protocol settings seem correct. Delete all lines except line 1 in your ModbusRTU data transfer table. Use RESTful API to read VW0, VW2, and VW4 to see if values appear ([url], [url], [url]). Also, check your ModbusRTU device documentation to confirm whether HR2 is actually three registers in length—this is unusual, as typical types are word (2 bytes), dword (4 bytes), and float (4 bytes). Please share the manual/description of your KWH meter. Hope this information helps."
+    },
+    {
+      "comment_id": 969573197888012,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thank you for the insights on Modbus. I'm gradually learning more about this protocol. From what I gather, you set 'length' as 2 for word, 4 for D-word. My KWH meter documentation doesn’t specify Modbus register details, though I can adjust baud rate, address, parity, and stop bit. In my other setup with the RTU-2-TCP gateway, I changed address length from 3 to 2 to 1, and it kept working. I followed your suggestion to test using just one variable, but again didn’t get a valid result via RESTful API. The attachment shows my current configuration. One question: In addition to S7 and RTU settings, there’s an option to add variables in data management—what is its purpose? The [company_name] manual is not clear on this."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is facing persistent problems when trying to read data from a KWH meter through a [product_name] communication module using Modbus RTU, despite being successful with a universal RS485-TCP/IP converter and when using the [product_name] basis module directly. Main issues involve Modbus register setup, overlapping memory allocation, data format compatibility, and unclear documentation. The [product_name] hardware functions with other equipment, yet the KWH meter integration via [product_name] remains unresolved after extensive troubleshooting.",
+    "user_expectations": "The user expects the [product_name] module to correctly retrieve and display data from their RS485 KWH meter, similar to how it works with a third-party converter. They also anticipate the documentation to provide straightforward instructions on Modbus configuration and memory mapping.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable Modbus integration",
+      "clear configuration documentation",
+      "data visualization"
+    ],
+    "pain_keywords": [
+      "manual unclear",
+      "memory mapping confusion",
+      "data not received",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "Modbus RTU support",
+      "CIM memory allocation",
+      "RESTful API data retrieval"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

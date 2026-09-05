@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "branch_id": "4241716107",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 788529283898181,
+      "user_name": "AXuI0fwn8N",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Used a [product_name] [version_no] as a slave. Sending speed and position setpoints to the motor over Modbus-TCP. The position register requires a double word value. How can this value be sent with [product_name]?"
+    },
+    {
+      "comment_id": 787930864200014,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Could you provide more details? What data format does the double register use? Is it a 32-bit signed integer or a 32-bit float? What is the maximum value you need to send?"
+    },
+    {
+      "comment_id": 420270814252700,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Do you have a link to the manual that contains the register table? [product_name] applies an offset of 1 to Modbus addresses. What offset does your Modbus device use?"
+    },
+    {
+      "comment_id": 664971139090643,
+      "user_name": "AXuI0fwn8N",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The position setpoint register uses a double signed integer, with a range of -2147483648 to 2147483647."
+    },
+    {
+      "comment_id": 935075721743001,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I'm aware of the range for a 32-bit signed integer. My question is: What is the highest value you plan to send? Is it greater than -32,768 to 32,767? If so, there may be an issue since [product_name] cannot handle 32-bit signed integer values."
+    },
+    {
+      "comment_id": 882701674017104,
+      "user_name": "AXuI0fwn8N",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The data to send ranges from -2000 to 2000 for the position register (double word)."
+    },
+    {
+      "comment_id": 704084800491880,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Here's an example: From [product_name] VW0 to HRx and VW2 to HRy. The actual value should be transferred into VW2."
+    },
+    {
+      "comment_id": 405665618759240,
+      "user_name": "AXuI0fwn8N",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Everything works now, thank you. 1. The register address needs to be incremented by 1, according to the manual. 2. When sending a negative setpoint value, assign -1 to VW0 and the negative value to VW2. Otherwise, the setpoint will be incorrect."
+    },
+    {
+      "comment_id": 489684131945805,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "And when sending to VW2, the sign bit (V2.7) should be set to zero for negative values. Actually, that approach doesn't work. Check the bit pattern in VD0 when the value is -2000 as a 32-bit signed integer: 1111 1111 1111 1111 1111 1000 0011 0000."
+    },
+    {
+      "comment_id": 765757127826071,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "That method is correct."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed how to transmit 32-bit signed integer (double word) position setpoints over Modbus-TCP with [product_name] [version_no]. They explored data format constraints, Modbus address offsets, and proper handling of negative values. After clarifications and practical examples, the user succeeded in transmitting correct signed values, validating the proposed solution.",
+    "user_expectations": "The user expects [product_name] [version_no] to reliably send both positive and negative 32-bit signed integer values via Modbus-TCP, with proper mapping to Modbus registers as outlined in the device manual.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct data transmission",
+      "handle signed integers",
+      "Modbus compatibility"
+    ],
+    "pain_keywords": [
+      "address offset confusion",
+      "signed value encoding",
+      "lack of clear documentation"
+    ],
+    "feature_keywords": [
+      "Modbus-TCP interface",
+      "32-bit signed integer support",
+      "register mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

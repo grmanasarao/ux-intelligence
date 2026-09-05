@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "branch_id": "9526836552",
+    "thread_id": "1723880927",
+    "publication_year": 2007,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 643769635084914,
+      "user_name": "IMo8pqnExg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "I'm quite new to this area. My project requires enabling outputs Q1 and Q2 for a set number of hours, then switching them off once the time elapses. I've tried reading the [product_name] manual but it's confusing. Can someone explain how to properly use this special function?"
+    },
+    {
+      "comment_id": 875600737210942,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], welcome to the forum. There are multiple ways to achieve this. You can use timers or, if you only need to count hours, consider the operating hours counter. I’ve attached an example that shows two solutions: one with the operating hours counter, which blocks the enable signal after 10 hours (remember to reset it afterward), and another with an on-delay, which lets you set minutes. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 132063494346556,
+      "user_name": "IMo8pqnExg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], thanks for the suggestion. I need a target time of 750 hours, so it seems the Off-Delay won’t work for this. I’m struggling to figure out how to wire up the Operating Hours Counter. Could I send you a diagram of the circuit, so you can show how to add the Counter so Q1 and Q2 turn OFF when the time is met?"
+    },
+    {
+      "comment_id": 599389901731806,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "Please check the attachment. To negate a function block input, right-click it. Alternatively, you can use a NOT operation."
+    },
+    {
+      "comment_id": 605965177163608,
+      "user_name": "IMo8pqnExg",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "Thanks for the advice. I tested the setup in the simulator, and it seems to work. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 529553928253192,
+      "user_name": "XJUVKGe9j7",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "Hi, I'm working on a similar program. In the hours counter, I set the MI to 1 minute and downloaded the program to my [product_name] PLC. Initially, it switches ON after the correct 1-minute delay, but during the second cycle, it switches ON after only 30 seconds. What could cause this? Does the hours counter only work properly for hours, not minutes? Please let me know soon. Thanks in advance."
+    },
+    {
+      "comment_id": 175791729201938,
+      "user_name": "B0HZYmfLbO",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Could you upload your program? Then forum members can review it."
+    },
+    {
+      "comment_id": 307555790189328,
+      "user_name": "XJUVKGe9j7",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Hi [user_name], thanks for your reply. I figured out the issue: the hours counter accurately tracks hours but not minutes. For example, if I enable the hour counter at 9:50:42 and set a 1-minute delay, it activates at 9:51:00 (only an 18-second delay). But for an hour delay, if started at 9:50:42, it activates at 10:50:00 (delay is 59 minutes and 18 seconds). So, it works well for hours—not for minutes."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find it challenging to use the operating hours counter to control outputs for specific intervals. The manual isn't clear enough, especially for achieving long timing requirements like hundreds of hours. There is confusion about the counter’s precision—it accurately counts hours but fails for minute-level timing, which users realize only after actual testing. Peer assistance, example programs, and hints on function block setup help users understand the setup better, but the limitation regarding minute accuracy only becomes evident through troubleshooting.",
+    "user_expectations": "Users expect the operating hours counter to reliably manage output control for both short and long intervals, with accurate time granularity down to minutes. They also want the manual to provide clear, straightforward instructions for using this feature.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "reliable output timing",
+      "long duration automation",
+      "easy setup"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "inaccurate minute-long timing",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "operating hours counter",
+      "Q output control",
+      "timers",
+      "granularity"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

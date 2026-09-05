@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "2818381356",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 809241994611109,
+      "user_name": "qmG0NU3DBd",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello, I've tried several approaches, but haven't succeeded yet. I need to control one output using both a weekly timer and a momentary switch. The switch includes an LED that shows the output status, but this is managed externally and doesn't affect the programming. Currently, I can activate the output either by the weekly timer or by pressing the momentary switch (with an off delay), using a basic OR logic. However, I'm unable to turn the output off using the momentary switch if the output is already on. To clarify: 1) Output is off. Pressing the momentary switch turns it on for 2 hours, then it goes off. 2) Output is on from the momentary switch. Pressing the switch again before 2 hours turns it off. 3) Weekly timer activates the output. Pressing the momentary switch turns it off. Any suggestions?"
+    },
+    {
+      "comment_id": 863788881583777,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hi. I believe using a pulse relay could help solve this. Try implementing that before checking the attached solution. Regards, [user_name]"
+    },
+    {
+      "comment_id": 276689470847272,
+      "user_name": "qmG0NU3DBd",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Thanks for your advice. I've managed to solve part of the issue, but the solution isn't perfect yet. In my attached diagram, I1 is the momentary push button, and I2 simulates the weekly timer. It's easier to test this way since I can manually trigger events. Here's what happens: 1) I1 = 0, I2 = 0. Clicking I1 works as expected (output is on for 5 seconds). 2) I1 = 0, I2 = 0. Clicking I2 works as expected (output is on for 5 seconds). 3) I1 = 1, I2 = 0. Clicking I2 works as expected (output stays on for what remains of I1 timing, then for I2 timing). 4) I2 = 1, I1 = 0. Clicking I1 clears I2 correctly but also starts I1's timer, which shouldn't happen. I tried using AND logic for the I2 timer input, with one input as the inverted Q1 so that only when Q1 isn't active and I1 is pressed would the timer logic start. But this didn't work as intended. Basically: If Q1 = 0, pressing I1 should start I1 timer logic. If Q1 = 1, pressing I1 should stop any running timer and reset the circuit. In the future, I'd like to change the I2 timer delay using external input (B019), but first I need this part working right."
+    },
+    {
+      "comment_id": 785996069171632,
+      "user_name": "qmG0NU3DBd",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Here is the actual circuit diagram."
+    },
+    {
+      "comment_id": 733615754800037,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hi. Without delving deeply into your setup (it seems complex)... Could you tell me what my earlier example fails to provide for your application? Maybe with more details I can assist further. [smile]"
+    },
+    {
+      "comment_id": 114165820490788,
+      "user_name": "agWLhHuqJI",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "4) What should happen if the output is turned on by the momentary switch and then the weekly timer also switches on? Should the auto-off timer stop? 5) What should happen if the output is turned on by the momentary switch and then the weekly timer switches off? Should the output switch off, too? Here's my proposed solution:"
+    },
+    {
+      "comment_id": 597457667388709,
+      "user_name": "qmG0NU3DBd",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Without getting into too much detail (your setup looks complicated)... What does my earlier example not achieve compared to what you need? Perhaps if I understand your requirements better, I can help. [smile] [user_name] Hello, The main problem is I can't turn off the output while the weekly timer keeps it on. In short: 1) When output is off, pressing I1 turns it on for 2 hours. 2) If output is on (from #1 or weekly timer), pressing I1 turns it off and resets everything. [user_name]"
+    },
+    {
+      "comment_id": 423713935349981,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello. Don't give up yet. Take a look at the attached new version. What my code needed was an edge trigger ANDed after the time trigger. Will this resolve your issue? [user_name]"
+    },
+    {
+      "comment_id": 324105204108735,
+      "user_name": "qmG0NU3DBd",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "After several hours of testing and learning, it appears the setup is finally functional. To answer an earlier question: In this case, it doesn't matter if I1 is active, I2 becomes active, and I1's timer finishes—the output can stay on. I can always turn it off by pressing I1 if needed. This logic will control a power outlet for a car heater at home, in case anyone is curious about the use case. I just have one more step to implement: [url] Hopefully, it won't be too difficult. :) [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are working to develop logic for a [company_name] device that manages output control using both a weekly timer and a momentary pushbutton. The challenge focuses on allowing the pushbutton to switch the output off even if it's activated by the timer, along with managing timer interactions and circuit states. The thread shows an iterative problem-solving process involving adjustments to logic blocks and timing behaviors within the configuration software.",
+    "user_expectations": "Users expect intuitive toggling of the output with a single button, regardless of activation source (timer or manual input), and want the ability to customize delay times via external input in later development stages.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "flexible control",
+      "easy toggling",
+      "adjustable timer"
+    ],
+    "pain_keywords": [
+      "logic complexity",
+      "toggle does not work",
+      "timer interlock difficulties"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "momentary pushbutton",
+      "off delay",
+      "manual override"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

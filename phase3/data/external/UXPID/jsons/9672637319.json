@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "9672637319",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 813614965410669,
+      "user_name": "3H6y5BwizS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hello [product_name] community, I'm experiencing an issue with my [product_name] controller. When I connect it directly to my laptop via LAN, I can access its web interface. However, when I connect the controller to my Wi-Fi router, I can't access the controller's web interface from my mobile device using its IP address. I've attached all relevant IP configurations and access control settings. Could someone advise what IP settings I should use to enable access to the [product_name] web pages from my mobile phone? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 500188678799692,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "I'm unsure why you've configured multiple IPV4 addresses across different subnets—it makes things confusing. Your [product_name] device is in the 192.168.2.x subnet with a gateway of 192.168.2.1, while your WLAN adapter is in 192.168.1.x with a gateway of 192.1.1.x. These network segments aren't compatible. The [product_name] and its communication partner must reside in the same subnet."
+    },
+    {
+      "comment_id": 166634737302414,
+      "user_name": "3H6y5BwizS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm counting on your support. I'm not familiar with IP address logic or what values to assign. Could you please provide an example of what IP address, subnet mask, and gateway details I should use for the [product_name] controller, Ethernet port, Wi-Fi adapter, and Wi-Fi router to ensure proper connectivity? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 991612094446927,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "This setup works only if all devices are configured within the same subnet. Your PC currently has three network subnets configured—you need to choose just one subnet for all devices. For instance: - PC network card: 192.168.0.x - WLAN adapter: 192.168.0.y - [product_name] controller: 192.168.0.z"
+    },
+    {
+      "comment_id": 616593954670034,
+      "user_name": "Gg0uuJOmNn",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Check your Wi-Fi network’s subnet—the first three segments of its IP address—and use those for your controller settings. All devices must have IP addresses that share the same subnet, with the final segment unique for each device. You can find these values in your mobile phone’s Wi-Fi settings. Example IPs might be 192.168.0.nnn, 192.168.1.nnn, 192.168.178.nnn, or 10.0.0.nnn. PCs, Wi-Fi devices, and network components can only detect each other if they're in the same subnet. Refer to your Wi-Fi router’s DHCP configuration for the current subnet range. Typically, DHCP starts at a specific address (such as 101) and covers a set number of clients (around 50 is common for home use). Assign a static IP to your [product_name] controller within the same subnet but outside the DHCP range (e.g., 080, 081, etc.), to avoid future conflicts. Hopefully this clarifies IP setup considerations."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered difficulties accessing the controller’s web interface via mobile over Wi-Fi due to misaligned network and IP settings. The main challenge is confusion about subnet configuration, which is blocking proper device connectivity. The thread emphasizes the importance of clear network instructions for users who lack advanced technical expertise.",
+    "user_expectations": "Users want seamless access to the controller's web interface from any device on their Wi-Fi network without needing detailed networking knowledge or setup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy device access",
+      "remote monitoring",
+      "seamless web interface"
+    ],
+    "pain_keywords": [
+      "network configuration confusion",
+      "subnet mismatch",
+      "webpage unreachable"
+    ],
+    "feature_keywords": [
+      "web interface access",
+      "Ethernet/LAN connectivity",
+      "network settings"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "22": "Usability Improvement Suggestions"
+  }
+}

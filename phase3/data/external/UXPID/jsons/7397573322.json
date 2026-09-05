@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "branch_id": "7397573322",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 260401269948682,
+      "user_name": "jEeatSmmSg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thank you for your sample, but I need to transfer analog input from [product_name] to [product_name]. I require word transfer, but your sample only performs byte transfer and [product_name] does not support sending longer bytes. Can you suggest a solution for transferring word data from the analog input? Thank you."
+    },
+    {
+      "comment_id": 964633829926856,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Which device acts as the client and which as the server?"
+    },
+    {
+      "comment_id": 885839006701626,
+      "user_name": "jEeatSmmSg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I'm not familiar with the distinction, but I use two [product_name] modules to send analog sensor data to one [product_name]. Therefore, I believe the [product_name] will be the server and the [product_name]s will be clients, correct?"
+    },
+    {
+      "comment_id": 985416074334053,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "For this type of data exchange, one device must be active (client) and the other passive (server). The client initiates requests while the server responds. When exchanging data between [product_name] and [product_name], it's generally easier if [product_name] is set as the client. If you have this choice, I recommend using [product_name] as the client. If you need, I can provide an example with two [product_name] modules acting as clients. Please specify which [version_no] you use and the exact types of [product_name] involved, including the [article_no] and firmware versions."
+    },
+    {
+      "comment_id": 759843012516378,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Here's an example using one [product_name] ([version_no]) and two [product_name]s ([article_no], [version_no]). The [product_name]s act as clients and the [product_name] serves both."
+    },
+    {
+      "comment_id": 958125933565554,
+      "user_name": "jEeatSmmSg",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I use [version_no], [product_name] ([article_no], [version_no]), and two [product_name]s with different [article_no]s, but I don't know the firmware versions for them. When I open your sample, I have trouble finding the communication settings in the [product_name] project. Another issue arises because your sample is for an earlier software version and uses real address, while converting to my version changes to mnemonic address. What address should I use in [product_name] for target communication?"
+    },
+    {
+      "comment_id": 174850892461455,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I've upgraded the project to [version_no] and your CPU. I've adapted the [product_name] network project. It now includes a [product_name] and another [product_name]. Without knowing the firmware version, I cannot determine if the device with [article_no] is of one version or the other."
+    },
+    {
+      "comment_id": 862373183074094,
+      "user_name": "jEeatSmmSg",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I don't know the firmware for the [product_name] device (where can I find it?), but I know the first [product_name] ([article_no]) is a specific version as I use this for 'online' mode. When I attempt to add a second sensor, I encounter address issues (see attached file), which is similar to the problem I have when trying to copy your sample into my project."
+    },
+    {
+      "comment_id": 445568898185663,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "You have an address overlap. In the [product_name] program, you transfer the value of AI2 to NAQ2, but assigned NAQ2 to VW0, which is incorrect. VW0 consists of VB0 and VB1. VB0 represents V0.0-V0.7 and VB1 covers V1.0-1.7, and these bytes are already used for bit exchanges between devices. You need to use VW4 for NAQ2."
+    },
+    {
+      "comment_id": 687502620599820,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "There are two ways to check the firmware version: 1) Using [product_name] Software Tool: Tools > Transfer > Show Firmware Version. 2) From [product_name] device menu: Main menu > Diagnostics > Software > FW Version."
+    },
+    {
+      "comment_id": 283122307853124,
+      "user_name": "jEeatSmmSg",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "OK, I corrected the issue. Thank you! The firmware versions are: Device 1: V1.81.02; Device 2: V1.82.02."
+    },
+    {
+      "comment_id": 484964456026005,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Both devices are of the same version. The device with FW Version 1.81.02 is an older revision, and you can update its firmware to a newer revision (V1.81.03). Please refer to the product information documents for details. You can download the firmware update as outlined in the official product documentation."
+    },
+    {
+      "comment_id": 532018779708365,
+      "user_name": "jEeatSmmSg",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thank you. My software only supports a particular version, so if I update the firmware, the software compatibility might be affected. I tried your sample, but I continue to encounter communication problems (see attached file). Thank you very much for your assistance!"
+    },
+    {
+      "comment_id": 885858449808301,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "It's difficult to comment further without the project file."
+    },
+    {
+      "comment_id": 521840347842663,
+      "user_name": "jEeatSmmSg",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "It's a large file, so I sent you a private message with a link to download the project."
+    },
+    {
+      "comment_id": 859082694230646,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I've downloaded the file and started reviewing it."
+    },
+    {
+      "comment_id": 718487731670325,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "1) In the project, under the CPU properties 'Protection & Security,' make sure 'Permit access with PUT/GET communication from remote partner' is enabled. 2) In the [product_name] network project, the TSAP for the second connection between the second [product_name] and the [product_name] is incorrect. It should be set to 11.01, matching the TSAP in the main project."
+    },
+    {
+      "comment_id": 387430164567352,
+      "user_name": "jEeatSmmSg",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Everything works perfectly now! I haven't tested the analog sensor yet, but the boolean data functions correctly, so I believe analog transfer will also work. Thank you so much for your help!"
+    },
+    {
+      "comment_id": 309297191780891,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], That's great to hear!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The users faced challenges in transferring analog input data as word format from [product_name] to [product_name] due to issues with data type compatibility (devices commonly using byte transfer), confusion around memory addressing in the engineering software and on the devices, and uncertainty regarding firmware versions and configurations. Address overlaps and inaccurate mapping between memory areas caused errors, and discrepancies in software and firmware versions between reference samples and user setups led to friction.",
+    "user_expectations": "Users expect an easy, dependable solution for transmitting analog word data from [product_name] to [product_name], along with clear instructions for setting up communication and memory addressing between devices.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable data transfer",
+      "easy integration",
+      "clear configuration"
+    ],
+    "pain_keywords": [
+      "address confusion",
+      "data type compatibility",
+      "documentation clarity",
+      "firmware/version matching"
+    ],
+    "feature_keywords": [
+      "analog word transfer",
+      "address mapping",
+      "firmware display",
+      "client-server configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "metadata": {
+    "branch_id": "6640042225",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 933874112160469,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm using [product_name] with an HMI over Ethernet. I need to implement an hourly schedule set by the user via the HMI, letting them select a start and stop hour to control a memory function. In the image, this is labeled NAI1 and NAI2. How can I achieve this logic?"
+    },
+    {
+      "comment_id": 981432601810052,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I don't see NI1 and NI2, only NAI1 and NAI2. Are you referring to these?"
+    },
+    {
+      "comment_id": 432484557099925,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Which HMI are you using?"
+    },
+    {
+      "comment_id": 158156550783893,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Sorry, I meant NAI1 and NAI2, because the HMI is sending an analog signal (from 1 to 24). I'm using a Kinco HMI."
+    },
+    {
+      "comment_id": 874467899962974,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "The issue is that there's no direct access to the real-time clock on the [product_name]. Typically, you'd use the Weekly Timer block, but switching times use BCD format. Alternatively, you could create a custom counter that increments every hour."
+    },
+    {
+      "comment_id": 766802858323181,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I'm interested in the counter logic. Can you help me set it up? I'm still getting used to this PLC."
+    },
+    {
+      "comment_id": 364868268328714,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Here's an example, but note: The logic works correctly only the day after the [product_name] restarts."
+    },
+    {
+      "comment_id": 903222280520530,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "1-24? In my opinion, that's not correct; it should be 0-23."
+    },
+    {
+      "comment_id": 796083128377963,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I understood up to NAI3, but then I got lost. Can you explain NAI3 and what it's doing? Sorry for the confusion, I'm eager to learn! Yes, 0-23 works too."
+    },
+    {
+      "comment_id": 123444819469517,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "The counter value uses a double integer format. If you check Parameter-VM-Mapping (under Tools), the counter value is mapped to VM memory at VD4, where VD4 equals VW4 plus VW6. Counter values below 32,768 are in VW6. So it's possible to read the counter value back into the logic."
+    },
+    {
+      "comment_id": 239999124794520,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "So if I understood correctly, you can select any type of block in the software and change its output format? That's good to know!"
+    },
+    {
+      "comment_id": 195112570874800,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I forgot to ask, is there a way to force the PLC to run the program without waiting for the next day?"
+    },
+    {
+      "comment_id": 563793957696899,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "No, the block formats are all fixed."
+    },
+    {
+      "comment_id": 829137803397308,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "No, the design relies on the weekly timer resetting the counter at midnight and starting a 1-hour timer. The timer increments the count every hour. That's why it doesn't work on restart day—the program can't detect when it started."
+    },
+    {
+      "comment_id": 936345380146826,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Thanks for all your help! I'll test it tomorrow when the timer starts to check if it's working. I hope I can reach out again if I need more assistance."
+    },
+    {
+      "comment_id": 814428042205927,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "If your panel supports hexadecimal input format, I know an easier method."
+    },
+    {
+      "comment_id": 930579560078942,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "It seems not, but thank you anyway!"
+    },
+    {
+      "comment_id": 456037631935840,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "But does your panel support BCD format? Is that correct?"
+    },
+    {
+      "comment_id": 291396098108650,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Yes, it's possible to switch to BCD—does that matter?"
+    },
+    {
+      "comment_id": 116867375849649,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "In that case, you can use a weekly timer and change the On-Time and Off-Time using the HMI. Both parameters are BCD-coded words, with one byte for hours and the other for minutes. Use Parameter-VM-Mapping to transfer these values into VM memory."
+    },
+    {
+      "comment_id": 416804581492359,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I think I'm doing something wrong. Can you tell me what it is? It's just an On-Time activator."
+    },
+    {
+      "comment_id": 206597774576304,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "[IMAGE] You will find Parameter-VM-Mapping under: Tools > Parameter-VM-Mapping."
+    },
+    {
+      "comment_id": 845272608278115,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Alternatively, in LAD: [IMAGE]"
+    },
+    {
+      "comment_id": 382694657022513,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Addressing in the [product_name]'s VM memory is byte-oriented. VW0 = VB0 + VB1 VW2 = VB2 + VB3 VW4 = VB4 + VB5 VW1 = VB1 + VB2. If you use VW0 and VW1, there's overlapping since both use VB1."
+    },
+    {
+      "comment_id": 768093805213499,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I tried something similar but included NAI. Can you check and tell me what's incorrect?"
+    },
+    {
+      "comment_id": 884742458067643,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "You don't need NAIs; use Parameter-VM-Mapping for this."
+    },
+    {
+      "comment_id": 695456295102371,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I tried, but I'm struggling with it—sorry for all the trouble! I'll send some screenshots since I can't attach more than one image."
+    },
+    {
+      "comment_id": 298698374691303,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Sorry, I'm unable to help with that. I don't know your HMI or its capabilities, and the screenshots don't help me much. Everything looks good from the [product_name] perspective."
+    },
+    {
+      "comment_id": 511833611202224,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 28,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "For future reference: If you have multiple screenshots or files, compress them into a ZIP and attach that."
+    },
+    {
+      "comment_id": 260103061389382,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 29,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I've tried many options, but nothing works. It's disappointing, but I'll have to use a different approach. Thank you for your help!"
+    },
+    {
+      "comment_id": 512819678086887,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 30,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Hello! I'm back again. The program isn't working at first—no coil activation. I attached a video and image of PLC hours. After midnight, the program doesn't activate. Today, I set the PLC clock to yesterday at 23:58 to confirm, and it still didn't work. What should I change?"
+    },
+    {
+      "comment_id": 333364132544327,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 31,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "From the video, the day changed, indicated by the Latching Relay SF011 being set. You set 5 for switch-on and 15 for switch-off. The output activates when the count is 5 and deactivates at 15. The hour timer has only run for three minutes, so it hasn't sent an hour pulse to the counter yet. That's why the counter reads zero. Can you see now why the output hasn’t switched on yet?"
+    },
+    {
+      "comment_id": 426268248275364,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 32,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Yeah, that was my mistake! I'll change on-time to 00 and see what happens."
+    },
+    {
+      "comment_id": 745838129400074,
+      "user_name": "VUAgqNmmh7",
+      "comment_position": 33,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "It's working now, sorry for the confusion!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users want to create a user-defined hourly schedule on a [product_name] PLC connected to an external HMI via Ethernet. The main difficulty is not having direct access to the PLC's real-time clock and needing to handle timer blocks with BCD formats, which can't be configured easily from the HMI. Workarounds like custom counters are suggested but add extra steps and complexity, making scheduling less intuitive.",
+    "user_expectations": "Users expect simple configuration of start and stop times for scheduling directly through the HMI, avoiding complicated timer formats and custom counter logic. They want the process to be straightforward and user-friendly.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy schedule configuration",
+      "user-settable times",
+      "HMI integration"
+    ],
+    "pain_keywords": [
+      "complex setup",
+      "no direct access to clock",
+      "confusing timer formats",
+      "need for workaround logic"
+    ],
+    "feature_keywords": [
+      "real-time clock",
+      "weekly timer block",
+      "analog input scheduling",
+      "user time setting"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "9776185998",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 795666185271272,
+      "user_name": "smRRxTIJun",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Hello, I am creating a program to measure temperature. I can handle the 0...10V input, but my question is about setting the reference value in the program. I am using an analog comparator to compare the temperature to a reference, but I am unsure what value to use for the reference in the software. Physically, it should be 20 degrees Celsius."
+    },
+    {
+      "comment_id": 818898181456796,
+      "user_name": "BSLN4w8RFb",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "You need to know your device's range. For example, if 0-10V corresponds to 0-100°C, and the internal value is mapped from 0-27600, you can simply use a multiplier block for scaling. For instance, PIW multiplied by 0.0036 equals MW."
+    },
+    {
+      "comment_id": 247323760896837,
+      "user_name": "smRRxTIJun",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "I understand that [product_name] converts the input to a 0...1000 scale by default. If my device's range is 0...100°C, does that mean 0...1000 units correspond to this range? So, is 20°C equal to 200 units in the system? Please let me know if this is incorrect."
+    },
+    {
+      "comment_id": 938419345755131,
+      "user_name": "UF0eWIXiiQ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "If your sensor outputs 0-100°C for 0-10V, then each 1V equals 10°C. So, 20°C is 2V. Since [product_name] maps 0-10V to 0-1000, 1V is represented as 100 units, and 2V is 200 units. In summary, you are correct: 20°C equals 2V, which is 200 units in the system."
+    },
+    {
+      "comment_id": 178536778403176,
+      "user_name": "wNMB3Eiu7B",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], in [product_name] software, use the 'Analog Amplifier' function, set Min=0 and Max=100 for your process. The output will correspond to the actual value."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking guidance on how to properly scale and interpret analog input values for temperature sensors in the software environment. There is some confusion about converting between physical measurements (like voltage and temperature) and the software's internal scaling units. The key difficulty centers around setting the correct reference value for comparator logic within the program.",
+    "user_expectations": "Users expect the software to provide a simple way to enter physical reference values, such as temperature in Celsius, for comparison and control. Clear and direct mapping between sensor values and the program's representation is desired.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy scaling",
+      "accurate sensor readings",
+      "intuitive value mapping"
+    ],
+    "pain_keywords": [
+      "confusing reference input",
+      "unclear scaling logic"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "reference value setting",
+      "software comparator"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

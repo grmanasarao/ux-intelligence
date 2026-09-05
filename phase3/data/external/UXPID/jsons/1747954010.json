@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "branch_id": "1747954010",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 829186279885179,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Hello everyone, I have a standard load cell providing a 0-10V signal via an amplifier into AI3. With the correct span and offset, I see values from 0-1000 for a 100kg load cell, giving a resolution of 100g. The cell is overrated for safety, despite its overload tolerance. My question is: can I configure [product_name] so the ADC's 1000 values cover just the 0-5V portion of the analog input, effectively doubling the resolution for my working range to 50g? What's the best approach to achieve this? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 886500926611266,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "No, that's not possible. The resolution cannot be changed. An input change of 0.01 V always remains one unit after the A/D conversion."
+    },
+    {
+      "comment_id": 358412769074839,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thank you for responding. I'm not clear on what you mean by 0.01V. My goal isn't to change the resolution of [product_name] but to clamp the input range to 0-5V and apply the 10-bit measurement to this truncated voltage. Are you saying that 0-1000 always maps to the full input range? How does offset and multiplier affect this? A flowchart would help."
+    },
+    {
+      "comment_id": 874483066120844,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "For [product_name]'s analog input, the A/D converter maps any input (current, voltage, or PT100/1000 sensor) to 0-1000 units. For a 0-10V signal, each 0.01V equals one unit (10V divided by 1000). If you only process 0-5V, you get 0-500 units, so the resolution stays the same—0.01V per unit. It's not possible to change this via software."
+    },
+    {
+      "comment_id": 993975612477808,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Check the online help in [product_name] engineering software for guidance; there's information about handling analog signals. To improve overall resolution, you'd need to choose a more suitable sensor or install a signal converter between the sensor and input. For example, selecting a sensor with a narrower range increases your measurement resolution. Alternatively, a signal amplifier with adjustable gain and offset could help. Regards, [user_name]"
+    },
+    {
+      "comment_id": 870061133603360,
+      "user_name": "cZQANX744b",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Hi, [user_name]'s advice is correct: you cannot change the input resolution in [product_name] itself. The only real solution is to use a load cell scaled for your range (for instance, 0-10V for 0-50kg). Make sure to check accuracy as well. According to the [product_name] manual, expect a typical error limit of around ±1.5%. Hope this helps."
+    },
+    {
+      "comment_id": 906997899584617,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thanks all. I have a load cell amplifier, and I've set analog zero to the lowest point, with payload at 62/1000. I'm used to programming software where you can truncate the scale and multiply analog input before feeding the ADC, which is why I thought about configuring [product_name]'s input to 0-5V to pump up resolution. Setting for 0-50kg could be risky in an industrial setting. I reviewed the documentation and vaguely recall a 0-5V input option—it might have been a different brand manual though. In any case, seems it's not feasible, so thanks again."
+    },
+    {
+      "comment_id": 267542368462177,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Configurable analog inputs would be great. Some PLC systems like [version_no] controllers offer this, but at a much higher cost. There are requests for [product_name] analog modules with better accuracy, but no one knows when—or if—they'll become available. If you're using [product_name] with network features, you can investigate remote analog modules that work with Modbus TCP/IP. Regards, [user_name]"
+    },
+    {
+      "comment_id": 933039048892664,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "We used an analog sensor with a 0-10V output over a range of -20°C to 100°C (accuracy 0.12°C when sampled by [product_name] as 0-1000 units). We fed this signal through a 2x gain amplifier (DIN rail, includes ESD protection, runs on +12V from [product_name]). This adjusted the range to -20°C to 40°C, improving accuracy to 0.06°C. Since our sensor mainly operated between 16°C and 30°C, the extra resolution was helpful. Remember that in [product_name], scaling involves offset and multiplier adjustments."
+    },
+    {
+      "comment_id": 415265442062858,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Great approach. It would be simple if [product_name] offered a software setting for a 0-5V input to accomplish this!"
+    },
+    {
+      "comment_id": 774154110072388,
+      "user_name": "cZQANX744b",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "I've used [product_name] for many years. Sometimes you want finer analog resolution, and I believe it’s technically feasible in firmware. But consider: higher resolution usually means higher cost. Also, many users lack experience dealing with the challenges of accurate analog measurements (EMC/EMV interference). The default 1000-step resolution in [product_name] meets my needs; if I need higher, I switch to larger systems. But everyone’s requirements differ."
+    },
+    {
+      "comment_id": 811812064662935,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Agreed. My point is that 10-bit resolution is sufficient, but having user control over input range (clamping/truncation) would improve flexibility. This function doesn't require hardware changes—just code updates managing input parameters. For current/voltage conversion, you can use a resistor, but my suggestion is even simpler. All the best, [user_name]"
+    },
+    {
+      "comment_id": 117082259200724,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Your request makes sense, but [product_name] does not have this feature. Physical analog signals are digitized using a 10-bit ADC, which is limited to 1000 steps, and this determines your resolution. Software can't remap the range so that 0.01V equals only part of the load cell's full range."
+    },
+    {
+      "comment_id": 946872534814275,
+      "user_name": "8RYb477Ela",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "It's not possible to increase A/D converter resolution through software. You can truncate results to get a 0-500 range, but the step size remains the same. If higher analog resolution is needed, you must use hardware like a different sensor or a signal amplifier, or choose a controller with a more suitable input range. For current signals (0/4-20mA), proper resistor selection is crucial, as many sensors have maximum load limits. Sometimes, it's most efficient to buy a new sensor with the required range. Regards, [user_name]"
+    },
+    {
+      "comment_id": 638235897986652,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "The translation may be off: The bit resolution isn't changed, but narrowing the measured range increases precision within that window. In audio terms, it's like oversampling—reducing the bandwidth increases quantization detail. For [product_name], a 0-5V input measured with 10-bit ADC would use the full set of digital values over a smaller voltage window. This would require a software switch mapping the ADC to a narrower range. Am I misunderstanding something?"
+    },
+    {
+      "comment_id": 569109331373034,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "These are not equivalent—audio sampling and analog input measurement in PLCs work differently. If you're unsure despite the feedback here, consider submitting a support request to [company_name] directly. Marking this topic as 'Support Relevant'."
+    },
+    {
+      "comment_id": 284561571481040,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "I fully admit I may be missing something, given my background is audio engineering. I appreciate everyone's explanations—even if the analog-to-digital conversion processes for audio and weight sensors differ, I'd love clarification for everyone's benefit. Thank you all for your patience and insights."
+    },
+    {
+      "comment_id": 613886131485723,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "All relevant points have been covered. The analog input range (0-10V) in [product_name] is always mapped to 0-1000 units, and there is no option to set the measuring range to 0-5V. Measuring 5V simply equates to 500 units on the input scale."
+    },
+    {
+      "comment_id": 933002521876125,
+      "user_name": "8RYb477Ela",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Audio signals are handled differently; they have fixed peak-to-peak values and resolution is managed by filtering and sampling frequency. In automation, analog signals are measured for their magnitude, not for time-domain analysis. Regards, [user_name]"
+    },
+    {
+      "comment_id": 451852275307943,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "You are correct—it's confusing to compare time and amplitude domains. Expressed as amplitude: halving the input voltage increases quantization accuracy. However, anything above the threshold is effectively clipped. My suggestion was to allow [product_name] to ignore voltages above a set limit, so the ADC only focuses on the desired range. I understand this isn't available at present, and thanks everyone for the explanations and patience."
+    },
+    {
+      "comment_id": 804628268693981,
+      "user_name": "8RYb477Ela",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Ideally, an ADC with configurable maximum measurement value would help in these cases, but in practice it’s handled by additional hardware, like a pre-amplifier. This adds cost—alternatively, select a sensor with the needed range to save expense. For more advanced needs, use a PLC with higher resolution analog inputs, such as [version_no] modules. Regards, [user_name]"
+    },
+    {
+      "comment_id": 667369632587289,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thank you; for most of my tasks, [product_name] works well—it's easy to program and cost-effective for small tasks and web interfaces. Moving up to a more capable PLC is expensive for just a bit more analog resolution. For example, some AC drives have 12-bit analog inputs, but lack simplicity and built-in web servers. One last question: If a voltage over the input range (e.g. 0-12V) is supplied, and there's no input filter, what happens? Is this handled by hardware? Maybe a sensor with Modbus output could do external processing, but then using a more advanced PLC may be easier overall."
+    },
+    {
+      "comment_id": 467206635638151,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Note: The base module's analog input can also function as a digital input for 24VDC (maximum 26.8VDC). Just a thought—any other questions?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user hopes to boost analog input resolution for a controller by mapping its ADC's entire scale to just half of the input voltage range, effectively doubling measurement precision. Multiple participants explain that this isn't possible within [product_name] due to hardware limits: resolution is fixed and cannot be adjusted via software. Suggestions focus on hardware modifications—like choosing sensors with narrower ranges or adding amplifiers—to improve practical measurement resolution.",
+    "user_expectations": "The user wants an option in the controller or its software to remap the ADC's full range to just a portion of the analog input (e.g., 0-5V), thereby increasing resolution for more precise measurements within that band.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "higher measurement resolution",
+      "precision",
+      "better accuracy in target range"
+    ],
+    "pain_keywords": [
+      "fixed analog resolution",
+      "inflexible analog input",
+      "cannot configure input range"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "input voltage range configuration",
+      "ADC resolution",
+      "software setting for analog range"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "2": "Product Compatibility"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "1465578258",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 955452159145366,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I previously posted this in the Hardware section, but I'm trying again here in the correct part of the forum. I'm aiming to display real-time Liters Per Minute. Using a [product_name] controller and a flow sensor connected to input I3. Also using a TTL to HTL converter. The flow sensor outputs 477 pulses per liter. I'm new to this and unsure how to calculate pulses per minute, convert to liters per minute, and display the value every second or two on the controller's display. I've spent much of the day searching here for answers. Should I use a \"Flag\" for the display? Is the process simply I3 (flow sensor) > calculation block for pulses > display block for value?"
+    },
+    {
+      "comment_id": 671835219753815,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I'm stuck. B023, located lower left, is the message text (see the attached zip). I've managed to show the counter in the message, but I need it to calculate and display 4.16 pulses as 1 cl = 0.01, per minute. Ideally, I would like the Liters Per Minute displayed with two decimals, updated every 0.5 seconds. I've looked at the mathematical instruction but find it confusing."
+    },
+    {
+      "comment_id": 463382338878960,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "It's not too complicated; just break the process into steps. Check the attached example—use a simulated input at 477 Hz for I3. Setting the gate time for B001 to 1 second should result in 477 at the output if the input is 477 Hz. Then, use an arithmetic block to calculate the flow in liters per minute. Since 1 minute is 60 seconds, multiply by 60. For two decimal places, multiply by 100. Finally, divide by 477 to convert pulses into liters. That's the key. The counter measures volume as an example, but typically an additional counter is required to handle higher volumes. Adjust hardware as needed for your [product_name] controller. Regards, [user_name]"
+    },
+    {
+      "comment_id": 641630796735269,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "This solution worked—thanks! [user_name], you're a lifesaver once again. It's much easier when someone explains the thought process. Now I can calibrate the flow meter, too. Even though the spec says 477 pulses per liter, it's never exact. This is awesome. I wish I'd explored this a long time ago. Thanks again!"
+    },
+    {
+      "comment_id": 372367842292127,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "A bit off the main topic, but I realized my flow meter includes a built-in two-wire NTC 50k temperature sensor. I wasn't planning on using it, but is there a way to connect it to the [product_name] controller and get a reading on the display? I've got spare inputs on my TTL to HTL (5V to 24V) converter if that's relevant. Didn't find much info here about NTC with [product_name] controllers, just references to older modules. Thanks!"
+    },
+    {
+      "comment_id": 496621540763704,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Try searching the forum using \"NTC\" within the [product_name] sections. The key challenge with NTC resistors is their non-linear characteristics. It's usually best to use an external NTC-to-0-10V converter. If you don't need a temperature display but just some switch points, you can connect a NTC directly. You'll need the NTC's resistor-temperature diagram. Connecting in series with another resistor creates a voltage divider, but remember to factor in the analog input's internal resistor (~70kOhm). Use Ohm's law to calculate the input voltage. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user initially had difficulty configuring a [product_name] controller to display flow in liters per minute, specifically converting sensor pulses into meaningful real-time values on the display. Guided steps helped the user apply mathematical logic, resolving the challenge. Additionally, the user showed interest in integrating an NTC temperature sensor, pointing to a need for easy scalability and support for analog sensors.",
+    "user_expectations": "The user expects straightforward methods for converting sensor pulses into liters per minute with two-decimal precision and real-time updates on the controller's display. Guidance or solutions for reading analog sensors like NTC thermistors with [product_name] controllers is also desired.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "real-time measurement",
+      "sensor integration",
+      "display precision",
+      "expandability"
+    ],
+    "pain_keywords": [
+      "lack of clear guidance",
+      "complex calculations",
+      "integration uncertainty",
+      "analog sensor compatibility"
+    ],
+    "feature_keywords": [
+      "pulse to flow calculation",
+      "real-time display",
+      "decimal precision output",
+      "analog input for temperature"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

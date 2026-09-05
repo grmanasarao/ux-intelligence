@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "6754054331",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 636874725748634,
+      "user_name": "8KMf4djkWN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello all, I'm trying to retrieve float data from the [company_name] [product_name] module using [product_name] software. I'm facing an issue where the resolution is lost. The online [product_name] monitor displays data accurately from the external device: when I convert this back to an integer, it reads 234.263916016, which is correct. However, when I read this data from the [product_name] through the [product_name] port with these settings: store in VW address 0, then convert from float to int using VM address 0 and read it out, the value only shows 234.0 or 234.5, as if two bytes are missing. What could be causing the loss of those two bytes of data? Thank you in advance. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 439875612650835,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "You don't need to use both the NAI and the AM. Use only the F/I converter at address VM20."
+    },
+    {
+      "comment_id": 280316371441129,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 785663624656691,
+      "user_name": "8KMf4djkWN",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Thank you for the quick response. I originally used the NAI to adjust the decimal point to achieve the needed resolution, but I will try your suggestion. As usual, the issue came down to user error—I was requesting only 2 bytes when 4 bytes are necessary for a float. By making an additional network request for the remaining bytes, the resolution improved. I've read about this before, but it didn't register at the time. Thanks again! Kind regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced a loss of data resolution when trying to retrieve float values from a [company_name] communication module using [product_name] software. The key problem was that only 2 bytes were requested and processed, instead of the required 4 bytes for accurate float-to-integer conversion. Technical advice and user reflection revealed a gap in understanding byte allocation for float data.",
+    "user_expectations": "Users aim to retrieve and display float values from an external device with full precision using [company_name] modules and [product_name] software, seeking to avoid any data loss during conversion.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "full resolution output",
+      "accurate float conversion",
+      "seamless data integration"
+    ],
+    "pain_keywords": [
+      "data resolution loss",
+      "incomplete byte reading",
+      "float-to-integer conversion issue"
+    ],
+    "feature_keywords": [
+      "VM addressing",
+      "float data conversion",
+      "network data requests"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

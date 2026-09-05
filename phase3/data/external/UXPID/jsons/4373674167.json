@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "branch_id": "4373674167",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 605805715871755,
+      "user_name": "o3vwaugrnU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "I have a [product_name] PLC ([article_no]) installed by an electrician with firmware [version_no]. The digits near the OK button read X34. I've also purchased [product_name]Soft Comfort. I'm working on home automation and want to read device statuses using Modbus. However, I'm uncertain whether this device supports Modbus. While the offline settings indicate a Modbus address space, scanning the device shows port 502 is not active."
+    },
+    {
+      "comment_id": 347553356790254,
+      "user_name": "TLHRrZMX5p",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name]! With release FS:04, [product_name] 8 supports the Modbus protocol over Ethernet TCP/IP. Refer to the manual for further details."
+    },
+    {
+      "comment_id": 841037623410080,
+      "user_name": "o3vwaugrnU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "I have two questions: - How can I confirm if I have release FS:4? - Modbus port 502 is not open according to my network scan. Is there a specific action needed to enable it? I checked the manual and found some relevant information, but I'm new to [product_name] and can't get Modbus to work."
+    },
+    {
+      "comment_id": 171354745954490,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Your [product_name] with the order number [article_no] is the [product_name] 8.2, a [product_name] [article_no] of the 3rd generation. It's a 12/24 RCE with display. In the hardware selection of [product_name]Soft Comfort, you need to select [product_name]8.FS4. See the attached history file. X34 indicates FS:02. The firmware [version_no] can be upgraded to [version_no] using an mSD card. Download the firmware update from: [url] (product information on firmware update for [product_name] 8 regarding security Vulnerability CVE-2020-7593). This [product_name] supports Modbus in both Server and Client modes. To exchange data between [product_name] and a Modbus device, you must create a Modbus connection in [product_name]Soft Comfort, either as a server or client connection, depending on the role of [product_name]. If it's configured as a server, port 502 is selected by default. Please provide more details about the Modbus device you're using."
+    },
+    {
+      "comment_id": 273785386696203,
+      "user_name": "o3vwaugrnU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "The Modbus devices in this setup will be a Raspberry Pi running Home Assistant with Node-RED. Ideally, this device will check if garage motion detectors are activated and whether the lights are on, and possibly control the lights if needed."
+    },
+    {
+      "comment_id": 516673717116907,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "node-red-contrib-s7 (node) - Node-RED ([url])"
+    },
+    {
+      "comment_id": 137510065522905,
+      "user_name": "o3vwaugrnU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Thank you for the guidance so far. I'll look into using Node-RED S7, but since I need to learn Modbus for my car charging system anyway, I prefer to continue with Modbus right now. I've updated the firmware to [version_no]. After scanning with Nmap, port 502 is still not shown as open. However, Modscan64 can now connect to the PLC, so some progress has been made!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to connect a [product_name] PLC to a home automation environment using Modbus. There is initial confusion about firmware compatibility and how to enable Modbus, especially regarding port 502 visibility. Upgrading the firmware has helped—users report improved connectivity with tools like Modscan64, though port scans remain inconsistent, suggesting some ambiguity in how Modbus functionality is activated or exposed on the network.",
+    "user_expectations": "Users expect that a [product_name] 8.2 PLC should support Modbus TCP/IP without extra complications, assuming proper configuration. They hope the necessary communication ports will be readily accessible and do not anticipate having to perform hidden or undocumented steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "Modbus support",
+      "home automation integration",
+      "device status monitoring",
+      "remote control"
+    ],
+    "pain_keywords": [
+      "connection issues",
+      "unclear firmware compatibility",
+      "port configuration confusion",
+      "setup complexity"
+    ],
+    "feature_keywords": [
+      "Modbus TCP/IP",
+      "firmware update",
+      "port 502",
+      "server/client mode",
+      "network scan visibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges"
+  }
+}

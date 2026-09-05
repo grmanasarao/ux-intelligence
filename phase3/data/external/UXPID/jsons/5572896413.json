@@ -1,0 +1,199 @@
+{
+  "metadata": {
+    "branch_id": "5572896413",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 810171760414832,
+      "user_name": "evbLJoLoae",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hello, I am attempting to read Modbus data from a third-party energy meter using a Modbus RTU/TCP converter. The data returns as float32, but I am unable to convert this to an integer in [product_name] [version_no]. I am using the latest version of [product_name] [version_no]. Any advice would be appreciated. Reading the same data with a Modbus test software works fine, so I know the meter and converter are functioning correctly. Regards, [user_name]"
+    },
+    {
+      "comment_id": 977786928188005,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Keep in mind, [product_name] processes only integer values. You can write your value from the energy meter into a double word in the VM area, then use the Float / Integer converter block to change the 32-bit value to an integer."
+    },
+    {
+      "comment_id": 369619401622475,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Use the function block 'Float/Integer Converter'. In its properties, you can configure both float and double formats. Please note: [product_name] can only handle integer values in the range of 0 to 32767. Hope this is helpful."
+    },
+    {
+      "comment_id": 253392721862488,
+      "user_name": "lemlbtSecs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Check if the data read from the holding register is correct. [product_name] may have issues with Modbus addressing. For example, if you read HR 1000 from [product_name], it actually reads register 999 in the Modbus device. If the addressing is off, the float-to-integer conversion won't work."
+    },
+    {
+      "comment_id": 944138191072647,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "There is an example from [company_name]. Here's the link: [url]. I hope this assists you."
+    },
+    {
+      "comment_id": 350201734423961,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "I'm not sure that will help—the example transmits only integer values, not 32-bit data."
+    },
+    {
+      "comment_id": 379559844722016,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Apologies, I agree with [user_name]. I didn't read carefully. Responding quickly from my phone while traveling."
+    },
+    {
+      "comment_id": 980797462437133,
+      "user_name": "lemlbtSecs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Actually, [product_name] reads two holding registers and stores the value into two words—making it 32 bits. This float value is then converted to integer within [product_name]."
+    },
+    {
+      "comment_id": 422156874406356,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "The solution was already mentioned in the first reply in this thread."
+    },
+    {
+      "comment_id": 476711233297792,
+      "user_name": "lemlbtSecs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Here's an example: [url]. In the image with the address table, holding register read from the first line is register 2, but the manual for the same device says first data is at register 1. Modbus uses addresses from 0, while [company_name] starts from 1."
+    },
+    {
+      "comment_id": 979876162826744,
+      "user_name": "lemlbtSecs",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Refer to [url], page 15. Starting address range is 0x0000–0xFFFF."
+    },
+    {
+      "comment_id": 326073527323270,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Check the attachment for clarification."
+    },
+    {
+      "comment_id": 837224120921153,
+      "user_name": "lemlbtSecs",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Yes, this issue occurs when VW0 is mapped as HR1, but Modbus should start at 0. It would be correct as VW0 = HR0."
+    },
+    {
+      "comment_id": 202625112345293,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "This is confirmed by the online help: VW0 = HR1."
+    },
+    {
+      "comment_id": 678573908772415,
+      "user_name": "lemlbtSecs",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Correct, but most third-party devices using Modbus begin at zero. Only [product_name] starts its addressing from one."
+    },
+    {
+      "comment_id": 666765604871794,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "This might be accurate, but it doesn't help with [product_name]. We need to adhere to the rules for [product_name]."
+    },
+    {
+      "comment_id": 545857529564431,
+      "user_name": "lemlbtSecs",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Yes, it's important to remember this, because instructions for any Modbus device may list the required HR 1000 address, but with [product_name], you should use HR1001 or it won't function. Otherwise, people might wonder why it's not working."
+    },
+    {
+      "comment_id": 767201898802310,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "[company_name] has always followed its own conventions in some areas. As mentioned, this doesn't help if you're working with [product_name]. I believe we've covered this topic sufficiently now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants report difficulties converting float32 data received from a third-party energy meter via Modbus to integer values within [product_name] [version_no]. The main challenge involves [product_name]'s strict handling of integer formats and discrepancies in Modbus address mapping compared to [company_name]'s documentation. Users attempt different conversion methods and seek clarification on effective data register mapping and conversion options for successful integration.",
+    "user_expectations": "Users expect [product_name] [version_no] to handle float32-to-integer conversion smoothly, accurately read Modbus data registers, and provide clear guidance or function block documentation for these processes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless data integration",
+      "correct float to integer conversion",
+      "easy Modbus register reading"
+    ],
+    "pain_keywords": [
+      "data type incompatibility",
+      "addressing confusion",
+      "conversion difficulty"
+    ],
+    "feature_keywords": [
+      "float-to-integer conversion block",
+      "Modbus register mapping",
+      "data type support limitation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

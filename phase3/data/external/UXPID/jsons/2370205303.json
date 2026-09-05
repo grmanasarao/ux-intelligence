@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "2370205303",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 903300956923712,
+      "user_name": "6nnW0wm1Hq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Hello! I have a question regarding the connection between [product_name] modules on a shared network, but without using a network project. My situation: Several [product_name] modules are present in the same network. Some were programmed together in one project, others in a different project. I am unable to modify the programs on most of them, except for one module whose program I can edit. My aim is to extract certain data from the other modules through the editable one, but not by altering their program logic. I attempted to use the 'NI' block according to the help documentation, which states that it can read 'I', 'Q', 'M' values from networked [product_name] modules with [version_no]. I selected 'network device' in the NI settings, input the remote IP, chose device type [version_no], block type 'I', and set a block number as a test. There’s also a TSAP setting, which I tried filling with 20.00 and 21.00 but did not get any results. My question: Am I missing something, and is there a way to retrieve data from other networked modules using only changes on the module I control? Thank you in advance for your help."
+    },
+    {
+      "comment_id": 609708661751475,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "What you want to achieve is unfortunately not possible. For network data exchange between two [product_name] modules, you need to set up connections on both ends. One device must have a client connection, and the other a server connection—so you would have to change the programs on both modules."
+    },
+    {
+      "comment_id": 189564425937447,
+      "user_name": "6nnW0wm1Hq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Understood—thanks for the fast response."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user identified a limitation in reading data across multiple [product_name] modules in the same network where each was programmed in separate projects, and only one module's program could be edited. The main usability barrier is that data exchange between devices requires mutual changes (client-server setup) on all involved modules, making it difficult or impossible in situations where some program codes are locked.",
+    "user_expectations": "The user hoped to access I/Q/M values from other [product_name] modules on the network by modifying only the module under their control, without altering the programs in the other devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy network data reading",
+      "no remote code modification"
+    ],
+    "pain_keywords": [
+      "cannot read data without remote changes",
+      "inflexible network communication",
+      "need for two-way connection setup"
+    ],
+    "feature_keywords": [
+      "NI block",
+      "network project separation",
+      "client-server data exchange"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "23": "File Accessibility Barriers"
+  }
+}

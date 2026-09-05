@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "4614902579",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 950510478845701,
+      "user_name": "lxD2eKD5yb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Thanks [user_name], here's my updated question. As I said, I'm new to [product_name] products. I've set up this connection. In the Diagnostic view, I see the number '2' under Data Transfer, which I believe represents the two words being transferred. These words are two integer values. How can I view their contents on the device? When I switch to 'Online' mode, a red question mark appears with the message 'Device Inaccessible'. I tried pinging the Micro850 from [product_name] and the ping was successful. I appreciate your assistance."
+    },
+    {
+      "comment_id": 608561789995180,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "You should keep in mind: Addressing in [product_name] devices is byte-based, while holding registers use word-based addressing. For example, transferring register 40001 to VW1 writes to bytes 1 and 2; transferring register 40033 to VW2 writes to bytes 2 and 3, causing some overlap. Therefore, always assign word addresses at intervals of two, starting from zero in [product_name]. Recommended setup: VW0 <- HR40001, VW2 <- HR40033. I'm still dealing with the red question mark error, but I'll try to resolve it."
+    },
+    {
+      "comment_id": 390434524289835,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "The red question mark indicates that the [product_name] is currently inaccessible. See attachment."
+    },
+    {
+      "comment_id": 600898031698708,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "When online with [product_name], you can view the data in the data table. See attachment."
+    },
+    {
+      "comment_id": 904278653362057,
+      "user_name": "lxD2eKD5yb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], I've finally established the connection between [product_name] and Micro850. For some reason, when I changed 40001 to 1, it started working. Now I can see the values stored in the register. Thank you very much for your help. I truly appreciate it."
+    },
+    {
+      "comment_id": 525044150278773,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "That's great news, and I'm glad things are working for you. Why did it work with 1 instead of 40001? I'm not sure, as I'm not familiar with Micro850."
+    },
+    {
+      "comment_id": 398285019573190,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "It's because 1 refers to the first holding register. According to Wikipedia: Coil (Read-write): 1 bit, addresses 00001-09999; Discrete input (Read-only): 1 bit, addresses 10001-19999; Input register (Read-only): 16 bits, addresses 30001-39999; Holding register (Read-write): 16 bits, addresses 40001-49999."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is unsure how to view two received integer values via Modbus in [product_name], specifically struggling with word versus byte addressing and device accessibility errors in online mode. The main issue involves understanding addressing techniques and resolving the device not accessible error. Better guidance or integrated hints for memory addressing and troubleshooting would improve usability.",
+    "user_expectations": "The user expects to be able to consistently access and display imported integer values from another device, and wants the system to provide clear diagnostics or feedback when connectivity issues occur.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "view Modbus data",
+      "successful connection",
+      "real-time value display"
+    ],
+    "pain_keywords": [
+      "addressing confusion",
+      "device inaccessible error",
+      "unclear diagnostics"
+    ],
+    "feature_keywords": [
+      "data table",
+      "diagnostics",
+      "Modbus addressing",
+      "online mode"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

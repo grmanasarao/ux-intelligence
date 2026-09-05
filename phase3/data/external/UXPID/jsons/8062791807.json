@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "8062791807",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 733190913401857,
+      "user_name": "qfUd9e3BFM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, I have a [product_name] [version_no] ([article_no]) connected to two expansion modules ([article_no]). Both the controller and expansion modules are powered by a 24V supply and everything seems fine overall. However, here’s the issue: Input I4 of the first expansion module (I12 in total) is wired directly to the 24V supply. At program startup, during one or more initial scan cycles, this input is read as 0V. I’ve determined the initial scans cause the problem because adding a 500 ms ON delay timer at startup allows the rung to work as expected, and the issue stops. When the issue occurs, flag M38 is latched, and the only way this happens is when I12 is at 0V, which is unexpected since it’s wired to 24V. Please see the attached image for details. We first noticed this after changing the model from [product_name] [version_no] ([article_no]) to [product_name] [version_no] ([article_no]). Has anyone got a clue what might be causing this? [user_name]"
+    },
+    {
+      "comment_id": 799644274818538,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "This is indeed odd behavior. As I don't have the same hardware ([article_no] expansion module) nor your program, it's difficult to say much. If [company_name] hasn't provided clear information regarding what changed between [product_name] [version_no] and [product_name] [version_no], only [company_name] would know for sure. It's best to start a support request."
+    },
+    {
+      "comment_id": 287867836540181,
+      "user_name": "qfUd9e3BFM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Yes, I've already started a support request. I agree this is a strange situation. The more I discuss it, the more it seems to be a hardware issue. But which component is at fault? Is it a firmware bug, or is either the CPU or expansion module failing? I'll update once we have the root cause."
+    },
+    {
+      "comment_id": 661468623650387,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Check your setup in the menu; there’s a Power-on Delay setting you can adjust from 1 to 10 seconds. Maybe that could help. I'm not sure which hardware version was first to have this option."
+    },
+    {
+      "comment_id": 488370640168804,
+      "user_name": "qfUd9e3BFM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Thanks for the suggestion. I couldn’t locate the menu you mentioned. In [product_name] programming software [version_no], are you talking about offline settings, online settings, or another menu? However, a configurable power-on delay of 1 to 10 seconds doesn’t explain why a 500 ms delay timer solves the problem."
+    },
+    {
+      "comment_id": 417534332737740,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Navigate to the menu of the [product_name]. Set the device to Stop mode, then select 'Power-On Delay' and press enter. You can now set the delay between 1 and 10 seconds."
+    },
+    {
+      "comment_id": 638469193675873,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "If you’re using a [product_name] without a display, I’m not sure if you can change these settings, as I haven’t found this option in the programming software. It might be better to use a base module with a display, or a [product_name] operator device that offers these settings. My point is that Power-on Delay affects only the base module’s program start and not the readiness of expansion modules. If you can't access these settings, use delay timers in your program to avoid the issues you've described."
+    },
+    {
+      "comment_id": 737193566098853,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Perhaps you can use the startup flag M8 to introduce a delay or disable some logic in your program during the first cycle when starting the [product_name]. Just a thought."
+    },
+    {
+      "comment_id": 904045399574916,
+      "user_name": "qfUd9e3BFM",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Technicians at [company_name] reproduced the bug and saw the same effect. With a [product_name] [version_no], the expansion module's inputs stay at 0V until they finish initialization, so if you latch a flag during this time, problems can arise. We resolved the issue by implementing our own power-on delay timer."
+    },
+    {
+      "comment_id": 706472052606576,
+      "user_name": "4HZdMEQHHC",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Hi, I found a clue in the [company_name] manual for [product_name] [version_no] ([article_no] series): After power-up, the system briefly activates the outputs and a voltage greater than 8V can appear for up to 100 ms, or just microseconds if under load. See the screenshot I uploaded."
+    },
+    {
+      "comment_id": 237471935944936,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Just to clarify: This statement concerns a device with transistor outputs, not one with relay outputs. The original poster has a base module with relay outputs."
+    },
+    {
+      "comment_id": 551668289014596,
+      "user_name": "4HZdMEQHHC",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Thanks for pointing that out. I hadn't noticed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users observed that at startup, certain digital inputs on the [product_name] expansion modules read as 0V for several scan cycles, despite being wired to 24V. This appears to happen during expansion module initialization with [product_name] [version_no], and is different from previous hardware behavior. Adding a delay at program startup reliably fixes the issue. The core problem seems to relate to mismatched readiness timing between hardware components, which isn’t clearly described in the manual or technical documentation.",
+    "user_expectations": "Users expect expansion module inputs to immediately reflect actual signals upon startup, without the need for added delays or workarounds. Clearer documentation regarding hardware and module initialization timing is also expected.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate input reading",
+      "predictable startup behavior",
+      "clear hardware documentation"
+    ],
+    "pain_keywords": [
+      "startup input error",
+      "initialization timing mismatch",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "startup delay",
+      "input status monitoring",
+      "expansion module initialization"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

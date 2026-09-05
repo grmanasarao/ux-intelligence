@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "3869963931",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 314572315916637,
+      "user_name": "7YGDGTUHqt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Hello, I am working with [article_no] and [product_name] expansion module. The program is set to monitor eight energy meters via the extension inputs (pulse signals connected to inputs I9-I16), which are directed to an up-down counter. The pulse frequency on these inputs is 0-2 Hz, with a pulse width of 68 ms. When testing with all eight inputs wired together at 1 Hz with 68 ms pulses, the system does not miss any pulses. I am wondering about the behavior with normal operation at 4 Hz, which means a pulse width of 125 ms (though I can't find a specific specification). Is the pulse width dependent on the system cycle time (which is 7.5 ms in my setup, with a large program using all 200 blocks)? I do not have the ability to test every scenario; normally, all eight inputs are asynchronous but always maintain a pulse width of 68 ms. My question is: can I reliably depend on the system not to miss pulses, since missing one would be a problem? Does anyone have more insight into how input speed and timing are handled?"
+    },
+    {
+      "comment_id": 199955996816168,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Hi, If you use a standard counter, its response depends on the scan time of the [product_name]. For a function block, this is typically around 0.1 ms. However, this applies only to the DC-powered [product_name] version (12/24RC(E)), and not to the AC-powered variants. You can find further details in the technical section of the [document] for [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "This thread discusses concerns about whether the system can reliably detect fast and short input pulses across all channels when using a [product_name] module with an extension, especially when the program is large. Users are uncertain about the actual technical limits for pulse detection speed and timing, and seek clarification regarding hardware and software constraints that might cause missed pulses.",
+    "user_expectations": "Users expect the system to capture all input pulses at the specified timing without any loss due to scan time or processing limitations. They also anticipate clear technical documentation or guidance regarding the operational boundaries and acceptable timing for input signals.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable pulse detection",
+      "accurate counting",
+      "clear specifications"
+    ],
+    "pain_keywords": [
+      "possible missed pulses",
+      "unclear documentation",
+      "hardware/software limitation uncertainty"
+    ],
+    "feature_keywords": [
+      "input pulse duration",
+      "scan time",
+      "up-down counter",
+      "digital input channels"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

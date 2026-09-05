@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "branch_id": "4644358139",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 211940044788472,
+      "user_name": "6fDmqS2kdz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Could someone assist me with [product_name] Web Editor? I'm struggling with using timers. For instance, I want timers to start each day at 8:00 and stop at 20:00. In the Web Editor, I created a table with Block Type: VW, access mode: Word. I can use analog value and block format: Unsigned, writable: yes. However, when connected to the webserver, I see the values displayed in a strange format. I want a block to enter 09:00 for start and 21:00 for stop, but the only setting available is VW with block format HEX. This shows values like 16#0900 instead of the regular time format. Thanks and sorry for my English."
+    },
+    {
+      "comment_id": 198569240144158,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hi [user_name], welcome to the forum. I attached an example for you."
+    },
+    {
+      "comment_id": 849246721371782,
+      "user_name": "6fDmqS2kdz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you very much for the project and your assistance. My issue is that the value always appears as 16#2230, but I want it to show as 22:30. I've read a lot online about this, but I'm unsure if that's really correct?"
+    },
+    {
+      "comment_id": 573498815884100,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Weekly timer switch times are saved in BCD format, with each time needing one word (2 bytes): hours in the left byte, minutes in the right. I separated these into bytes and displayed them as two analog values with a colon between. The web server can't display times in standard time format because they're stored as BCD codes, not usual time. The '16 #' prefix shows they're in HEX format. In my [product_name] Web Editor project, I managed to hide the '16 #' by making a modification."
+    },
+    {
+      "comment_id": 424988478674115,
+      "user_name": "C43CNCId34",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "What change did you make to block the display of '16 #'?"
+    },
+    {
+      "comment_id": 781775660166517,
+      "user_name": "Xq0FkpbnrT",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello, I believe it's in the JS folder, within the render file. Change the '#16' format at the end of the code."
+    },
+    {
+      "comment_id": 397624590829676,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], welcome to the forum. Check out this topic: How to remove the hex marking (16#) when showing switch times for a weekly timer in the extended web server?"
+    },
+    {
+      "comment_id": 632743231855253,
+      "user_name": "bfU4V6lm5i",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello, I can't download the example; clicking just refreshes the page without doing anything."
+    },
+    {
+      "comment_id": 932664145712864,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "If you meant the example in post #2, it should download fine—no issues here."
+    },
+    {
+      "comment_id": 931289888351576,
+      "user_name": "h6VmDlDEQ5",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Good morning! You can follow the steps shown in the attached photos. Book 1993. Regards."
+    },
+    {
+      "comment_id": 633245350584633,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], welcome to the forum. This is an English-language forum, so please write your future posts in English. Thanks. Note that the topic started in May 2020, and at that time only [product_name] Web Editor V1.0.1 was available. That version did not have the feature shown in your screenshot. It was added in [product_name] Web Editor V1.1."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report confusion and dissatisfaction regarding how timer values are displayed in the web interface of [product_name] Web Editor. Instead of seeing times in standard (HH:MM) format, they see hexadecimal or BCD representations, which they find unintuitive. Attempts were made to modify these settings, but limitations within the native software's display remain, leading to requests for a more user-friendly solution.",
+    "user_expectations": "Users want to enter and view timer values in the conventional time format (HH:MM) within the web interface, rather than seeing hexadecimal or BCD codes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "intuitive display",
+      "easy time entry",
+      "user-friendly format"
+    ],
+    "pain_keywords": [
+      "non-intuitive time format",
+      "BCD/HEX confusion",
+      "lack of clear time entry"
+    ],
+    "feature_keywords": [
+      "timer display",
+      "web interface",
+      "data format"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

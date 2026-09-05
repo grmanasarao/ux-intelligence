@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "branch_id": "1857561275",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 657573742084161,
+      "user_name": "vSm5i9uYOK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "This message is directed to all forum users, especially industry experts and engineers. We have been working with [product_name] for a long time, but the same issue exists across all [product_name] versions ([article_no]). Our application requires hour and minute synchronization with EU time, with a deviation of less than one minute per year, which would be acceptable. The device must control a tower clock mechanism. The available solution using [product_name] communication modules synchronized by GPS is too expensive for our needs. We are looking for a way to connect a DCF77 antenna, GPS antenna, or similar directly to [product_name]. Alternatively, if the time drift (e.g., internal clock running fast by 4 seconds per day, 28 seconds per week) could be corrected weekly by adjusting the time with the appropriate parameter (-28 seconds), that might work. In competitor products, such as the Crouzet Millenium 3, this is possible."
+    },
+    {
+      "comment_id": 608161506236344,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "You are correct. According to the manual, [product_name] typically experiences a time drift of +/- 2 seconds per day, assuming stable temperature around 25°C. If the environmental temperature fluctuates, the drift may increase. To minimize this delay, try stabilizing the temperature where [product_name] operates. Currently, [product_name] can only synchronize its clock via an NTP server using the [product_name] communication module, which requires connection to an NTP server online or GPS receiver. Direct synchronization via DCF77 is not supported. These modules and required antennas have additional costs, similar to how certain car features are paid extra. If you want enhanced synchronization, extra investment is necessary. Hope this helps."
+    },
+    {
+      "comment_id": 704200493216211,
+      "user_name": "vSm5i9uYOK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Any other ideas on connecting DCF77 or GPS for clock synchronization on [product_name] and time adjustment? This issue affects many applications, including astronomical timers for public lighting and tower clock controls. Suggestions for the next [product_name] generation are welcome. Is it possible to submit this request or feedback to the development department?"
+    },
+    {
+      "comment_id": 544667509553415,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Hello, as far as I know, there is currently no option to use [product_name] directly with DCF77. The only way to improve time accuracy is with [product_name] communication modules together with a GPS receiver, which allows the date and time to be synchronized through GPS data. Alternatively, using the module to get time from an NTP server is possible, but requires a SIM card and internet access. GPS-based synchronization does not need internet. The modules and antennas are not free, and similarly, a DCF77 interface also incurs costs—the cheapest one I know for another PLC was about 280€, and could only be used on certain programmable models. Here’s an unconventional idea: use a DCF77 alarm clock set for the same time daily, connect its alarm signal to a [product_name] input, and program the required actions using timers. This would reduce clock drift to about +/- 2 seconds per day. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users consistently encounter time drift issues with the internal clock of [product_name] and seek much more precise time synchronization (less than one minute drift per year) for use cases like tower clocks and astronomical timers. While existing solutions using communication modules with GPS or NTP offer better accuracy, their cost makes them impractical for smaller projects. The inability to directly connect affordable synchronization devices like DCF77 to [product_name] is seen as a drawback, and users compare [product_name] unfavorably to competitor products that allow manual or software-based clock corrections. Both hardware and software solutions are suggested, emphasizing the need for more accessible and economical synchronization options.",
+    "user_expectations": "Users expect [product_name] to maintain highly accurate time, minimizing drift, or to offer cost-effective and direct synchronization via DCF77 or GPS without expensive extra modules. Solutions similar to those available from competitors, such as the ability to periodically apply drift corrections via software, are desired.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate clock",
+      "affordable synchronization",
+      "automatic correction"
+    ],
+    "pain_keywords": [
+      "clock drift",
+      "lack of synchronization",
+      "high synchronization cost",
+      "missing DCF77 support"
+    ],
+    "feature_keywords": [
+      "internal clock",
+      "time synchronization",
+      "DCF77 input",
+      "GPS input",
+      "software drift correction"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

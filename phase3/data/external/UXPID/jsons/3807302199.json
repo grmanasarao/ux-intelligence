@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "branch_id": "3807302199",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 799262248745483,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Hello, I'm just starting out with PLC programming and working on a personal project. I have a python script performing calculations using a web API, and I'd like to control my PLC with it. For instance, if my script sets var_A below 2, it would send an HTTP POST to the PLC's web server to activate an output. Initially, I considered using my python script to update variables via the default PLC web server, but after checking the [product_name] Web server, I realized the POST requests are encrypted and difficult to work with. Is there a recommended approach for this? Perhaps building a custom web server with [product_name] Web Editor and using POST to update variables? Any information would be appreciated."
+    },
+    {
+      "comment_id": 233410123211851,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "My earlier attempts with HTTP didn't succeed. I also tried setting up MQTT on a Raspberry Pi to process data and publish to a topic, but found my [product_name] version was too old to use MQTT (I have [product_name] [version_no] [article_no]). Now I'm considering Modbus TCP, since Python supports it, but previous trials have failed. If someone knows for sure this won't work, I would welcome feedback before investing more time. But I'm learning as I go."
+    },
+    {
+      "comment_id": 752326169090576,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], The [product_name] [version_no] [article_no] cannot use Modbus or MQTT. You'd need the latest hardware version for that. Consider using alternative solutions like NodeRed, FHEM, Io-Broker, or similar platforms for home automation. Regards, [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 342052949893890,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "That's not accurate. A [product_name] [article_no] is a [product_name] [version_no], which supports Ethernet TCP/IP using the S7 protocol and also Modbus TCP/IP."
+    },
+    {
+      "comment_id": 412958400154697,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Apologies, I mixed up the article numbers and confused it with a different [product_name] version. Greetings [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 650597676831737,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Hi, I didn't have internet access for a bit, but you're absolutely right. I managed to get everything working with Modbus TCP after figuring out the setup—using Modscan and a Raspberry Pi, I was able to update PLC register values directly. Next, I need a method to keep analog values stored during a power outage. Also, thank you [user_name], your previous answers have helped me solve several issues so far."
+    },
+    {
+      "comment_id": 248390263224457,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "It depends on which analog values you want to save and at which location, in order to ensure they are retained if the power fails."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced challenges with direct HTTP communication due to encrypted POST requests in the [product_name] web server. Attempts to use MQTT failed because the hardware did not support this protocol. The solution was found using Modbus TCP after clarifying protocol compatibility. There was some confusion about supported features, but with community input and further testing, the user was able to implement remote variable control using Python and third-party tools.",
+    "user_expectations": "The user is seeking a straightforward way for an external script or server to remotely set and modify [product_name] variables, ideally via standard protocols with minimal complexity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "automation",
+      "external integration",
+      "variable manipulation",
+      "protocol support"
+    ],
+    "pain_keywords": [
+      "protocol limitations",
+      "documentation confusion",
+      "communication setup difficulty"
+    ],
+    "feature_keywords": [
+      "encrypted HTTP requests",
+      "Modbus TCP/IP",
+      "S7 protocol",
+      "variable retention",
+      "web server integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

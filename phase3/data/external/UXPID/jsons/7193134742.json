@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "branch_id": "7193134742",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 407661336268283,
+      "user_name": "4yWozJ7Z59",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Hello, I am looking to activate [product_name]'s input using an audio signal. Specifically, when an airband radio receives 5 microphone pulses, [product_name] should initiate the runway lights. Does anyone have advice or a [product_name] programming diagram for this setup? Thank you. [user_name]"
+    },
+    {
+      "comment_id": 101730835625026,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Welcome to the forum. Could you clarify how [product_name] is supposed to detect that the airband radio has received 5 pulses?"
+    },
+    {
+      "comment_id": 530584570917831,
+      "user_name": "4yWozJ7Z59",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "So, the pilot presses the microphone button 5 times, and the radio on the ground receives 5 pulses. The idea is to use the signal from the audio output (loudspeaker) of the radio as input. Thanks and best regards."
+    },
+    {
+      "comment_id": 974077755856225,
+      "user_name": "4yWozJ7Z59",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "I forgot to mention, the [product_name] I am using has article number [article_no]."
+    },
+    {
+      "comment_id": 127037021677628,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Are you referring to the module with article number [article_no]?"
+    },
+    {
+      "comment_id": 760241534100714,
+      "user_name": "4yWozJ7Z59",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Yes, that's correct!"
+    },
+    {
+      "comment_id": 952425351191563,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Connecting [product_name] itself is relatively simple; you just need to set up time monitoring for the input to avoid glitches turning the lights on and off by mistake. The pilot needs to press the microphone within a certain time frame. The real challenge is connecting [product_name] to the radio without modifying the system, as that could affect its operating license. You need the audio (NF) signal to be recognized accurately. A solution could be similar to vintage light organ circuits, where instead of a lamp, you'd use a relay to trigger the [product_name] input. This forum is really for discussing [product_name]. For building and fine-tuning such an interface, consulting an electronics specialist is a good idea. Also, it's not clear how the lights should be turned off again—I've set up an input in the [product_name] program for this purpose. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 172161292165084,
+      "user_name": "4yWozJ7Z59",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Thank you for your quick response. As you mentioned, the main problem is interfacing the radio with [product_name]. I thought [product_name] could directly sense the NF output from the radio. The lights are intended to turn off after 3 minutes, managed by a timer. Regards."
+    },
+    {
+      "comment_id": 792193664147228,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "[product_name] can't directly process the NF (audio) output from the radio. This is why you would need an external circuit to amplify the NF output and convert it into a digital signal that uses a relay to trigger the digital input. Remember, the loudspeaker itself isn't carrying a direct NF usable signal. You might consider searching for an acoustic switch solution so you don't need to modify the radio hardware itself."
+    },
+    {
+      "comment_id": 631929329551444,
+      "user_name": "4yWozJ7Z59",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Thank you, I will update you once I proceed further."
+    },
+    {
+      "comment_id": 567685938241335,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "If you want a simple circuit, try this: Use the loudspeaker output for a sufficient signal level; use a diode or bridge rectifier to obtain DC voltage; connect to the analog input of the [product_name] controller; test with a program for analog threshold detection to distinguish between normal operation and PTT pulses; if the level works, use the threshold trigger to count 5 events (see earlier example). If you need to detect specific signals, please describe them in detail. Alternatively, you might generate a specific tone, like 1kHz, and use an amplifier as mentioned previously, without a relay. For quick pulse counting, you could use a square wave signal with a digital threshold detector. Regards, [user_name]"
+    },
+    {
+      "comment_id": 524454146967696,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], I think that suggestion has risks. Matching speaker output impedance with the input circuit is important, or else you could damage the output stage. The speaker output voltage might also be too high for [product_name]. Furthermore, if the radio amplifier operates in push-pull mode, direct connection could destroy it. Aeronautical radios are expensive, so I strongly recommend not attempting such a circuit without further safety precautions. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 659128412730883,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "You are correct that the risk for the receiver is higher. I would test the signal and impedance before connecting it to [product_name], but a better-quality circuit is preferable. Depending on where you are, you can purchase pre-made modules from electronics retailers. Perhaps a sound-activated electrical switch (clapper) can suffice to detect the audio pulses. Alternatively, if the receiver offers a line output, that could be used. There are several ways to achieve this, but more details are needed. Regards, [user_name]"
+    },
+    {
+      "comment_id": 412511132068646,
+      "user_name": "4yWozJ7Z59",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Thank you all. I solved the issue using an audio relay: [url] [snip] Many thanks and best regards,"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking to activate [product_name] input using a radio-generated audio signal for runway light control. The main challenge is that [product_name] hardware doesn't directly interface with audio outputs, so users need extra interface circuitry or modules. Initially, users expected [product_name] to process audio signals natively, but discovered only digital inputs are supported, which requires additional external solutions and possibly expert help.",
+    "user_expectations": "Users expect [product_name] hardware to be able to detect and process audio output signals from a radio for use as logic input triggers. They hope integration will be easy and not require modifying licensed radio equipment.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic lighting",
+      "remote activation",
+      "integration with audio signal"
+    ],
+    "pain_keywords": [
+      "interface incompatibility",
+      "signal processing challenge",
+      "lack of direct support"
+    ],
+    "feature_keywords": [
+      "audio signal input",
+      "digital input",
+      "timer-based deactivation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "branch_id": "4856490828",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 804797378870206,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello! I created a basic demo application to control the speed of a small DC motor. Initially, I tried simple voltage control, and with a mathematical block, the proportional coefficient could be set up to 30. However, when using the built-in PI controller, setting the KC above 3 (without the integral part) resulted in unstable fluctuations. The best PI settings I found were KC=2 and TI=2 seconds, but this led to slow response and significant overshoot when the load was removed. If I implement my own PI control using math blocks, could performance improve?"
+    },
+    {
+      "comment_id": 185424263260062,
+      "user_name": "GoUonzsWEC",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Based on the documentation, the PI controller operates with a fixed sampling time of 500ms, updating twice per second. If you create your own controller, you may achieve faster performance. However, I'm uncertain about the actual update rate of the analog inputs."
+    },
+    {
+      "comment_id": 133759249725424,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "[product_name] is positioned as a programmable relay. Consider whether [product_name] is the right fit for your specific motor control requirements."
+    },
+    {
+      "comment_id": 499267933955318,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "The analog input cycle time is at least 300ms, which could interfere with the PI controller's 500ms timing. While [product_name] is a smart relay, it's valuable to understand its limitations for certain applications. I'm familiar with [product_name] controllers, which also have a minimum limit of 1ms. Interestingly, my older projects using 8-bit microcontrollers operated over ten times faster!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users identified limitations when controlling a DC motor with the built-in PI controller of [product_name] hardware, mainly due to slow and rigid sampling time (fixed at 500ms). This results in sluggish and unstable control, especially when the load changes. Custom PI control via math instructions may allow higher tuning coefficients and better stability, leading to a discussion about whether [product_name] is suitable for applications requiring precise and fast control. The importance of understanding hardware timing constraints was clearly highlighted.",
+    "user_expectations": "Users expect a flexible and reliable PI controller for motor speed control, with the ability to use higher coefficients, achieve faster response times, and minimize overshoot, without being limited by fixed sampling intervals or hardware constraints.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "fast response",
+      "stable control",
+      "flexible tuning",
+      "precise motor control"
+    ],
+    "pain_keywords": [
+      "slow reaction",
+      "fixed sampling time",
+      "overregulation",
+      "PI controller limitation"
+    ],
+    "feature_keywords": [
+      "PI sampling time",
+      "proportional coefficient tuning",
+      "analog cycle time",
+      "math instruction for custom control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "13": "Integration Limitations"
+  }
+}

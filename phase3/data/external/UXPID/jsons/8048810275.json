@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "8048810275",
+    "thread_id": "3055273936",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 465125407161721,
+      "user_name": "vnF8UyUuDz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, My project involves controlling the rotation speed of a motor that drives a paper winding system, aiming to keep the paper's linear velocity constant. As the diameter of the paper roll increases, I need to decrease the motor's speed. I'm measuring the roll diameter using an ultrasonic sensor that outputs pulse frequency. The plan is to set the target linear speed using an analog input (from a potentiometer), translate pulse frequency into roll diameter, and then determine the real speed. I will use a PI regulator to compare both speeds and generate a regulated 0-10V output for motor control. The main issue is converting pulses (up to 2 kHz) into an analog value. Any suggestions?"
+    },
+    {
+      "comment_id": 606868924039556,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 6,
+      "comment_body": "A straightforward approach is to use a standard frequency-to-analog converter. For example: [url] Regards,"
+    },
+    {
+      "comment_id": 794193911087921,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], Check my previous responses under 'Display of scaled High Speed Input Values' for information on an older circuit design that counts pulses within a periodic time frame. Also, refer to my German article for a newer circuit and a link to a solution on [company_name] support—though I personally find my version more effective. Since you need to count pulses up to 2 kHz (which the counter supports), keep in mind that [product_name] only works at a lower and dynamic cycle frequency. The PI controller block updates its output every 0.5 seconds, meaning you can use a 0.5-second time window in the circuit and calculate speed based on the pulse count. Then, use the PI controller to manage the analog output. I hope this solution matches your speed control requirements. Please use the circuit from the German link, as the counter clear time is set to the minimum [product_name] supports; this means you may lose some pulses at 2 kHz input! Best regards, [user_name]"
+    },
+    {
+      "comment_id": 422780826458766,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 6,
+      "comment_body": "After such a thorough post, I only want to add that you should make sure to get the correct [product_name]. Not all models support high-speed inputs. Regards,"
+    },
+    {
+      "comment_id": 489455755654372,
+      "user_name": "vnF8UyUuDz",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 6,
+      "comment_body": "Thank you all! I'll try implementing the circuit and share the results."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are discussing how to maintain constant linear velocity for a paper winding application, focusing on converting high-frequency pulse signals from an ultrasonic sensor to analog values for speed control. The debate centers between using external hardware (frequency-to-analog converter) or leveraging built-in features of [product_name], accounting for practical constraints such as input frequency limits and PI controller update intervals. Users highlight the risk of losing pulses at higher input frequencies, which could impact measurement accuracy and the responsiveness of the control system.",
+    "user_expectations": "The user expects the [product_name] controller to reliably transform high-frequency pulse signals from a sensor into accurate analog values while achieving consistent motor speed control. They also look for seamless integration with PI regulation, within the system's technical limits.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate speed control",
+      "real-time conversion",
+      "consistent paper velocity"
+    ],
+    "pain_keywords": [
+      "pulse conversion",
+      "input frequency limits",
+      "PI controller update rate",
+      "potential pulse loss"
+    ],
+    "feature_keywords": [
+      "pulse counter",
+      "PI controller",
+      "fast digital input",
+      "analog output"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "13": "Integration Limitations"
+  }
+}

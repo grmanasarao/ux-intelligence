@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "4138750794",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 544828025034852,
+      "user_name": "gka9Haauyt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hello everyone, I have a project requiring the connection of more than 8 [product_name] controllers to a network switch, with a main controller linked to a PC on the same network using [product_name] Access Tool. The goal is to view data in Excel from all controllers. I’m monitoring input statuses, sending data via network I/O to the main controller, which forwards it to Excel. So far, I can only connect up to 8 [product_name] controllers this way. Does anyone have a solution for handling more than 8 devices?"
+    },
+    {
+      "comment_id": 717781501521149,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "How many [product_name] controllers are you looking to network together? One [product_name] can exchange static connection data with up to 8 others, allowing for 9 devices to be networked together."
+    },
+    {
+      "comment_id": 159868225918400,
+      "user_name": "gka9Haauyt",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Thanks for your reply. I need to monitor input status from more than 8 [product_name] controllers, all networked to a main controller that sends data to Excel using the [product_name] Access Tool."
+    },
+    {
+      "comment_id": 829034675417633,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "You mentioned your setup in your first post, but I asked specifically how many devices you require. Could you clarify the total number needed?"
+    },
+    {
+      "comment_id": 437178463867972,
+      "user_name": "gka9Haauyt",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hi, I have 9 bottle lines, 3 fragrance lines, and 4 tube filling lines, each in separate factory areas. I want to monitor all these lines simultaneously in one Excel sheet. Currently, I’ve configured this for just the 9 bottle lines. Since I can only connect 8 [product_name] controllers to one main, I have two lines per controller, totaling 5 controllers connected to a main one. The issue is that Excel can only access data from one [product_name] controller at a time through the Access Tool, but I need to see all lines' statuses together."
+    },
+    {
+      "comment_id": 866471681359840,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "You will need to set up communication so all [product_name] controllers send their data to one main device. If there's no other solution, add a dedicated [product_name] just for gathering data from the others. You've identified the core issue; what’s your remaining challenge?"
+    },
+    {
+      "comment_id": 967854934826206,
+      "user_name": "gka9Haauyt",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "You could connect 8 devices to one controller for 8 lines, then another group of 6 devices to another controller for the remaining lines, and finally link those two main controllers together."
+    },
+    {
+      "comment_id": 842829395358130,
+      "user_name": "LFOBCS78FU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hi, It's not entirely clear what you’re aiming to do. It would help to make a schematic or diagram to visually represent your network design and explain your requirements."
+    },
+    {
+      "comment_id": 791526757145373,
+      "user_name": "4YhIdMmpLf",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "You could set up your [product_name] devices as follows: For bottle lines, one 'main' controller communicates with 7 lines, and the 8th line connects to the fragrance and tube filling lines. You’d end up with two main controllers, each linked with 7 others and one spare connection. Link these two mains to create a single master device that aggregates data from all lines, possibly avoiding extra hardware. Does this setup make sense?"
+    },
+    {
+      "comment_id": 979464639211959,
+      "user_name": "cZQANX744b",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "A [product_name] controller supports up to 8 static connections plus one dynamic server connection—just configure one device as a client. In total, you can communicate with up to 8+8 other controllers from a single unit. Keep in mind, each controller has limited network I/O channels available."
+    },
+    {
+      "comment_id": 659125324865273,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "See an example of multi-device networking: You can include up to 32 [product_name] controllers in a network diagram, grouping them as needed. One controller serves as the master (in this example, Group 1 Server). Proper VM mapping is necessary to prevent overlap. With the Access Tool and advanced web servers, you don’t need network inputs to read all controllers' statuses—inputs are only needed for cross-device I/O handling. This example is a schema and does not include the logical program."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users struggle with limitations on monitoring more than eight [product_name] controllers with [product_name] Access Tool and Excel. The issue centers on the restricted number of static connections, making it difficult to view all production lines' statuses at once. Discussions reveal uncertainty about possible network architectures and aggregation strategies, highlighting challenges with simultaneous Excel data access via the Access Tool.",
+    "user_expectations": "Users expect to monitor and collect data from over eight [product_name] controllers at once in Excel using the [product_name] Access Tool, without needing manual workarounds or splitting lines between devices.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "simultaneous data monitoring",
+      "centralized status overview",
+      "real-time Excel integration"
+    ],
+    "pain_keywords": [
+      "connection limit",
+      "simultaneous access restriction",
+      "manual aggregation required"
+    ],
+    "feature_keywords": [
+      "static connections limit",
+      "network I/O",
+      "multiple PLC data aggregation",
+      "Excel export"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "branch_id": "7699971723",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 618056593038011,
+      "user_name": "ZtjbmOqZ2Q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, I want to set a numeric input on the [product_name] HMI (vw6) and use it as a reference for a counter's ON/OFF status. I've created an analog input in [product_name] at vw6, but I'm unsure how to proceed from here. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 177649677903323,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "A counter value or its ON/OFF parameters require a 32-bit unsigned integer. For this, you'll need a double word in the VM (VD) area, such as VD6 (which combines VW6 and VW8). Note that VD values cannot be read with a NAI; NAI only supports reading 16-bit signed values."
+    },
+    {
+      "comment_id": 362668355079605,
+      "user_name": "ZtjbmOqZ2Q",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, I've successfully used vw from [product_name] to the HMI without issues in the opposite direction. Could you advise which blocks to use in [product_name] and how to connect them? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 762756446323842,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "I've created an example for [product_name] engineering software version [version_no]."
+    },
+    {
+      "comment_id": 383371982717034,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Here's the example: You only need to establish the connection in [product_name] engineering software, not in [product_name] configuration tool. In [product_name] configuration tool, review ParameterVM Mapping."
+    },
+    {
+      "comment_id": 660367000006594,
+      "user_name": "ZtjbmOqZ2Q",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, I've set up my counter starting with m10, inputs I3 and I6, and counter C001. In the block properties, I can set and reference the ON/OFF state, and I'd like to input the number via the HMI. The logic beneath the counter is just for testing purposes."
+    },
+    {
+      "comment_id": 394592063959115,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Did you see the example I made for you?"
+    },
+    {
+      "comment_id": 174297467129093,
+      "user_name": "ZtjbmOqZ2Q",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, All I see in your example is what happens within [product_name], but there isn’t any network output from the counter or a way to reference it over the network. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 634799603794400,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Have you checked the Parameter VM Mapping? Tools > Parameter VM Mapping."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are trying to set up numeric inputs from a HMI to serve as counter references within a [product_name] controller for ON/OFF control. The workflow for transferring values between the HMI and [product_name] controller is not straightforward, particularly when it comes to handling data types (VW/DW) and selecting the appropriate blocks or mapping options in [product_name] configuration software. There is also confusion about configuring network outputs from counters and how to properly use Parameter VM Mapping features.",
+    "user_expectations": "Users are looking for a simple and clear tutorial on how to connect numeric inputs from an HMI to [product_name] counters, including step-by-step advice on configuring connections and references within [product_name] software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "HMI number input",
+      "counter reference control"
+    ],
+    "pain_keywords": [
+      "counter output mapping",
+      "input configuration confusion",
+      "data type mismatch",
+      "lack of clear guidance"
+    ],
+    "feature_keywords": [
+      "Parameter VM Mapping",
+      "counter block reference",
+      "network output",
+      "VW/VD handling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance",
+    "12": "Network Configuration Challenges"
+  }
+}

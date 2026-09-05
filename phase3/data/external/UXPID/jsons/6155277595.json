@@ -1,0 +1,240 @@
+{
+  "metadata": {
+    "branch_id": "6155277595",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 715930055165329,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "While waiting for my [product_name] 24VDC, I would like to learn how to control a 24VDC solenoid using a hall effect flow sensor (YF-S201). I need to receive a signal from an IR sensor to deactivate (open) the normally open solenoid. Calculating pulses per liter, I concluded that for 1.32 liters, I would need 594 pulses before shutting the flow, i.e., activating the solenoid to close the tube. The IR signal should be ignored until the next activation. Is this possible with [product_name] 24VDC? Thank you in advance!"
+    },
+    {
+      "comment_id": 368713764519061,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Not directly. The hall effect flow sensor outputs a TTL signal, with HIGH at 5VDC. Inputs on [product_name] require at least 12VDC for HIGH, and 5VDC or less for LOW."
+    },
+    {
+      "comment_id": 983657785208723,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thanks for the clarification. I'll use a different flow sensor for my next machine. For now, I'll stick to my existing relay setup built around a China LCD flow meter. I’m hopeful that learning [product_name] will simplify things for future projects. Thanks!"
+    },
+    {
+      "comment_id": 598581235710681,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "If you have a compatible flow meter or a signal level converter, you could try the attached program. Fast counter inputs are necessary; please check the specs of your [product_name]. In my example, I1 is the start signal, I3 is for the sensor input, and Q1 controls your solenoid. The direct connection between the sensor and the counter input must stay for reliable counting. Regards, [user_name]"
+    },
+    {
+      "comment_id": 899458513827616,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I'm struggling to understand why [product_name]'s fast input can't read fast 5V signals. It's frustrating that suitable small flow meters with 12V outputs aren't readily available, and working with 5V to 12V converters feels challenging. For future machines, I’d like to use [product_name] given its usefulness for controlling multiple solenoids. My main need is to have it function like a set of relays and delay timers in a cycle. I want to use four flow meters, one per vessel, each with accurate pulse-counting (450 pulses/liter gives enough precision). The basic operation: after counting a set number of pulses, a solenoid stops the flow and resets for the next cycle. I haven't bought [product_name] yet, as its ability to handle this is crucial for my decision. I laid out the operational cycle, including phased relay actions for several solenoids and flow meters. If the vessel is present, an IR signal triggers the cycle. If [product_name] can handle this, it would fit all my needs. Any advice on required components or alternative controllers is appreciated. With kind regards,"
+    },
+    {
+      "comment_id": 566506034989768,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Please refer to the technical data for [product_name]."
+    },
+    {
+      "comment_id": 966148484073014,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Thank you, I understand a bit more now, though I’m new to this. English isn’t my first language so I had trouble searching for a 5V to 12V level converter, but I found suitable ones. Just to confirm: if I convert the signal from 5V to 12V, can I use [product_name] 24/24 with the flow sensors (see above)? The sensors output around 20-40 pulses/sec. Can [product_name] handle this rate? Also, can I have each pulse represent 2.2 ml and have [product_name] calculate and show flow volume and rate in real-time? For example, can I view milliliters passed and real-time liters per minute per line for troubleshooting low/high flow? I’m grateful for any help."
+    },
+    {
+      "comment_id": 556147040743452,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "To detect a digital HIGH signal, the input voltage must be above 8.5VDC; for LOW, it must be below 5VDC. If your sensor only reaches 5VDC, [product_name] won’t recognize HIGH, since it expects more than 8.5VDC."
+    },
+    {
+      "comment_id": 136151872954315,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Is your project intended for children’s toys or is it an industrial application? The YF-S201 is not an industrial grade sensor and its results are only estimates. You might find you've invested in components that give unusable results. If you decide to continue using this sensor, an Arduino may be preferable; there's plenty of code and guides online. I prefer to assist with individual functions rather than full project programming, so please upload your program if you need help with a specific function. Regards, [user_name]"
+    },
+    {
+      "comment_id": 820828879829709,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "These are simple bottling machines for small breweries (including my own). I’m not asking for the entire code, just an opinion on whether the setup will work before investing significant time in learning [product_name]. I’m not committed to the YF-S201; it’s just a reference since most flow meters output a 5VDC signal. To me, it’s about calculating the ml per pulse and scaling accordingly for each fill. The YF-B5 and similar stainless steel hall sensors seem better and food-safe, but also have 5V signals. With kind regards"
+    },
+    {
+      "comment_id": 682291039402633,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Here are general answers to your questions: 1) With [product_name] 12/24RCE, you get 4 fast counter inputs I3-I6 at up to 5kHz. 2) Internal counters allow activation when the desired fill volume is reached. 3) You can display milliliters via an arithmetic scaling block. 4) Flow speed can also be displayed. Actual accuracy depends on your specific flow sensor, as deviations may occur. Check your sensor’s real output voltages for LOW and HIGH, as TTL output is <0.4V (LOW) and >2.4V (HIGH), so output could be less than 5V; pick your level converter accordingly (search for TTL to HTL converters). Regards, [user_name]. PS: Do you already own a [product_name]? Not all models have fast counter inputs—only those with DC supply, not AC/DC or AC. Have you started programming at all?"
+    },
+    {
+      "comment_id": 400797071378071,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "After a delay, I’m back to flow control. I visited a dealer today, but couldn’t figure out which [product_name] was needed. Luckily, I found the answer above—apparently, the 24VDC RCE type is required. I have never programmed before but have been reading about it, and it seems fairly straightforward. What programming environment would you suggest for my application?"
+    },
+    {
+      "comment_id": 298750074121422,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "That's incorrect, there isn’t a 24VDC RCE type ([article_no]), only DV24V is called [product_name] 24CE, not 24RCE. [product_name] 24RCE ([article_no]) with AC/DC24V supply doesn’t include fast counter inputs or analog inputs. [product_name] 24CE ([article_no]) with DC24V supply does offer fast counter and analog inputs with transistor outputs. [product_name] 12/24RCE ([article_no]) with DC12/24V supply features both fast counter and analog inputs, and relay outputs—this is the most universal model, in my opinion. Regards, [user_name]"
+    },
+    {
+      "comment_id": 301139546566761,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 175285721222852,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "The Flowmeter1.zip provided exactly the guidance needed! I now feel confident building the machine's entire operation around it—thank you so much! I used a low voltage hall flow meter connected to [product_name] 12/24RCE via a TTL to HTL (5V to 24V) converter. This file gave me a clear idea of [product_name]'s capabilities. No more endless time delay relays—[product_name] makes automation much easier!"
+    },
+    {
+      "comment_id": 243552442616513,
+      "user_name": "8RYb477Ela",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "If the program isn't exactly what you need, you can expand it as required. The sample is only a starting point for your designs. [product_name] controllers offer simulation mode to help see how each block functions, which is particularly helpful for understanding analog signals as their behavior can vary with parameters. If the online help for a function isn’t clear, try it in simulation with a mini example. If you have specific questions, post details and your non-working program here. Regards, [user_name]"
+    },
+    {
+      "comment_id": 548710501816155,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "The simulation tool was extremely helpful—thank you! I’ve developed nearly the entire machine sequence, except for one thing: I want the cycle to loop each time I press the Start button, counting the flow meter and then starting the process again. Also, the loop should stop when I press Start. The complete sequence is situated between B002 [AND] and output Q1 (solenoid). If you can help me loop Flowmeter1.zip, I’ll be able to make the sequence repeat. Thank you!"
+    },
+    {
+      "comment_id": 600369631541273,
+      "user_name": "8RYb477Ela",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "To create a loop, you need defined conditions—which you haven’t described. You open a solenoid to fill, close it at a target counter value. Do you intend to refill the same amount again? If so, use double the counter value. If something should trigger the loop, please specify. Maybe there’s a language barrier, which complicates my understanding. Regards, [user_name]"
+    },
+    {
+      "comment_id": 662066153804396,
+      "user_name": "7VUqkQsQqA",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I resolved the issue by using the output signal connected to the counter. I also found a great method for using stop delay. [product_name] is a smart module for automation!"
+    },
+    {
+      "comment_id": 709410331260974,
+      "user_name": "sPcbToNedV",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Can you please explain the meaning of 7.5 in the formula F = 7.5 * Q?"
+    },
+    {
+      "comment_id": 565471121314576,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Welcome to the forum, [user_name]. Please post in English for future messages, as this is an English-speaking forum. Thank you."
+    },
+    {
+      "comment_id": 770197058332374,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Pulses per Liter = 450. That equals 450 pulses per minute. So: 450 / 60 = 7.5 Hz for 1 liter per minute. For 30 liters per minute: 30 * 7.5 = 225 Hz."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter compatibility issues between 5V TTL output sensors and [product_name] module 24VDC inputs, which need >8.5V for logic HIGH detection. Users want [product_name] to handle rapid pulse counting and relay operations in small-scale bottling automation, but struggle because most standard sensors don’t match the input voltage requirements. This misalignment has led to frustration and uncertainty over [product_name]’s suitability for their needs.",
+    "user_expectations": "Users expect [product_name] modules to directly count pulses from standard 5V hall-effect flow sensors, calculate volume-based cutoffs, display real-time flow data, and control multiple solenoids for bottling automation, all without needing additional hardware for signal conversion or complex adaptation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automation reliability",
+      "precise liquid measurement",
+      "simple integration",
+      "multi-line control",
+      "real-time monitoring"
+    ],
+    "pain_keywords": [
+      "voltage incompatibility",
+      "signal threshold",
+      "lack of compatible sensors",
+      "unclear documentation",
+      "hardware limitation"
+    ],
+    "feature_keywords": [
+      "fast digital input",
+      "pulse counting",
+      "relay control",
+      "threshold voltage detection",
+      "real-time display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

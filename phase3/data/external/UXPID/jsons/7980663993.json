@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "7980663993",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 182601126083652,
+      "user_name": "g0Clt9zeMg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Hello, I am just getting started with [product_name] and need some assistance setting up variables. I have set up a program that activates each of four outputs for a set period, sequentially—output Q1 switches on for x seconds, then turns off, and Q2 turns on after another x seconds, and so forth. Currently, I am using multiple on/off delay blocks. I would like to configure all on/off time settings in one place, both on the [product_name] display and a custom web page. I can't find a way to link them all together, instead of setting separate times for each delay block. Thanks!"
+    },
+    {
+      "comment_id": 406963227289089,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Please upload your [product_name] program along with the [product_name] Web Editor project as a ZIP file."
+    },
+    {
+      "comment_id": 999418315457154,
+      "user_name": "g0Clt9zeMg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "This is my program so far, created in demo mode as I've ordered my [product_name] but haven't received it yet. I haven't started with the web interface yet, since I'm unsure how to map settings. I've watched some videos and mostly understand the setup, but some aspects aren't entirely clear."
+    },
+    {
+      "comment_id": 193552909099382,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "According to the description of your intended function, your program isn't working as expected."
+    },
+    {
+      "comment_id": 220457936811766,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Try this approach ..."
+    },
+    {
+      "comment_id": 832708119405475,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], To set all timer settings using a single input, you can insert a multiplexer module between the settings and the timers. This allows all timers to be connected to the multiplexer (see the revised program attached). The value then needs to be entered using the basic variable's unit. For example, to set a time module to 1 minute 30 seconds (with the base unit as seconds), enter 90 seconds in the multiplexer. Best regards, [user_name] (automatically translated) P.S.: A light sequence program can also be implemented using only one time value, if all timings are identical (refer to the second program appendix)."
+    },
+    {
+      "comment_id": 598170116107183,
+      "user_name": "g0Clt9zeMg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Thanks for your explanation. I am having difficulty understanding the role of the multiplexer in the first solution (the modified program). It doesn't seem to actually multiplex anything—so is it just acting as a link for the web server? I am also unsure about the tables shown beneath the multiplexer. Are those parameters? I can't find any documentation on the multiplexer parameters like P1 etc. The way you used the multiplexer in the second solution is still somewhat confusing for me, but I'm learning."
+    },
+    {
+      "comment_id": 876274437512116,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "If you are referring to my solution: I did not use a multiplexer. My method is to enter the desired seconds value via the [product_name] display, then pass that value by reference to the necessary blocks."
+    },
+    {
+      "comment_id": 203198568732315,
+      "user_name": "g0Clt9zeMg",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Apologies and thank you for your solution—I was referencing [user_name]'s reply and should have used a quote for clarity."
+    },
+    {
+      "comment_id": 662030115358174,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "You are correct; the multiplexer isn't multiplexing anything in this case! You simply need a module to enter the parameters, whose value is instantly available at the output so all wiper relays can be connected directly. An arithmetic instruction could also be used instead of the multiplexer, but I prefer the multiplexer as it requires less memory in [product_name] and operates without a cycle delay. Just to note, in the program I didn't finish connecting the analog output of the block with a marker, which is important. Otherwise, the program won't transfer or run properly on [product_name]—my apologies! P1 to P4 below the multiplexer are the block's parameters, switched via the digital inputs S1 and S2. This is well explained in the manual, which you can download as a PDF if you don't have it. In the second program, the counter values are only provided as parameter inputs, but the threshold switches expect analog inputs, where I use the multiplexer as a bridge. An arithmetic statement would also work here. [user_name] Additionally, I am attaching the finalized program with conclusions and an updated message body."
+    },
+    {
+      "comment_id": 460839942545655,
+      "user_name": "g0Clt9zeMg",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Thank you for your outstanding support! I will test everything on the simulator and with the actual [product_name] once it arrives later this week. I have read through the multiplexer manual, but it didn't make the solution clear to me; however, it's starting to make more sense now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are seeking ways to streamline how they set timer parameters for sequential output switching in a [product_name] application. The goal is to manage all on/off timings centrally via the device display and an associated web interface, rather than setting delays individually. The community suggested using either a multiplexer or arithmetic logic to share input parameters among timer blocks. There remains uncertainty about how these mechanisms work in detail—especially regarding the multiplexer module, its configuration, and how its parameters function.",
+    "user_expectations": "The user wants a solution allowing all timer settings for several outputs to be configured in one central location—accessible both on the [product_name] display and a web page—instead of setting each delay independently.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "centralized parameter setting",
+      "web and display integration",
+      "simplified configuration"
+    ],
+    "pain_keywords": [
+      "repetitive manual entry",
+      "confusing block functions",
+      "lack of clear documentation"
+    ],
+    "feature_keywords": [
+      "multiplexer block",
+      "timer parameter linkage",
+      "webpage parameter control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "3": "User Guidance"
+  }
+}

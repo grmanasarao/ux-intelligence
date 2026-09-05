@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "3841827734",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 705405170802782,
+      "user_name": "A9k0mZMi3q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello, have you tried accessing the [product_name] using an external GSM connection? I can log in when I'm on the same LAN, but not from outside. I've configured NAT in my router, mapping the external connection to the device's IP and port 8080, but it's not working. Has anyone managed to resolve this? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 777529646876207,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello, the only device I'm aware of that supports this is the INSYS IMO-1, a GPRS router. If you have a GPRS router and a fixed IP address from your provider, it should be possible. I doubt GPRS/GSM devices can do it, but hopefully I'm mistaken."
+    },
+    {
+      "comment_id": 410962729681647,
+      "user_name": "A9k0mZMi3q",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Thank you for replying. Perhaps I rushed things: currently, I can only access the [product_name] devices within my LAN by entering their IP address in a browser. My main issue is I can't access these devices from outside the LAN, even from a PC. I thought remote access should be done via port 8080, but that's not working. NAT is configured properly, yet no success. I don't suspect a router issue since I can reach a web server on a PC in the same LAN remotely. Do I need any special configuration within the [product_name] to allow external access?"
+    },
+    {
+      "comment_id": 445342036717061,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hi, is remote access enabled on your device? Go to the tool or access control section; here, you can enable remote access and set passwords. Hope this helps."
+    },
+    {
+      "comment_id": 611128353926802,
+      "user_name": "A9k0mZMi3q",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "By default, the remote access checkbox is enabled and cannot be deselected (the same goes for [product_name] TD control access). The only controls I can toggle are for the app and web server. I set a password for remote access and confirmed, but still no success."
+    },
+    {
+      "comment_id": 164172039630758,
+      "user_name": "cZQANX744b",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello, can you ping your devices from outside over the internet? Try pinging both your router's IP and the [product_name]'s IP. If you can't reach the router, it's a general issue. If you can only not ping the device, check all settings between the router and the device. Also, verify that the firewall isn't blocking the port."
+    },
+    {
+      "comment_id": 939944169571441,
+      "user_name": "A9k0mZMi3q",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I've found the issue: the gateway IP wasn't set in the device's network settings. I could connect locally because packets were routed internally, but externally, the device didn't recognize the source. Thanks for all your help; your suggestions clarified where the problem was."
+    },
+    {
+      "comment_id": 866996163441311,
+      "user_name": "mcYMGHSoNk",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 4,
+      "comment_body": "A related question from [user_name] was moved to another thread titled 'connect to the [product_name] from across the internet.' Best regards, [user_name] (Moderator)"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced problems remotely accessing a [product_name] module over GSM/GPRS or external internet connections, even though local LAN access worked correctly. Network settings and NAT/port forwarding seemed properly configured, but remote access failed until the gateway IP was set in the device's network configuration. Adjusting access control options did not resolve the issue; specifying correct routing within the device settings was essential for successful external connectivity.",
+    "user_expectations": "Users expect to securely and reliably access the [product_name] remotely via GSM or internet after correctly setting up network configuration and NAT/port forwarding on the router.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote access",
+      "secure connection",
+      "network visibility"
+    ],
+    "pain_keywords": [
+      "remote connection failure",
+      "configuration complexity",
+      "unclear diagnostic feedback"
+    ],
+    "feature_keywords": [
+      "remote web server access",
+      "NAT/port forwarding",
+      "network gateway configuration",
+      "access control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "7393599544",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 780685706734017,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello all, I have a question regarding reading Q values with Modbus. I found a PDF that a user, [user_name], posted on a German forum. According to this document, to read the Q1 value, you should access register 8193, Q2 would be 8194, and so forth. However, in the Modbus data transfer table, it appears possible to assign Q1 to, for example, Coil=5. In this case, would reading Q1 require a request for register 5? Also, what happens with V0.4, which the document by [user_name] states is stored in register 5? I've attached an example that another user, [user_name], shared in a previous discussion, showing a modification of the data transfer table as described. I look forward to further clarification."
+    },
+    {
+      "comment_id": 617657546695210,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "To read the status of Q1, you should access Coil 8193. Here is an example using the widely-used modpoll tool: You can view the mappings in the LSC Help: Type Name [product_name] Resource Modbus Address Direction Unit I 1 - 24 Discrete input 1 - 24 R bit Q 1 - 20 Coil 8193 - 8212 R/W bit M 1 - 64 Coil 8257 - 8320 R/W bit V 0.0 - 850.7 Coil 1 - 6800 R/W bit AI 1 - 8 Input Register 1 - 8 R Word VW 0 - 850 Holding Register 1 - 425 R/W Word AQ 1 - 8 Holding Register 513 - 520 R/W Word AM 1 - 64 Holding Register 529 - 592 R/W Word. I noticed the configuration possibility you mentioned, but I haven't tried custom mappings myself since the defaults work for my use case. However, I'm also interested in understanding how this works."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are exploring how Modbus addresses for Q (output) values can be mapped and read in a [company_name] [product_name] system. Some confusion exists regarding whether custom assignments in the Modbus table truly override default mappings, and what consequences this has for registers that may be shared by multiple resources. Documentation and help resources seem to provide conflicting information regarding modification capabilities and the impact on existing register assignments.",
+    "user_expectations": "Users are seeking a clear explanation about how Modbus address mappings for Q values operate. They want to know if custom assignments override defaults, and how potential register conflicts are resolved when multiple resources may share addresses.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "understand Modbus Q mapping",
+      "reliable register assignment",
+      "clarity"
+    ],
+    "pain_keywords": [
+      "ambiguity",
+      "register overlap",
+      "mapping confusion"
+    ],
+    "feature_keywords": [
+      "Modbus mapping",
+      "Q output assignment",
+      "custom register configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "branch_id": "1538349165",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 366386006397531,
+      "user_name": "radfFHP860",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Is there a way to create a one-shot function to prevent delays in the circuit from being reset? In the simulation, every time I press the input button twice, the set delay restarts. Is there a key function or method that can protect a 17-second timing sequence, for example, where after 2 seconds on and 15 seconds off, pushing the button again during this interval doesn't reset the timing?"
+    },
+    {
+      "comment_id": 921295693012703,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Take a look at this solution. After pressing the push button for 2 seconds, Q1 becomes active and can't be triggered again for the next 15 seconds. A latching relay blocks the input to the timer until the timer completes its cycle."
+    },
+    {
+      "comment_id": 937678727710629,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Let me know if you find this helpful."
+    },
+    {
+      "comment_id": 235733868693926,
+      "user_name": "radfFHP860",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Yes, this works! Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wanted a way to implement a single-shot function to prevent a timer from restarting within a 17-second interval. There was initial uncertainty about how to stop repeated inputs from interfering with the delay. Another participant suggested using a latching relay to lock out further input during the timer period, which resolved the concern and was confirmed to work as intended.",
+    "user_expectations": "The user expects an easy solution for a one-shot feature that ignores further button presses while the timer is running, making sure the set timing interval is not interrupted or reset by repeated inputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "robust timing",
+      "retrigger protection",
+      "intuitive delay control"
+    ],
+    "pain_keywords": [
+      "unwanted retriggering",
+      "confusing delay setup"
+    ],
+    "feature_keywords": [
+      "one-shot",
+      "timer",
+      "latch relay"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

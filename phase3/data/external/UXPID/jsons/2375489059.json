@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "branch_id": "2375489059",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 677525936250786,
+      "user_name": "B8qXaumRPV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I am looking for a solution to an issue with an LED driver used alongside my [product_name]. Everything works correctly with a pulse button on digital input I18, passing the digital output Q14 to the LED driver for ON/OFF control via single or double click. A long press on the button handles dimming. Now, I want to add a general OFF pulse button (digital input I8) and need to determine the LED's current status. I can't rely on output Q14 since its voltage is not retained and I prefer not to use a Pulse Relay block for Q14 as this would trigger a long push for the LED driver. Instead, I simulate LED status using a Pulse Relay block (B026), which works well for single and double clicks on input I18. When the general OFF button (I8) is pressed, another pulse is generated to deactivate the LED driver (handled by an AND block B034). In simulation mode, this works as expected—the general OFF (I8) only acts when the LED is ON. However, during real-life operation, the general OFF function is not working as intended. Any suggestions? The LED driver in use is a EuroTek L400MA04T1A01."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "There is a noticeable discrepancy between the behavior witnessed in simulation and what occurs during live operation while integrating a general OFF pulse button for LED driver control with [product_name] 8. The user observes that logic flow and functionality are correct in software simulation, but actual hardware performance does not match, leading to confusion and challenges with reliable system operations.",
+    "user_expectations": "The user anticipates that the logic, especially the Pulse Relay block and related control circuitry, will function consistently across both simulation and live environments. They want the general OFF button to reliably turn off the LED driver whenever the simulated status indicates the LED is ON.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "consistent live and simulation behavior",
+      "reliable general OFF function",
+      "accurate state feedback"
+    ],
+    "pain_keywords": [
+      "inconsistent simulation and real-life performance",
+      "general OFF button malfunction",
+      "state tracking limitation"
+    ],
+    "feature_keywords": [
+      "Pulse Relay block",
+      "AND block logic",
+      "simulation mode",
+      "general OFF button"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

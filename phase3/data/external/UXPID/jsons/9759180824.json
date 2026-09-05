@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "9759180824",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 756644066817983,
+      "user_name": "hhNiUMRld2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hi everyone, I'm experiencing an odd issue with a threshold trigger on a [article_no] DC24v [product_name]. My water pulse counter is connected to I6 and counts correctly (80 pulses per liter), with the input linked to a threshold trigger measuring over 4 seconds. In my simulation, setting I6 to a frequency of 80 yields 320, but when running the program on the actual module and letting the water flow at about one liter per minute, I only get a frequency of 6 on the threshold trigger. Am I missing something? I tried searching the forum but haven't found a solution yet. Thanks a lot."
+    },
+    {
+      "comment_id": 876055139544196,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Are you using the \"High speed input\"? Normally, inputs are limited to a maximum of 4 Hz according to the manual, which matches your observed value."
+    },
+    {
+      "comment_id": 390338240283739,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "[user_name], the issue with the built-in threshold trigger is that you can't control when the sampling time starts or stops. It might be better to design your own threshold trigger or use another technique."
+    },
+    {
+      "comment_id": 280726923846824,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello, Which [product_name] model do you have? Some versions cannot handle fast pulses efficiently."
+    },
+    {
+      "comment_id": 543086925941228,
+      "user_name": "hhNiUMRld2",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Details about the module are in my first post: [product_name] 12/24 RCEO [article_no]. My pulse input is on I6, also mentioned earlier. Creating my own threshold trigger seems to work, but I'm still curious about what was going wrong with the original function."
+    },
+    {
+      "comment_id": 700000127046702,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Could you please share your program?"
+    },
+    {
+      "comment_id": 774485786183807,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hi, Your first post only mentions a [product_name] 8 24V. There are various [product_name] 8 versions with 24V power supply. If you do have a [product_name] 8 12/24 RCEO, it includes 4 high-speed counters on inputs I3 to I6. Does your sensor meet the technical requirements? Your setup appears correct. If your sensor produces 80 pulses per liter and you have 1 liter per second, you should see 320 pulses in 4 seconds. If you adjust the scan time of the threshold to 1 second, does it display 80 pulses? Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing inaccurate frequency readings with the threshold trigger function on a [article_no] hardware paired with a water pulse counter. The main concern is that the threshold trigger isn't reliably counting high-frequency pulses, possibly due to input limitations (standard inputs capped at 4Hz unless using high-speed counter) or restricted control over the threshold trigger's sampling period. Users are seeking clarity regarding the product's ability to process rapid pulses and are considering alternative solutions.",
+    "user_expectations": "Users expect the threshold trigger on the [article_no] module to measure pulse frequencies accurately in line with sensor output and simulation results, enabling precise water flow measurement.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate pulse measurement",
+      "real-time monitoring",
+      "high-frequency input support"
+    ],
+    "pain_keywords": [
+      "inaccurate readings",
+      "trigger configuration limitations",
+      "input frequency limitations"
+    ],
+    "feature_keywords": [
+      "threshold trigger",
+      "high speed input",
+      "pulse counter",
+      "sampling period"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "13": "Integration Limitations"
+  }
+}

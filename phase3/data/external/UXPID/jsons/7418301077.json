@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "branch_id": "7418301077",
+    "thread_id": "3055273936",
+    "publication_year": 2008,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 731600728649750,
+      "user_name": "5hwRpLl5zy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm planning to use the [product_name] PT100 analog module rather than a 0-10V converter for my analog input since I have the module available. After running some tests, I can only get 1°C accuracy in simulation; decimal values like 0.1°C do not seem possible. Is there a way to achieve finer precision, such as 10.5°C or 10.8°C, instead of just whole degrees? Appreciate any advice."
+    },
+    {
+      "comment_id": 183003843619179,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 8,
+      "comment_body": "Hi, More detailed answers and example programs are available in the German section, including guidance on temperature measurement with the [product_name] PT100 module and PT100 sensor scaling. Also, there is info about filtering and averaging analog inputs (like temperature readings). Some older programs are found in the English section if you search for 'filter logo'. For your question, the maximum resolution for PT100 sensors using the [company_name] module is 0.25 K, as specified in the manual. In the properties of the 'analog amplifier' block, select PT100 as the sensor. The software scales gain and offset for use with PT100 plus module. Mark the option for x 0.1, change decimal points from '0' to '1', and a textbox will show values in the format xxx,n. Note: all block parameters using this scaled value need to be multiplied by 10 (values appear as xxxn). This is [company_name]'s official method for PT100 scaling but it's not fully accurate. For more exact scaling, use two amplifiers in sequence with these settings: 1) gain = 10, offset = 0; 2) gain = 2.5, offset = -5000. Use two decimal digits in your textboxes. Remember to multiply block parameters by 100 now. Your format will be xxx,nn °C on text displays and xxxnn in block values. This way, you achieve 0.25°C resolution accurately. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 811520012130438,
+      "user_name": "5hwRpLl5zy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 8,
+      "comment_body": "Thanks, [user_name]. That helped clarify things. One note: on the display, it doesn't actually show 0.25°C increments. For example, even if the step is 0.25°C in simulation, after adding increments, the value remains at 2.50°C instead of moving to 3.00°C. Adding +1 to the steps, sometimes the display shows repetitive values like 3.25°C multiple times before changing to 3.75°C, and similar behavior with further increments. Please check the file sent in my previous post. In summary, even though step sizes are technically 0.25°C, the display does not show them sequentially (e.g., 2.00°C, 2.25°C, 2.50°C, 2.75°C, etc.). Something seems off. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 811703962626314,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Hi, Here's an example based on what [user_name] shared. You can compare how the PT100 sensor and [user_name]'s amplifier setup differ in their output."
+    },
+    {
+      "comment_id": 953568174579281,
+      "user_name": "5hwRpLl5zy",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Thank you for the attached file. I realized my mistake—I added an analog amplifier after [user_name]'s filter, assuming it was needed to declare the PT100 sensor before applying the filter. This brings up another key question: In your sample, [user_name], there's no explicit PT100 block before the filter. So, do I only need to select the analog input (for example, IE3, which links internally to the module's input 1), and then apply the filter without specifying the PT100 sensor before it? Is that correct? Thanks for confirming."
+    },
+    {
+      "comment_id": 966033940710888,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Hello, The issue is you used three amplifiers instead of the two I described previously. See the file: [document]. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 710912842329751,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "You're correct! If you check the gain and offset of a standard PT100 sensor, it's usually Gain 2.5 and Offset -500 with one decimal point. [user_name]'s amplifier configuration results in a total of Gain 25, Offset -5000, and two decimal points. The input remains the PT100 module's AI3 or AI4."
+    },
+    {
+      "comment_id": 174579751996368,
+      "user_name": "3B7BLno0Yx",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Thank you for the tips. As a workaround, I modified the circuit above to make readings appear in 0.1°C increments. Some customers are unhappy when temperature measurements jump by 0.2 or 0.3°C, so this approach helped temporarily. It would be beneficial if [company_name] released a module that supports the standard nickel 1000 sensor over a 0–100°C range, allowing for 2-wire sensor solutions with 0.1°C resolution."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants highlight that the [product_name] PT100 analog input module limits temperature measurement accuracy to 0.25°C steps, even when using official scaling options or more elaborate amplifier/filter approaches. Users repeatedly encounter restrictions trying to improve display resolution or achieve finer step changes (such as 0.1°C increments). Both hardware and software limitations are sources of frustration, and customers are dissatisfied with visible jumps in temperature readings.",
+    "user_expectations": "Users expect precise temperature measurements with increments smaller than 1°C, ideally 0.1°C, and want the device to display these values seamlessly. They are looking for a simple solution that achieves high-resolution readings without needing complicated custom setups.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "high precision",
+      "fine temperature increments",
+      "straightforward display scaling",
+      "customer satisfaction"
+    ],
+    "pain_keywords": [
+      "limited resolution",
+      "coarse display increments",
+      "hardware limitation",
+      "complex scaling setup",
+      "customer dissatisfaction"
+    ],
+    "feature_keywords": [
+      "analog input resolution",
+      "scaling",
+      "amplifier configuration",
+      "temperature display accuracy"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

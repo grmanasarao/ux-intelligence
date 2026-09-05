@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "9624806504",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 913716362241516,
+      "user_name": "BsN6dSH5jD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "I'm connecting a [product_name] [article_no] to an HMI panel to monitor alarms in a breaker-transfer system. The connection from the [product_name] to the HMI works well: the alarms display as expected and the HMI can read the [product_name]'s signals. The issue arises when I try to send commands from the HMI to the [product_name], specifically to turn off an output (linked to a siren) via an HMI button. In [product_name] engineering software [version_no], the tag updates correctly when pressing the button, and I've assigned the appropriate flag address to the tag. However, with both devices online, the function does not work. Is there anything specific I need to configure on the [product_name] configuration software so the [product_name] can accept commands from the HMI? Thanks in advance!"
+    },
+    {
+      "comment_id": 825198963226366,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Using a flag won't work, but using a bit from the VM area will. You need to read this bit in the VM area on the [product_name] as a network input. For example, in the button properties of the HMI, use the address DB1.DBX100.0. In the [product_name], configure a network input with the VM address V100.0."
+    },
+    {
+      "comment_id": 208439312782742,
+      "user_name": "BsN6dSH5jD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Thank you! That was the correct approach and it turned out to be simpler than expected. By setting the V0.0 address in the HMI tag and using Network Input as a Local Variable Memory with address V0.0, I could link the HMI push button to the [product_name] logic, making the [product_name] respond without issues. I appreciate your help!"
+    },
+    {
+      "comment_id": 174289240628056,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], Glad I could help."
+    },
+    {
+      "comment_id": 675080428872868,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "To control (set or reset) a digital output on the [product_name]: In the HMI screen programming, use address 1064 bit 0 for Q1 on the [product_name] (bit 1 for Q2, etc.). Setting 1064.0 to \"1\" turns the digital output ON. Note: Do not connect the input of the digital output in the [product_name]. The input wire must remain disconnected. Reference the Help section in the [product_name] software for VM mapping addresses."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The conversation focused on integrating an HMI panel with a [product_name] to allow the HMI to operate an output (such as a siren) on the [product_name]. Users covered how to correctly map addresses so HMI button presses can control the [product_name] via Virtual Memory. The final resolution highlighted successful bidirectional control and clarified that proper address assignment in both the HMI and [product_name] logic ensured reliable operation without extra configuration in the [product_name] engineering software.",
+    "user_expectations": "The user expects that an HMI panel should be able to directly control outputs on the [product_name] using programmed buttons, requiring only straightforward address mapping and minimal setup in the [product_name] engineering environment.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "bidirectional communication",
+      "HMI-PLC integration",
+      "output actuation"
+    ],
+    "pain_keywords": [
+      "address mapping",
+      "unclear configuration for HMI-to-PLC control",
+      "bidirectional communication issue"
+    ],
+    "feature_keywords": [
+      "Virtual Memory",
+      "HMI button mapping",
+      "Network Input",
+      "Local Variable Memory"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "13": "Integration Limitations"
+  }
+}

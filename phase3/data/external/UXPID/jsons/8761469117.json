@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "8761469117",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 949505990442369,
+      "user_name": "qWJFMZ8R4D",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Hi, I'm trying to send a command to read 5 word variable memory locations, but my [product_name] is not responding. Other commands, like (0x55 0x13 0x13 0x00 0x00 0x55), work fine but reading VM does not. Here's my code for reading VM: public class read_vm { public static void main(String[] args){ int Counter = 5; int Checksum = 0; int ReadDataLength = 3+1+3*Counter+2+1; int ReadData[] = new int[ReadDataLength]; int Address[] = new int[Counter]; Address[0]=18; Address[1]=20; Address[2]=22; Address[3]=24; Address[4]=26; ReadData[0]=0x55; ReadData[1]=0x1E; ReadData[2]=0x1E; ReadData[3]=Counter; int index=3; for(int i=0; i<Counter; i++){ int VMAddr=Address[i]; int VMLength=2; index++; ReadData[index]=VMAddr&0xff; index++; ReadData[index]=VMAddr>>8&0xff; index++; ReadData[index]=VMLength; Checksum += VMLength<<10+VMAddr; } index++; ReadData[index]=Checksum&0xff; index++; ReadData[index]=Checksum>>8&0xff; index++; ReadData[index]=0xAA; for(int i=0;i<index+1;i++){ System.out.println(ReadData[i]); // send to [product_name] } } }"
+    },
+    {
+      "comment_id": 984848319850994,
+      "user_name": "R40RVeEty3",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], You seem to be proficient in Java. Could you share your read_byte_from_logo function? What response bytes do you receive from your [product_name]? Do you get 0x06 initially? 0x06 means your data has been acknowledged, but if you receive 0x15, it's not acknowledged. The first byte of a [product_name] response is a message; here's a full list of message definitions: [code] // Various command and error code constants for [product_name] public static final int PC_COMMAND_GET_HARDWARE_ID = 33; public static final int PC_COMMAND_CHANGE_STATE_TO_STOP = 18; public static final int PC_COMMAND_CHANGE_STATE_TO_RUN = 24; public static final int ACK = 6; public static final int NACK = 21; public static final int PC_COMMAND_UPLOAD_DIAG_DATA = 27; public static final int PC_COMMAND_CLEAR_DIAG_DATA = 28; public static final int PC_COMMAND_DATA_TABLE_WRITE_REQUEST = 29; public static final int PC_COMMAND_DATA_TABLE_READ_REQUEST = 30; public static final int LOGO_COMMAND_PLC_STOP = 66; public static final int LOGO_COMMAND_PLC_RUN = 1; public static final int PC_WRITE_BYTE = 1; public static final int PC_READ_BYTE = 2; public static final int LOGO_READ_BYTE = 3; public static final int PC_WRITE_BYTES = 4; public static final int PC_READ_BYTES = 5; public static final int PC_ONLINE_TEST_TELEGRAM = 17; public static final int PC_REQUEST_PROGRAM_LINE = 19; public static final int PC_COMMAND_STATE_REQ = 23; public static final int PC_COMMAND_IO_REQ = 25; public static final int PC_PARAM_CHANGE_REQ = 26; public static final int PC_COMMAND_CLEAR_PROG = 32; public static final int PC_COMMAND_RESTART_BM = 34; public static final int PC_COMMAND_IP_RECONFIGURED = 35; public static final int PC_COMMAND_DOWNLOAD_TO_SD_CARD = 36; public static final int PC_COMMAND_UPLOAD_DATALOG = 37; public static final int PC_COMMAND_BM_MODE_RESTART = 38; public static final int PC_STOP_ONLINE_TEST = 20; public static final int START_BYTE = 85; public static final int STOP_BYTE = 170; // Various error constants public static final int ERROR_BUSY = 1; public static final int ERROR_TIMEOUT = 2; public static final int ERROR_ILLEGAL_ACCESS = 3; public static final int ERROR_PARITY = 4; public static final int ERROR_UNKNOWN_CMD = 5; public static final int ERROR_XOR_NOT_OK = 6; public static final int ERROR_SIMULATE = 7; public static final int ERROR_COPY_SD_CARD = 8; public static final int ERROR_INTERNAL = 128; public static final int ERROR_COMPORT_NOT_AVAILABLE = 176; public static final int ERROR_MODEM_NOT_AVAILABLE = 177; public static final int ERROR_RCV_BUFFER_EMPTY = 240; public static final int ERROR_CHECKSUM = 241; public static final int ERROR_NO_BLOCKTITLE_READ = 242; public static final int ERROR_HEAD_WRONG_ADRESS = 243; public static final int ERROR_UNKNOWN = 254; public static final int ERROR_NO_STREAM = 255; public static final int ERROR_READ_TIMEOUT = 244; // Status flags public static final int TS_RUN = 1; public static final int TS_STOP = 2; public static final int TS_PARAM_MESSAGE = 4; public static final int TS_ERROR = 8; public static final int TS_ATTEMPT = 16; public static final int TS_PARAM = 32; public static final int TS_REMOTE = 64; public static final int TS_FIRST_CYCLE = 128; public static final int CMD_HARDWARE_ID = 7938; [/code] Hope this helps!"
+    },
+    {
+      "comment_id": 666902954470556,
+      "user_name": "qWJFMZ8R4D",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Thank you! Before sending my request, I send a \"STATE_REQ\": 0x55 0x17 0x17 0xAA. If my [product_name] responds with 0x06 0x01, I send my request, and the read VM works."
+    },
+    {
+      "comment_id": 965457498981445,
+      "user_name": "R40RVeEty3",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Hello, To read bytes, you must send 0x05 (PC_READ_BYTES = 5). Try this sample code: [code] import java.io.IOException; import java.io.InputStream; import java.io.OutputStream; import java.net.InetAddress; import java.net.InetSocketAddress; import java.net.Socket; import java.net.UnknownHostException; public class testReadLogo { static InputStream inputStream = null; static OutputStream outputStream = null; public static void main(String[] args){ Socket socket = new Socket(); String logoIPAddress = \"198.0.0.1\"; // Use your [product_name] IP address int logoSocketNr = 10001; InetAddress destinationIP = null; int connectionTimeout = 5000; long logoReadTimeout = 2001L; try { System.out.println(\"Connecting ... 1\"); destinationIP = InetAddress.getByName(logoIPAddress); System.out.println(\"Connecting ... 2\"); socket.connect(new InetSocketAddress(destinationIP, logoSocketNr), connectionTimeout); System.out.println(\"Connecting ... 3\"); inputStream = socket.getInputStream(); outputStream = socket.getOutputStream(); System.out.println(\"Connection OK\"); // Send request to read bytes outputStream.write(5); // PC_READ_BYTES = 5 int[] readValue1 = readInternalByte(2, logoReadTimeout); // Expect ACK = 6 int i = 0; for (int value : readValue1) { System.out.println(\"Message: \" + (i+1) + \" = \" + readValue1[i]); i++; } // If ACK = 6 received // Send memory address 18 outputStream.write(0); // High address outputStream.write(18); // Low address outputStream.write(0); // Count start outputStream.write(5); // Count int[] readValue2 = readInternalByte(5, logoReadTimeout); // Expect ACK = 6 i = 0; for (int value : readValue2) { System.out.println(\"Message: \" + (i+1) + \" = \" + readValue2[i]); i++; } socket.close(); } catch (UnknownHostException e) { System.out.println(\"UnknownHostException: \" + e.getMessage()); } catch (IOException e) { System.out.println(\"IOException: \" + e.getMessage()); } } public static int[] readInternalByte(int readLength, long readTimeOut) throws IOException { int readCounter = 0; int[] readResult = new int[readLength]; int i = 0; while (i < readLength) { readResult[i] = -1; i++; } long time1 = System.currentTimeMillis(); for (long time2 = time1; time2 - time1 < readTimeOut; ) { byte[] telegramBuffer = new byte[1024]; time2 = System.currentTimeMillis(); if (inputStream == null) { continue; } inputStream.read(telegramBuffer); for(int value : telegramBuffer){ if (value > 0 && readCounter < readLength) { readResult[readCounter] = value; readCounter++; } } if (readCounter > 0){ break; } if (readCounter >= readLength || (time2 - time1) > readTimeOut) { break; } } return readResult; } } [/code]"
+    },
+    {
+      "comment_id": 214432771278665,
+      "user_name": "qWJFMZ8R4D",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Thanks! I'll give it a try :-)"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to read several word variable memory values from a [product_name] device using Java, but does not receive the expected response for this operation, while other commands work. The thread highlights issues with command usage for reading bytes and expected replies. Another participant offers detailed explanation of command codes, protocol messages, and Java code examples to improve the communication, clarifying necessary steps to achieve successful read operations.",
+    "user_expectations": "The user wants to reliably read multiple word variable memory values from the [product_name] device using their own code, just as they can with other commands. Consistent command structure and clear device responses are needed to achieve this.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "read multiple word VM",
+      "reliable communication",
+      "Java code integration"
+    ],
+    "pain_keywords": [
+      "no response for VM read",
+      "unclear command structure",
+      "protocol confusion"
+    ],
+    "feature_keywords": [
+      "VM address read",
+      "TCP/IP protocol",
+      "Java integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

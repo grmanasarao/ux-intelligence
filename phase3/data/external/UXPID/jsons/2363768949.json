@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "2363768949",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 649868233623960,
+      "user_name": "W851QNUDLx",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I am setting up handshake logic between a PLC and a SCADA gateway as depicted in the provided attachment. The logic functions well; however, the flag from SCADA remains set even during network failures, resulting in the output Q2 (network ok) being displayed unless the M40 flag is manually reset. SCADA repeatedly sends a '1' to the flag every 4 seconds before the PLC timer expires. I am seeking suggestions for improving this logic. The I1 input shown was for manual simulation purposes, and there is no actual PLC input to reset the logic. The diagram zip file is attached in the next post."
+    },
+    {
+      "comment_id": 984834653143042,
+      "user_name": "W851QNUDLx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "This post contains the actual logic in the attachment. All communication uses Modbus protocol; no [product_name] is involved."
+    },
+    {
+      "comment_id": 198085984640344,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Consider trying this modification..."
+    },
+    {
+      "comment_id": 342856666997671,
+      "user_name": "W851QNUDLx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I'll test this with the actual software."
+    },
+    {
+      "comment_id": 815840776867649,
+      "user_name": "W851QNUDLx",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Thanks for helping correct the PLC logic. To ensure it operates as intended from the gateway, I am now sending alternating '1' and '0' every 2 seconds, which resets the flag reliably, instead of just sending '1' as before."
+    },
+    {
+      "comment_id": 418581676015483,
+      "user_name": "W851QNUDLx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "This approach works and requires setting and resetting the flag from the gateway every 2 seconds. If the flag remains unchanged for 5 seconds, the communication break output activates; otherwise, the Communication OK output is shown. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered a persistent network status issue in handshake logic between a SCADA gateway and PLC, where the 'network ok' flag stayed set even during network failures because the SCADA repeatedly set the flag. Manual resets were needed, which was inconvenient. After receiving suggestions, the logic was adjusted to automatically detect communication breaks by alternating flag states, making the system more reliable and in line with handshake expectations.",
+    "user_expectations": "The user expects the handshake logic to automatically detect any communication break, eliminating the need for manual intervention or PLC input resets.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated communication loss detection",
+      "reliable flag handling",
+      "no manual reset"
+    ],
+    "pain_keywords": [
+      "flag always set",
+      "requires manual reset",
+      "communication failure undetected"
+    ],
+    "feature_keywords": [
+      "handshake logic",
+      "flag reset",
+      "communication break output",
+      "network ok output",
+      "Modbus protocol"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "1609718865",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 542775675878427,
+      "user_name": "kHppKYgjhP",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I have a quick question: how can I write to an analog output from different parts of my program, for example if I want to change the same analog output from multiple steps? Thank you in advance, Regards."
+    },
+    {
+      "comment_id": 211096606941864,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "To achieve this, use a multiplexer module and switch it based on your program sequence."
+    },
+    {
+      "comment_id": 279695202002284,
+      "user_name": "kHppKYgjhP",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello, Thanks for the suggestion, that gave me an idea. I'm currently using analog multiplexers for each analog output. Is this the most efficient solution with the least number of blocks? I'm planning to repeat this setup for each analog output. For now, the circuit works in the simulator as an FBD diagram, but when attempted as a UDF component, I get an error and I'm unsure about the cause. Thank you."
+    },
+    {
+      "comment_id": 753988312309236,
+      "user_name": "kHppKYgjhP",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello. I've made some progress, but it looks like implementing this setup is not feasible—at least for 7 analog outputs. I've now connected the outputs from the analog multiplexers to analog flags, and this makes a valid UDF block. This can now be used as a UDF component, but I’m facing new problems: - I will run out of analog flags if I make 7 copies of the same UDF. - It seems that it’s not possible to assign values V1-V4 separately for each UDF instance, only for all copies together—which does not suit my application. Is my understanding correct, or is there any way to write multiple preset values to several analog outputs (such as 7 of them) at specific times? Thank you in advance, Regards."
+    },
+    {
+      "comment_id": 417307607880942,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "The screenshots you share are nice, but uploading the UDF and/or your project file would help people assist you more effectively. Personally, I’m not inclined to re-create your UDF setup from scratch."
+    },
+    {
+      "comment_id": 721658110234816,
+      "user_name": "nz7S2YtNKe",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Start by creating a scale instruction to manipulate the output. If your logic is step-based, then only one step is active at any given time, so each step can use the same scaling instruction without causing conflicts."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is seeking a way to control analog outputs dynamically from different program locations within an automation system. They experience design restrictions, particularly with analog flag limitations and the inability to independently set values for each UDF instance. These issues highlight challenges with scalability and flexibility in the current programming environment, despite initial progress using analog multiplexers and UDF components.",
+    "user_expectations": "The user wants to independently control several analog outputs from multiple locations in their program, with a simple structure and without encountering system-imposed limits like analog flag shortages.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dynamic analog output control",
+      "scalable logic design",
+      "independent output management"
+    ],
+    "pain_keywords": [
+      "analog flag limitation",
+      "restricted UDF parameterization",
+      "circuit scalability issues"
+    ],
+    "feature_keywords": [
+      "UDF flexibility",
+      "analog multiplexers",
+      "analog output management",
+      "analog flag usage",
+      "FBD simulation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "13": "Integration Limitations"
+  }
+}

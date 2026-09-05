@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "branch_id": "1744814397",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 856700301439170,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Hello, I live in Belgium. I'm using [product_name] with analog output to report the power returned by my solar panels via a solid state relay to an electric heating unit with custom electronics. Soon, the energy company [company_name] will replace my analog meter with a digital one that has a P1 port. I am attempting to connect the P1 port to [product_name] using a P1 modbus dongle from [company_name]. According to the manufacturer, the registers use UINT32 (4321) values. I found the file \"[document]\" on this forum, which allows me to successfully import voltage readings (L1, L2, L3) into [product_name]. However, my main interest is in retrieving the returned power in Watts. It comes through in kW, and thus always shows as zero on [product_name]. Is there a way to modify \"[document]\" or obtain another LSC routine that provides the returned power in Watts, so it can be output via the analog channel on [product_name]? Register details for the P1 dongle: [url]. I've attached three files in a zip: an example telegram, \"[document]\", and a description of the issue. Thanks for your help."
+    },
+    {
+      "comment_id": 433972106954495,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "You forgot to attach your project files."
+    },
+    {
+      "comment_id": 534452942624421,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Apologies, I'm new to this forum and not very familiar with its usage."
+    },
+    {
+      "comment_id": 779738649903876,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "First, could you specify the part number of your [product_name]? Also, are you using Modbus TCP rather than RTU? [product_name] natively supports Modbus TCP. I've attached a map for Modbus TCP."
+    },
+    {
+      "comment_id": 760509176583980,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "My [product_name] is [article_no] with analog output module and Modbus TCP via USR-TCP232-410s."
+    },
+    {
+      "comment_id": 780576672384817,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Manual for USR232TCP232-410s."
+    },
+    {
+      "comment_id": 348281078673070,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Is this data table functioning correctly? Is the unit ID 43 accurate? Which HR (holding register) data do you want to read? The link you provided refers to RTU rather than TCP."
+    },
+    {
+      "comment_id": 691224540392513,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "The test settings are correct: unit ID is 43 and the starting address for L1 is 19 (PLC address is 18 + 1). You can confirm this on the [company_name] website: [url]. The results in the attached test file are accurate. The issue occurs when trying to retrieve 'delivered power' at address 14 and 'returned power' at address 15 (refer to the document from my first post). Because values are provided in kW, [product_name] returns zero for anything less than 1 kW."
+    },
+    {
+      "comment_id": 633456343883294,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Your first screenshot shows voltage transmitted as an unsigned integer (U32). If VD0 is set to unsigned in the data table, a value like 233200 displays, which corresponds to a voltage of 233.200 V with three decimal places."
+    },
+    {
+      "comment_id": 378232470160374,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Using a file I found in a previous discussion, I achieved the results you described and was pleased—though I was missing millivolt resolution. My core issue: How can I read all 32-bit unsigned data from the [company_name] P1 module? I still cannot read the returned power value, which is in kW, so anything below 1 kW (999 W or less) shows as zero in the software. Perhaps it's best to set aside my previous attempts—can you assist with a routine that reads all 32-bit uint registers from the P1 dongle, as outlined on the manufacturer's website [url]? Thank you, and I hope someone can help."
+    },
+    {
+      "comment_id": 393497140756111,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "The actual challenge is that [product_name] is only designed for 16-bit signed integer data, making conversion of 32-bit values impractical. What specific values are you targeting? Are they less than 32,768 W (32.768 kW)?"
+    },
+    {
+      "comment_id": 507994472687534,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "If the power value is below 32,768 W, that's ideal for my setup. If the same routine can be used for voltages less than 260 V, all the better."
+    },
+    {
+      "comment_id": 115246519423807,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "It seems you're not very familiar with data formats, which may make providing assistance difficult. For example, a voltage value like 233,200 cannot fit in an integer (0-32,767) range."
+    },
+    {
+      "comment_id": 691681146532137,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "You are correct. I'm 77 years old and not experienced with data formats or PLCs. I can create simple PLC applications. But is it possible to create a routine for power values below 32,768 Watts (32.768 kW)? If so, that would be most helpful for me. Thank you."
+    },
+    {
+      "comment_id": 794684802026224,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Which register addresses do you need to read?"
+    },
+    {
+      "comment_id": 952498322582234,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "If possible, registers 16 (power_returned) and 14 (power_delivered) please."
+    },
+    {
+      "comment_id": 351497891093244,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Yes, it's possible if the values are less than 32,768. For example: Transfer HR15 to VW100 and read VW100 with a simple analog input from the network. Transfer HR17 to VW102 and read VW102 the same way."
+    },
+    {
+      "comment_id": 443319777827998,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I've transferred HR15 to VW100. When I read it, the value is zero, but reading VW102 (the lower word of the 32-bit register) gives the correct result. Mapping HR17 to VW104 and then reading VW106 with an analog input works, as the value is always below 32,768 (my solar panel max is 6000 W). That's perfect! Thanks for your valuable assistance."
+    },
+    {
+      "comment_id": 803913317185903,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Glad to hear your setup is now functioning correctly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is struggling to read 32-bit unsigned power data from a [company_name] P1 Modbus dongle into [product_name], particularly for returned power below 1 kW. Their routine only processes values in kW, resulting in zero readings for values less than 1 kW due to limitations in unit scaling and register handling in the [product_name] programming environment.",
+    "user_expectations": "The user wants to read all 32-bit unsigned data—including sub-1 kW values—from the Modbus dongle into their [product_name] setup, achieving precise power measurements in Watts for output and further automation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate power measurement",
+      "automation",
+      "meter data integration",
+      "Watt-level resolution"
+    ],
+    "pain_keywords": [
+      "incorrect scaling",
+      "value underflow",
+      "unsupported UINT32",
+      "data loss for low values"
+    ],
+    "feature_keywords": [
+      "32-bit UINT register reading",
+      "analog output mapping",
+      "register scaling handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

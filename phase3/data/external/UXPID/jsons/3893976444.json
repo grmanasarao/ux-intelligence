@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "3893976444",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 646245699819247,
+      "user_name": "yAXvRMdYOP",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, I've attached my straightforward ladder logic program, but I'm encountering an issue during simulation. The first start works correctly; however, when I stop and re-start the simulation, the output Q1 is already set to High even though I haven't pressed I1 yet. I initially suspected an issue with my program, but converting it to function block diagram mode resolves the problem, regardless of how many times I restart the simulation. I'm using the demo V7 of [product_name]. Could you please provide guidance or suggestions? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 188718167446161,
+      "user_name": "ezWkK79R54",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], Have you considered adding a normally closed contact before the Q1 coil to disable the logic? When you toggle this contact, it should turn the output off. It seems that once you've activated Q1, it remains on until you explicitly switch it off again—unless you include something to turn it off. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 130075932393930,
+      "user_name": "yAXvRMdYOP",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 4,
+      "comment_body": "Thank you for your suggestion. Your assessment is accurate: once Q1 is turned on, it stays on, and that's the intended behavior. I tried adding a normally closed contact, and when I use it, Q1 turns off without any issue during simulation restarts. However, I'm looking for a solution that doesn't involve adding another switch, and I'm curious why this works in function block diagram mode but not in ladder logic. Thanks and regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user reports inconsistent simulation results between ladder logic and function block diagram modes in [product_name] demo software. Specifically, the output coil Q1 retains its active state after restarting the simulation in ladder logic, while function block diagram resets as expected. This inconsistency may cause confusion and reduce confidence in the reliability of simulation outcomes across different logic representations.",
+    "user_expectations": "The user anticipates uniform and correct simulation behavior regardless of programming style (ladder logic or function block diagram). Restarting simulations should reset program states, unless the logic is deliberately programmed otherwise.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "consistent simulation",
+      "predictable logic behavior",
+      "program validation"
+    ],
+    "pain_keywords": [
+      "state persistence bug",
+      "inconsistent simulation",
+      "unexpected coil behavior"
+    ],
+    "feature_keywords": [
+      "simulation restart behavior",
+      "state reset",
+      "logic programming mode (LAD, FBD)"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

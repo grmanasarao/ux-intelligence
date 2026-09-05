@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "4630196130",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 373961356049241,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Previously, I set up the data logging with an asynchronous timer firing every 10ms, and it worked perfectly. Now, I've been asked to change it so that it logs every 'event'—but it has a limit of 2000 records. I have about 28 'events' connected to the logic block, and let the program run, but regardless of how many times the events occur, I only get a single line of logged data. I've tried different triggering methods (one-shot, memory, direct connection to the logic block), and even put an output in parallel, but nothing changes—the output never activates. It seems to just capture the time when the program starts and the initial status of log items, then does nothing further. I'm using an 8GB Sandisk for storage."
+    },
+    {
+      "comment_id": 241850731208780,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Hi, Can you share how you trigger the logging process? Typically, logging starts on a positive edge, and the minimum time required between two logging events should be at least 500ms. Regards,"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The primary concern is that the data logging system is only recording the first event and ignores all subsequent event triggers, despite various changes made to the configuration. The user has tried several approaches to trigger logging within the logic block but has not achieved the desired behavior. There is some uncertainty around the correct triggering conditions and the necessary timing between log entries, indicating that the documentation or system design may be unclear or unintuitive.",
+    "user_expectations": "The user wants every event trigger to result in a separate logged entry, expecting the data logging feature to be both reliable and straightforward, accurately capturing all configured events.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable event logging",
+      "comprehensive data capture",
+      "predictable operation"
+    ],
+    "pain_keywords": [
+      "missed events",
+      "unclear trigger conditions",
+      "logging limitation"
+    ],
+    "feature_keywords": [
+      "event-driven logging",
+      "minimum log interval",
+      "L block"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

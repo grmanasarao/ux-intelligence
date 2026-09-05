@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "9959316663",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 731908774195382,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hello, I have a [product_name] with an [article_no] analog input unit. I am trying to connect a 4-20mA 2-wire sensor to it. Based on my understanding, I should connect the positive from the sensor to the L+ of the module, the negative of the sensor to the I1 input, and link the M terminals together. However, I still only get a zero reading on the input, though I expected at least a value around 200. Did I miss something, or could the issue be with the sensor? The sensor requires 10-30 VDC and outputs 4-20 mA."
+    },
+    {
+      "comment_id": 861481669581188,
+      "user_name": "7P2poSTDlc",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], Your wiring seems correct. If it still doesn't work, try reversing the connections: connect the sensor + to I1 and the other side to L+. Also, refer to the provided diagram for guidance."
+    },
+    {
+      "comment_id": 435644076874521,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Make sure that you are using the correct analog input address in your program. By default, the base module has 2 analog inputs enabled, so addresses AI1 and AI2 are allocated to it. If your analog input module is the first expansion, it also uses addresses AI1 and AI2."
+    },
+    {
+      "comment_id": 748490122217147,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thank you for the assistance. Since I had 2 analog inputs configured on the base module, the value I needed was available on AI3, as you suggested. After disabling all analog inputs on the base module, everything is working, and the required value is now on AI1."
+    },
+    {
+      "comment_id": 772589822123522,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "That’s correct. If all analog inputs are disabled on the base module, the first analog input module will take addresses AI1 and AI2."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered confusion when setting up analog input addresses for a 2-wire 4-20mA sensor with expansion modules. The main issue stemmed from unclear address mapping between base and expansion modules, causing difficulties in locating sensor readings on specific channels. This demonstrates the challenge of configuration clarity when multiple input modules are used.",
+    "user_expectations": "Users seek a simple and clear process for wiring and configuring analog inputs to accurately read from a 2-wire 4-20mA sensor, with transparent mapping between connection points and input channel addresses.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog input reading",
+      "correct address mapping",
+      "successful module configuration"
+    ],
+    "pain_keywords": [
+      "input address confusion",
+      "incorrect readings",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "address configuration",
+      "expansion module support"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

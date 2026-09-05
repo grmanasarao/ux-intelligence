@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "6757815878",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 553379620465240,
+      "user_name": "25u5Tk5LU8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "[company_name] [product_name] Application. Please refer to the attached logic and equipment schematic diagram. There are three air cooling compressors, which operate based on temperature differences as follows: C1, C2, and C3 represent compressors 1, 2, and 3 respectively. C1 switches on when the actual temperature exceeds the set temperature by 1°C (e.g., actual temp 26°C, set temp 25°C). C2 switches on at a 2°C difference, and C3 at a 3°C difference. If the actual temperature is less than or equal to the set temperature, all compressors switch off (e.g., actual temp 25°C, set temp 25°C). For compressors C1 and C2, if either completes 8 hours of runtime, it automatically switches over to another compressor to avoid continuous operation of a single unit."
+    },
+    {
+      "comment_id": 499353014411742,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], Do you typically configure it as shown in the attachment? From my perspective, there’s a challenge. If the automatic switchover after 8 hours is only applied to compressors 1 and 2, compressor 3 could end up running excessively. Regardless of wiring, once both compressors 1 and 2 reach their maximum runtimes, compressor 3 may end up running continuously. To prevent this, all compressors should be monitored for runtime and included in the switchover logic. This can be accomplished by implementing a triggered assignment that rotates all compressors. However, if K1 and K2 are started in quick succession and both reach their maximum runtime, K1 could restart and create an imbalance in runtime distribution. Regards, [user_name] (Translated with Google)"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The forum participants are discussing how to coordinate the operation of three air cooling compressors using a [company_name] [product_name]. The logic involves activating compressors according to specific temperature differences and rotating their usage to prevent one from running for more than 8 hours in a row. There is concern that the current control design may cause one compressor to run excessively if runtime monitoring and switching are not implemented for all units. The main challenge is designing the system so that runtime is evenly distributed among all compressors while maintaining expected temperature management.",
+    "user_expectations": "The user expects the [company_name] [product_name] controller to manage compressors automatically based on temperature thresholds, and to distribute overall runtime evenly by ensuring no single compressor operates continuously for over 8 hours.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic compressor control",
+      "runtime balancing",
+      "temperature-based activation"
+    ],
+    "pain_keywords": [
+      "imperfect runtime distribution",
+      "design complexity",
+      "continuous running"
+    ],
+    "feature_keywords": [
+      "runtime monitoring",
+      "automatic switchover",
+      "temperature differential control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "6568409761",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 554482231297583,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello everyone! I have some basic questions regarding timer and asynchronous generator synchronization. There is a minimum time setting of 10ms. Is this tied to an internal clock of the [product_name] hardware, and how does this relate to programming blocks? My doubts are as follows: 1. If two identical timers or async generators are started within the same programming cycle, will they always behave identically? Does this mean the 10ms internal state is evaluated before or after the program block is executed? 2. If two timers or async generators are started in separate cycles (for example, with a 5ms delay), will those started within the same 10ms interval work identically, while those across different intervals operate with a 10ms delay?"
+    },
+    {
+      "comment_id": 733281813414235,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "I can only speculate: [product_name] probably has an internal timer that triggers an interrupt every 10ms, setting all active timers at this interval. Only [company_name] can provide a definitive answer on this. A 5ms delay won't work in practice because, as mentioned, 10ms is the smallest timer resolution."
+    },
+    {
+      "comment_id": 781138872419305,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "This topic is quite interesting. When enabling an async generator, the first ON cycle might be shorter or longer than expected. For instance, if the setting is '1' at 1/100, the first ON period might be just 1ms or up to 19ms, depending on the moment of activation. The datasheet notes an accuracy of +10ms, so possibly the initial pulse could range between 10ms and 20ms."
+    },
+    {
+      "comment_id": 664585899658414,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "It might be best to submit a support request for clarification."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking clarity on the precision and predictability of the 10ms timing base in [product_name] hardware, especially concerning timer and asynchronous generator synchronization. There are questions about how timer blocks synchronize when started at the same or different cycles and about the accuracy and initial pulse duration for async generators. The available documentation does not fully address the exact timing behavior or how programming blocks interoperate with the device's internal clock.",
+    "user_expectations": "The user is looking for clear, consistent behavior of timers and asynchronous generators in [product_name] hardware, with specific details about timing accuracy and the handling of first pulses.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "predictable timing",
+      "accurate synchronization",
+      "clear timer behavior"
+    ],
+    "pain_keywords": [
+      "unclear timing behavior",
+      "undocumented accuracy",
+      "synchronization doubt"
+    ],
+    "feature_keywords": [
+      "base timer",
+      "asynchronous generator",
+      "timer synchronization"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

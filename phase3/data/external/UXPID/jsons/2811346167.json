@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "2811346167",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 845592325721979,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "I've observed that the hour meter only registers complete minutes. For instance, if the device is activated 6 times for 50 seconds each, even though a total of 3 minutes has actually passed, the hour meter still shows 0 minutes. My workaround involves connecting an off-delay timer (set to 30 seconds) to the hour counter input. This way, intervals of 29 seconds or less are counted as 0 minutes, while 30 seconds or more are rounded up to 1 minute. It's not perfectly accurate, but at least it captures more activity than the original setup."
+    },
+    {
+      "comment_id": 662267038174648,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "This is a well-known and longstanding issue. A better approach is to design a custom hour counter. Use a pulse generator that emits a pulse every second. Accumulate these pulses in a first counter, and when it reaches 60, reset it and send a signal to a second counter that tracks minutes. When the minute counter gets to 60, reset it and increment the hour counter. Let me know if you need an example."
+    },
+    {
+      "comment_id": 673802083418638,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "No example needed—I understand the logic. Thanks. Some things never seem to change, like how the hours counter operates."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The conversation highlights ongoing concerns with the hour meter's accuracy in [company_name] [product_name] systems, which only record full minutes and ignore shorter intervals. This results in underreported operation time during frequent short cycles. Users often implement creative workarounds in response to this limitation, reflecting both a lack of granular control and long-standing user dissatisfaction. The issue is rooted in the system's design, not as a recent defect.",
+    "user_expectations": "Users expect the hour counter to precisely capture all periods of operation, including those shorter than a minute, ensuring the total runtime reflects actual device usage regardless of cycle frequency.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate runtime tracking",
+      "precise hour counting",
+      "data fidelity"
+    ],
+    "pain_keywords": [
+      "loss of operational time",
+      "inaccurate hour counter",
+      "sub-minute intervals ignored"
+    ],
+    "feature_keywords": [
+      "hour counter",
+      "runtime accuracy",
+      "time resolution"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

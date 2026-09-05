@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "branch_id": "5567135862",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 575948103373272,
+      "user_name": "fKpNF1Ifr8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I'm new to PLC programming and working on a system to control a 90V DC motor. My setup uses a grain moisture sensor that outputs a frequency signal between 500 and 2500 Hz. I built a model using [product_name] and [product_name] modules, together with an analog converter to control a DC drive. However, I'm struggling with converting the frequency signal to an analog output for motor control. The sensor gives a lower frequency for higher moisture. I'm hoping to add more features to the program and would appreciate any help."
+    },
+    {
+      "comment_id": 525679238971407,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Which [product_name] are you using? Please list the [article_no]. Fast counter inputs are available only on certain [product_name] modules, which can operate with 24 VDC. These inputs are usually I3-I6. For your sensor, does 500 Hz represent the lowest or the highest humidity value?"
+    },
+    {
+      "comment_id": 935644403303626,
+      "user_name": "2VVGrHz4HL",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "As mentioned, more information would be helpful. Could you specify which type of [product_name] you have? I'll review this once you provide the module details."
+    },
+    {
+      "comment_id": 311036178288101,
+      "user_name": "fKpNF1Ifr8",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "[product_name] [article_no] MODULE DISPLAY [product_name] [article_no] EXPANSION MODULE 24V"
+    },
+    {
+      "comment_id": 687637544395885,
+      "user_name": "fKpNF1Ifr8",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you."
+    },
+    {
+      "comment_id": 509236223871386,
+      "user_name": "fKpNF1Ifr8",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thanks."
+    },
+    {
+      "comment_id": 598194229929971,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I'm having trouble understanding the sensor's data. Do you have a datasheet or a link to it? For example, does 2500 Hz mean 100% humidity? What about 825 Hz—does that mean 0% humidity? Please provide clear values for frequency and their corresponding temperature or humidity."
+    },
+    {
+      "comment_id": 101015365835060,
+      "user_name": "fKpNF1Ifr8",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thanks for looking into this."
+    },
+    {
+      "comment_id": 934753110610746,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Without additional data, I can't create a proper conversion curve. It's essential to know the sensor manufacturer and model or [article_no]. Without this, I can't assist. For instance, 1100 Hz when covering the sensor isn't sufficient information for calculations."
+    },
+    {
+      "comment_id": 203159188450111,
+      "user_name": "fKpNF1Ifr8",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you for trying to help."
+    },
+    {
+      "comment_id": 486708548992499,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "It seems my point isn't getting across. To convert frequency readings to an output voltage (0–10V), it's crucial to know the measured frequency value for each condition. For example: 825 Hz = 0% humidity = 0 V, 1100 Hz = 1.64 V, 2500 Hz = 100% = 10 V. Based on your initial post: 500 Hz = 0%, 1100 Hz = 3.00 V, 2500 Hz = 100% = 10 V. You need to clarify what these frequencies mean in terms of measurement. Please provide details on the sensor's manufacturer and model if you want effective help."
+    },
+    {
+      "comment_id": 254218257426570,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "[user_name], I think the user doesn't know the sensor scaling and is trying to achieve basic functionality by experimenting. It's similar to tuning a PID controller without knowledge of its specifics. This approach isn't standard engineering but can be effective. Could you recommend a practical way for him to start discovering what he needs? Also, what are the threshold trigger limits?"
+    },
+    {
+      "comment_id": 839395717810210,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], I know the user isn't aware of the sensor scaling. However, manufacturers typically provide this specification. That's why I'm asking for the sensor manufacturer and model. The [product_name] you're using doesn't process floating point arithmetic and occasional manual calculation is needed to avoid significant errors. Knowing the sensor's output frequency range is required for accurate conversion to voltage."
+    },
+    {
+      "comment_id": 844897949373239,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello. Sorry for missing your earlier question. You're offering to help by reviewing the sensor specification—that's more support than [company_name] usually provides, so thank you. I prepared a small design to simulate a possible solution; the counter supports up to 5 kHz under optimal conditions, though the simulation will handle lower frequencies. Appreciate your help assisting others."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to implement frequency-to-analog conversion for a DC motor controller with [company_name] automation modules, but lacks understanding of both programming and the sensor's characteristics. Other users can't provide effective help due to missing sensor specifications, leaving the user's setup incomplete and emphasizing the need for clear sensor documentation in automation projects.",
+    "user_expectations": "The user expects [product_name] modules to simplify frequency-to-analog conversion for controlling their motor and hopes to expand functionality later. They seek practical guidance to bridge the gap between sensor readings and analog control.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic motor control",
+      "sensor-driven operation",
+      "expandable solution"
+    ],
+    "pain_keywords": [
+      "frequency to analog conversion difficulty",
+      "missing sensor linking data",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "frequency input",
+      "DC drive connection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "3488791944",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 624517557360485,
+      "user_name": "DS22Pb3332",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hello, I am facing a similar issue. I use [product_name] and [product_name], with [product_name] [version_no] and [product_name] [version_no]. The network input is functioning, but the network output does not. Can anyone help us understand why the NQ block with address V2.0 is not working, while using address V100.1 does work?"
+    },
+    {
+      "comment_id": 980282125139764,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Please upload your program as a ZIP archive."
+    },
+    {
+      "comment_id": 561777190199176,
+      "user_name": "DS22Pb3332",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hello, I've attached my test program. When I assign address 2.0 to NQ1 instead of 51.0, the input stops responding."
+    },
+    {
+      "comment_id": 271112348604099,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "The main issue lies in address overlap. In the VM Mapping parameter, you use VW2, which covers bytes VB2 and VB3. VB2 has bits V2.0 to V2.7, and VB3 contains bits V3.0 to V3.7. Altogether, utilizing VW0 to VW10 in VM Mapping implies that bytes VB0 to VB11 or bits V0.0 to V11.7 aren't free for other uses."
+    },
+    {
+      "comment_id": 990783874726925,
+      "user_name": "DS22Pb3332",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Thank you for your assistance, I'm still learning."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered a situation where a specific output address in their network configuration did not work as intended, while another address did. The root cause appears to be address overlap resulting from the VM mapping configuration, which limits address availability for network outputs.",
+    "user_expectations": "The user expects that any legitimate address entered in the network output setup should function properly without affecting other operations and wants to understand the details of mapping behavior.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct address mapping",
+      "functional network output",
+      "clear configuration guidance"
+    ],
+    "pain_keywords": [
+      "address conflict",
+      "output does not work",
+      "unclear mapping behavior"
+    ],
+    "feature_keywords": [
+      "VM Mapping",
+      "address assignment",
+      "network output"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

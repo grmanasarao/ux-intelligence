@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "5694439775",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 163764737025778,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Hello, I am looking for a way to log the error status of the [product_name] Communication Module (CMR) into the [product_name] base module by monitoring input status. I am considering connecting the CMR output to the input of the base module. Can anyone suggest how this can be done?"
+    },
+    {
+      "comment_id": 321425610741455,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "As far as I know, it's not possible to directly query internal errors of the CMR and transfer them to a digital output. The digital outputs of the CMR can be controlled via SMS messages."
+    },
+    {
+      "comment_id": 820884190422934,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Have you checked the CMR manual? Are you referring to the Monitor or SMS functionality for what you want to achieve?"
+    },
+    {
+      "comment_id": 556885087941926,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I've read the manual. I understand that the status can be queried by SMS and the output of the CMR can be set using SMS. What I want is to log changes to the CMR output. For example, I am considering connecting the output of the CMR to the input of the base module, so when the CMR output is false the input is also false, etc. I would then log this data on the memory card in the base module to record when an error at the CMR caused its output to go false. Hopefully my explanation makes sense. Thank you in advance."
+    },
+    {
+      "comment_id": 915143626276006,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "One possible approach: Send an SMS to the CMR to simultaneously activate a CMR output and a bit in the base module. Use a similar SMS for deactivation. Then, use the base module to monitor both the CMR output through a digital input and the bit in the VM area to keep them synchronized."
+    },
+    {
+      "comment_id": 157459498453289,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "[user_name], feedback would be appreciated. Does this solution work for you?"
+    },
+    {
+      "comment_id": 887320897322123,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Hello, yes, this solution works as intended. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants explored methods for monitoring and logging the output and error status from a [product_name] Communication Module into a [product_name] base module. The key insight is that there is no direct way to transfer internal error states from the module to the base module input, but a workaround is possible by using SMS-triggered outputs and corresponding input logic. Forum members referenced documentation and discussed using SMS and digital signals to enable indirect tracking and logging functions.",
+    "user_expectations": "The user is seeking a simple and automatic way to detect errors from the CMR and log this information into the [product_name] base module, preferably by wiring outputs to inputs or utilizing available system features.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "error tracking",
+      "automatic logging",
+      "output monitoring"
+    ],
+    "pain_keywords": [
+      "unclear error integration",
+      "manual workaround required",
+      "documentation reliance"
+    ],
+    "feature_keywords": [
+      "status output",
+      "digital input mapping",
+      "SMS control",
+      "data logging"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "2910918094",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 216305912230676,
+      "user_name": "h0i7bEwtSx",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, I have a [company_name] [product_name] ([version_no]) configured as master in a Modbus TCP connection with a Raspberry Pi 4 running Codesys ([version_no]). Communication appears functional, but reading Discrete Inputs yields strange results (other types such as 'HR', 'IR' return expected values). There are no written bytes or mapped IOs in the slave device, yet the [product_name] reads some discrete inputs as TRUE unexpectedly. If I update the first bit in the byte, the [product_name] retrieves the correct state for the first DI, but the remaining inputs do not update and retain their previous state. Screenshots are attached below. Thank you for your attention."
+    },
+    {
+      "comment_id": 489870941505185,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "I'm not familiar with Codesys or Raspberry Pi. From what I understand, QX20.0 refers to a digital output. If you want to read the state of QX20.0 with the [product_name], should you use Coils instead of Discrete Inputs?"
+    },
+    {
+      "comment_id": 605952584084177,
+      "user_name": "h0i7bEwtSx",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, Using Coils produces the same unexpected behavior."
+    },
+    {
+      "comment_id": 417205217546280,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "If the first digital output is QX0.0, it should correspond to Coil 1. QX20.0 would then be Coil 161."
+    },
+    {
+      "comment_id": 758568254471488,
+      "user_name": "h0i7bEwtSx",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "I attempted such mapping calculations, but Coil 161 does not correspond properly to QX20.0. Here are details about setting some coils and the allocations created by Codesys. It seems these assignments should apply to both reading coils and discrete inputs."
+    },
+    {
+      "comment_id": 349152762592871,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Unfortunately, I cannot provide further help. As mentioned before, I am not familiar with Codesys or Raspberry Pi."
+    },
+    {
+      "comment_id": 659486750191064,
+      "user_name": "h0i7bEwtSx",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "That's alright, I will find a solution on my own. Thank you for your time!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing issues with Modbus TCP communication between a [company_name] [product_name] device and a Raspberry Pi running Codesys. When reading Discrete Inputs, inconsistent values are reported, showing TRUE where no IOs are mapped. Attempts to read Coils instead, or re-map bit/Coil addresses, did not resolve the discrepancies. There is doubt about the accuracy of address mapping and the communication framework when integrating these platforms.",
+    "user_expectations": "Users expect dependable and precise readings of Discrete Inputs and Coils from the slave device, reflecting the actual IO states configured in Codesys. They anticipate that mapping strategies and address schemes will reliably align between the [product_name] and the Codesys-based slave module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable IO state reading",
+      "accurate Modbus mapping",
+      "stable cross-platform communication"
+    ],
+    "pain_keywords": [
+      "incorrect IO state display",
+      "mapping inconsistencies",
+      "lack of troubleshooting clarity"
+    ],
+    "feature_keywords": [
+      "Modbus TCP master",
+      "Discrete Inputs",
+      "Coils",
+      "address mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability"
+  }
+}

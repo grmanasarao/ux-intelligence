@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "3602680421",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 407103769117063,
+      "user_name": "Eg1ZAUtruW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Hello! I've implemented several software switches in my project using the setup shown in the attached image. I first set a flag, then use the RS relay to store its value and a second flag for reading its state on the HMI. Is there a way to read the relay parameters directly, without needing that second flag? I'm concerned about exhausting the available flags. The VM mapping appears to support this only for analog values. I'm relatively new to [product_name]. Modbus, version [version_no]. Is this possible? Thank you."
+    },
+    {
+      "comment_id": 484651011014718,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Hello, Yes, [product_name] version [version_no] supports Modbus TCP communication. You can access the relevant data via File -> Properties -> Modbus Address space. Regarding flags, your current approach is correct and generally recommended. It's possible to read M flags using the modbus address range 8257-8320 (M1-M64). However, direct output reading from the RS block through VM mapping isn't available. [product_name] functions as a smart logic module, although not a full PLC. Hope this clarifies things."
+    },
+    {
+      "comment_id": 685168598954400,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Alternatively, you can use V-bits instead of flags, as there are plenty available. It's possible to read and write them as coils in the range from coil 1 up to coil 6808 (V0.0 to V850.7)."
+    },
+    {
+      "comment_id": 959939403495882,
+      "user_name": "Eg1ZAUtruW",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Thank you! That's the information I needed. So, instead of just 32 flags, I can use up to 64 NQs and 64 NIs, is that correct?"
+    },
+    {
+      "comment_id": 348502757116402,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Correct. However, [product_name] provides 64 digital flags."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are looking for efficient methods to read block parameters via Modbus in [product_name] version [version_no] when using numerous software switches. They identify limitations in the VM mapping for digital values and share alternative options. The conversation clarifies that using V-bits or digital flags is effective, yet the inability to read RS block outputs directly highlights scalability concerns and leads users to seek more versatile solutions.",
+    "user_expectations": "Users want the capability to read RS block outputs directly through Modbus without needing extra flags, aiming to conserve available internal memory bits for larger logic implementations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "efficient memory use",
+      "scalability",
+      "easy HMI integration"
+    ],
+    "pain_keywords": [
+      "flag limit",
+      "inability to map digital outputs",
+      "manual workaround"
+    ],
+    "feature_keywords": [
+      "Modbus mapping",
+      "digital flags",
+      "RS relay output access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "9": "Feature Requests"
+  }
+}

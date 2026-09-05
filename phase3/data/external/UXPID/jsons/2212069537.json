@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "2212069537",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 415281357583467,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm looking for ideas on this issue: Inputs: I1 = Start 1 I2 = Start 2 I3 = Start 3 I4 = Start 4 I5 = Stop all Outputs: Q1 = Command 1 Q2 = Command 2 Q3 = Command 3 Q4 = Command 4 Logic requirement: - On the first cycle, I1 triggers Q1, I2 triggers Q2, I3 triggers Q3, and I4 triggers Q4. - I5 stops all motors. - On the second cycle, I1 triggers Q2, I2 triggers Q3, I3 triggers Q4, and I4 triggers Q1. - The cycles keep alternating among four motors. Any suggestions or ideas? Thanks and Best Regards [user_name]"
+    },
+    {
+      "comment_id": 819310239376053,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "If this is only about switching between four motors, why do you need advice? Are the start inputs (I1-I4) and the stop input (I5) fixed or do they change dynamically?"
+    },
+    {
+      "comment_id": 126232968961019,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Thank you for replying! I'm asking for ideas because I believe forums are for sharing experiences. There are always many ways to solve an issue, and someone with more background might have a better solution. Of course, no one is forced to respond. Back to the main point, the logic to implement would look like this: - On power up - Q1 is activated by a Set/Reset function SET I1 - RESET I5 - Q2 is activated by a Set/Reset function SET I2 - RESET I5 - Q3 is activated by a Set/Reset function SET I3 - RESET I5 - Q4 is activated by a Set/Reset function SET I4 - RESET I5 - When I5 is pressed, all Q outputs turn off, and when I5 goes to zero, motor commands change as follows: - Q1 is triggered by SET I4 - RESET I5 - Q2 is triggered by SET I1 - RESET I5 - Q3 is triggered by SET I2 - RESET I5 - Q4 is triggered by SET I3 - RESET I5 - And so on My initial idea: - Keep count of powered Q outputs - Use four memory words MW, set to 1, 2, 3, 4 at startup - Use these MWs to compare current active Q and activate accordingly - When I5 is activated, cycle MW values from 2, 3, 4, 1 I feel there could be more efficient options out there... Thanks and Best Regards [user_name]"
+    },
+    {
+      "comment_id": 872529442139726,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "If you're after a more efficient method, you should develop your own solution, not just in text but also in program form."
+    },
+    {
+      "comment_id": 403282714415743,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "No problem. Seems like we have different views of what a forum is for."
+    },
+    {
+      "comment_id": 411155004806012,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "It seems you don't have your own solution and are expecting the forum to provide completed work for you—even for what you consider a straightforward task involving the alternation of four motors."
+    },
+    {
+      "comment_id": 123113929310067,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Feel free to think as you like. Have a good evening."
+    },
+    {
+      "comment_id": 105363599082488,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Wishing you the same ..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user describes a challenge in designing control logic for alternating four motor outputs and seeks ideas for a more effective solution. Discussion centers on logic design principles for programmable controllers, without focusing on specific products or providing direct solutions. The conversation highlights differences in expectations regarding collaborative problem-solving in forum environments.",
+    "user_expectations": "The user wants collaborative input and suggestions for optimizing the process of alternating four motor outputs through input commands. They hope to draw on others' experience to achieve a more efficient and refined logic than their initial concept.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "efficiency",
+      "collaboration",
+      "logic improvement"
+    ],
+    "pain_keywords": [
+      "inefficiency",
+      "lack of optimal solution",
+      "unclear best practice"
+    ],
+    "feature_keywords": [
+      "alternation logic",
+      "set/reset block",
+      "memory word cycling",
+      "input/output control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

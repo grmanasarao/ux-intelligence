@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "9081684463",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 840236134370567,
+      "user_name": "XUEofqXsTf",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Hello! I'm working on designing an automated bag filler system that utilizes a load cell to measure the desired weight. The load cell range is 0 to 30kg and is paired with a signal conditioner that outputs a 0-10V signal. In the [product_name] configuration, I use an analog input, analog amplifier, and an analog threshold trigger to control the output (switching off when the target weight is met). My challenge is to automatically set the starting weight to zero before each cycle. Currently, I manually set the analog amplifier's offset, but I'm looking for an automated solution. Ideally, at the start of each cycle, the threshold trigger input would be zero while the amplifier's range remains unchanged. Since the bag's weight can vary, I believe it requires writing the amplifier's output at the moment the button is pressed (with a negative sign) to the offset block or doing something similar with a variable. Any suggestions would be appreciated."
+    },
+    {
+      "comment_id": 596303129530557,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Welcome to the forum. I've attached a suggested solution: the tare value is stored using button I1, then added to the target weight. The analog device controlling the output releases the load until the system achieves the total weight (combining tare and target values)."
+    },
+    {
+      "comment_id": 152606202686635,
+      "user_name": "XUEofqXsTf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thank you! This solution works great."
+    },
+    {
+      "comment_id": 889025081615955,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Glad to help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed automating the tare function for analog inputs in an automated bag-filling system. Initially, manual adjustment was required to reset the weight to zero, which was inconvenient. The solution provided allows the tare reset to be performed automatically via a button, streamlining the process and eliminating the need for manual offset changes.",
+    "user_expectations": "The user wants an automatic tare reset at the start of each cycle, avoiding manual intervention with the amplifier offset. The desired workflow should be straightforward and minimize operator involvement.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated tare",
+      "ease of use",
+      "process efficiency"
+    ],
+    "pain_keywords": [
+      "manual adjustment",
+      "inconvenience",
+      "repetitive setup"
+    ],
+    "feature_keywords": [
+      "automatic tare",
+      "analog input processing",
+      "offset handling"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests"
+  }
+}

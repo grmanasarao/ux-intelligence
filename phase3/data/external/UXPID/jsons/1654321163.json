@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "1654321163",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 768252777920632,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello everyone! I encountered an issue today that seemed simple at first, but it's proving more complex than expected. I have a sensor providing a 4-20mA analog signal that also triggers an alarm under certain conditions. My goal is to take the analog value read by the input module and send it directly to the output module, expecting the output current to match the input. However, instead of duplicating the input (like 4mA in equals 4mA out), I'm seeing a higher output, about 8mA. Any advice? Thanks in advance!"
+    },
+    {
+      "comment_id": 703401170119245,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Did you configure the analog output for 4-20mA? By default, outputs are set to either 0-10V or 0-20mA. You can adjust this in the settings menu under File > Properties > Offline Settings > I/O Settings."
+    },
+    {
+      "comment_id": 184553236126573,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Yes, I have already updated the output configuration."
+    },
+    {
+      "comment_id": 587211790920725,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hi, did you follow an example similar to this: connecting the analog input to an amplifier, and then routing it to the analog output?"
+    },
+    {
+      "comment_id": 766571191057190,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "The simplest solution (see attached file) doesn't require an analog amplifier. Connect the analog input directly to AQ1 and set AQ1 for 0-20mA or 0-10V operation. This allows the signal from the input to go straight to the output. Are you sure your wiring is correct?"
+    },
+    {
+      "comment_id": 810407511417968,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "I tried it with an amplifier, and although the discrepancy is smaller, it still exists. It seems I might need to accept this, even though ideally the system should work without it."
+    },
+    {
+      "comment_id": 131119850291752,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "If you believe using an analog amplifier is necessary, feel free to use one, even though it's generally not required. Sometimes people seek help but don't take the suggestions offered."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers around a user attempting to have an analog input value from a 4-20mA sensor follow directly on an analog output, but encountering an output that doesn't match the input as expected. Participants explore configuration settings and wiring integrity, and suggest trying an amplifier, which helps but doesn't fully resolve the difference. The thread highlights hardware and setup subtleties, as well as signal processing challenges.",
+    "user_expectations": "The user expects the analog output module to accurately mirror the analog input’s current value without requiring additional equipment like signal amplifiers or complex configurations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog signal mapping",
+      "seamless input to output mirroring",
+      "minimal setup"
+    ],
+    "pain_keywords": [
+      "unexpected output current",
+      "configuration uncertainty",
+      "need for additional hardware",
+      "signal offset"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "analog output",
+      "current range settings",
+      "direct signal routing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "4": "Hardware Reliability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

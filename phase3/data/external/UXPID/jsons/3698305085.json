@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "3698305085",
+    "thread_id": "4479534060",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 293287728391202,
+      "user_name": "hi19YrWrfk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hello, I have a question: Is it possible to connect several [product_name] modules without using instabus? I want to set up 4 or 5 [product_name] devices—one for each floor of an apartment—to control the blinds’ movement. Is there a specific cable or something similar to link them all together? Thanks in advance!"
+    },
+    {
+      "comment_id": 860418381028025,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hi, currently the latest version of [product_name] does not offer built-in networking capabilities. One possibility is using a KNX/EIB module. Another is ASi, but that needs an additional ASi-Master, which isn't compatible with [product_name]. Hope this clarifies your options."
+    },
+    {
+      "comment_id": 771520599590217,
+      "user_name": "hi19YrWrfk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Thanks for responding so quickly!"
+    },
+    {
+      "comment_id": 248781999489323,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], is networking absolutely necessary? What kind of data do you need to transfer between these devices? For similar applications, it's common to use a local pushbutton for each blind (up/down). If you want central control for all blinds across the floors, you can wire central pushbuttons in parallel to all 4 [product_name] units. You’ll find examples like 'Control for 8 shutters with central control for UP/DOWN.' Use the same program for each [product_name] on each floor and connect the central control buttons to I17, I18."
+    },
+    {
+      "comment_id": 527816808795347,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Connecting 4 or 5 devices is possible—but you need to determine exactly what signals each device should accept or send. For communication, use inputs and outputs. Instabus offers strong flexibility for data transfer between modules. In my view, instabus is ideal for quickly deploying the whole system. You’ll need: a KNX/EIB communication module for every [product_name] (with 24V AC/DC power supply), KNX network cable, KNX-compatible power supply, KNX/USB gateway, and software like ETS3 and [product_name] programming tool. More on communication with EIB and Konnex standard at [url]."
+    },
+    {
+      "comment_id": 124830527917736,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hello everyone! There’s an issue with the advice given so far. The user specifically wants to avoid KNX/EIB instabus, likely because it’s very expensive. You’d need at least 2 KNX/EIB modules (€150 each), the licensed ETS3 software, and maybe even dedicated training to learn and use KNX/EIB. In the end, you could spend €2000 on solving what’s basically a €200 problem—joining two [product_name] modules. Instead, connect two or more [product_name] units using digital inputs and outputs: - Wire 2 DO from [product_name] 1 to 2 DI on [product_name] 2, and vice versa, letting each [product_name] control up to 4 functions. Adding a third DO/DI allows integration of a third module, and those extra wires can signal which module should respond to the signals. This can be expanded further. If things get too complex wiring-wise, then KNX/EIB might make sense. Others have created simple pulse signaling networks where a [product_name] sends out a pulse train at a set frequency using its transistor outputs, and others listen for and respond to specific frequencies using a threshold trigger. Otherwise, we’re all waiting for [company_name] to offer a better solution for this common issue. ('Please thank or rate!') Arrgh! Have a great day!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members discuss challenges with connecting multiple [product_name] devices, primarily due to the lack of built-in networking features. Recommended alternatives like digital I/O wiring and KNX/EIB modules offer trade-offs such as increased cost and setup complexity. Users are frustrated by the high cost and practical barriers of official networking options, expressing the need for simpler, more affordable inter-device communication.",
+    "user_expectations": "Users are looking for an easy, budget-friendly way to network multiple [product_name] devices, avoiding expensive and complicated solutions. Simplicity and ease of setup and configuration are clear expectations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "affordable device networking",
+      "centralized blind control",
+      "simplicity"
+    ],
+    "pain_keywords": [
+      "high cost",
+      "complexity",
+      "lack of native networking",
+      "need for training"
+    ],
+    "feature_keywords": [
+      "networking",
+      "digital I/O signalling",
+      "central control",
+      "KNX integration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests",
+    "18": "Cost Optimization"
+  }
+}

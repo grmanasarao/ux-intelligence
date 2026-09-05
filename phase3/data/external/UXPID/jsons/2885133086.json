@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "2885133086",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 921944757679378,
+      "user_name": "b0zESY45hJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hello, I have established a Modbus connection between [product_name] (acting as client) and [product_name] (acting as server). My responsibility is the client side. Data is stored in VM and read using NAI and NI blocks. Most functions operate smoothly, but roughly every 30 seconds, all data resets to zero. I observe this in the online test feature of [product_name] configuration software. Does anyone have ideas about what might cause this? Is there a way to monitor incoming Modbus messages in the [product_name] configuration tool to verify the data being received? Thank you!"
+    },
+    {
+      "comment_id": 454717175644942,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Why use Modbus to communicate between two [company_name] devices ([product_name] and [product_name])? Communication is simpler over Ethernet TCP/IP using their native protocol. If the client is [product_name] and the server is [product_name], no additional function blocks are needed for the server configuration."
+    },
+    {
+      "comment_id": 184093301479349,
+      "user_name": "b0zESY45hJ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Unfortunately, I do not have control over the protocol type; it is dictated by the other side. I believe the setup should function regardless of protocol type, shouldn't it?"
+    },
+    {
+      "comment_id": 930728998027981,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Who requests such a configuration? Two [company_name] devices, both capable of using the native protocol, communicating unnecessarily over Modbus TCP/IP seems questionable. People choose based on their requirements, but I have no explanation for all data resetting to zero every 30 seconds."
+    },
+    {
+      "comment_id": 597984875730539,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Modbus allows you to set the interval for data gathering; native protocol connections do not. If you need to collect data from remote locations via NB-IOT or GPRS, perhaps once an hour, Modbus can be more efficient as the native protocol is quite 'chatty' (with traffic between 3 and 30 kbit/sec depending on the number of data points, and traffic remains constant). Please consider this before dismissing the choice."
+    },
+    {
+      "comment_id": 610506675383569,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "For my needs, it's not ideal."
+    },
+    {
+      "comment_id": 792263013437847,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Depending on your application, it can make sense to favor Modbus due to the continuous traffic of the native protocol. [user_name], have you verified that your server device was fully set up as a Modbus server and is continuously providing data?"
+    },
+    {
+      "comment_id": 164580487555257,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "The main concern isn't protocol 'chattiness,' but the issue where, after a certain period, all data resets to zero."
+    },
+    {
+      "comment_id": 287581251262238,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Try customizing the polling interval for Modbus queries from your client device. By default, [product_name] polls Modbus registers every 80 milliseconds—which is more frequent than necessary. Setting it to around 500 milliseconds or even longer may be sufficient for most tasks. Frequent polling may occasionally cause unexpected issues."
+    },
+    {
+      "comment_id": 601955574967948,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "By default, there is no active polling interval set—the time values are inaccessible and greyed out in the settings."
+    },
+    {
+      "comment_id": 756970363712585,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "The default polling rate is at its maximum, with approximately 10 to 12 queries each second."
+    },
+    {
+      "comment_id": 334066924925993,
+      "user_name": "b0zESY45hJ",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Thank you for your feedback. The issue was actually caused on the server side. After adjustments, the system now works correctly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user faced periodic data loss, with all Modbus data received by [product_name] client dropping to zero every 30 seconds when connected to a [product_name] server. The user sought guidance on troubleshooting and monitoring Modbus messages. Participants discussed the pros and cons of Modbus versus the devices' native protocol, as well as how polling intervals and configuration choices might affect data stability.",
+    "user_expectations": "The user expects uninterrupted, stable data transmission over Modbus and would like available tools for inspecting Modbus datagrams received in [product_name] setup software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable data transfer",
+      "protocol insight",
+      "troubleshooting"
+    ],
+    "pain_keywords": [
+      "intermittent data loss",
+      "lack of diagnostic tools",
+      "protocol rigidity"
+    ],
+    "feature_keywords": [
+      "Modbus datagram monitoring",
+      "polling interval configuration",
+      "online test mode"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability",
+    "12": "Network Configuration Challenges"
+  }
+}

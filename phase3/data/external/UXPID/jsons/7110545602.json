@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "branch_id": "7110545602",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 894663124300725,
+      "user_name": "KHtT4RYe6k",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Everything is working now—the issue was related to my multiple screen setup and resolution. The dropdown was appearing on another tiny screen. My goal is to configure the timer for a wiping relay using the output from a multiplexer (see attachment). The setup basically works, but if a longer duration (60) is still active and a new, shorter duration (15) is selected, the relay resets. Is there a way to avoid this? I know there are alternative approaches, but this would be a very clean solution."
+    },
+    {
+      "comment_id": 684236913041890,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "You need to block the inputs so that changes are only accepted when the relay's timer is not running."
+    },
+    {
+      "comment_id": 602095671269196,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "That isn't accurate—values do change while the timer is running. 1. If you change to a longer time before a shorter time is reached, the longer value is used. 2. If you switch to a shorter time before the longer time completes, the shorter time is applied, either running up to the new duration or stopping if already exceeded. @wg035164 The key point is—what should the timer do exactly? Why change durations mid-process? For instance, if a timer set for 60s has run for 30s and you switch to 15s, would you prefer an impulse for 7.5s (half the new time because half of the previous time elapsed)? This seems unclear—can you explain your desired behavior? Regards, [user_name]"
+    },
+    {
+      "comment_id": 384212733683099,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "@[user_name] You misunderstood my point. I am aware that when the inputs switch, the new value is adopted, as is the topic starter. That is why I suggested blocking the inputs, so an input signal only reaches the MUX control if the timer isn't active."
+    },
+    {
+      "comment_id": 440675160813812,
+      "user_name": "KHtT4RYe6k",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Thanks again; looks like I have to use a less clean solution. The idea is: first trigger the longer timer, then apply the shorter duration if a condition changes. @[user_name]: In my simulation, the timer stops when I adjust the timing value ([version_no]); does it work differently for you?"
+    },
+    {
+      "comment_id": 690524713886703,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "In my simulation, when the 60s timer starts and I switch to 15s, if the timer's value is at 15s or more, it stops immediately. Otherwise, it runs until 15s. If you start with 15s and switch to 60s, and the timer's value is less than 15s, it changes to 60s; if it's already stopped, a new trigger is required. Regards, [user_name]"
+    },
+    {
+      "comment_id": 902155489297319,
+      "user_name": "KHtT4RYe6k",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "These features just don't seem to cooperate with me... I want to use the output from a counter as the input for a wiping relay's timer. When I do this, the maximum selectable time base is minutes—for fixed values, hours are also possible. Why is this? I have attached a simple example. BR [user_name]"
+    },
+    {
+      "comment_id": 973111361286668,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Please refer to the attachment. If the parameter field below the block is open, clicking the triangle will open a window to select the time base: Minutes = hh:mm (h+), Seconds = mm:ss (m+), Ten Milliseconds = ss: 1/100s 1/100s (s+), Milliseconds = ms ms: ms ms (ms+)."
+    },
+    {
+      "comment_id": 750643151470203,
+      "user_name": "KHtT4RYe6k",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I'm familiar with the dropdown menu. Does this mean if I need 'hours' as the time base, I can't use the output of another block?"
+    },
+    {
+      "comment_id": 851134307078016,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "No, that's not what it means about 'hours' as the time base. If you open the parameter field and double-click 'Minutes,' you choose the 'hh:mm' format, representing 'hours:minutes.' Once you close the field, you'll see 'h+.' There is no pure 'hours' time base."
+    },
+    {
+      "comment_id": 779231357321710,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "The difference between blocks B001 and B002 in your screenshot is that B001 is unreferenced and B002 is referenced. However, both have the minutes time base, which is shown in the right field. Only [company_name] can explain why their approach differs here."
+    },
+    {
+      "comment_id": 324762820125131,
+      "user_name": "KHtT4RYe6k",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Sorry to ask again—on my system, if I double-click 'minutes' in the dropdown, it disappears and 'minutes' becomes selected, which seems correct. I tried this on two computers with the same result. Where do I find the 'hh:mm' setting? The manual refers to 'time reference function' (Zeitreferenzfunktion in German), but doesn't explain how to use it."
+    },
+    {
+      "comment_id": 993089270675347,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "You can choose to trust me or not. Alternatively, start a support request to [company_name] and you'll get an official response."
+    },
+    {
+      "comment_id": 413045209250043,
+      "user_name": "8RYb477Ela",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "There isn't a reference function 'hh:mm' available, as seen in the manual under 'Editing a parameter box.' The reference is a single integer. For 04:30 (hh:mm), that's 4 * 60 + 30 = 270 minutes; no separate entry for hours and minutes. Only in unreferenced timers can you enter hours and minutes into separate fields. So: Parameter Hours hh:mm is the same as reference minutes. Parameter Minutes mm:ss is the same as reference seconds. Parameter Seconds ss:1/100s is the same as reference ten milliseconds. Reference milliseconds is an extra time base, not selectable in parameters. Regards, [user_name]"
+    },
+    {
+      "comment_id": 307513422372892,
+      "user_name": "KHtT4RYe6k",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thank you, multiplying my counter value by 60 solved my problem. Even though I'm used to complex documentation, I couldn't have deduced this solution from the manual's mention of 'time reference function' (page 253, German edition). Hopefully, the next manual will describe this in more detail."
+    },
+    {
+      "comment_id": 530542003288332,
+      "user_name": "8RYb477Ela",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "It's often a gap between reading and true understanding. At first, I didn't get that you wanted to choose only whole hours instead of hours and minutes; otherwise, I would have suggested multiplying by 60 sooner. You're right; some sections of the manual are sparsely covered. Maybe future editions will improve. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is attempting to configure a timer for a wiping relay by linking it to a multiplexer output, aiming for a flexible and refined solution. They run into an issue where switching to a shorter time while a longer timer is running causes the relay to reset. Additionally, when using a counter output for dynamic timing, only minutes can be set as a time base, whereas for static values, hours are an option. The main technical complication stems from the way the [product_name] software handles timer value changes and time base choices, which doesn't fully match the user's desire for intuitive mid-process changes and extended time base options.",
+    "user_expectations": "The user wants to update timer durations during operation without causing a reset and to choose hours as a time base for variable inputs. An elegant and streamlined setup with wide-ranging time base choices is expected.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless timer adjustment",
+      "dynamic time base selection",
+      "elegant configuration"
+    ],
+    "pain_keywords": [
+      "timer resets on value change",
+      "time base limitation",
+      "UI confusion"
+    ],
+    "feature_keywords": [
+      "timer input handling",
+      "time base selection",
+      "multiplexer input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "branch_id": "3894673596",
+    "thread_id": "4479534060",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 874670341105973,
+      "user_name": "XNKZy3XQs1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I'm looking to set up a remote connection to my [product_name] modules via the internet. I don't need to run a web server on these modules, but basic functionality through the serial COM port as offered by [product_name] software would be enough. My plan involves using devices such as those from [company_name] ([url]), which allow transparent RS-232 connections over Ethernet. The idea is to run [product_name] software from a remote PC, connecting to a virtual COM port via Ethernet, which links to a physical COM port on the device. This port would then connect to the [product_name] module as usual, avoiding the outdated modem setup if Ethernet is available. My main questions are: 1. Has anyone used Ethernet-to-serial solutions and what were their experiences? 2. With this setup, which serial cable is best? I considered the USB-RS232 converter with my USB cable, but that seems complicated. A more direct option is the older RS232 connector cable, though there are two cables with significantly different prices: one is [article_no] and the other is referred to as the 'modem cable' ([article_no]). What are the differences and which should I pick? I couldn't find a clear answer on the [company_name] site or the forum. Any advice would be appreciated. Best regards, [user_name] PS: This forum has been incredibly helpful for ramping up with [product_name]. I have multiple systems running and have improved a lot at programming. Thanks to everyone—the learning curve would have been much steeper without your help!"
+    },
+    {
+      "comment_id": 808298180010527,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I recall an older discussion where a member connected a [product_name] to TCP/IP. You might find some useful pointers there: [url] Hope this is of assistance."
+    },
+    {
+      "comment_id": 499618009734592,
+      "user_name": "XNKZy3XQs1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Thanks for your reply. I checked that discussion, but it’s not very detailed and it's quite old (from 2008). Maybe some users have more current feedback about these converter setups. I’d be happy simply accessing the device on my local LAN, and even better if accessible via the internet. However, there appear to be timing challenges with [product_name] software, possibly affecting programming and online modes. Currently, I'm using another software referenced previously on the forum to log [product_name] module operations during testing. It would be very useful if I could do this remotely from my office, as this could save time and enhance service quality. Since [product_name] software is a VB-based Excel application, I'm curious if timing issues are applicable here as well. Regards,"
+    },
+    {
+      "comment_id": 378215199496559,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "You can find additional information on the German forum. [url] Use an online translator if you're not familiar with German."
+    },
+    {
+      "comment_id": 106048550688923,
+      "user_name": "82hgznnhKs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "I've successfully linked a [product_name] to an RS232 programming cable, then to a fiber converter using a modem cable ([article_no]). I had to modify the converter at the module end to provide +5V DC at pin 1 of the modem cable. It took some trial and error, and information was limited."
+    },
+    {
+      "comment_id": 579982401660724,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Hi to everyone following this discussion! I’m really pleased to see this topic coming up again. Take a look at this forum and the German version for information about 'COM Server'. See here: [url] I’ll share a picture I found some time ago from the forum showing a working setup. Avoid the MODEM CABLE — it just alters pinout for connecting a [product_name] serial cable to an industrial telephone modem (used for remote engineering via analog phone lines). Instead, use the SERIAL [product_name] cable. The USB type requires a PC and an OS to assign a virtual COM port. Additionally, the serial cable gets its 5V DC from the PC via the DTR line, which is needed for the opto-couplers and voltage shifter inside the cable plug. Ensure your COM Server supports DTR HIGH mode; otherwise, you’ll need to provide this externally. I’ve tried similar setups with GSM cellular but faced issues: 1) 11-bit communication protocol (start bit, 8 data bits, parity, stop bit) 2) Transmission must be 'Transparent', but most cellular modems/operators support non-transparent modes 3) Data transfer must be SYNCHRONOUS; most provide only ASYNCHRONOUS, which causes timing errors with [product_name] modules. So GSM isn’t practical for locations without Ethernet. However, with newer GPRS, 3G, or similar routers, as long as the device offers a serial port and can set up a VPN, your approach should be possible. Hope this info helps and the picture inspires you! Let us know if you succeed, either here or via private message. Unfortunately, I haven’t had time to experiment myself."
+    },
+    {
+      "comment_id": 569274951154638,
+      "user_name": "XNKZy3XQs1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Thanks for the detailed info, [user_name]. Meanwhile, I also checked the German forum, which was helpful (thanks for the tip [user_name]). After reviewing many attempts and tests, it seems the best path is to use the COM server with the serial cable, not the USB cable. I don’t need modem, GSM, or telephony features—LAN connectivity will be sufficient, and the internet is often available for future expansions. The COM server I’m considering is the [company_name] ES-357, with one serial port and a second for RS485/422 (useful for longer distances). The serial COM port connects straight to one [product_name], and the other port can communicate to another module roughly 50 meters away. The transparent mode on the COM server maintains command integrity. I’ll begin with RS232 first. The only remaining concern is the timing issue with [product_name] software. If there’s a built-in timeout in the protocol, programming or online mode might be tough. From what I’ve seen in the VB code of the logging software, it doesn’t use timeouts, so it may better handle delays. That could allow me to monitor remotely, which is already helpful. I'm ordering the COM server next week and will share updates. Any further advice is welcome. Kind regards,"
+    },
+    {
+      "comment_id": 502293685214463,
+      "user_name": "E6D4ccPugT",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Hi, This is [user_name] from [company_name]. Thank you for considering our product. We’re happy to offer support if you need help setting up our device with your [product_name] software. Feel free to contact me directly with any questions. You can find all contact details on our website ([url]); just ask for [user_name] and I’ll gladly assist. Regards, [user_name]"
+    },
+    {
+      "comment_id": 679576543115963,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Hi, Maybe take a look at [url] Those COM servers are solid and flexible, with excellent service. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 524253630250862,
+      "user_name": "UN7R503FoT",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 7,
+      "comment_body": "There are many good [url] serial Ethernet converters available for this purpose. A quick search will reveal several options; a basic model with a single COM port is generally sufficient."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are discussing remote access setups for [product_name] modules using Ethernet-to-serial devices (COM servers). Key technical issues include communication reliability and timing with [product_name] software, specifically concerns with latency, timeouts, and proper cable selection between 'serial' and 'modem' variants. The group aims to clarify proven configurations and share practical experiences using these setups.",
+    "user_expectations": "Users seek transparent and dependable communication between [product_name] software and modules over Ethernet using COM servers, favoring simple serial cable arrangements and minimal timing problems. The goal is an efficient and straightforward solution for remote programming and monitoring without connection complexity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote access",
+      "efficient monitoring",
+      "programming flexibility",
+      "time savings",
+      "LAN/internet connectivity"
+    ],
+    "pain_keywords": [
+      "timing issues",
+      "timeout sensitivity",
+      "cable confusion",
+      "legacy modem limitations"
+    ],
+    "feature_keywords": [
+      "remote serial-ethernet communication",
+      "COM server compatibility",
+      "transparent mode",
+      "serial vs. modem cable"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability",
+    "3": "User Guidance"
+  }
+}

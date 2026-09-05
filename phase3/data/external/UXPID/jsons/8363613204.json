@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "8363613204",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 303001967294849,
+      "user_name": "ehWnqItnoK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I want to remotely control [product_name] using Modbus TCP. Is there a method to interact with button functions, or is it not feasible? Since remote control via webserver is possible, I believe it should also be possible to achieve similar control in other ways."
+    },
+    {
+      "comment_id": 797922374903076,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Yes, remote control is possible through both methods."
+    },
+    {
+      "comment_id": 197652334065281,
+      "user_name": "ehWnqItnoK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "That's good news. Could you explain how Modbus can be used for this purpose? Specifically, where are button functions located within the address space? I can't seem to assign them to Variable Memory. The buttons are referred to as cursor keys."
+    },
+    {
+      "comment_id": 352362330747414,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Please describe your intended functionality in more detail."
+    },
+    {
+      "comment_id": 327417607389612,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "You cannot use Modbus coils to directly access the physical buttons on a [product_name] controller. However, you can define coils in the Variable Memory (e.g., V0.0, V0.1, V0.2, etc.) as needed for your application. If you've implemented cursor key behavior in your program logic, you can simply add an OR block and assign an extra Vx.y to achieve similar remote control functionality. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing methods to remotely control the buttons of a [product_name] controller via Modbus TCP, as an alternative to webserver control. There is clarification that direct control of physical cursor keys using Modbus is not available, but similar actions can be achieved by mapping Modbus coils to Variable Memory and integrating that into the device's logic.",
+    "user_expectations": "The user would like to remotely access and control the hardware buttons (specifically cursor keys) on a [product_name] controller using Modbus TCP, analogous to what can be accomplished through the webserver interface.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote button control",
+      "Modbus integration",
+      "automation flexibility"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "missing direct support",
+      "hardware limitation"
+    ],
+    "feature_keywords": [
+      "remote control",
+      "cursor keys",
+      "Modbus coils",
+      "Variable Memory"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "3776030024",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 892076936681843,
+      "user_name": "l2uWokzO1L",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm finding it very challenging to scale an analog output on [product_name]. I regularly use the [version_no] series but chose [product_name] for this task thinking it would be simpler, though that's not been the case. In my setup, [product_name] is reading Modbus data from a power meter, and I need to convert the kW reading (from two 16-bit word registers, expected range -2000.0 to 2000.0 kW) to a 0-10V or 4-20mA output signal. My issues: how can I extract the float value in [product_name]? After obtaining the value, how do I scale it to either 0-10V or 4-20mA for the given range? This workflow is straightforward on [version_no], but with [product_name] I'm struggling. Any advice would be appreciated!"
+    },
+    {
+      "comment_id": 108490752079132,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The [product_name] programmer views things differently. It's simple to do in [product_name], but with [version_no] it's a bit more involved."
+    },
+    {
+      "comment_id": 746039006676094,
+      "user_name": "l2uWokzO1L",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thanks! Any suggestions are welcome. I'm considering switching to a [version_no] tomorrow instead of continuing with [product_name]."
+    },
+    {
+      "comment_id": 238470417177550,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Refer to the screenshot. The initial amplifier is for testing with -2000 to 2000, while the second amplifier is set as needed: Sensor type: None, Gain: 0.25, Offset: 500. For analog output in the 4-20mA range, set the corresponding output parameters."
+    },
+    {
+      "comment_id": 284929289098111,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Oh... Didn't you catch the joke?"
+    },
+    {
+      "comment_id": 547648463468611,
+      "user_name": "l2uWokzO1L",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I understand, but this is really confusing! How does setting gain to 0.25 and offset to 500 achieve scaling for -2000 to 2000?"
+    },
+    {
+      "comment_id": 474118994246005,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "An analog output in [product_name] operates on 0-1000 units. By adjusting the output range (0-10V / 0-20mA / 4-20mA) accordingly, -2000 to 2000 multiplied by a gain of 0.25 produces -500 to 500, and then the offset of 500 shifts the range to 0-1000."
+    },
+    {
+      "comment_id": 181601347609630,
+      "user_name": "l2uWokzO1L",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thanks for the info. The project is turning out to be more complex with extra calculations required, including writing data to another slave address. I'm bringing a [version_no] tomorrow and will reserve [product_name] for some simpler logic panels in future projects."
+    },
+    {
+      "comment_id": 169047012178265,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Since I don't know your specific setup, I can't advise on all the calculations, but even with limitations, [product_name] can still communicate with [version_no] devices."
+    },
+    {
+      "comment_id": 362767671346819,
+      "user_name": "l2uWokzO1L",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hi, I'm confident it can be done, but given my time constraints, I'll rely on what I know with [version_no]. [product_name] is a solid choice, I just struggled with scaling Modbus data to analog output yesterday. I'll use it on another project when I have more time. Thanks for the reply."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find it difficult to scale floating-point Modbus values to analog outputs using [product_name], especially due to different methods for data handling compared to [version_no]. Mapping a wide-range float (-2000.0 to 2000.0 kW) to typical analog signals (0-10V, 4-20mA) is perceived as much less intuitive than with other controllers, resulting in frustration and preference to switch back to more familiar hardware. Additional complexities like further calculations and writing to multiple slave addresses increase the challenge for users who expect easy configuration.",
+    "user_expectations": "Users expect a simple and intuitive process for scaling Modbus float values to analog output ranges in [product_name], similar to [version_no]. They anticipate straightforward handling of floating-point data and easy setup for defining output signal limits.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy scaling",
+      "intuitive setup",
+      "modbus compatibility",
+      "quick configuration"
+    ],
+    "pain_keywords": [
+      "complex scaling",
+      "difficult float handling",
+      "unintuitive workflow"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "Modbus float data",
+      "scaling",
+      "configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

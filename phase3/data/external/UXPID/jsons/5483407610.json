@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "5483407610",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 865252827023813,
+      "user_name": "AdlcZSvUdI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Hello all, I need to configure the ON and OFF durations of the asynchronous pulse generator on the [company_name] HMI so that hours and minutes can be entered separately, like 2 hours and 40 minutes for ON time, and similarly for OFF time. However, I'm unsure how to handle the addressing type for this setup. Can someone provide guidance? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 514011861810983,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], I've attached an example to assist you. Here’s what I did: First, you need to declare variables for the timings. Navigate to \"Tools\" -> \"Parameter VM Mapping...\" where VW0 stands for Pulse Width and VW2 for Interpulse Width. For instance, 2 hours and 40 minutes equals 160 minutes. In the program, you can simulate this by entering 160 into VW0 and VW2. The total time then reads as 160 minutes, which is 2 hours plus 40 minutes. You can also adjust the time base: In \"Tools\" -> \"Parameter VM Mapping...\", set VB4 for Pulse Width Time Base, and VB5 for Interpulse Width Time Base. Entering 3 in VB4 means (hours:minutes), 2 means (minutes:seconds), and 1 means (seconds:milliseconds). However, I did not find a way to handle the hour and minute inputs entirely separately as you asked. Hope this helps."
+    },
+    {
+      "comment_id": 674307392269100,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "The challenge is that in [product_name], time values—such as those for the pulse generator—must always be provided as a single total based on the chosen time base. For example, if the base is seconds (minutes:seconds), and you want to input more than 59 seconds (e.g., 2 minutes and 35 seconds), the value must be calculated as 2 x 60 + 35 = 155. You then enter the value 155. To input minutes and seconds separately on the HMI, you have to set up two distinct input fields for minutes and seconds. These values are then transferred to [product_name], where the total is calculated. See the referenced screenshot for clarification."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are working to configure ON and OFF durations in an asynchronous pulse generator with a specific goal of entering hours and minutes separately via the HMI. However, the system requires these times as a total duration in a single value based on the time base, leading to confusion and the need for input workarounds. There is uncertainty over addressing methods and no built-in support for fully separate entries, resulting in extra programming steps.",
+    "user_expectations": "The user would like to input ON and OFF durations as distinct hour and minute values directly into the HMI, expecting the data to transfer and function in [product_name] automatically, without requiring manual conversion to a total time value.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy time input",
+      "separate hours and minutes entry",
+      "direct HMI configuration"
+    ],
+    "pain_keywords": [
+      "manual calculation",
+      "complex addressing",
+      "workarounds required"
+    ],
+    "feature_keywords": [
+      "time base mapping",
+      "HMI input customization",
+      "pulse generator parameters"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

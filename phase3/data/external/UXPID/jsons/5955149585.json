@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "5955149585",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 381081915509876,
+      "user_name": "uilXywuFBE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I am working with a [product_name] mobile communication module and a [product_name] controller. I have several outputs monitored for changes. My goal is to create a custom SMS alias that prompts the module to check the status of specific inputs and outputs (just those I monitor) and send preconfigured SMS messages based on their actual hardware state—for example, sending '1' if M1 is on and '0' if it's off, responding to the SMS alias accordingly. I prefer this over sending the full device configuration using the generic monitor command, since I want the messages to be clear for all users. I’m looking for ideas to make this feasible, and if anyone has backend configuration tips, please share! Many thanks, and I hope this setup is possible, or maybe there’s a backend workaround."
+    },
+    {
+      "comment_id": 194303264688759,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], Unfortunately, the custom SMS command capability you described is not directly supported with the current [product_name] module, except through workaround methods. One possible approach is to set up an SMS alias that writes a value into the [product_name] controller's variable memory. You can then use a trigger (e.g., greater than 5) to have the module send an SMS. After sending, you'll need to reset the value to enable retriggering. You can include up to 16 placeholders in the SMS, depending on your dataset. As an alternative, separate SMS messages can be triggered when values change. Best regards."
+    },
+    {
+      "comment_id": 811396575316881,
+      "user_name": "uilXywuFBE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello, That’s exactly what I was considering. I haven’t had the chance to test it yet due to SD card issues with my controller, but I appreciate the suggestion—will try it soon. If you have a working proof-of-concept, I’d be grateful to see it. Many thanks."
+    },
+    {
+      "comment_id": 403594067860950,
+      "user_name": "uilXywuFBE",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], I could use some help. I’m having trouble using the variable memory mapping to write a value, since it seems I can’t directly assign variables or flags to modifiable addresses. Were you able to get this method working? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 190759230748945,
+      "user_name": "uilXywuFBE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello all, I managed to get it working—thanks to everyone who contributed. Step one: I referenced the solution from user [user_name] at [url]. The attached 'V_pulse.zip' document helped clarify the process. For SMS triggering, I set up a network input and output on the same address, configuring the SMS alias to set the network input bit high (from 0 to 1) and then reset it after a delay. A diagram is available, but essentially, you can use on-delay or off-delay blocks depending on your required behavior; the approach remains consistent. To trigger from the alias, I used a command like '[product_name]=VM2.1,1,BIT'. For now, I haven’t set a password since I’m still refining the setup. Afterward, I configured the necessary actions, signals, and events so that the SMS sends status updates of all relevant inputs when the network input or output is active. Thank you in advance. Special thanks again to [user_name] for demonstrating that matching network input/output addresses can be used strategically—see [url] for more information."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered limitations with customizing SMS notifications using the [product_name] communication module, as direct querying of specific monitored outputs was not supported. Suggestions focused on workarounds involving variable mapping and network input/output logic blocks in the [product_name] controller. Although the user faced challenges such as SD card problems and memory mapping issues, they successfully implemented the desired SMS notification behavior using logical configuration and command setup guidance provided by forum participants.",
+    "user_expectations": "The user expects to configure custom SMS aliases in the [product_name] module to provide clear, concise updates reflecting only monitored outputs of the [product_name] controller, without disclosing the entire system state.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "human-readable SMS",
+      "custom notification",
+      "status monitoring",
+      "automation"
+    ],
+    "pain_keywords": [
+      "limited SMS alias configuration",
+      "mapping complexity",
+      "SD card issues",
+      "cannot map variables directly"
+    ],
+    "feature_keywords": [
+      "SMS alias",
+      "network input/output mapping",
+      "variable mapping",
+      "custom status notifications"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

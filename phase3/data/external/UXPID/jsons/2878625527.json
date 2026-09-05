@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "branch_id": "2878625527",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 404282412101566,
+      "user_name": "hfhTCOxfHT",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I appreciate how [product_name] allows for modular logic through user-defined functions. However, it's limiting that it only supports \"Ladder\" and \"FBD\" formats, without \"SFC\" capabilities. I'm interested in replicating SFC-like behavior using custom UDFs—specifically creating a program that can execute steps and loops, including parallel processes. I've made progress and can loop back to certain steps, but my solution currently only cycles back to the start. If anyone has experience or could suggest improvements for a simpler design, that would be really helpful. For clarity, I've shared a link with details about my approach and the expanded UDFs, since attachments aren't working. Feel free to ask if you need more information or if you'd like to take on this programming challenge."
+    },
+    {
+      "comment_id": 918084154671343,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], Your approach is quite innovative. With advancements like IoT, it might be worthwhile to consider developing CFC-style designs on an IoT platform instead—have you looked into node-red? As for your current work: keep in mind that [product_name] is a programmable relay, not a PLC. This means when you use a UDF, it consumes memory for every instance, as the entire circuit is duplicated—not like calling a subroutine in a PLC. Creating a general-purpose UDF might use up a lot of resources, so it's best to keep your design minimalist and reuse UDF blocks even in early stages to monitor memory usage. Personally, my sequence control method doesn't depend on UDFs but quickly exhausts available M-bits. I'm interested to see what you develop."
+    },
+    {
+      "comment_id": 998086873286763,
+      "user_name": "hfhTCOxfHT",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Thanks for your input—I'm still learning how [product_name] works. For this SFC emulation, I only use two UDFs: the \"IN\" UDF and \"SFC Main.\" If I reuse a UDF, does it still consume the same amount of memory as if each function was outside the UDF? From what I understand, isn't the memory limit about 400 blocks?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "User values the modularity of UDFs in [product_name] but faces challenges due to limited support for SFC (Sequential Function Chart) style logic. Attempts to mimic SFC behavior reveal practical constraints around memory consumption, as UDFs occupy resources differently compared to classic PLC subroutines. Discussions clarify the distinction between [product_name] and standard PLCs with regard to function block architecture and resource management.",
+    "user_expectations": "The user hopes to replicate SFC-style programming, with multiple steps, loops, and parallel actions, using UDFs within [product_name]. They seek a solution that can handle this complexity within the device’s memory limitations.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "modular programming",
+      "SFC emulation",
+      "complex logic",
+      "programming flexibility"
+    ],
+    "pain_keywords": [
+      "limited programming paradigms",
+      "memory constraints",
+      "lack of SFC support",
+      "UDF resource usage"
+    ],
+    "feature_keywords": [
+      "User Defined Function (UDF)",
+      "step logic",
+      "loops",
+      "memory usage",
+      "SFC support"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "29": "Scalability Limitations"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "branch_id": "5730209740",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 989398295843979,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm working on a metering pump for low concentrations, using a stepper motor. I need advice on integrating a 4-20 mA flow sensor with stepper motor control for the reagent pump. The aim is to maintain a set reagent concentration while flow changes. The setup includes a transistor controller, driver, and stepper motor attached to a peristaltic pump (where reagent volume matches motor steps). How should I proceed to use this system effectively?"
+    },
+    {
+      "comment_id": 197304540233376,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Stepper motors operate using pulse signals by design."
+    },
+    {
+      "comment_id": 885931202913204,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], your description lacks some important details, making it difficult to provide thorough assistance. Please clarify your original post for better support."
+    },
+    {
+      "comment_id": 701204394747963,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "The transistor [product_name] controller has four analog inputs (0-10V). If you need to evaluate a 4-20 mA signal with this controller, you can use either a 500-ohm resistor (1/2 watt, ideally 1%), converting the current signal to 2-10V, or an external converter that takes 4-20 mA in and outputs 0-10V. Alternatively, you could use an analog expansion module. Please provide a datasheet or link for your sensor, or specify manufacturer and article number."
+    },
+    {
+      "comment_id": 406815277960643,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Good afternoon. I have an analog input module for 4-20 mA, but my challenge is software-related: how to correlate a pulse signal with the analog input? Assuming the relationship is linear, as the sensor current increases, the number of pulses should increase in proportion. For example, at 4 mA, I want 0 Hz; at 20 mA, 3 kHz. I apologize for not explaining clearly initially."
+    },
+    {
+      "comment_id": 744607022300705,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I doubt that the transistor outputs of the [product_name] controller can switch at 3 kHz."
+    },
+    {
+      "comment_id": 800968694185135,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "What is the maximum frequency possible? Also, how would a sample program for the controller look at maximum frequency? Sorry for repeating, but I'm struggling to understand the algorithm."
+    },
+    {
+      "comment_id": 268774053701395,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "[company_name] does not provide exact details. The manual states a maximum of 10 Hz, but adds that max switching frequency depends on cycle time, which is further affected by the type and size of the [product_name] program. This means the company can't specify a precise figure."
+    },
+    {
+      "comment_id": 468625489583460,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I might have misunderstood. Do you just want to convert the 4-20 mA signal to a 0-3 kHz output for monitoring and display?"
+    },
+    {
+      "comment_id": 986369951124899,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "No, you understood correctly. I'm using the controller output to set the stepper motor driver frequency. I've achieved 50 Hz so far using an asynchronous pulse generator (1 ms pulse, 1 ms pause). The driver activates, and the motor turns, but actual performance is about 30% less than expected."
+    },
+    {
+      "comment_id": 888843565141848,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I've discovered PWM through trial and error. I'll experiment with it."
+    },
+    {
+      "comment_id": 115951782867930,
+      "user_name": "8RYb477Ela",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "The PWM function won't work for higher frequencies because the time base is 10 ms, giving a minimum period of 20 ms, or a max of 50 Hz. For higher frequencies, the value changes with the cycle time of your controller, which limits resolution. Check the attached sample program for different pulse generators and test directly on the hardware (PC simulation won't reflect actual frequencies). The fastest generator can use a counter to set frequencies, but more details on your required signals are needed. Connect your transistor output in the program to a generator and check output with an oscilloscope if possible."
+    },
+    {
+      "comment_id": 756201311173899,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thanks, I'll try tomorrow. How do you establish the relationship between output frequency and the 4-20 mA sensor signal, ignoring units for now? For example, 0 mA equals 0 Hz, 20 mA equals 20 Hz. This is a new task for me and quite confusing."
+    },
+    {
+      "comment_id": 822227893727178,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I found a solution in another forum but will verify the results tomorrow by measuring the actual output frequency."
+    },
+    {
+      "comment_id": 819520903637778,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], perhaps the scaling block in [product_name] software can help: How can you scale measured values in [product_name] software? See [url]. If you want 0 mA as 0 Hz and 20 mA as 20 Hz, linear scaling should be straightforward to calculate."
+    },
+    {
+      "comment_id": 927005564837967,
+      "user_name": "8RYb477Ela",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "You have to start with simple steps and progress gradually. It's unclear if the signal output works yet, but possible program solutions are being explored. Check the attached example for a potential method, but linear scaling isn't achievable—you need to use an inverse function. An offset allows you to set an analog value even without a sensor. Generally, 0 mA corresponds to 200, 20 mA to 1000; adjust values to calibrate as needed. The formula is 20000 x 5 / input value for 20 Hz at an input of 1000, but you must adjust for your controller's cycle time. Higher frequencies result in coarse steps."
+    },
+    {
+      "comment_id": 892590470022190,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thank you, I'll experiment with this."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to set up a 4-20 mA flow sensor with stepper motor control to maintain proportional dosing for a reagent pump, adapting to flow changes. The main challenge is both hardware and software: while there are ways to connect the sensor and controller physically, the [product_name] controller cannot output high enough pulse frequencies (such as 3 kHz), causing around 30% performance loss. Official documentation lacks exact data on maximum frequency, which leads to confusion and impacts user outcomes.",
+    "user_expectations": "The user would like the [product_name] controller to reliably convert a 4-20 mA analog signal into a high-frequency pulse suitable for stepper motor control, matching the requirements for variable dosing. Additionally, the user expects clear and accurate documentation of the controller’s real capabilities from [company_name].",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "proportional dosing",
+      "automation",
+      "system integration",
+      "accurate flow control"
+    ],
+    "pain_keywords": [
+      "frequency limitation",
+      "insufficient documentation",
+      "performance loss",
+      "unclear product specs"
+    ],
+    "feature_keywords": [
+      "analog-to-pulse conversion",
+      "high-frequency pulse output",
+      "stepper motor control",
+      "4-20 mA integration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "branch_id": "9123659061",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 334290778806250,
+      "user_name": "8KMf4djkWN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, Is there a method to identify when a communication error occurs on an RS485 MODBUS RTU bus? Currently, if communication is interrupted, the last received values persist, which means that the voltages read over MODBUS may become invalid. I've connected a [product_name] to a [product_name] module via [product_name], with several devices connected through MODBUS RTU. The [product_name] is processing the data, and this is where error or warning detection is needed. If anyone knows a solution, I'd appreciate your input. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 572560700287386,
+      "user_name": "Jr5j2S3GMQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Could you provide screenshots to help us better understand your situation and assist you?"
+    },
+    {
+      "comment_id": 592343080232228,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Please upload your [product_name] program as a ZIP file for review."
+    },
+    {
+      "comment_id": 969437924550232,
+      "user_name": "8KMf4djkWN",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name] and [user_name], I've uploaded the project as a ZIP file along with a screenshot. For full details, I've included the [product_name] settings, communication functions for [product_name] and MODBUS RTU. The issue is as follows: • Values read from the MODBUS RTU bus are stored in VM registers • [product_name] fetches these register values from [product_name] • A fault in the field causes a disconnect on the MODBUS RTU bus wire • VM registers are then no longer updated • [product_name] continues to request values and receives the last available data, which is then used to decide if a generator activates When power consumption is above 30kW, the generator should start; if it falls below, it should disconnect and turn off. Because damaged MODBUS wires prevent new data, the generator might not turn off as required. It's essential for the generator to stop below this usage threshold. Hope this clarifies the issue! Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 671434389715790,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I'd suggest improving communication between [product_name] and reworking how [product_name] handles data. Instead of retrieving values from [product_name] into respective NAI remotely, consider using local VM memory. In my view, the challenge lies with the [product_name] module, which doesn't detect when the RTU device fails. I am unfamiliar with its settings and can't advise on what adjustments are possible there."
+    },
+    {
+      "comment_id": 373618739192973,
+      "user_name": "8KMf4djkWN",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], The project still needs work, but thanks for your feedback regarding communication. The issue is indeed with the [product_name] module, but since it’s part of the [product_name] family, I thought this was the right place to ask. One workaround I considered is adding 24VDC to the MODBUS circuit and measuring the closeoff resistor for connection verification—a partial solution, but better than nothing. Alternatively, I’ve thought about logging runtime data from the external device and comparing it to previous values each second, though I need to figure out how to store and compare old versus new values. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 312060282873479,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "This forum is appropriate, but I only know of the [product_name] module by name and have no direct experience with it. You can record analog data as follows:"
+    },
+    {
+      "comment_id": 824170630606655,
+      "user_name": "8KMf4djkWN",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], Thanks for your assistance—the solution you suggested looks like a feasible workaround. However, I can't find the same options in my mathematical instructions, such as adding an analog amplifier as V1. Do you know what might be causing this? Kind regards, [user_name] EDIT: Found my mistake—connecting a wire from the amplifier to the mathematical instruction input resolved it, just as shown in your example. Fixed now! Thank you for your excellent support!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced a key obstacle detecting communication breakdowns on MODBUS RTU when using the [product_name] and [product_name] modules, since the system continues relying on outdated data after bus disconnection. This presents a significant risk for automation, especially for generator operation where actions depend on real-time values. Without clear error or warning alerts for communication loss, users have to devise alternative methods for fault detection and data integrity verification.",
+    "user_expectations": "The user expects the system to provide automatic notification or clear indication of MODBUS RTU bus communication failures, thereby preventing the use of outdated or invalid data in critical decision-making processes.",
+    "severity_expectation_level": "1",
+    "gain_keywords": [
+      "error notification",
+      "reliable operation",
+      "data validity",
+      "automation safety"
+    ],
+    "pain_keywords": [
+      "communication failure",
+      "stale data",
+      "lack of error warning",
+      "automation risk"
+    ],
+    "feature_keywords": [
+      "MODBUS RTU error detection",
+      "data freshness monitoring",
+      "analog data saving",
+      "runtime data comparison"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "24": "Data Integrity Concerns"
+  }
+}

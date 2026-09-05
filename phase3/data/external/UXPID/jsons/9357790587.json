@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "branch_id": "9357790587",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 952990220524546,
+      "user_name": "PAl0NUsQW9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm hoping to connect a basic button to my [product_name] to start or stop the program without accessing the enclosure. However, I'm having trouble with the device not handling the input current as expected. The controller is connected to a 24VDC 10A power supply for solenoid valves. Is it possible to connect the buttons directly to this setup?"
+    },
+    {
+      "comment_id": 125337669713944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I'm not sure what you mean regarding input current. Can you clarify further? Which [product_name] model are you using? Please provide the complete [article_no]."
+    },
+    {
+      "comment_id": 412260417212369,
+      "user_name": "PAl0NUsQW9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I have the [article_no]. From my research, it seems the [product_name] doesn't support 2-wire analog input and requires 3-wire sensors instead."
+    },
+    {
+      "comment_id": 118463235085602,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I'm a bit confused. The topic refers to a 'Normally Open Button Input,' but now you're mentioning a 2-wire analog input. Terminals I1, I2, I7, and I8 can function as either digital (24VDC) or analog (0-10V) inputs. If you use I7 as an analog input, it can't simultaneously be used as a digital input."
+    },
+    {
+      "comment_id": 225744583767893,
+      "user_name": "PAl0NUsQW9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Sorry if my explanation wasn't clear. I have a looped program that starts via a button, and I want to use a limit switch to indicate when the hydraulic cylinder has reached its position and trigger flow in the opposite direction. Can limit switches and the start button be directly connected to the [product_name], or is additional conditioning needed?"
+    },
+    {
+      "comment_id": 522992088734469,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Please upload your program as a ZIP file. It's easier to work from the original diagram than from screenshots."
+    },
+    {
+      "comment_id": 217299590839273,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "You can directly connect the button and limit switches without extra conditioning."
+    },
+    {
+      "comment_id": 248749209644892,
+      "user_name": "PAl0NUsQW9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Try this version."
+    },
+    {
+      "comment_id": 323850872762553,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Your program isn't functioning as intended. If the limit switches remain closed, the program cycles without registering their status."
+    },
+    {
+      "comment_id": 431417857234601,
+      "user_name": "PAl0NUsQW9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "What would you suggest to fix this issue?"
+    },
+    {
+      "comment_id": 683588214945472,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I'd approach the program differently. There's no monitoring for whether a limit switch is disengaged, nor is there a check if the cylinder moves through its required path within the allowed time."
+    },
+    {
+      "comment_id": 132004810502935,
+      "user_name": "PAl0NUsQW9",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Are there any apparent issues with this program?"
+    },
+    {
+      "comment_id": 905705349990802,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I downloaded and simulated your program. In your last configuration, both limit switches are active and I can start the sequence. Is this the intended behavior? Next, without changing the limit switches, the outputs continue to change each cycle. Is this what you designed?"
+    },
+    {
+      "comment_id": 588400552173491,
+      "user_name": "PAl0NUsQW9",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Try this update: if both limit switches are on simultaneously (one stuck, the other triggered), the program stops. If the cylinder doesn't activate the limit switch within the set time, it also stops."
+    },
+    {
+      "comment_id": 634166871806053,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Try this approach. Adjust the timer values and number of cycles to fit your requirements."
+    },
+    {
+      "comment_id": 693488442048439,
+      "user_name": "PAl0NUsQW9",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "As far as I see, step 2 times out even when Limit Switch 1 is activated. Let me know if I've missed something."
+    },
+    {
+      "comment_id": 108826348683265,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I've made a small adjustment, please give this version a try."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main challenge users face is understanding the wiring and compatibility of hardware buttons and limit switches with [product_name], especially regarding analog versus digital inputs. There's also confusion about how much current the input circuits can handle and if external conditioning is needed. This reflects a broader need for better understanding of [product_name] I/O configuration and techniques for troubleshooting program logic, particularly for cyclic processes that depend on limit switch feedback.",
+    "user_expectations": "Users expect to connect hardware buttons and limit switches directly to [product_name] digital inputs, with the device reliably detecting input states and handling current without extra circuitry. They also expect program logic to properly respond to the inputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simple wiring",
+      "program control",
+      "digital input handling",
+      "reliable logic flow"
+    ],
+    "pain_keywords": [
+      "input compatibility confusion",
+      "wiring uncertainty",
+      "logic error with switches"
+    ],
+    "feature_keywords": [
+      "digital input",
+      "analog input",
+      "input current",
+      "start button",
+      "limit switch"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "7702233282",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 820326459335168,
+      "user_name": "UUBxj5EfFl",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello, I would like to write a value to a device connected to a [product_name] controller using MODBUS protocol. I've already set up the connection (referenced in an attached image). I need advice on next steps and exact operations for writing data. The device address is 4000. Thank you."
+    },
+    {
+      "comment_id": 694089452990693,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Please avoid posting multiple topics about the same issue. Kindly delete the extra threads."
+    },
+    {
+      "comment_id": 544166602345159,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "You mentioned address 4000, but your screenshot displays 10000."
+    },
+    {
+      "comment_id": 171280124474556,
+      "user_name": "UUBxj5EfFl",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello, apologies—when I submitted my post, I received an error from the site, which led to multiple threads. I've noticed three entries now."
+    },
+    {
+      "comment_id": 263600569456497,
+      "user_name": "UUBxj5EfFl",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello, just to clarify—the correct address should be 10000."
+    },
+    {
+      "comment_id": 373056925695813,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The [product_name] controller uses an offset of +1 for Modbus addresses. If your Modbus device uses a zero offset, you should enter HR10001 in the connection table. Are you certain the device's unit-ID is 255?"
+    },
+    {
+      "comment_id": 257833945812161,
+      "user_name": "UUBxj5EfFl",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "How can I determine the device ID? Which operator blocks should I use to write a value to the device?"
+    },
+    {
+      "comment_id": 473303230975061,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "You should reference your device's manual. It’s unclear which Modbus device or data format you are using, which makes it difficult to provide accurate advice. Also, the unit-ID refers to the Modbus slave’s address within an RTU network."
+    },
+    {
+      "comment_id": 340021037657090,
+      "user_name": "cZQANX744b",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hi, Based on your updated HR (10001), you need to write the value into VW100 on your [product_name]. This is typically an analog value sourced from an analogue function block. To map this value to VW100, employ VM-Memory mapping: select the function block and assign the correct parameter. For transferring an analog value from a [product_name] (acting as Modbus TCP client) to a Modbus device (Modbus TCP server), follow this setup. Configuration steps for [product_name] and Modbus provided. Hope this is helpful."
+    },
+    {
+      "comment_id": 989353759111981,
+      "user_name": "UUBxj5EfFl",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "You're right, it's more complex than I expected."
+    },
+    {
+      "comment_id": 212448489667377,
+      "user_name": "UUBxj5EfFl",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hi, Thanks for your assistance. To clarify, I want to overwrite values on a control device via MODBUS. My plan was to use the mathematical operation function block, connect it to a network analog output block, and set the target device address as 10000. I've included relevant images for context."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The core challenge is uncertainty around correctly setting up data writes from [product_name] controllers to external Modbus devices. Key unclear points include address offsets, memory mapping, finding the right device/unit ID, and choosing appropriate function blocks. Several users expressed confusion about the setup process and needed peer input to clarify how Modbus communication should be configured for reliable results.",
+    "user_expectations": "Users want concise guidance or built-in product support that explains exactly how to configure data writes from [product_name] controllers to Modbus devices, including step-by-step instructions for memory locations, function blocks, and device parameters involved in the process.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy data transfer",
+      "working Modbus write",
+      "configurability"
+    ],
+    "pain_keywords": [
+      "address confusion",
+      "lack of step-by-step guidance",
+      "complex memory mapping"
+    ],
+    "feature_keywords": [
+      "Modbus address offset",
+      "VM-memory mapping",
+      "analog function block",
+      "unit ID"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

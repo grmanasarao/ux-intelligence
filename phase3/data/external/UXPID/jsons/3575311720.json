@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "branch_id": "3575311720",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 105053591844681,
+      "user_name": "yigbmH36GR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Hello, hoping someone can assist. I have a question about [article_no]: is this still supported? Can RTD modules connect to [article_no]? My goal is to use a [product_name] PLC with three RTD expansion modules for monitoring five heating zones. However, I’m facing challenges. When using the PT100/1000 analog threshold trigger, the control reacts only to high setpoints and ignores values below the low point—I’m unable to use a 'less than' symbol and can't find an easy workaround. I’d like to display temperature on a basic [product_name] HMI and use a time clock for a frost protection mode when the workshop is empty. Adjusting setpoints for each zone and the frost protection mode is also desired, as our climate is cold."
+    },
+    {
+      "comment_id": 697889676180668,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Welcome to the forum. To clarify: there's no \"[article_no]\", and having an 0BA0 would mean it’s over 20 years old—those cannot handle analog values or support expansion modules. Likely, you have a [product_name] whose [article_no] ends in 08-0BA0, e.g. [article_no]. All analog expansion modules ending with 0BA2 are compatible. For heater control, set the switch-off value in the \"ON\" parameter and the switch-on value in the \"OFF\" parameter, then negate the output. This way, the threshold trigger will properly control the heating. You can adjust the switching values using the display. [IMAGE]"
+    },
+    {
+      "comment_id": 415865534389317,
+      "user_name": "yigbmH36GR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Thank you for your guidance. I think your suggestions are correct. I’m away from my computer but appreciate your help. Any further advice is welcome. Wishing you a happy new year."
+    },
+    {
+      "comment_id": 830007382488547,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "All the best for the new year to you as well."
+    },
+    {
+      "comment_id": 136249972929869,
+      "user_name": "yigbmH36GR",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Could you explain how to negate an output? I missed that detail. I may need to switch from PT100 to analog 0-10V control since the sensors will be far from the PLC, requiring conversion to 0-10V rather than PT100. I’ve written a similar program but struggled to invert the output."
+    },
+    {
+      "comment_id": 924809613844006,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Can you clarify your question? What exactly are you trying to negate, and which output do you mean? For temperature evaluation using a 0-10V analog input, you will need an external transmitter, but keep in mind cable length limitations—[company_name] recommends a maximum of 10 meters."
+    },
+    {
+      "comment_id": 144474120234396,
+      "user_name": "yigbmH36GR",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I discovered the additional part of your diagram—the marked dot was hard to spot at first. High accuracy isn’t critical, but PT100’s resistance increases may cause issues, while a 0-10V scale should be easier to manage. My plan is to use a PT100 to 0-10V transmitter to reduce errors. An alternative would be installing a [product_name] on each transmitter, but that would be costly. The aim is to improve heating control in our warehouse and stop heating when delivery trucks are at the doors. Managing all of these aspects is challenging, but I’m making progress—any further advice is appreciated."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is working on configuring a temperature control setup using [product_name] PLC and compatible analog modules. They initially misunderstood hardware compatibility, then sought help with configuring analog threshold logic, particularly issues with symbol handling and inversion of outputs for heating management. Their technical challenges include adapting input methods due to distance limitations between sensors and the PLC, and ensuring flexible setpoint adjustments via a basic HMI. Concerns about sensor accuracy and integration of control features for frost protection and heating suspension during deliveries are also present.",
+    "user_expectations": "The user expects clear compatibility guidance for hardware and modules, analog threshold logic that is easy to adjust and allows for various symbols, simple output inversion, reliable temperature measurement over longer cable runs, and a user-friendly HMI to modify control setpoints as needed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "temperature monitoring",
+      "heating control",
+      "adjustable setpoints",
+      "remote sensor support",
+      "frost protection"
+    ],
+    "pain_keywords": [
+      "threshold logic limitations",
+      "hardware compatibility confusion",
+      "distance-induced accuracy loss",
+      "output inversion difficulty"
+    ],
+    "feature_keywords": [
+      "analog threshold trigger",
+      "setpoint adjustment",
+      "output negation",
+      "HMI display",
+      "time clock"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges",
+    "22": "Usability Improvement Suggestions"
+  }
+}

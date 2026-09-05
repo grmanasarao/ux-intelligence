@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "3738362362",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 184062075851929,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hello, I configured the [product_name] communication module to send SMS when the input on the [product_name] base module is activated. Currently, I notice that the same SMS is sent multiple times (usually two, but sometimes more) for a single event trigger, meaning messages are being sent repeatedly for one event. Can anyone suggest what might be causing this? I've attached details related to the [product_name] module. Thank you in advance."
+    },
+    {
+      "comment_id": 782223910770168,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hi, how is your input to the [product_name] module set up? The inputs on the [product_name] module are not debounced, so it's possible your signal is bouncing. This could result in receiving multiple SMS messages, as a single signal change could be registered more than once (e.g., 1 - 0 - 1 would result in two triggers)."
+    },
+    {
+      "comment_id": 572135794466343,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm not using any inputs or outputs on the [product_name] module directly. Instead, I'm using the digital input of the [product_name] base module, and the signal is processed at the [product_name] interface to send out SMS messages. I hope this clarification helps with suggestions or recommendations to resolve my issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user reports that their [product_name] module sends duplicate SMS messages for a single event trigger, raising concerns about consistency and reliability when integrating communication modules with the base module. Feedback points to possible input signal bouncing, indicating the module may not handle fast signal changes as expected.",
+    "user_expectations": "The user expects the system to reliably send only one SMS for each triggered event on the base module, without any duplicate messages.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable SMS notification",
+      "single notification per event",
+      "predictable system behavior"
+    ],
+    "pain_keywords": [
+      "duplicate messages",
+      "unreliable notifications",
+      "unexpected system response"
+    ],
+    "feature_keywords": [
+      "SMS trigger",
+      "event handling",
+      "input signal processing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

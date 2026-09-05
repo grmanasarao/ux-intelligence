@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "branch_id": "6021075141",
+    "thread_id": "3055273936",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 200370883677412,
+      "user_name": "j47iYmmIyS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm seeking advice regarding a pressure sensor (RS1 DC10-30V 4-20mA). I connected it to I8 on the [product_name], but I can't get any readings from it regardless of the analog input I use. I'm working with a compressor and want to prevent the solenoid valve from activating if the compressor drops below 7 bar. I suspect this particular sensor may be incompatible with [product_name] due to its voltage range (10-30V). Would it be simpler to use a sensor specifically compatible with [product_name]? If so, which type would you recommend for a system with 10 bar maximum pressure? Thank you."
+    },
+    {
+      "comment_id": 621874733248822,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Is it a 2-wire sensor?"
+    },
+    {
+      "comment_id": 558096493255310,
+      "user_name": "j47iYmmIyS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "It's a 3-wire sensor: 1 for positive, 3 for negative, 4 for output (4-20 mA). For wiring, Core 1 (+) is terminated to 24VDC+, Core 3 to 0V, and Core 4 connects to I8 on the [product_name] (which I assume is AI2 in the program)."
+    },
+    {
+      "comment_id": 342828132699954,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Analog inputs on a [product_name] base module (if equipped with analog inputs) only accept 0-10V signals. If your sensor outputs 0/4-20mA current signals, you need to convert current to voltage. The simplest solution is to use a 500 Ω precision resistor (minimum 0.25 W). Connect one side to the sensor's output and the other to 0V. The current passing through creates a 2-10V voltage drop across the resistor."
+    },
+    {
+      "comment_id": 472253398545948,
+      "user_name": "j47iYmmIyS",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Thank you for your advice. Will the [product_name]'s analog input location be indicated on its side if available? I'm considering a different sensor that provides a digital input to the PLC, avoiding the need for resistors, since this is for an industrial panel. Would I be able to use an ifm electronic Pressure Sensor (-1bar min, 10bar max, analog + PNP-NO/NC programmable output, relative reading), RS Stock No.: [article_no], PN2594? [url] This sensor allows local pressure settings and from my understanding, sends a digital output to the PLC. Would the following resistor work for the solution: RS Stock No.: [article_no], Vishay 500Ω 0.5W Metal Foil Resistor?"
+    },
+    {
+      "comment_id": 356903967971933,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "If I understood correctly, this sensor provides both digital and analog outputs (0-10V or 4-20mA)."
+    },
+    {
+      "comment_id": 341768973972424,
+      "user_name": "j47iYmmIyS",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "The datasheet highlights two outputs: OUT1 is a switching (digital) output, and OUT2 is an analog output (0 bar = 4 mA / 0 V; 10 bar = 20 mA / 10 V). My plan is to use Output 1, as this should serve as the digital output configurable on the sensor."
+    },
+    {
+      "comment_id": 789142404358267,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Yes."
+    },
+    {
+      "comment_id": 638140439198934,
+      "user_name": "j47iYmmIyS",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Many thanks for your support. I'll provide further updates as I progress. Edit: I ended up using a PNP sensor and set the pressure directly on the device."
+    },
+    {
+      "comment_id": 599909258397249,
+      "user_name": "j47iYmmIyS",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "Hello, thanks again for your input. Our current compressor, which will be upgraded later, is underperforming. I want the output Q1 to only activate after every five pulses to the output. Is it possible to accomplish this? I tried an up/down counter but haven't had success yet."
+    },
+    {
+      "comment_id": 384802194603971,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "I'm sorry, but I need more details to understand your request."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user ran into compatibility problems connecting a 4-20mA current-output pressure sensor to an analog input on a [product_name] base module, whose inputs only accept 0-10V voltage signals. The discussion centered around how to read the sensor's output, choosing appropriate replacement sensors, and different wiring options—including the need for additional components like resistors. Users highlighted issues with clearly identifying supported input types, accessing documentation, and configuring inputs for industrial panels.",
+    "user_expectations": "Users expect that industrial analog sensors, especially those with 4-20mA output, will work directly with analog inputs on [product_name] modules, without extra wiring or components. They also anticipate clear feedback regarding signal status and straightforward configuration for typical compressor applications.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "sensor compatibility",
+      "easy setup",
+      "pressure threshold control",
+      "digital input integration"
+    ],
+    "pain_keywords": [
+      "analog input incompatibility",
+      "confusing specifications",
+      "need for wiring workarounds"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "digital input",
+      "local pressure setting",
+      "output logic control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "9057984307",
+    "thread_id": "3055273936",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 522540422346384,
+      "user_name": "7AiWO4XKJ4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I am sharing a screenshot of the [product_name] AI input. With zero volts applied to the AI input and the amplifier configured for a 0-10V sensor with no offset and a gain of 1.0, the output displays '4' instead of zero, which is causing issues downstream. Is it possible to make the '4' read as zero? This works correctly during simulation but not when the program is downloaded to the actual [product_name] device. Thank you."
+    },
+    {
+      "comment_id": 714400743336358,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Are you certain that the voltage at AI3 is truly 0.00 VDC? Have you verified this using a multimeter?"
+    },
+    {
+      "comment_id": 456444599801097,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "If you don't have access to measuring equipment, it's possible to check the input status through the device's display. Additional details are available in the manual. Regards, [user_name] (translated by Google)"
+    },
+    {
+      "comment_id": 215670493892459,
+      "user_name": "7AiWO4XKJ4",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Thank you for the feedback. The AI3 input is reading 0.00 volts; I've even shorted it to the adjacent negative terminal, but it still indicates '4'. Notably, AI4 also shows '4' at zero volts when it's fully connected to negative. Both inputs are set for 0-10V range with no offset and a gain of 1.0. According to [user_name]'s reference table, both AI3 and AI4 display '4'. Additionally, when using AI3 in 4-20mA mode, the signal displayed becomes much less stable compared to other analog inputs (AI1 and AI2) under the same sensor conditions. Could it be that this analog module is defective? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 379547527441611,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "It seems the zero point calibration inside the AM2 module is not accurate. Can this be considered a fault? The deviation here is only +0.4%, while the module specification allows for an error tolerance of ±1.5%. You can correct the zero point within your program by adjusting the offset on the analog amplifier from 0 to -4."
+    },
+    {
+      "comment_id": 539710101484245,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "This is also confirmed in table 4. The module delivers the same value after A/D conversion as what appears in the program. However, whether 0.04 V is present at the input is not significant for this issue."
+    },
+    {
+      "comment_id": 491888063957245,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Please check the program properties to ensure that all four analog inputs are enabled, or verify both the 24V and 0-10V power supplies are properly connected to the negative terminal."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users observed that when zero volts is applied to AI3 and AI4 analog inputs on the [product_name] module with 0-10V settings, the displayed value is '4' instead of zero. This issue is consistent regardless of the method used and affects accuracy, unlike in simulation mode where expected results are achieved. Other analog inputs (AI1 and AI2) show more stable signals in similar conditions, suggesting the issue may be linked to calibration offset or allowed tolerance within the module. There is uncertainty about whether this discrepancy is considered a defect or normal within the module's specifications.",
+    "user_expectations": "Users expect that applying zero volts to an analog input should cause the module to register a value of zero, mirroring the behavior seen in simulation mode and with other analog inputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog input readings",
+      "hardware-software consistency",
+      "easy calibration"
+    ],
+    "pain_keywords": [
+      "analog input offset",
+      "unexpected readings",
+      "inconsistent hardware behavior"
+    ],
+    "feature_keywords": [
+      "analog input calibration",
+      "offset adjustment",
+      "AI input accuracy",
+      "tolerance specification"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns"
+  }
+}

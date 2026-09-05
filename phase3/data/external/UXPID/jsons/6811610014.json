@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "6811610014",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 842886999864298,
+      "user_name": "p7ZUex8qlT",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I have an existing program to control two pumps based on an analog input. Typically, we set the threshold values during installation. Now the customer wants the ability to adjust these threshold values remotely using Modbus TCP. I realized that it’s possible to configure [product_name] as a Modbus client, and set up a data transfer table so the threshold values are received from the server using an analog flag. How do you transfer the analog markers into the threshold values?"
+    },
+    {
+      "comment_id": 339931495607704,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "While you can write the setpoint for the threshold trigger using analog markers, I personally prefer writing to the VM area in words. This is just another Modbus register. I've attached a possible solution using the analog flag. Note: [product_name] only supports integers, with fixed point values ranging from -32768 to 32767."
+    },
+    {
+      "comment_id": 589707491843454,
+      "user_name": "p7ZUex8qlT",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thanks for your quick response. I'm relatively new to [product_name]; where can I find the VW entries?"
+    },
+    {
+      "comment_id": 977626963578702,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "On the Modbus side, write to a holding register and then read the corresponding word in the VM area as an analog network input. Note: You need to create a Modbus TCP/IP connection in [product_name] to the Modbus device. Once this connection is set up, add the appropriate values to the connection list."
+    },
+    {
+      "comment_id": 203416644633378,
+      "user_name": "p7ZUex8qlT",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "I haven't worked on this program for several weeks. Thought I'd understood it, but still unsure how to write VW for the threshold value. I built a test program with a potentiometer; typically, the output switches on at setpoint 500. Now I want to be able to change this setpoint remotely."
+    },
+    {
+      "comment_id": 837603310057216,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Instead of using the block \"Analog network input\", use \"Parameter VM mapping\". Go to Tools > Parameter VM Mapping."
+    },
+    {
+      "comment_id": 882698964206362,
+      "user_name": "p7ZUex8qlT",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "I ran a test with a normal analog input (see attachment) and it works, so it should also function with a network analog input."
+    },
+    {
+      "comment_id": 907432970083606,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Yes, it works as well. However, you need multiple blocks, and in larger programs you'll need to use every available block."
+    },
+    {
+      "comment_id": 519654773499137,
+      "user_name": "p7ZUex8qlT",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Thanks for clarifying."
+    },
+    {
+      "comment_id": 826174298255391,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "A new question published by [user_name] has been split into a separate thread with the subject 'Modbus tester for [product_name] as Modbus server'. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are exploring how to remotely adjust analog threshold values for pump control via Modbus TCP in [product_name], aiming for greater flexibility beyond initial installation settings. There is some confusion about how to map Modbus registers for threshold control, and the discussion reveals that 'Parameter VM Mapping' within the programming tool is the recommended method. Users mention challenges with configuration and block management in larger programs.",
+    "user_expectations": "Users hope to remotely set analog threshold values using Modbus TCP and are searching for a clear, efficient method to link Modbus data to threshold parameters in [product_name], while minimizing complexity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote threshold adjustment",
+      "flexible control",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "complex VM mapping",
+      "block limitations",
+      "steep learning curve"
+    ],
+    "feature_keywords": [
+      "analog threshold remotely",
+      "Modbus TCP mapping",
+      "Parameter VM mapping",
+      "analog network input",
+      "block usage"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

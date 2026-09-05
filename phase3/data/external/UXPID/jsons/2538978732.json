@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "2538978732",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 903670359467846,
+      "user_name": "Pf3kTbKOYX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Is there a way to add a timestamp when an input changes, so that the time, date, and event are recorded together?"
+    },
+    {
+      "comment_id": 421457310481648,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "You can use the Block Data Log feature. It will automatically add a timestamp to each log entry."
+    },
+    {
+      "comment_id": 313761834363774,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "A straightforward solution is to set up a Python-based event-driven server, for example using Twisted. With the snap7 module, you can monitor the input states and use the datetime module to add a timestamp. Store the results in a CSV file as input changes occur, and use any application to review the file locally. To summarize: 1. snap7 reads the input state from [product_name] PLC. 2. Python handles the rest. If your [product_name] is not connected to a PC, you can use the log block to write changes to an SD card."
+    },
+    {
+      "comment_id": 321736278963287,
+      "user_name": "nWcLlvehrj",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], If useful, the product manual provides guidance on configuring data logging, and includes timestamp information. Please check the \"[product_name]: Data Log\" section in the documentation. Hope this helps!"
+    },
+    {
+      "comment_id": 810625773284801,
+      "user_name": "Pf3kTbKOYX",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Typically this would be managed with an alarm screen, but the [product_name] does not support such functionality. We need to show changes in digital input state and the timestamp in a web browser, but this data should also be stored directly in the device in case network communication fails."
+    },
+    {
+      "comment_id": 502313285746027,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "The [product_name] is not the same as [version_no] and its web browser is not a [product_name] panel. Even if it was, a break in communication between the system and the panel would prevent displaying timestamps in the HMI. Currently, it's not possible to directly access the real-time clock through the web interface, so you can't provide your own timestamp there. You would need to implement your own timestamp logic, for example, starting a timer from midnight to generate timestamps manually. Otherwise, you have to rely on on-board features: data logging, or setting up message texts with acknowledgment, showing the date and time when activated."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users want to log digital input changes on [product_name] devices and record corresponding timestamps and dates at the device level, enabling on-device access even if communication is lost. While built-in logging includes timestamps, real-time browser display from the device is limited, and accessing the internal clock via web interface isn't directly supported. This restricts event tracking and visualization compared to more advanced controllers.",
+    "user_expectations": "Users expect [product_name] to offer built-in event logging with timestamp features, and the capability to view historical event data including time and date directly from its web interface, maintaining this data even if network connectivity is lost.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "event logging",
+      "timestamp on input changes",
+      "data persistence",
+      "web browser visibility"
+    ],
+    "pain_keywords": [
+      "restricted real-time clock access",
+      "limited web interface",
+      "missing alarm/history function"
+    ],
+    "feature_keywords": [
+      "data log",
+      "web browser interface",
+      "real time clock",
+      "event timestamp",
+      "onboard storage"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "branch_id": "6346911997",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 889516388233779,
+      "user_name": "ZwkSBzslBC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I need to set up communication between a PLC [product_name] and an AZL-52 (component of a [company_name] burner management system) by using a transparent gateway (such as a Moxa or similar) that translates Modbus TCP to Modbus RTU. The AZL-52 has some specific limitations: 1. It cannot respond to more than 20 registers per query; 2. It requires a strict timing where no two or more queries happen simultaneously. I need to read over 20 consecutive Modbus registers, so my idea was to declare the AZL-52 as a \"Modbus Compatible device\" and, for the first limitation, use several Ethernet connections where each \"data transfer\" contains fewer than 21 registers. However, I'm unsure about satisfying the second limitation if I rely only on a \"customized interval\" for refreshing each connection since queries could still collide if they start together. Is there any method in [product_name] to delay or control (start/stop) the Ethernet connections? Is there another way to achieve this? Thank you."
+    },
+    {
+      "comment_id": 459943617551114,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "No, it is not possible to stagger communication control with the [product_name]."
+    },
+    {
+      "comment_id": 803422024740213,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "If [product_name] is set up as a Modbus TCP/IP client, you can configure the interval at which it sends requests to the server. See the attached picture for details. This is the only approach I am aware of. Hope this helps."
+    },
+    {
+      "comment_id": 492537995993673,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Please read the initial post carefully before replying. The topic starter is not asking about setting a fixed interval, but rather if it is possible to transfer only the first 20 values initially, then the next 20 in the subsequent transfer, and so forth."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter difficulties managing multiple Modbus TCP queries from [product_name] to third-party Modbus RTU devices that impose strict limits on register counts and query timing. [product_name] does not provide built-in options for staggering or delaying multiple Ethernet connections, and simply adjusting interval settings does not allow for more precise control over sequential data transfers, especially when avoiding query collisions is necessary.",
+    "user_expectations": "Users expect [product_name] to offer functionality for managing, delaying, or staggering individual Ethernet queries to meet the AZL-52 Modbus RTU communication requirements.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "protocol compliance",
+      "flexible communication",
+      "device compatibility"
+    ],
+    "pain_keywords": [
+      "no control over ethernet query sequencing",
+      "limitations in staggered communication"
+    ],
+    "feature_keywords": [
+      "Ethernet connection timing",
+      "query interval control",
+      "Modbus compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "branch_id": "4099565230",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 950460163460516,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I am using [product_name] [version_no] and communicating via Modbus TCP with a network RTU device. I have succeeded several times, but now I can't figure out how to access the \"Network Output\" device \"Q\". In the device parameters, I set it to \"Local variable memory\" VM VB:1, Bit:1. When mapping in VM, I can't find this reference. Can I map to it directly? Any advice would be appreciated."
+    },
+    {
+      "comment_id": 441619508989353,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Are you using a Modbus TCP/IP to Modbus RTU gateway? You did not state from which side you want access. Do you want access from the [product_name] to an output on the Modbus side, or the other way around?"
+    },
+    {
+      "comment_id": 876558183328027,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I want my RTU to be able to read the value of the [product_name] network output function block set to VB:1, bit:1."
+    },
+    {
+      "comment_id": 670645139500874,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The [product_name] [version_no] supports only Modbus TCP/IP, not RTU."
+    },
+    {
+      "comment_id": 978000361621336,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Who is the server and who is the client?"
+    },
+    {
+      "comment_id": 452266759378269,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I am using Modbus/TCP to communicate with a remote device that acts as an RTU (data concentrator)."
+    },
+    {
+      "comment_id": 148080612888690,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "[product_name] [version_no] is the Server, and my other device is the client. Communication is established—I can read Parameter VM Mapping points at my other device, and I can also read [product_name]'s physical output statuses such as Q1 at Modbus coil 8193. I'm unsure which coil the network output assigns V1.1 to."
+    },
+    {
+      "comment_id": 367006746029426,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Sorry for the confusing terminology, and thank you for requesting clarification. My \"RTU\" does not refer to Modbus/RTU (serial connection) but to a device over TCP/IP. All my connections are TCP/IP, with no gateways needed for conversion."
+    },
+    {
+      "comment_id": 590795865023613,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I found a post suggesting an addressing schedule. I'll try this; the attached document implies V1.1 is at coil 10."
+    },
+    {
+      "comment_id": 791978218564156,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Try reading [product_name] VM-Bit V1.1 from the Modbus side as coil number 10."
+    },
+    {
+      "comment_id": 563633193814387,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Maybe the original file will help—see the attachment. There's an Excel sheet where you can enter any bit, byte, or word in the relevant column. Select the start address in J1 (either 0 or 1) to obtain the correct values for the entire table. The start address depends on your Modbus partner."
+    },
+    {
+      "comment_id": 353812958721015,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I use a Modbus TCP server with RTU RS485, which maps data in both directions—from [product_name] to RTU and vice versa. Simply send data to any address in the Modbus TCP server, and the RTU can read from that address. It's quite straightforward. Also, [product_name] can read from mapped data sent from RTU devices."
+    },
+    {
+      "comment_id": 818105783607057,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Does this actually help without details on converters or any examples?"
+    },
+    {
+      "comment_id": 287988226969279,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "[url]"
+    },
+    {
+      "comment_id": 208733013893772,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Personally, I do not need to use Kingview software—I log into the server page and configure devices as you would a WiFi router. The product is from King Pigeon company, available on Aliexpress. There are various I/O models to choose from."
+    },
+    {
+      "comment_id": 329873202816052,
+      "user_name": "8RYb477Ela",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I've seen similar products and other manufacturers offering the same design. The main issue is paying extra tariffs when importing into Germany. Another concern is ensuring industrial capability for continuous operation, though I haven't personally tested this."
+    },
+    {
+      "comment_id": 298037399174365,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The build quality appears fine—no issues so far. However, the RTU RS485 is somewhat slow. If you control directly through the Modbus server's built-in I/O, it's much faster. The product isn’t cheap, but it is TCP-based, so you can expand [product_name] I/O in remote areas using these devices. For local cabinet expansion, the [product_name] expansion module is best."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users struggle to map network output variables within [product_name] systems to Modbus coil addresses, particularly for remote reading of local variables. The process is not clearly outlined in documentation or the software interface, and terminology confusion between device types and Modbus protocol variants leads to further complications.",
+    "user_expectations": "The user expects to map a [product_name] local variable address to a Modbus coil for remote reading, and for the mapping process to be clearly explained or readily accessible within the software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote monitoring",
+      "variable mapping",
+      "output status visibility"
+    ],
+    "pain_keywords": [
+      "mapping confusion",
+      "insufficient documentation",
+      "unclear VM address assignment"
+    ],
+    "feature_keywords": [
+      "Modbus TCP address mapping",
+      "Network Output function block",
+      "Local variable memory"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

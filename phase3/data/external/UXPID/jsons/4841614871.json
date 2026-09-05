@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "4841614871",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 917648859057333,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "I'm working on a very basic application where I want to send a voltage (such as 4V) to the analog output of a module, keep it active for 20 seconds, then turn it off. I was able to easily set the 4V using a PI controller block and entering the desired value into the manual output. However, when I tried using an off-delay timer for the 20-second interval, it didn’t function as expected. Is there a way to use a timer with this analog output module in [product_name]?"
+    },
+    {
+      "comment_id": 762650251137942,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], welcome to the forum. You actually don’t need a timer or PI controller in this situation. The solution is straightforward once you know how to approach it."
+    },
+    {
+      "comment_id": 612695080603350,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Thanks, [user_name]. Since I wasn’t familiar with the method, the solution wasn’t obvious and I ended up spending several hours finding a workaround, which was a good learning experience. In your circuit, what function does the AND (Edge) serve? It seems to work with or without it."
+    },
+    {
+      "comment_id": 587436128483270,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "You're correct. But, without the AND (Edge) block, the off-delay timer only starts when the push button on input I1 is released. If someone holds the button longer, the output voltage remains active for more than 20 seconds, for example, 25 seconds."
+    },
+    {
+      "comment_id": 188435859107191,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Indeed, thanks again. I think similar logic is sometimes called a \"one shot\" in other product environments. (Although choosing products outside of [company_name]'s range is rare.) I'll start using AND (Edge) blocks in other push button circuits now. I appreciate the help—it’s been very useful as I was quite confused by this behavior."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user struggled to implement a timed analog voltage output using the analog output module within [product_name]. There were difficulties in integrating timer logic with analog output, and initial methods didn’t work as intended. Although the ultimate solution was simple, it wasn’t easily discoverable without input from the community, highlighting a steep learning curve for using basic timer-controlled analog functions in this software.",
+    "user_expectations": "The user expects to combine timer logic with analog outputs in [product_name] intuitively, without resorting to complex workarounds or requiring in-depth technical expertise.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy timed analog control",
+      "intuitive logic block usage",
+      "productive learning"
+    ],
+    "pain_keywords": [
+      "difficulty integrating timers",
+      "steep learning curve",
+      "lack of clear instruction"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "timer integration",
+      "logic block interconnections"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "3": "User Guidance"
+  }
+}

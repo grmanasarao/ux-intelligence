@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "6844582171",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 373482370090306,
+      "user_name": "Pcno5mC3pz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Hi, I'm running into the VM Mapping line limit, which says the number of lines must not exceed 64. Is there any solution for this with the [product_name] [article_no]? Thanks, [user_name]."
+    },
+    {
+      "comment_id": 740954953178528,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "[user_name], I don't have a direct answer for your question. Out of curiosity, why are there so many mapped links? Perhaps some of those parameters are the same and could be grouped together? If so, we could help distribute the VM values to various destinations. More details about your VM's purpose in the application might highlight other options."
+    },
+    {
+      "comment_id": 564873438286861,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "The answer is both yes and no. If you use bits, you can create a BYTE with 8 bits or a WORD with 16 bits, letting you pack more data into a single line. Bit-to-byte or word conversion can be done with a shift register and additional programming. Another solution is multiplexing, though this also requires coding, but it's feasible with the [product_name]. In many cases, you don't need VM addresses for Inputs/Outputs and Markers since these addresses often exist in the Ethernet data already. Check the Help section of [product_name] for address details. Your need for numerous VM addresses depends on your programming and requirements. Why do you have such a high count of VM addresses?"
+    },
+    {
+      "comment_id": 472052069453476,
+      "user_name": "Pcno5mC3pz",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Thank you for your replies. I have a lot of mappings because my [product_name] is connected to an HMI screen, with each setting mapped and an HMI tag assigned in [product_name] HMI software."
+    },
+    {
+      "comment_id": 954758225975787,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Yes, that's a substantial amount. Check the Help section of [product_name] software and look for VM Mapping. There, you'll see many standard addresses available in Ethernet connections, so manual VM address assignment isn't always necessary. For example, addresses V923.0 to V923.7 correspond to digital inputs, and analog marker 1 (e.g., AM1) equals VW952, so using an analog marker for certain signals might help. If you display the value of AM1 on your HMI, you just need to create a tag with address V952 (a WORD) in the HMI software. In [product_name], connect AM1 to the signal, and avoid extra VM mapping. This should free up VM line space for other signals."
+    },
+    {
+      "comment_id": 783887156663587,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "From a usability perspective, there are likely too many parameters at play. Consider these steps: 1) Separate parameters used regularly from those that are only machine-specific or installation-related. 2) Identify which parameters share values. Actions: 1) Place machine parameters, adjusted infrequently, on [product_name] user messages, so technicians can modify them through the built-in screen, and regular users don't need access. 2) PLC code can link one VM to multiple parameters. 3) Use demultiplexing—one VM selects the block parameter to change, another VM adjusts it (using an analog block with memory). The HMI then manipulates the selection VM depending on which parameter is being set."
+    },
+    {
+      "comment_id": 943561564941633,
+      "user_name": "Pcno5mC3pz",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Thanks for your help. Could you clarify steps 2 and 3 with some basics? I'm sure I can combine some settings in the program. I'll try implementing this and share results soon."
+    },
+    {
+      "comment_id": 654920990236408,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "I won't be able to design an approach for suggestion #3 at the moment, sorry. For step #2, you can check the attached project—it's untested, but I've used similar logic before and it should work. Looking forward to your feedback. [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced a restriction of only 64 VM Mapping lines for a [product_name] device ([article_no]), which is insufficient when connecting to an HMI panel and assigning a tag for each parameter. Discussions explored potential solutions such as data packing (bits to bytes/words), multiplexing, and using standard Ethernet-mapped addresses to minimize manual VM assignments. The conversation reflected user frustration with system limits and a desire to optimize setups within the available resources.",
+    "user_expectations": "Users want to map more than 64 settings between the [product_name] controller and their HMI for thorough monitoring and control. They are looking for approaches that allow them to organize or extend mappings to support all required variables, minimizing development complexity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "extended variable mapping",
+      "efficient HMI integration",
+      "simplified configuration"
+    ],
+    "pain_keywords": [
+      "variable mapping limit",
+      "parameter restriction",
+      "complex workaround"
+    ],
+    "feature_keywords": [
+      "VM Mapping",
+      "HMI tag assignment",
+      "Ethernet address mapping",
+      "analog/byte/word mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

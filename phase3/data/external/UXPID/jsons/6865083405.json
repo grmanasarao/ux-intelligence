@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "6865083405",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 757222851112194,
+      "user_name": "bQl9Jgtnvo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "How can I set a clock time and both view and edit it from the web page? The current method doesn’t seem to work."
+    },
+    {
+      "comment_id": 365482548295965,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], Your settings in [product_name] Web Editor and [product_name] Soft Comfort (parameter VM mapping) appear correct. However, [company_name] has some inconsistencies in how time formats are handled. For example: If you set an 'on time' to 10:32 am, in [product_name] this value is stored as a hex number, 1032 (hex), which equals 4146 in decimal. The Web Editor interprets this as 4146 minutes and displays it as 69:06 (hh:mm): 69 hours x 60 minutes = 4140 minutes 4140 + 6 = 4146 minutes total This means the display shows 69:06 hh:mm, which doesn’t match the intended time. Sometimes, it’s hard to believe those designing the software ever tested the clock functionality."
+    },
+    {
+      "comment_id": 265780918827288,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hi, You cannot change the realtime clock in [product_name] directly from the web interface. If you mean the weekly timer: Set up VM mapping for day, on, and off times: - Day is represented as a byte, but to control, use individual bits for each day in the Web Editor. - Hours and minutes use word format. Configure the input as analog and set encoding to HEX since time uses BCD coding. Note: In your [product_name] program, you must enable each cam to make changes. If a cam is disabled, you can configure it, but it won’t function."
+    },
+    {
+      "comment_id": 260001151177671,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Could you provide a detailed example? I’m very interested and would like to understand better."
+    },
+    {
+      "comment_id": 561398709563904,
+      "user_name": "bQl9Jgtnvo",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I’m also interested—thanks for sharing."
+    },
+    {
+      "comment_id": 222435608516562,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "After further tests, I managed to create a complete cam for the weekly timer. To set switching times, you need to use analog inputs with HEX format. For example, entering 9:00 am as 900. I ran into problems yesterday—the system didn’t accept certain formats, and I thought it wasn’t working. Times like 9:00 are displayed as 16#900. When I tried to enter 10:00 as 16#..., the input was rejected. When I entered 1000 directly and hit return, the system showed 'submitted,' but the field appeared empty. I ended up sticking to direct value input. Today, using analog and HEX format, I noticed the value was saved even though the input field looked empty. Returning to the web server and clicking away from the field made the value suddenly appear again. Honestly, the handling seems nonsensical. You must input without the '16#' prefix, and the value disappears until you click elsewhere. It’s quite confusing. I’ve included a screen capture, my test configuration file, and the Web Editor project in the attachment. Feel free to review them yourself to end the curiosity."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users express confusion and frustration while trying to set and edit clock times in [product_name] using the web interface. Time values must be entered in specific formats (e.g. BCD, HEX, scaled minutes), but these are not intuitive, causing incorrect display and behavior. Additionally, inconsistent feedback in the input fields (values disappearing or only appearing after additional clicks) leads users to perceive poor usability and a lack of clear instructions.",
+    "user_expectations": "Users expect to easily view, enter, and adjust time settings for timers or clocks on [product_name] through the web interface, with understandable formats and instant, reliable feedback.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "web configuration",
+      "time parameterization",
+      "remote editing",
+      "value feedback"
+    ],
+    "pain_keywords": [
+      "confusing input formats",
+      "missing feedback",
+      "inconsistent display",
+      "poor usability"
+    ],
+    "feature_keywords": [
+      "web time editing",
+      "VM mapping",
+      "HEX/BCD input",
+      "online value update"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

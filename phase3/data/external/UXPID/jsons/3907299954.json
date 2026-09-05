@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "3907299954",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 763585046371148,
+      "user_name": "kNqInYhsUF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm preparing my program to use an [product_name] module for temperature comparison, though I don't have my PT100 sensor yet. My plan is to compare two temperatures using an analog comparator, but first I want to scale the input value. I understand that [company_name] converts the PT100 analog input into a digital value between 0 and 1000 in its internal register. I thought I could simply apply a gain of 0.25 and an offset of -50 to get a range from -50°C to 200°C with 0.25°C increments (0 gives -50°C, 1000 gives 200°C). Is it really this simple? Thanks for your guidance. My device is the latest version of [product_name]."
+    },
+    {
+      "comment_id": 796862144375393,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Welcome to the forum. The analog-to-digital converter of [product_name] converts any analog signal (current, voltage, or PT100) into values from 0 to 1000 units. Even though it's a 10-bit converter, the scale is limited to 1000 instead of 1024 units. The [product_name] module is calibrated for a measuring range from -50°C to 200°C, which is a total span of 250°C. This means the resolution per unit is 250°C / 1000 = 0.25°C. Each increment represents a change of 0.25°C. You can display the converted value in three formats: without decimals (-50°C to 200°C), with one decimal (-50.0°C to 200.0°C), or with two decimals (-50.00°C to 200.00°C)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are looking for a straightforward explanation of how to scale and interpret analog input values when using an [product_name] module with PT100 sensors. The discussion clarifies that the analog signal is mapped to a range of 1000 units internally, and provides an accurate method for calculating the temperature resolution and mapping.",
+    "user_expectations": "The user expects the analog values from PT100 sensors to be mapped linearly, allowing for simple scaling using a gain and offset so temperatures are easily represented in digital form for logic programming.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate temperature scaling",
+      "early programming",
+      "predictable mapping"
+    ],
+    "pain_keywords": [
+      "uncertainty about scaling",
+      "lack of PT100 sensor for testing"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "resolution",
+      "temperature range",
+      "analog comparator"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

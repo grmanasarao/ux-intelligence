@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "2817074316",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 597571013796269,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I have installed a sensor in the field with a 0-1.5 Bar range and a 4-20mA output. Could you please explain how to configure the setup? Controller - [article_no] The sensor is connected at terminal I7 and configured as AI-1. ------------------------------------------------------------------------------------------ Split from Scaling Question."
+    },
+    {
+      "comment_id": 594736188213845,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "A [product_name] base module [article_no] cannot read a 4-20 mA signal directly, it only supports 0-10 V input. If you want to read a 4-20 mA signal, you need a signal converter (4-20 mA to 0-10 V) or use a resistor (500 Ohm, 0.5 Watt)."
+    },
+    {
+      "comment_id": 118345803352578,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Thank you for your response. If I connect the analog signal using the AM2 analog expansion module, how should I configure it?"
+    },
+    {
+      "comment_id": 695093387765241,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "I recommend using two analog amplifiers. The first one should be set for sensor type \"4-20 mA\" with a gain of 1.0 and no offset. The second amplifier should have sensor type \"No sensor\", a gain of 1.5, no offset, and 3 decimal places."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main problem is that the user tried to connect a 4-20 mA field sensor to a controller that only supports voltage input, causing confusion about how to properly configure both the hardware and software. Community feedback emphasized the need for additional hardware, like a signal converter or resistor, to ensure compatibility. Discussion also covered the use of expansion modules and ideal amplifier settings for correct signal reading.",
+    "user_expectations": "The user is seeking detailed and clear instructions on configuring a [company_name] controller to correctly read a 4-20 mA sensor output, whether by direct connection or by using an appropriate expansion module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct sensor integration",
+      "accurate analog reading",
+      "clear configuration steps"
+    ],
+    "pain_keywords": [
+      "hardware compatibility confusion",
+      "configuration difficulty",
+      "signal conversion requirement"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "sensor compatibility",
+      "expansion modules"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

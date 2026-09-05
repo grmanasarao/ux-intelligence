@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "7441140696",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 559187771724425,
+      "user_name": "epBNxCVjCM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm configuring a [product_name] for temperature control and want to limit the highest 'On' threshold of an Analog Threshold Trigger to 25. I want to make sure operators can't set the temperature preset to overly high values. Looking for advice, thank you."
+    },
+    {
+      "comment_id": 917415015525362,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Is there no minimum limit for the value?"
+    },
+    {
+      "comment_id": 157730544156068,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "One straightforward approach could be this: Use a counter for the setpoint, and allow values between 15 and 25. Anything above 25 is ignored, and 25 is used as the maximum default. Configure the 'Retentivity' setting to retain the value during power cycles."
+    },
+    {
+      "comment_id": 994421803312900,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Which device does the operator use to enter the setpoint? Is it using the [product_name]'s display, its web server, or through an HMI panel?"
+    },
+    {
+      "comment_id": 691237417221969,
+      "user_name": "epBNxCVjCM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Thanks for the quick reply. There is no lower limit. I'm setting the 'On Threshold' value for the analog threshold trigger using a [product_name] HMI."
+    },
+    {
+      "comment_id": 463127024851380,
+      "user_name": "epBNxCVjCM",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "I see your point, and I had a similar initial idea. My real requirement is to limit the analog threshold trigger's 'on' threshold setting to 25, so if a value above 25 is entered on the HMI, the function block should automatically revert to 25."
+    },
+    {
+      "comment_id": 416317305274544,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "It's not possible to write an analog value back into the input field of the [product_name] or its HMI display."
+    },
+    {
+      "comment_id": 966682623709004,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Are you aiming for cooling or heating with the temperature control? Assuming you're controlling heating:"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are exploring ways to prevent operators from setting excessively high values in an Analog Threshold Trigger when using [product_name] for temperature regulation. They want an automated method to cap input via the HMI, but current system limitations prevent directly enforcing this maximum or reverting out-of-bounds entries in the function block. There’s a general need for improved configuration security and parameter enforcement within the [product_name] system.",
+    "user_expectations": "The user expects the system to block 'on' threshold values above 25 and to automatically reset any higher entries to 25 directly within the function block.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter restriction",
+      "automated correction",
+      "operator safety"
+    ],
+    "pain_keywords": [
+      "lack of input validation",
+      "no automatic value correction",
+      "parameter security"
+    ],
+    "feature_keywords": [
+      "Analog Threshold Trigger",
+      "setpoint limits",
+      "HMI integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "6": "Security Concerns"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "5847023855",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 402845382674975,
+      "user_name": "R4uZLiRXmq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello, I’ve been working for several months to set up a SCADA system using [product_name] and [product_name] communication modules. Most features are operating as expected and I can successfully read registers from [product_name] using the communication module. Both reading and writing register values via Modbus software function perfectly with direct Ethernet connection to the [product_name]. However, this only works when I’m plugged in directly to the [product_name] Ethernet port, not when attempting through the site-wide Ethernet system—even if both devices are on the same network and subnet. For example, [product_name] at 172.23.80.14 and PC at 172.23.80.15. A port scan confirms Port 502 is open. Does anyone have any ideas? Thanks,"
+    },
+    {
+      "comment_id": 444604054376027,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello, Connect your PC or laptop to the network and disconnect the [product_name] device. Try pinging the [product_name] IP address to confirm there’s no IP address conflict with another device. If there’s no conflict, then check if your router’s DHCP range overlaps with the [product_name] fixed IP address. Some routers can have issues if static IPs are also included within the DHCP pool. If your network is managed by professional IT support, reach out to your IT administrator to ensure you’re allowed to connect fixed IP devices to the network. If none of these steps solve the issue, then the underlying problem is likely with network configuration. In that case, IT support should help further. Hope this is useful."
+    },
+    {
+      "comment_id": 955322834036541,
+      "user_name": "R4uZLiRXmq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Thank you for your input. I already checked for duplicate IP addresses before posting this. Based on information provided by [company_name], there should not be a DHCP issue if the device is set up with a static IP. I’m currently waiting for their feedback and will share any updates."
+    },
+    {
+      "comment_id": 724680362106927,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Hello, Sometimes, routers don’t clearly separate wired Ethernet and WiFi DHCP allocation. This can lead to fixed IP addresses configured on [product_name] also being assigned via DHCP to another device. To avoid this, keep the [product_name] IP address outside of the DHCP range. Even if it works for now without separation, a future device could connect via DHCP and be given the same IP as your [product_name]. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report reliable direct Modbus communication between [product_name] and its communication module but encounter connectivity issues when routing via the site’s Ethernet network. This suggests underlying challenges with network and static IP configuration, including potential DHCP conflicts, which affect remote accessibility to [product_name] over the broader network.",
+    "user_expectations": "Users expect [product_name] modules to maintain consistent accessibility and functionality over the site Ethernet network, believing static IP configurations should prevent network conflicts as described in documentation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "network integration",
+      "reliable Modbus communications",
+      "remote accessibility"
+    ],
+    "pain_keywords": [
+      "network access failure",
+      "DHCP/static IP conflict",
+      "site network unreliability"
+    ],
+    "feature_keywords": [
+      "Ethernet interface",
+      "Modbus communications",
+      "static IP configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

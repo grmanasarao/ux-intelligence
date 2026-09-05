@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "branch_id": "7103178623",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 675985238368621,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Is there any risk of delay or lost communication over TCP? Can it be trusted for critical real-time actuation tasks?"
+    },
+    {
+      "comment_id": 475239582047141,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Data exchange always involves some delay. The main thing to clarify is what you mean by 'real time.'"
+    },
+    {
+      "comment_id": 814692974071165,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Thanks for the information. Typically, direct control outputs on the local system, such as a relay output on a single [product_name] module, should operate within one cycle and function in real time. However, if a slave unit is connected over a LAN network, actuation will likely take longer than local output on the master. Is my understanding correct?"
+    },
+    {
+      "comment_id": 836853529050336,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "To be clear, the slave unit will be controlled by the master unit. When the master sends a command over LAN to the slave, there might be extra delay or possibly lost commands, especially if there's a networking issue between devices. Is this assumption accurate?"
+    },
+    {
+      "comment_id": 299212905668002,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "There will definitely be some delay across the network. The exact delay depends on several factors, such as Ethernet cable length and whether switches or routers are present, or if devices are directly connected. This is something best determined by testing. Can you specify what issue(s) you’re currently facing?"
+    },
+    {
+      "comment_id": 560315075101748,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Thank you for clarifying! I haven't set up Master-Slave configuration before, so my biggest worry is about speed and reliability. If testing shows good performance, I plan to implement WiFi communication for a remote sensing and actuation project, using one master and multiple slave units. It sounds like an exciting project!"
+    },
+    {
+      "comment_id": 300492271994311,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Using WiFi can worsen the issue unless the connection is perfect. Each additional device, even if it adds just a small delay, contributes to the overall sum. What is your reasoning for choosing master/slave communication? It limits certain possibilities."
+    },
+    {
+      "comment_id": 453364721203899,
+      "user_name": "Gg0uuJOmNn",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "In many cases, the delay from a relay is much greater than network-related delay."
+    },
+    {
+      "comment_id": 951009996481701,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], that's not always true. That statement is a bit too general."
+    },
+    {
+      "comment_id": 137755047823149,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Dear [user_name], my goal is remote sensing and increased memory for the program, which can't fit into a single module. I believe master-slave configuration can achieve this, aside from potential networking speed and reliability concerns."
+    },
+    {
+      "comment_id": 269465095596856,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "That's the issue—using master/slave communication between [product_name] modules does not provide additional memory. The slave is just a peripheral extension with no running program. For access to the memory of other units, you need to use master/master configuration."
+    },
+    {
+      "comment_id": 934461256743577,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Unfortunately, that's not the case. With master/slave configuration, only the master contains a program. However, you can have multiple devices on a network, each running its own program and using network inputs/outputs, without necessarily having a master/slave setup."
+    },
+    {
+      "comment_id": 475980203186139,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Apologies, I missed the second page of this discussion and didn't notice you'd already answered the question."
+    },
+    {
+      "comment_id": 873128204021761,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Thank you, everyone. I wasn't aware that master/master configuration was possible. I'm quite new to inter-device communication and will definitely give it a try."
+    },
+    {
+      "comment_id": 296514685013371,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "It's straightforward: in a master/master setup, one [product_name] module acts as the client and the other as the server."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are concerned about the reliability and delay of master-slave communication between control modules, especially when using TCP/LAN or WiFi networks. There is uncertainty about whether these systems can provide real-time, critical actuation and apprehension about potential delays or lost commands caused by networking issues. Discussions reflect awareness of networking limitations and emphasize the importance of understanding system response times when deploying distributed setups.",
+    "user_expectations": "Users expect reliable, near real-time actuation with predictable response times for both wired and wireless interconnections. They seek minimal risk of lost commands and high dependability, especially in critical operations involving distributed control modules.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote actuation",
+      "expanded memory",
+      "scalable control"
+    ],
+    "pain_keywords": [
+      "network delay",
+      "command loss",
+      "unreliable communication"
+    ],
+    "feature_keywords": [
+      "master-slave communication",
+      "LAN/WiFi connection",
+      "real-time relay output"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

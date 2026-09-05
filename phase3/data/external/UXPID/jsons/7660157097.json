@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "7660157097",
+    "thread_id": "3055273936",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 386160969520556,
+      "user_name": "RZzUk1D6iN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "I'm using a [product_name] for a traffic light controller at a go-kart track. Normally, red and yellow lights flash unless a race is in progress, when the green light is on. A momentary button starts a 5-minute timer, activating the green light; when the timer runs out, it returns to flashing red and yellow. After two days, I've noticed the relay outputs for red and yellow lights staying on continuously during flashing (1 second on, 1 second off). I’m wondering if I’ve pushed this PLC beyond its limits for flashing. Is there a better-suited product for my application? As a temporary fix, I now turn off all lights after a period of inactivity."
+    },
+    {
+      "comment_id": 868543764692041,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "Hello, What is the size of your load? The relay contacts are typically rated for 100,000 cycles at a 3A inductive load, and somewhat higher for resistive loads. If you're flashing all day, you reach this number quickly. It's recommended to use a [product_name] with transistor outputs and external contactors that can better handle frequent switching and the load. Regards,"
+    },
+    {
+      "comment_id": 633331684417273,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "Hi, I don't believe you would have exceeded the relay operation limits in just two days. Can you clarify what type of lamps you're using? If you're using LEDs, it's helpful to add a load so the minimum current threshold is met (for example, 100mA at 12V). Low power lights tend to be capacitive loads, and there's usually little published info on how to protect relay contacts in these situations. You could try gently tapping the [product_name] to see if the relay contacts release. Consider switching to a minimum recommended load or replacing your low energy lamp with a standard one to see if it helps. Hope this provides some guidance."
+    },
+    {
+      "comment_id": 729899666041459,
+      "user_name": "RZzUk1D6iN",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "[user_name], My setup uses LED bulbs with standard bases, and each relay handles roughly 60W—just over 0.5A on 110V mains. If I tap the PLC, the relay releases. Do you think increasing the current draw would help solve the sticking issue?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is encountering relay outputs that remain stuck in the on state after repeated rapid flashing in a traffic light application powered by LED bulbs. Other contributors note this may be due to the low current, capacitive nature of LEDs or reaching the mechanical relay's cycle limit with frequent operation and recommend either switching to transistor outputs, using external contactors, or increasing the load to suit the relay design. Discussions center on identifying whether the current PLC model is compatible with high-cycle, low-current LED applications and possible hardware or design adjustments to resolve the relay sticking problem.",
+    "user_expectations": "The user expects that the PLC should reliably handle frequent flashing intervals for LED bulbs without causing relay malfunction. They are seeking confirmation as to whether their chosen PLC is appropriate for this use and would like suggestions for more suitable alternatives if necessary.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable traffic light control",
+      "continuous operation",
+      "PLC suitability"
+    ],
+    "pain_keywords": [
+      "relay sticking",
+      "incompatibility with LED load",
+      "frequent relay cycling"
+    ],
+    "feature_keywords": [
+      "relay output",
+      "high-frequency switching",
+      "LED load compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "4": "Hardware Reliability"
+  }
+}

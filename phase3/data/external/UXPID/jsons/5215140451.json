@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "5215140451",
+    "thread_id": "4479534060",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 581201008601068,
+      "user_name": "LIce5nUCBJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Hello and thank you for your attention. I have recently acquired a [product_name] [article_no], and I want to monitor its inputs and outputs using LabVIEW. I attempted to use NI OPC servers and configured various settings, including a [company_name] TCP/IP driver for [company_name] controllers. Although I can communicate successfully with [product_name] programming software, I have not managed to establish communication with NI OPC servers. Has anyone succeeded with NI OPC servers for this purpose? Is it possible?"
+    },
+    {
+      "comment_id": 104113576801585,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Hi, for reading digital inputs and outputs, NI is not strictly required. Within the [product_name] programming tool, check the help section for VM; it presents a table listing addresses in VM Memory. For example: I1 .. I24 map to V923.0 ... V925.7 and Q1 .. Q16 map to V942.0 .. V943.7. To read I1, use V923.0. I am unfamiliar with LabVIEW specifics, so review your communication setup. Some drivers may not support TSAP 20.00 (the first communication channel on [product_name]). Also, make sure all necessary options and TSAP values for LabVIEW are correct."
+    },
+    {
+      "comment_id": 461602058519988,
+      "user_name": "LIce5nUCBJ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Hello and thank you for your response. I'm not sure I understand why NI isn't needed, since my goal is to read inputs and outputs in LabVIEW, which requires NI. I used the addresses you mentioned but saw no change. I also experimented with different TSAP values: Local TSAP and Remote TSAP options such as 02.00 (OP enabled), 02.00 20.00, 30.00 20.00, 20.00, but nothing worked. NI OPC servers still signal that the device is not responding. Additionally, my [product_name] display always shows 'Error Occurs' or 'Network error,' but since communication works via [product_name] programming software, I don't believe that's the issue. Any insights into the cause of these errors would be appreciated."
+    },
+    {
+      "comment_id": 434313985017804,
+      "user_name": "LIce5nUCBJ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "I have also tested TCP/IP ports 102 and 10001, but neither worked."
+    },
+    {
+      "comment_id": 653119252745349,
+      "user_name": "LIce5nUCBJ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "My requirement is to access the input and output variables of the [product_name] PLC using LabVIEW. Does anyone have advice? Perhaps an alternative to OPC communication?"
+    },
+    {
+      "comment_id": 590204835588940,
+      "user_name": "XTpKMrULcW",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Hi, I successfully connected a [product_name] [version_no] to an NI OPC server. You should choose the [company_name] Ethernet TCP/IP driver and set up the controller as the device. Assign the correct IP address of the [product_name], set the correct TSAP value, and configure a server or client connection in the [product_name] software. Good luck!"
+    },
+    {
+      "comment_id": 389250793408237,
+      "user_name": "XCb5FjPOa7",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], I am experiencing the same issue as [user_name]. I followed the suggested steps but still did not succeed. Could you provide a detailed, step-by-step guide if possible? Kind regards."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having difficulty connecting a [product_name] [article_no] to NI OPC Servers for monitoring PLC I/O with LabVIEW. Although communication works with the [product_name] programming software, users encounter network errors, TSAP configuration challenges, and problems with ports when trying to use NI OPC Servers. One user reported a successful connection with a different [product_name] version, but the steps provided did not resolve issues for others, suggesting that further detailed guidance is necessary.",
+    "user_expectations": "Users anticipate straightforward and reliable connectivity between [product_name] [article_no] and NI OPC Servers for I/O monitoring in LabVIEW, along with clear setup instructions and troubleshooting support.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "LabVIEW connectivity",
+      "PLC I/O monitoring",
+      "cross-platform integration"
+    ],
+    "pain_keywords": [
+      "network error",
+      "OPC server communication failure",
+      "insufficient documentation",
+      "TSAP configuration difficulty"
+    ],
+    "feature_keywords": [
+      "OPC server communication",
+      "TSAP settings",
+      "TCP/IP port configuration",
+      "device input/output access"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance",
+    "2": "Product Compatibility"
+  }
+}

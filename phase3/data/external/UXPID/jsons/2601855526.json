@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "branch_id": "2601855526",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 788489973029381,
+      "user_name": "iEwACVPbsm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Hello, I'm experiencing an issue with the [company_name] [product_name] controller. This device manages the submersible pump and controls watering for different sections, and it's connected to another controller located on the opposite side of the house to extend its function. Everything worked perfectly for four years, except for [article_no]. After powering up, changes made on the controller's web interface correctly affected [article_no], and operations were normal. However, after about a day or two, updating the schedule via the web changes the time on [article_no] but it no longer sends pulses at the new times to start [article_no] for watering. I tried adding and swapping weekly timers, which didn't resolve it. Changing vmmaping addresses also made no difference. Initially, the program and website data were stored on the controller's memory card, but a power loss restored original settings. I solved this by storing the program on the controller and the sites on the SD card. I considered moving watering control fully to the second controller and using it to manage outputs from the first unit, but lack of LAN prevented that from working. [article_no] is essential since it waters seedlings in a greenhouse tunnel. I've attached the program and webpage file, hoping for advice to solve this issue. Regards from [user_name] in Poland."
+    },
+    {
+      "comment_id": 234324895799369,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "I haven't encountered this type of error before. What firmware version does your [product_name] controller have? Maybe updating the firmware could help. In your program, I noticed the following: there is a one-way connection to the second [product_name] (8.3) without data entries; all weekdays are active on cams 2 and 3 of the weekly timer [article_no], but the switch-on time is disabled."
+    },
+    {
+      "comment_id": 764329851810804,
+      "user_name": "iEwACVPbsm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Hi, I made a minor update to the project right after posting. I swapped out the latching relay ([article_no]) and the wiping relay ([article_no]) for an off-delay relay because I suspected the circuit might not be responding to the latching relay pulse. Observing the program, the other weekly timers, [article_no] and [article_no], configured similarly, continue to work without issues. For [article_no], multiple channels are activated, since last year watering was split into several brief periods each day, but even then it did not work as intended. Previously, the logic used a latching relay enabled by a weekly timer through an AND gate, but I removed that in an effort to reduce factors for triggering the greenhouse valve. At present, the system works post-modification, though the watering schedule hasn’t changed since we’ve had rainy and cooler weather for two weeks. The connection to the second controller is indeed one-way; I plan to remove it and upload a new version after updating. I've attached the revised program and photos of the firmware, and I added an hours counter to track how many hours the pump operates monthly. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is experiencing a consistent issue with the weekly timer feature in a [product_name] controller: after initial proper operation, scheduled output pulses fail after 1–2 days, disrupting automated watering. Hardware and programming adjustments have not resolved this, suggesting an underlying problem with timer logic or data retention. The fault persists despite ongoing monitoring and changes, indicating the need for more robust logic or better timer status feedback within the software.",
+    "user_expectations": "The user expects the [product_name] controller's weekly timer to activate outputs as scheduled reliably, even after several days and changes in configuration. Changes made via the web or timer settings should consistently be reflected in hardware output without loss of accuracy or reliability.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "automated watering",
+      "reliable scheduling",
+      "consistent operation",
+      "minimal intervention"
+    ],
+    "pain_keywords": [
+      "weekly timer malfunction",
+      "unreliable output",
+      "maintenance burden",
+      "intermittent failure"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "relay control",
+      "web interface",
+      "program storage",
+      "networked control",
+      "vmmaping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "9": "Feature Requests",
+    "24": "Data Integrity Concerns"
+  }
+}

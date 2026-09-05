@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "3420671425",
+    "thread_id": "4479534060",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 248319666874633,
+      "user_name": "R9gl1wyBnG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "When I connect two [product_name] modules ([article_no]) in a network using master/slave configuration, fast button presses at home sometimes aren't recognized. Pressing the button for about a second instead tends to work. I believe this is due to the TCP/IP protocol. My question is, will this issue be resolved in the newer [article_no] version (with Profinet, which claims real-time response)? Or do you have any suggestions to improve this? Personally, I don't think it will be fixed, but maybe you can share some tips."
+    },
+    {
+      "comment_id": 314803045116027,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], I've worked with [product_name] on many projects but haven't used [article_no] before. Your question interests me. The German-language forum tends to be more active for [product_name] topics. You might try posting your question there in German—an automated translation service can help ([url]). A German forum user ([article_no]) has already made a suggestion; please check if that helps ([url]). Let me know if you find a solution. Good luck, [user_name]"
+    },
+    {
+      "comment_id": 297719181098737,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], This issue is likely due to the relatively slow update rate for LAN network inputs. The master-slave setup is easy to program for simple applications, but it has a drawback with short input pulses. To improve this, you could connect both [product_name] modules as master-master, where each device has its own program. This setup allows input data acquisition and processing (like pulse stretching), meaning short pulses are detected and sent over the network. I'm not sure if the same behavior appears with [product_name] version [article_no]. Apologies for my English."
+    },
+    {
+      "comment_id": 999850948724761,
+      "user_name": "R9gl1wyBnG",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Thank you for the answer. How do you implement pulse stretching? [user_name]"
+    },
+    {
+      "comment_id": 131670016117188,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "As mentioned earlier, pulse stretching isn't feasible in master-slave mode—use master-master configuration instead, with each [product_name] module running its own program."
+    },
+    {
+      "comment_id": 589058953069910,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "[user_name], What is the switch connected to? If it's one of the [product_name] devices, the pulse stretching should be handled by the PLC itself. For example: input >> TOF (off-delay timer) >> network bit. In other control fields, we sometimes use a request-acknowledge approach: 1. Button >> set request memory bit 2. Request triggers networked bit 3. Partner PLC receives network bit 4. Partner PLC sends acknowledgement (memory bit + network bit) 5. Original PLC receives acknowledgement 6. Request memory bit + network bit are reset 7. Partner PLC receives reset 8. Partner PLC resets its own acknowledgement + network bit Hope this helps."
+    },
+    {
+      "comment_id": 614716804056526,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Hi, The issue is likely that data transfer takes longer than the duration of your button press. If you're using a master/master configuration, you can lengthen the pulse (using an off-delay) so it can be communicated to the other unit. In master/slave setups, only the master can do this, since the slave does not execute a program. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users encounter missed or delayed responses when using two [product_name] modules ([article_no]) in a master/slave network, mostly when button presses are rapid. This is tied to transfer delays over TCP/IP and sluggish network input update rates. There is discussion about whether upgrading to newer modules ([article_no]) with Profinet would solve the problem, but answers are uncertain. Suggested workarounds include signal pulse stretching and changing to master/master configuration, but no simple solution is provided and users seek further advice.",
+    "user_expectations": "User expects input events to be registered reliably and instantly, even with fast button presses. They hope newer hardware or network protocols such as Profinet may improve responsiveness and overall reliability.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "responsive input",
+      "real-time operation",
+      "reliable switching"
+    ],
+    "pain_keywords": [
+      "input delay",
+      "missed button presses",
+      "slow data transfer",
+      "network lag"
+    ],
+    "feature_keywords": [
+      "input detection",
+      "master/slave networking",
+      "pulse stretching",
+      "Profinet support"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "1": "Upgrade Recommendations",
+    "3": "User Guidance"
+  }
+}

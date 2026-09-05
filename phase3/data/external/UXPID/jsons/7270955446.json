@@ -1,0 +1,201 @@
+{
+  "metadata": {
+    "branch_id": "7270955446",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 798262970404693,
+      "user_name": "oQCt0hIVND",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Hello! I'm seeking advice on connecting a [company_name] [product_name] smart relay to an incremental encoder for testing. The encoder is an ES5-10CN8942 from Delta, with solid shaft, open collector output, and 1000 PPR, operating at 7-24V DC. I've previously connected an encoder to a [product_name] ([version_no]), which worked perfectly thanks to help from this community. After reviewing various forums and the [product_name] software help, I learned that inputs I3-I6 support high-speed counting (up to 5kHz) if wired directly to the counter block. I set up a basic test where I3 is linked to a counter with a trigger limit of 1000 and powered the encoder with 24V DC. When monitoring the system, no counts were registered regardless of encoder rotation. Offline simulation worked, indicating correct code, but hardware wasn't responding. Could something be wrong with my wiring? Any advice or suggestions would be greatly appreciated!"
+    },
+    {
+      "comment_id": 280798514957756,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Online simulation with [product_name] software isn't supported. You can monitor the running program on the actual [product_name] device if your computer's code matches what's on the device. Note that updates are very slow when viewing inputs in real time—if you turn the encoder too quickly, you won't see accurate feedback instantly, but ultimately, the displayed counts will update on your PC (albeit slightly delayed). PC simulation mode is also slower than the real device. Regarding wiring: with open collector output, you can't connect the encoder directly to the [product_name]. The input must use an open emitter output from your encoder. Try using a pull-up resistor (around 1kOhm) between the + and the digital input—the encoder will then be able to sink the signal properly."
+    },
+    {
+      "comment_id": 365086811746677,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "If your encoder’s supply voltage is different from your [product_name]'s voltage, make sure to connect the 0V (M) lines together. If they share the same supply voltage, this step is straightforward."
+    },
+    {
+      "comment_id": 476227932684819,
+      "user_name": "oQCt0hIVND",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Exactly—if the power supply isn’t the same for both devices, the encoder won’t operate correctly with your [product_name]. I added a 10 kOhm pull-up resistor and that solved the issue perfectly! Thanks!"
+    },
+    {
+      "comment_id": 593276867839240,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Can you clarify, especially what you meant by 'external course'?"
+    },
+    {
+      "comment_id": 380280526879928,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Hi [user_name], you didn’t mention which [product_name] hardware was used during the online test. For high-speed counting, you need a transistor-type (24V) module—not the relay version. Ensure the input is wired directly to the counter pin for achieving 5kHz speeds. The input threshold voltage on the [product_name] differs from that of the [version_no]. Use a voltmeter to check the actual voltage from the encoder. While a 10kOhm pull-up resistor is common, something closer to 1.2kOhm (0.5W) is usually expected. Are you only using one encoder phase? Confirm with a voltmeter that the voltages react as required. Also, sharing your program segment and a wiring sketch could help double-check everything."
+    },
+    {
+      "comment_id": 232808444974067,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Why is that? The data specs for the digital inputs are consistent regardless of whether you use the transistor or relay variant."
+    },
+    {
+      "comment_id": 860112381570975,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Glad this was brought up. Recently, I checked the [product_name] manual for the OBA8: the appendix outlines input behavior and specifications for different variants. Any thoughts?"
+    },
+    {
+      "comment_id": 101802416708178,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "The 24V DC-only modules (OBA8) come as 24CE and 24CEo (transistor output, 24VDC) and 12/24RCE plus 12/24RCEo (relay output, 12/24VDC). For these, the digital input specs—the speed for normal (4Hz) and fast count input (5kHz)—are identical. However, variants like 24RCE and 24RCEo (relay output, 24VAC/DC) do not support fast counting, as they can operate on AC as well."
+    },
+    {
+      "comment_id": 665075085222072,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "That's right, it's about the pure DC variant—not the relay one! Thanks for clarifying. Our factory purchased the 24RCE model, which was not ideal for our needs. We focused on the relay detail, but ultimately had to replace it."
+    },
+    {
+      "comment_id": 337855249056619,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Only [product_name] modules with a pure DC supply (24VDC and 12/24VDC) offer analog and fast counter inputs. The AC/DC and 230V models lack these features."
+    },
+    {
+      "comment_id": 380655410518099,
+      "user_name": "oQCt0hIVND",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Just to confirm, I’m using a single phase as you suggested, [user_name]. Previous posts from you and other forums mentioned that quadrature phase isn’t possible with [product_name]. I tested two NPN encoders on I3 (5kHz) and both functioned well—one from Delta (1000PPR), another from Omron (500PPR). My setup uses a DC-only module: '12/24 RC', which supports 8 inputs and 4 outputs. I’m still unsure how to precisely calculate the ideal pull-up resistor value, so additional guidance would be appreciated. Regarding the 'External of course' phrase, I meant that both encoder and [product_name] use the exact same 24VDC supply, and their power sources are connected via the same L+ and M wires. Sorry for any confusion earlier."
+    },
+    {
+      "comment_id": 518565531171465,
+      "user_name": "oQCt0hIVND",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "To clarify, fast counting works very well on both the [version_no] and my DC-only [product_name] module. With a 5kHz max speed and a slow, 24V geared motor, that’s more than sufficient even at hand-operated speeds. For example, at 5kHz you could register up to 5000 PPR per second; with three encoder rotations per second, you’d see up to 3000 pulses—well within capability. I also connected the relay to the [product_name] display module and observed that core relay performance is much faster than the display, which is impressive for a smart relay."
+    },
+    {
+      "comment_id": 595091651599840,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Could you clarify if your issue is now resolved and what changed? Regarding pull-up resistors: the highest current flows when the encoder's open collector transistor pulls I3 low. Ensure the transistor's amp rating isn't exceeded, and calculate resistor power consumption using P = (V^2) / R. When the transistor is OFF, the pull-up supplies voltage to I3. Keep in mind I3's internal resistance—resistor and input impedance are in series, so if the voltage drop across the pull-up is too great, I3 will get insufficient voltage. Use Ohm's law (V = I x R) for this calculation. Measure I3’s voltage directly while rotating the encoder by hand. Checking the encoder’s specification sheet may give further clues. Helpful?"
+    },
+    {
+      "comment_id": 404823175461066,
+      "user_name": "oQCt0hIVND",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Yes, that's the exact circuit I referenced. The problem was resolved after adding the pull-up resistor. Thanks for your explanation about resistor calculations—I understand now why a value near 1.2kOhm was suggested. I calculated a current around 0.5A at I3. Since I only had a 1.5kOhm resistor on hand, I used that, and compared results against a 10kOhm resistor—the module read counts correctly in both cases, showing no visible difference. It seems the problem is solved, and resistors between 1.5kOhm and 10kOhm performed equally well in my setup."
+    },
+    {
+      "comment_id": 684201964546002,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Keep in mind: When you use pull-up resistors, the [product_name] input will be inverted—sensor output high means logic input low on your device."
+    },
+    {
+      "comment_id": 864292931953725,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Here’s an example from a specification sheet: if the voltage on the input pin for ON (transistor OFF) is less than 8.5V, problems begin. If the signal never exceeds 5V, the input will always appear OFF. All microcontroller-based devices have an ON/OFF voltage specification—do some measurements and math with your selected resistor values to ensure proper operation."
+    },
+    {
+      "comment_id": 238751642514941,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "A new question by [user_name] has been split into a separate thread about setting up a 100-ppr encoder with [product_name]. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The primary user experience challenge is connecting a [company_name] [product_name] module to an incremental encoder, where real hardware inputs weren’t detected even though offline simulation succeeded. Users identified mismatches between simulation and live device response times, as well as required circuit elements like pull-up resistors and shared ground references (0V) for open collector outputs. Further discussion clarified the importance of using the right input type (transistor vs. relay), correct module supply type (DC-only), and proper pull-up resistor sizing for reliable pulse counting.",
+    "user_expectations": "Users expect the [company_name] [product_name] smart relay to reliably register encoder signals as programmed in the software simulation, with minimal delay and correct pulse counts, matched to their previous experience with different control modules. They expect technical support for wiring and component selection to ensure accurate, real-time input recognition from their incremental encoder.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate input detection",
+      "real-world parity with simulation",
+      "reliable encoder interfacing"
+    ],
+    "pain_keywords": [
+      "input not registering",
+      "simulation and hardware mismatch",
+      "hardware configuration complexity"
+    ],
+    "feature_keywords": [
+      "encoder input",
+      "high-speed counter",
+      "digital input threshold",
+      "input type (relay/transistor)"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability",
+    "12": "Network Configuration Challenges"
+  }
+}

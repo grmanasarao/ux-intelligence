@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "1983297492",
+    "thread_id": "4479534060",
+    "publication_year": 2006,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 265680823308294,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2006,
+      "comment_month": 12,
+      "comment_body": "Using [product_name] [article_no], is it possible to connect a modem to the [product_name] for remote parameterization, such as adjusting timers and counters, or even replacing the entire program stored within? With the Insys modem, modifying parameters is not possible. Does [article_no] or newer support this feature?"
+    },
+    {
+      "comment_id": 113385373828367,
+      "user_name": "vSm5i9uYOK",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 1,
+      "comment_body": "Hello, it is possible to connect a modem and read or adjust the values of certain timers and counters in a [company_name] [product_name]. The modem used is an INSYS GSM 4.1 modem, not from [company_name]. By sending SMS messages from your mobile phone, you can access values and change the status of the [product_name] (RUN/STOP). More details can be found on the manufacturer's website: [url]. I have personal experience using this modem, so if you require further information, feel free to post on the forum. Thanks. Best regards, [user_name]."
+    },
+    {
+      "comment_id": 386510342194021,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 1,
+      "comment_body": "Thank you for the reply. The correct website is: [url]. With this modem, it is not possible to transfer the program or adjust parameter settings such as time delays or counter values in function blocks. This information was confirmed by the Dutch distributor."
+    },
+    {
+      "comment_id": 710515135296116,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 1,
+      "comment_body": "Hello, I also believe it is not feasible to transfer the entire program or change parameters remotely. My suggestion is to use pulses: program several counters and timers with different settings, then use SMS to command the INSYS device to pulse its relay outputs a specific number of times. The [product_name] can count these pulses to select corresponding counters or timers. There may not be another modem available to achieve full remote programming as you intend. Would this approach be a possible alternative?"
+    },
+    {
+      "comment_id": 118949137127218,
+      "user_name": "vSm5i9uYOK",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 1,
+      "comment_body": "Yes, one solution is to create a [company_name] [product_name] program and list the readable parameters for display access. To accomplish this, connect the [product_name] and INSYS GSM modem using a [product_name] programming cable via the RS-232 port. Alternatively, connect modem outputs to the [product_name] inputs; sending SMS commands triggers pulses that change counter values or other parameters accordingly within the [product_name] program. Best regards, [user_name]."
+    },
+    {
+      "comment_id": 441645684246548,
+      "user_name": "0yvQTCUUOr",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 1,
+      "comment_body": "Hi, I have used a network comserver connected via a programming cable to a [product_name] module. The [product_name] Comfort Software can run on a PC connected to a virtual com port. This method should work with an analog modem set to auto-answer with communication settings 9600,E,1. You can dial in and modify the entire program."
+    },
+    {
+      "comment_id": 634955755583561,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 1,
+      "comment_body": "Hi all, with the INSYS [product_name] modem you cannot download programs to the [product_name]. For such tasks, 11-bit modems are required, but GSM does not support 11-bit. Using [product_name] and a standard modem (not INSYS) is more complex than initially expected. The issue is the programming cable is powered by the PC serial port, and modems do not provide the necessary power, thus disabling connectivity. Additionally, [product_name] Comfort software does not offer modem configuration options. For remote connections to [product_name], follow these steps: start Hyperterminal, dial the remote device, disconnect in Hyperterminal to free the port, switch to a different com port, then launch [product_name] Comfort and locate the correct port to allow downloading a program and using online test features. To disconnect, close [product_name] Comfort, revert Hyperterminal to the modem's port, enter '+++' to enter modem command mode, then 'ATH0' to disconnect. Communication settings: 9600, 8, E, 1. Adapter details are attached. Tested hardware includes [product_name] [article_no], two INSYS Pocket modems (RS232), PC with Windows 2000 SP3 or XP, and [product_name] Comfort V4 or higher. However, parameter modification during RUN mode may not be possible; downloading a new program overwrites remanent data such as operating hours. Hope this helps. Regards, [user_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are exploring how to remotely modify parameters and transfer programs for [product_name] via modem. Current solutions allow reading values and toggling certain statuses with SMS commands using an INSYS GSM modem, but direct adjustment of timers or remote program transfer is not possible through this setup. Attempts using analog modems and PC software show limited success, hindered by issues such as programming cable power and lack of modem support in [product_name] Comfort software, as well as risk of losing stored data when downloading new programs. Overall, remote management capabilities are limited and complex, lacking a straightforward approach for full remote programming and parameterization.",
+    "user_expectations": "Users expect the ability to reliably and easily modify parameters—such as timers and counters—and transfer programs to the [product_name] remotely using a modem connection.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote parameterization",
+      "remote program update",
+      "reliability",
+      "remote access"
+    ],
+    "pain_keywords": [
+      "inability to update remotely",
+      "modem power issues",
+      "lack of modem configuration support",
+      "data loss on update"
+    ],
+    "feature_keywords": [
+      "remote programming",
+      "parameter change",
+      "modem compatibility",
+      "program download",
+      "run/stop control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": [
+        "XP"
+      ]
+    }
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests",
+    "10": "Performance Predictability"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "5868458257",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 536709322941531,
+      "user_name": "3H6y5BwizS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Hello everyone, can someone please assist me with programming a [product_name] [product_name] PLC? I have a [product_name] PLC connected to an RTD module, and I've linked a PT100 sensor. I need to control six stages of digital outputs based on the PT100 sensor's temperature setpoint. The setpoint should be a single value, for example, SP: 20°C, with a 2°C dead band. All outputs should be within this 2°C dead band range. For each stage: 1) 16% stage 1 2) 33% stage 2 3) 50% stage 3 4) 66% stage 4 5) 83% stage 5 6) 100% stage 6. Each output should be activated independently according to the temperature with a 2°C dead band. Any help would be appreciated. Thank you."
+    },
+    {
+      "comment_id": 341322324540341,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Can you clarify which temperatures correspond to each percentage? For example: 16% = ??? °C, 33% = ??? °C, 50% = ??? °C, 66% = ??? °C, 83% = ??? °C, 100% = ??? °C. Should only the output for the corresponding percentage be activated at each stage?"
+    },
+    {
+      "comment_id": 943949353262898,
+      "user_name": "3H6y5BwizS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Hello, to answer your question: The percentage values correspond to certain temperature values, which should be set within a 2°C dead band. For example, if my set temperature is 20°C and the actual temperature is below 20°C, then all outputs should be off. If the temperature rises above 20°C, then the first five outputs should activate in sequence; once the temperature exceeds 22°C (the 2°C dead band limit), the sixth output should turn on. I hope this explanation helps. I am seeking guidance for programming this using a functional block diagram."
+    },
+    {
+      "comment_id": 476821902697126,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "I would like to assist but I am unsure what exactly you are trying to achieve. Could you please clarify your requirements further?"
+    },
+    {
+      "comment_id": 486408751212704,
+      "user_name": "iMT8ftJyPY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "If I understand correctly, you are aiming for proportional control in multiple digital stages, where the process variable is analog and the outputs are digital. In this case, you can use a PI (Proportional Integral) block. The output of the PI block can be scaled and connected to comparators to trigger your digital outputs. Best regards,"
+    },
+    {
+      "comment_id": 978478032145275,
+      "user_name": "3H6y5BwizS",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "That's exactly what I've been searching for. Could you please provide an example program? Thank you."
+    },
+    {
+      "comment_id": 981109025357859,
+      "user_name": "iMT8ftJyPY",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Unfortunately, I do not currently have a sample program for this type of control, and I am unsure which process you want to manage (variables, parameters, etc.). This makes it difficult to provide specific guidance. If you have started developing your step-based proportional control, sharing your current program might help others to assist you further. Best regards,"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is seeking help to program a [product_name] PLC to manage six digital outputs according to temperature readings from a PT100 sensor, using proportional stage control with a specified setpoint and dead band. Communication gaps remain regarding the relationship between percentage stages and temperatures, as well as implementing the dead band. Another user suggested using a PI block to sequence the outputs, but no working example or concrete solution was shared, leaving the issue unresolved and the user dissatisfied.",
+    "user_expectations": "The user is looking for straightforward programming assistance, preferably a sample program, to implement proportional digital staging using temperature setpoints and dead band logic with [product_name] software and a PT100 sensor.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "staged output control",
+      "temperature-based automation",
+      "dead band logic"
+    ],
+    "pain_keywords": [
+      "lack of programming examples",
+      "unclear documentation",
+      "difficulty communicating requirements"
+    ],
+    "feature_keywords": [
+      "proportional staging",
+      "digital output sequencing",
+      "dead band control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "2418407139",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 698059459339281,
+      "user_name": "ZPoqueOxZV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "I'm looking to configure initial values for analog and digital flags (such as AM, M, NAI, etc.) so that when the [product_name] controller is restarted, it begins with preset values instead of all values being reset to zero. I need to set default parameters for my application that the system loads automatically at startup. Any suggestions?"
+    },
+    {
+      "comment_id": 127044033032795,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "You can use the special flag M8 (Initialization flag) for this purpose. When the [product_name] controller starts, this flag produces a high signal for the first cycle."
+    },
+    {
+      "comment_id": 836446069297541,
+      "user_name": "ZPoqueOxZV",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Is there a method to set initial values for analog flags or for local variable memory (VM)?"
+    },
+    {
+      "comment_id": 976241246976433,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "There isn’t a direct option to set initial values for analog variables or similar types. If you want to initialize something upon startup of the [product_name], you need to use the M8 special flag in your programming. Please describe the specific operation you wish to execute."
+    },
+    {
+      "comment_id": 691338574753800,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "I'm trying to assign initial values to analog and digital flags (AM, M, NAI, etc.) so that when the [product_name] controller is power cycled, it starts with my predefined values, instead of starting at zero. Network inputs, whether analog or digital, can't have an initial value, as they receive their values from external sources. Digital flags are often linked to elements in your [product_name], but you can easily give them an initial ON or OFF value—see the sample for an example. For analog values, you can set a 'start value' in a counter and reference it in your program ([article_no]). Alternatively, set an analog value in a mathematical instruction. In the [article_no] version, there are more analog blocks available for value storage and initialization."
+    },
+    {
+      "comment_id": 200972111491793,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], Check out the sample program 'Storing analog min max value' in the examples section of your [product_name] programming software folder. It could provide a useful approach."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are discussing how to configure initial values for analog and digital flags in the [product_name] controller so that particular default parameters remain after a power cycle. The conversation outlines that while direct configuration for some variables isn't possible, programmatic solutions and example programs exist as workarounds. There is some uncertainty about which types of memory can be pre-initialized versus those that depend on external input, illustrating a limitation in the documentation and features available.",
+    "user_expectations": "Users wish to easily set and retain initial values for digital and analog flags so the controller reliably starts with their chosen defaults, not zero. They are seeking straightforward techniques for parameter initialization at startup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "retain initial values",
+      "default startup parameters",
+      "easy initialization"
+    ],
+    "pain_keywords": [
+      "cannot set initial analog values",
+      "no persistent flag values",
+      "manual programming required"
+    ],
+    "feature_keywords": [
+      "initial value configuration",
+      "Initialization flag (M8)",
+      "analog/digital flag settings",
+      "Sample programs"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "6364282848",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 383069371379940,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Good afternoon. Can someone clarify the measurement accuracy of the current input 0-10V on the [product_name]? I am trying to connect a custom pH electrode without a standard converter. The input signal will range from 80 to 750 mV—can the [product_name] accurately measure this? Also, is there a method to enable or disable the input so current only flows during measurement, or can this only be done with an external relay?"
+    },
+    {
+      "comment_id": 918463860713160,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "First of all, voltage should not be confused with current. The [product_name] analog input can measure a voltage from 80 to 750 mV, but it's not ideal. The analog input converts this to 8 to 75 out of 1000 units, meaning you'll be working at the lowest range where error is highest. Using an amplifier to match your sensor's output to the 0-10V range of the input or a sensor that directly provides a 0-10V signal would be a better approach."
+    },
+    {
+      "comment_id": 876189509053515,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The analog input error margin on the base module is +/-1.5% Full Scale, which means a difference of 15 increments throughout the range—even at low values. With your sensor's 80 to 750 mV range, that's 8 to 75 increments—a span of 67 increments. If your sensor spans 0 to 14 pH, each pH step equals about 5 increments, while the error is 15 increments. This will affect sensor accuracy when using a [product_name] analog input. You could try calibrating ranges for specific pH values with a precise pH meter, but usability won't surpass the error limit. Best results require a sensor with a 0-10V output. Also, why do you need to disable the sensor? The analog input has an impedance around 80kOhm, resulting in a maximum of 10 µA current. What is the reason for wanting the sensor disabled?"
+    },
+    {
+      "comment_id": 118940332424972,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thank you all, your input was very helpful. I did not fully understand the device, but your explanations clarified how it processes signals. I have various pH sensors, but the goal is to test this custom-made sensor I designed for industrial analysis. It fits inside pipelines and withstands up to 20 bar pressure. I need to disable the input since the sensor is prone to polarization, and measurements only need to be taken at 1 Hz intervals without affecting the process. Apologies for my basic questions; I am a chemical engineer and use the [product_name] mainly because I haven't mastered [product_name]."
+    },
+    {
+      "comment_id": 619581810464337,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "For low-level signals, using the [product_name] without an amplifier doesn't yield good results. An isolation amplifier with input at 0-1V and output at 0-10V could help. The analog input of the [product_name] cannot be turned off or deactivated."
+    },
+    {
+      "comment_id": 549337359176231,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thank you [user_name]! I will start looking for an amplifier."
+    },
+    {
+      "comment_id": 782818486454318,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Additional info: If you have a [product_name] with transistor outputs and a three-wire sensor needing a 24V supply at max 300mA, you could use a 1 Hz signal via a [product_name] output to control the +24V supply for the sensor. Generally, it's better to switch the sensor's power rather than its analog signal. However, you need to know how long the sensor takes to provide a stable analog output signal. Regards, [user_name]"
+    },
+    {
+      "comment_id": 285517516533003,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I also considered that—although right now I have two relay-based [product_name] modules on hand, so I'm planning to switch to a transistor soon."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users highlight that the analog input accuracy on the [product_name] is insufficient for reliable low-voltage measurements typical of some custom pH sensors, mainly due to high relative error in the lowest part of the input range. The inability to programmatically deactivate the analog input or handle low-voltage intermittent signals natively poses practical limits, especially in specialized experimental and industrial scenarios. External amplification and switching circuits are recommended for higher precision and better control.",
+    "user_expectations": "Users expect the [product_name] to deliver accurate low-voltage measurements from custom sensors, and to offer software or hardware options for enabling/disabling analog inputs during periodic measurements.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate low-voltage measurement",
+      "periodic measurement control",
+      "flexible sensor integration"
+    ],
+    "pain_keywords": [
+      "insufficient accuracy at low input",
+      "cannot disable analog input",
+      "requires external amplification"
+    ],
+    "feature_keywords": [
+      "analog input accuracy",
+      "input enable/disable control",
+      "input impedance",
+      "transistor and relay options"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

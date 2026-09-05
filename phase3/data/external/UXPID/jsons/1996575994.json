@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "branch_id": "1996575994",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 360853828371324,
+      "user_name": "drf7jObOL3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I am wondering if it is possible to have active voltage on the input side when the device loses power, or if this could cause hardware damage. I need this information for both 12/24 Vdc and 230 Vac systems."
+    },
+    {
+      "comment_id": 712922321726374,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Could you provide more details?"
+    },
+    {
+      "comment_id": 140457207753929,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "If the power fails, there will be no active voltage present."
+    },
+    {
+      "comment_id": 853872999738626,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "That's not always correct. There can be a power failure only for the [product_name] and/or the expansion modules, while the peripherals remain powered. The wiring and protection setup are unclear here—the original poster should clarify."
+    },
+    {
+      "comment_id": 220912635439407,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "If you're referring to just the [product_name] or its expansion modules losing power, but the connected peripherals still being powered, then there should be no issue."
+    },
+    {
+      "comment_id": 782135941871612,
+      "user_name": "drf7jObOL3",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Yes, that's the case for my setup. I have a [product_name] powered by a 230V supply with its own switch, referred to as 'SERVICES'. There are inputs coming from a separate 230V supply dedicated to lighting, called 'LIGHTS', each with their own protection. Both originate from the main supply, so they're only connected when both switches are on. If SERVICES is off but LIGHTS is on, some inputs to the [product_name] remain active while the device itself is off. Is this safe? The same scenario could happen with a 24Vdc system, if the input and device power lines are switched separately. You might get active inputs while the device power is off. Is it also safe to use analog instead of digital inputs in such cases? Best Regards, [user_name]"
+    },
+    {
+      "comment_id": 677656519579325,
+      "user_name": "cZQANX744b",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello, Be cautious with 230V lines—SERVICE and LIGHT may be supplied by different phases. As long as inputs within a group use the same phase, it's fine. If different phases are mixed within one input group, you must separate them; otherwise, hardware damage may occur. A [product_name] has two input groups: I1–I4 and I5–I8. Don't connect different phases to inputs within the same group. For a third phase, you'd need a suitable expansion module ([product_name]). Refer to the wiring diagram in the [document] for correct setup. Hope this helps."
+    },
+    {
+      "comment_id": 343298189970382,
+      "user_name": "drf7jObOL3",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I'm referring to a single-phase circuit. Specifically, there is a power switch that can shut off the supply to the [product_name], while input power remains active. Is it safe to have active input channels in this circuit when the device power is switched off?"
+    },
+    {
+      "comment_id": 832463269772303,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 108830764298965,
+      "user_name": "drf7jObOL3",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Thank you very much. Digital input safety is now clear. One more question: is it also safe for analog inputs? If, in a similar setup, an analog input remains active while the [product_name] is unpowered, is there any risk? Thanks again for your help, [user_name]"
+    },
+    {
+      "comment_id": 509908302943724,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Analog inputs are also safe in these conditions."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discuss scenarios where device input channels receive voltage despite the main product being unpowered, often due to separate circuit switches. The conversation highlights the need for careful wiring and phase management—especially with multiple supply phases—to prevent hardware damage. There is uncertainty regarding the safety of applying voltage to both analog and digital inputs during loss of power, with users seeking confirmation for use with 230V AC and 12/24V DC systems.",
+    "user_expectations": "Users request clear, authoritative advice confirming whether applying active input voltage to both analog and digital channels is safe when the module itself is unpowered, to avoid damaging the hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "wiring safety",
+      "hardware protection",
+      "multi-phase support",
+      "analog and digital input assurance"
+    ],
+    "pain_keywords": [
+      "unclear input voltage safety",
+      "risk of hardware damage",
+      "phase mixing uncertainty",
+      "analog input risk"
+    ],
+    "feature_keywords": [
+      "digital inputs",
+      "analog inputs",
+      "input grouping",
+      "phase handling",
+      "power independence"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "27": "Safety Compliance Concerns",
+    "17": "Circuit Protection Guidance"
+  }
+}

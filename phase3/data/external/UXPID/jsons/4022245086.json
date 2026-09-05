@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "branch_id": "4022245086",
+    "thread_id": "1723880927",
+    "publication_year": 2011,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 952436925499310,
+      "user_name": "qm5fH2TmPt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 2,
+      "comment_body": "I'm attempting to use [product_name] ([version_no]) on a netbook running Ubuntu Netbook Remix ([version_no]), but I can't connect to the [product_name] device. The software always fails when configuring the modem. The readme recommends searching for cp2101.ko, but my system only has cp210x.ko, which might work. My system does detect the cable (/dev/USB0 appears). My Ubuntu setup uses OpenJDK rather than Sun Java. Has anyone managed to get the USB modem working? Does anyone have experience using a USB to serial adapter with a [company_name] serial cable? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 618093905495601,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 2,
+      "comment_body": "Hi [user_name], Many forum users might not realize that Ubuntu is a variant of LINUX—I’ve heard of it, but haven’t seen others try installing [product_name] [version_no] on it. If the software runs after installing LINUX, that’s a positive sign! Most issues with [product_name] occur when connecting to the hardware via the programming cable (you referred to it as a modem—any particular reason?). Here are some tips: 1) During installation, choose to install the USB programming cable drivers before plugging in the cable. Connecting the cable first lets the OS install generic drivers, which complicates things. If that happened, remove the Silicon Labs CP2010 drivers, reinstall them after rebooting, then reconnect the cable. 2) If problems persist, the drivers might not be compatible with your OS—try finding a newer USB-to-UART driver for the CP2010 chipset from Silicon Labs. 3) [product_name] uses Oracle/Sun Java as its native language; switching to another Java runtime can cause issues. Stick to Sun Java, and download the latest version from Sun—though its performance on Ubuntu isn’t guaranteed. Hope this helps!"
+    },
+    {
+      "comment_id": 733701950690773,
+      "user_name": "qm5fH2TmPt",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 2,
+      "comment_body": "For completeness: it now works. It might always have worked and I was simply making a mistake. The only change I made was replacing OpenJDK with Sun Java (though it’s unclear if that mattered). In Ubuntu [version_no], the Sun repository isn’t loaded by default—you need to add it manually, which explains why I couldn’t find it initially. Moving closer toward a Microsoft-free setup."
+    },
+    {
+      "comment_id": 763142049376078,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 5,
+      "comment_body": "I can confirm [product_name] operates well on Linux. I’ve used it on both my desktop and netbook, each running Debian Sid. Ubuntu, as a Debian derivative, should be equally compatible. Up to [version_no], [product_name] worked immediately; [version_no] requires some tweaking. You have to delete the .../[product_name] install-dir/jre folder so [product_name] uses your system's JRE. I installed Sun Java 6. Refer to your system documentation to verify your Java version, and if needed, switch to Sun Java 6. I haven’t tried OpenJDK, but it may be worth testing. On my 64-bit desktop, I also had to replace ../[product_name] install-dir/bin/librxtxSerial.so for USB communication to function. On my 32-bit netbook, this wasn’t needed. See: [url]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced challenges running [product_name] [version_no] on Linux distributions like Ubuntu and Debian, especially when attempting to communicate with the [product_name] hardware via USB. Core difficulties stemmed from driver compatibility and differences in Java environments. Users resolved issues by replacing OpenJDK with Sun Java, updating drivers, and adjusting installation directories as needed.",
+    "user_expectations": "Users expect straightforward, out-of-the-box connectivity between [product_name] software and compatible [product_name] hardware on Linux, without having to deal with complex driver installation or workspace configuration issues.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "Linux compatibility",
+      "seamless installation",
+      "stable USB communication"
+    ],
+    "pain_keywords": [
+      "driver incompatibility",
+      "Java runtime issues",
+      "setup complexity"
+    ],
+    "feature_keywords": [
+      "USB cable support",
+      "Java runtime compatibility",
+      "installation guidance"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Linux": [
+        "Ubuntu Netbook Remix 10.10",
+        "Debian Sid"
+      ]
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

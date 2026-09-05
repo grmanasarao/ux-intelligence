@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "branch_id": "7532669066",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 866286299219891,
+      "user_name": "TnwF5fMlgs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Is it possible to achieve this? Another issue is that I get 2-10V instead of the full 0-10V range, even when using a resistor."
+    },
+    {
+      "comment_id": 768294949705869,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "It is technically possible to connect a PC using a voltage divider directly to a 0-10V input, but this approach results in very imprecise measurements with low resolution. It is recommended to use a transmitter with a 0-10V output. For instance, see this example: [url]"
+    },
+    {
+      "comment_id": 324542402085553,
+      "user_name": "TnwF5fMlgs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "What are your thoughts on this post? [url] Do you think it's a good solution?"
+    },
+    {
+      "comment_id": 435071883166781,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Personally, I would choose a different solution."
+    },
+    {
+      "comment_id": 914003799845793,
+      "user_name": "TnwF5fMlgs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Thank you for your input. Do you have an alternative solution, or is this the only option for connecting a PT100 sensor onboard?"
+    },
+    {
+      "comment_id": 501998832968569,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Here's an example setup: A 1.5 kOhm resistor in series with a PT100 sensor to a 10V input, powered by 24V. PT100 resistance at 0°C = 100Ω, at 100°C ≈ 138Ω. 1500Ω to 100Ω gives 22.50V and 1.50V at 0°C, while 1500Ω to 138Ω gives 22.08V and 1.92V at 100°C. The voltage difference ΔU = 0.42 V over a temperature difference of Δϑ = 100°C. The resolution is about 0.01V = 2.38°C, roughly 2.5°C per step, which is poor. The margin of error is also large for the input range."
+    },
+    {
+      "comment_id": 585687817833339,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "This setup reflects the solution I previously described."
+    },
+    {
+      "comment_id": 677955240913029,
+      "user_name": "TnwF5fMlgs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "If I use a 4-20mA converter with a PT100 and a 500Ω resistor, that results in a 2-10V output. Is it possible to use this range instead of 0-10V DC? Can this be scaled and adjusted as needed?"
+    },
+    {
+      "comment_id": 723896051855521,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "What temperature range do you want to measure?"
+    },
+    {
+      "comment_id": 691717931546849,
+      "user_name": "TnwF5fMlgs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Suppose the range is 0 - 80°C. If I input 2V and get a value of 202, can I subtract 202 from the analog input to set the zero point? Is it possible to perform such a mathematical adjustment on the analog input?"
+    },
+    {
+      "comment_id": 247943566423378,
+      "user_name": "TnwF5fMlgs",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Here is the screenshot."
+    },
+    {
+      "comment_id": 850246417159500,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Regarding the basics: The A/D converter for an analog input translates 0-10V or 0/4-20mA signals into approximately 1,000 units. If you use a 2-10V (or 4-20mA) input, you only get 800 units, since 200 units for 0-2V (or 0-4mA) are not used. To adjust for this, you need to set the analog amplifier so that a 0-10V (or 4-20mA) signal covers the range, and shift the starting point (OFFSET). For example, 80°C over 800 units results in 0.1°C per unit. At 0.1°C for 1,000 units, you get 100°C. With a measuring range of 80°C, there is an offset of 20°C (200 units). This means the adjusted measurement range stretches from -20°C to 80°C."
+    },
+    {
+      "comment_id": 559219675941664,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "I hope this explanation clarifies things. Thank you for your feedback and rating."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on connecting a PT100 temperature sensor to the analog input of a [product_name] using resistors or signal converters. Key challenges discussed are limited utilization of the voltage range (2-10V instead of 0-10V) and poor measurement accuracy and resolution when connecting directly. There is confusion about scaling values and performing mathematical operations within the analog input range. Users note the need for clearer documentation on best practices for PT100 sensor integration.",
+    "user_expectations": "The user seeks accurate and reliable temperature readings from a PT100 sensor on the onboard analog input, aiming to use the full 0-10V range and achieve correct value scaling. They also hope to be able to mathematically adjust or scale the analog input signal within the device.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate measurement",
+      "full voltage range utilization",
+      "scaling capability"
+    ],
+    "pain_keywords": [
+      "poor resolution",
+      "imprecise measurement",
+      "limited input range",
+      "difficult scaling"
+    ],
+    "feature_keywords": [
+      "analog input range",
+      "scaling",
+      "mathematical operations on input"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

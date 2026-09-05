@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8865390946",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 349637908188788,
+      "user_name": "GdgGK3gwBR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello, I have been using an Arduino as a Modbus RTU master to poll sensors, converting the data to Modbus TCP and integrating it with a [product_name] over Modbus TCP IP. Now, I am considering using a [product_name] [product_name] Communication Interface Module. The issue arises when the Modbus RTU slave loses connection; its registers retain their last read value. With Arduino, it's a built-in feature to detect lost communication. For example, using mb.Ists(0)[readFromSlave1].connection, the bit is true when communication is OK, and false when lost. If false, all registers for the faulty slave are set to zero. This is crucial for my application, as I use the input signal as the process value in a PI regulator. If the communication fails and the process value freezes at its last state, the PI regulator output becomes incorrect, and the issue may go undetected. When the communication bit is zero, the PI regulator switches to manual setpoint. This is a key feature for my operation. Is there any way to configure the [product_name] and [product_name] [product_name] Communication Interface Module so that registers are set to zero upon losing connection to a Modbus RTU slave?"
+    },
+    {
+      "comment_id": 726920472463196,
+      "user_name": "GdgGK3gwBR",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Summary: I need the data registers to reset to zero when the Modbus slave fails to respond. Currently, with my configuration, the Communication Interface Module retains the last valid value in its registers if communication breaks. Is there any method to receive Modbus error responses from a [product_name] Communication Interface Module or otherwise detect if communication with the Modbus RTU slave is lost?"
+    },
+    {
+      "comment_id": 350379962453240,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hi, From my understanding, the only approach is to create a live bit in [product_name] that toggles between 0 and 1 continuously. If this live bit stops changing, there is either a communication interruption or [product_name] has switched to stop mode. You can use this live bit in your Arduino to clear the registers if the bit doesn't change. Hope this is helpful."
+    },
+    {
+      "comment_id": 349278215353028,
+      "user_name": "GdgGK3gwBR",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Thank you for the response, but I think there was a misunderstanding. The intention is to replace the Arduino with the Communication Interface Module entirely. With Arduino, I can monitor the .connection status for communication. However, in the [product_name] Communication Interface Module, there is no error message or Modbus exception response when communication is lost. I suppose it's possible to use a time register from the RTU slave and employ an analog watchdog with an inverted output. If the value doesn't surpass the threshold within a certain timeframe, communication can be considered broken. While not ideal, this solution might work."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main problem discussed is the absence of a built-in feature in the [product_name] Communication Interface Module to detect and handle lost communication with Modbus RTU slaves. Unlike the Arduino solution, the [product_name] module does not provide error messages or exception responses, causing registers to hold outdated values and potentially affecting process control. Users seek a way to automatically clear or reset these registers when communication is interrupted.",
+    "user_expectations": "Users expect the [product_name] Communication Interface Module to enable automatic detection of lost communication with Modbus RTU slaves and to provide a way to reset data registers to zero whenever a connection failure occurs.",
+    "severity_expectation_level": "1",
+    "gain_keywords": [
+      "automatic register reset",
+      "communication loss detection",
+      "process reliability"
+    ],
+    "pain_keywords": [
+      "stale register values",
+      "lack of error detection",
+      "manual workaround required"
+    ],
+    "feature_keywords": [
+      "register reset on loss",
+      "Modbus error handling",
+      "live bit monitoring",
+      "analog watchdog"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

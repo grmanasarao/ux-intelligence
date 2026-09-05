@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "8202112000",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 151684283902286,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I am using [product_name] [version_no], and I have set up a program with a UDF. However, I need to get more than four outputs to retrieve internal data. When I use another internal UDF and try to run the program on an earlier version, I receive an error. I've updated the UDF to match my current [version_no], but the error persists. Is there a way to resolve this? Thanks in advance, I'll check for replies later."
+    },
+    {
+      "comment_id": 477173612747791,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "The information window displays an error about blocks lacking a connection to an output, but it does not clarify which blocks are affected. Navigating that complex diagram for answers is not ideal."
+    },
+    {
+      "comment_id": 748954275083301,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Good morning, thank you [user_name]. I will look into it later today as I am starting work now."
+    },
+    {
+      "comment_id": 677590841492480,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "A UDF is meant for repeated small pieces of logic. If you surpass the input/output limits, it's worth reconsidering your approach. Remember, using UDFs doesn't reduce memory usage; for example, if a UDF contains 20 blocks and is used three times, the main program will count 60 blocks in total. Regarding the error: the program complains about an AM1 block, which is not receiving a value, resulting in AQ1 lacking a defined output. The compiler struggles to communicate this clearly."
+    },
+    {
+      "comment_id": 419464066781917,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "This means the error message about blocks not being connected to an output is misleading. If you delete one of the UDF inputs and reconnect AM1's input to the UDF input, the error message disappears."
+    },
+    {
+      "comment_id": 509024144706668,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "The 'output' the compiler mentions is the AQ1 pin. The original setup doesn't provide AQ1 with a consistent value since AQ1 connects to AM1 through the UDF. See the figures below: Figure 1 shows the original design with the error, and Figure 2 shows the modified design without the error."
+    },
+    {
+      "comment_id": 514417660469356,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Refer to the attachment: if you connect the input of AM1 to a UDF input, the error message no longer appears."
+    },
+    {
+      "comment_id": 911773712877121,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "That's correct, last night I was too tired. Thank you for your help."
+    },
+    {
+      "comment_id": 609037759306788,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Keep in mind the UDF limits: you can have up to 8 inputs (combining digital and analog) and 4 outputs (also combining digital and analog)."
+    },
+    {
+      "comment_id": 515293102184227,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "I'm aware of these limits, which is why I hoped to transmit more useful data externally via the analog output. If there is a better method, I’d appreciate your suggestions. You previously taught me this approach. By the way, I don't need the analog input for the UDF. Apologies for my disorganized diagram; I lost it, and when I recovered it, the format changed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face a key limitation in [product_name] UDF blocks, especially due to the maximum of four outputs. Those wanting to pass more internal data out of complex UDFs feel restricted. Error messages about block connections lack clarity, making it hard to pinpoint issues when troubleshooting. There is general confusion and frustration regarding both the block output restrictions and the deficient error reporting.",
+    "user_expectations": "Users hope to overcome the output restrictions in UDFs, transmit more internal data externally, and receive more precise, informative error messages when problems arise.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "more outputs",
+      "external data transfer",
+      "clear error information"
+    ],
+    "pain_keywords": [
+      "output limitation",
+      "unclear error messages",
+      "troubleshooting difficulty"
+    ],
+    "feature_keywords": [
+      "UDF output limit",
+      "error reporting",
+      "analog output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

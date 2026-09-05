@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "2310601021",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 459746372869845,
+      "user_name": "x1Ajs3Qiia",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I've experienced this issue for several months. When I disable the network, everything works perfectly. However, enabling the wireless adapter causes it to lag again. This situation is very frustrating, especially since this is licensed software that lacks proper support. No thanks to [company_name]."
+    },
+    {
+      "comment_id": 534497843546004,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Is your wireless interface connected to a network and has it obtained an IP address? I've used [product_name] under Debian Linux with wireless connections and haven't encountered any problems."
+    },
+    {
+      "comment_id": 630062440441232,
+      "user_name": "udO0a0woU9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Using WLAN is generally supported by [product_name]. It appears something might be wrong with your wireless adapter. You may want to ask for support for your wireless adapter."
+    },
+    {
+      "comment_id": 596334943175860,
+      "user_name": "x1Ajs3Qiia",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello, I found a solution for the [product_name] error: You can use a network analyzer tool (such as Microsoft Network Monitor 3.4, which is free) to identify what software is initiated when you access the [product_name] device. Look for Javaw.exe, along with the destination IP address and port number, to determine which software is using that IP. In my case, the problem was caused by pass-through from another software. When accessing a menu in [product_name], Javaw.exe attempts to communicate with a device using a different IP address and port than the intended device. You need to update the IP address in the related software to match your [product_name] device. For example, I had a device set to IP 192.168.30.5 and port 2000, and my [product_name] device was at IP 192.168.1.220. Opening a menu in [product_name] triggered communication with 192.168.30.5 through port 2000. Once I changed the target device to match my [product_name] IP, it worked as expected. The root issue is a delay in the [product_name] software, not the communication device itself. For me, it's difficult to understand why accessing a menu causes the software to communicate using the IP address specified in another application; both use Javaw.exe. Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report noticeable lag when the wireless network adapter is enabled while using [product_name]. Disabling the network eliminates this lag, suggesting a network-related issue in the licensed software. Analysis revealed that menu actions in [product_name] trigger unexpected communication using Javaw.exe to an IP and port configured by another application, causing delays. Users are frustrated by both the technical problem and the absence of effective support.",
+    "user_expectations": "Users expect [product_name] to operate smoothly and responsively regardless of network adapter status and to receive clear communication and reliable support for paid software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "smooth operation",
+      "responsiveness",
+      "network stability",
+      "adequate support"
+    ],
+    "pain_keywords": [
+      "lag",
+      "network-induced delay",
+      "frustration",
+      "support issues",
+      "unexpected communication"
+    ],
+    "feature_keywords": [
+      "wireless adapter compatibility",
+      "menu communication",
+      "Javaw.exe network interaction",
+      "pass-through configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Linux": [
+        "Debian"
+      ]
+    }
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "7": "Product Support Satisfaction"
+  }
+}

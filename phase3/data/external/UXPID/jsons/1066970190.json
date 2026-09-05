@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "1066970190",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 995041628259359,
+      "user_name": "VxfYLzkJkl",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, Has anyone accomplished a project that involves communication between [company_name] [product_name] and an Altivar ATV630 AC drive? Is there a way to overcome the issue where the Modbus address range for [company_name] [product_name] is VW 0-850, which corresponds to holding registers 1-425, while the key registers for ATV630 control are 8501 (command) and 8502 (frequency reference)? Is there a possible workaround, or is it not achievable? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 469798174712274,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hi, There might be some confusion here. In [product_name], VM memory is used for data exchange with other devices. Do you really need all of your device's registers in [product_name]? Typically, only a few registers are required, which you configure alongside the target VM memory in the Modbus data table. For example, you can transfer the value from a Modbus register (4024) to a designated VM memory address (VW10) in [product_name]. You only need to transfer necessary data. Note that [product_name] has only 850 bytes of memory available for this. Hope this helps."
+    },
+    {
+      "comment_id": 672263083546251,
+      "user_name": "VxfYLzkJkl",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello and thank you for your response. You're right, I don't need every register from my device in [product_name]. My focus is solely on registers 8501 (command) and 8502 (frequency reference). However, the attached image shows that the Modbus address space in [product_name] covers mapped addresses from 1 to 425 for address type VW, whereas I need only registers 8501 and 8502."
+    },
+    {
+      "comment_id": 678669027328968,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "You're approaching this from the wrong perspective. If [product_name] acts as the server and, say, a Modbus PLC is the client, that PLC may not recognize operands like V, VB, VW, or VD from [product_name], making it unable to address the VM memory area directly. That's why VW0 matches HR1 from the Modbus PLC's viewpoint: VW2 = HR2, VW4 = HR3, and so forth. In your situation, the VFD should function as the server and [product_name] as the client. Accordingly, HR8501 from the VFD should be mapped to VW0 and HR8502 to VW2. Remember, [product_name] uses an offset of +1 for Modbus addresses."
+    },
+    {
+      "comment_id": 114349507416029,
+      "user_name": "VxfYLzkJkl",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Understood. However, I've configured things as shown in my attached image (similar to your suggestion), but the communication between [product_name] and the Altivar isn't working. According to the Altivar's communication map, data exchanges occur, but neither the command nor frequency reference registers have values. Also, with the offset +1 in [product_name] Modbus addresses, does that mean I should use 8502 for the 8501 register and 8503 for 8502? Am I misunderstanding?"
+    },
+    {
+      "comment_id": 814038115971172,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I can't say for sure since I'm not sure whether the Altivar uses an offset of +0 or +1. If the Altivar offset is +0, then you're correct (HR8502 and HR8503). If it's +1, then use HR8501 and HR8502."
+    },
+    {
+      "comment_id": 586659498946558,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I'm also uncertain if using Unit-ID 255 is correct."
+    },
+    {
+      "comment_id": 150556111878976,
+      "user_name": "VxfYLzkJkl",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Found a solution! Two important points: 1) The unit ID should be set to 248 instead of the default 255. 2) An offset of +1 is required; for the 8501 command register, you must input 8502 in the Ethernet setup window. Everything works fine now."
+    },
+    {
+      "comment_id": 324480518337741,
+      "user_name": "9VAEnOd0Kv",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hello, Could you share your project? I'm working on a similar issue and would appreciate learning from your experience. Thank you!"
+    },
+    {
+      "comment_id": 976836095707440,
+      "user_name": "9VAEnOd0Kv",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hello, Would it be possible to share your project? I'm trying to solve the same problem and any guidance would be appreciated. Many thanks!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users exchanged ideas about setting up Modbus TCP communication between [company_name] [product_name] and an Altivar ATV630 drive, primarily focusing on challenges with register mapping and configuration. The main concern was the limited Modbus address range available on [company_name] [product_name], which made it hard to access specific registers needed for controlling the drive. By clarifying the correct unit ID and address offset, users were able to resolve the issue and achieve successful device integration.",
+    "user_expectations": "Users expect [company_name] [product_name] to allow mapping and communication with any necessary Modbus register from the Altivar drive, without being restricted by its internal Modbus address limitations.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "seamless Modbus integration",
+      "accurate register mapping",
+      "device control"
+    ],
+    "pain_keywords": [
+      "addressing limitations",
+      "register mapping confusion",
+      "unit ID configuration"
+    ],
+    "feature_keywords": [
+      "Modbus TCP client/server role",
+      "memory mapping",
+      "register address offset",
+      "Unit ID configuration"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "2608345531",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 556727395723349,
+      "user_name": "iCkoeGPrnj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello, I have a PSK key that works in OpenVPN GUI on my PC to connect to [product_name] CMR. When I try to import the key into \"OpenVPN for Android\", I receive an error about \"Unknown protocol udp4 in proto-force\". Does anyone know how to set up the VPN on Android to access the [product_name] CMR 2040?"
+    },
+    {
+      "comment_id": 534439289550230,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "\"OpenVPN for Android\" is the correct app, and it supports PSK. You need to remove the line \"proto-force udp4\" (line 2) from the configuration file before importing it on your phone, as the app does not handle this setting correctly. After removing it, the connection should work. Best regards."
+    },
+    {
+      "comment_id": 966001480480423,
+      "user_name": "iCkoeGPrnj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "I deleted the line \"proto-force udp4\" from the PSK key and was able to successfully import \"xx.ovpn\". The VPN connection on Android now works. Thank you for the help. Best regards, [user_name]."
+    },
+    {
+      "comment_id": 594058659277046,
+      "user_name": "UeCb9pAmc4",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I also encountered this issue and removed the line from the .ovpn file. The protocol error disappeared, but I still cannot connect. It says \"secret\" is deprecated, and connection via TLS is not possible. Why does this only affect OpenVPN for Android, and not OpenVPN GUI on PC? Any advice would be appreciated. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face compatibility challenges when trying to connect to [product_name] CMR devices via OpenVPN on Android. While the VPN works fine on PC, importing the same configuration on Android prompts protocol and security-related issues that require manually editing the VPN profile. This highlights inconsistencies between VPN clients across platforms, resulting in user frustration for those wanting simple mobile access.",
+    "user_expectations": "Users expect consistent behavior between VPN clients on different platforms and an easy process to connect to [product_name] CMR devices from Android using the same configuration as on their PC.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "mobile access",
+      "cross-platform VPN connectivity",
+      "remote control"
+    ],
+    "pain_keywords": [
+      "protocol incompatibility",
+      "VPN connection failure",
+      "deprecation warnings"
+    ],
+    "feature_keywords": [
+      "VPN compatibility",
+      "configuration import",
+      "PSK support"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Android": [],
+      "Windows": []
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

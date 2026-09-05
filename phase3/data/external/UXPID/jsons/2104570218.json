@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "2104570218",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 179987844286858,
+      "user_name": "I0yKcVGE4e",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm encountering the same issue. Whenever I try to connect a TCP Modbus client (Modscan32) to my [product_name], the TCP/IP connection is closed immediately. Does anyone know what's causing this? My goal is to read the I/O, but I haven't found any solutions in other threads. Notably, the same Modbus client works fine with other devices. Thank you and best regards."
+    },
+    {
+      "comment_id": 615014132046623,
+      "user_name": "I0yKcVGE4e",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I'm replying to my own post! The default TCP port here is 510 (not 502). With this, Modbus TCP communication now works."
+    },
+    {
+      "comment_id": 970798460544849,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Perhaps Modscan32 defaults to using port 510, but typically port 502 is reserved for Modbus communications. If you set up multiple Modbus clients with [product_name], defaults are usually 502, 503, 504, etc. You can use any available port number, as long as it's matched on both sides. You should also be able to change the port setting in Modscan32. Regards, [user_name]"
+    },
+    {
+      "comment_id": 647609995624469,
+      "user_name": "I0yKcVGE4e",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello, Yes, Modscan32 allows you to adjust the port. Its default is 502, but selecting 502 causes [product_name] to refuse the connection. Changing to port 510 establishes a connection. I've tried other Modbus clients too, and the result is the same: port 502 is immediately refused, while 510 works normally."
+    },
+    {
+      "comment_id": 670772674163613,
+      "user_name": "3a98BRG7Ui",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello, It seems you've configured [product_name] to use port 510. Regards, [user_name]"
+    },
+    {
+      "comment_id": 123850945593949,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Have you tested Modscan32 and [product_name] both using port 502? It's possible that port 502 is blocked by another device. If your connection is stable with port 510, it should be fine. Regards, [user_name]"
+    },
+    {
+      "comment_id": 204324927691766,
+      "user_name": "GmKIjku2HC",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hi, I'm sorry to revive this thread, but I'm facing the same challenge. Port 502 is set as master on [product_name] software, but Modscan and CAS only work for reading data with port 510. Everything operates well, but why is port 510 required? I'm using [product_name] version [version_no]. This [product_name] is communicating with a Schneider M580."
+    },
+    {
+      "comment_id": 575495688318043,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "[product_name] reserves ports 502 to 509 for its static Modbus server connections."
+    },
+    {
+      "comment_id": 864064203493258,
+      "user_name": "h3zq1Hh4J6",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Hello Forum, I recently encountered a similar problem involving Modbus port 502. A project that functioned for over a year suddenly experienced [product_name] Modbus TCP/IP loss, possibly due to a firewall on a Unify router blocking the port. The Modbus server in Iridium couldn't connect to [product_name] on port 502 as programmed. Through Modbus Master Radzio, I found [product_name] responded on port 510, as previously mentioned. Switching the Iridium Modbus server to port 510 restored communication. I'm curious why port 510 worked but not 502 or 503. Can someone clarify? Thanks in advance!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Multiple users encountered difficulties connecting their Modbus TCP clients to [product_name] using the standard port 502, with immediate disconnection issues. However, using port 510 allowed successful connections, leading to confusion as 502 is the expected Modbus default port. Some users noted that [product_name] reserves ports 502 to 509 internally, which could explain why only port 510 works. This problem was observed across different software and hardware setups, increasing uncertainty around correct configuration and network behavior.",
+    "user_expectations": "Users anticipate connecting Modbus TCP clients to [product_name] using the standard port 502 to easily access I/O data, without facing connection refusals or unexplained port closures.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "standardized connection",
+      "Modbus TCP interoperability",
+      "reliable communication"
+    ],
+    "pain_keywords": [
+      "unexpected port usage",
+      "connection refusal",
+      "lack of clarity on port assignment"
+    ],
+    "feature_keywords": [
+      "Modbus TCP port configuration",
+      "server connection management",
+      "network parameterization"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges"
+  }
+}

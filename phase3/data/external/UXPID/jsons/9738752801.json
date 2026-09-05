@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "9738752801",
+    "thread_id": "3055273936",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 608975484939213,
+      "user_name": "hdFtaBwQ1a",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "Hello, I am new to [product_name] and this type of programming. My background is mostly in CNC machine programming. I want to use a torque controller for a machine we are building to stir milk and later curd, aiming to prevent burnout of the small DC motor (12V, similar to a car windscreen motor). I have a DC speed controller from [url] and, as far as I can tell, I only need to provide an output voltage between 0V and 5V. Is it possible to control speed and torque this way, or is torque control not feasible? If not, what is the best way to generate a 3V output—for example?"
+    },
+    {
+      "comment_id": 174717190213179,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Hello, with [product_name] you can control up to two analog outputs. Each output is a 0 to 10V signal, scaled to values from 0 to 1000 by default. So writing a value of 300 gives you 3V at one analog output. I can't guarantee this meets your requirements for controlling speed and torque, but I hope this information is useful."
+    },
+    {
+      "comment_id": 378149842170553,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "You cannot directly connect the analog output of [product_name] to the motor. The analog output is intended for low-power signals (≥5 kΩ); you will need to use an amplifier."
+    },
+    {
+      "comment_id": 124722759053495,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Hello, The main issue is that torque control is not available with this controller; it's intended for model building rather than industrial purposes. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user seeks to use [product_name] for DC motor control in a machine designed to stir milk and curd, with an emphasis on managing both speed and torque to protect the small motor. [Product_name] offers analog voltage control but lacks native torque regulation functions, and its outputs are designed for signaling, not directly powering motors. Replies clarify the hardware and control limitations, emphasizing the lack of torque adjustment and the need for a separate amplifier to drive the motor.",
+    "user_expectations": "The user expects [product_name] to handle both speed and torque control for a DC motor, ideally by producing specific output voltages, and hopes for a simple and direct voltage-based control solution.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "motor protection",
+      "precise control",
+      "voltage adjustment"
+    ],
+    "pain_keywords": [
+      "no torque control",
+      "output drive limitation",
+      "requires external amplifier"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "voltage control",
+      "torque control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "5397989823",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 802859676947279,
+      "user_name": "ZkSBvrjn9W",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "Hello, I am working on my first [product_name] project with a controller module ([version_no]). The system needs automatic fan control, switching fan speeds based on weekdays and hours. I want the device to display 'Fan speed x', with x changing according to the active speed (1, 2, 3, or 4). The controller version has relay outputs, where speed 1 activates output Q1, speed 2 activates Q2, and so forth. How can I configure the display to show the active output number, with static text and a changing value? There is also another fan that I would like the system to indicate as ON or OFF."
+    },
+    {
+      "comment_id": 442267303588968,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "Here's a possible solution,"
+    },
+    {
+      "comment_id": 321437034909397,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "A new question by [user_name] has been moved to another thread titled: 'Automatic license manager service is not started, please start the service.' Best regards [user_name]"
+    },
+    {
+      "comment_id": 471767751018688,
+      "user_name": "ZkSBvrjn9W",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "Thank you, your suggestion worked! I'm new to this and still learning about the functions and applications. For anyone using your fan configuration as-is, be aware that if inputs 2 and 3 are both active, the display will show fan speed 4. I've attached my project for feedback. There may be areas that can be improved, so I welcome any suggestions. Here's a description of the physical setup and my goals for the finished system: This is for an automotive workshop with three main ventilation components: 1) Roof ventilator: The main exhaust fan, controlled by the PLC using four relay outputs which set four different fan speeds. The outputs connect to a frequency controller with digital inputs, allowing each speed to be adjusted through the frequency interface. In the event of PLC failure, the frequency controller can be operated locally or remotely by switching modes. 2) Exhaust gas extraction fan: This independent fan removes car exhaust from the shop and works separately from general ventilation. 3) Air delivery unit: This unit features a door with two positions—slightly open for lower fan speeds, and fully open (via damper motor) when high airflow is needed. It also includes two sets of heating elements for warming incoming air, which the PLC activates based on temperature. There is a two-speed fan to cool these heating elements when required. This custom solution was used since residential controls lack needed features and commercial options are too extensive for a smaller workshop. High pricing and feature overkill influenced the decision. For [product_name]: Manual control is provided via pushbuttons. Input 1 toggles the exhaust fan; inputs 2 to 5 select the four roof ventilator speeds, each timed weekly with a pulse output. The 'button push' times for each fan speed are configurable, and the setup reverts to automatic mode after scheduled events, even if manual changes occur. When the exhaust fan is activated, it draws more air than the roof ventilator on low settings. Thus, if the exhaust fan is on, the roof fan is shut off—unless running at full speed, in which case it downgrades to speed 3. When ventilation demand is high, the damper motor opens the door wider to increase airflow. Heating and cooling in the air delivery unit are managed by yearly/weekly timers and two thermostats. If temperature drops enough to trigger thermostat 1, 50% heating is enabled and the fan starts at speed 1, stopping with a delay to cool the element. Further drops trigger thermostat 2, activate second heating, and increase fan speed to 2, followed by a timed cooldown period. A dual-sensor setup would be more advanced but isn't implemented currently—potentially for a future update. Feedback and suggestions are encouraged!"
+    },
+    {
+      "comment_id": 343574060166309,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "My approach is deliberately simple so that newcomers can easily understand it. To prevent incorrect selections when using two control inputs for the analog multiplexer, all four selection criteria (I1 to I4 in the example) must be mutually exclusive, so that invalid choices do not occur. This is especially important for beginners."
+    },
+    {
+      "comment_id": 515984715305335,
+      "user_name": "ZkSBvrjn9W",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "You're right, a straightforward method is best here since I'm new to this. I just wanted to point out for others that my design resets all four fan speeds by turning off the relays for the non-selected speeds. I ended up using several flags to prevent inputs from looping to outputs. Does anyone have tips for a more efficient setup?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discuss configuring a relay-based controller to show the active fan speed and auxiliary fan status. A key concern is the complexity required to avoid conflicting relay outputs and to present clear status on the device's display. The advice is targeted at beginners, but the solution can become complex for custom setups, suggesting a need for simpler logic and interface designs.",
+    "user_expectations": "The user hopes for an easy, intuitive way to display active fan speeds and ON/OFF statuses, with straightforward logic and feedback options. They prefer a setup that requires minimal technical expertise, especially for those new to the platform.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time status display",
+      "multi-speed automation",
+      "ease of use"
+    ],
+    "pain_keywords": [
+      "configuration complexity",
+      "output exclusivity management",
+      "interface unintuitiveness"
+    ],
+    "feature_keywords": [
+      "text display configuration",
+      "relay output control",
+      "output status feedback"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

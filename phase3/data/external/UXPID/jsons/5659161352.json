@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "branch_id": "5659161352",
+    "thread_id": "4479534060",
+    "publication_year": 2008,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 102930984119308,
+      "user_name": "y9jbHmOrFK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hello, I'm working with a [product_name] in a KNX/EIB setup, using the [product_name] [article_no] KNX communication module. For some reason, when sending analog values from EIB, these aren't registering on the AI1 and AI2 inputs of the [product_name]. Inputs AI3 through AI8 function as expected. I've ensured that my KNX/ETS software mapped all AI inputs to EIB according to the device settings (\"0 on [product_name] and 8 and 8 on EIB\"). Has anyone encountered this issue, or do you have any ideas on what might be wrong? Regards, [user_name]"
+    },
+    {
+      "comment_id": 725405677480287,
+      "user_name": "fRR6ulIWvU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 8,
+      "comment_body": "AI1 and AI2 are actual physical inputs on the [product_name] (on the 12/24RC0 module at inputs I7, I8), so you can’t use them in the way you described. Instead, you should use AI7 and AI8, which are virtual inputs and can be written to from LON and KNX."
+    },
+    {
+      "comment_id": 773688548100562,
+      "user_name": "DWr3uW9wh2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "[user_name] is correct if you're using a [product_name] 12/24RC(o) or 24(o). Depending on the version, there may be 2 or 4 analog inputs already utilized internally by the [product_name]'s process image. Basic modules without analog inputs (the 230V and 24 AC versions) don't use any analog inputs internally, so all 8 analog inputs are available for KNX communication. Normally, the module’s analog inputs are preferred as they are more cost-effective and flexible than KNX ones. This situation is similar for digital inputs—the ones configured as hardware are only able to send their status to KNX devices but can't be overridden from the KNX side."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are unclear about which analog inputs on the [product_name] can be written to when used with a KNX communication module. Physical inputs (e.g., AI1, AI2) cannot be controlled from KNX, while virtual inputs (e.g., AI7, AI8) allow network writing. This leads to confusion and misconfiguration, as users expect all analog inputs to be writable via KNX.",
+    "user_expectations": "Users expect that all analog inputs on the [product_name] can be mapped and directly controlled from the KNX network by configuring them in software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless analog integration",
+      "reliable configuration"
+    ],
+    "pain_keywords": [
+      "input write restrictions",
+      "configuration ambiguity",
+      "unexpected hardware limitations"
+    ],
+    "feature_keywords": [
+      "analog input mapping",
+      "KNX communication",
+      "writable inputs"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

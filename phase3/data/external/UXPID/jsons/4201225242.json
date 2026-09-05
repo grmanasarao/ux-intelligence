@@ -1,0 +1,324 @@
+{
+  "metadata": {
+    "branch_id": "4201225242",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "report"
+  },
+  "content": [
+    {
+      "comment_id": 588995130396513,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm facing an issue with [product_name] [version_no] for Linux (both 32 and 64 bit). Whenever I attempt to change hardware (Ctrl-H or Tools > Change hardware), I receive an error: \"An unexpected error occurred. Your data may be inconsistent and subsequent errors may occur. java.lang.UnsupportedOperationException: cfg script file format is not supported.\" This error also pops up with several other menu options, such as File > Properties and configuring network addresses. I've tried renaming the jre directory so the system uses the default Linux jre, but it didn't help. The problem appears no matter which Java version I use (Oracle Java 7u24, OpenJDK 6, 7, 8). Is there anywhere else to file a bug report besides this forum? Currently, [product_name] [version_no] isn't usable for me."
+    },
+    {
+      "comment_id": 660177983688496,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Still no response. Is anyone else experiencing this issue?"
+    },
+    {
+      "comment_id": 408869319431592,
+      "user_name": "YnNmWXpm4k",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Hello, try disabling Java on your system. Hope this is useful."
+    },
+    {
+      "comment_id": 720068561734190,
+      "user_name": "6WqtyUc4tP",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hi, I'm also unable to connect to the BM under [product_name] [version_no] with Debian. I renamed '/usr/bin/java' to '/usr/bin/java.old', but I'm still seeing: \"An expected error occurred: Your data may be inconsistent and subsequent errors may occur. Java.lang.UnsupportedOperationException: cfg script file format not supported.\" This bug is quite frustrating. Any ideas for resolution?"
+    },
+    {
+      "comment_id": 159685878019937,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Is your Java installation up-to-date?"
+    },
+    {
+      "comment_id": 837199522386606,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Yes, running Debian sid with the newest Oracle Java version: java version \"1.7.0_45\" Java(TM) SE Runtime Environment (build 1.7.0_45-b18) Java HotSpot(TM) 64-Bit Server VM (build 24.45-b08, mixed mode). However, the jre bundled with [product_name] [version_no] also fails to work, so another issue must be present."
+    },
+    {
+      "comment_id": 290327898272182,
+      "user_name": "dgdJir4PUb",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "I get the same error encountered by [user_name] when attempting communication or hardware changes. System info: Ubuntu 14.04 64-bit, Java(TM) SE Runtime Environment, Java HotSpot(TM) 64-Bit Server VM (24.0-b56), [product_name] [version_no] V8.0.0 (timestamp: 2014-06-29 16:25), Language: es_ES, OS: Linux 3.13.0-39-generic, Processor: amd64, Java version \"1.8.0_25\" (build 1.8.0_25-b17), Java HotSpot(TM) 64-Bit Server VM (build 25.25-b02), Total Java Memory: 121,569 kB, Free Java Memory: 68,376 kB."
+    },
+    {
+      "comment_id": 331709117840621,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "This error isn't related to the JRE version. Only Suse Linux is officially supported. The source of this issue is NetworkAdapterSuseUtil.class in the classes.jar file, which tries to find Suse-specific network configs. As a workaround, create /etc/sysconfig/network as root (sudo mkdir -p /etc/sysconfig/network) and make config files named 'ifcfg-' followed by your network adapter names (found using /sbin/ifconfig). For example, for eth0 and wlan0: sudo touch /etc/sysconfig/network/ifcfg-eth0 and sudo touch /etc/sysconfig/network/ifcfg-wlan0. Content of files doesn't seem to matter for [product_name]. This resolved the issue for me on Debian Wheezy and should work for other Debian-based distributions like Ubuntu and Linux Mint too."
+    },
+    {
+      "comment_id": 216139504797079,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Thanks for the workaround! It also fixed the issue for me on Debian Sid."
+    },
+    {
+      "comment_id": 936022629230255,
+      "user_name": "DDwz5LgNIo",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Great solution, thank you! [user_name]"
+    },
+    {
+      "comment_id": 267878386305962,
+      "user_name": "tDslqAnPgb",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Hi, I've created two files: /etc/sysconfig/network/ifcfg-eth0 and /etc/sysconfig/network/ifcfg-eth1 (both empty). The application works only when the window is minimized. In full-screen mode, features like Block Properties drop-down and the main menu bar don't function. Running Linux Mint 7 Mate 32bit. Any ideas to resolve this?"
+    },
+    {
+      "comment_id": 593310739334992,
+      "user_name": "aRlAJ5STFW",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Question imported from [user_name]."
+    },
+    {
+      "comment_id": 125087015554939,
+      "user_name": "82HYRx8bCj",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Appreciate the fix, @WWEE! After checking my system, I realized my network card was named eth1, not eth0. Creating the correct ifcfg file resolved the issue on Ubuntu 14.04.01 64bit. Tip: mkdir -p will create parent directories as needed. Everything is functioning now."
+    },
+    {
+      "comment_id": 354395043976026,
+      "user_name": "iSUd82kgA6",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Hi, Running [product_name] [version_no] on Centos 6, but the workaround doesn't work. Can't create a network directory in /etc/sysconfig since a file named 'network' already exists. The ifcfg files are inside /etc/sysconfig/network-scripts, tried creating a symbolic link but couldn't due to the existing network file. Any alternative solution?"
+    },
+    {
+      "comment_id": 212054626286761,
+      "user_name": "8huIBERp9r",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "Thanks! [product_name] [version_no] now works on Ubuntu 16.04 LTS 32 Bit."
+    },
+    {
+      "comment_id": 717233347853085,
+      "user_name": "ZDCLuTqeOY",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Thank you for solving this. Works perfectly on Ubuntu 16.04. Run: sudo mkdir -p /etc/sysconfig/network and sudo touch /etc/sysconfig/network/ifcfg-eth0, then launch the software. Thanks again, [user_name]."
+    },
+    {
+      "comment_id": 716287891412200,
+      "user_name": "LyO8KpjvKg",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hi, I know this is an old topic but just came across the issue. Using [product_name] [version_no] on Linux Mint 18 Sarah 64-bit and a [product_name] [version_no]. Sadly, the workaround isn't working here, though it does on my Raspberry Pi. Any suggestions? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 279375877487468,
+      "user_name": "BJ57z06xkt",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello all, I've tried the workaround on my Linux Mint 18.3 PC, but the error persists despite following the steps. Can anyone assist?"
+    },
+    {
+      "comment_id": 398774342375620,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "It's best to first check your ethernet card’s actual name, as it’s not always eth0 or eth1. For instance, on my Debian system, it's enp2s0. Use the ifconfig command to find this out, then adjust the commands: sudo touch /etc/sysconfig/network/ifcfg-enp2s0 (or your specific card name). Good luck!"
+    },
+    {
+      "comment_id": 277205602251776,
+      "user_name": "BJ57z06xkt",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "No luck with previous steps. After uninstalling, reinstalling per instructions from the [company_name] website with \"sh ./Setup.bin\" in the installation folder gives an error about the default destination folder. Any fixes?"
+    },
+    {
+      "comment_id": 447060024612348,
+      "user_name": "cAgQLdgKpP",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Another workaround is to visit this link to download [product_name] [version_no]: [url]"
+    },
+    {
+      "comment_id": 666657239579080,
+      "user_name": "82HYRx8bCj",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Thanks for the suggestion. However, I can't find a direct update (service pack) for moving from [version_no] 8.0 to 8.2 on that site, and the Update Center in the [product_name] says online updates aren't available. They recommend visiting the website."
+    },
+    {
+      "comment_id": 766993965642847,
+      "user_name": "5ZD5sRIkeC",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thank you WWEE, that solution worked for me with POP!_OS 19.04. My error was java.lang.UnsupportedOperationException: adapter type is not supported, and creating the appropriate ifcfg file solved it (sudo touch /etc/sysconfig/network/ifcfg-wlp1s0). Much appreciated!"
+    },
+    {
+      "comment_id": 749428000355934,
+      "user_name": "sPGxAo6Fff",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "I had the same issue on Bodhi Linux 5.0; the workaround worked. However, I switched to [product_name] Web Editor from Macbook with MacOS because I couldn't connect the machine before. [product_name] worked, Web Editor did not. This software feels like a BETA version; even on Mac, it throws 'Windows error.' [company_name] should improve quality before releasing."
+    },
+    {
+      "comment_id": 545258825343593,
+      "user_name": "lOQgxlsGoh",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Great answer! Worked perfectly! It's surprising this problem still exists after so many years."
+    },
+    {
+      "comment_id": 311113396056124,
+      "user_name": "bfo9R13KL8",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "On Ubuntu, had trouble too. To solve it, run this (connect your PC's ethernet to [product_name] first): fix_[company_name]_[product_name]_comfort.sh"
+    },
+    {
+      "comment_id": 957002468170785,
+      "user_name": "CVmicmbULp",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Thanks WWEE! Solution still works flawlessly on Ubuntu 22.10. For me: sudo touch /etc/sysconfig/network/ifcfg-enp3s0. Why is this bug still present, [company_name]?"
+    },
+    {
+      "comment_id": 115942081857011,
+      "user_name": "LydgdOvrIx",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "The bug remains on [product_name] [version_no], but the workaround still helps. Using Linux Mint 21.1 in Virtualbox."
+    },
+    {
+      "comment_id": 624363899855430,
+      "user_name": "WNHVO4cRgY",
+      "comment_position": 28,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "2024 and the Java error from 2014 is still here. Ten years! Experienced it again after system update and kernel/Java upgrade. Now on Ubuntu with Macbook. Other issues: can't control [product_name] Comfort with touchpad, must use mouse (possible Java problem?); Web Editor sometimes freezes while picking elements from database (Java-related?); and failed to download HTML to web server from a device on a different subnet, had to rebuild whole network. March 2024 system updates and Java applied."
+    },
+    {
+      "comment_id": 444462183225784,
+      "user_name": "B5y2wDqnDt",
+      "comment_position": 29,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Thanks, this is the best solution offered. Excellent help!"
+    },
+    {
+      "comment_id": 190706817159218,
+      "user_name": "B5y2wDqnDt",
+      "comment_position": 30,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Excellent workaround, thanks!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Linux users encounter a persistent bug with [product_name] [version_no], resulting in repeated errors ('cfg script file format is not supported') during essential functions like hardware changes and network configuration. The bug prevents hardware connections and standard operations, independent of Java runtime version. It originates from unsupported network configuration expectations for non-Suse Linux distros, revealing a vendor lock-in and insufficient cross-platform compatibility.",
+    "user_expectations": "Users expect [product_name] [version_no] to function reliably on major Linux distributions and allow routine actions such as hardware management and network setup, regardless of the chosen Java runtime or Linux version.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "Linux compatibility",
+      "seamless hardware configuration",
+      "cross-platform usability"
+    ],
+    "pain_keywords": [
+      "unsupported Linux distributions",
+      "critical runtime error",
+      "inability to configure hardware",
+      "network configuration bug"
+    ],
+    "feature_keywords": [
+      "hardware change",
+      "network address configuration",
+      "multi-distro support"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Linux": [
+        "Debian",
+        "Ubuntu",
+        "Linux Mint"
+      ]
+    }
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

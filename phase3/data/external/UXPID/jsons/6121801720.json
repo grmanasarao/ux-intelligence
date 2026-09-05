@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "branch_id": "6121801720",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 334978068394283,
+      "user_name": "J2NKZ7H6lO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm facing issues with the [product_name] communication module not starting properly when certain SIM cards are inserted. With the first or second SIM, I'm able to ping the device, but that's all—the web interface is unavailable, and the input signals do not activate the corresponding indicators even when a HIGH signal is present. The device has the latest firmware, and the SIM card works fine in my phone. I'm unsure what else could be wrong; possibly a firmware bug? For reference, SIM1 is four years old, SIM2 is new, and SIM3 is ten years old."
+    },
+    {
+      "comment_id": 157747223331035,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Hi, have you checked the LED indicator status with the notes provided in the manual? See page 95 for a detailed step-by-step configuration overview. Also, confirm if the module supports your providers' frequency bands (note: [product_name] 2020 is not LTE and does not support USA, Canada, or Japan). Hope this information is useful."
+    },
+    {
+      "comment_id": 577431353902627,
+      "user_name": "J2NKZ7H6lO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], Yes, I have checked. The L LED keeps blinking, indicating ongoing initialization. I suspect the device doesn't complete the boot process. My provider and frequency bands meet the device specifications, and I have a fully configured and running module using my old SIM card. However, it fails with newer SIMs, meaning the web interface doesn't load and the L LED continuously blinks."
+    },
+    {
+      "comment_id": 603176415153747,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Hi, Can you upload or share the log file from the device? Checking the log might help identify the issue. Please note: the log file could include sensitive data like phone numbers and PINs, so review it beforehand. Regards."
+    },
+    {
+      "comment_id": 897272093601896,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Hi, If you can't share the log file, it's difficult to assist further. What I know is that the [product_name] 2020/2040 modules don't support SIM cards with 1.8V—the device supports 3V and 5V. Have you checked all details for the other SIM cards, such as correct PIN entry and acceptance, SMS service center, APN, username, and password for data? This is all I can suggest without seeing the log file. Good luck."
+    },
+    {
+      "comment_id": 224168465715063,
+      "user_name": "J2NKZ7H6lO",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "I've wondered about differences in SIM pin layouts (8 vs 6 pins) and voltage compatibility. However, I couldn't find clear technical specifications about SIM card support in the [product_name] manual. All the SIM cards I use support 5V, 3V, and 1.8V. I'm now trying to figure out how to retrieve the log file you mentioned. Is there a way to download the support.bin configuration file? Or did you mean the diagnostic buffer? Since the web administration UI isn't functioning, I can't access the buffer. There's also nothing logged to the SD card. I recently received an email from [company_name] technical support."
+    },
+    {
+      "comment_id": 248825091979487,
+      "user_name": "J2NKZ7H6lO",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "After some experimentation, I managed to get the desired SIM working. Although the manual suggests that data-only SIM cards can operate without a PIN, in my situation, the SIM still required a PIN. After providing the SIM a PIN and updating the configuration, it started working. @ [user_name], the [product_name] does support SIM cards with 1.8V."
+    },
+    {
+      "comment_id": 910682105088956,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Thank you for sharing this update and congratulations on resolving the issue."
+    },
+    {
+      "comment_id": 363489684407394,
+      "user_name": "yGmefQm0Nv",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Hi, could you clarify what settings you used? I'm experiencing a similar problem. My SIM card is on the EE (UK) network and the default PIN is 1111. I have disabled the active data connection and roaming."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users reported trouble with the [product_name] communication module failing to start or provide web interface access when using certain SIM cards, resulting in partial device responsiveness. Investigation revealed that even if documentation suggests no PIN is needed for data-only SIM cards, in practice a PIN may be required to enable proper operation. This mismatch between documented and actual behavior caused confusion regarding correct SIM configuration requirements.",
+    "user_expectations": "Users expect the [product_name] module to support various SIM cards as specified, including data-only SIMs without mandatory PINs, and to boot consistently while granting reliable access to configuration interfaces regardless of SIM age or type. Clear and accurate documentation about real hardware requirements is essential.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "device compatibility",
+      "web interface access",
+      "successful SIM operation"
+    ],
+    "pain_keywords": [
+      "boot failure",
+      "SIM incompatibility",
+      "web interface inaccessible",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "SIM card support",
+      "web-based configuration",
+      "PIN code handling",
+      "diagnostics"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "30": "Data Persistence Confusion"
+  }
+}

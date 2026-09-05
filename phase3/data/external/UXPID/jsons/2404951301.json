@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "2404951301",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 739629665767193,
+      "user_name": "ehWnqItnoK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hello, I'd like confirmation regarding my interpretation of Variable Memory Mapping. To clarify, let me outline an example: I want to read the counter parameter of the up/down counter, which is of DWord type and mapped to the VM address 0. According to the Modbus address mapping, VW (variable word) 0 aligns with HR (holding register) 1. Since DWord occupies two registers, I need to read HR 1 and 2. Similarly, to write to the Off Threshold parameter, also DWord type at VM address 4, the mapping according to Modbus tables means it uses HR 3 and 4. It seems that VM addresses reflect bytes, and DWord covers 4 bytes. The Modbus address table shows that the VW range is nearly double the HR range. If this is correct, I'd recommend updating the table for clarity. Thanks for reading."
+    },
+    {
+      "comment_id": 705893474101396,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "No, the range shown is correct."
+    },
+    {
+      "comment_id": 783706174667344,
+      "user_name": "ehWnqItnoK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Thanks for the response. For clarification, when I mentioned byte in brackets, I meant the range is counted by bytes. Are you indicating that the unit is a word? So, VW0 is the zeroth word, VW1 is the first word, VW2 is the second word, etc.?"
+    },
+    {
+      "comment_id": 917934787447819,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "No, your reply makes it clear you haven't understood my previous answer in your other topic. The VM area is organized by bytes. There are 851 bytes, ranging from VB0 to VB850. If you write into VW0 and also VW1, they overlap. VW0 covers VB0 and VB1, VW1 covers VB1 and VB2, so both VW0 and VW1 affect VB1. Please see the attached explanation for further details."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on how variable memory mapping corresponds to Modbus register space, especially in terms of word and double word types and their byte-based representation. There is ongoing confusion about the mapping rules, the meaning of byte vs. word orientation, and the potential for overlapping memory regions, particularly for multi-byte variables.",
+    "user_expectations": "The user expects straightforward, clear mapping rules between VM byte addresses and Modbus holding registers, with no ambiguity or overlap for multi-byte parameters. The user also seeks better documentation and mapping tables for improved clarity.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate address mapping",
+      "clear documentation",
+      "error-free Modbus access",
+      "understandable memory structure"
+    ],
+    "pain_keywords": [
+      "mapping confusion",
+      "overlapping memory",
+      "ambiguous addressing",
+      "documentation clarity"
+    ],
+    "feature_keywords": [
+      "memory mapping",
+      "Modbus holding register mapping",
+      "variable types (DWord/Word)",
+      "address space documentation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

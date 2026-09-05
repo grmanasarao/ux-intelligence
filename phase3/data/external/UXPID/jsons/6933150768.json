@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "branch_id": "6933150768",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 222967750391082,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Good morning everyone, I’d appreciate it if someone could review this. My main question: can outputs be activated directly from the computer software? The program runs fine in the simulation mode, but I'm having trouble uploading it. Has anyone used this controller with the analogue expansion to manage temperature control?"
+    },
+    {
+      "comment_id": 889677581279033,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Input I6 isn’t connected to any other element, flag, or coil."
+    },
+    {
+      "comment_id": 117047608271365,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thanks for pointing that out—I’ve uploaded the program now. Is there a way to trigger outputs from the software so I can step through the program? Also, I'm still having difficulty with the temperature controller setup."
+    },
+    {
+      "comment_id": 124714456706598,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Could you provide more detailed information?"
+    },
+    {
+      "comment_id": 728025404573495,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thanks for the quick reply. 1) Can I use the configuration software on my computer to activate or deactivate outputs on the controller? 2) I've connected an analogue expansion module and a PT1000 2-wire sensor from I2 to U2 with a link between I1 and I2. Any help is really appreciated."
+    },
+    {
+      "comment_id": 243460109577898,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "For question 1: If you’re asking whether you can force the actual controller’s outputs using the configuration software, that isn’t possible. For question 2: What do you mean by the analogue signal? Are you unable to see values? By default, the base module reserves addresses AI1 and AI2. So the first available address for the expansion module is AI3."
+    },
+    {
+      "comment_id": 622519785454344,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Did you connect the PT sensor to the second channel of the expansion module? If so, AI4 is the correct address for that. For wiring: connect both wires from the PT sensor to U2- and U2+. You also need to bridge U2- to IC2."
+    },
+    {
+      "comment_id": 211547298194084,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I’m using the expansion module with connections I1, M1, U1, I2, M2, U2 on rail X12. I linked I1 and I2 together and connected across I2 and U2 according to the diagram."
+    },
+    {
+      "comment_id": 762559784788474,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Your analogue module only supports voltage (0–10V) or current (0/4–20mA); it's an AM2 module. For PT100 or PT1000 sensors, you need an AM2 RTD module ([article_no]). Alternatively, you could use an external PT100/1000 converter with a 0–10V or 0/4–20mA output."
+    },
+    {
+      "comment_id": 750388881334423,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thanks—that was my mistake, I ordered the wrong part from the supplier but now have the correct module coming. Appreciate the help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face difficulties in activating physical outputs via simulation software and misunderstand which hardware modules are compatible with analogue temperature measurements. The unclear communication about hardware compatibility and module functionality in the software leads to incorrect setups and false expectations regarding what the products can do.",
+    "user_expectations": "Users expect to be able to control the controller’s outputs directly through the simulation software and want simple integration with accurate analogue readings using a PT1000 sensor and the purchased module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "activate outputs from software",
+      "temperature control",
+      "correct sensor integration",
+      "step-by-step program testing"
+    ],
+    "pain_keywords": [
+      "unable to activate outputs from software",
+      "module-sensor incompatibility",
+      "confusion on wiring/addresses",
+      "hardware selection mistake"
+    ],
+    "feature_keywords": [
+      "output activation from simulation",
+      "analog input compatibility",
+      "RTD sensor support",
+      "simulation vs real mode behaviour"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

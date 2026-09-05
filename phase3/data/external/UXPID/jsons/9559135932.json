@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "branch_id": "9559135932",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 412792215002549,
+      "user_name": "Bzbl8VqUPV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello, When Q1 is used in a [product_name] program, activating Q1 via Modbus command doesn’t work as expected. I understand why. Is there an alternative method to activate Q1 with Modbus, maybe by using a logical OR with a VM value?"
+    },
+    {
+      "comment_id": 289097375380190,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "If you have logic on the input side of a digital output like Q1, it isn’t possible to control the output directly. Direct switching works only when the output isn't referenced in the program."
+    },
+    {
+      "comment_id": 713485912781014,
+      "user_name": "Bzbl8VqUPV",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "What does direct switching mean? Is Q1 able to be controlled indirectly? If so, how do I set it up—perhaps with an OR between I1 and another input?"
+    },
+    {
+      "comment_id": 455702564083623,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "If Q1 is controlled by inner logic, you’ll need to use an OR block. You can set a bit in the VM area via Modbus. This usually works with push buttons and a pulse relay."
+    },
+    {
+      "comment_id": 232992913830480,
+      "user_name": "Bzbl8VqUPV",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello, Sorry, I am still unsure about how the OR functionality works with Modbus. I see how VM operates, but which object and parameter should I use for this? I attached an image showing the OR and Modbus areas marked in red."
+    },
+    {
+      "comment_id": 644901352188471,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I’m unable to give further help without knowing how Q should operate in your system."
+    },
+    {
+      "comment_id": 884373550046170,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Maybe visuals explain things better than text ..."
+    },
+    {
+      "comment_id": 923957489449784,
+      "user_name": "Bzbl8VqUPV",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Thank you for your help! Everything works now—I can use the keyboard [product_name] operator device and also simulate input/output with Modbus. One thing I don’t understand is why writing a bit with Modbus requires a register to retain the value."
+    },
+    {
+      "comment_id": 534109022533183,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I’m not sure what you mean regarding that ..."
+    },
+    {
+      "comment_id": 899368103392175,
+      "user_name": "Bzbl8VqUPV",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Sorry, I don’t understand why Modbus write operations need an RS block to store the value before using an OR to control Q. Anyway, it’s functioning now. I think Q should just be ORED directly with the Modbus command: send \"FF00\" for ON, \"0000\" for OFF, always unconditionally. If conditions apply, Modbus should target an internal variable instead. I developed a Visual Studio test screen, but it doesn’t work properly since Qx outputs used in the internal program can’t be activated directly. Even after stopping the running program, Modbus communication continues, but the Qx outputs still aren’t directly settable by my test app. So, I have to add extra logic for each Qx when testing. I included a screenshot where only two unused Qx can be tested."
+    },
+    {
+      "comment_id": 420372565285884,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "If a digital output is part of a [product_name] program, you can’t remotely change its state directly. This limitation can't be changed. When static signals (like a switch) are used, there’s a problem with the OR block: if I1 = 1, then Q1 can’t be switched with NI1 and Q1 remains at 1."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on the challenge of activating digital outputs directly on a [product_name] device via Modbus when those outputs are also managed within local programming. Users are required to use intermediate methods—such as VM variables and logic blocks (OR, RS)—which adds complexity and makes remote output testing less intuitive.",
+    "user_expectations": "Users expect to control digital outputs (such as Q1) directly and unconditionally through Modbus, regardless of any local program logic affecting the outputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "direct remote control",
+      "simple testing",
+      "efficient simulation"
+    ],
+    "pain_keywords": [
+      "indirect activation",
+      "workaround requirement",
+      "complex logic",
+      "intuitive limitations"
+    ],
+    "feature_keywords": [
+      "Modbus control",
+      "digital output activation",
+      "memory variable programming",
+      "logic block programming"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

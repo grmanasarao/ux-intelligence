@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "4471642620",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 721762858854948,
+      "user_name": "ZYihad1Xoi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 7,
+      "comment_body": "Hi everyone, I'm using a [product_name] and want to modify input states from an HMI screen running in simulation mode on my PC. I've set up the connection so that 'Connect with an Operator Panel (OP)' and 'Accept All connection requests' are both enabled. The TSAP for [product_name] is 02.00 and the remote connection is 03.00. Within [product_name] engineering software, I've added an HMI panel and assigned the same IP address as the PC to the panel, and a separate IP address to [product_name]. The communication driver is set to [product_name]. In the default tag table, I created a tag called 'Logo_8' with the address IW0 (I've tested various addresses like I, Q, V with different numbers). The HMI screen has a button linked to this tag. On [product_name], a network input is configured with the panel’s details and connected to an output. However, when I run the simulation on my PC, nothing changes on [product_name]; the output won't respond. Any help would be appreciated!"
+    },
+    {
+      "comment_id": 732153210723762,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 7,
+      "comment_body": "Every device in a network needs its own unique IP address, but they should all be within the same subnet. For example: Computer: 192.168.0.1, [product_name]: 192.168.0.2, HMI screen: 192.168.0.3. Use subnet address 255.255.255.0."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user describes difficulty controlling [product_name] outputs from a simulated HMI screen using engineering software. The primary challenge involves network configuration and not receiving feedback or error messages about IP and connection requirements, resulting in confusion about proper setup for simulated and physical device interaction.",
+    "user_expectations": "User expects that pressing simulated HMI buttons should immediately update [product_name] inputs or outputs without needing to address complex network setup issues.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control via simulation",
+      "HMI interaction",
+      "real-time feedback"
+    ],
+    "pain_keywords": [
+      "configuration barriers",
+      "communication failure",
+      "lack of clear guidance"
+    ],
+    "feature_keywords": [
+      "HMI simulation",
+      "network settings",
+      "input/output control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

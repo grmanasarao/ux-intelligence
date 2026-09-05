@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "branch_id": "2537971916",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 244585112868871,
+      "user_name": "4bN2xXNpuU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm seeking advice on how to control motor speed via the HMI. I've connected the HMI to a network analog input on my controller, but I'm unsure how to translate this value to a 0-10V output for the drive. My setup uses function block diagrams, and while I have the analog input routed to an analog output, I'm not clear on what conversion is needed in between. I'd like to display an adjustable 0-50Hz value on the HMI, which needs to be converted to a 0-10V signal for the drive. Any guidance would be appreciated. Many thanks."
+    },
+    {
+      "comment_id": 187693114248237,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "You should use a mathematical instruction. Map the value from the HMI into parameter V1 of the mathematical block using VM mapping."
+    },
+    {
+      "comment_id": 812896347683805,
+      "user_name": "4bN2xXNpuU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Thanks for your suggestion. I'm curious if anything needs to be configured in parameters V3 or V4, since my current setup always outputs zero from the mathematical block."
+    },
+    {
+      "comment_id": 317446804765732,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "If you're following my example, the value assigned to parameter V1 (from HMI) is multiplied by parameter V2 (which should be set to 2 or 20 based on your needs). V3 and V4 are not necessary and stay at zero—these are simply added in the calculation. The formula executed by the block is (((V1 + V2) + V3) + V4). Make sure the mathematical instruction is activated. You can enable it by linking the EN input to a HIGH block or by negating the input, for example by inverting the connector in your setup."
+    },
+    {
+      "comment_id": 959087625179858,
+      "user_name": "4bN2xXNpuU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Thank you, I hadn't activated the block before. I followed your advice and negated the EN input, and it works perfectly now. Apologies, as I'm new to programming and sometimes overlook basic setup steps. Thanks again for the help."
+    },
+    {
+      "comment_id": 286841215251373,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "You're welcome!"
+    },
+    {
+      "comment_id": 741393722730896,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hi all! Previously, I set up a 0-10V analog output to control 0-50Hz on a drive by amplifying the analog signal to cover 0-100%. Now, I want to achieve a direct 0-50Hz output and came across this discussion. When I apply VM mapping, I see the value of V1 online, but the drive doesn't seem to receive the expected value. I included screenshots showing both the working setup and my attempted configuration. Looking forward to your feedback and thanks in advance! In summary: Sending 0-100% to the drive translates to 0-50Hz output."
+    },
+    {
+      "comment_id": 272615110361698,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "You are making the same mistake—you haven’t activated the mathematical instruction block. There are two ways to do this: 1) Connect the EN input of the block to a HIGH signal, or 2) Invert the EN input connector (right-click on the EN-Input and choose 'Invert connector'). Also note: The analog output requires 1000 units as its input. If the HMI value is 500 (for 50.0 Hz), the multiplier should be 2. If the HMI value is 50 (for 50 Hz), the multiplier should be 20."
+    },
+    {
+      "comment_id": 580514366796998,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thank you for clarifying! I hadn’t realized activation was necessary based on earlier posts. Everything is working great now—much appreciated!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are configuring motor speed control via HMI, converting a displayed 0-50Hz value into a 0-10V output for a drive. Several users experienced confusion regarding the conversion process and particularly about activation of the mathematical instruction block within the programming environment. Lack of clear visual cues and guidance led to recurring basic oversights among those less experienced. Once peers explained enabling the block, users successfully achieved the desired output.",
+    "user_expectations": "Users expect a simple, guided process for mapping HMI inputs and configuring mathematical instruction blocks within their automation software. They want clearer instructions for setting the necessary parameters and an intuitive workflow—from receiving HMI values to processing them for analog outputs—that minimizes errors and makes setup more straightforward.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "intuitive setup",
+      "successful conversion",
+      "motor speed control from HMI",
+      "reliable analog output"
+    ],
+    "pain_keywords": [
+      "block activation confusion",
+      "parameter mapping uncertainty",
+      "new user frustration"
+    ],
+    "feature_keywords": [
+      "mathematical instruction block",
+      "parameter mapping",
+      "EN input activation",
+      "HMI adjustable display",
+      "analog output"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "8989903930",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 990309383956954,
+      "user_name": "hTkuo9eQmE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello all, I'm working with a [product_name] [version_no] and have two expansion modules connected. I'm having trouble controlling outputs from the custom web page I've made. On the page, I've added a 'SwitchButton', set its type to 'Q' with block number 'Q1', and enabled the 'Writable' option. Despite this, when I log in to the standard [product_name] web server, I cannot change Q1 (or others) from 0 to 1. Can anyone assist?"
+    },
+    {
+      "comment_id": 431905582262896,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Could you upload both the [product_name] program and the [product_name] Web Editor project as a ZIP file?"
+    },
+    {
+      "comment_id": 989921271438665,
+      "user_name": "hTkuo9eQmE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 965572448303733,
+      "user_name": "hTkuo9eQmE",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Apologies for the Russian in the input and output names—I didn't plan on sharing my program!"
+    },
+    {
+      "comment_id": 205144903118982,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "If you connect a Qx output block with logic for its input, you won't be able to switch Qx directly via the web server."
+    },
+    {
+      "comment_id": 703980626007572,
+      "user_name": "hTkuo9eQmE",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thanks for the clarification. So it seems I should use markers in parallel with the main signal to operate outputs. I have another question: is it possible to control inputs from the [product_name] web server page?"
+    },
+    {
+      "comment_id": 643142149032284,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "You can use flags, but I would advise against it. The same logic applies to flags (Mx) as with Qx: If they're connected to logic at the input, that logic will always take precedence. It's better to use bits from the VM area and use them for network inputs. Static signals (like switches) aren't suitable if you want to control them from multiple locations; for that you need dynamic signals (buttons). Those parallel-switched signals should be linked to the trigger input of a pulse relay."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are finding it challenging to control outputs via the web interface of the [product_name] module, especially when those outputs are tied to logic blocks in the program. Output variables can't be modified directly from the web, and there's uncertainty about the behavior of writable variables connected to internal logic. Advice is given to use markers and memory bits as alternative control methods, though concerns remain about how web-based control interacts with the program logic.",
+    "user_expectations": "Users expect to directly control output variables such as Q1 from the web interface, regardless of their logical connection inside the program, and to reliably use writable web elements for remote output control.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote output control",
+      "web interface accessibility",
+      "flexible control options"
+    ],
+    "pain_keywords": [
+      "limited direct output control",
+      "web server restrictions",
+      "logic overrides manual control"
+    ],
+    "feature_keywords": [
+      "web-based output switching",
+      "writable switchbutton",
+      "logic-program interaction"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "22": "Usability Improvement Suggestions"
+  }
+}

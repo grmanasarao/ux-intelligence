@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "1721981389",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 758233845936712,
+      "user_name": "0reNyzkjKf",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello, I am programming a [product_name] controller as a Modbus server and have connected it to the Comfort Click system. I've used marker bit M1 to control a lamp. Comfort Click sends the M1 bit to the PLC. Using M1 as an input to switch the lamp works, and Comfort Click can transmit M1 to the PLC. However, if I set M1 as both input and output for the lamp, Comfort Click cannot send M1 to the PLC. Please review the code I have attached."
+    },
+    {
+      "comment_id": 378743024436272,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], welcome to the forum. I don't fully understand your program, but it's not possible to write to marker M1 both locally in the [product_name] program and remotely at the same time. This limitation exists. So your intention is to switch the lamp (Q1) on and off using input I1 (local) and marker M1 (triggered by Comfort Click)? Is the signal sent from Comfort Click a static switch or a dynamic button?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A limitation with marker handling and Modbus communication was identified, where remote writing to the same marker used as both input and output in the [product_name] system does not work. The forum discussion clarifies this restriction, noting that simultaneous writing from both the program and remote interface is unsupported.",
+    "user_expectations": "User anticipates that Comfort Click should be able to write to marker M1 remotely over Modbus, regardless of whether M1 is configured as an input, output, or both in the program.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote lamp control",
+      "Modbus integration",
+      "flexible marker handling"
+    ],
+    "pain_keywords": [
+      "marker conflict",
+      "external write limitation",
+      "lack of dual marker usage"
+    ],
+    "feature_keywords": [
+      "marker bit (M1)",
+      "Modbus server",
+      "remote control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "3853978147",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 114057247998860,
+      "user_name": "Eul9z9usVS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 7,
+      "comment_body": "Can someone show me how to use the datalog block in [product_name]? The manual mentions that this block starts recording data at the rising edge of the EN port, but I only seem to get a single line of data. Does this mean it records each time the EN input goes positive? Should I add an asynchronous timer before the datalog block? An example would be very helpful."
+    },
+    {
+      "comment_id": 907164166968013,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 7,
+      "comment_body": "Yes, the datalog block does record each time the configured operand when the EN input is triggered, but it only does so for one cycle. You can create periodic triggers, like using a timer to generate pulses, or trigger through events such as an input signal. However, make sure there is a minimum break of 500 ms between two events—if the interval is too short, the configured data won't be recorded."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having difficulty understanding how the datalog block in [product_name] 8 operates, especially with respect to triggering and timing. Documentation does not clearly state if the block logs only on a positive edge or how to set up regular data logging, causing uncertainty. Timing requirements, such as necessary delays between triggers, are not apparent and make correct configuration more challenging.",
+    "user_expectations": "Users expect the datalog block to record multiple data entries when activated and to function as explained in the manual. They seek clear examples and advice on setting up continuous or regular data logging.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "periodic logging",
+      "usage clarity",
+      "continuous data record"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "datalog block confusion",
+      "missing examples",
+      "timing uncertainty"
+    ],
+    "feature_keywords": [
+      "datalog block",
+      "EN trigger",
+      "interval timing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

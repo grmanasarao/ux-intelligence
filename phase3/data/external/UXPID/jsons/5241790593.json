@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "5241790593",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 484815015540024,
+      "user_name": "9aQLYcgnHY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "I've used shift register bits for lighting control in my home automation project. Both the retentive memory settings for the shift register and the pulse generator used for shifting were enabled. Every time there is a power outage, all the shift register bits remain stuck on, and do not shift anymore. However, once I reload the program, everything functions correctly again. There are four [product_name] modules in my setup communicating via Ethernet. The issue appears for all four after power failure. Three of them do not have memory cards installed; the fourth one does, as it communicates with a custom web server. Does anyone know what may be causing this behavior? Would installing memory cards in the remaining modules potentially resolve it? Note: I use M8 for initializing the shift register."
+    },
+    {
+      "comment_id": 235781683028721,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "This is a peculiar issue, I'm not familiar with it. Could you upload your program for review? Are all the [product_name] modules the same model? Please provide the exact [article_no] and firmware [version_no]. I don't think adding SD cards will solve your problem."
+    },
+    {
+      "comment_id": 663401299447946,
+      "user_name": "9aQLYcgnHY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you for your response. The [article_no] for three of the modules is [article_no] with firmware version [version_no]. The fourth module's [article_no] is [article_no] with firmware version [version_no]. I've attached the requested program. For clarification, LOGO 3 outputs 5-12 rely on shift register bits, as do outputs 17 and 19 of the same module. Outputs 1, 2, 5-8, and 9-12 of LOGO 4 use shift register bits. Blocks B016, B034, and B049 are LOGO 4 shift register blocks, and B025 and B070 are LOGO 3 shift register blocks."
+    },
+    {
+      "comment_id": 440862662956333,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Sorry, but I am unable to assist further with this issue. Perhaps contacting [company_name] support would help. Consider starting a support request."
+    },
+    {
+      "comment_id": 546812809864286,
+      "user_name": "9aQLYcgnHY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you. I will follow your suggestion."
+    },
+    {
+      "comment_id": 174237399455852,
+      "user_name": "QTNFXmIJfH",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], Did you manage to resolve this issue? I am facing a similar problem with a shift register after power cycling the hardware, although it works fine during simulation. Regards"
+    },
+    {
+      "comment_id": 718674141828786,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Could you please upload your program as a ZIP file?"
+    },
+    {
+      "comment_id": 214875496918915,
+      "user_name": "9aQLYcgnHY",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Hi, I couldn’t resolve the issue with [company_name] support at the time, but I rewrote the program to ensure the shift register re-initializes using M8 each time the [product_name] module restarts after a power outage."
+    },
+    {
+      "comment_id": 651876024417300,
+      "user_name": "QTNFXmIJfH",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Thanks [user_name]. I am currently having difficulty reproducing the issue on my test hardware, which is running the latest firmware. I've checked the [company_name] website for firmware packages for the [product_name] modules and only found the newest one ([version_no]) and its changelog. I suspect this could be a firmware bug that was corrected in an update, but unfortunately, I did not note the firmware version from the affected module. [snip] [user_name], I've uploaded the essential part of the program that is causing the issue. The shift register is set up so the first bit is high, and each pulse on I1 advances the bit through the register. M1-10 in the actual program refer to message texts, so pressing I1 scrolls through all screens. What happens is, after power cycling, the module starts with both M1 and M2 active. It's almost as if B003 is marked retentive (though it isn't), and explicitly setting it as retentive reproduces this behavior both in simulation and on hardware."
+    },
+    {
+      "comment_id": 931457746577131,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "I tested your sample program on my [product_name] module ([version_no]). I couldn't replicate the error you described. For example, I shifted so S1.4 is active, then turned the power off and on again. After restarting, only Q1 is active, not Q2. The simulation also did not display the error."
+    },
+    {
+      "comment_id": 367676691821139,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "I also tested your program on a [product_name] module ([version_no]). Got the same results: everything was fine."
+    },
+    {
+      "comment_id": 971670166008523,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "A new question posted by [user_name] has been moved to another thread titled: Where are the previous firmware versions (and changelogs) on the [company_name] website? Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered an issue where shift registers in their [product_name] home automation setup become stuck following a power failure, causing all bits to remain permanently on. This problem occurs across several interconnected modules, especially those without memory cards. Reloading the program or initializing the shift register allows normal operation to resume. There is uncertainty regarding whether firmware versions or memory card usage influence this issue, and some users report that the problem cannot be reproduced in simulation or on newer firmware/hardware.",
+    "user_expectations": "The user expects that, after a power failure and device restart, the shift register bits will automatically return to their correct state and normal function, with no need for manual actions or program reloads.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable power recovery",
+      "automatic restoration",
+      "stable home automation"
+    ],
+    "pain_keywords": [
+      "shift register stuck",
+      "state lost after restart",
+      "manual intervention required"
+    ],
+    "feature_keywords": [
+      "shift register",
+      "retentive memory",
+      "memory card support",
+      "power failure recovery"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "24": "Data Integrity Concerns"
+  }
+}

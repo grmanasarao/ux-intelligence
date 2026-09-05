@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "9302705838",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 399353640396119,
+      "user_name": "Xe9NeUOQDF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Building on my previous posts, here's the current status: We have five [product_name] [article_no] modules collecting readings from flow meters, displaying them on a [product_name] operator device. This setup is working well. The issue arises when trying to show counts on a separate totalizing [article_no] and operator device using network I/O. Everything works smoothly in simulation but not on the actual installation. I can't upload any programs from work, but I'll do so later from home. Any advice would be appreciated."
+    },
+    {
+      "comment_id": 471155747738234,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello, can you share what steps you have taken so far? Data exchange between [product_name] modules is straightforward in Network mode and with [version_no]. Using drag and drop between programs will automatically configure the network for you. Have you tried pinging all devices? Are they in the same subnet? Is the IP configuration correct? Hope this helps."
+    },
+    {
+      "comment_id": 317592354477412,
+      "user_name": "Xe9NeUOQDF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Thank you for your response, [user_name]. I've double-checked everything. In the simulator, everything works perfectly and, as mentioned, drag and drop makes setup easy. I've attached the program for your review. I1 sets the low level and activates Q1, I3 serves as the pulse counter. After a 3-second delay, Q2 turns on and pulses are counted into a second register. Q3 is intended to output to NI1 on the second [product_name] module, and Q4 should output to NI6 on that same module."
+    },
+    {
+      "comment_id": 357156702944117,
+      "user_name": "Xe9NeUOQDF",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I managed to resolve the issue, though I'm not certain how or why it worked. By adding a 0.5-second off delay timer before the network output, everything functions as expected."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users found that while network data exchange between [product_name] [article_no] modules worked well in simulation, the same setup failed in actual deployment. The difficulty revolved around sharing pulse count data across modules, but this was ultimately resolved by adding a timing delay before the network output. Users were unsure why this solution worked, highlighting a gap between simulated and physical product behavior.",
+    "user_expectations": "Users expect network I/O to be consistent between simulation and live operation—supporting reliable, uncomplicated data sharing between [product_name] modules without needing unexpected tweaks or workarounds.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable network communication",
+      "accurate data display",
+      "easy integration"
+    ],
+    "pain_keywords": [
+      "inconsistent simulation vs reality",
+      "unexplained behavior",
+      "network synchronization"
+    ],
+    "feature_keywords": [
+      "network I/O",
+      "pulse counter",
+      "off delay timer"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

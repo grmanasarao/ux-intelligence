@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "4321766358",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 375151989242622,
+      "user_name": "nSgQ0cpcmj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "I'm looking for a way to store an analog input as a setpoint in non-volatile memory during setup (teaching). When running, I want to compare the same analog input with the stored value to control an output based on defined limits. The output should be true as long as the value stays within allowed limits (around the stored setpoint). Saving the value to non-volatile memory is essential. I've read about doing this using timer/counter functions, analog multiplexers, and by writing to variables, but I'm searching for the simplest approach. Thanks to everyone for sharing their knowledge on this forum."
+    },
+    {
+      "comment_id": 737998264097773,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "You can try the following method: Set the properties of the MAX/MIN function block as follows: - Enable Retentivity - Set MODE to 3."
+    },
+    {
+      "comment_id": 304861690538181,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Another option is to use the Analog Watchdog block, which is designed for this type of function. When the EN input receives a positive edge, it stores the analog value. As long as the EN input remains on, the block compares the stored value with the current input. If the difference goes beyond the parameter limits, the output activates. More details about this block can be found in the online help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are exploring efficient ways to save an analog input as a setpoint in non-volatile memory for reliable comparison during operation. The conversation points out function blocks such as MAX/MIN with retentivity settings and the Analog Watchdog as possible solutions. There is a shared interest in intuitive non-volatile memory features and easy-to-understand function block documentation.",
+    "user_expectations": "Users expect an uncomplicated and dependable way to save analog values in non-volatile memory, making it possible to compare them with live readings without needing complex programming. They anticipate straightforward solutions or dedicated blocks integrated into the software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent analog setpoint",
+      "simple configuration",
+      "robust control logic",
+      "user guidance"
+    ],
+    "pain_keywords": [
+      "complex memory settings",
+      "lack of clear method",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "non-volatile memory storage",
+      "setpoint retention",
+      "analog value comparison",
+      "function blocks"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "9": "Feature Requests"
+  }
+}

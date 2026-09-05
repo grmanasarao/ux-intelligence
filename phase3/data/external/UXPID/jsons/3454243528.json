@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "3454243528",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 848004450237401,
+      "user_name": "9tgLb7tKR6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Good day, I have a question regarding the [product_name] PLC [article_no]. I would like to know the minimum voltage that can be applied to the analog input. Currently, my multimeter is reading an input voltage of 407 mV, yet in the analog amplifier instruction Ax = 380, the representation of 407 mV is seen. Is this normal? The measurement range of my analog amplifier is 0 - 10000."
+    },
+    {
+      "comment_id": 638775102427094,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], welcome to the forum. Please note this is an English-speaking forum, and future posts should be in English. The analog inputs of the [product_name] base module are typically 0-10V (if analog inputs exist). The A/D converter transforms 0-10V into 0-1000 units, giving a resolution of 0.01. These analog inputs aren't suitable for precise measurement of very small voltages, since the error margin is 1.5% of the full scale, which is ±0.15V. So, the measured 0.407V could actually be between 0.257V and 0.557V."
+    },
+    {
+      "comment_id": 620559711615367,
+      "user_name": "9tgLb7tKR6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Excuse me, did you verify this with a converter module? I built an amplifier circuit for the thermocouple signal, with a resolution of 13.1 mA, and it seems the PLC does not interpret these low values accurately. The device appears to misread such inputs by as much as 15%."
+    },
+    {
+      "comment_id": 575533046716514,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "As mentioned in my previous reply, please write your posts in English. Ignoring this request isn't helpful, as the forum is in English for accessibility. Also, to clarify, the error margin is not 15%, but 1.5%."
+    },
+    {
+      "comment_id": 998037079438788,
+      "user_name": "9tgLb7tKR6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], thank you for your response. So the PLC has a resolution of 10mV per bit but cannot be used reliably because of its ±1.5% error in analog voltage measurements. I created an amplification module for my K-type thermocouple (resolution: 40uV/°C, amplified to 13mV/°C). Is there any way to obtain accurate values for this thermocouple setup? Regards, [user_name]"
+    },
+    {
+      "comment_id": 976613382054710,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "With the capabilities of the [product_name], direct accurate measurement of such small signals isn't feasible. To make proper use of the module, you need to amplify your signal so the required measuring range (e.g., 0 - 150 °C) matches the 0-10V input range. Due to your amplifier's resolution (13mV / °C), the error when using [product_name]'s 0-10V range is too significant."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are identifying that the analog inputs on the [product_name] are not ideal for precise measurement of low-level signals due to the device’s analog-to-digital conversion and its error tolerance. Small voltages, such as those from thermocouples with external amplification, are not reported accurately, leading to usability issues. This error margin is seen as a limitation that affects the module’s use in sensitive measurement scenarios.",
+    "user_expectations": "Users expect the [product_name] analog input to reliably and accurately measure low-level analog signals from an external amplifier. Consistent and precise temperature readings from the thermocouple are desired.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate measurement",
+      "temperature monitoring",
+      "analog precision"
+    ],
+    "pain_keywords": [
+      "inaccurate readings",
+      "hardware limitation",
+      "error tolerance",
+      "low signal sensitivity"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "resolution",
+      "A/D converter",
+      "error margin"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

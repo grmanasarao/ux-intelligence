@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "4669411645",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 299603828034382,
+      "user_name": "UcsMbHi4ta",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello, I'm working on a humidity controller that uses a PI controller (0-10V output) to regulate a door for outside air, based on a set point. Unfortunately, I purchased a humidity sensor that outputs 0-5V, while the analog input of the [product_name] module indicates support for 0–10V analog signals. Is there a way to scale the 0-5V signal to behave as if it were 0-10V, perhaps using a programming function? I tested the amplifier function block without success. Alternatively, would using a 250 ohm resistor to convert the signal to 4-20mA be a better choice? Any suggestions would be appreciated."
+    },
+    {
+      "comment_id": 335719821976181,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "This isn't a major issue. Set the sensor type to 0-10V and adjust the gain value to 2.00. That should solve the problem."
+    },
+    {
+      "comment_id": 902863747160263,
+      "user_name": "UcsMbHi4ta",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Thank you for your response. Should this adjustment be done in the analog amplifier block or the PI controller block? When I set the gain to 2 in the PI controller, the minimum and maximum values automatically change to 0 and 2000, but I'd like to scale it to 0 to 100% relative humidity. Could you provide an example program file or a screenshot to clarify?"
+    },
+    {
+      "comment_id": 949277125970843,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "This type of issue usually arises when information isn't fully provided. Your original question was about scaling the signal to align 5V and 10V units. The 2000 units maximum is accurate for 10V input, while at 5V it's only 1000 units. This setup allows display with one decimal, showing 0.0 to 100.0%. If you prefer whole numbers (0 to 100%), set the gain to 0.2, resulting in a 0 to 200 value range for 0-10V, and 0 to 100 for 0-5V. Make this change in a dedicated analog amplifier block, not in the PI controller, to avoid affecting all values beyond the actual measurement."
+    },
+    {
+      "comment_id": 131558835420469,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Here's a simple example."
+    },
+    {
+      "comment_id": 534474637959039,
+      "user_name": "UcsMbHi4ta",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Thank you very much. Your help made a big difference."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced difficulty integrating a 0-5V humidity sensor with an analog input designed for 0-10V on the [product_name] module. The main challenge was scaling the sensor's output using programming blocks to display accurate relative humidity values and prevent distortion in other calculations. Users needed guidance on configuring gain and block placement to ensure correct measurements.",
+    "user_expectations": "Users expect a straightforward method to scale a 0-5V analog sensor input for accurate percent humidity readings, without impacting other values in the process. They look for clear instructions on setting up the right programming blocks to achieve this scaling.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate humidity measurement",
+      "functional humidity control",
+      "sensor compatibility"
+    ],
+    "pain_keywords": [
+      "input scaling confusion",
+      "mismatched voltage ranges",
+      "complex configuration"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "gain configuration",
+      "PI controller integration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "7541608271",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 107869486232896,
+      "user_name": "GhXNE1ji5m",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Hello, I'm seeking advice from experts regarding an issue. The arithmetic instruction block does not display the final values of 1, 4, 6, and 9 as expected. Thank you in advance for your help, and apologies for my English (translated)."
+    },
+    {
+      "comment_id": 793307828506008,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "I'm sorry, but I don't fully understand your question. What do you mean by \"1-4-6 and 9 values\"? It's unclear what you're trying to achieve in the program. Could you please specify your intended outcome so we can provide better assistance?"
+    },
+    {
+      "comment_id": 615069099540111,
+      "user_name": "GhXNE1ji5m",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Thank you for responding, [user_name]. The circuit is designed to control the end tower of a central irrigation pivot. The timer converts 0-60 seconds into a scale of 0-100%. For example: at 50%, the relay is ON for 30 seconds and OFF for 30 seconds; at 30%, ON for 18 seconds and OFF for 42 seconds; at 10%, ON for 6 seconds and OFF for 54 seconds; at 100%, the relay remains ON. As mentioned earlier, I was unable to achieve results for the final values 1, 4, 6, and 9."
+    },
+    {
+      "comment_id": 653833858840938,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "I'm sorry, but I still don't understand what you mean by \"I did not get values with the 1-4-6 and 9 finals\". From what I gather, you want to set the pulse generator's on-time using a setpoint, ranging from 0-60 seconds. The pause duration is calculated as \"60s minus the on-time equals pause-time.\" The digital output is then controlled by the pulse generator. Is this correct?"
+    },
+    {
+      "comment_id": 540986605358483,
+      "user_name": "GhXNE1ji5m",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Yes, that's correct. Reviewing the attached program, you'll notice that when incrementing with I-1, some values are skipped. For example: 0, 2, 3, 5, 7, 8, 10... up to 100%. I cannot achieve an accurate decimal sequence like 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10... up to 100%."
+    },
+    {
+      "comment_id": 898761427623898,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "I understand now. You're referring to the percentage values shown on the display. This issue is caused by rounding errors. For instance: 60 seconds = 100% 1 second = 1.67%, which rounds to 2% on the display 2 seconds = 3.34%, which rounds to 3% on the display 3 seconds = 5.01%, which rounds to 5% on the display These discrepancies occur because the [product_name] only uses fixed-point arithmetic."
+    },
+    {
+      "comment_id": 417265759592421,
+      "user_name": "GhXNE1ji5m",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Understood, I'll leave it as is. Thank you very much, [user_name]."
+    },
+    {
+      "comment_id": 299416089040240,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Let's take it slowly... I adjusted the setup, so now the setpoint adjuster matches percentages and converts them into corresponding time values. You may find this useful."
+    },
+    {
+      "comment_id": 218892845962352,
+      "user_name": "GhXNE1ji5m",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "I appreciate your help and will adapt this solution for my project. Thank you again."
+    },
+    {
+      "comment_id": 555895180015523,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], you're welcome."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encounters problems with accurate percentage representation when programming an irrigation relay timer using a [product_name] module. The fixed-point arithmetic of the [product_name] results in rounding errors, which cause skipped or missing percentage values, resulting in confusion and mismatch with intended output.",
+    "user_expectations": "The user expects the [product_name] module to display a continuous and accurate percentage increment (e.g., 1, 2, 3 up to 100%) without skips or missing values, matching timer settings precisely.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise control",
+      "accurate display",
+      "continuous values",
+      "user-friendly feedback"
+    ],
+    "pain_keywords": [
+      "rounding errors",
+      "skipped values",
+      "display inaccuracy",
+      "fixed-point limitation"
+    ],
+    "feature_keywords": [
+      "percentage calculation",
+      "timer to percentage display",
+      "arithmetic instruction",
+      "display precision"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "9153367901",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 446058067984170,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Good morning. Has anyone encountered an issue where they have four sensors that output via RS485, but need to use the inputs on the [product_name]? I understand that [company_name] recently released the [product_name] CIM, but it seems it only supports one RS485 sensor. Is it possible to connect multiple CIM modules, or is there an alternative module that can be connected to the CIM in order to interface with multiple sensors? Thanks, [user_name]."
+    },
+    {
+      "comment_id": 372599237136428,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "RS485 can support up to 32 devices on a single bus, so if all sensors are configured with the same baud rate, parity, stop bits, and distinct Modbus addresses (slave IDs), one master module can communicate with several sensors. The CIM manual discusses data transfer table options for MB RTU master on page 63. Alternatively, you could try using [product_name] BM [version_no] or later, along with a Microtik Knot with IoT functions to convert RS485 Modbus RTU data to Modbus/TCP, which may be a more cost-effective solution."
+    },
+    {
+      "comment_id": 627181978166112,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hi, [product_name] CIM supports Modbus RTU interface. You can connect multiple RS232, RS485, or RS422 sensors to a [product_name] CIM. The sensors are differentiated by their Modbus RTU unit IDs."
+    },
+    {
+      "comment_id": 205761122326628,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Thank you for the information. What configuration do I need to separate the Modbus RTU IDs for each sensor?"
+    },
+    {
+      "comment_id": 905814239177858,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], The suggested approach (using Modbus RTU over RS485) will only work if your sensors can function as Modbus RTU slaves. It's important to identify the make and model of your sensors so we can review their manuals and confirm Modbus RTU compatibility. If they do support Modbus slave mode, you should have no trouble connecting and collecting data with the [product_name] master. Hope this helps, [user_name]."
+    },
+    {
+      "comment_id": 828814137889544,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Does this information help?"
+    },
+    {
+      "comment_id": 786972864239690,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 363264876629956,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 962298451210857,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Your attachment is not helpful; it mainly describes internal modbus command usage. Please provide a [url] to your sensor documentation with a full instruction manual. Also, Modbus RTU slaves each require a unique ID to communicate with one master. This can usually be programmed via a PC or set using DIP switches, depending on sensor model. Regards, [user_name]."
+    },
+    {
+      "comment_id": 111679000954298,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "From experience, you can use the [product_name] to send data to a RTU sensor for configuring the Modbus RTU ID, especially if you have more than one sensor of the same type. The default ID is usually the same from the factory. If you only use one sensor, reprogramming its ID may not be necessary."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Community members are looking for ways to connect several RS485-based sensors to [product_name] using the [product_name] CIM module. The main concern is whether the [product_name] CIM is limited to a single RS485 device, or if it can communicate with multiple sensors via Modbus RTU. Questions also arise about configuring individual sensor IDs when deploying multiple identical devices with factory default settings.",
+    "user_expectations": "Users expect to connect multiple RS485 sensors to [product_name] using the [product_name] CIM, with a configuration process that allows easy separation and unique identification for each sensor’s data.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "multi-sensor connectivity",
+      "reliable data acquisition",
+      "seamless integration"
+    ],
+    "pain_keywords": [
+      "multi-device support uncertainty",
+      "ID configuration confusion",
+      "documentation clarity"
+    ],
+    "feature_keywords": [
+      "RS485 support",
+      "Modbus RTU master",
+      "sensor ID assignment",
+      "multi-device input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "30": "Data Persistence Confusion"
+  }
+}

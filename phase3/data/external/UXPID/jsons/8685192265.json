@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "8685192265",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 330333782939796,
+      "user_name": "pFlZH3cvf9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello, I have a pressure transmitter with a 4-20mA two-wire output, and I want to connect it to digital input I8 of the [product_name] [article_no]. Could you provide a wiring diagram for connecting the transmitter, [product_name], and resistor? Previously, I connected the ph meter's analog output (0-10V) to digital input I7 of [product_name], with + to I7 and - to the power supply. Is this wiring correct? Thank you."
+    },
+    {
+      "comment_id": 868518555612728,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "You need to wire the sensor as illustrated in the attached image. By passing the current (4-20mA) through a 500 Ω resistor, a voltage drop of 2-10V is created across the resistor. This voltage can be measured and evaluated by the analog input (0-10V) at terminal I8 (AI2)."
+    },
+    {
+      "comment_id": 520242292600776,
+      "user_name": "pFlZH3cvf9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you for your assistance. I followed your instructions and it now works, but the scaling range is -2.20 to 9.80 for 0-10 bar. When the pressure is 0 bar, the display shows -2.20 bars. For example, at 4 bar the display correctly shows 4.00 bars. Could someone help adjust so that 0 bar results in 0 bar shown on the display? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 128031781805444,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "The issue lies in your sensor settings. Your sensor has a range of 0-10 bar and provides a 4-20mA output. For analog amplifier parameterization: Sensor type: 4 ... 20 mA Minimum: 0 Maximum: 1000 Gain: 1.25 Offset: -250 Decimal places in the display text: 2"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users requested advice on wiring and configuring a 4-20mA pressure transmitter with a [product_name] PLC, including how to connect using a resistor for analog input measurements. Initial wiring was clarified, but users experienced scaling and zero calibration issues causing incorrect display values at zero pressure. Troubleshooting focused on parameter settings, highlighting usability challenges with analog input setup and scaling adjustments.",
+    "user_expectations": "Users are seeking clear and accurate instructions for connecting a current-output transmitter to a [product_name] PLC, along with guidance to ensure analog scaling is correctly configured to show zero on the display when the pressure is zero.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sensor reading",
+      "correct wiring",
+      "display shows true value"
+    ],
+    "pain_keywords": [
+      "incorrect display",
+      "offset error",
+      "scaling difficulty",
+      "wiring confusion"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "sensor scaling",
+      "display",
+      "parameterization"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "22": "Usability Improvement Suggestions"
+  }
+}

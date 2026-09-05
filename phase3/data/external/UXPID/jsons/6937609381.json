@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "6937609381",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 494881095337932,
+      "user_name": "TtUdi5FrbR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm working on setting up a monitoring system using [product_name] for a fountain, though I haven't purchased the PLC yet and am currently using [product_name] [version_no]. One feature I need is to track how many liters are used since monitoring started, which requires entering the 'liters per minute' value while the PLC is running. This value should be multiplied by the time the filling is active. I need to change this parameter easily because there will be initial adjustments. It might not be exact, but with ongoing changes, it should work properly. Currently, each time I start [product_name] [version_no], the counter holding the 'liters per minute' is reset to its initial value. Is it possible to achieve this functionality?"
+    },
+    {
+      "comment_id": 417803882242447,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "The initial value of an up/down counter can only be changed through the [product_name] display, the [product_name] operator device, or remotely. A new initial value for the up/down counter takes effect only after a counter reset."
+    },
+    {
+      "comment_id": 545716291493889,
+      "user_name": "TtUdi5FrbR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Thank you for your quick response. I've realized that setting the counter as retentive actually works. I was confused because after stopping and restarting the simulation, the counter resets even if it's marked as retentive. However, when testing scenarios like a power outage, the counter retains its value. Best regards."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are investigating how up/down counters in [product_name] [version_no] handle initial values and retentiveness while simulating a fountain water monitoring setup. They are unclear about why counters reset between simulation sessions compared to power outages, which affects confidence in long-term data storage. There is a clear need for runtime parameter modification and reliable data persistence.",
+    "user_expectations": "Users expect to modify the 'liters per minute' value during runtime and want the up/down counter values to remain consistent between simulation restarts and power interruptions for dependable operation.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "runtime adjustability",
+      "persistent values",
+      "reliable monitoring"
+    ],
+    "pain_keywords": [
+      "counter resets",
+      "confusing simulation behavior",
+      "unclear persistence"
+    ],
+    "feature_keywords": [
+      "retentive counter",
+      "runtime parameter adjustment",
+      "simulation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

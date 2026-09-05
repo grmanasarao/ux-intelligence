@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "branch_id": "5662607588",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 322083503888225,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Imported a technical question via private message from [user_name]. Hello, I created a program for a [product_name] programmable logic controller. I have included network input and network analog input in the program. When I send a command (0 or 1) to network input V0.0, the value of network analog input VW0 changes automatically. Can someone explain why this is happening? I would appreciate assistance."
+    },
+    {
+      "comment_id": 853266237479925,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Bit V0.0 is part of VW0. Bits V0.0 through V0.7 make up VB0, and bits V1.0 through V1.7 constitute VB1. Both VB0 and VB1 together form the word VW0."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing confusion because changing a digital network input (V0.0) impacts the value of a network analog input (VW0) within their [product_name] controller program. This is due to V0.0 being a bit within the word VW0, so altering the bit affects the entire word's value and can result in unexpected analog input changes. The issue reveals uncertainty about the relationship between bit and word addressing in the [product_name] system.",
+    "user_expectations": "The user expects digital and analog network inputs to be independent, and for modifying one to not unintentionally alter the value of the other.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clarity",
+      "predictable behavior",
+      "independent variable control"
+    ],
+    "pain_keywords": [
+      "unexpected value changes",
+      "addressing confusion"
+    ],
+    "feature_keywords": [
+      "network input",
+      "network analog input",
+      "addressing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

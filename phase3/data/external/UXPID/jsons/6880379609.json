@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "branch_id": "6880379609",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 955029435508188,
+      "user_name": "97IL71fkZB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Apologies if this is a basic question, but I haven't managed to find a solution in the manual or on the forum. I want to set a default state for the network input after a power interruption or update. Currently, the state always defaults to zero when the program first runs. I thought assigning a value to the Variable Virtual Memory connected with the network input at startup would work, but I haven't figured out how to do this. Thanks!"
+    },
+    {
+      "comment_id": 250713307729345,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "When the [product_name] device is powered on or restarted, all VM memory values reset to 0 because the VM memory isn't retained."
+    },
+    {
+      "comment_id": 698539460703675,
+      "user_name": "97IL71fkZB",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "That's the default behavior. What I'm aiming for is to have the value set to 1 upon startup. There's a startup signal called M8. Is it possible to use this somehow? The manual notes: \"The M8 flag is set during the first cycle after startup and can be used in your logic diagrams for initialization.\""
+    },
+    {
+      "comment_id": 716033223157584,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Unfortunately, that's not doable. You can't assign specific states (0 or 1) to network inputs directly in the [product_name] logic diagram."
+    },
+    {
+      "comment_id": 862753577330005,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "It's a bit more complicated, but I've encountered a similar issue before (network input state retrieval is delayed after device startup). A simpler workaround is to read the network input using a delay block—for example, only accept the input's state change if it remains True for two seconds. For analog inputs and variable memory, one method involves using an analog multiplexer: feed the network analog input through an amplifier, and route its output to one multiplexer input. Assign a default value through another amplifier offset to the multiplexer’s second input. Link the multiplexer output to the network output at the VM address (like VW10). A better method is to use Parameter VM Mapping, assigning the multiplexer output to the address directly. You now have a choice between input or default value based on how the multiplexer is switched (using M8 flag with a delay trigger after startup). After a few seconds, switch the multiplexer back to the network input once the connection is restored. To further improve, you can retain the previous analog input value using a functional block with retention, so the last value is stored and restored on power-up."
+    },
+    {
+      "comment_id": 105194816011806,
+      "user_name": "97IL71fkZB",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Thanks for the input so far! I'm working with digital inputs and outputs. I've found that simply connecting status 1 (high) to the network output sets its value to 1 at startup, but then it's stuck at 1. Using a latching relay triggered by the M8 initialization flag works as well, but once set, the network input stays at 1 even if an external signal tries to reset it—the relay overrides the change. My current solution is to use an additional network input to reset the relay, giving me control over the original input, but this means splitting states between two network inputs. Is there a way to use network outputs to set three states: 1, 0, or no value (unlocked)? I'm new to this, so it's a learning process."
+    },
+    {
+      "comment_id": 455637732242985,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Network inputs are digital, which means they can only have two states: 0 or 1."
+    },
+    {
+      "comment_id": 251770680384286,
+      "user_name": "97IL71fkZB",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "I may have worded my question poorly. Since network input states are limited to 0 and 1, is it possible to have multiple sources set the network input, such that an external network command can override the initial value of 1 and change it to 0? For example: in diagrams it looks like the network input behaves like an AND gate (if any source sends 1, the result is 1). Externally, using a protocol command, it seems more like a latch—the input stays at 1 until you explicitly send 0. Is it correct that similar latch logic can't easily be achieved with diagrams in [product_name] programming—meaning, send 1 internally until overridden by an external command?"
+    },
+    {
+      "comment_id": 285529634886068,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "No, you shouldn't connect multiple outputs to a single input—it's not the proper approach. Instead, use an OR gate. Since the device version isn't specified, I can't give a detailed diagram, but here's an idea: Connect network input to one side of the OR gate; link an off-delay block triggered by the M8 flag to the other side of the OR gate; wire the off-delay reset to the network input. Set the off-delay block for a few seconds (enough time for network synchronization). If the network input goes high before the timer runs out, it resets and won't interfere further. This lets you manage just one network input (though using an RS trigger with two network inputs is also an option)."
+    },
+    {
+      "comment_id": 669356875979509,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Here's another method you could try..."
+    },
+    {
+      "comment_id": 758956870429402,
+      "user_name": "97IL71fkZB",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "I've set it up with the initialization flag and latching relay plus delay, combined with network output, and it's working as needed. Thanks for all the help! Your suggestions really clarified things and solved my issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges setting a non-zero initial state for network inputs on specific programmable devices after reset or startup, especially in digital scenarios. Issues include non-retained memory, difficulties in programmatically assigning startup states, and confusion over internal logic controls versus external overrides. There's also uncertainty about the function of logic elements and their integration for controlling input states from both internal logic and external sources.",
+    "user_expectations": "Users expect to be able to define a startup state for digital network inputs—ideally allowing both initialization and later external changes—through simple, intuitive diagram logic.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "startup value control",
+      "external override",
+      "network input flexibility"
+    ],
+    "pain_keywords": [
+      "default zero startup",
+      "non-remanent memory",
+      "override limitations",
+      "complex configuration"
+    ],
+    "feature_keywords": [
+      "network inputs",
+      "M8 startup flag",
+      "virtual memory",
+      "digital I/O logic",
+      "latching logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "3": "User Guidance"
+  }
+}

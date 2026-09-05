@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "8163404757",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 201719869857306,
+      "user_name": "ou1tg6UfOz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I am in need of assistance. I have a machine equipped with a heater, and I am trying to record the ON and OFF durations each time the heater operates. The setup involves a normally closed pressure switch at input (I1 is High) labeled \"Pressure Low,\" which activates the heater (Q1 is High) labeled \"Switch Heater ON.\" When the heater is energized, input (I2 is High) indicates \"Heater is ON.\" If the pressure switch changes to normally open (I1 is Low), this means \"Pressure High\" and the heater turns off (Q1 is Low, \"Switch Heater OFF\"). When the heater is de-energized, input (I2 is Low) shows \"Heater is OFF.\" I want to measure both the current and previous ON and OFF times and display them on the operator panel. For example: Current Heater ON time, Current Heater OFF time, Last Heater ON time, Last Heater OFF time. I suspect the Stopwatch Block and Lap times are needed. I spent the afternoon trying to work this out. Any advice would be greatly appreciated. [product_name] Soft software [version_no], [product_name] module [version_no]"
+    },
+    {
+      "comment_id": 647503496225177,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "As a user, you do not have direct access to the system time of the [product_name] controller and cannot query it from within your program. How precise do you need the ON and OFF times? Do you require measurement in seconds or are minutes sufficient?"
+    },
+    {
+      "comment_id": 563810811383756,
+      "user_name": "ou1tg6UfOz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Thank you for your reply. The heater is typically on for about 4 minutes and several seconds, and off for around 3 minutes and a few seconds. So, seconds need to be counted. However, on a cold start, the heater may stay on for up to 3 hours. I do not need clock times (like \"On at 5:30pm\")—just how long the heater was ON or OFF. I'm trying to figure this out now, but something seems to be missing. Thanks again."
+    },
+    {
+      "comment_id": 898013921380549,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "There are two points to consider: 1) Time stamp for ON/OFF, and 2) Runtime duration for the heater. Including a timestamp with seconds is challenging to display all in a single message. However, showing runtime in seconds is feasible by using the stopwatch function. Storing the previous ON and OFF runtimes in seconds poses a challenge, as these are 32-bit values (DWords, DINT), while [product_name] controller can only save INT values (16-bit)."
+    },
+    {
+      "comment_id": 767462942816860,
+      "user_name": "ou1tg6UfOz",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I will try to further simplify my requirements. The timing is just for testing, so maybe a selector switch or function button can help. I'll return soon with more details."
+    },
+    {
+      "comment_id": 989324458310067,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "If you keep the ON and OFF times below 9 hours 6 minutes 7 seconds, the times can be saved as INT values. Exceeding this period could result in inaccurate data being stored."
+    },
+    {
+      "comment_id": 744225461933014,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "This might be the solution you are looking for."
+    },
+    {
+      "comment_id": 595935949502140,
+      "user_name": "ou1tg6UfOz",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "That works perfectly. Thank you very much for your help!"
+    },
+    {
+      "comment_id": 202281825450202,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], you're welcome!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are discussing how to record and show the ON and OFF durations of a heater, using specific programmable controller hardware and software. The main challenge is the lack of direct system time access within the controller program, and limitations with data types for storing time values. Despite these technical restrictions, users agree on a practical solution using the stopwatch function, as long as certain timing boundaries are maintained.",
+    "user_expectations": "Users expect the system to accurately measure and display both the current and previous ON and OFF durations of the heater, in seconds, via the device's display interface.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "runtime monitoring",
+      "accurate display",
+      "testing analysis"
+    ],
+    "pain_keywords": [
+      "storage limitations",
+      "no direct system time access",
+      "data type constraints"
+    ],
+    "feature_keywords": [
+      "stopwatch block",
+      "runtime storage",
+      "display interface"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "29": "Scalability Limitations"
+  }
+}

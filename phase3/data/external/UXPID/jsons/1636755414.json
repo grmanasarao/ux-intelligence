@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "branch_id": "1636755414",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 382000718700551,
+      "user_name": "MNnCTYJgaP",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm experiencing an unusual issue in my User Defined Function (UDF). When I add one or more Analog Threshold blocks and set the sensor type (for instance, \"4..20 mA\"), it resets to \"0..10V\" after saving and reopening the project. I'm working with [product_name] V8.1 and targeting hardware [article_no]. Is this a known bug, or do I need to change any settings for analog blocks to function properly in UDFs? Thanks for any advice! Cheers, [user_name]"
+    },
+    {
+      "comment_id": 514823138292951,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Yes, this is a known software bug. Fortunately, other settings like gain and offset remain as configured, so the issue doesn't affect functionality. If it's causing you issues, consider submitting a support request."
+    },
+    {
+      "comment_id": 351367449288211,
+      "user_name": "MNnCTYJgaP",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Thank you for your quick response. I'm struggling to use this block as intended with the current behavior. When I place it in my program, the bug appears to affect its operation, especially during simulation. It seems there’s no way to make the sensor type configurable as a parameter, is there? Thanks again! Cheers, [user_name]"
+    },
+    {
+      "comment_id": 736655634068811,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "I've created and integrated a simple UDF and haven't encountered any problems during functionality checks."
+    },
+    {
+      "comment_id": 547521650166127,
+      "user_name": "MNnCTYJgaP",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Oddly enough, I can't get it to work, and I may be making a conceptual error. I've added a sample that contains an Analog Threshold meant to output between values of 125-250. It runs fine in simulation with the 4..20 mA sensor type. However, when added to the final diagram, the trigger fails. The hardware is configured with AI1 as a 4..20 mA sensor. Cheers, [user_name]"
+    },
+    {
+      "comment_id": 402435731329362,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Regarding the sensor on AI: What is its measurement range? If set up as you described in the UDF, it should work correctly. I have not noticed any issues."
+    },
+    {
+      "comment_id": 101048215945469,
+      "user_name": "MNnCTYJgaP",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "The sensor range is 4..20 mA and it's measuring pressures from 0 to 400 bar. I’m trying to refactor an existing [product_name] program into UDFs for better reusability. In my final diagram, nothing works in simulation; the trigger won't activate at the desired threshold. Simulating just the UDF (after manually resetting sensor type to 4..20 mA) works fine. I've attached screenshots to clarify my issue. Thanks once again! Cheers, [user_name]"
+    },
+    {
+      "comment_id": 700181609343355,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Everything appears correct. The value seen in the program simulation is not the output after the analog amplifier of the threshold block, but rather units from the analog input’s A/D converter. No matter if the analog signal is 0-10V, 0-20mA, or 4-20mA, it’s converted into 1000 units. For 4-20mA, the first 200 units represent the baseline, meaning the first 4mA equals zero. For your threshold block settings: Min = -100, Max = 400, Gain = 0.5, Offset = -100. If your input shows 438 units (about 8.76mA): 438 x 0.5 = 219, 219 - 100 = 119. So, the trigger won’t activate yet—only at 440 units (about 8.8mA) or more."
+    },
+    {
+      "comment_id": 369650649167377,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Additionally, your parameters don't align with the specified measuring range (-100 to 400 bar using 4-20 mA). With this range, your setup fits a 0-20 mA sensor better."
+    },
+    {
+      "comment_id": 606578711480508,
+      "user_name": "MNnCTYJgaP",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Thanks a lot! Cheers, [user_name]"
+    },
+    {
+      "comment_id": 950183818792380,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "I've created a UDF tailored for the -100 to 400 bar measuring range with a 4-20mA sensor for you. When simulating in the linked [product_name] file, remember the analog input value shown matches units from the A/D converter—specifically, 4mA equals 200 units."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter a bug in [product_name] V8.1 where Analog Threshold blocks inside UDFs lose their sensor type settings after saving and loading, reverting to a default. Other parameters like gain and offset are preserved. This issue confuses users and can cause mismatches during simulations, affecting code reuse efforts via UDFs. The problem is attributed to the software itself rather than misconfiguration.",
+    "user_expectations": "Users expect [product_name] to maintain all Analog Threshold block settings—especially sensor type—within UDFs after saving, loading, and integration into larger applications.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reuse",
+      "parameter consistency",
+      "efficient configuration"
+    ],
+    "pain_keywords": [
+      "configuration loss",
+      "simulation mismatch",
+      "unexpected defaults"
+    ],
+    "feature_keywords": [
+      "sensor type",
+      "analog threshold",
+      "UDF persistence"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

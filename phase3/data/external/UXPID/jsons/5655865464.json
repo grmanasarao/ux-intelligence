@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "5655865464",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 728475398496228,
+      "user_name": "WIcw0CgN3R",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello Forum! Thanks for the helpful Q&A so far. I have a [product_name] base module and was trying to connect a PT100 sensor to it, but realized I needed an additional module for this purpose. After purchasing the appropriate expansion module, installation went smoothly—the power and wiring were correct, and the LED indicated normal operation. I connected the PT100 as previously discussed in forum threads. The software simulation performed well, but when monitoring real values over the network, my PT100 measured -48 on one analog input, which was unexpected (I anticipated a reading around 20). The sensor on the expansion module gave -48, and another unused input returned the same value. The reading on the unused input made sense due to infinite resistance, but the sensor connection was puzzling. Upon measuring resistance, the PT100 showed 115 Ohms, which seemed correct. A short-circuit test (expecting a reading near 200) made no difference. I tried various configurations of analog input ports, all yielded similar results—the two used in my program showed -48 (with only one sensor connected), the rest showed -50. Does anyone have any insights? Thank you in advance, [user_name]"
+    },
+    {
+      "comment_id": 891682952677043,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Welcome to the forum. The expansion module does not distinguish between wire breaks or short-circuits on the PT— it always outputs the lowest possible value (-50 or -500, depending on analog amplifier settings). Most likely, your PT sensor is not properly connected. Can you specify which type of PT you have: 2-wire, 3-wire, or 4-wire? Please describe your PT sensor and how it's connected to the module."
+    },
+    {
+      "comment_id": 129830969362333,
+      "user_name": "WIcw0CgN3R",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hi [user_name], Thanks for your reply and the welcome! I have 3-wire PT100s, and in the attached picture, you can see two connected to the expansion module."
+    },
+    {
+      "comment_id": 990818969242324,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "The article number is difficult to read in the picture, but I believe it's [article_no]. If this is correct, you have the wrong module. This module with that article number is designed for 0-10V or 0/4-20mA signals."
+    },
+    {
+      "comment_id": 168319682182827,
+      "user_name": "WIcw0CgN3R",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Ah, that's unfortunate, but it probably resolves my issue. The clearer attached image confirms you're correct. Thanks for the quick diagnosis! Appreciate the support. Cheers"
+    },
+    {
+      "comment_id": 700837809913413,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "The correct module is labeled not only [product_name] but specifically [product_name] RTD. The proper article number for the RTD version is [article_no]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered inaccurate readings from a PT100 sensor due to connecting it to an incompatible module in their [company_name] setup. The module provided readings outside the expected range, leading to confusion, until it was clarified that a different module was required for RTD measurements. This discussion highlights the importance of clear hardware-product matching guidance and effective feedback during device integration tasks.",
+    "user_expectations": "The user expects straightforward hardware setup, reliable sensor measurements, and that plugging a PT100 into the documented module will result in accurate readings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate readings",
+      "compatibility",
+      "hardware integration"
+    ],
+    "pain_keywords": [
+      "inaccurate measurement",
+      "wrong module selection",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "module compatibility",
+      "PT100 sensor support"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

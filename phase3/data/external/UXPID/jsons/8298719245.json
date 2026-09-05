@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "branch_id": "8298719245",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 604960470120610,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "I'm trying to connect a [product_name] to these signals. When the digital input is low, the analog input reflects temperature reading 1; when the digital input is high, it's temperature reading 2. How can I separate the analog readings into individual temperature values for further processing in [product_name]? Do I need to use some kind of analog latch?"
+    },
+    {
+      "comment_id": 842460640576648,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "I've attached a simple example. There aren't any comments in the program, so you'll need to configure the blocks yourself."
+    },
+    {
+      "comment_id": 624985519058369,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Apologies, but that solution isn't quite right. Thanks anyway. Maybe I didn't fully explain: When I1 is low, AI1 holds the value for temperature sensor 1; when I1 is high, AI1 gives temperature sensor 2's value. Both analog values are coming through the same analog input AI1, with I1 selecting which temperature is being read. I need to split the AI1 input to independently get temperature 1 and temperature 2 values for further analysis."
+    },
+    {
+      "comment_id": 651592588811182,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Sorry for the misunderstanding. Is this approach better?"
+    },
+    {
+      "comment_id": 534428482209067,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Thanks. It's still not quite right. There needs to be a feature to hold or store an analog value, like saving temperature 1 for processing while I1 is high (and temperature 2 when I1 is low). Your current solution outputs zero for temperature 1 whenever I1 is high; the temperature 1 and temperature 2 values both need to be latched or stored. I need steady state values for both temperature readings for subsequent processing."
+    },
+    {
+      "comment_id": 771169182046782,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "That's not what was asked at first... But does this updated approach address your needs? The value will only be lost if the power is down or the [product_name] stops."
+    },
+    {
+      "comment_id": 316005711923810,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Excellent, thank you. I hadn't noticed the setting 'When En=\"0\", output is: Last Value' in the Mathematical block configuration. It works as an analog latch to hold the last value, which is exactly what I was looking for."
+    },
+    {
+      "comment_id": 557071856367046,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "A new question from [user_name] has been posted in a separate thread titled 'Implement Analog Demux - Need to store the daily count value into analog flag.' Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced challenges setting up analog demultiplexing with the [product_name], specifically around storing and processing temperature readings based on a selector input. A key insight is that users were initially unaware of the 'Last Value' latch feature within the software, indicating documentation or guidance could be more prominent. The learning curve was evident as users tried to find reliable ways to hold analog states triggered by digital conditions for further processing.",
+    "user_expectations": "Users expect an easy way to store and separate analog readings based on a switch input, so both temperature values are continually accessible for processing. They prefer if the device or software natively supports demultiplexing and analog value latching functions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "analog value separation",
+      "value latching",
+      "steady-state processing"
+    ],
+    "pain_keywords": [
+      "feature discoverability",
+      "value persistence"
+    ],
+    "feature_keywords": [
+      "Mathematical block",
+      "Last Value output",
+      "analog input latch"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

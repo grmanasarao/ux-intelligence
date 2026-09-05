@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "5969846920",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 605966272469961,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Hello. I'm working to automatically switch between two motors after a set period and am using the \"Hours Counter\" for maintenance tracking. Is there a way to use this counter's value with other analog function blocks?"
+    },
+    {
+      "comment_id": 714711001512545,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "The operating hours counter of the [product_name] stores time in minutes using an unsigned 32-bit integer, with a maximum of 99,999 hours and 59 minutes, equivalent to 5,999,999 minutes. However, [product_name] uses signed 16-bit integers ranging from -32,768 to 32,767. The analog comparator can only compare counter values up to 32,767; if the operating hours minute value exceeds this, using the analogue comparator is no longer feasible. To work around this, I've created a user-defined function (UDF). There's a sample program and the UDF attached. The counter values are transferred to VM memory and then read back into the program."
+    },
+    {
+      "comment_id": 796665859864116,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Hello. I realized what my mistake was. When adding a value to VM-Mapping and setting the address to 0, I thought I should also use address 0 on the analog input. Looking at your example from another post, I noticed you increased the address by 2. Could you explain why this is necessary? Thank you."
+    },
+    {
+      "comment_id": 560461114451760,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "As I mentioned earlier, the operating hours counter returns a 32-bit unsigned value, which is a special case. The [product_name] only handles 16-bit signed integers, so I read the 32-bit value as two 16-bit segments with the analog network inputs, accounting for the sign bit in the lower word. Are you familiar with the difference between UInt and SInt, as well as 16-bit and 32-bit formats?"
+    },
+    {
+      "comment_id": 767798881170481,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Hi. I understand that a signed integer uses the first bit to indicate if the value is negative or positive. A 16-bit (WORD) has 16 binary values and a 32-bit (DWORD) has 32 binary values. Most of what I've learned about [product_name] programming has been through self-study or forum posts. I've made good progress but still have a lot to learn. I'm grateful for the assistance provided here and hope questions from users like me aren't discouraging. I'll look more closely at the examples you've shared to improve my understanding. Thank you :-)"
+    },
+    {
+      "comment_id": 389843361823603,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "It's not possible to know every user's level of knowledge, and everyone begins somewhere. Sometimes, when I share explanations, I receive feedback like \"I already know that, you don't need to tell me.\""
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience challenges obtaining the value from the Hours Counter in [product_name] for use with analog function blocks due to limitations between data types and value ranges. The key issue is working with a 32-bit unsigned integer in a system designed for 16-bit signed integers, which creates confusion and restricts certain automation tasks. Guidance is needed for correct memory mapping and data usage for maintenance-related functions.",
+    "user_expectations": "Users expect straightforward access and use of the hours counter value in analog function blocks, accompanied by clear instructions on how to map and handle data accurately within the [product_name] environment.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "automatic switching",
+      "maintenance tracking",
+      "data reuse"
+    ],
+    "pain_keywords": [
+      "data type limitation",
+      "value mapping confusion",
+      "incompatibility"
+    ],
+    "feature_keywords": [
+      "VM-Mapping",
+      "analog comparator",
+      "hours counter"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "30": "Data Persistence Confusion"
+  }
+}

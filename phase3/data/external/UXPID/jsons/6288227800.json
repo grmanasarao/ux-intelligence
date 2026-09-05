@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "branch_id": "6288227800",
+    "thread_id": "3055273936",
+    "publication_year": 2008,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 948828216211775,
+      "user_name": "lK8KQ39jVU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "Hello, I am trying to adjust a counter using the cursor keys on the [product_name], but it's difficult and slow. Sometimes, pressing ESC followed by a cursor key isn't detected, so I ended up using a pushbutton connected to a digital input instead. Does anyone know if there's a way to make the cursor keys function just like a button on a digital input, so each press is reliably recognized? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 192451921709994,
+      "user_name": "fRNv7WOddw",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "Hi, I’ve attached a screenshot from my application showing how I use the cursor keys to increment or decrement two counters. These counters adjust setpoints for two timers, which then control an output for a specified duration after each interval. This should show how the cursor keys can be used. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 174572090442280,
+      "user_name": "lK8KQ39jVU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "Thank you for your response, but my issue is different. I'm already familiar with programming the cursor keys. Your application example works well only in simulation mode. If you try using the cursor keys on actual [product_name] hardware, you'll see that adjusting the counter this way is quite challenging."
+    },
+    {
+      "comment_id": 475996723774638,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "Try pressing ESC first and holding it, then press the cursor key, rather than pressing both ESC and the cursor key at the same time."
+    },
+    {
+      "comment_id": 194401638109589,
+      "user_name": "fRNv7WOddw",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "Hi, That's correct. Holding the ESC key before pressing the cursor key is definitely the right approach. If you press both keys simultaneously, sometimes they register together, but other times they do not. You should have no issues if you hold ESC first. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 570257058810749,
+      "user_name": "lK8KQ39jVU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Thanks for your input, but have you tried it yourself? Please try using the cursor key and you'll see the problem I'm describing. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 783921747170233,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Yes, I've tried this many times. If you don’t want to use a digital input and find it difficult to press the cursor keys correctly, you could use a [product_name] module with an external display. There, four function keys (F1-F4) act as normal digital inputs and do not require ESC. The cursor keys are not as straightforward as physical pushbuttons and sometimes won’t register—about 2 out of 10 presses fail for me—but that's acceptable for my infrequent actions, like resetting a counter. To increase speed, there are examples for making a counter increment slowly or rapidly when holding down a key for more than two seconds using a pulse generator. If possible, please share your program so we can help spot any issues. So far, you've mentioned it doesn't work, but details would help."
+    },
+    {
+      "comment_id": 429765860885532,
+      "user_name": "fRNv7WOddw",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "The application I mentioned is used by an actual customer, and there have been no complaints about its function! I just loaded it onto a fifth-generation [product_name] unit and it works fine. Occasionally, a keypress can be missed if you press the cursor keys very quickly—probably because the scan time isn't fast enough to catch short presses. But since this hardware functions as both a basic PLC and HMI for a relatively low cost, that’s expected. If you adjust values while viewing the setpoint screen and hold the cursor key until you see a change, it never misses input. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 450623703571040,
+      "user_name": "lK8KQ39jVU",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Here's a segment of my program. Input I2 provides a pulse at midnight. Using the cursor keys, I want to adjust the START and STOP times for when output Q1 should be active. For testing, I swapped minutes for hours and seconds for minutes. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 939325774832662,
+      "user_name": "fRNv7WOddw",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 12,
+      "comment_body": "Hi, When I tested your program on my test unit (fifth-generation [product_name], after removing some analogue function blocks to fit), I couldn't reproduce the issue with cursor key response, as long as I pressed the rubber keys firmly and held down ESC before pressing and holding the cursor key until the value changes on the message display. It’s possible your issue is with the physical hardware—maybe one of the cursor keys has a sticky contact? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 478861555538928,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], Please try enabling \"Protection active\" in the message text. I suspect your issue is because holding ESC for more than 2 seconds brings up a nearly invisible cursor (see screenshot). If you then press OK, you can set the counter value directly. With \"Protection active\" enabled, you prevent direct editing and the cursor doesn't appear anymore."
+    },
+    {
+      "comment_id": 193493591035549,
+      "user_name": "b47ruW6bPv",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Now the message says: Note: Parameters are protected..."
+    },
+    {
+      "comment_id": 244471974908081,
+      "user_name": "LDUIMQ5Q2O",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Have you managed to solve this issue? I’m facing the same problem with my application. Honestly, the PLC feels very limited—using ESC plus the arrow key to change timer or counter values is so slow that it makes me prefer an Arduino and relay modules instead. I just finished one project and have two more to go, but with such a sluggish user interface, I’ll look at other hardware options."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering unreliable behavior when aiming to adjust counters via the cursor keys on the [product_name] in actual hardware applications. The main challenge is inconsistent recognition of the ESC plus cursor key combination, making adjustments slow and unreliable compared to using physical digital input buttons. Multiple users have confirmed this is a limitation, and it's especially apparent with rapid keypresses. Some workarounds, like using modules with dedicated function keys or software configuration, are suggested but don’t fully resolve the problem.",
+    "user_expectations": "Users expect the ESC and cursor key combination to work as reliably and quickly as physical pushbutton inputs, allowing seamless and accurate adjustment of counter values every time a key is pressed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "quick parameter adjustment",
+      "reliable input",
+      "hardware usability"
+    ],
+    "pain_keywords": [
+      "unreliable cursor key detection",
+      "slow adjustment process",
+      "hardware input inconsistency"
+    ],
+    "feature_keywords": [
+      "cursor key input",
+      "ESC key",
+      "digital input substitution",
+      "function keys",
+      "parameter adjustment"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

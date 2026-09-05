@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "3360791536",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 692342347454047,
+      "user_name": "UCbAznl1dW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Hello, I have a [product_name] + an additional module installed. Attached is the program it should run: it controls the stair lights in a building. The issue is that the Q3 output sometimes, seemingly at random, stays on—the display shows it correctly as off following the programmed logic, but the lights remain lit. This has happened a few times and we've been able to reset it by restarting the program, but this time no workaround was found. Thanks for any assistance."
+    },
+    {
+      "comment_id": 471178685366629,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Hello, The program seems fine. I assume you are controlling LED or energy-saving lamps, correct? If that's the case, the problem likely comes from the lamps themselves. LED and energy-saving bulbs are capacitive loads, and can generate up to 1700 times their regular load when switched on. Possible solutions: 1. Replace the [product_name] if Q3 is damaged. 2. Use an additional inrush current limiter with suitable specifications for each relay output connected to these types of lamps."
+    },
+    {
+      "comment_id": 582009115467634,
+      "user_name": "UCbAznl1dW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], Thank you for your reply, and apologies for my delayed response. I'm not familiar with inrush current limiters or how to determine the correct specifications. For the Q3 output, we have 12 LED bulbs (model: Osram CL P 25 (M3) E27) with these specs: Power: 3.5W, Voltage: 100-240V, Frequency: 50/60Hz, Current: 33mA Could you suggest suitable specifications or a method to calculate them? Thank you,"
+    },
+    {
+      "comment_id": 702224545932344,
+      "user_name": "mGUhhw3YQk",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Hello, Try disconnecting the load from Q3 and see if Q3 switches ON/OFF correctly according to the logic. If it doesn't, the output may be broken. Also, you should use appropriate protection (current, voltage) in your circuit to protect both the [product_name] and the load. Consider how much VA the outputs can handle, and apply similar protection to other sections of the circuit."
+    },
+    {
+      "comment_id": 495320755922098,
+      "user_name": "UCbAznl1dW",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Hello, Q3 is probably damaged. I'll try running the same program on a different output, but I need advice on how to protect outputs. I don't know how to do this. The manual for [product_name] 230R—technical data starts on page 105. Any tips on what to add to the circuit and how to choose the correct specifications? Thanks,"
+    },
+    {
+      "comment_id": 187502266941863,
+      "user_name": "mGUhhw3YQk",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], Protection means using devices like fuses, MCBs, or other suitable devices based on your circuit design. For example, the output can handle a maximum of 8A continuously, and you should ensure the current remains within this range. For more detailed help, it would be useful to share your schematic."
+    },
+    {
+      "comment_id": 938633137072381,
+      "user_name": "UCbAznl1dW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "As mentioned earlier: Hope this helps."
+    },
+    {
+      "comment_id": 680383736561863,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Hello, I think Q3 is damaged due to high inrush current. Online resources say a LED lamp can generate a current up to 1700 times higher than normal when switched on. In your case: 30mA per LED * 1700 = 51A for one LED Search for \"inrush current limiter\" on Google for more information. You should replace the [product_name], as this relay output is certainly damaged. If you have another unused output, switch to that—but make sure to use an additional inrush current limiter. Otherwise, that output may fail quickly as well. Hope this helps."
+    },
+    {
+      "comment_id": 212356376725023,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "I also recommend that the relay output from the [product_name] should not switch the LEDs directly. Instead, let the relay output switch to an overload relay, which then switches on the LEDs."
+    },
+    {
+      "comment_id": 286130538458819,
+      "user_name": "UCbAznl1dW",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I agree: Q3 is no longer functional. Fortunately, I have other outputs available. Where did you find information stating LED inrush current can be 1700 times normal? That seems extremely high! With 12 lamps in parallel * 30mA each * 1700 = 612A!?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users noticed that the relay output (Q3) of a [product_name] controlling LED lamps sometimes remains physically on, even though both the display and programmed logic show it as off. This was ultimately traced back to probable relay damage, caused by high inrush currents typical of capacitive LED lamp loads—a risk the device is not adequately protected against by default. Users revealed confusion about the failure and sought advice on protection measures, indicating a need for clearer information regarding suitable loads and output safeguards.",
+    "user_expectations": "Users expect the [product_name] to reliably and safely operate LED lights according to programmed instructions, and require straightforward guidance on how to protect its outputs and how to determine the specifications for any additional protective hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable switching",
+      "LED lamp compatibility",
+      "proper output protection"
+    ],
+    "pain_keywords": [
+      "output relay failure",
+      "insufficient output protection",
+      "lack of documentation"
+    ],
+    "feature_keywords": [
+      "relay output protection",
+      "compatibility with capacitive loads",
+      "inrush current handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "17": "Circuit Protection Guidance",
+    "3": "User Guidance",
+    "4": "Hardware Reliability"
+  }
+}

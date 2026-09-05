@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "branch_id": "8789808241",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 247628051043298,
+      "user_name": "0ZPm97MMhs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm experimenting with sending and receiving data via MQTT. Everything seems to work for the default \"I\" and \"Q\" variables. However, I also use \"NI\" and \"NQ\" variables. Currently, I am focused on the \"NQ\" variables, but I cannot select those to transmit through MQTT. In the cloud data transfer settings, only \"I\" or \"Q\" can be chosen, and when selecting \"Q,\" the options range from \"Q1\" to \"Q20.\" I'd like to work with something like \"NQ22.\" Am I missing something here? Thanks!"
+    },
+    {
+      "comment_id": 481993240148304,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "You can't directly select NI and NQ, nor NAI and NAQ. These operands can only be used indirectly by linking them to addresses within local storage, and then assigning those addresses within the cloud data transfer settings data table."
+    },
+    {
+      "comment_id": 452605827953486,
+      "user_name": "0ZPm97MMhs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Thanks again for your advice. I'll take a look into this. Much appreciated!"
+    },
+    {
+      "comment_id": 667421713149099,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Regarding your project: Because you're using the master/slave method (and not master/master), the NIs and NQs used there aren't available for cloud functionality since they're outside the accessible address range."
+    },
+    {
+      "comment_id": 170789376008531,
+      "user_name": "0ZPm97MMhs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I understand now. I've been trying to store data to local storage, but the only relevant thing I've found is the screenshot attached. It doesn't appear to be the correct solution—I can store data either in local memory or to a remote device, but my requirement is to store it in a remote device. If there's no other way, I might have to redesign my setup to use a master/master approach like you mentioned."
+    },
+    {
+      "comment_id": 259176758718134,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "The challenge is that you aren't familiar with all the possible data exchange methods between two or more modules. Personally, I typically use local storage. Master/slave setups are now considered outdated (from older versions), where modules communicate over a network. This is just my perspective—everyone should choose what best suits their situation, but each method has its tradeoffs."
+    },
+    {
+      "comment_id": 478355079821429,
+      "user_name": "0ZPm97MMhs",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "That's correct. Years ago, we installed those older blocks and chose the master/slave method. For consistency, we applied the same approach in newer setups, which is why retaining master/slave is preferable to me. However, if it proves problematic, I'll switch to master/master. I plan to investigate the VM mapping as indicated by the help function, though the option is always disabled and I haven't determined the reason yet. Overall, I agree with your master/master suggestion. I was trying to keep things quick and familiar, but it may ultimately cost more time. I'll consider this further."
+    },
+    {
+      "comment_id": 855234859178688,
+      "user_name": "0ZPm97MMhs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I'm currently changing my setup from master/slave to master/master. I've already converted one slave to master, and plan to update the other soon. Thanks for your input."
+    },
+    {
+      "comment_id": 265923285788212,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I've also completed this change."
+    },
+    {
+      "comment_id": 714416941944351,
+      "user_name": "0ZPm97MMhs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Thanks for your effort. I will review your solution!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users working with MQTT and cloud data transfer for [product_name] modules face limitations selecting certain variable types like NQ directly. The interface allows only specific operands (I/Q) and predefined address ranges, making advanced mapping difficult. These constraints present challenges for those managing legacy configurations or more intricate communication needs.",
+    "user_expectations": "Users hope to directly map and transfer any local operand, including NQ, over MQTT using cloud data settings, while maintaining compatibility with their current master/slave architecture.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "flexible data mapping",
+      "legacy support",
+      "efficient configuration",
+      "cloud connectivity"
+    ],
+    "pain_keywords": [
+      "restricted operand selection",
+      "legacy system limitations",
+      "UI constraints"
+    ],
+    "feature_keywords": [
+      "cloud data transfer",
+      "MQTT",
+      "operand selection",
+      "VM mapping",
+      "master/slave",
+      "master/master"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

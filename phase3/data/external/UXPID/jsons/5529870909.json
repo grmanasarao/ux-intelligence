@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "5529870909",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 897043377516407,
+      "user_name": "x9pBxKE2rz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "[product_name] - [article_no] The [product_name] is resetting when the analog input exceeds 10V. I understand that the official input range is 0-10V, but I haven't found details about the behavior if this voltage is exceeded. Has anyone else experienced a reset when analog input goes above 10V?"
+    },
+    {
+      "comment_id": 286713807302950,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "This is the first time I have encountered this fault. Typically, the analog input can function as a digital input as well, supporting voltages up to 28.8 VDC."
+    },
+    {
+      "comment_id": 365795218746303,
+      "user_name": "x9pBxKE2rz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "This issue only appears on one unit where the analog input is above 10V; I'm using a comparator to trigger actions when the voltage exceeds 3.6V."
+    },
+    {
+      "comment_id": 762897185027395,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I'm not sure I understand—could you clarify which comparator you are referring to? Do you have a wiring diagram for your 0-10V setup? I doubt the problem is with the [product_name] itself. It might be related to wiring or connected components. For troubleshooting, you could swap the problematic [product_name] with another unit that works and see if the issue follows the device or remains with the installation."
+    },
+    {
+      "comment_id": 851043856448724,
+      "user_name": "x9pBxKE2rz",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "The comparator is programmed within my code using the analog input. I managed to reproduce the error on another unit as well."
+    },
+    {
+      "comment_id": 888622268390978,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I'm still not quite sure what you mean."
+    },
+    {
+      "comment_id": 495619216157194,
+      "user_name": "cZQANX744b",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello, If you use the onboard analog input, then channel AI0 provides values from 0 to 1000 (representing 0 to 10V). As stated on the housing: AI1 = I7, AI2 = I8, AI3 = I1, and AI4 = I2. Depending on how you configure your device, you may not be able to use some digital inputs if analog inputs are assigned. While simultaneous use of analog and associated digital inputs is possible, I don't see a practical reason for it. If both are used, around 5V the analog input reads ~500 and the digital input is activated—this behavior can't be changed. For logic dependent on analog values, consider using the FB analog threshold trigger to set trigger values for ON/OFF actions. Summary: If you are using onboard analog inputs, avoid using their corresponding digital inputs in your program. Review your configuration and check if the related digital inputs are in use. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants observed a device reset when the analog input exceeds 10V, which is outside the specified range. One user was able to reproduce this issue on multiple devices, while others remain uncertain if the root cause is the device itself or issues in the connected peripherals. The conversation also discussed how analog and digital inputs share channels and how this could affect operation.",
+    "user_expectations": "The user expects clearer device behavior or documentation when analog input exceeds specified limits, ideally with fault handling or clear error messages for over-voltage situations.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliability",
+      "clear documentation",
+      "system stability"
+    ],
+    "pain_keywords": [
+      "unexpected reset",
+      "lack of documentation",
+      "unclear system behavior"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "over-voltage handling",
+      "input configuration",
+      "comparator function"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "30": "Data Persistence Confusion"
+  }
+}

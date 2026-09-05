@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "branch_id": "8267261623",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 237761844725704,
+      "user_name": "GKOWUVcsqO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Hello, How can I send -50 to +50 degrees Celsius temperatures to a web server or cloud service using a PT100 sensor? The local display shows the temperature correctly in Celsius, but the cloud interface only shows values from 0 to 1000. Is it possible to adjust this so that the web/cloud display shows the temperature in Celsius as well? Any tips for a [product_name] web server/cloud beginner would be appreciated."
+    },
+    {
+      "comment_id": 919853731863802,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "How are you reading the value from the PT100 sensor? Are you using an [product_name] RTD module, or an external transmitter? If it's an external transmitter, what is its temperature output range, and what is the physical output—0-10V or 0/4-20mA?"
+    },
+    {
+      "comment_id": 945138571121312,
+      "user_name": "GKOWUVcsqO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I'm using an [product_name] RTD module and trying to create a web page that displays the value in Celsius. Could you provide easy instructions on how to achieve this, if possible?"
+    },
+    {
+      "comment_id": 606136550791080,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Just so you know, the range of the [product_name] RTD module is -50°C to 200°C, and this resolution can't be changed. You could use an analog amplifier to rescale this range. Would you like an example?"
+    },
+    {
+      "comment_id": 995166912355938,
+      "user_name": "GKOWUVcsqO",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "The range of -50 to 200°C is acceptable. I simply want the web interface to show the outdoor temperature in Celsius. Right now, it displays a scale from 0 to 1000. What do I need to do to display temperatures in Celsius on the web? And what steps should I take in [product_name] programming software so the web software recognizes the data?"
+    },
+    {
+      "comment_id": 730651853892184,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Did you read my previous post? I asked several questions and didn't receive all the answers."
+    },
+    {
+      "comment_id": 367837535675530,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "If your local display shows the correct temperature, you likely have an analog amplifier set for PT100 mode. For the cloud server, did you use the AIx analog input? That's not correct; you should use VM mapping for the output of the analog amplifier, for example, VW0 if it's available. Then, use VW0 in the web software as a signed integer to get the temperature in Celsius. If you're unfamiliar with VM mapping, consult the online help or see examples on the [company_name] website. You can also use an analog flag (for example, AM1) after the amplifier, if the web software allows selection of analog flags. Regards, [user_name]"
+    },
+    {
+      "comment_id": 487616320777816,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I've attached a simple example that includes both web and control software."
+    },
+    {
+      "comment_id": 505097177695418,
+      "user_name": "GKOWUVcsqO",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Thanks for your advice and the example. I've managed to get it working—really appreciate it!"
+    },
+    {
+      "comment_id": 651764021422731,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "A new question posted by [user_name] has been moved to a separate thread with the subject 'Which ports should I connect two wires of + and - to measure millivolts?'. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced an issue where PT100 temperature sensor data was shown correctly in Celsius on the local display, but appeared as raw unscaled values (0-1000) on web/cloud interfaces. The main challenge involved configuring analog value mapping and programming settings in [product_name] software to provide human-readable, Celsius values on remote platforms.",
+    "user_expectations": "Users expect temperature readings from the PT100 sensor to be displayed in Celsius consistently on both the local device and web/cloud interface using [product_name] web tools, with clear, step-by-step setup guidance.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct data representation",
+      "celsius display on web",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "incorrect data scaling",
+      "unclear web/cloud mapping",
+      "usability barrier"
+    ],
+    "feature_keywords": [
+      "analog input mapping",
+      "web interface display",
+      "data scaling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

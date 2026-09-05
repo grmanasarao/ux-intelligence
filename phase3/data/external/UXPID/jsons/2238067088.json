@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "2238067088",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 419353817097852,
+      "user_name": "23LCalKlCe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hello, In my application, users set a weekly timer and I need to determine the total minutes in the selected interval. For instance, if the timer starts at 12:00 and ends at 13:01, that's 61 minutes. How can I obtain this value or is there an alternative method to process on/off timestamps? I need this calculation before the interval concludes, so I can't rely on standard timers or counters."
+    },
+    {
+      "comment_id": 327236656579682,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "I've attached a possible solution for you."
+    },
+    {
+      "comment_id": 992831865548511,
+      "user_name": "23LCalKlCe",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thank you very much, great job! I have 9 blocks of weekly timers, each with 2 cam inputs, totaling 18. That feels excessive. Is there a document showing which addresses to use? Is there a way to simplify, since I only use 6 blocks simultaneously?"
+    },
+    {
+      "comment_id": 296087392388430,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "The challenge stems from ON and OFF times being BCD-encoded, which is why so many blocks are required—four values fit in one word rather than four separate words. The VM addresses can be freely chosen; in a [product_name] diagram, you can use the range from VB0 to VB850. Edit: Times are transferred into the VM area using Parameter-VM-Mapping. The Parameter-VM-Mapping table allows up to 32 entries."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face challenges calculating time intervals in minutes between weekly timer start and stop events within the [product_name] platform. The main issue is the BCD-encoding of time values, which complicates logic and increases the number of required blocks. There is a need for simpler documentation and easier address management for more efficient configurations.",
+    "user_expectations": "Users expect a straightforward method to compute minutes between two timer points, along with accessible guides and the ability to reduce the number of function blocks needed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "minute calculation",
+      "simplified logic",
+      "address documentation"
+    ],
+    "pain_keywords": [
+      "complexity",
+      "too many blocks",
+      "lack of documentation",
+      "BCD coding difficulty"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "timer addresses",
+      "parameter-VM-mapping",
+      "function blocks"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

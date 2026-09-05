@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "6345576602",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 240135992473145,
+      "user_name": "FSL1TrgKnk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, I have a [product_name] PLC connected to an IO-Link with four sensors. I've used function blocks to obtain each sensor's process value (data type: Real). I would like to import these values as variables into [product_name] software, but have not been successful yet. Can anyone guide me step-by-step on how to properly connect the PLC and [product_name] software?"
+    },
+    {
+      "comment_id": 266403008418250,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "The core issue is that [product_name] only works with integer values and does not handle real numbers. There is a building block that converts 32-bit float values into 16-bit integer values. Keep in mind the limits: integer values are capped at 32,767. For example, a float value of 14568.356 would be shown as 14568356 on the output, with no decimal places. Without further details on the specific values you wish to transfer, it's difficult to provide more targeted advice."
+    },
+    {
+      "comment_id": 777548757508328,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "I've attached a simulation example."
+    },
+    {
+      "comment_id": 485799070325700,
+      "user_name": "FSL1TrgKnk",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Thanks! My aim is to transfer real process values from the [product_name] PLC (using [product_name] engineering software) into [product_name] software."
+    },
+    {
+      "comment_id": 804805322668294,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Understood, but you haven't answered my earlier question. What are the actual values of your real variables? How many decimal places do they have?"
+    },
+    {
+      "comment_id": 797135555060594,
+      "user_name": "FSL1TrgKnk",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "They are temperature sensors, with values ranging from 15.0 to 40.0 degrees Celsius, and usually have a single digit after the decimal point. Apologies if I misinterpreted your question."
+    },
+    {
+      "comment_id": 351518538571151,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "No problem; this needed clarification. The simplest approach is having [product_name] act as the client. You can refer to [url] for an application guide on connecting [product_name] as the client and the PLC as the server."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to transfer floating-point sensor values from a [product_name] PLC to [product_name] software. Complications arise since [product_name] handles only integer values, which leads to conversion challenges and loss of decimal precision. Advice centers on float-to-integer conversion and being mindful of the maximum integer threshold.",
+    "user_expectations": "The user hopes to efficiently transfer real-type (float) sensor values from the PLC into [product_name] software, retaining as much numeric accuracy and decimal detail as possible.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate value transfer",
+      "real to integer conversion",
+      "sensor integration"
+    ],
+    "pain_keywords": [
+      "integer-only limitation",
+      "precision loss",
+      "conversion complexity"
+    ],
+    "feature_keywords": [
+      "float to integer conversion",
+      "variable value transfer"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

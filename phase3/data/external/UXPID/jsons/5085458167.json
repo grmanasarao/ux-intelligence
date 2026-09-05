@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "5085458167",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 108151570410964,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "I received a message indicating that the initial value of the function block starts with the letter B, which seems incorrect. I am unsure whether it is possible to input a DWord value into another function block where the parameter type is set to Word. How can this be achieved?"
+    },
+    {
+      "comment_id": 353402513309728,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "I'm not clear about the quoted section of your previous post because I do not understand what you are describing. A DWord consists of 4 bytes and a Word of 2 bytes. [product_name] supports integers in the range -32678 to 32767 (Word). If your DWord value is within this range, you can use the two low bytes. For an up/down counter, which only operates in the positive range, that would be 0 to 32767. Example: You can map a DWord value to the VM area using parameter VM mapping, such as VD0. VD0 includes VM words VW0 and VW2, so VW2 can be utilized. If you describe exactly what you wish to accomplish, I can provide more specific guidance."
+    },
+    {
+      "comment_id": 621704405638896,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Thank you [user_name]. I was confused—the displayed initial B was simply a reference to another function block. I changed the setting to show the value of the corresponding function block, and now the display is correct. There is no issue with DWord or Word types, just my own misunderstanding. Thanks for your help!"
+    },
+    {
+      "comment_id": 116527142601470,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Glad to hear I was able to assist you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed confusion over data type handling, specifically DWord versus Word, in function block parameter mapping within [company_name] logic controllers. The initial problem was related to how values and references were displayed, not the actual conversion between DWord and Word. After further explanation, the user clarified the source of the confusion as a display issue and resolved it. Much of the difficulty stemmed from unclear system feedback and how parameters are mapped between blocks.",
+    "user_expectations": "Users want clear feedback and proper parameter mapping when connecting function blocks of different data types, and intuitive messaging when there is a mismatch or successful link in the interface.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clarity",
+      "correct data mapping",
+      "intuitive interface"
+    ],
+    "pain_keywords": [
+      "data type confusion",
+      "unclear feedback",
+      "display issue"
+    ],
+    "feature_keywords": [
+      "function block linking",
+      "data type parameter",
+      "value display"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

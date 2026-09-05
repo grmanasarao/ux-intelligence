@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "6698759353",
+    "thread_id": "3055273936",
+    "publication_year": 2009,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 144063141927818,
+      "user_name": "NuF545K3rF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 1,
+      "comment_body": "I have an AC voltage signal ranging from 0V to 8V with a 60 Hz frequency. I need to calculate the RMS value of this voltage. Is it possible to do this with [product_name]? If so, how?"
+    },
+    {
+      "comment_id": 488564117749003,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I believe this isn't possible because the frequency of your signal is too high. Usually, calculating RMS involves detecting the maximum and minimum absolute values (peak values) of your signal. If the waveform is known, you can use the peak value along with a table or formula to determine the RMS. To reliably capture the peak values, you need a measurement rate that is sufficiently fast compared to the 60 Hz signal. However, [product_name] analog inputs typically sample at intervals of 300 ms (on the basic modules) or 50 ms (on expansion modules), which would be too slow for your application. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 912936688395172,
+      "user_name": "NuF545K3rF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 1,
+      "comment_body": "The inputs I7 and I8 on [product_name] 12/24RC can sample square signals at 2 kHz. So, the sampling rate should be around 1000 samples per second, which would give about 20 data points per cycle for a 60Hz signal. My question is: How could I store these samples and determine the maximum value?"
+    },
+    {
+      "comment_id": 336166125269155,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], Unfortunately, that's not quite correct. Please refer to the manual for clarification: The [product_name] 12/24 basic modules have two ([article_no]) or four ([article_no]) digital high-speed counter inputs capable of 2 kHz or 5 kHz frequencies, but these are strictly for digital signals that meet certain voltage levels. The minimum voltage for a high-level input is 8.5V, and you mentioned your signal is only 8V. Meanwhile, the analog inputs on these modules (two or four depending on model) are limited to the properties I previously described, and these are the inputs needed to measure peak levels for RMS calculation. Thus, what you want cannot be done with this setup. If your signal frequency was very low, you could use the below circuits: - To store minimum and maximum values until reset ([document]) - To detect local maximum values (and, with modifications, minimum values) ([document]). Q1 will be \"ON\" as a pulse when the signal passes the local maximum. - Review \"increasing values\" logic to detect the direction of change for an analog signal. Version [version_no] is a completed solution. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 628970324535190,
+      "user_name": "NuF545K3rF",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 1,
+      "comment_body": "Thank you for clearing up this question."
+    },
+    {
+      "comment_id": 377962073262217,
+      "user_name": "mHQpKO8lJV",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "You could use a voltage transmitter to convert AC voltage to a 4-20mA signal."
+    },
+    {
+      "comment_id": 933982372567192,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "That's a good suggestion, but perhaps a bit overdue given the timeline..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to use [product_name] for calculating RMS of a 60 Hz AC voltage signal, but face limitations due to insufficient analog input sampling speed. Confusion happens because the product distinguishes between faster digital inputs and slower analog inputs, making the specifications unclear for some users. The thread exposes the difficulty in understanding input specifications and underscores the importance of better documentation for sampling rates of both digital and analog functionalities.",
+    "user_expectations": "Users expect [product_name] to reliably sample analog signals at a rate high enough to measure AC waveforms such as 60 Hz, and to store/process these samples for RMS calculations.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "RMS calculation",
+      "signal measurement",
+      "sample storage"
+    ],
+    "pain_keywords": [
+      "insufficient sampling rate",
+      "analog input limitation",
+      "documentation confusion"
+    ],
+    "feature_keywords": [
+      "analog input sampling rate",
+      "signal processing",
+      "extreme value storage"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity",
+    "2": "Product Compatibility"
+  }
+}

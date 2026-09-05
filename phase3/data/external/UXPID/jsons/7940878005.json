@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "7940878005",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 304684922884737,
+      "user_name": "bKvq3qKZ8X",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello, I understand the general Modbus address mapping and am trying to set up communication between the [product_name] device and an MTP panel programmed with [product_name] software. I see that, for example, the AI1 address is represented as 3x300001. I want to know how to call VW addresses like VW1, and I suspect the format might be something like 4x400001, but I'm not certain. The mapping space range for VW is 0-850, and the corresponding holding register space is between 1 and 425. Is there an appendix or extension available somewhere for interpreting these address ranges, such as 1x10000X, 3x30000X, or 4x40000X? Having such a conversion table would save time compared to guessing through trial and error. Any help or documentation on fixed address conversions would be greatly appreciated. Thank you."
+    },
+    {
+      "comment_id": 341531942186527,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "This specific address information is not included in [product_name] since it's not required for its basic operation. Additionally, Modbus implementation in [product_name] is a simplified version. For more guidance, you might find this topic helpful: Unified Panel to [product_name] Modbus Protocol, particularly the post by [user_name] from 2/23/2024. This user could offer further assistance."
+    },
+    {
+      "comment_id": 479902490817174,
+      "user_name": "bKvq3qKZ8X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Thank you. I've managed to get the communication working and can now read Analog Input values from [product_name] using addresses like 3x300001 to 3x300008 defined in [product_name] software. Previously, I used VM mapping to set parameters between the panel and device using a different protocol. Modbus communication, however, seems less straightforward—there's plenty of documentation about Modbus itself and the address spaces, but I'm missing a concise example for reading VW0 or VW10. I can't test every register because it's very time-consuming, and reading too many values simultaneously can freeze the device, causing no data to be returned. Has anyone successfully read values from VW addresses on [product_name]? If so, what addresses did you use? Could you confirm the corresponding addresses from the [product_name] software perspective? Thanks!"
+    },
+    {
+      "comment_id": 524667372735297,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "For [product_name], Modbus addresses from VW0 to VW850 correspond to HR1 to HR425."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is seeking clear and accessible documentation that maps [product_name] variable addresses (VW addresses) to Modbus holding register addresses for use with an MTP panel programmed via [product_name] software. The main challenge is the absence of consolidated and straightforward address mapping, resulting in users relying on trial and error. Users have also observed that requesting too many Modbus values at once can cause the device to freeze and stop returning data.",
+    "user_expectations": "Users expect comprehensive, easy-to-find documentation that clearly maps [product_name] VW addresses to Modbus holding register addresses, ideally including practical examples to make communication setup straightforward and minimize trial and error.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "address mapping clarity",
+      "setup efficiency",
+      "documentation"
+    ],
+    "pain_keywords": [
+      "unclear mapping",
+      "trial-and-error",
+      "device freeze",
+      "documentation gap"
+    ],
+    "feature_keywords": [
+      "VW address mapping",
+      "Modbus register documentation",
+      "analog input access"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "10": "Performance Predictability"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "6948604439",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 800702969536197,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello, I am attempting to monitor and store retentive motor state data, including: total activations, activations today, activations yesterday, total run hours, hours active today, and hours active yesterday. For points 1 to 5, everything is working (see the attached file), but I am unsure how to save the run hours for yesterday. Is this possible? I also have a question regarding the hour counter: Is it true that periods shorter than 1 minute are not counted? For example, if the motor is started 10 times for 50 seconds each, does the counter remain at zero? Thank you and best regards, [user_name]"
+    },
+    {
+      "comment_id": 185756155519225,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Yes, that's correct—the integrated operating hours counter only accounts for completed minutes. If the runtime falls short of one minute, it won't be counted. For example, if the runtime is 2 minutes and 59 seconds, only 2 minutes are recorded. To save the running time from the previous day, you can use arithmetic instructions or the MAX/MIN block, especially if you need it to be voltage fail-safe."
+    },
+    {
+      "comment_id": 659527483135443,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], thanks for clarifying the hour timer behavior. I've already managed to save the previous day's activation count (see my original attachment), but I don't know how to apply similar logic (arithmetic instruction or the MAX/MIN block) for the hour counter. Could you provide assistance? Thanks and best regards, [user_name]"
+    },
+    {
+      "comment_id": 105543369163242,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Yes, the hour counter only counts complete minutes. If this is an issue, you could use a different counter. For instance, one counter tracks whole seconds, and another can count down to 0.1 second intervals if greater accuracy is needed."
+    },
+    {
+      "comment_id": 301412315394057,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I've attached a possible solution for storing yesterday's runtime. Please review the Parameter-VM-Mapping. The counter value is a DInt; values smaller than 32,768 are found in the right word of the DWord (for instance VD0), where the right word is VW2."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users wish to monitor and retain detailed statistics on motor operations, specifically counting activations and tracking run time for both current and previous days. It was discussed that the standard hour counter only records full minutes, which does not meet user needs for higher-precision tracking. Questions arose about reliably storing the prior day's runtime using available logic blocks, and users are actively looking for clear technical guidance and suitable workarounds.",
+    "user_expectations": "Users need hour counters capable of tracking and storing daily runtime with minute or second-level details, with straightforward ways to retrieve and save values like the previous day's runtime.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate runtime tracking",
+      "per-day statistics",
+      "retentive storage"
+    ],
+    "pain_keywords": [
+      "counter granularity",
+      "inability to track sub-minute intervals",
+      "unclear method for storing previous day's runtime"
+    ],
+    "feature_keywords": [
+      "hour counter",
+      "arithmetic instruction",
+      "MAX/MIN block",
+      "Parameter-VM-Mapping",
+      "retentive values"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "30": "Data Persistence Confusion"
+  }
+}

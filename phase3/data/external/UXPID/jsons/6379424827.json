@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "6379424827",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 665591768785477,
+      "user_name": "6KS3gOZbEn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello, I am working on a project with [product_name] to manage emergencies and perform pressure analysis using an analog input. I want to analyze the pressure curve and, for instance, if the pressure falls from 35 to 30 bar in less than 30 seconds, I’d like to trigger an emergency stop. The concept is to shut down the system if a pressure drop rate within a defined timeframe indicates leakage, or if there’s a sudden pressure increase. Does anyone have suggestions on how to set up this calculation in [product_name]? I noticed there's a block for threshold analysis, but it activates immediately; I want a set delay before triggering emergency stop. I hope the description is clear. Sincerely, [user_name]"
+    },
+    {
+      "comment_id": 201672412795086,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "One issue is that [product_name] doesn’t offer enough memory for continuous monitoring of pressure loss."
+    },
+    {
+      "comment_id": 480768922283034,
+      "user_name": "6KS3gOZbEn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Regarding storage: I am not aiming to record data logs. I just need the module to trigger an action when the pressure changes too abruptly within a certain time interval."
+    },
+    {
+      "comment_id": 394626786160043,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "I am not writing any data logs. Please specify in which time intervals you want to compare the current pressure value to the starting pressure. If you wish to store the initial pressure and check against it after, say, 30 seconds, you’d need only a single memory slot. So you could compare at 0s, 30s, 60s, and so on. However, consider cases where the pressure starts to drop 15 seconds after starting, but the pressure threshold isn’t reached at 30 seconds — only at 45 seconds."
+    },
+    {
+      "comment_id": 972224120360231,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Perhaps this straightforward example will be sufficient for your needs."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are working on configuring emergency detection based on pressure changes using [product_name]. The main issue is that the product’s built-in blocks trigger immediately upon reaching a threshold and do not offer options for rate-based or time-delayed conditions. There is also confusion regarding whether ongoing data storage is required for implementing time-dependent comparisons.",
+    "user_expectations": "Users expect the module to handle time-based analog value comparisons and trigger emergency actions in response to sharp pressure rises or drops. There is a need for a configurable delay before shutdown, instead of immediate response on threshold breaches.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe automation",
+      "configurable emergency handling",
+      "rate-based monitoring"
+    ],
+    "pain_keywords": [
+      "lack of time-based trigger",
+      "immediate threshold response",
+      "user confusion about features"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "threshold comparator",
+      "time window comparison",
+      "emergency stop logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "30": "Data Persistence Confusion"
+  }
+}

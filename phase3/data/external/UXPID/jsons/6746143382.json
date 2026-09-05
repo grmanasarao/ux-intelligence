@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "6746143382",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 626044464164094,
+      "user_name": "24XlGj00Cb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Hello, I have my [product_name] connected to the cloud and made a webpage to monitor it. I have several timers and digital/analog inputs and outputs, and everything works online except for the weekly timer in my [product_name] program. On my [product_name], the timer is set for 10:00. In my AWS IoT shadow, I see the value for this variable as 1000, so that matches the timer being ON at 10:00. The issue is that on my webpage, the first digit (for the hours) appears as 16#10, and the second digit (for the minutes) as 16#0. I’m not sure why hexadecimal notation (#16) is showing before each digit. I’ve attached the [product_name] program, the [product_name] Web Editor configuration, and three screenshots. Does anyone know what I’m doing wrong?"
+    },
+    {
+      "comment_id": 730207573196270,
+      "user_name": "24XlGj00Cb",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "I'm using [product_name] Web Editor v1.1.1 and [product_name] Soft Comfort V8.3.1."
+    },
+    {
+      "comment_id": 287170417159380,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Try using the scale time function instead of analog value input for time. Check the attached screenshot."
+    },
+    {
+      "comment_id": 337492163252991,
+      "user_name": "24XlGj00Cb",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Great, it's working now! Thank you very much, [user_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The issue stemmed from a weekly timer value being displayed in hexadecimal format on the user's webpage, whereas the expected decimal format was shown in both the [product_name] device and the AWS IoT interface. The discrepancy was due to improper data formatting or scaling when integrating the [product_name] module with the cloud monitoring solution using [product_name] Web Editor. The problem was resolved by applying the correct time scaling method as suggested by another user.",
+    "user_expectations": "The user wants the weekly timer set in their [product_name] module to be displayed in a standard decimal format (matching the configured value) on both the cloud and web interfaces.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "clear visualization",
+      "accurate time display",
+      "data synchronization"
+    ],
+    "pain_keywords": [
+      "incorrect value formatting",
+      "data representation mismatch",
+      "confusing output"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "time formatting",
+      "data scaling",
+      "cloud monitoring"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

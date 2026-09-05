@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "1160913827",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 493010616174850,
+      "user_name": "Xe9NeUOQDF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "I have a program running on a [product_name] but when I turn it off overnight, its accumulated data does not remain. Is there a way to preserve this data in case of a power failure? I've already enabled protection/retentivity for all required blocks. The device is used to measure liquid throughput, and losing the totaliser data during a power cut is not acceptable."
+    },
+    {
+      "comment_id": 573819863401954,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Could you upload your program? Typically, counter values and similar blocks are protected against power failure when remanence is activated. It’s possible the counter gets reset by a signal from the program, triggered when the device powers back up."
+    },
+    {
+      "comment_id": 166764403640329,
+      "user_name": "Xe9NeUOQDF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Here is the program."
+    },
+    {
+      "comment_id": 112682849195146,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hi, One possible solution is to connect the Enable input of the Math blocks (B008 and B009) to an OR block linked to M8, which serves as an initialization flag. This might resolve the issue. Regards, [user_name]"
+    },
+    {
+      "comment_id": 829668602462507,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Alternatively, you could remove the connections to the enable inputs for blocks B008 and B009, or invert the inputs, so these blocks remain active at all times. Edit: Attachment"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user reported issues retaining important measurement data on a [product_name] device after power-down, even with memory protection features enabled. The discussion reflects questions about the effectiveness of built-in retentivity and whether the program itself could be causing the reset upon power restoration, highlighting reliability concerns around data persistence in such scenarios.",
+    "user_expectations": "The user expects the [product_name] to maintain accumulated measurement data across power cycles when memory protection settings are activated, ensuring uninterrupted tracking and reliability for measurement totals.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "data retention",
+      "uninterrupted measurement",
+      "process continuity"
+    ],
+    "pain_keywords": [
+      "data loss",
+      "unexpected reset",
+      "critical process interruption"
+    ],
+    "feature_keywords": [
+      "memory protection",
+      "accumulated data",
+      "retentivity",
+      "power cycle behavior"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "30": "Data Persistence Confusion"
+  }
+}

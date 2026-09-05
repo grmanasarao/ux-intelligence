@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "2988055189",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 231268367604661,
+      "user_name": "LiVeiq7K2o",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I recently started working with PLC programming and am currently using this PLC device. Programming is going well, but now I need to share some data from my analog inputs with our company's SCADA system. For example, I have a PT1000 sensor on AI1 linked to an analog threshold trigger [article_no], and its output is mapped in my software as a Word at address VW4. The SCADA communicates using S7 drivers, and I've already configured the server connection on the [product_name] device including the correct TSAP, which works for reading digital input bits. However, I'm unable to read the value from VW4, which I've mapped. What physical address should I use in the SCADA tag to access VM mapped values like in my setup? Sorry if anything is unclear—I'm still new to this and appreciate any guidance. Thanks in advance for any help!"
+    },
+    {
+      "comment_id": 593330012434299,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "There aren't special SCADA addresses within the VM memory area. Any unused address in the VM memory space can be used. It's important to understand how the memory area is structured to prevent overlapping accesses. The user-accessible memory area is 851 bytes, from byte 0 to byte 850, and is addressed by byte. For bits: Vx.y, where x is the byte address and y the bit inside the byte (e.g., V0.0). For bytes: VBx, representing each byte (e.g., VB0 = V0.0 to V0.7). Word is VWx, composed of 2 bytes (e.g., VW0 = VB0 + VB1 = V0.0 to V0.7 plus V1.0 to V1.7). DWord is VDx, made of 2 words; VD0 = VW0 + VW2 = VB0 + VB1 + VB2 + VB3, covering bits V0.0 to V3.7."
+    },
+    {
+      "comment_id": 971582069102939,
+      "user_name": "LiVeiq7K2o",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], I appreciate your answer. I had already read your helpful PDF attached to another forum topic! That's why I'm unsure why I can't see output on my SCADA. I'm attaching a section of my software with Q1, which I used to check the SCADA and [product_name] connection linked to SCADA via I/O physical address Q0.0. Based on your PDF and these tests, I expected the physical address for my [article_no] to be VW4, but it's not showing any value."
+    },
+    {
+      "comment_id": 361296192447510,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Everything in your program looks correct, and there's no overlapping. Are you aware that the value in VW4 is an integer value? What type of SCADA system are you using?"
+    },
+    {
+      "comment_id": 874843511078289,
+      "user_name": "LiVeiq7K2o",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Just to clarify: Should I be able to view any Word value I've mapped by inspecting it bit by bit? Specifically, if I look at bits V4.0 to V4.7 and V5.0 to V5.7, should I see boolean values that match my mapped Word?"
+    },
+    {
+      "comment_id": 451943671212752,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "In Parameter-VM-Mapping, 'Word' refers to the data width (16 bits), not the data type. Byte is 8 bits, Word is 16 bits, and DWord is 32 bits."
+    },
+    {
+      "comment_id": 897517276450839,
+      "user_name": "LiVeiq7K2o",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Yes, that's how it works. I was also expecting to browse the mapped word by checking its bits from V5.0 to V4.7. Anyway, I've resolved the issue! The correct way to link the tag in my SCADA is to use the address DB1.DBW4. Thanks for your support!"
+    },
+    {
+      "comment_id": 450622241689741,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I had asked which SCADA system you are using but didn't get a reply."
+    },
+    {
+      "comment_id": 542570404037576,
+      "user_name": "LiVeiq7K2o",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "You're right, sorry about that. During our discussion, I managed to figure out the correct way to access the memory. For reference, I'm using Movicon Next 3.4. Thanks again for your assistance!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced challenges accessing VM-mapped Word values from a [company_name] PLC in their SCADA environment. Although SCADA connections and reading digital bits worked, users found the analog value mapping unclear. Advice explaining VM memory layout, tag addressing, and differences in memory data width and format supported user understanding, leading to successful configuration.",
+    "user_expectations": "The user expects to easily map and read VM-mapped Word values from the PLC directly through appropriate SCADA tag addressing, similar to digital inputs and outputs.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy integration",
+      "correct data mapping",
+      "successful SCADA connection",
+      "analog value visibility"
+    ],
+    "pain_keywords": [
+      "memory mapping confusion",
+      "addressing ambiguity",
+      "analog value not visible"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "Word address",
+      "S7 driver",
+      "SCADA integration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

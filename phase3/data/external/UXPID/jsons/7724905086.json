@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "7724905086",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 472195014993130,
+      "user_name": "ucKa8jv38q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I'm new to PLC programming and appreciate your patience. I'm volunteering for a water sports club and have created a simple building management system using a [product_name] controller with a digital expansion module and PT100 RTD controllers. Everything is working fine except for controlling the washroom heaters. I've set up cursor/function keys for each heater, connected them to an Up/Down counter, and added mathematical instructions between two analog threshold blocks leading to a latching relay for temperature hysteresis. The simulation works well, but when downloaded to the device, the Aq value in the parameter table remains zero for the mathematical instruction and for the counter, even though the analog value changes. Any advice would be greatly appreciated. Kind regards, [user_name], RVC Electrical"
+    },
+    {
+      "comment_id": 442507554502363,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Seeing just part of the program in a screenshot isn't very helpful. If you're using the internal [product_name], it's better to use the F1...F4 keys from the [product_name] operator panel, which don't require physical installation and can be used directly. The cursor function on the operator device requires ESC plus cursor keys on both the device and the operator panel of [product_name]. Alternatively, you can create messages with values that can be changed using the [product_name] after clicking them with the mouse on your PC, then entering values with digit keys. Regards, [user_name]"
+    },
+    {
+      "comment_id": 417640657882784,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "The Aq value under the mathematical block in the parameter table only updates in simulation mode. During online tests, the Aq value is shown in a separate display field below the block. Pointing the cursor at the block displays a pair of glasses; clicking them opens the output field. The X in the output field serves two purposes: the first click freezes the value, the second closes the field. See attached video."
+    },
+    {
+      "comment_id": 319456133431663,
+      "user_name": "ucKa8jv38q",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Thank you so much for all your help. Will my program still allow temperature adjustment on the threshold blocks, even though the parameter tables beneath the function blocks aren't updated as I change values via the up/down counter? Is it just a display issue in [product_name] Soft? Thanks also for mentioning the ESC key issue—I’ve reassigned the cursor keys to inputs since I’ve run out of available function keys. Program attached in case it’s helpful. Thanks again, [user_name]"
+    },
+    {
+      "comment_id": 606640772625192,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "See attached screen recording of your program during the online test."
+    },
+    {
+      "comment_id": 916188004882427,
+      "user_name": "ucKa8jv38q",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Thank you, that's great! I appreciate your time and will try this on the [product_name] controller when I'm at the club this weekend. Thanks again, [user_name]"
+    },
+    {
+      "comment_id": 590785835778414,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], you're welcome..."
+    },
+    {
+      "comment_id": 576769513321777,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Here's a quick tip: If you want the setpoints defined by the counter to be retained after a power outage, activate the remanence feature for the counter."
+    },
+    {
+      "comment_id": 433501453304070,
+      "user_name": "ucKa8jv38q",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Thanks, I'll configure that for each heater."
+    },
+    {
+      "comment_id": 110269049152361,
+      "user_name": "aupYoTVPBr",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hi, I could use some help with selecting the b??? (e.g., b001) for the v1 spot in the Mathematic instruction block. I can't figure this out and would appreciate guidance."
+    },
+    {
+      "comment_id": 854541245505196,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], welcome to the forum. Sorry, I’m not sure what you mean. Can you clarify or provide a screenshot? What exactly are you asking when you mention selecting b ????"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users sometimes find it confusing that real-time values in parameter tables of [product_name] controllers do not display or update in the same way as in simulation mode. When running on actual hardware, output and input blocks may behave correctly but visual feedback can be limited or different, causing concern among new users. Clear information on how blocks like counters and mathematical instructions interact and display during live mode is limited, resulting in uncertainty until clarified.",
+    "user_expectations": "Users expect live parameter tables and block outputs on [product_name] software to update with real-time values similarly to simulation mode. They want the system to visually confirm program logic and user changes while operating on actual hardware, and clarity about when and how these values are reflected.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "visual confirmation",
+      "real-time monitoring",
+      "parameter adjustment"
+    ],
+    "pain_keywords": [
+      "parameter table not updating",
+      "no real-time value feedback",
+      "display confusion"
+    ],
+    "feature_keywords": [
+      "parameter table display",
+      "math instruction block",
+      "online test mode",
+      "simulation mode",
+      "counter remanence"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

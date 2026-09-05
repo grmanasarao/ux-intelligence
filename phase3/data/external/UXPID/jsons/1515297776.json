@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "1515297776",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 200469602204195,
+      "user_name": "uM1FysbJ1m",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hi everyone, I'm connecting a Modbus slave device to a [product_name] module and using it to update a few variables remotely. However, I've noticed that [product_name] continues to write values to the slave device even when there's no change in data. Is there any way to configure [product_name] so that it only writes to Modbus when triggered externally? The slave can only handle a limited number of writes. Thanks!"
+    },
+    {
+      "comment_id": 268100557587024,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello, I don't think this feature is available. Even when [product_name] is set up as a Modbus TCP/IP client, I don't see an option for edge-triggered communication. You can set the polling interval, but this only sets up a regular cycle (like once a minute). It's frustrating when devices restrict the number of permitted configuration writes."
+    },
+    {
+      "comment_id": 929073380376531,
+      "user_name": "uM1FysbJ1m",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Yes, unfortunately it looks like you can only change the interval timing and not configure edge-triggered communication."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users recognize a major limitation in the Modbus functionality of [product_name]: it's designed to write data to Modbus slave devices at set intervals, rather than only when values change. This absence of edge-triggered or conditional writing controls leads to frequent and unnecessary writes, which is problematic for Modbus slave devices with restricted write cycles. Users have expressed frustration over the inability to selectively control communication.",
+    "user_expectations": "Users expect to configure [product_name] so it writes to a Modbus slave device only when externally triggered or if a value changes, rather than at fixed intervals.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "minimize Modbus writes",
+      "conditional writing",
+      "device longevity"
+    ],
+    "pain_keywords": [
+      "excessive writes",
+      "no edge triggering",
+      "limited configuration"
+    ],
+    "feature_keywords": [
+      "Modbus TCP/IP client",
+      "polling time",
+      "write trigger"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

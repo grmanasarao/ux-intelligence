@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "3910678913",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 609693685826569,
+      "user_name": "uXzbmQU7xz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Good morning, I have a project with a [product_no] PLC and [product_name] display for a screw-type air compressor controlled by a 50KW inverter. The PLC manages starting and stopping the inverter/compressor, monitors air pressure, oil and motor temperature, and signals to users events like low oil temperature, inverter output status, protection circuit activity, air pressure achievement, and maintenance needs. When a maintenance counter is triggered, I wanted to visually alert users. Maintenance alerts should be amber and protection alerts red. I couldn’t find the amber color flag for the [product_name] display—the manual and [product_name] software mention it, but in the flag window (double-clicking any flag), the AMBER flag (M30) is missing from the programming software. Can you help?"
+    },
+    {
+      "comment_id": 695690645366291,
+      "user_name": "sTfQViFsyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Are you sure you haven’t used M30 somewhere in your program? Try pressing Control+g, then search for M30."
+    },
+    {
+      "comment_id": 125042101177726,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "I checked and I’m able to select M30. Here’s a suggestion: Close [product_name] V8, go to your file explorer, navigate to c:/User/your account, and delete the \".LOGOComfort8.0\" folder. Then restart [product_name] V8 and try again—see if M30 appears now. Otherwise, reach out to [company_name] support for more help. Hope this helps."
+    },
+    {
+      "comment_id": 493178192378890,
+      "user_name": "uXzbmQU7xz",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "[user_name], I searched but found nothing! I’ll try [user_name]'s suggestion. Thanks to both of you! I deleted the folder, restarted [product_name] V8, but still no M30 flag. I wish I could send the project file for someone else to try on another computer."
+    },
+    {
+      "comment_id": 853680332585992,
+      "user_name": "uXzbmQU7xz",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "In the attached picture, I placed all the special flags on pages 2 and 3, colored them magenta so they stand out from the green ones. I double-clicked one to check, but M30 isn’t listed! I’m out of ideas."
+    },
+    {
+      "comment_id": 691608575672093,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello, Maybe there’s an issue with the demo version. Can you attach your zipped program so we can check if the problem occurs in the full version? Regards,"
+    },
+    {
+      "comment_id": 192643697645098,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Have you used flags within your UDFs?"
+    },
+    {
+      "comment_id": 956038023066950,
+      "user_name": "uXzbmQU7xz",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Thanks [user_name], here’s the file:"
+    },
+    {
+      "comment_id": 668529461510604,
+      "user_name": "uXzbmQU7xz",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "[user_name], you’re amazing! There are 4 UDFs simulating a special timer—the second one from the top contained M30. This might have taken me all winter to find! There’s so much to think about, and this was the last thing on my mind. Ideally, \"good\" [company_name] software should highlight which UDF contains a specific flag during search. Thanks to all my [product_name] friends!"
+    },
+    {
+      "comment_id": 928153136576788,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello, you found the issue thanks to [user_name] before we got to your program. Good catch! The [product_name] has grown from a simple relay to a small PLC in just a few years, but its software hasn’t caught up with larger platforms. There’s a forum thread about things that need improvement—cross-reference features should be there. Feel free to add your points. Improvements would be great, but might increase costs. Do we want more features or work within current limits?"
+    },
+    {
+      "comment_id": 707770300008795,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "A new question from [user_name] has been posted in a separate topic: \"The diagram exceeds BM memory limit. Only block location is saved.\" Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user was unable to locate the M30 'amber flag' in [product_name] V8 software when configuring visual maintenance alerts for a compressor monitored by a [product_no] PLC and [product_name] display. The root cause was that the flag was already used inside a User Defined Function (UDF), but the software didn’t reveal this in the search or flag management features, exposing a lack of discoverability and transparency. Users discussed that the hardware’s functionality has evolved, but the software still lacks user-friendly features like robust cross-reference and flag tracking tools present in higher-end [company_name] solutions.",
+    "user_expectations": "Users expect to have straightforward access to all documented special flags in the programming software, along with reliable searching and clear indications if a flag is already assigned—even in nested UDFs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "transparent flag assignment",
+      "reliable maintenance alerts",
+      "efficient software navigation"
+    ],
+    "pain_keywords": [
+      "invisible flag allocation",
+      "limited search functionality",
+      "ineffective cross-reference"
+    ],
+    "feature_keywords": [
+      "special flag availability",
+      "UDF usage transparency",
+      "flag cross-referencing",
+      "color-coded alerts"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

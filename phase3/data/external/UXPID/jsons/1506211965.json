@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "1506211965",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 527959003268290,
+      "user_name": "YnxPtq8xoq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 8,
+      "comment_body": "I have two [article_no] units set up as server and client. I couldn't get them to work as Master and Slave. I have 8 temperature sensors (PT100) to monitor and use [product_name] modules. Since only three modules can be connected to the server (limited by [article_no]), the rest are linked to the client. Temperature readings from the server are correct, but the client only works properly for temperatures above 0°C; when below, it shows 32767 on my HMI panel, which is incorrect. The client TD display actually shows proper sub-zero readings, indicating my sensor is functioning. On the server, I read network input VW90 and VW92; on the client, I write to VB90 (local/remote) and VB94 (local/remote). I've tried various address configurations but still get 32767 for temperatures below zero. Any help is welcome. Thank you!"
+    },
+    {
+      "comment_id": 246903611334029,
+      "user_name": "TQKMwiXSLF",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 8,
+      "comment_body": "Generally, values in [product_name] range from -32768 to +32767. Most panels also handle this range as well as 0 to 65535 and other variable types. Your issue may be due to declaring the variable as the wrong type on your panel. Tip: For slave configuration in [product_name], set network mode to Slave and configure the Master IP. After reboot, press Start. If you use [product_name] configuration software to access the slave, it switches to master mode, so avoid that for slave settings."
+    },
+    {
+      "comment_id": 503854162791923,
+      "user_name": "YnxPtq8xoq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 8,
+      "comment_body": "My server TD display shows the same value as the HMI, so the panel isn't at fault. The server logic triggers a cooling unit when it receives 32767, causing it to run continuously, misreading the temperature as 32767°C instead of -0.1°C. This seems to be a client-server communication issue. In [product_name], under Ethernet Connections, I have VB90 (local/remote) set up. Maybe I am missing something about variable type definitions? I tried the Master/Slave mode but couldn't get it to function—it only worked after converting my program to LAD format and uploading it, as suggested by the forum. Switching formats was slow, so I settled for Server/Client mode."
+    },
+    {
+      "comment_id": 816088424506525,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], take a look at these two application examples: Master/Slave: [url] and Master/Master: [url]. Both links offer example codes for download. The examples feature analog signals and message texts on TD and HMI panels, which could help with your setup."
+    },
+    {
+      "comment_id": 876020933122020,
+      "user_name": "X6FqdUyI5F",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 9,
+      "comment_body": "I've used these examples to design my initial program, and they’re quite similar. Like in the example, my client reads temperature data. In the sample setup, the client connects an analog input to an amplifier with no sensor, 0.6 gain, and -200 offset. This node appears in VM mapping (Word, Address: 2), and Ethernet mapping defines a local address VB0 with 8 bytes reserved, starting remote address at VB40. My setup is almost the same, except I use the default PT100/1000 setting (Gain 2.5, offset -500). Tried with no sensor before, but the issue persisted. In my client’s VM mapping, Word 92 is used, and 2 bytes are written to local VB92 and remote VB92. Everything works except for sub-zero temperatures; most of the time, the system is above 0°C and functions fine. Only when it dips below zero does the display show 32767. Both the client and master have TD displays for temperature. On the client, -0.5°C shows correctly, but the master still reads 32767. The master controls a cooling pump, so whenever it sees 32767, it keeps pumping. I have followed all the examples and manuals on the [company_name] website without success and tried various workarounds, including a threshold trigger node, but its maximum value is 20,000, which isn't enough. Can anyone suggest a real fix or an effective workaround? Is this a bug with [company_name] equipment?"
+    },
+    {
+      "comment_id": 936911144678491,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], I think your issue can be solved by modifying some settings. How do you analyze the analog input signal in your server program? If you use an analog threshold trigger, double-click the block and select Sensor 'PT100/PT1000.' If you use 'No Sensor' or '0..10V' instead, the default minimum value is set to 0, which means any measurement below that becomes 32767. By selecting 'PT100/PT1000,' the minimum changes to -500 automatically. In the client program, you must adjust the Analog Amplifier block properties according to the analog input. Choose 'No Sensor' so the measurement range minimum is 0 and maximum is 1000 (Gain 1.0, Offset 0). If both client and server blocks are set to 'PT100/PT1000,' the data transmission might not work. Changing the client amplifier to 'No Sensor' makes message text display incorrect on TD, so the solution is to add a second Analog Amplifier after the prior one for display purposes only, using 'PT100/PT1000' for the message text block. With these changes, your values should display properly. Feel free to ask further questions if needed. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter inconsistencies in temperature readings in a monitoring setup using distributed [product_name] controllers and AM2 RTD modules. Temperatures below zero result in out-of-range values (32767) being sent from client to server, leading to misinterpretation and continuous operation of system components. Despite consulting manuals and examples, the problem appears related to variable mapping, data transmission, or mismatched settings between client and server modules.",
+    "user_expectations": "Users expect seamless transmission of accurate temperature data (including negative values) between client and server [product_name] modules, correct interpretation and display of sub-zero temperatures on all interfaces, and dependable automated control responses based on sensor data.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sub-zero temperature measurement",
+      "reliable sensor data transmission",
+      "correct automated control"
+    ],
+    "pain_keywords": [
+      "inaccurate negative temperature display",
+      "data mapping confusion",
+      "unreliable control behavior"
+    ],
+    "feature_keywords": [
+      "analog signal mapping",
+      "variable type declaration",
+      "network communication",
+      "negative value handling"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

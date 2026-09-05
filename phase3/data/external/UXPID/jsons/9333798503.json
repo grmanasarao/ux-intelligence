@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "9333798503",
+    "thread_id": "1723880927",
+    "publication_year": 2008,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 790532349563264,
+      "user_name": "qm5fH2TmPt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "How are blocks counted in a [product_name] ladder diagram? I’ve been notified that I’ve exceeded my block quota but I’m struggling to work out where the blocks have been allocated. My project uses several latches and time delays (meaning I have multiple timer function blocks), along with digital inputs/outputs and flags. Do some timers count as more than one block? Any help appreciated [user_name]"
+    },
+    {
+      "comment_id": 638441031058626,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hello! Could you please share your program? Analyzing it would make things easier. Which [product_name] version are you working with? Is the same version also selected in [product_name] software?"
+    },
+    {
+      "comment_id": 206483651949730,
+      "user_name": "qm5fH2TmPt",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "That may not be necessary: after some further experimentation I was able to find an answer. For anyone facing similar ladder diagram block counting issues in the future, here’s what I discovered: 1. Make contacts are not counted as blocks 2. Break contacts do count 3. Relay coils appear not to count 4. Using OR contacts increases the block count (the amount depends on how many contacts are involved) 5. Using AND contacts also increases the block count in a similar way If you primarily use ladder diagrams like me, the block counting logic can seem confusing. However, it becomes clearer when viewed in terms of Function Block Diagrams (FBD). For example, when chaining AND or OR operations, you’ll notice limitations — an AND or OR block will only accept a certain number of inputs before you need to link multiple blocks. Official documentation suggests four inputs for AND/OR blocks, but in practice (at least for [article_no]) this seems incorrect."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users struggle with understanding how blocks are counted in [product_name]'s ladder diagram mode. A key challenge is inconsistent documentation about block limits — especially differences when converting between ladder diagrams and function block representation. Contradictions in official guides over logic block input limits (such as for AND/OR blocks) add to user confusion.",
+    "user_expectations": "Users want clear, consistent instructions regarding block counting in ladder diagrams, reliable and accurate documentation, and intuitive software behavior that matches written guidelines.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clarity",
+      "predictability",
+      "software behavior transparency"
+    ],
+    "pain_keywords": [
+      "documentation inconsistency",
+      "block count confusion",
+      "ladder vs FBD mismatch"
+    ],
+    "feature_keywords": [
+      "block counting",
+      "ladder diagram",
+      "AND/OR block input limits"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

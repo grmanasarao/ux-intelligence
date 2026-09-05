@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "6659847491",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 503704535743974,
+      "user_name": "bKUPLyT0lh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Hello! I’m having trouble with the Hour counter block ([article_no]). I want to monitor the cumulative operating time of my radiators and use this block alongside the OT to show the elapsed time, but it just shows 0h 0min without updating. The 'En' input is connected to a PWM module output that pulses frequently for several seconds, depending on heating needs. Since the OT doesn’t display seconds, I’m wondering if very short pulses aren’t registered by the counter. Background: I use a PT100 sensor for actual temperature and a potentiometer to set the desired value, paired with an analog trigger block and PWM block. The heating control works well, but the time counter block is my current issue."
+    },
+    {
+      "comment_id": 420571332438671,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "It would be helpful to include a screenshot or a section of your program. Images help communicate universally."
+    },
+    {
+      "comment_id": 116287448606593,
+      "user_name": "bKUPLyT0lh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "You are right! Check the attached program file. There are some Swedish texts since I’m from Sweden."
+    },
+    {
+      "comment_id": 766315688556069,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "The internal operating hours counter in [product_name] does register seconds but doesn’t store them. Only after gathering 60 seconds does it add one minute to the counter for storage. This means if the input to the hours counter stays active for less than a minute, it won’t be stored. For tracking shorter intervals, you’d need to combine signals from V/R counters and create your own hour meter."
+    },
+    {
+      "comment_id": 199160097013734,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Here's a possible solution you can try."
+    },
+    {
+      "comment_id": 473999494273435,
+      "user_name": "bKUPLyT0lh",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Thank you very much!"
+    },
+    {
+      "comment_id": 297164774204827,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Glad to help. That’s what this forum is for."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is confused and frustrated because the Hour counter block doesn’t update as expected—the operating time of radiators controlled by a PWM signal isn’t accurately tracked. The issue arises from the counter only updating in one-minute increments and not reflecting shorter activations, with no clear feedback about this limitation.",
+    "user_expectations": "The user wants the Hour counter block to record and show time precisely, even for brief on/off signals controlled by PWM, with real-time feedback matching the radiators’ operating pattern.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate runtime monitoring",
+      "real-time time display",
+      "totalized on-time"
+    ],
+    "pain_keywords": [
+      "inadequate granularity",
+      "counter not registering short pulses",
+      "unexpected display behavior"
+    ],
+    "feature_keywords": [
+      "Hour counter resolution",
+      "PWM signal handling",
+      "operating hours display"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "8": "Documentation Clarity"
+  }
+}

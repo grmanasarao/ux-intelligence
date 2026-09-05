@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "6217681709",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 900166238700836,
+      "user_name": "RHzLJHXz3q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "I'm experiencing a similar issue but with a network analog input. If, for example, the analog input value at a variable word is set to 20 from the basic HMI panel, and the controller loses power, will it restore to 20 once power is back? If not, is there a method to retain the last entered value? I've attached the related code. Thanks."
+    },
+    {
+      "comment_id": 648797548207328,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "No, if the [product_name] loses power and then restarts, all variable memory bits are reset because variable memory lacks retention capability. To keep the value, don't read it directly from an analog input. Instead, use a mathematical instruction and set the variable word value in the parameter using Parameter VM Mapping. You can access this function via Tools > Parameter VM Mapping. If you assign values directly in the parameter, they will be stored in flash memory."
+    },
+    {
+      "comment_id": 609838224180321,
+      "user_name": "RHzLJHXz3q",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Can this same approach be used for analog threshold on/off values with VM Mapping? I suppose two variables might be needed for that. So, to confirm, using VM Mapping will retain the values even after a power cycle? Thanks."
+    },
+    {
+      "comment_id": 544032181513556,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Yes, you can apply this to as many values as allowed by Parameter VM Mapping. As mentioned, writing values directly into parameters (V1-V4) via this function results in the values being saved in flash memory."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing difficulties with retaining settings such as analog input values and thresholds on a [product_name] device after power loss. The default operation does not maintain user input due to non-retentive variable memory, which creates inconvenience for users wanting persistent settings. Discussions explain device limitations and highlight the use of Parameter VM Mapping, which allows certain values to be saved in flash memory and restored after a power cycle, though it may require additional steps for multiple variables.",
+    "user_expectations": "Users expect that analog set points and thresholds, once entered via the HMI, will be preserved after a loss of power, eliminating the need to manually re-enter configuration values.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "value persistence",
+      "automation reliability",
+      "reduced manual setup"
+    ],
+    "pain_keywords": [
+      "value loss on power outage",
+      "manual re-entry",
+      "non-retentive memory"
+    ],
+    "feature_keywords": [
+      "parameter persistence",
+      "analog input configuration",
+      "VM mapping",
+      "flash storage"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "13": "Integration Limitations"
+  }
+}

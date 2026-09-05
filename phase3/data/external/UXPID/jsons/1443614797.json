@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "1443614797",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 304986220531110,
+      "user_name": "nDKYu5oJey",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello, I recently created a project using [product_name] [version_no]. The device model is [article_no]. My program includes some UDFs. If I avoid using 'Parameter VM Mapping' for UDF parameters, the Online Test works correctly. However, if I map any UDF parameters using 'Parameter VM Mapping' and update the program on the device, the Online Test fails, showing an error about program differences between the PC and device, even though no differences exist when using Compare. After investigating with [product_name], I found the issue: UDF parameters should not be included in 'Parameter VM Mapping' in this situation. The program is running the latest version. Any suggestions from experts? Thanks in advance. ***Solution Found***: I discovered that two different parameters cannot be mapped to a single memory location. For example: UDF01 > OFF Delay Time > VW110 UDF02 > OFF Delay Time > VW110 In this scenario, the software displays the stated error. Thanks to everyone."
+    },
+    {
+      "comment_id": 601087934540553,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I don't think this issue is caused by parameter VM Mapping itself. From my experience, the problem usually arises when block parameters are altered after program transfer. For instance, you transfer a program to the device, and then parameters are adjusted via display, TDE, web server, or a remote device. When you try to go online, [product_name] reports the programs do not match."
+    },
+    {
+      "comment_id": 925857255319185,
+      "user_name": "nDKYu5oJey",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "No changes occur during or after transfer in this case. I've found the root cause: you cannot assign two different parameters to the same memory location. Example: UDF01 > OFF Delay Time > VW110 UDF02 > OFF Delay Time > VW110 When changed to: UDF01 > OFF Delay Time > VW110 UDF02 > OFF Delay Time > VW112 The issue is resolved! The remaining question is why the software produces the online test failure error in these circumstances?"
+    },
+    {
+      "comment_id": 706277983285431,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "You are asking a general question without sharing your actual program. If the issue is due to an error in your code, how can others help? The specific error message can likely only be clarified by [company_name]. Consider submitting a support request."
+    },
+    {
+      "comment_id": 644124911124447,
+      "user_name": "nDKYu5oJey",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Agreed! Thanks!"
+    },
+    {
+      "comment_id": 708654447417180,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I'd prefer if you did not revise your original post to the point where the initial question becomes unclear."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user uncovered a significant usability concern in [product_name] [version_no], where mapping multiple UDF parameters to the same memory location causes an 'Online Test Failure' error. The software's vague error messaging complicates troubleshooting, making it challenging for users to pinpoint the actual cause without additional support.",
+    "user_expectations": "The user expects the software to provide more explicit and informative error messages regarding memory mappings, enabling accurate program checks and facilitating easier troubleshooting.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "troubleshooting clarity",
+      "accurate error detection",
+      "program synchronization"
+    ],
+    "pain_keywords": [
+      "unclear error messages",
+      "unexpected test failures",
+      "difficulty identifying mapping issues"
+    ],
+    "feature_keywords": [
+      "Parameter VM Mapping",
+      "UDF parameter assignment",
+      "Online Test comparison"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

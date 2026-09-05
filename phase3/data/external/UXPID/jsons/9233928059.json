@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "9233928059",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 298862040149360,
+      "user_name": "U2KgRY2jy8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, I'm working on a project that involves establishing a connection between two automation controllers, specifically [version_no] and [product_name]. I'm searching for any available functions or methods to automatically monitor the connection status, since the controllers are located far apart and manual checking is not feasible. Ideally, if the connection drops, this should trigger a tag or a data block to indicate the issue. Thank you."
+    },
+    {
+      "comment_id": 280395125932568,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "One possible solution is to utilize the diagnostic bit in VM memory, though this approach may not identify every connection fault. A more reliable method is to implement a watchdog mechanism. By generating an asynchronous pulse—such as a clock signal alternating every second—you can transmit this signal between the controllers and then back again. Using two on-delay timers (set to 1.5 seconds) in [product_name], you can evaluate whether a connection issue exists. If either timer expires, it indicates a fault in the communication link."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to automate monitoring of a connection between two controllers, given manual checks are impractical due to physical distance. Initial suggestions involve using diagnostic bits in memory, but these are not comprehensive. Instead, implementing a watchdog system with pulse signaling and timer evaluation provides a more thorough, real-time approach, enabling automatic triggering of a tag or data block when a connection failure occurs.",
+    "user_expectations": "The user expects to achieve reliable, automatic detection of connection status between two controllers, using internal functionality to prompt an immediate response if the connection is lost.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic connection monitoring",
+      "real-time detection",
+      "remote diagnostics"
+    ],
+    "pain_keywords": [
+      "manual status checking difficulty",
+      "unreliable connection error detection",
+      "need for automatic notification"
+    ],
+    "feature_keywords": [
+      "connection status indicator",
+      "diagnostic bit",
+      "watchdog mechanism",
+      "remote monitoring"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

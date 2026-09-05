@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "6480842253",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 574227003674591,
+      "user_name": "s6avNTPjdH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Is it possible for an analog or digital input to serve as the setpoint value, or for user input to adjust the setpoint variable? Currently, it seems only fixed variables can be mapped, but I would like the setpoint to change dynamically with sensor data and user interaction."
+    },
+    {
+      "comment_id": 452307578604332,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Welcome to the forum. Could you clarify your exact requirements? One approach is to switch setpoints using one or more analog multiplexers."
+    },
+    {
+      "comment_id": 766818973439054,
+      "user_name": "s6avNTPjdH",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "My intention is to output a 0-10V signal, utilizing several digital sensors to obtain temperature readings, and allowing the user to add 2-4 degrees to the sensed value. Additionally, I plan to use a PT100 sensor for temperature input to determine the 0-10V DC signal. My main question is whether it's possible to map a variable like this to the output of the PI controller."
+    },
+    {
+      "comment_id": 272898002551670,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Yes, your main question is answered. You can use an analog multiplexer in your application. If you need further assistance, please provide more details."
+    },
+    {
+      "comment_id": 322786449992272,
+      "user_name": "s6avNTPjdH",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Would you be able to provide an example or suggest resources for mapping a multiplexer?"
+    },
+    {
+      "comment_id": 345720764446197,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 593010309976617,
+      "user_name": "s6avNTPjdH",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Thank you for the guidance. Is there a way to achieve higher resolution with a multiplexer rather than just four points, or do people usually chain several multiplexers together for greater precision?"
+    },
+    {
+      "comment_id": 525222132214333,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Exactly, more details would help. I can't guess your full requirements. You can cascade multiple analog multiplexers. How many digital signals will you need to manage with the multiplexer?"
+    },
+    {
+      "comment_id": 618120555369802,
+      "user_name": "s6avNTPjdH",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "The temperature ranges from 0 to 150 degrees, with the user adding a 2-4 degree difference. Therefore, the setpoint must cover 0-150 in 1-degree increments, which would require many multiplexers."
+    },
+    {
+      "comment_id": 597710699300194,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I'm unsure about the purpose of this setup. If the user is entering a differential value anyway, wouldn't it be simpler to directly input the corrected setpoint?"
+    },
+    {
+      "comment_id": 247075520649002,
+      "user_name": "s6avNTPjdH",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "The setpoint continuously updates based on temperature input."
+    },
+    {
+      "comment_id": 435513750775147,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "So, you want to add the user-specified 2 to 4 °C to the current temperature and pass the combined value as the setpoint to the PI controller?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants dynamic setpoint configuration for a PI controller, integrating sensor input and user adjustments. Current solutions only support static mapping, while multiplexers offer some flexibility but are limited in resolution and require chaining for granular control. The discussion reveals a need for more adaptable setpoint management, rather than relying on cumbersome hardware configurations.",
+    "user_expectations": "The user expects to configure the PI controller setpoint using variable analog or digital signals and user input with fine resolution, ideally without having to employ multiple cascaded multiplexers for adequate control.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dynamic setpoint",
+      "sensor integration",
+      "user adjustability"
+    ],
+    "pain_keywords": [
+      "setpoint inflexibility",
+      "low MUX resolution",
+      "complex configuration"
+    ],
+    "feature_keywords": [
+      "PI controller input",
+      "analog/digital input mapping",
+      "setpoint configuration",
+      "analog MUX"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests"
+  }
+}

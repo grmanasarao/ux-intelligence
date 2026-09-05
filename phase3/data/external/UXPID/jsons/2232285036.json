@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "2232285036",
+    "thread_id": "1723880927",
+    "publication_year": 2008,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 638024239835268,
+      "user_name": "c0r4BZeEu2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm searching for a solution to configure a button so that a single press on input I1 activates output Q1, whereas a double tap on I1 activates Q2 without causing Q1 to flicker. I have attached a file with my test setup for reference. The first drawing shows the desired functionality, and the second illustrates the double-tap detection alone. Appreciate any help in advance."
+    },
+    {
+      "comment_id": 594337534354735,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Greetings [user_name], Your circuit didn't work reliably due to the 'thresholdtrigger' block, which doesn't allow control over the start time of the gate. This is needed to detect more than one pulse within that period for double-tap recognition. Check the attachment for my alternate solution. You can set the double-tap detection time in B001; see block comments for guidance. The circuit is optimized for quick response after an input command. For a single tap (toggle Q1), Q1 changes after the double-tap time, whereas Q2 (double tap) responds quicker—after the second press, but before the double-tap period ends. Best regards"
+    },
+    {
+      "comment_id": 162968994967255,
+      "user_name": "c0r4BZeEu2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Thanks, this solution works well and reduces the number of required inputs. It's also effective in unexpected scenarios."
+    },
+    {
+      "comment_id": 877702473882126,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], Thank you for your feedback! Best regards [user_name]"
+    },
+    {
+      "comment_id": 218992587334446,
+      "user_name": "yUUV4iHIsn",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Thanks everyone, I was having the same issue and now I understand how to use timer feedback correctly (recursions only possible in specific ways). Finally, I've got the concept—markers are key. I modified the logic so that pressing briefly or holding activates different outputs."
+    },
+    {
+      "comment_id": 364934957277555,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "An alternative method can be found at [url], titled 'Controlling 2 outputs with 1 button.'"
+    },
+    {
+      "comment_id": 736754406903866,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Hello FUX, hello [company_name] support team, Sorry, but the circuit shown is just a memory and requires more [product_name]-memory than using a multiplexer and amplifier; however, values can be stored retentively. The circuit only supplies random values at variable times—it’s not a filter, just a slower rate of value update! Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants aimed to set up a logic device so that one button press turns on one output and a double tap turns on another, without flickering effects. The initial attempt did not function consistently due to gate timing constraints in the threshold trigger block. Another member introduced an improved detection method with comments for easier adjustment, gaining positive feedback. Other users successfully adapted this logic for differentiating between short and long presses. Documentation from [company_name] was mentioned, though different design variations and optimizations were discussed further.",
+    "user_expectations": "Users want accurate detection of single and double taps, with outputs behaving reliably and no unintended activation. Reduction of hardware inputs and flexible logic expansion for different press types are also expected.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "efficient input usage",
+      "customizable logic",
+      "multi-tap detection",
+      "expanded output control"
+    ],
+    "pain_keywords": [
+      "imprecise trigger timing",
+      "output flicker",
+      "limited logic block flexibility"
+    ],
+    "feature_keywords": [
+      "threshold trigger",
+      "multi-tap detection",
+      "output toggle",
+      "timed gate logic"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "3": "User Guidance"
+  }
+}

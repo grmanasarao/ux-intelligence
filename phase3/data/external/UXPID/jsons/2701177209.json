@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "2701177209",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 401927422500414,
+      "user_name": "A5t0jyeaE7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I am trying to read parameters from a photovoltaic device to improve energy management. After some testing, I can communicate and accurately read single-word registers, but registers with more words (2 or 4) return zero values. I suspect that Float32 or Float64 types require additional handling with the [product_name] Integer/Float block, but I also cannot read unsigned Int32 or UInt64 types. Currently, I'm reading only the final word from the multi-word register sets, but this approach fails once it reaches the limit for a single word value (65,000). What am I missing? Maybe [product_name] is too limited to read multi-word registers via Modbus TCP?"
+    },
+    {
+      "comment_id": 668588175905743,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "The [product_name] only supports Int16 data types. It does not handle Int32 or any unsigned integer types."
+    },
+    {
+      "comment_id": 666696619261040,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "To display UInt32 or Int32 values in [product_name], you would need to use an up/down counter. Write values (from 0 to 999,999) into the VM area of [product_name] using a 4-byte start address. Then, link the VM Mapping parameter to the counter's value. Note, this method only allows for display purposes, not for mathematical processing."
+    },
+    {
+      "comment_id": 157206236906030,
+      "user_name": "7Z59DyN3LP",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Is it possible to resolve this issue using F/I converters? In one example, a device provides double-word values as floating point numbers. These values are assigned to the [product_name]'s variable memory at a designated start address. However, [product_name] operates only with integers and cannot process floating point values directly. For further handling, you need to use the [product_name] block called the F/I converter (floating point/integer converter). [url]"
+    },
+    {
+      "comment_id": 787957661128007,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "The F/I converter cannot read UInt32 or Int32 values. It can only handle Float32 or Float64 types."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users observe that [product_name] can only work with Int16 register data when accessing information from photovoltaic devices over Modbus TCP. Attempts to read registers with larger data types (e.g., Int32, UInt32, Float32, Float64) yield zeros or incorrect values, limiting access to certain data. Workarounds exist for display-only, but not for further processing or mathematical operations with larger formats.",
+    "user_expectations": "Users expect [product_name] to handle multi-word registers and fully support data types such as Int32, UInt32, Float32, and Float64 via Modbus TCP for complete energy management functions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "read multi-word registers",
+      "accurate parameter access",
+      "energy management"
+    ],
+    "pain_keywords": [
+      "cannot read Int32/UInt32",
+      "unsupported Float32/Float64",
+      "modbus communication limitation"
+    ],
+    "feature_keywords": [
+      "Modbus TCP register reading",
+      "data type support",
+      "F/I converter",
+      "display and parameter mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

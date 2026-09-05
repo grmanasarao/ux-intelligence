@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "8691288568",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 515525870663642,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 6,
+      "comment_body": "[product_name] [version_no]... [product_name] PLC... When configuring a softkey linked to the high rail and setting its default to ON, the actual device switches it to OFF after sending. The rest of the application behaves as expected. If softkeys are defaulted to OFF, they remain OFF on the PLC. Is there something in the new software or controller that prevents softkeys from being set to ON by default? Configuration: switch with retentivity ON and protective action OFF. Any advice?"
+    },
+    {
+      "comment_id": 241823541643615,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 6,
+      "comment_body": "Hello, If configured as a momentary pushbutton, it will be activated for only one cycle. How exactly do you utilize this key? Can you share a screenshot? Regards,"
+    },
+    {
+      "comment_id": 514233771864965,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 6,
+      "comment_body": "No, it's set as an ON/OFF switch. Contacted [company_name] technical support, they've reproduced the issue and are escalating it."
+    },
+    {
+      "comment_id": 943687745399135,
+      "user_name": "z7etkKpK12",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "Encountering the same issue with [product_name] [version_no]. You can test with a single softkey—one rung, softkey as a switch, initial status ON, retentivity, inverse input and output Q1. During simulation, the output turns ON, which is desired. But after downloading and running the program on hardware, the output is OFF and so is the softkey. This is a significant oversight in the new [article_no] version. Another concern is having multiple softkeys configured with protection active and status ON, which can't be changed via the controller, only through the software before downloading—but now these softkeys aren't visible... Older versions like [product_name] didn't have this issue. Thanks,"
+    },
+    {
+      "comment_id": 385345688827118,
+      "user_name": "z7etkKpK12",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "Same issue persists with [product_name] [version_no]. Test with one softkey, set as a switch, initial ON, retentivity, inverse input and Q1 output. In simulation, the output is ON as needed. However, after downloading, the device turns the output and softkey OFF. This is a major drawback introduced with [article_no]. Also, having many softkeys with protection active and status ON makes it problematic since it can only be changed in the software before downloading, yet the softkey is not visible anymore... Previous [product_name] versions worked fine. Thanks,"
+    },
+    {
+      "comment_id": 280813132225926,
+      "user_name": "JY58PuTT5j",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Hi everyone, I’ve encountered the same problem on [product_name] [version_no] with [product_name] ([article_no]). Is there a solution? I need the softkey to start in the ON position when running on hardware. It works correctly in the simulation. Appreciate any suggestions. Thank you in advance. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 595274313643699,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "No, unfortunately, this cannot be resolved. [version_no] is only available due to the new [product_name] ([version_no])."
+    },
+    {
+      "comment_id": 856498340770729,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I tested again—softkey in switch mode, retentivity enabled, HIGH input. After downloading and starting the controller, the softkey is OFF. If you turn it ON and then stop the controller or experience a power failure, on restarting, the softkey is ON. Tested with [product_name] [version_no], ([article_no]) FS01."
+    },
+    {
+      "comment_id": 436687230423025,
+      "user_name": "xDdPOoK441",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "This issue still exists (version [version_no]). Every retentive softkey switches OFF when uploading, although retentivity works correctly afterward. The status parameter is essentially ignored—only useful in simulation for now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have repeatedly noted that retentive softkeys set to ON by default in [product_name] do not retain their status after program download to the hardware. While simulation shows correct operation, the actual device resets softkeys to OFF, affecting workflow and undermining confidence in the settings. Earlier versions and other product lines did not display this flaw.",
+    "user_expectations": "Users expect softkeys with an initial ON status to remain ON following a program transfer to the device, aligning real-world controller behavior with simulation and ensuring hardware states reflect programming logic.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable initial state",
+      "simulation/hardware parity",
+      "predictable controller behavior"
+    ],
+    "pain_keywords": [
+      "softkey default ON ignored",
+      "installation/programming inconsistency",
+      "retentive parameter failure"
+    ],
+    "feature_keywords": [
+      "retentivity",
+      "softkey initial status",
+      "simulation-real hardware consistency"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "10": "Performance Predictability"
+  }
+}

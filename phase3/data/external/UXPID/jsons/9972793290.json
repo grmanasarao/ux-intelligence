@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "9972793290",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 202824488393516,
+      "user_name": "RAec5gNSD9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Dear [company_name], Is it possible to convert a 5-bit BCD code to a 4-20mA signal or the other way around using [product_name]? Is there a specific function block I should use? Thanks for your response."
+    },
+    {
+      "comment_id": 367726942963018,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Just a note: This is a user forum offered by [company_name]. If you address your message to \"[company_name]\", the company itself will not reply. Only forum users respond here, not [company_name] representatives. Currently, [product_name] doesn't offer built-in blocks for converting decimal to BCD code or vice versa. You'll have to create the conversion logic yourself. By the way, what exactly is a 5-bit BCD code for? Typically, each digit (0 to 9) in BCD is represented by four bits (0000 to 1001), known as a nibble. The remaining values (1010 to 1111) in four bits aren't valid BCD and are sometimes called pseudotetracies. Could you clarify your requirements?"
+    },
+    {
+      "comment_id": 230814544176023,
+      "user_name": "RAec5gNSD9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Dear Sir or Madam, The BCD code originates from my transformer's tap position. I created a table mapping each transformer tap position to its BCD equivalent. My issue is that my BCU only accepts 4-20mA analog signals. I want to use [product_name] to convert the BCD outputs into 4-20mA signals so my BCU can properly interpret them. Thank you."
+    },
+    {
+      "comment_id": 927041400288276,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "What exactly do you mean by \"Transformer Tap Position\"? And could you explain what your \"BCU\" refers to? Also: What type of input does [product_name] receive in your setup?"
+    },
+    {
+      "comment_id": 254956185902289,
+      "user_name": "RAec5gNSD9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Dear Sir or Madam, To adjust the output of a high voltage transformer, a tap changer is used, which produces BCD signals. I need to convert these signals into a 4-20mA signal with [product_name], if possible, so that my BCU (bay control unit) can read the values correctly. The input to [product_name] is BCD, and the output should be 4-20mA."
+    },
+    {
+      "comment_id": 564387203871342,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "The table you provided uses a 5-bit code that looks like BCD. Usually, BCD uses two digits per byte (8 bits), so it's uncommon to see just 5 bits. How should we interpret this arrangement? Also, how does the value arrive at [product_name]? Are you using 5 digital inputs, or is the signal analog?"
+    },
+    {
+      "comment_id": 850025995300039,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Yes, something similar to my example would work. What is the highest BCD input that should correspond to a 20mA output? You'll need to configure Block B004 with the correct values for your range."
+    },
+    {
+      "comment_id": 934690683588570,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "My solution actually uses 5 bits as needed. The analog output is divided into 18 steps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are exploring how to convert a 5-bit BCD code from a transformer tap changer into a 4-20mA analog signal using [product_name]. They find that [product_name] lacks a dedicated function block for this purpose, so custom programming is required. There is some confusion about the system's ability to handle 5-bit BCD inputs and map them directly to a 4-20mA output, which highlights a lack of clear examples and built-in solutions for this use case.",
+    "user_expectations": "The user hopes that [product_name] can natively convert BCD to 4-20mA signals, ideally through a standard or dedicated function block, to enable straightforward integration of transformer tap feedback with BCU devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "signal compatibility",
+      "automation integration",
+      "easy BCD to analog conversion"
+    ],
+    "pain_keywords": [
+      "missing function block",
+      "custom logic requirement",
+      "unclear input handling"
+    ],
+    "feature_keywords": [
+      "BCD input",
+      "4-20mA output",
+      "conversion block"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

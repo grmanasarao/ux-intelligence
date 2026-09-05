@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "3734252963",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 276944971759606,
+      "user_name": "MM8czErQv9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hello experts, I am looking to use [product_name]'s I7 input as an analog input and wondering how to connect a thermocouple to it. I've checked the manual in the sensor connections section but I am unsure about the process. Can someone assist with this topic? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 376717370015294,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hi, Generally, [product_name] does not support thermocouples. It supports: 0..10V sensors (onboard and with [product_name] analog module), 0/4..20mA (with analog module), and PT100/1000 (with analog RTD module). Thermocouples and NTC sensors are not supported. Hope this clarifies things."
+    },
+    {
+      "comment_id": 674515967190257,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, Thermocouples generate very small voltage signals (in the millivolt range), and different types produce slightly different outputs per degree Celsius. The onboard analog inputs for [product_name] and its analog module are not designed to detect these small changes. If you need to use a thermocouple, you can employ a signal converter that outputs either 0..10V or 0/4..20mA, which the onboard or expansion analog modules can easily read. See [url] for reference. Hope this helps you progress with your project! Cheers!"
+    },
+    {
+      "comment_id": 982101912229040,
+      "user_name": "MM8czErQv9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Thank you for your help. One more question: Even if I purchase an analog module, I still cannot use thermocouples directly, correct? Since the product supports PT100 sensors, not thermocouples."
+    },
+    {
+      "comment_id": 600885112168924,
+      "user_name": "YAA2TKY8oF",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "You should follow the suggestion provided by [user_name]. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 306433859447665,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], Here’s a straightforward solution: 1) Connect your thermocouple to an appropriate signal conversion device. Select one compatible with your thermocouple type. 2) Connect the output (preferably 0..10V) from the converter either directly to a [product_name] base module (onboard supports multiple analog inputs). 3) In the [product_name] programming software, set up scaling: - select 0..10V sensor type - assign the minimum measured value that corresponds to 0V - assign the maximum measured value that corresponds to 10V 4) If scaling isn’t accurate, adjust the min and max values and shift the decimal for better display. Hope this helps! If it works for you, feel free to express thanks or feedback! Cheers!"
+    },
+    {
+      "comment_id": 791200521224451,
+      "user_name": "MM8czErQv9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Thank you for the suggestion. I will try this next time."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking to connect thermocouples as analog inputs to a [product_name] module, but learn from discussion that the hardware does not natively support thermocouple sensors. The thread highlights this product’s hardware limitations and points toward using external signal converters as a workaround, which introduces extra complexity. Users find sensor compatibility and signal range requirements (0..10V, 0/4..20mA, PT100/1000) potentially unclear.",
+    "user_expectations": "Users expect the [product_name] module to accept direct analog input from thermocouples or, at minimum, receive clear information about which sensors are compatible for analog input.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "sensor compatibility",
+      "temperature measurement",
+      "ease of connection"
+    ],
+    "pain_keywords": [
+      "lack of thermocouple support",
+      "unclear sensor compatibility",
+      "need for signal conversion"
+    ],
+    "feature_keywords": [
+      "analog input range",
+      "sensor support",
+      "scaling configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

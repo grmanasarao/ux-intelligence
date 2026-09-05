@@ -1,0 +1,281 @@
+{
+  "metadata": {
+    "branch_id": "2536829594",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 257695873389912,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello, I have a [product_name] reading a network analog input from a Modbus server. The data is correct on each poll, but only stays stable for a short moment before reverting to zero until the next poll happens. I have confirmed the data is valid, since an [product_name] and a Raspberry Pi running Node-RED read from the same device smoothly. However, this isn't working on [product_name]. Has anyone else experienced this issue? Any ideas on how [product_name] could retain the value instead of dropping it to zero? Changing the interval doesn't help—the data is only valid when first received. [user_name]"
+    },
+    {
+      "comment_id": 807583931173075,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "This is the first time I've heard of this. There are several topics about transferring analog data via Modbus with [product_name], but such problems haven't been discussed before. Even exchanging data via Ethernet TCP/IP, whether with another [product_name], an [product_name], or an HMI, I haven't seen such issues. Same goes for Node-RED via Ethernet TCP/IP. If your data is already available in Node-RED, why not send it to [product_name] over Ethernet TCP/IP?"
+    },
+    {
+      "comment_id": 500392144072166,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Perhaps the same memory area is being used for different values, causing overlap of bits, bytes, or words? Upload your program so the client and variable mapping can be analyzed. Regards, [user_name]"
+    },
+    {
+      "comment_id": 527855800121986,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], I haven't tested [product_name] as Modbus client with Node-RED as server yet, but plan to. Polling another server resulted in exactly the same behavior for [product_name]."
+    },
+    {
+      "comment_id": 375658767455858,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], that's how it looks, though the code is minimal. I deleted the connections in 'network project,' but after repeating the code, the issue remains. Mapping the network analog input to VM shows the same behavior in the online DB monitor. I have an iPad app for Modbus testing, which helps, but it only captures a snapshot. I'll upload the code when I'm home."
+    },
+    {
+      "comment_id": 325568756478911,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], please review my program. Your assistance is greatly appreciated."
+    },
+    {
+      "comment_id": 883998418736654,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "What format is the value you're reading—integer or something else? Which device are you reading from? Please specify manufacturer and type. You read the value with a network analog input. Why then transfer the value of the analog amplifier into the VM range? What's the reason for this approach?"
+    },
+    {
+      "comment_id": 581465392309073,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Try the attached sample programs—they should work if your network setup is correct. I use NAI and NAQ as local memory for Modbus and don't need a network diagram; this method has worked reliably for years and I recommend it, particularly with ladder logic. Compare your program with my two samples and try them with your Modbus server. Regards, [user_name]"
+    },
+    {
+      "comment_id": 896991263661787,
+      "user_name": "cZQANX744b",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "If you have a similar situation, these steps may help clarify the issue: 1. Disable all network devices except [product_name] and the Modbus device, and check if data remains stable in [product_name]. 2. Reconnect devices one at a time and observe if the issue recurs. Repeat as needed to identify the problematic device. If you transfer data to [product_name] VM memory without overwriting or doing a power cycle, it should persist."
+    },
+    {
+      "comment_id": 911032122406546,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "The Modbus value is an integer, representing pH times 100 for two decimals. An analog amplifier is used to display pH from 0.00 to 14.00, with VM mapping done for troubleshooting. The hardware is a pH sensor/PCB with Ethernet module on an Arduino Uno. For almost two years, I've displayed this sensor data on a user-defined webpage via an [product_name], which first converts INT to REAL then divides by 100.0. I already use several [product_name] devices for tasks like irrigation and heat mat control. The new [product_name] is for pH and nutrient batching in a hydroponics setup at home, not farming—just a garden experiment."
+    },
+    {
+      "comment_id": 557329644774992,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thanks [user_name], looking forward to continuing this tonight. I see the NAI setup has changed—how does it address the server now? I'm a bit confused about where the data is requested from. Later, I found the connection in the network project, but not in diagram mode, where VM mapping is greyed out. Found it eventually, similar to adding an [product_name] connection. Thanks so much!"
+    },
+    {
+      "comment_id": 506922175701383,
+      "user_name": "8RYb477Ela",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "That's correct—network projects are mainly useful if you have multiple [product_name] devices and use the FBD editor. For single device setups, with or without Modbus, diagram mode is easier. Diagram mode is also beneficial if you have several [product_name] base modules and want to change IP addresses in a finished project—it centralizes networking changes. Good luck testing, [user_name]"
+    },
+    {
+      "comment_id": 287744880806839,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "The problem persists, [user_name], just as before—quite disappointing, as I hoped for a quick fix. My [product_name], Node-RED, and the iOS Modbus app never show a value of zero. With no access to other Modbus hardware except Node-RED, I'd like to know where the zero comes from or where the data goes. I'm fairly sure the input register in Arduino doesn't hold a zero value. It's really hot and humid here today, not the best for troubleshooting."
+    },
+    {
+      "comment_id": 966241149457699,
+      "user_name": "8RYb477Ela",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "That's unusual, as it should normally work—even with your original program. Are you sure there’s no other Modbus partner connected simultaneously, such as a second server? Where is the unit ID 70 from, and have you tried different unit IDs? I can’t see your server settings or your network layout, so it’s hard to diagnose, but I haven’t had these problems with a [product_name] client with a Modbus server before. Regards, [user_name] P.S. Try transferring another signal (such as a digital coil) for testing instead of an analog register."
+    },
+    {
+      "comment_id": 980691238989538,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], I have disconnected all other devices—definitely only this one uses that IP address. The last octet of the IP is used as a unique unit ID for each server. I can change settings in [product_name] and read any configured register, but the zero value issue remains. The hardware and source code don’t change, and everything works perfectly elsewhere, just not in [product_name]. The server setup: MAC address is unique, IP address is 192.168.0.70, register for data is 701 (shown as 702 in [product_name]). Four digital inputs and outputs on the same device work well with the iOS app, though not yet configured with [product_name]. Node-RED is still a bit frustrating as I am learning. No success reading more than input registers in [product_name]—mapping above register 702 also doesn’t show data. Hope this helps."
+    },
+    {
+      "comment_id": 410445832449961,
+      "user_name": "8RYb477Ela",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "We have 40°C here this week, hardly ideal for problem solving. Here are some suggestions: 1. Download a Modbus client like QModMaster to check your server for continuous values while polling. 2. Use Wireshark for protocol analysis—though this can be complicated. 3. If zero never appears under normal conditions, consider filtering out incoming zero values; note that this may cause problems if the connection is lost. I'll try to think of more solutions. Regards, [user_name]"
+    },
+    {
+      "comment_id": 129080586625620,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], I've now set up QModMaster—great tool, thank you. Connection works most times and reading the two input registers shows correct values on each attempt. When performing 'connect, read/write, clear, disconnect' cycles, the data appears every time. But when scanning, data only shows on the first scan before connection is lost and errors start to count up. The server updates registers every 5 seconds, so maybe settings need fine tuning. No zeros appearing so far! My server has been successfully polled by four clients, so I hesitate to blame it for these [product_name] issues. Will test further and possibly update firmware if needed. None of my friends or colleagues know much about [product_name], Modbus, or Arduino. Have a good weekend, [user_name]"
+    },
+    {
+      "comment_id": 948816134494596,
+      "user_name": "8RYb477Ela",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Perhaps your server isn't running as fast as the [product_name] client; try synchronizing the connection interval time in the client settings. Depending on the data type (e.g., temperature), a polling interval from 1s to 10s may be sufficient. Adjust times and observe if behavior improves. Have a nice weekend, [user_name]"
+    },
+    {
+      "comment_id": 684025272064723,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "No major progress today; QModMaster consistently fails after the second scan. Tested the four digital inputs and outputs—each work only on the first read. [product_name] only writes to a single output; sequential control doesn't work as expected and only functions when the read input register is removed from the program. The server coils can be controlled easily by QModMaster and the iOS app while the inputs are being polled by [product_name] and Node-RED without issues. Wasn't expecting these troubles with [product_name]. Reluctant to configure an [product_name] connection, as I don't want to depend on a commercial license. Work laptop is a specialized field engineering device (don't laugh!). Would like to see QModMaster working in scan mode; perhaps the Arduino library isn't fully compliant with Modbus TCP."
+    },
+    {
+      "comment_id": 148724393282981,
+      "user_name": "8RYb477Ela",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "There's no need to rely on an [product_name] license. Free communication utilities are available for various processors. Check platforms like Snap7, where you can find open source Ethernet suites for C++, Pascal, Python, Java, and Arduino (Settimino). I haven't used it yet but plan to write utilities in Pascal in the future. With Settimino, you could build your own client or server using the [product_name] protocol—a possible path forward? Regards, [user_name]"
+    },
+    {
+      "comment_id": 374592001515801,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], if you can connect an [product_name] via Node-RED using an [product_name] connection, why not do the same for [product_name]? The underlying protocol is the same regardless of platform. Check the IOT conference here—many users have set up Node-RED connections with [product_name]. There are also experienced Node-RED users in the forum."
+    },
+    {
+      "comment_id": 824117125506320,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I've looked at Snap7 before; it inspired me to buy a Raspberry Pi for learning about HTML mini SCADA. Being self-taught, I sometimes feel I'm missing core principles. While I'm comfortable with automation engineering software after years of daily practice, text-based programming is still unfamiliar. I spend spare time learning microcontrollers; some background in Python and Java would be useful. Arduino is my only experience with C++. Filtering out zero values as a workaround is interesting; for £60, I could add a DM8 module to complete my hydroponics project and skip Arduino I/O."
+    },
+    {
+      "comment_id": 876358651761745,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], I've had little success getting a Node-RED to [product_name] connection working—haven't dedicated much time yet. Currently both serve as Modbus clients, with Node-RED used for dashboards and gauges. It's exciting to see so many new technologies discussed here. I like the IOT 2020 and plan to get one soon, just need to finish ongoing projects first."
+    },
+    {
+      "comment_id": 181454968366158,
+      "user_name": "8RYb477Ela",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "The simplest solution is to use a threshold trigger and arithmetic block, as shown in the attached example. You might want to expand this with additional conditions, like lost connection detection, by defining relevant states (e.g., persistent zero value). AI1 in the example is just for simulation. Regards, [user_name]"
+    },
+    {
+      "comment_id": 984065100425726,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you [user_name], this looks fantastic! I'm currently installing [product_name] and hope to have water circulating by day's end. The weather has improved and it's only 18°C now—much better than 50°C in the polytunnel midweek. Enjoy your Sunday!"
+    },
+    {
+      "comment_id": 908214345588610,
+      "user_name": "8RYb477Ela",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I always appreciate a sunny day under 30°C—25°C is ideal for me. If you're using the example, remember to store the last non-zero temperature value in case of lost communication or sensor fault. Consider adding a manual override with a button or switch for your settings. Have a nice Sunday, [user_name]"
+    },
+    {
+      "comment_id": 864259776456294,
+      "user_name": "GVSImEEssQ",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Today was productive; everything is now connected and calibrated. Time for a beer—cheers to [user_name], [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user's experience highlights a persistent issue with data retention when reading analog input from a Modbus server using [product_name]; the correct value is displayed briefly before reverting to zero, unlike with other devices such as [product_name] or a Raspberry Pi running Node-RED. The problem appears tied to how [product_name] handles network analog inputs and memory mapping, possibly involving memory overwriting or retention settings.",
+    "user_expectations": "User expects [product_name] to reliably and consistently retain analog values read from a Modbus server, matching the stability experienced with [product_name] and Node-RED, and enabling continuous, stable data processing for automation purposes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable data retention",
+      "continuous display",
+      "automation reliability"
+    ],
+    "pain_keywords": [
+      "data dropouts",
+      "unreliable value mapping",
+      "unexpected zero value"
+    ],
+    "feature_keywords": [
+      "Modbus register polling",
+      "analog input mapping",
+      "VM memory retention",
+      "network analog input",
+      "display formatting"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns"
+  }
+}

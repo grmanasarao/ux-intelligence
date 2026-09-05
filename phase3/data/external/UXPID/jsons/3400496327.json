@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "3400496327",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 831689351607423,
+      "user_name": "UHnpnTmKm8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hello, I have a [article_no] [product_name] and I would like to control an analog clock that requires pulse inputs (one pulse per minute). Is it possible to create a pulse every minute, synchronized with the internal clock? I know I can use the asynchronous pulse function, but then the pulse isn't aligned with the device's clock (NTP). Is there a way to trigger a pulse when the seconds hit \"00\"? Thank you,"
+    },
+    {
+      "comment_id": 447806758120070,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "No, direct access to the internal time isn't available. You can only re-synchronize the asynchronous pulse generator with weekly timers at intervals you set."
+    },
+    {
+      "comment_id": 483202106089274,
+      "user_name": "irdmkTgewS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "As [user_name] pointed out, the time isn't accessible from within the [product_name]. Personally, I haven't tested whether the asynchronous pulse generator syncs with the clock—it's unlikely. You could try a workaround similar to how railway clocks work in Switzerland: use a slightly faster pulse than real time, then at the end of a defined period, wait for a precise trigger to start the next cycle. For example, you might use two weekly timers to send a pulse every 4 hours. During those 4 hours, an asynchronous pulse generator would emit a pulse every 59.99 seconds. After 3 hours, 59 minutes, and 57.6 seconds, the system sends its 240th pulse. It then waits for the weekly timer (synchronized via NTP to millisecond accuracy) to provide the next pulse and begins the next cycle in sync. Keep in mind, if the asynchronous pulse generator slows down unexpectedly, the system could become inaccurate—so you'll need to carefully test for consistency! Kind regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users shared that the [article_no] version of the [product_name] cannot directly use its internal clock for precise, synchronized pulse generation. Limitations in firmware prevent pulses from aligning perfectly with NTP-synchronized internal time. Community suggestions included hybrid approaches with asynchronous pulse generators and weekly timers, though issues with reliable synchronization and timing drift remain.",
+    "user_expectations": "User expected the [product_name] to deliver highly accurate, minute-synchronized pulses using its internal clock, specifically when the seconds reach \"00\".",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "precise synchronization",
+      "minute pulse",
+      "clock accuracy"
+    ],
+    "pain_keywords": [
+      "no access to internal clock",
+      "limited synchronization",
+      "potential timing drift"
+    ],
+    "feature_keywords": [
+      "internal clock access",
+      "pulse per minute",
+      "NTP synchronization",
+      "timer control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests"
+  }
+}

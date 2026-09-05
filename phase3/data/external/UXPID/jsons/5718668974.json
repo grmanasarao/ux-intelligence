@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "branch_id": "5718668974",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 796880894375764,
+      "user_name": "kSEZCw8Gts",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I am new to [product_name] and recently posted regarding stepper motor applications. My goal is to rotate the motor 180 degrees, pause for 20 seconds, and then repeat. Initially, I tried counting PWM pulses to send exactly 100 but faced difficulties. So I switched to using an Automation Direct proximity sensor ([article_no]) and SureStep Motor and Driver ([article_no], [article_no]). I've managed to switch motors on/off using a pulse relay and PWM output (details in my modified setups, although only one image was uploaded). I tried connecting the sensor as a trigger with two different setup modifications, but neither worked. I suspect the issue may be with the sensor setup. The sensor housing lights behave as expected (off in presence of metal), but I'm unsure if [product_name] is receiving the trigger signal to stop the motor. There could also be a programming error, as my background is primarily mechanical and I'm still learning electrical work. Thank you for the assistance."
+    },
+    {
+      "comment_id": 473646109274605,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "You're using the PWM block without fully understanding its function."
+    },
+    {
+      "comment_id": 698338015731217,
+      "user_name": "kSEZCw8Gts",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Thank you for your response. My approach is based on my research. Would you be able to provide some actual guidance?"
+    },
+    {
+      "comment_id": 322301636718172,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "First, check that the proximity switch is wired correctly: brown wire (1) to 24VDC, blue wire (3) to 0VDC (or M of [product_name]), and black wire (4) to the input of [product_name], such as I1. To confirm [product_name] registers the input, 1) Check the digital input display from the start menu (after pressing the cursor right button once, a black rectangle should mark the number 1 in the top row if I1 is active). 2) Use the Online Test in the LSC software: start the program, click the \"Online Test\" button—if I1 is active, it will be red-highlighted in the diagram."
+    },
+    {
+      "comment_id": 100513609686414,
+      "user_name": "kSEZCw8Gts",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I've confirmed my proximity switch wiring is correct. However, when the sensor detects, the housing light turns off, but the display isn't showing the black rectangle for input 1. What can I do to fix this?"
+    },
+    {
+      "comment_id": 212522965162045,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "It's possible the [product_name] input doesn't provide enough load for the sensor (input impedance may be too high). Try connecting a 10 kΩ resistor in parallel to the input for testing."
+    },
+    {
+      "comment_id": 807371465114360,
+      "user_name": "kSEZCw8Gts",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Thank you, I fixed the wiring and can now use the proximity sensor to trigger motor changes. Now I'm wondering if there's a way to send pulses faster than the 0.01s minimum available in the PWM block. Using PWM, I can get a full rotation in 2 seconds (200 pulses at 0.01s each), but the manual suggests switching rates depend on cycle time. I'd like to double the speed to achieve a 1-second revolution. Can you offer advice on this? I haven't found relevant solutions in other posts."
+    },
+    {
+      "comment_id": 301906406552688,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "As mentioned previously, [product_name] is not suited for these types of fast applications. It doesn't have true PWM, and output switch frequency depends on cycle time. The smallest configurable time unit is 1/100s."
+    },
+    {
+      "comment_id": 749080870634669,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Here's an example for achieving the maximum speed."
+    },
+    {
+      "comment_id": 967617939261946,
+      "user_name": "kSEZCw8Gts",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Is it possible to use the stopwatch function? I understand it measures to milliseconds, but I'm struggling to see how I could use it for shorter pulse generation."
+    },
+    {
+      "comment_id": 603874470690730,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "No, the stopwatch can only measure time, not generate timing signals. Plus, it reads in 10 millisecond intervals, not single milliseconds. The smallest adjustable time unit remains 1/100s."
+    },
+    {
+      "comment_id": 312144434642910,
+      "user_name": "cZQANX744b",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hi, OUTPUT frequency: The fastest signal [product_name] can generate depends on its scan time. Example scan time information can be found in the [company_name] documentation: [url]. Generally, [product_name] is not optimal for fast or real-time control due to typical scan times being <0.1 ms per function block. With all 400 blocks utilized, theoretical scan time is 40 ms, and relay outputs become too slow. According to the manual, max output frequency is: relay outputs—2 Hz (ohmic load), transistor outputs—10 Hz (ohmic load). INPUT frequency: Some [product_name] models have built-in high-speed counters at up to 5 kHz, but this only works if the input connects directly to a counter. Adding extra functional blocks in the chain also introduces scan time dependency. For fast applications, using [version_no] controllers is better, as they allow much faster output and input signal processing. Hope this clarifies things."
+    },
+    {
+      "comment_id": 307835647203153,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello, I've created a sample program to test pulse rates. There are three frequency/pulse counters: A (cycle-time dependent), B (uses asynchronous pulse generator with adjustable timing), and C (counts pulses from input I3). By default, the program runs for 10 seconds, which can be changed. ESC+Up triggers the timer; ESC+Down resets timer and counters; ESC+Left toggles output Q3. The relay output Q3 blinks quickly (10 ms on/off) using the asynchronous pulse generator (B). Counter C counts pulses fed from I3, with Q3 looped back via a wire. The pulse rate for counter A peaks around 1535 Hz (offline); counter B reaches 50 Hz, up to 100 Hz. Tested on a 12/24V controller ([article_no]) with relay outputs. In simulations, pulse rates were lower, possibly due to computer speed. Even if the relay operates faster than specified, staying within permissible limits is recommended. [user_name] P.S. I also tried an Eaton easy4 controller (E4-DC-12TC1) with transistor outputs, supporting PWM up to 200 Hz and pulse output up to 5 kHz, which can be used for stepper motor control. * Translated with DeepL.com (free version)"
+    },
+    {
+      "comment_id": 616521557987143,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I'd suggest two possible approaches: First, use a 500 ms pulse to enable a 50 Hz generator and send its output to Q5. Second, use a counter to gate only 100 pulses of the 50 Hz generator to Q6 output. 50 Hz seems the practical limit for the frequency generator, according to LSC [version_no]. Check the attached screen capture (not tested, possible oversight might exist)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced difficulties with [product_name] in achieving precise timing and fast pulse generation for stepper motor control, especially regarding integration with external proximity sensors and configuring PWM for higher speeds. Community support helped resolve sensor wiring and signal recognition problems, but system hardware limitations—such as minimum pulse width and output frequency—proved restrictive. The lack of actual PWM functionality and timing granularity in [product_name] impacted both output speed and overall responsiveness for the user's application.",
+    "user_expectations": "The user expects reliable sensor integration, precise and controllable pulse outputs for stepper motors, and the ability to generate faster output signals to allow quicker operation cycles.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable input detection",
+      "precise pulse control",
+      "faster motor operation"
+    ],
+    "pain_keywords": [
+      "input not recognized",
+      "PWM speed limitation",
+      "lack of real PWM",
+      "documentation clarity"
+    ],
+    "feature_keywords": [
+      "PWM block",
+      "digital input indication",
+      "Online Test",
+      "stopwatch function"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "29": "Scalability Limitations"
+  }
+}

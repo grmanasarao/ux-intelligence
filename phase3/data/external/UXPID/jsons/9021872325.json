@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "9021872325",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 320262785515872,
+      "user_name": "PWRokCeZ2c",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello everyone! I am working on a project that involves integrating a PLC. I received a [product_name] with article number [article_no]. I am facing significant communication issues, even though configuration seems correct using [product_name] software. The main challenge is the inability to connect via Modbus/TCP protocol: although the relevant option is enabled and a test program is loaded, nmap scans show port 502 (which Modbus/TCP needs) remains closed. Setting up a Modbus server or configuring the device to accept any IP connection does not resolve the problem. Based on forum discussions, this issue seems to be common. Any suggestions on how to solve this? Thanks in advance for your help!"
+    },
+    {
+      "comment_id": 616430666316409,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Have you allowed Modbus access in the properties of the file?"
+    },
+    {
+      "comment_id": 205256612933647,
+      "user_name": "PWRokCeZ2c",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Thank you for your response. I'll outline what I've done: I created a new network project in the mentioned software, added and connected a new device, checked device properties and enabled Modbus/TCP access (the warning claimed port 502 would be opened), created a simple test program (input to output), and loaded it to the PLC. Yet, nmap showed the port was closed. Did I miss something in the process?"
+    },
+    {
+      "comment_id": 792036352490080,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I'm not sure, as I haven't encountered communication problems with Modbus TCP/IP before. Which Modbus device is your [product_name] supposed to communicate with?"
+    },
+    {
+      "comment_id": 189967907453469,
+      "user_name": "PWRokCeZ2c",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "In my setup, it's supposed to communicate with a second, virtual PLC created with OpenPLC. I've also tried using Python scripts via the pymodbus library; it would also be useful if communication and register value exchange worked this way."
+    },
+    {
+      "comment_id": 170555162875298,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Attached is a screen recording from a test with a real [product_name] [version_no] and a Modbus Master Simulation program."
+    },
+    {
+      "comment_id": 536659920752024,
+      "user_name": "R4uZLiRXmq",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I was informed there could be an issue if DHCP is enabled for the same IP as the unit, but I have not seen how that's possible, and after six months, I haven't resolved it. I still can't connect via Modbus, except when I plug directly into the PLC's network port. I confirm I can access the PLC's IP, and Open Source file details appear, so this seems particularly related to Modbus."
+    },
+    {
+      "comment_id": 208122927519143,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "You should avoid using DHCP for PLCs. [product_name] requires a fixed IP address."
+    },
+    {
+      "comment_id": 697529670389242,
+      "user_name": "R4uZLiRXmq",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I've realized this and haven't used DHCP. My post was regarding a supposed issue when the PLC's IP address falls within the DHCP range of the network. I questioned this because I've never heard of it in my automation experience—it doesn't make sense. Essentially, you may need to adjust your network setup if you use PLCs from [company_name]. This point has been denied by [company_name]'s support since my original post, but the solution still eludes me."
+    },
+    {
+      "comment_id": 567079013194667,
+      "user_name": "cZQANX744b",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Hi, Sometimes you hear something new for the first time. The issue with fixed IP addresses and WiFi IP ranges is not directly related to [company_name]; it's usually the router's behavior. Some routers strictly separate wired IP ranges from DHCP ranges, while others do not. If your Modbus test works when the [product_name] is directly connected to your PC but fails when connected to the network, then your network settings might need to be corrected. In these cases, addressing DHCP settings could help. If you can't resolve it, consider consulting your IT administrator. Hope this is helpful."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users continuously experience difficulties achieving Modbus/TCP communication with [product_name] despite proper configuration in [product_name] software. A major issue is port 502, needed for Modbus/TCP, staying closed even after all expected setup steps, resulting in failed connection attempts regardless of testing environment or tool used. Unclear networking practices around DHCP and IP management further add to confusion and frustration, with neither support nor community providing direct solutions.",
+    "user_expectations": "Users anticipate that activating Modbus/TCP settings on [product_name] will reliably open the necessary ports for straightforward, standards-compliant Modbus communication over Ethernet, and that they won't need to make complex network modifications.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "easy integration",
+      "reliable Modbus communication",
+      "out-of-the-box compatibility"
+    ],
+    "pain_keywords": [
+      "port 502 closed",
+      "network setup confusion",
+      "inconsistent connectivity",
+      "lack of clear diagnostics"
+    ],
+    "feature_keywords": [
+      "Modbus/TCP",
+      "port 502",
+      "Ethernet/IP configuration",
+      "network diagnostics"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

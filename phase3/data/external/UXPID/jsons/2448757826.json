@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "branch_id": "2448757826",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 306719086867758,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Good morning, I use a program to adjust the speed of a fan (managed by a variable frequency drive) using a PT1000 sensor, which is functioning well. I want to add a command so the fan stops when the machine door opens, and resumes normal operation when the door closes. I also want a two-speed switch to run the fan outside automatic temperature ranges. I’m unable to program these functions. Can someone assist?"
+    },
+    {
+      "comment_id": 635138519303708,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Here is the wiring diagram."
+    },
+    {
+      "comment_id": 304284903122644,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Please upload your [product_name] program as a ZIP archive."
+    },
+    {
+      "comment_id": 692704464940309,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Here is the program in ZIP format."
+    },
+    {
+      "comment_id": 813982478407569,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Hello, do you have a proposed solution? For context, I moved terminal C of the two-speed switch to L1 of the [product_name] power supply. I can’t upload the PDF for some reason. Looking forward to your reply. Have a nice day."
+    },
+    {
+      "comment_id": 823878329318042,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "A few things are not clear: Looking at your circuit diagram, you seem to have 230 VAC on connection 'C' of the switch, while connections '1' and '2' from the switch are linked to inputs I1 and I2 of the [product_name]. You have a [version_no] ([article_no]). Remember: these inputs handle up to 28.8 VDC max, not 230 VAC, which could damage the [product_name]. Connection 'C' needs 24 VDC from the [product_name] power supply. What exactly do you mean by circuit breaker? Or did you mean a standard switch (NO or NC)? What function should each switch position have? There are three positions (1-0-2)."
+    },
+    {
+      "comment_id": 594631564447527,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "I realized my error regarding terminal C and have now connected it to the [product_name] power module. It’s an NO switch. As for the speed switch: 1 = 25 Hertz, 0 = 0 Hertz, 2 = 50 Hertz. I hope this provides the details needed."
+    },
+    {
+      "comment_id": 492438859342192,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "When the door is closed: Is the switch open or closed? What condition determines whether the analog output to AQ comes from the thresholds or the speed switch?"
+    },
+    {
+      "comment_id": 716506491180338,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "When the door is closed, the switch is closed. The speed switch is only enabled when the temperature is below the minimum or above the maximum threshold limits."
+    },
+    {
+      "comment_id": 822842590479431,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Consider this: It’s impossible for helpers to assist effectively if they lack critical information, and it's inefficient to clarify details in small increments."
+    },
+    {
+      "comment_id": 386178125100731,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "What do you consider the maximum limit in your program? Is it 1000 in threshold B005?"
+    },
+    {
+      "comment_id": 452171581501838,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "All this was already in my first message except the speed frequencies. Sorry if my information was not technical enough. I use Google Translate, which may affect communication. The maximum value is threshold B005. Threshold B009 must match threshold B005."
+    },
+    {
+      "comment_id": 672611768148248,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "If the temperature is 100.0 °C, then AQ outputs 1000 units - the max value. Given your setup, do you manually override the speed when the temperature exceeds 100.0 °C?"
+    },
+    {
+      "comment_id": 535059635617662,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Current temperatures are for testing; I’ll adjust based on real conditions. The max value is the sensor module’s upper limit, 200°C. The idea is to manually trigger ventilation if overheating occurs."
+    },
+    {
+      "comment_id": 742084944240049,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Sorry, I don’t understand your explanation or your intention clearly. Maybe someone else can help."
+    },
+    {
+      "comment_id": 813643783534967,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "I get that this is about ventilation for a wood stove. I want automated fan control—triggered by thresholds B002 to B005 based on stove temperature—which is already working. The manual mode uses a 3-position switch: in summer it cools the house, and in winter, if the PT1000 sensor reads above 200°C (limit of the module), ventilation must be started manually in emergencies. This part I can’t program yet. Is this clearer?"
+    },
+    {
+      "comment_id": 362109186452118,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Yes, but if you specify 200°C as the upper range and output 1000 units (max) to AQ from 26.1°C onward, what is the goal for manual mode with 500 or 1000 units? That’s unclear."
+    },
+    {
+      "comment_id": 257737667013751,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "I’m not sure. Maybe the test values are causing confusion—I used hot water for testing. The real values should be different. Does this help?"
+    },
+    {
+      "comment_id": 739279981602233,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "No, the problem persists. The max temperature the sensor module processes is 200°C, so the program can't detect values above this. Even with new values, above 180°C it outputs 1000 units. What’s the point of the speed switch if it always outputs 1000 units?"
+    },
+    {
+      "comment_id": 928019488707846,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Correct, once 180°C (1000 units) is reached, exceeding 200°C keeps the value at 1000 units and the fan does not turn off. In testing, I set B005 to 100°C because very hot water caused the fan to stop. If there’s no benefit, I must be missing something. Is it still possible to operate the fan in 'summer' mode at low temperatures?"
+    },
+    {
+      "comment_id": 443748704766776,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "That’s right with the old program: threshold is active above 26.0°C and off at 100.0°C. If you set both ON and OFF thresholds to 26.1°C, the fan will run at 100% from 26.1°C upwards. Try this test again with hot water."
+    },
+    {
+      "comment_id": 631695947187047,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Exactly! It works as you described. Too bad communication is tricky. That mystery is cleared up. Now, is it possible to stop the fan when the door opens, and add the speed switch?"
+    },
+    {
+      "comment_id": 232398468282429,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Try this approach..."
+    },
+    {
+      "comment_id": 852682567985924,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "When I test with the door button or speed switch, the [product_name] emits an unsettling sound and the motor doesn’t run. Can you confirm these connections? Door button: one side to [product_name] power supply, the other to I1. Speed switch: terminal C to [product_name] power supply, terminal 1 to I2, terminal 2 to I3."
+    },
+    {
+      "comment_id": 949185356955759,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "As mentioned before, don’t connect 230 VAC (L1) to the [product_name] inputs. That can damage it—you might have already caused harm. Only connect +24 VDC from the [product_name] power supply to the inputs, never 230 VAC!"
+    },
+    {
+      "comment_id": 208483023202093,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Oops, I mixed up the input and output, sorry. Luckily, [company_name] products are robust! I checked the terminals and everything works. The program manages thresholds and the door switch well, except for the speed switch. In my attached program, only the speed switch works, but not the door switch or threshold management. Simulation works in both cases. To adjust temperature thresholds, use B002, B003, B004, B005, and B009."
+    },
+    {
+      "comment_id": 928304622938000,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "It sounds like something is incorrect. Your request for the speed switch: if the temperature exceeds the maximum (auto mode is capped at 200°C), the value above the max isn't taken. If the temperature drops under the minimum (20.0°C), then the speed switch works."
+    },
+    {
+      "comment_id": 934852493417127,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "Correct, or almost. Below 20°C the fan runs at 10 Hertz; the speed switch works. Position 1 gives 30 Hertz instead of 25, and position 2 is fine at 50 Hertz. Sorry for the delay."
+    },
+    {
+      "comment_id": 775941752389170,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 28,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "You’re only sharing partial details. For instance, I don’t know if you're sending a 0-10V or 0/4-20mA signal to your drive, or how the analog input is configured. Without full information, I can't help!"
+    },
+    {
+      "comment_id": 302693460550645,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 29,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 7,
+      "comment_body": "You may not be a miracle worker, but your help means a lot! It’s a 0-10V signal and I kept the drive at factory settings—though not sure if that helps. If the program is fine, I’ll review the drive settings. Thanks for your assistance."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are collaborating to add new control functions to a [company_name] automation device for fan management—specifically, halting fan operation when triggered by a door switch and including a manual speed override. Confusion arises due to electrical input incompatibility and unclear programming logic. Details about hardware and operational requirements emerge gradually, which complicates troubleshooting and the design of suitable solutions. Language barriers also cause some misunderstandings.",
+    "user_expectations": "The user expects the [product_name] to automate fan control based on door switch status and a manual speed switch, alongside existing temperature logic. They are seeking straightforward guidance on wiring, logic programming, and integrating these new functions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "manual override",
+      "safety control",
+      "system flexibility"
+    ],
+    "pain_keywords": [
+      "programming difficulty",
+      "wiring confusion",
+      "insufficient documentation",
+      "communication gaps"
+    ],
+    "feature_keywords": [
+      "digital input",
+      "manual speed switching",
+      "door interlock",
+      "fan speed control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

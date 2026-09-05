@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "4114589739",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 718477178494205,
+      "user_name": "2rYNsED1fQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Good afternoon, I have a question about configuring a 100 ppr encoder with two channels (A-B) using a [product_name] [version_no] ([version_no]). This device has high-speed counting inputs (I3-I4-I5-I6). I programmed it so the input connects directly to the counter block, and it works well for ascending counting. My issue is with getting it to count down properly using pulses from channel B. When I test ascending, it works accurately, but descending does not give correct results. If anyone could provide a schematic for handling this, that would be helpful. I've already tried activating direction through a separate (non-high-speed) input, which does count down as expected, but for my application, I need it to work with both A and B channels for up/down counting. Any guidance is appreciated. Thank you in advance."
+    },
+    {
+      "comment_id": 505361475040118,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello and welcome. The most technically correct advice is to avoid using the [product_name] for this purpose, as it's not ideal. You might be able to set up a circuit (there is an example on a German forum), but not for the 5kHz capability of the high-speed counter, as you noted. You can try to switch the counter direction when the device detects movement, allowing it to decide between [+] or [-] direction, but this doesn't provide fully reliable results. Frequency isn't the only challenge—AB pulse counting requires accurately detecting both rising and falling edges. If you don't handle both, the device will lose count during direction changes. Please reply in English to continue the discussion."
+    },
+    {
+      "comment_id": 385334659005899,
+      "user_name": "2rYNsED1fQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Thanks for your quick response. I forgot to clarify—the maximum speed I need is 50 RPM (which is low). I thought the fast inputs on [product_name] [version_no] would work, since the counter seems capable of reading at this rate. I've looked into different methods, but I still have trouble with reliable down counting. If you know of a method that solves this, I would appreciate your help, or let me know if it definitely can’t be done."
+    },
+    {
+      "comment_id": 418769194180828,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "50 RPM—but what encoder resolution? How many pulses per revolution? Is it 50 RPM with 100 pulses/rev? This should be possible without needing 5kHz input speed, but hopefully someone here can point you to a program that achieves what you need with [product_name]."
+    },
+    {
+      "comment_id": 104525227885606,
+      "user_name": "2rYNsED1fQ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "50 RPM with 100 pulses/rev—that should be doable without needing very high-speed inputs. If someone on the forum has already set this up successfully, it would be excellent if they could share a schematic or guidance."
+    },
+    {
+      "comment_id": 590080327270558,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Maybe this resource will help: [url]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are discussing challenges using the [product_name] [version_no] for bi-directional pulse counting with a 100 ppr encoder and two channels (A-B). The module performs well for counting up but doesn’t reliably count down through direct inputs from both channels. Users are interested in utilizing high-speed features, but feel the [product_name] is limited for precise AB pulse processing, especially when direction changes occur rapidly.",
+    "user_expectations": "Users expect the [product_name] [version_no] to reliably manage both ascending and descending pulse counting through two encoder channels (A and B) at low rotational speeds, and are seeking schematics or programming solutions to achieve accurate bi-directional counting.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate bidirectional counting",
+      "encoder support",
+      "easy setup"
+    ],
+    "pain_keywords": [
+      "inaccurate descending count",
+      "complex setup",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "high-speed counter",
+      "bidirectional count",
+      "encoder AB channel support"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "13": "Integration Limitations"
+  }
+}

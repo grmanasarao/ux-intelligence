@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "1367704871",
+    "thread_id": "3055273936",
+    "publication_year": 2009,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 235377342769819,
+      "user_name": "LEZKRClNyX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hello, I believe an analog input designed for 0...10V should be able to read a 4...20mA instrument if a 250-ohm resistor is used. However, in this [product_name], that doesn't seem to work. Does anyone know the reason?"
+    },
+    {
+      "comment_id": 272744282663451,
+      "user_name": "yaKd0yXKh2",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hi, I am not sure about the reason. Did you choose an input channel that is suitable for analog signals, like I7? Alternatively, you could use an [product_name] analog input expansion module that supports 0-20mA ([article_no])."
+    },
+    {
+      "comment_id": 277441062412221,
+      "user_name": "LEZKRClNyX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], I am aware that using an additional module allows for 0...20mA inputs, but I still can't explain why the 0...10V input can't handle a 4...20mA sensor with a 250-ohm resistor. Does anyone have more information?"
+    },
+    {
+      "comment_id": 234693841207746,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "First, make sure your [product_name] is powered by DC (12V or 24V). Second, use a 500-ohm resistor: 20mA x 500 ohm equals 10V, so 0-20mA x 500 ohm gives 0-10V, and 4-20mA x 500 ohm gives 2-10V. Third, connect the positive DC supply to your sensor, sensor output to both the resistor and the [product_name] analog input (I7 or I8), then connect the other side of the resistor to the negative DC supply. For programming, assign I7 as Ai1 or I8 as Ai2."
+    },
+    {
+      "comment_id": 402172920551950,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "For the [product_name] Basis, only certain [article_no] versions are supported. For [product_name] Pure, there are other specific [article_no] versions. With the newer version ([article_no]), additional input options like I1 can be used as Ai3, and I2 as Ai4."
+    },
+    {
+      "comment_id": 327776520335471,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 5,
+      "comment_body": "Hello everyone in this discussion. Here are some possible reasons: 1) If the sensor has 4 wires, 2 are for power and the other 2 are for the 0/4..20mA output. You should connect a 500-ohm resistor across these 2 output wires, with the negative lead going to the [product_name] common and the positive to the analog input (I7, I8 for some [version_no] modules, and possibly I1 & I2 for newer ones). 2) If it's a 2-wire sensor, it must be loop-powered—connect the 24V DC supply to the positive lead, the negative lead to the [product_name] analog input, and put the resistor between the common and negative signal line. 3) Many sensors don't work well with more than 250 ohm resistance in the loop. In that case, use a 250-ohm resistor and adjust scaling in the [product_name] program. 4) It's better to use precision resistors with low tolerance rather than standard ones because inaccurate resistance values can affect scaling and signal stability, especially due to temperature changes. I hope this clarifies things for everyone."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user cannot read a 4...20mA signal via a 0...10V analog input using a 250-ohm resistor on a specified [product_name] basis module. The discussion covers configuration, module types, and wiring scenarios as likely causes. Contributions explain the interplay between electrical specifications and compatibility of current and voltage inputs within these devices.",
+    "user_expectations": "The user expects the [product_name] basis module to correctly interpret a 4...20mA signal using a 250-ohm resistor on its analog voltage input, without needing additional expansion modules.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "universal signal compatibility",
+      "sensor integration",
+      "ease of wiring"
+    ],
+    "pain_keywords": [
+      "input compatibility",
+      "signal scaling",
+      "hardware limitation"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "voltage-to-current conversion",
+      "channel selection"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

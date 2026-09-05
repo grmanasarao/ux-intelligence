@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "branch_id": "7684097480",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 982914661349061,
+      "user_name": "DRUIBIy0op",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hello forum members, I'm attempting to send an MQTT command to a [product_name] PLC with firmware version [version_no] using a Mosquitto MQTT broker, but the command fails to execute properly (Mosquitto MQTT v3.1/v3.1.1 Broker). While data is transmitted successfully from the [product_name] PLC to the broker (as shown in the plain text message below), I'm unable to control the output. I've attached the MQTT mapping and set Q2 as writable. When I publish the message to the broker, I receive a return message indicating that the output isn't set. I've tried multiple variations of the message, both with and without quotes, but every attempt results in the same outcome. For example: Topic: [product_name]/outQoS: 0 The device detects the message and output name, but the value \"1\" is not recognized and appears as null. Does anyone know what might be causing this issue?"
+    },
+    {
+      "comment_id": 344656385443998,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hi, you can only control outputs directly if they're not assigned within the [product_name] program, or if you ensure control of the outputs via another approach."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing a problem where sending MQTT commands to a [product_name] PLC with a specific firmware version results in the command value being interpreted as null instead of the intended value. Although data transmission from the PLC to the broker works, controlling outputs via MQTT commands does not behave as expected. The device detects the command and output name, but doesn't execute the requested action, potentially due to the way incoming MQTT payloads are handled for output control.",
+    "user_expectations": "The user aims to remotely manage digital outputs on their [product_name] PLC using MQTT by publishing commands from the broker and expects the outputs to respond accordingly.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote output control",
+      "MQTT integration"
+    ],
+    "pain_keywords": [
+      "null value on payload",
+      "output not set",
+      "message format ambiguity"
+    ],
+    "feature_keywords": [
+      "MQTT command processing",
+      "output writeability",
+      "output mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

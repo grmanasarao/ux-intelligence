@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "branch_id": "2525930586",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 503362656011225,
+      "user_name": "5ljL8lngbz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I have several NON-LCD [article_no] devices that I plan to deploy soon. Accessing them over the local network is much more convenient than physically connecting an expensive USB interface cable ([article_no]). I attempted remote access to a test device but haven't had success yet. Specifically, I want to use various functions under the TOOLS/TRANSFER sub-menu (like PC>[product_name], [product_name]>PC, SET CLOCK) from my office, instead of visiting different sites. I set up all access control settings including passwords, and everything works fine on my LAN. Next, I put the test device behind a 3G cellular router and forwarded ports 8080 and 10005 to its local IP. Despite these changes, I couldn't connect using [product_name] ([version_no]) on port 10005 or access the Web Interface on port 8080. I suspect our corporate firewall is blocking outbound access to the router where the test unit is located. The [product_name] interface times out and asks about adding a similar address to my LAN card, but responding Yes or No has no effect. I plan to try remote access again using public IP addresses to rule out firewall or VPN issues, and I'm wondering if anyone has succeeded with the TRANSFER tools for a remotely located [article_no]. There doesn't seem to be much documentation available; I searched the manuals, but neither mentions the port for [product_name] connection. Running \"NETSTAT -ANO\" on Windows, my PC connects to a local [article_no] device on port 10005; earlier devices seem to use 10001. Hopefully it's just a firewall issue, but I'm interested to hear if others have made this work by just port forwarding on routers with public IP addresses. Cheers"
+    },
+    {
+      "comment_id": 694988404738699,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hi, Have you tried pinging the [product_name] IP address via the Internet? Do you have a static IP for your Internet connection? Recently, someone in the English [product_name] forum described connecting a [version_no] device to the Internet and experienced trouble accessing the Web Server from an iPhone, but had no issues using an Android phone. Basically, there's no difference between connecting to the Web Server or via [product_name], except you need to enable remote access in [product_name]. So, in principle, it should work."
+    },
+    {
+      "comment_id": 564361665693426,
+      "user_name": "5ljL8lngbz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Thank you for your response [user_name], I didn't have control over our corporate firewall and was pretty sure that was causing the issue. So, I set up two separate LANs connected by a router in my workshop along with custom routing rules, and successfully used the [product_name] TOOLS/TRANSFER features across subnets. The [article_no] device immediately detected communication from a different subnet and requested a password. Everything worked as expected, except the communication port was 8080 (as anticipated for remote web server access), not 10005. Every TOOLS/TRANSFER feature in [product_name] communicated using port 8080, not 10005. Maybe port 10005 is only triggered for same-subnet communication? I'll test again soon using proper remote access via a 3G cellular router to my cable network. Just wanted to share my experience to wrap up this thread. Cheers"
+    },
+    {
+      "comment_id": 367135759678810,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "A new question posted by [user_name] has been moved to a separate thread with the topic of logging into [article_no] from an external GSM connection. Best regards [user_name]"
+    },
+    {
+      "comment_id": 548079080656109,
+      "user_name": "Z9mMTeeXgr",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Did you find a solution for the remote transfer issue? I'm facing the same problem currently. I've tried ports 10001 and 8080, but that's not sufficient. I can ping the PLC IP and port 8080 from another location, but cannot connect to the PLC ([article_no]) using [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are experiencing challenges with remotely accessing and transferring data on [product_name] without display ([article_no] version) via [product_name] ([version_no]) over internet-connected networks. Local access works well, but remote attempts through cellular routers or across subnets fail; connectivity times out and it's unclear which ports are needed for remote transfer features. Documentation is lacking, particularly regarding remote setup and port configuration, and users note inconsistent port behavior depending on access method. There's confusion about whether the root cause is firewall/network restrictions or insufficient product documentation.",
+    "user_expectations": "Users expect consistent and reliable remote access and transfer functionality for [product_name] ([article_no]) using [product_name] ([version_no]) over public or routed networks. They also hope for clearer guidance regarding required port configurations, and remote connectivity that is as seamless as local network use.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote access",
+      "remote transfer",
+      "network configuration transparency",
+      "reliable monitoring"
+    ],
+    "pain_keywords": [
+      "remote connection failure",
+      "lack of documentation",
+      "uncertain port requirements",
+      "transfer timeouts"
+    ],
+    "feature_keywords": [
+      "remote monitoring",
+      "remote transfer",
+      "TOOL/TRANSFER menu",
+      "port forwarding",
+      "password/access control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

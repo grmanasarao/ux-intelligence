@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "8841473055",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 942957677563025,
+      "user_name": "xvRhALtY5U",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Hello [company_name] support and engineering community. I am an electrical engineering student in the Netherlands, currently doing an internship on industrial automation topics, and I'm unfamiliar with some abbreviations. We are integrating a [product_name] module [article_no] together with a [product_name] PLC, aiming to read multiple industrial sensor values using a Modbus RTU RS-485 network as part of a water quality measurement system. As someone designing both the hardware and PLC software, my goal is to get measured values from sensors into PLC logic. I've found that the [product_name] module uses cyclic communication (see picture 1, example from [url]). In our application, there's a specialized Ultraviolet sensor that needs a register-triggered measurement once per minute, and only then can it respond to the read command with the UV sensor value array. Meanwhile, other sensors on the same RS-485 network need to be polled much more frequently (e.g., once per second). My questions are: 1. Could you provide guidance or an example to configure the [product_name] module or PLC logic so that the module triggers a single Modbus register read/write command only once as per a specific function call from PLC logic? 2. According to the module’s web interface instructions, is setting up \"Data bindings\" the right approach (see picture 2 and [document]), and would a PLC Boolean trigger variable through the S7 network achieve this? 3. If I disable \"Customized intervals\" in the Modbus RTU settings and instead use Data bindings configuration, allowing a PLC Boolean variable to trigger communication via the S7 network, will the [product_name] module send a Modbus read/write command only once upon trigger (given that cyclic intervals are switched off)? This matters because my sensors' memory should not be overwritten too frequently. P.S. I realize I could use a different PLC and Codesys, but that's not preferred for my internship, and my experience with Codesys is limited. Best regards, [user_name]."
+    },
+    {
+      "comment_id": 178829793903120,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Hello, Modbus communication isn’t triggered by events; instead, the [product_name] ModbusRTU client lets you set how often each connection communicates, but you can't specifically choose which data is sent at what time. It seems possible to configure settings per Modbus client connection. You might try configuring two Modbus client connections to the [product_name] module and set different communication intervals for each one (as illustrated in the picture). I hope this is helpful."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user identifies a limitation when working with a [product_name] used alongside a [product_name] PLC module in a Modbus RTU network. Specifically, the module supports only cyclic communication and can’t trigger single read/write operations from PLC logic. This is a problem because the user needs to limit data writes due to volatile sensor memory. Community responses clarify this limitation, but note that communication intervals can be configured on a per-device basis for partial flexibility.",
+    "user_expectations": "The user aims to set up the [product_name] module and PLC logic to trigger Modbus register read/write commands only when necessary, not cyclically, in order to protect volatile sensor memory and avoid unnecessary data operations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "on-demand Modbus R/W",
+      "protect sensor memory",
+      "event-based communication",
+      "support for mixed polling frequencies"
+    ],
+    "pain_keywords": [
+      "cyclic-only Modbus communication",
+      "inflexible trigger mechanism",
+      "potential sensor memory overwrite"
+    ],
+    "feature_keywords": [
+      "data bindings",
+      "customized communication intervals",
+      "event trigger",
+      "cyclic polling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "7455092839",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 482258267037295,
+      "user_name": "lqyDtDsyJM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm trying to connect a [product_name] to a Sentron PAC3100 using a [product_name] to read voltage values from L1_N, L2_N, etc. On one side, I'm using the [product_name] as the S7 server, and the [product_name] as the S7 client. According to the web interface for the [product_name], this connection is established correctly, as indicated by the checkmark. On the other side, I’ve set up the [product_name] as the Modbus master with the PAC3100 as the slave (since PAC3100 only supports slave mode), via RS-485. However, I can’t view any values on the [product_name]. All communication settings—including baud rate, transmission type, and slave address—match the PAC3100’s configuration. To check if the [product_name] receives any data from PAC3100, I accessed [url], but the response was 0, showing no data transmission. Also, the PAC3100’s transmission indicator LED does not light up. Included below are details showing data transfer settings on the [product_name] for Modbus communication: - The current program running on the [product_name]. - The S7 configuration for the [product_name]. - The S7 client settings on the [product_name]. I attempted to follow the example from [company_name]: [document], which covers Modbus RTU communication between [product_name] and SINAMICS V20, but still couldn't get this working. I suspect there may be an issue with the Modbus Register address for PAC3100 or with data size management, since PAC3100 outputs Dword data and I'm unsure how to configure the [product_name] to handle this correctly. If anyone has advice on achieving this communication or needs more information, let me know."
+    },
+    {
+      "comment_id": 245268832714886,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Hi, First, you must ensure communication between PAC3100 and the [product_name] is properly set up. Once communication is confirmed, you can use the REST API to view values. Next, configure data transfer from the [product_name] to the [product_name]. I've attached a picture as an example of how this functions. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced challenges configuring Modbus RTU communication among a [product_name], [product_name], and a Sentron PAC3100. While the S7 server-client setup works, difficulties arose with the Modbus master-slave setup. Despite matching configuration parameters and following a guide from [company_name], no data transfer occurs and hardware indicators do not show communication. No values are displayed on the web interface.",
+    "user_expectations": "Users expect a straightforward and reliable Modbus RTU configuration that permits measurement data from PAC3100 to be accessed and displayed on the [product_name] through the [product_name], including correct management of register sizes and data types.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time voltage monitoring",
+      "successful Modbus RTU integration",
+      "data visualization"
+    ],
+    "pain_keywords": [
+      "Modbus RTU integration issue",
+      "register mapping uncertainty",
+      "lack of data transmission"
+    ],
+    "feature_keywords": [
+      "RS-485 communication",
+      "Modbus master/slave configuration",
+      "REST API interface",
+      "data type/size handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

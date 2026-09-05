@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "1684044771",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 289761812510063,
+      "user_name": "LWp0OArIIi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "My device uses type code [article_no] with firmware version [version_no] and LSC [version_no]. My goal is to manage [product_name] remotely via Modbus, specifically to control 4 relays where only one can be active at any time. I want to use a single register (8-bit or 16-bit) to hold an integer from 0 to 4: 0 for off, 1 for speed 1, 2 for speed 2, 3 for speed 3, and 4 for speed 4, each corresponding to different relays for a ventilation system (e.g., speed 1 = relay Q1, speed 2 = relay Q2, etc). Currently, I’ve implemented the mutually exclusive logic for the relays using flags (M1 to M4 mapped to O1 to O4), and each relay follows logic like Q1 = M1 & not Q2 & not Q3 & not Q4, Q2 = M2 & not Q1 & not Q3 & not Q4, etc. This setup works over Modbus. My question is: If I want an 8-bit integer value written by an external Modbus master to set which one of the M1..M4 flags is active (where register=0 means none, 1=M1, 2=M2, 3=M3, 4=M4), what function blocks should I use to convert the integer to a mutually exclusive bit flag and connect these to M1..M4? Theoretically, this seems possible using simple analog range comparators or using separate min/max comparators to output '1' when the input is in a certain range, but I don't see clear comparator function blocks available for this in the Function Block Diagram Editor. Is there a practical way to implement this, or does the editor lack this capability? Any input or confirmation would be appreciated."
+    },
+    {
+      "comment_id": 705387146629315,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Try using the analog threshold trigger for your mapping."
+    },
+    {
+      "comment_id": 725959803831550,
+      "user_name": "LWp0OArIIi",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Thanks! The analog threshold trigger worked immediately, allowing me to control ventilation fan speeds (0–4) remotely with a single Modbus transaction by writing the integer value representing the desired fan speed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wanted a simple way to map a single integer received via Modbus to different relay control flags on [product_name]. Initially, they struggled due to limited comparator block options in the editor. The analog threshold trigger was ultimately found to be an effective solution, successfully enabling the desired relay and device control.",
+    "user_expectations": "User expects a straightforward, easy-to-find function block within the editor to convert an incoming integer value into mutually exclusive relay control flags.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "efficient mapping",
+      "easy configuration",
+      "single register operation"
+    ],
+    "pain_keywords": [
+      "function block discoverability",
+      "missing comparator blocks"
+    ],
+    "feature_keywords": [
+      "integer-to-bit mapping",
+      "analog threshold trigger",
+      "mutually exclusive relay control",
+      "function blocks"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

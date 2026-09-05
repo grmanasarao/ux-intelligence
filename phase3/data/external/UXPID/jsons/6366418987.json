@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "6366418987",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 612112765478805,
+      "user_name": "pUBcKdSHu0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello. I'm facing a challenge with creating a counter that displays how many times a level pump has started in the past hour. Any advice or ideas are much appreciated. Thank you for any inspiration and assistance!"
+    },
+    {
+      "comment_id": 343697121460428,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Do you have any knowledge about what the [product_name] device is capable of and how you might solve your problem using it?"
+    },
+    {
+      "comment_id": 117723905777661,
+      "user_name": "irdmkTgewS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The answer depends on what you mean by \"the last hour.\" Does it mean: • within the 60 minutes before now? • the last complete hour (for example, if it's 7:30, do you mean between 6:00 and 7:00)? • within the current hour (for example, at 7:30, the count since 7:00)? Option 1 is challenging to implement in a PLC and might require assumptions about the maximum number of activations per hour or accepting some loss of accuracy. The [product_name] device isn't designed for this. Option 2 is fairly straightforward. Option 3 is very easy. Can you clarify your requirements? P.S.: Would this topic be more suitable in the \"Projects\" section?"
+    },
+    {
+      "comment_id": 702795582773144,
+      "user_name": "pUBcKdSHu0",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "My intention was to display the number of pump starts over the last 60 minutes, on a rolling basis. However, based on what I've found about the [product_name], this isn't possible to achieve. Thank you for your responses."
+    },
+    {
+      "comment_id": 618352805071840,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "With the [product_name], it's not possible to track continuously due to the limited number of available blocks and memory. Could you share more context or details about why you need this functionality?"
+    },
+    {
+      "comment_id": 522633398683959,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Depending on how many starts occur within an hour, your function could be feasible; see the attached example. Each start increases the counter and triggers an extra timer set for 60 minutes (simulated as 60 seconds in the sample, but can be adjusted). If the timer expires, the counter decreases. The example offers 8 timers for a maximum of 8 starts per hour. If you need more, you can expand the program by duplicating the timer and related blocks. For larger counts like 16, 32, or 64 starts per hour, memory usage increases, which is why others asked about your precise requirements. Alternative solutions may exist using fewer blocks, but this is the first approach that came to mind. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants tried to implement a pump start counter for the past hour using [product_name] hardware. The discussion revealed that the device's block and memory limitations make it difficult or impossible to create a continuous rolling window counter. Users suggested possible workarounds, but agreed that fully real-time rolling hour counting isn't feasible due to technical constraints.",
+    "user_expectations": "The user wishes to implement a straightforward, real-time rolling hour counter for pump start events using [product_name] modules.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time monitoring",
+      "rolling hour counter",
+      "pump statistics"
+    ],
+    "pain_keywords": [
+      "memory limitation",
+      "insufficient blocks",
+      "missing rolling window feature"
+    ],
+    "feature_keywords": [
+      "counter block",
+      "timer block",
+      "rolling time window"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

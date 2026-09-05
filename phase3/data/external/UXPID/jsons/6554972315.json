@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "6554972315",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 715207335471213,
+      "user_name": "QNCc66w9iD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 4,
+      "comment_body": "Is it possible to use a binary counter's value as an analog signal for comparison and analog math operations? I am measuring temperature using a binary input and pulse counter. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 782858469157079,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 4,
+      "comment_body": "Yes, this is achievable if you count pulses with the up/down counter rather than a frequency threshold trigger. You can then use the counter value with an analog multiplexer or in math functions. The analog multiplexer can be connected to the comparator. Maybe this example using a reference function will help."
+    },
+    {
+      "comment_id": 818593016865872,
+      "user_name": "bAYgzUIjsK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "I have seen this referenced in a sample for [product_name] Soft Comfort, but I haven't enabled this function in my project. In the analog comparator and multiplexer, I can't select the up/down counter as an input; only a number is available. The reference button isn't visible for me! My chosen hardware is [product_name] [version_no]. What am I missing?"
+    },
+    {
+      "comment_id": 892322338289550,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "You're not doing anything wrong. The method for referencing blocks has changed starting with [article_no]. How do you configure references between blocks in [product_name] [version_no]?"
+    },
+    {
+      "comment_id": 435370909397556,
+      "user_name": "mt8nLGWH5e",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "One important note: the counter value is stored as a DWORD, but in the [product_name] system, analog inputs are represented as a WORD."
+    },
+    {
+      "comment_id": 356061721469707,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Therefore, the counter value can be referenced only up to 32767. If the counter value exceeds 32767, it will remain at 32767 in the block that references the counter and won't increase further."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread discusses whether binary counter values can be used as analog signal inputs for comparison and math functions within the [company_name] [product_name] system. Users confirm it can work under certain configurations, but changes with hardware and software updates have limited the ability to reference counter values directly as analog signals. There is uncertainty about the reference function’s availability after hardware updates, and users clarify a technical limitation: the counter value datatype (DWORD) exceeds the supported analog input type (WORD), which restricts its use in some cases.",
+    "user_expectations": "Users expect to be able to use the up/down counter value directly as an analog input for analog comparator and math operations, similar to functionality seen in previous samples and older configurations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reuse counter as analog input",
+      "integrate binary measurement to analog blocks",
+      "maintain reference function usability"
+    ],
+    "pain_keywords": [
+      "reference function unavailable",
+      "counter value data type mismatch",
+      "hardware/software inconsistency",
+      "inability to link counter to analog blocks"
+    ],
+    "feature_keywords": [
+      "reference function",
+      "analog comparator",
+      "mux",
+      "up/down counter",
+      "data type conversion"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

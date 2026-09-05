@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "branch_id": "2510002930",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 261494333757765,
+      "user_name": "7AZQ3VZprk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Good afternoon! I am unable to bind the output of the analog amplifier to the PI controller's setpoint input. Based on the documentation, it seems like this should be possible. Can you advise on how to achieve this?"
+    },
+    {
+      "comment_id": 373270858318217,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Welcome to the forum. Please note that this is an English-speaking forum, and we ask that you post in English in the future. Thank you."
+    },
+    {
+      "comment_id": 878244684846682,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "See attachment."
+    },
+    {
+      "comment_id": 478012500088877,
+      "user_name": "7AZQ3VZprk",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thank you! Can you let me know if it is possible to enter a number with a decimal point in the gain value for the analog amplifier function directly from the panel?"
+    },
+    {
+      "comment_id": 441570938276425,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "See attachment."
+    },
+    {
+      "comment_id": 968040706181798,
+      "user_name": "7AZQ3VZprk",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Sorry for the confusion earlier. The [product_name] is connected to an HMI panel. It is not possible to write a number with a decimal point into the gain value of the analog amplifier function from the panel, as the [product_name] uses Word format variables."
+    },
+    {
+      "comment_id": 147376580176122,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Which [product_name] version are you using? Please specify so I can provide an example."
+    },
+    {
+      "comment_id": 973282764750376,
+      "user_name": "7AZQ3VZprk",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "[version_no]"
+    },
+    {
+      "comment_id": 955326007007454,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Alright, I will create an example for you."
+    },
+    {
+      "comment_id": 661490078896320,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Here is the example: The [product_name] works and calculates using integer values. In parameter mapping, the Word type indicates data width (1 word = 16 bits), not data format. This is why you cannot input decimal values directly; decimal places are only represented artificially in software for display or parameter settings. The HMI cannot write to the gain parameter—only read it. If you need a changeable gain value, use a custom analog amplifier. In the attached example, I created this approach. The analog amplifier block links the input value to a parameter in an arithmetic function. The gain factor is a separate parameter, and dividing by 100 simulates two decimal places. Another parameter serves as the offset. This replicates the function of an analog amplifier for a temperature sensor."
+    },
+    {
+      "comment_id": 999459044901613,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I had selected the wrong [product_name]. With the standard version, you cannot write directly to the gain parameter of the analog amplifier. However, with the updated FS4 version, this is possible. I have now modified the program for the FS4."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing restrictions when trying to bind the output of an analog amplifier to a PI controller's setpoint and when attempting to enter decimal values in the gain parameter from an HMI panel. Replies explain that the [product_name] controller operates with integers (Word format), preventing direct input of decimal values or writing from the HMI panel. Decimal values are only simulated by the software's interface for display or configuration—not actually stored as floating points.",
+    "user_expectations": "The user expects to directly connect the analog amplifier output to the PI controller's setpoint input and to be able to enter decimal numbers (with a dot) into the gain parameter from an HMI panel.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "decimal input capability",
+      "direct HMI configuration",
+      "binding analog output to controller"
+    ],
+    "pain_keywords": [
+      "integer-only input restrictions",
+      "inability to write decimals from panel",
+      "non-flexible parameter entry"
+    ],
+    "feature_keywords": [
+      "analog amplifier gain parameter",
+      "HMI panel input",
+      "PI controller SP input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "9370133032",
+    "thread_id": "1723880927",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 452946597289837,
+      "user_name": "j2Gg6io6xy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, I've spent over a month developing a program and recently completed it, but when I try to download it to the PLC, I get the following error message: *** 4/8/13 7:23 PM [document] *** PC --> [product_name] Blocks without connection to an output: B007 Co_7 [Up/Down counter] B008 Co_8 [Up/Down counter] B010 reset3 [AND (Edge)] B011 reset3 [AND (Edge)] Download PC --> [product_name] failed. Even though I previously used these blocks and then deleted them, it seems I need to connect any unused outputs as well. When I use the \"go to block\" tool, it doesn't help me locate the block."
+    },
+    {
+      "comment_id": 595213933682670,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "Hello, I assume you are working in LAD? This is a common issue—when copying, deleting, or moving blocks, avoid copying the connection to the powerline. You can fix this by converting to FBD, correcting any issues you find there, and then converting back to LAD. Regards,"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is unable to download a completed program to the PLC because the software reports there are blocks not connected to outputs, despite these blocks having been deleted. The user also notes that the navigation tool does not help in locating the problematic references. Another commenter indicates this is a known issue when editing the program, and suggests that the graphical editor may not properly handle connections during block manipulation. This highlights areas for improvement in error reporting, feedback, and functional reliability of the programming environment.",
+    "user_expectations": "The user expects the program editor to accurately track changes and only reference blocks and connections that exist. They also anticipate that navigation features will reliably identify and help resolve issues with program components.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful download",
+      "accurate error reporting",
+      "reliable navigation"
+    ],
+    "pain_keywords": [
+      "download failure",
+      "phantom error",
+      "navigation failure",
+      "block deletion inconsistency"
+    ],
+    "feature_keywords": [
+      "block connection handling",
+      "error reporting",
+      "go to block tool"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8498830090",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 560527762952183,
+      "user_name": "PuaT3RHXVK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello, I've been trying for several days to connect to my [product_name] [product_name] using an OpenVPN client, but haven't succeeded. My [product_name] is linked to another [product_name], and I want to access it over the internet. Here’s what’s working so far: - The [product_name] is connected via Ethernet directly to my home modem. - The mobile network connection is active with the SIM card installed. - The [product_name] can sync to the configured NTP server. - I can send and receive SMS using my phone, for example with input I1. - I am able to ping the [product_name] device on the [product_name], and its address is set as the router. - DynDNS is set up and working; after restarting the device, the IP address updates as expected in diagnostics and on my DynDNS account. I followed the official procedure for setting up a secure VPN connection between a PC and [product_name], and did the following for the VPN: - Generated the key. - Enabled OpenVPN-PSK. - Saved the server configuration file for client use, renamed to \"vpnpeer.ovpn\", without changing the IP since I use DynDNS. I installed the latest OpenVPN client and successfully imported the config file. On connection attempt, the icon stays white or yellow (normally it should turn green). My log shows: UDP link local: (not bound) UDP link remote: [AF_INET]XX.XX.XXX.XX9:1194 After this, connecting from my PC directly to the [product_name] shows no active OpenVPN session. I've tried with another PC and from my Android phone with similar results. Some Android clients on PlayStore request a PSK certificate. Should I create a certificate from a client and upload it to the [product_name]? Thank you for any assistance. [user_name]"
+    },
+    {
+      "comment_id": 903973488810088,
+      "user_name": "PuaT3RHXVK",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello, I had a similar issue when sending emails. After several attempts, I managed to get it working with these settings: - SMTP server: smtp.gmail.com - Port: 587 - Encryption: STARTTLS (if possible) - Email address: xxxx@yyy.zz (my Gmail) - Name: xxxx@yyy.zz - Password: my Gmail password - CA certificate: None loaded (currently not used) I didn’t change anything on my firewall and I enabled \"Allow less secure applications\" on my Google account. For testing, I sent emails to a user I configured with a different email, and no phone number. This setup worked for me even without a CA certificate, although I tried using some certificates from OpenSSL initially. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 887885268717186,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], It sounds like your VPN issue is due to your mobile IP address being non-public (it starts with 10.), which normally isn't accessible directly from the internet. You may want to check which provider or APN you’re using and make sure it supports public IP addresses. For your email configuration, Gmail requires permitting less secure apps, as Google has stricter security settings for external connections. Regarding certificates for [product_name], it works fine without them—the device compares any loaded certificate with the server’s. If no certificate is loaded, it accepts any server certificate by default. For added security, you could check here [url] to find out which certificates Google uses and load the correct one into your device, helping to prevent man-in-the-middle attacks when sending email."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter multiple obstacles when trying to establish a VPN connection to [company_name] hardware using OpenVPN, even after following documentation and confirming network basics. The need for public IPs and proper certificate handling is unclear, especially for Android connectivity. Similarly, setting up email required disabling some security features in Gmail and tweaking configuration, which highlights integration challenges with third-party cloud services.",
+    "user_expectations": "Users expect seamless remote VPN access to [company_name] devices using OpenVPN across PCs and mobile devices—and to send emails from the hardware with minimal security or certificate configuration.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote access",
+      "secure connection",
+      "internet connectivity",
+      "email alerts"
+    ],
+    "pain_keywords": [
+      "VPN connection failure",
+      "complicated configuration",
+      "lack of documentation",
+      "private IP blocking",
+      "certificate confusion",
+      "email integration hassle"
+    ],
+    "feature_keywords": [
+      "OpenVPN server",
+      "DynDNS",
+      "email alarms",
+      "certificate management"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": [],
+      "Android": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

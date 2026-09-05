@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "5082603360",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 214425615740352,
+      "user_name": "MM8czErQv9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 8,
+      "comment_body": "Hello, Could someone review the attached file? I am unable to read the analog value using the [product_name] analog module and I consistently see a value of -500 in line mode."
+    },
+    {
+      "comment_id": 204652781059314,
+      "user_name": "CkgFs8kMi1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], I see you are using a [product_name] model [article_no], which has 4 analog inputs. For your analog module, use input AI5 or disable two internal analog inputs in the settings of the [product_name] configuration software. Hope this helps, [user_name]"
+    },
+    {
+      "comment_id": 252336413009926,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 8,
+      "comment_body": "Hello everyone, [user_name] is correct! In the [product_name] configuration software, always confirm these two things: - Which [product_name] module you are programming - If it has on-board analog inputs, determine whether to use 2 or 4 of them. For the first part, check the bottom right corner of the screen in the software. It will indicate which [version_no] the program targets. Compare this with the order number of the module – look at the last 4 digits below the OK button. The current version is [article_no]. Also, the module features a small marking with numbers: 2 | X -------- 4 | 5 The 'X' shows the development step – here, it is in the third position. On packaging, it may be displayed as 'E-Stand: 03'. For [product_name] [article_no], in the configuration software, select 'Standard' if the number is 0, 1, or 2 (older versions) or choose ES3 if it is 3 or higher (newer versions). To set the number of on-board analog inputs on specific models, go to: FILE > PROPERTIES > PARAMETERS At the bottom of this dialog, select whether to use only 2 on-board analog inputs (I7 = AI1 & I8 = AI2) or all 4 (I7 = AI1, I8 = AI2, I1 = AI3, I2 = AI4). If you connect an analog input expansion module (such as the AM2 series), the analog input numbering will change depending on this selection. If you select 2 on-board analog inputs, the next available input for the expansion module is AI3. If you choose 4, then the next available is AI5 – which matches your situation. So, either set the input number in your program to AI5, or change the properties of the CPU module as described above. Hope this information helps! (\"Wishing you a good day!\")"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter difficulties when reading analog values through an analog expansion module and a main module. Issues often arise from incorrect analog input configuration in the setup software, leading to wrong readings like a constant -500. Proper mapping of analog input channels, especially when using expansion modules, is essential for expected operation.",
+    "user_expectations": "Users expect reliable analog input readings from expansion modules, without needing complex manual configuration or troubleshooting regarding how analog channels are numbered.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog readings",
+      "easy configuration",
+      "input channel clarity"
+    ],
+    "pain_keywords": [
+      "incorrect analog value",
+      "confusing channel mapping",
+      "configuration difficulty"
+    ],
+    "feature_keywords": [
+      "analog input mapping",
+      "expansion module support",
+      "configuration settings"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

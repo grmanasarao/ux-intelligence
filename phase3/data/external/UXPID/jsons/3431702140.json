@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "branch_id": "3431702140",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 115460385746924,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Hello. I'm working with a [product_name] controller and an HMI panel. My goal is to set a pressure value via the HMI and compare it to analog input readings from a sensor (0-10V). If the measured value matches the setpoint, the output resets; if it falls below, the output activates. Can you suggest which type of instruction I should use?"
+    },
+    {
+      "comment_id": 836811623724282,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "If I understand your setup, you want to set a setpoint on the HMI and use control logic so the actual value matches this setpoint. Is your output digital or analog? Which TIA Portal version are you using? What is the sensor's measuring range?"
+    },
+    {
+      "comment_id": 425166059900448,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Yes, that's correct. For example, if the setpoint on the HMI is 12 bar and the sensor reads 8 bar, the digital output should activate until the pressure reaches the setpoint. If it drops below 11.5 bar, the output should activate again. I'm using TIA Portal (versions 13-15.1) for HMI configuration and [product_name] controller version [version_no]. The pressure range is 0-25 bar."
+    },
+    {
+      "comment_id": 836235580357436,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Here's a sample project."
+    },
+    {
+      "comment_id": 566619643602553,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Thank you for your assistance. I struggled with assigning threshold On and Off values—normally these are entered manually while programming, but you included results from math operations. Could you explain how you did that? That was my challenge."
+    },
+    {
+      "comment_id": 669327251209350,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Am I understanding you correctly that you don't know how to reference blocks? If that's the case, this FAQ might help: How can you set up references between blocks in [product_name] [version_no]?"
+    },
+    {
+      "comment_id": 367291777819348,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Or are you asking how the setpoint gets passed from the HMI into the math instruction? If so, you'll need to use parameter VM mapping, which you can find under Tools > Parameter VM Mapping."
+    },
+    {
+      "comment_id": 302435196803600,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Yes, I found the parameter. Is it possible to connect the [product_name] controller with the HMI simulation for testing? When I start your shared example, both fields show \"????\" and I can't input any values."
+    },
+    {
+      "comment_id": 738009830401486,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "You can start the HMI in simulation, but the [product_name] controller only operates in runtime mode. The simulation mode for the controller can't connect to the HMI, whether it's running in runtime or simulation. Also, did you update the IP addresses for your devices in the TIA Portal connection properties?"
+    },
+    {
+      "comment_id": 346701706387088,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "So, to confirm, it's not possible to test this without having the physical controller module. Both the controller and HMI have the IPs you mentioned, and I've changed my PC's IP as well. Currently, I don’t have the actual hardware, so I wanted to test everything virtually (via simulation)."
+    },
+    {
+      "comment_id": 328118779897014,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "As I mentioned earlier, without a physical [product_name] controller, you can’t simulate data exchange with a simulated HMI. Also, ensure all IP addresses are configured to be on the same subnet."
+    },
+    {
+      "comment_id": 771895911483160,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Hello. I am now attempting to establish a connection between a real [product_name] controller and an HMI simulation. The controller’s IP address is 192.168.2.5 (mask 255.255.0.0), the HMI in TIA is at 192.168.2.4, and the PC’s IP is 192.168.0.100 (255.255.0.0). On the HMI simulation, nothing shows up, and I cannot establish communication between the controller and HMI simulation. I’m using TIA Portal version [version_no]. Connection details have the same IPs for HMI and controller as mentioned. Any suggestions to fix this?"
+    },
+    {
+      "comment_id": 287196284348020,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "It looks like the issue may be that the PC isn’t in the same subnet as the [product_name] controller and simulated HMI."
+    },
+    {
+      "comment_id": 399156321642971,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Apologies for the error. All devices are now configured in the 192.168.2.x subnet with mask 255.255.0.0."
+    },
+    {
+      "comment_id": 394716757452040,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Then I’m not sure, but it works fine for me. Have you installed PLCSim version [version_no]?"
+    },
+    {
+      "comment_id": 996382722019820,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Could you upload your [product_name] controller and HMI project as a ZIP file?"
+    },
+    {
+      "comment_id": 234878506784281,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "I’m using your shared project, only changing the HMI model to match my real device for testing. In TIA Portal, I adjusted the device configuration IP to match the connection settings. With real hardware everything works, but with a real controller and HMI simulation, the tags just display \"????\". I’ve attached pictures of the IP configuration."
+    },
+    {
+      "comment_id": 603778601899592,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "I'm confused about your setup. Sometimes you refer to simulating the HMI, other times you mention having a real HMI and controller but still seeing \"????\" for the simulation tags. Are you testing with simulation or with two real devices?"
+    },
+    {
+      "comment_id": 164526377946382,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "With real devices, everything is clear. But simulation is still problematic for me. My goal is to connect a real controller with the TIA HMI simulator. Sorry if my explanation was confusing."
+    },
+    {
+      "comment_id": 767957751381279,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "I’m not sure what’s causing your simulation issue. For me, it works without problems. See the video linked: Screen recording of simulated HMI."
+    },
+    {
+      "comment_id": 544141493811510,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "The difference I noticed is that in your TIA window it says \"RT simulator\", while on mine it shows \"Runtime Advanced\". See the attached screenshot of how I launch the simulation."
+    },
+    {
+      "comment_id": 493716015101248,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "I start the simulation with the same button."
+    },
+    {
+      "comment_id": 863530082067743,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Sharing a video of me starting the simulation."
+    },
+    {
+      "comment_id": 459638503681287,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Is your TIA Portal installation up to date?"
+    },
+    {
+      "comment_id": 579712906982145,
+      "user_name": "7QOZCdmjdo",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Yes, mine is current."
+    },
+    {
+      "comment_id": 952154170893559,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "In your case, I'd recommend updating TIA Portal. Updates for STEP 7 version [version_no] and WinCC version [version_no] are available. This update applies to the following products on TIA Portal: STEP 7 Basic/Professional [version_no] and WinCC Basic/Comfort/Advanced/Professional [version_no] Update 5 (08/2020)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users working with [product_name] controllers and HMI integration, especially for analog setpoint and digital output control, struggle to fully simulate and validate their setup virtually. The main challenge is setting up reliable HMI-to-controller communication in simulation environments, given that the controller can't run in full simulation mode alongside an HMI. This limitation forces reliance on real hardware for thorough testing, increasing setup time and dependency on available devices.",
+    "user_expectations": "Users anticipate assigning setpoints from the HMI interactively, being able to run integrated simulations for both the controller and HMI without needing physical modules, and having straightforward options for threshold configuration within their control logic.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "virtual testing",
+      "dynamic setpoint adjustment",
+      "pre-deployment validation"
+    ],
+    "pain_keywords": [
+      "lack of integrated simulation",
+      "manual threshold assignment",
+      "hardware dependency"
+    ],
+    "feature_keywords": [
+      "HMI integration",
+      "parameter mapping",
+      "simulation mode",
+      "analog input processing",
+      "digital output control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

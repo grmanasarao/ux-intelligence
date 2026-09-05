@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "9251741685",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 300011666950902,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello, Summary: What exactly is the X70 interface found on the [product_name] base unit that connects to additional modules (like digital and analog I/O)? Is there any official cable designed for this purpose? Details: I developed a solution with [product_name] for a customer, fitting everything inside a cabinet. I understand that the base unit can be expanded with I/O modules placed side by side via the X70 interface. I've done this before successfully. The current challenge is my customer prefers the expansion modules to be placed in another cabinet so the main cabinet stays standard, making it easier to sell the extension as a separate product. Is it possible to connect the base unit to expansions using a cable rather than direct mounting? I've checked the [product_name] user manual but couldn't find much about the X70 interface. Does anyone have more info on this? Thanks!"
+    },
+    {
+      "comment_id": 375762798743099,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "There are no official bus extension cables available from [company_name]. As far as I know, no other manufacturer offers such cables either. Moreover, it's not as simple as a single cable, since the bus is not electrically isolated. There is a risk, for example, that a module with 24V could be connected to a 230V base unit, which might allow high voltage to reach the wrong module."
+    },
+    {
+      "comment_id": 606196920237389,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], Check here [user_name]"
+    },
+    {
+      "comment_id": 302992598307314,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Thank you for all the input! I didn't realize the supply voltage was part of the bus system, which raises additional questions: 1. Are expansion modules powered through the base unit? Then why do they also have individual L+ and M terminals? Some analog modules even have multiple supply connections. I've connected +24V and ground to each, so that might have led to unnecessary wiring in my design. 2. I'm still interested in learning how communication works between these modules. 3. I understand the explanation in the video, but that's not ideal for my project. Besides using a larger base module in a separate cabinet, I'd need an Ethernet switch in my original cabinet since the available Ethernet ports are already in use. While cables might be risky for 230V modules, ours run on 24V DC and we have direct control, so using a cable is still tempting. My main worry is if it would cause instability or interference with the module communication. Thanks again for all your help!"
+    },
+    {
+      "comment_id": 214610247703803,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "1.) I didn't say that expansion modules get their power via the bus, just that the bus links the potentials. Expansion modules still need their own power supply. 2.) [company_name] doesn't share details about the bus or its interface configuration. 3.) It's likely [company_name] has specific reasons for not offering bus extension cables. I believe the bus isn't designed for long-range communication without signal amplification. Ultimately, community members can't answer these questions with certainty. Reaching out to [company_name] Support might give you more detailed explanations."
+    },
+    {
+      "comment_id": 188159290423805,
+      "user_name": "Gg0uuJOmNn",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "The internal IC power is supplied—possibly through the positive line, around +10V—but each module needs its own connection for the electronics on the edge. In the past, I connected a 230V AC extension to a 12V DC module, which worked as long as there were no other galvanic connections. This was extremely dangerous and I strongly advise against it. One wiring mistake or improper grounding can destroy modules or create serious electrical hazards (like 230V on 12V lines). That's why there are good reasons for not having extension cables available and why the connectors are designed to prevent mismatched power types."
+    },
+    {
+      "comment_id": 439392713521073,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "The [product_name] developers have considered safety carefully. Any modifications or unofficial tweaks to these devices can be extremely dangerous and should always be avoided. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are seeking ways to install [product_name] expansion modules in separate cabinets using cables, instead of mounting them directly next to the base unit. However, there is considerable uncertainty about whether this is technically and safely possible, mainly because there are no official solutions or documentation from [company_name] regarding the X70 interface. Users expressed concerns about unclear bus wiring, electrical safety issues caused by mixed potentials, lack of isolation, misunderstood power connections, and overall system reliability.",
+    "user_expectations": "Users expect [company_name] to offer official cables and clear technical documentation to safely connect [product_name] expansion modules across cabinets using the X70 interface. They also hope to receive comprehensive information about the interface and reliable setup methods.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "flexible module placement",
+      "modular cabinet design",
+      "safe remote expansion"
+    ],
+    "pain_keywords": [
+      "lack of official cable",
+      "undocumented interface",
+      "safety concerns",
+      "unclear wiring"
+    ],
+    "feature_keywords": [
+      "X70 interface",
+      "bus extension",
+      "power supply management",
+      "daisy-chaining"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "27": "Safety Compliance Concerns",
+    "22": "Usability Improvement Suggestions"
+  }
+}

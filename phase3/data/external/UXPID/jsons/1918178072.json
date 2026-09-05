@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "1918178072",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 954821192580351,
+      "user_name": "r2qaVhMl6L",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello."
+    },
+    {
+      "comment_id": 933236756076469,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I don't have experience with KNX and [product_name], but in [product_name] controller, at least when programmed with [product_name] and [version_no], you can only read 4 byte Float or 8 byte Double Float, as mentioned in the attached file. Are you sure about using a 2 byte Short Float?"
+    },
+    {
+      "comment_id": 915364203591432,
+      "user_name": "r2qaVhMl6L",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Yes, [product_name] can exchange data using [product_name]. Is there another way to retrieve the network analog input? I attempted to use an F/I converter, but it was unsuccessful."
+    },
+    {
+      "comment_id": 328875977761437,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "In your first image, you can see scaling from KNX value to [product_name] value. The second image displays an internal converter within [product_name], where the output value ranges between -32768 and +32767. This represents the [product_name] integer using 15 bits plus a sign bit. You might need to scale the value to obtain a usable thermostat reading. For example, a KNX value from 0.0 to 30.0 could be scaled to a [product_name] value from 0 to 300 (for one decimal) or 0 to 3000 (for two decimals)."
+    },
+    {
+      "comment_id": 828041670438406,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "You've set the [product_name] settings incorrectly. Channel 11 temperature from KNX should be mapped as -50:200 (KNX) -> 0:1000 ([product_name]). After that, you can use an analog amplifier for temperature normalization."
+    },
+    {
+      "comment_id": 579750236791818,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 703159702640933,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Why convert from -50:200 (KNX) to 0:1000 ([product_name]) and then use an analog amplifier with a gain of 2.50 and an offset of -500 in the [product_name] circuit? Wouldn't it be simpler to convert directly from -50:200 (KNX) to -500:2000 ([product_name]) and avoid using an amplifier?"
+    },
+    {
+      "comment_id": 167140732186471,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I am not sure \"why.\" It works for me, so I don't change it. Now I see that [article_no] and [article_no] duplicate themselves, and [article_no] is sufficient."
+    },
+    {
+      "comment_id": 239435560671312,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "[user_name], thank you very much! I have reviewed my scheme, removed six extra blocks, and improved its readability!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discuss transferring and scaling analog numeric values from KNX interface to [product_name] controller using [product_name]. Key topics include data type limitations, scaling procedures, and workflow refinement. Through shared experiences and suggestions, users clarify conversion techniques and optimize temperature value handling, illustrating peer-driven troubleshooting and iterative refinement.",
+    "user_expectations": "Users want an effortless connection between KNX analog input and the [product_name] controller through [product_name], with correct scaling and precise observation of converted values. They seek simple, reliable conversion solutions for accurate integration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless integration",
+      "accurate value translation",
+      "workflow simplification"
+    ],
+    "pain_keywords": [
+      "scaling confusion",
+      "conversion complexity",
+      "data compatibility"
+    ],
+    "feature_keywords": [
+      "KNX analog input",
+      "data scaling",
+      "integer conversion",
+      "analog amplifier"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "29": "Scalability Limitations"
+  }
+}

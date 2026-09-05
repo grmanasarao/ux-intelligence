@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "2807831725",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 550545452600066,
+      "user_name": "uyqfhgIksj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I've developed a pump controller using [product_name] and associated power supplies and expansion modules. There are user-configurable parameters, such as level percentages to control pump activation, accessible across several screens. The issue is that when Esc + arrow is pressed, users are directed to a menu that shows 'Program, Setup, Network, Diagnostics' along with I/O and memory statuses. Eventually, the arrow keys allow access to the screens I've programmed for these parameters. How can I prevent this behavior? In previous [product_name] projects, I haven't encountered this. Also, the Esc + arrow combination feels unresponsive and seems to require holding Esc before pressing the arrow. The PLC itself works well, but the user interface could be improved."
+    },
+    {
+      "comment_id": 854046703417538,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Accessing the [product_name] system menu is only possible if no custom message text is active and the ESC button is pressed. This behavior is intentionally set in the firmware and can't be modified."
+    },
+    {
+      "comment_id": 484654871669222,
+      "user_name": "uyqfhgIksj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], I'm not certain I follow your explanation. I have a display showing current pump status and water level on the [product_name] screen. When users press Esc + right arrow, it leads to a setup screen allowing selection of different operation modes using Esc with up and down arrows. Esc + right advances to the next setup screen, and after inactivity, a timer returns to the status screen. In past projects with similar setups, I don't recall landing in the programming system screens. Is there a configuration setting that can block this menu navigation while running a user program? Thanks."
+    },
+    {
+      "comment_id": 934578571971609,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Please upload your program in a zip file."
+    },
+    {
+      "comment_id": 636507846033448,
+      "user_name": "uyqfhgIksj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "My organization won't allow that, but I am permitted to share printouts of the display and button logic sections. Would that suffice?"
+    },
+    {
+      "comment_id": 995841695458188,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "No, that would not be enough for me. You only access the [product_name] system menu with the ESC button if no custom user message text is active. I’m not aware of any other way."
+    },
+    {
+      "comment_id": 927352500312429,
+      "user_name": "uyqfhgIksj",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "So does that mean if custom screens are active, Esc + arrow won't function? If so, what's the purpose of having these buttons?"
+    },
+    {
+      "comment_id": 324602271223454,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "No, that's not what I meant. If no custom message text is active and you press ESC, you access the [product_name] system menu. If you've programmed a cursor key and a user message text is active, then pressing ESC plus a cursor key will execute the cursor key function in the program. I haven't heard of a case where pressing ESC during an active message screen sends you to the system menu."
+    },
+    {
+      "comment_id": 707064610391590,
+      "user_name": "uyqfhgIksj",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Apologies, I think I see your point now. If no programmed screen is present, pressing Esc + arrow takes you to the system menu. I do have programmed screens, alternating between two status displays managed by a timer, which show information only and have no adjustable parameters. Pressing Esc + arrow should move to screens where parameters can be set. So according to your explanation, if Esc + arrow is pressed on a purely informational status screen, it leads to the system menu; adding a parameter, even if nonfunctional, would instead transition to the next set of screens? Thanks again, [user_name]."
+    },
+    {
+      "comment_id": 418909537878233,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "This only works when you scroll through message texts with cursor keys within a user-defined menu. Such a menu can be set up using counters, for instance."
+    },
+    {
+      "comment_id": 654632264768436,
+      "user_name": "uyqfhgIksj",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "This may not be very helpful, but I've attached pages showing the display and button areas—just some of what I was permitted to provide. Thanks."
+    },
+    {
+      "comment_id": 341509186432052,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Sorry, but the PDF is not sufficient."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience confusion and dissatisfaction due to non-intuitive navigation and button behavior in the [product_name] interface, especially with transitions between custom user screens and the system menu. The firmware’s logic for the ESC and arrow keys leads to accidental returns to system menus and sluggish key responses, diminishing usability. Although the hardware is considered reliable, users find the interaction and setup for navigation to be less accommodating when implementing custom display logic.",
+    "user_expectations": "Users anticipate smooth and direct navigation using hardware buttons without unintentionally opening system menus. They also expect prompt responses to key combinations and the flexibility to control and predict screen transitions regardless of current display content.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "intuitive navigation",
+      "fast response",
+      "predictable user interface"
+    ],
+    "pain_keywords": [
+      "unintended navigation",
+      "slow key response",
+      "confusing menu logic"
+    ],
+    "feature_keywords": [
+      "navigation keys",
+      "user-defined menu",
+      "parameter adjustment screens",
+      "system menu access"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "metadata": {
+    "branch_id": "6364252503",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 461659935277222,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I'm seeking advice on how to display multiple messages for a plant alarm system I’m developing. I’ve attached info and a log file to record alarms. The amber screen marks a remote alarm site, making alerts easily visible. All alarms display correctly; I use a high signal with priority 0 for the default message, but I’m new to FBD, which is quite different from ladder logic. My main issue: if several inputs are active at once, I want to have the system automatically scroll through current alarms until cleared. I saw an example using shift registers to show multiple messages, but couldn't adapt it to check for multiple inputs simultaneously. Any assistance would be appreciated."
+    },
+    {
+      "comment_id": 896663244955104,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "If several message texts are active together, you can scroll between them with the up and down cursor keys. Hold the ESC key and then press the corresponding cursor key to cycle through the messages."
+    },
+    {
+      "comment_id": 908754641895640,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "There are relevant examples published on the [company_name] website. You can find practical samples there. Hope it’s helpful."
+    },
+    {
+      "comment_id": 699121384084483,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "The logging isn’t fully functional. When data log input is activated with a high signal, only one log entry is made, and further inputs aren’t recorded if the signal remains high. To log each event, the data log input requires positive edges with at least 500 ms interval between events."
+    },
+    {
+      "comment_id": 230846091730325,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "A concern is that if one alarm is active, staff would have to manually press buttons to see secondary messages. This is why I thought it would be better if multiple messages could auto-display when more than one alarm is present. Thanks for your prompt help."
+    },
+    {
+      "comment_id": 508576250785682,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "So you’re aiming for automatic scrolling of active message texts?"
+    },
+    {
+      "comment_id": 526485631566696,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Yes, that’s right. With just one alarm, the program works as expected. When two alarms are active, I’d like to cycle between them every three seconds. With three alarms, show each for three seconds before returning to the first, and so on. I’m unsure how to implement this for multiple alarms in code."
+    },
+    {
+      "comment_id": 568874255681671,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I don’t think it works exactly as you want because [product_name] doesn’t have Alarming like HMI devices. Here’s an alternative: for an alarm, the message appears with a flashing background; if another alarm arises, 'Next' appears, signaling additional active alarms. Hope that’s useful."
+    },
+    {
+      "comment_id": 663901476345147,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Thank you, that seems to be the solution I needed. I’ll experiment further. I appreciate the help and have a lot more to learn."
+    },
+    {
+      "comment_id": 741616415343141,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I’ve managed the logical ANDs and ORs, but I’m struggling to reference the output of the OR block in the message text box. I can’t figure out how to add it. There’s likely a simple trick I’m missing."
+    },
+    {
+      "comment_id": 583902141524066,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I’ve put together a program that automatically scrolls through pending alarm messages. It currently handles eight alarm messages but can be expanded."
+    },
+    {
+      "comment_id": 366117951874561,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Attached is your program with updated message text. When an alarm occurs, the screen shows all plant areas and which ones are in an alarm state."
+    },
+    {
+      "comment_id": 316868367649637,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "@[user_name] - thanks, that’s exactly what I needed and I’ll use it. However, with the message texts, I still can’t figure out how to add Input blocks. I’ve tried multiple times but haven’t worked it out. Once I understand, it’ll help me greatly in the future. Many thanks."
+    },
+    {
+      "comment_id": 745408866943646,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I’ve adjusted your updated version to use a green background when there are no faults, and switch to a white background during an alarm which must be acknowledged to clear. I’m very pleased with the result and believe others will find it useful."
+    },
+    {
+      "comment_id": 228596852869777,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I’m a bit confused now. Didn’t you want automatic scrolling through active message texts?"
+    },
+    {
+      "comment_id": 235105877837157,
+      "user_name": "LS0x7CLKlC",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Originally, yes; I didn’t know how to link Input blocks to message texts and couldn’t get it working. That’s why I thought scrolling was the only solution. Both approaches work well and I’ll use them in future projects, but the second method suits this application better. Sorry for any mix-up."
+    },
+    {
+      "comment_id": 233753357118970,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "For I/O settings in message text properties, follow these steps (see attachment): 1. Select a cell in the message grid and choose ON/OFF above the grid. 2. From the menu, pick the desired input or output. 3. Specify which I/O you’d like. 4. Enter text for both False and True states and confirm with OK. Tips: Assign high priority to alarms. After open blocks, use open connectors. Use an inverter on the 'En' entry in a message text block to reduce block usage. Take care."
+    },
+    {
+      "comment_id": 317057062361548,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "A new question from [user_name] was moved to a separate thread regarding using Win CC Runtime to display messages on a large TV. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are configuring a plant alarm system that needs to display multiple simultaneous alarms efficiently. Currently, manual action (using cursor and ESC keys) is required to view all message texts, which isn’t optimal in industrial settings where automatic switching is preferable. The software lacks built-in automatic scrolling for multiple active alarms and its logging function relies on precise input timing, making reliability an issue.",
+    "user_expectations": "Users expect automatic cycling between active alarm messages and easy event logging, without any need for manual intervention. Additionally, they prefer a user-friendly setup that doesn’t require in-depth technical knowledge of Function Block Diagrams.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic alarm display",
+      "ease of use",
+      "no manual intervention"
+    ],
+    "pain_keywords": [
+      "manual message scrolling",
+      "complex FBD programming",
+      "logging reliability"
+    ],
+    "feature_keywords": [
+      "alarm message scrolling",
+      "data logging",
+      "FBD block referencing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

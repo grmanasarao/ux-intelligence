@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "6924347975",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 445546518008928,
+      "user_name": "dISrOIhb0c",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "I am working on setting up an IO field in a basic HMI device to input an analog setpoint value for a [product_name] V[version_no] project. After creating the IO field and configuring the HMI tags, the value entered in the IO field updates the analog input in the [product_name] project as expected. However, I want to have a predefined start value loaded automatically when both the PLC and HMI power on, instead of the value defaulting to zero. I set a 'Start Value' for the relevant tag in the engineering software, but it does not behave as intended—when the system powers on, the IO field and the PLC analog input both show '0'. Interestingly, if the HMI is disconnected from the PLC (e.g., the LAN cable is removed) during power-up, the IO field on the HMI displays the correct predefined value set in the 'Start Value' field. This suggests that with the HMI and PLC connected, the 'Start Value' does not load properly for either the IO field or the PLC analog input. I have attached relevant images and screenshots. How do I configure the IO field so that the preset value is loaded and transferred to the PLC as soon as power is restored?"
+    },
+    {
+      "comment_id": 359183656544464,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "This issue is similar to what you encountered with digital signals in your other topic. The HMI device itself cannot save data; any values from an input/output field need to be stored by the PLC. Therefore, values from the HMI should not be directly processed in the PLC through analog network input. Instead, these values should be written into a parameter of an analog block (such as a mathematical instruction) using parameter VM mapping. If you store a value directly in a parameter using parameter VM mapping, the value is saved in the flash memory and remains intact even after a power cycle."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges with initializing setpoint values on an HMI when working with a [product_name] PLC system. Using the 'Start Value' in the configuration software does not result in the desired initial value after power-up unless the HMI is disconnected from the PLC, indicating unintended behavior in tag synchronization. The issue appears to be a lack of persistent tag storage on the HMI side, creating uncertainty about where to manage data persistence and how HMI-PLC integration impacts initial values at startup.",
+    "user_expectations": "The user anticipates the configured 'Start Value' on the HMI to persist and automatically update the PLC analog input at power-up, ensuring a preset default value is set without manual intervention.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic initialization",
+      "persistent default value",
+      "PLC-HMI synchronization"
+    ],
+    "pain_keywords": [
+      "incorrect startup value",
+      "lack of persistence",
+      "inconsistent behavior"
+    ],
+    "feature_keywords": [
+      "HMI start value",
+      "analog IO synchronization",
+      "parameter VM mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8231313764",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 897530532620761,
+      "user_name": "ZuS86DLduU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hello, I've managed to connect a [product_name] [version_no] to the cloud without issues, and it sends updates to AWS successfully. How can I update the [product_name] using input from AWS? My test involves changing the value of flag M2. I tried updating the desired section of the AWS shadow, but it didn't work. { \"desired\": { \"M..1:2-1\": \"00\" } } /[user_name]"
+    },
+    {
+      "comment_id": 910139503347819,
+      "user_name": "YtMV0K6sCh",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I'm experiencing the same issue. Did you find a solution?"
+    },
+    {
+      "comment_id": 880727814481498,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello, To change a flag (Merker) in [product_name], ensure that this flag isn't connected on the left side within the [product_name] program logic. This restriction applies to outputs as well. If a function block has a signal on its left input, it's managed by the internal program and can't be altered by external commands. For example: - M1 can't be controlled by AWS or Web-Server because it's connected on the left side, so only I1 manages it. - M2 can be controlled via AWS or Web-Server. - Q3 is also controllable from AWS or Web-Server (if it's not part of the [product_name] logic, any Q output can be controlled remotely). Hope this clarifies the process."
+    },
+    {
+      "comment_id": 312990430980820,
+      "user_name": "ZuS86DLduU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hi, Thanks for the helpful explanation. I wouldn’t have figured this out without your input. Now I can change the value of Q2 using: { \"state\": { \"desired\": { \"Q..1:2-1\": \"00\" } } } or { \"state\": { \"desired\": { \"Q..1:2-1\": \"01\" } } } /[user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have successfully set up [product_name] [version_no] with AWS IoT, receiving data transfers. However, controlling outputs and memory flags from AWS is problematic due to the internal logic setup—signals or flags wired within the local program can't be controlled remotely unless disconnected. This discussion highlights gaps in documentation and workflow regarding external control over the device.",
+    "user_expectations": "Users expect to remotely control memory flags or outputs on the [product_name] module via AWS using shadow updates. They want a simple and direct remote control process without reworking the local [product_name] logic configuration.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote control",
+      "cloud integration",
+      "seamless update"
+    ],
+    "pain_keywords": [
+      "unexpected behavior",
+      "control limitation",
+      "lack of documentation"
+    ],
+    "feature_keywords": [
+      "flag control",
+      "output control",
+      "AWS IoT shadow"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

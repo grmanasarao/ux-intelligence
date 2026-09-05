@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "branch_id": "9301499827",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 276371798231859,
+      "user_name": "nZNAAcvwJZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "I'm unsure whether this post fits better under Projects or Communication. I want to send an SMS from one [product_name] Communication Module to another, transferring a Byte of variable memory to represent input states from [product_name]1 and set outputs in [product_name]2. Currently, I can switch individual outputs by sending separate messages for ON or OFF commands, but the module restricts the number of messages sent. Sending a single message with a Byte (controlling up to 8 outputs at once), or a Word (up to 16), would make the module much more versatile. I've spent days testing this but haven't succeeded yet. With only one module available, I send SMS to a mobile phone, then back from the phone to the module. My test setup runs a basic program in Diagram mode, with unused inputs and outputs, and works similarly with a blank program. Not all Bits in the Byte need to be used—the system ignores requests affecting active blocks, avoiding interference. I can transfer a Byte from variable memory (I1 through I8) to V0 in the module's user data memory, and send this value to my phone via SMS (e.g. receiving 'I=0x13(b)', showing I1, I2, and I5 are active). I also transfer this value to V1, which promptly activates Q1, Q2, and Q5. Direct data handling seems to work, including triggering events via SMS sent to or from the module. However, I'm unable to send an SMS that sets V1 remotely. Disabling direct V0-to-V1 transfer and configuring V1 to update upon SMS arrival does not work, despite experimenting with message formats and data binding settings. The attachment illustrates the latest test configurations: Data Binding1 enables straightforward value transfer and works; Data Binding2 attempts remote SMS-triggered transfer and doesn't. Assistance or advice on achieving remote control through SMS would be greatly appreciated."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are working to expand the [product_name] Communication Module's functionality by sending multiple bits of data in a single SMS to control several outputs at once. The main challenge is configuring the module to trigger a remote variable memory change via inbound SMS, as direct data binding works but SMS-triggered updates do not.",
+    "user_expectations": "User expects to remotely update variable memory (V1) in the Communication Module using an SMS, allowing simultaneous control of multiple outputs from another module or a mobile phone.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote multi-output control",
+      "efficient byte-based messaging",
+      "expanded module functionality"
+    ],
+    "pain_keywords": [
+      "SMS binding failure",
+      "limited message handling",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "SMS trigger",
+      "byte/variable transfer",
+      "data binding",
+      "input/output mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

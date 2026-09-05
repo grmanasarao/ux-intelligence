@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8033702319",
+    "thread_id": "1723880927",
+    "publication_year": 2008,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 948088300900308,
+      "user_name": "HgKaq7JQ8k",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 10,
+      "comment_body": "I'm working on an application using a 0–16 bar pressure sensor with a 0–10VDC output. I've implemented an analog amplifier with a gain of 0.16 and no offset to provide input to a PID block. The amplifier’s output goes from 0 to 160, so in the PID block, I use a gain of 0.1 and an offset of 0, thereby converting it back to a range of 0–16. This setup functions well, but my customer would like to set a setpoint of 8.5 bar. What is the best way to accommodate this request?"
+    },
+    {
+      "comment_id": 827112529245338,
+      "user_name": "HgKaq7JQ8k",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 10,
+      "comment_body": "To clarify, I can change the setpoint value in the PID block, but it only accepts whole numbers, such as 8 or 9—not decimals like 8.5."
+    },
+    {
+      "comment_id": 881986649775896,
+      "user_name": "KDIvjqMeqh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 10,
+      "comment_body": "Hi, why not simply multiply by 2? Then your scale becomes 0–32, and 8.5 would be entered as 17. Is there a specific reason this approach wouldn’t work?"
+    },
+    {
+      "comment_id": 976535030983243,
+      "user_name": "HgKaq7JQ8k",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 10,
+      "comment_body": "I want the setpoint value to match the actual units, so it's straightforward for my customer. I believe I could manage this using analog amplifiers, but then the setpoint might need to be changed in a separate block. This should be possible, though I haven’t tested it yet. I imagine the same issue would come up if someone were controlling temperature and wanted to enter a setpoint like 21.5°C."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report a limitation in the PID setup where the setpoint parameter only allows whole numbers, making it impossible to set decimal values like 8.5 bar. This misalignment with real-world measurement units may cause confusion and reduce usability for the end customer. Forum participants are searching for ways to let setpoints be entered in the same units as the measured signal, without needing complicated scaling workarounds.",
+    "user_expectations": "Users expect to be able to enter any required value—including decimals such as 8.5 bar—for the control setpoint directly and intuitively, so the setting matches actual process units and is easy for customers to understand.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise setpoint input",
+      "direct unit representation",
+      "user-friendly customer interface"
+    ],
+    "pain_keywords": [
+      "no decimal setpoints",
+      "confusing workaround",
+      "lack of direct unit mapping"
+    ],
+    "feature_keywords": [
+      "setpoint input",
+      "decimal support",
+      "PID block interface"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

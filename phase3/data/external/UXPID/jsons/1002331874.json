@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "branch_id": "1002331874",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 837516656869742,
+      "user_name": "h4OKPwiKSy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hello, I've wired a 4-20mA analog sensor to my [product_name] using [article_no] and an [article_no] expansion module. On the [product_name] web interface, I see a value labeled '202' in the attached image. My sensor is connected to AI1, but I'm not sure what the 202 represents—is there a scale or conversion that should be applied to the analog input, or should scaling be performed on a remote server? Thank you, Best regards, [user_name]"
+    },
+    {
+      "comment_id": 457054477912289,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Assuming you are referring to the topic about retrieving analog values from the expansion module: Without knowing the physical measuring range of your sensor connected to AI1, it's not possible to interpret the displayed values definitively. The [product_name] converts each analog input to a value between 0 and 1000 units, regardless if it’s a 0-10V, 0/4-20mA, or PT100/1000 input. For 4-20mA sensors, only 800 units are usable—the first 200 units correspond to the 4mA lower limit. Therefore, in your case, the AI1 value of 202 suggests the sensor’s measured value is near the minimum. You should scale the analog input to match the physical measurement range of your sensor using an analog amplifier."
+    },
+    {
+      "comment_id": 269116680027885,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Refer to this FAQ from [company_name]: How do you scale measured values in [product_name] Soft Comfort? For further guidance, consult the official documentation or knowledge base."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are unsure how analog sensor readings are scaled within the [product_name] system, especially with 4-20mA sensors. There is confusion around the meaning of displayed numerical values and where scaling should be applied—internally, in software, or externally. The discussion clarifies that input values are mapped to a 0-1000 unit range, with 200 units dedicated to the 4mA threshold, making proper scaling essential for accurate sensor data.",
+    "user_expectations": "Users expect [product_name] devices to show sensor readings in a clear, physical format or to provide straightforward instructions for applying scaling, ideally through integrated options or accessible documentation.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy interpretation",
+      "automatic scaling",
+      "clear value readout"
+    ],
+    "pain_keywords": [
+      "unclear value representation",
+      "manual scaling required"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "value representation",
+      "web interface"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

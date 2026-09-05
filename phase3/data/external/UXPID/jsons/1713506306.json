@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "branch_id": "1713506306",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 342250556999800,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "How can I transfer a counter value formatted as a DWORD to a VW analog network output block? I'm unable to establish the connection – is it necessary to convert the DWORD to a WORD, or is there an alternative technique to solve this?"
+    },
+    {
+      "comment_id": 638461619234449,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "What is your goal with the counter value: transferring it to another [product_name] or using it in a calculation? For calculations, the usable range is 0 to 32767; for transfers, VM mapping can be utilized. Please explain the outcome you want to achieve. Regards, [user_name]"
+    },
+    {
+      "comment_id": 625339087809484,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "A possible solution is attached. Note that with this method, only counter values up to 32,767 can be transferred. Values larger than 32,767 are interpreted as 32,767."
+    },
+    {
+      "comment_id": 743033344776220,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Yes, I need one [product_name] to read the value from a counter in another [product_name]. I configured the counter value in VM, but it's set as a DWORD. When I attempt to read it using NAI and map the VM stored as DW, I encounter issues. You can try replicating this to see the problem."
+    },
+    {
+      "comment_id": 920763257635036,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thanks, that's the approach I use as well. I'm curious if there's any function block that handles the conversion directly, but it seems none are available for this specific task. I keep the counter value below 2000, so this technique works without issues. Thank you."
+    },
+    {
+      "comment_id": 644939136210303,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you, that's the same method I utilize. I'm wondering if a function block exists for direct conversion, but apparently not. The technique works fine as long as the counter stays below 2000. There is no conversion. Keep in mind, this is [product_name], not a PLC, and only certain areas handle DInt values; overall, it's designed for integers."
+    },
+    {
+      "comment_id": 103809552869032,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you, that's the method I use as well. I am interested if there is a direct function block for conversion – but it seems not. The technique is fine for values under 2000. No built-in conversion exists. Remember, [product_name] is not a PLC and mainly works with integer values. Only select areas manage DInt. Thank you, Sir. I notice there are blocks for Float to Integer and Integer to Float conversion. Could you explain these and provide an example? Is DW the same as Float?"
+    },
+    {
+      "comment_id": 583860016560872,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "No, a DWord in [product_name] Soft Comfort is a double integer. The conversion function block you noted is for transforming float or double float values to integers if they fall between -32,764 to 32,767 for the output Aq. The extended output eAq displays values from -999,999,999 to 999,999,999 in a message text. Its main use is converting float values from Modbus messages into integer format. See basic resources for 'Integer (computer science)' and 'Floating-point arithmetic'."
+    },
+    {
+      "comment_id": 723812634665836,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "It's important to know the basics of integer types, such as 16/32 bit signed/unsigned integers. This helps you interpret the values correctly. See the example in the attachment. Regards, [user_name]"
+    },
+    {
+      "comment_id": 824177141996528,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you, I need to study this topic further."
+    },
+    {
+      "comment_id": 147196409673160,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you, your sample is very helpful. When mapping a counter block to VD0, does network analog read only access partial VW2? Is it not possible to read the partial VW0 of VD0? I'll test this further."
+    },
+    {
+      "comment_id": 427236838918959,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Hello M111, Could you clarify where you want to transfer the counter value? Is it from one [product_name] to another for display?"
+    },
+    {
+      "comment_id": 779144457110767,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "The counter on the first [product_name] is configured as DW type on VM0. I want a second [product_name] to read the counted value via a network analog input block. I tried specifying NAI with the remote device set as the first [product_name], but the VM set to VM2 instead of VM0. This method, suggested by [user_name], worked well since the counted value isn't very high. Thanks to everyone."
+    },
+    {
+      "comment_id": 696430422991146,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "I tested your example and it works perfectly. Thank you for the clear demonstration. I now understand how to read partial VW from DW values."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face limitations when transferring a DWORD counter value into an analog output via [product_name] modules. Only integer values up to 32,767 are accurately transferred; larger values are capped. Users hoped for a direct conversion from DWORD to analog output but confirmed this isn't available, requiring workaround methods and manual configuration.",
+    "user_expectations": "Users want [product_name] modules to offer built-in functions to directly convert DWORD counter values to analog outputs (VW), including accurate handling of values above 32,767.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy value transfer",
+      "direct conversion",
+      "automation flexibility"
+    ],
+    "pain_keywords": [
+      "data type limitation",
+      "conversion constraint",
+      "value capping"
+    ],
+    "feature_keywords": [
+      "DWORD to WORD conversion",
+      "VM mapping",
+      "function blocks"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests"
+  }
+}

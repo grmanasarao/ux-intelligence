@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "1469628454",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 408421735412890,
+      "user_name": "R3pzh84KpL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello, I've gone through previous posts but couldn't find the solution I need. I'm trying to connect to a motor via modbus and want to show its position. Although the position can exceed +-999,999,999, it's rare so I'm setting that aside. My main goal is just to display the value. My 32-bit data is located at [address]. I've thought about displaying it as a float using an Integer/Float converter, but I'm struggling to get the 32-bit value into the necessary register for conversion. Does anyone have a solution?"
+    },
+    {
+      "comment_id": 272373572604715,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Unfortunately, you won't find a way to accomplish this with [product_name]. It does not support reading or handling 32-bit signed integer values, as it's only designed to work with 16-bit signed integers."
+    },
+    {
+      "comment_id": 455432351521053,
+      "user_name": "R3pzh84KpL",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Thanks [user_name], just to confirm: even if I can enter a value like -999,999,999 into the interface function, there's no method to reference a specific memory location instead?"
+    },
+    {
+      "comment_id": 912166681940282,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "That's correct. All standard analog blocks only support 16-bit signed integers."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face limitations with [product_name] when attempting to display 32-bit values from external devices such as motors over modbus. The product restricts operations to 16-bit signed integers, creating difficulties for tasks requiring larger numerical ranges. This lack of support for higher data widths and direct memory location addressing causes user frustration.",
+    "user_expectations": "Users expect [product_name] to be capable of reading and displaying 32-bit signed integer values, as well as referencing those memory locations for conversion and display.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "display 32bit data",
+      "integrate motor position",
+      "modbus data visualization"
+    ],
+    "pain_keywords": [
+      "cannot handle 32bit values",
+      "memory addressing limitation",
+      "insufficient data width support"
+    ],
+    "feature_keywords": [
+      "support for 32bit integers",
+      "memory location addressing",
+      "float conversion/display"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

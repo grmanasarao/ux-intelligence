@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "6993020535",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 114030245518520,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm looking for a way to create a function block in [product_name]. I have a program where a certain logic needs to be implemented seven times, each with different inputs and outputs. My current approach works but feels inefficient and uses many comments. If I could create one block and reuse it several times, it would be ideal. Does anyone have suggestions on how to improve this?"
+    },
+    {
+      "comment_id": 954636596750513,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "What you're describing is referred to as a User-Defined Function (UDF) block. After you create a UDF, it can be called like a standard block. In [product_name], you can find options for this within the Tools menu, by specifying the UDF store path. Instructions about UDFs, their creation, and usage can be found in the manual and online help."
+    },
+    {
+      "comment_id": 941246207589728,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Okay, thanks."
+    },
+    {
+      "comment_id": 969017029800243,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "However, there are a few things to watch out for. When calling a UDF in your program, the block numbers for those within the UDF will be automatically assigned to available numbers, which also applies to flags. Also, memory usage isn't reduced through UDFs, as each call allocates the same number of blocks and flags. For example, if your UDF contains 13 blocks and 2 flags, calling it five times will use 65 blocks and 10 flags."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion revolves around implementing reusable logic to prevent repeating similar blocks in [product_name] programming. One user seeks a method for function block creation to streamline their program. Another explains the concept of User-Defined Functions and how they work, offering details on where to find the relevant options and documentation. The conversation also highlights important considerations like memory allocation, which is not reduced by using UDFs.",
+    "user_expectations": "The user expects to create a reusable function block that can be called multiple times, aiming to decrease code repetition, optimize memory usage, and achieve a more organized project layout.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reusability",
+      "project organization",
+      "efficiency"
+    ],
+    "pain_keywords": [
+      "duplicate logic",
+      "high memory use",
+      "sloppy code"
+    ],
+    "feature_keywords": [
+      "function block",
+      "user-defined function",
+      "memory allocation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

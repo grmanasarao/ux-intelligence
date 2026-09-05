@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "branch_id": "3750219066",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 864304539899709,
+      "user_name": "HZKFuj5O1I",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Device type: [article_no] [product_name] software version: [version_no] Good morning! Is it possible to set up a counter that provides a display notification every three months, and continues measuring time even during power outages? The counter should start after machine testing and reset only when two buttons are pressed at the same time. Using an annual or weekly timer is not sufficient for this application. Thank you and best regards, [user_name]."
+    },
+    {
+      "comment_id": 989850850695306,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "If the [product_name] device isn't powered, the program won't run, as it goes into stop mode without voltage. The only function that continues is the battery-powered real-time clock. From the documentation: The internal clock is backed up, maintaining operation after power loss. Backup duration depends on temperature—at 25°C, typical backup for a [product_name] [article_no] (not including the Lite version) is 20 days; for the Lite version, it's only 3 days. If power is gone for longer than 20 days, the clock reverts to its state prior to the outage upon restart."
+    },
+    {
+      "comment_id": 399132774171746,
+      "user_name": "HZKFuj5O1I",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Thank you! However, when the PLC is off, the internal clock doesn't actively count time but preserves its value from before the power loss. So, if the PLC is off for 10 days, the notification will be postponed by 10 days."
+    },
+    {
+      "comment_id": 305789289016944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "The internal real-time clock is powered by battery backup. If the [product_name] loses power, the clock continues for up to 80 hours. From the manual: The internal real-time clock of [product_name] is buffered against power failure. At 25°C, the clock backup typically lasts 80 hours."
+    },
+    {
+      "comment_id": 665363229103876,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "This kind of issue is common with PLCs. When they lose power, they cannot operate. For your requirement, there are only two options: keep the [product_name] always powered on, or use an external solution for the notification."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is searching for a way to implement a periodic notification every three months on a [product_name] device that continues tracking elapsed time during power outages. Discussion revealed that only the real-time clock, which is battery backed, maintains its count briefly without power; regular program logic and timers do not operate while the device is off. Extended power outages disrupt the intended notification schedule, meaning the solution does not fully meet the user's requirements.",
+    "user_expectations": "User expects the [product_name] device to reliably measure calendar time and generate periodic alerts regardless of power cycles, while also allowing for manual reset.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "periodic signaling",
+      "maintenance reminder",
+      "persistent counter",
+      "accurate timing"
+    ],
+    "pain_keywords": [
+      "loss of timing during power outage",
+      "limited battery backup",
+      "delayed warning",
+      "functionality gap"
+    ],
+    "feature_keywords": [
+      "real-time clock",
+      "periodic scheduler",
+      "display warning",
+      "manual event reset",
+      "battery backup"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "30": "Data Persistence Confusion"
+  }
+}

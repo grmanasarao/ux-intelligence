@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "9995846146",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 535678135499402,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I had a [article_no] device that was reportedly damaged by lightning. There is an unmarked component connected across the power terminals on the rear of the PCB which seems to be shorted—can anyone identify what it is and its value? I don't have a spare one to use for reference. It resembles a capacitor but could also be a MOV or some type of fuse. I can share a picture if needed."
+    },
+    {
+      "comment_id": 493077641509607,
+      "user_name": "SWseeItON6",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Please upload a clear, focused picture. I'm not familiar with the type of input protection that [product_name] uses, since I haven't disassembled one yet."
+    },
+    {
+      "comment_id": 924658498357259,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "After removing the component, the controller powers up without issues. It was a small, unmarked surface-mount part, roughly 1mm square. Once I took it out, it got lost—probably somewhere in the carpet under my desk."
+    },
+    {
+      "comment_id": 186976511432052,
+      "user_name": "SWseeItON6",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "The part is likely a crowbar diode, positioned in parallel across the input to protect against over- or reverse-voltage by shorting. Using the [product_name] without it is possible, but adding a new one will restore the protection."
+    },
+    {
+      "comment_id": 221838695657897,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "For all versions rated at 230 Volts, I always add an extra 275MOV directly onto the terminals. In the event of overvoltage, it activates first and blows the fuse. This method works well when the power supply isn't stable, such as when using heavily loaded or misused generators. It's easy to explain to the customer: just reset the fuse; if that doesn't work, replace the 275MOV. These have consistently protected my [product_name] devices. Previously, I saw many burned power supplies from [product_name]. In my home, I use 12 programmable controllers and live in an area prone to lightning strikes. One of my controllers starts the generator during outages (which happen multiple times a year), and thanks to my protection setup, I haven't lost a controller—even after several strikes, although a generator was lost due to a nearby strike."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Community members reported damage to a [product_name] unit, likely from a lightning event, leading to a shorted component on the power input. Discussion focused on identifying, sourcing, and replacing the unspecified SMD part—possibly a protection device like a MOV or diode. Users shared input protection strategies, noting that adding extra surge protection components has proven effective against external power surges.",
+    "user_expectations": "Users hope to easily recognize and swap out PCB input protection components on [product_name] programmable controllers to maintain reliability after electrical surges. There is a desire for straightforward guidance on surge protection and clearer documentation or labeling of such components.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliability",
+      "surge protection",
+      "component identification"
+    ],
+    "pain_keywords": [
+      "component damage",
+      "lack of component marking",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "input protection",
+      "surge protection",
+      "component marking"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "17": "Circuit Protection Guidance"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "8343942606",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 937860595238585,
+      "user_name": "20YYH5oVmx",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hello everyone. I want to load a program from an SD card every time the controller boots. If the SD card is missing during boot, the program shouldn't run. At the same time, the SD card should be copy protected. Is this possible? Thank you."
+    },
+    {
+      "comment_id": 152505063515098,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "No, that's not possible. When the controller restarts, it checks for an SD card with a program. If a valid program is found, it checks whether it's different from the one in flash memory. If so, it loads the program from the SD card to flash memory. But once the program is loaded into flash, the SD card can be removed—the device no longer requires it. There is no setting that forces the controller to only operate when the SD card is present."
+    },
+    {
+      "comment_id": 196625248716173,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hi, You can try the following steps, but ensure you have a backup of the [product_name] Soft Comfort program: - Download the program to the controller. - In the controller's settings, go to the SD card menu and activate copy protection. - Copy the program from the controller to the SD card. - Copy the program back from the SD card to the controller. After removing the SD card, the controller should display 'No program.' Even with the card removed and power cycled, the controller will show 'No program' and won't execute anything. This solution mostly addresses your requirements, but the SD card needs to remain inserted at all times. You could also set a program password. That way, if the SD card is removed and connected to a PC, the program can still be accessed if the password is known. Hope this helps."
+    },
+    {
+      "comment_id": 742483072186070,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], I followed the instructions, but after removing the SD card and restarting the controller, the program was still available on the device."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to enforce that a controller always loads and executes its program from an SD card at each boot, requiring copy protection so that operation without the SD card isn't possible. The responses clarify that the controller’s standard behavior is to copy programs into flash memory, so after the program is initially loaded, the SD card is no longer needed to run the program—making mandatory SD card presence not achievable. Using copy protection or password features is suggested but doesn't fully meet the requirement.",
+    "user_expectations": "User expects the controller to require a copy-protected SD card at each startup to execute the program, ensuring higher security and control over program access.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "program security",
+      "mandatory SD card",
+      "copy protection"
+    ],
+    "pain_keywords": [
+      "cannot force SD card requirement",
+      "program runs without SD card",
+      "copy protection limitations"
+    ],
+    "feature_keywords": [
+      "SD card dependent execution",
+      "copy protection",
+      "program password"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "branch_id": "8480622107",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 483902288267931,
+      "user_name": "oMTea76nPF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "I'm planning to create a small home automation setup using [product_name]. I want the system to have backup power in case of a main power failure. I've discovered some [company_name] DC UPS modules with maintenance-free battery modules. My goal is to minimize power consumption during outages. Is it possible to deactivate some of the expansion modules that aren't critical and are installed furthest to the right to save energy? Will the entire [product_name] system crash if it can't locate these expansion modules and can't complete its I/O checks? During outages, the necessary expansion modules will be powered by the UPS, while the rest will be supplied by the standard [product_name] power module."
+    },
+    {
+      "comment_id": 888477175400644,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], Initially, I didn't think this approach was feasible because of the required power-up sequence for both the [product_name] and its expansion modules. The documentation indicates that expansion modules must receive power before—or exactly at the same time as—the [product_name] base unit (CPU). Since the [product_name] takes several seconds to boot, both can get power at once, and when the CPU checks for modules, they're already powered. If power is supplied to expansion modules only after the CPU has finished booting up, the communication LEDs will remain red, signaling no connection from the left side. This happens because the CPU didn't detect any expansion modules at startup, so it's not communicating actively. However, after some testing, I found that if the full rack/configuration has been successfully powered on once, it's possible to remove power from expansion modules while the CPU keeps running, and reapply power later—communication resumes to all modules. I tried this setup with a CPU and several expansion modules, all at 24 VDC. This allows the CPU to establish bus communication, and expansion modules reconnect when powered up again. However, please note: 1) This may not work with communication modules (KNX/EIB or AS-i). 2) My tests are only with 24 VDC modules/CPUs—not 230V AC. 3) Unexpected behavior may occur in your running program—the CPU might read changed input states due to switching. 4) Warranty may be affected by repeatedly switching modules like this. 5) [company_name] likely doesn't recommend or approve this method! 6) Do not attempt in explosive environments—there's a risk of sparks when modules power up again. Keep in mind, expansion modules draw their highest current when all relays are activated, or when analog outputs are fully engaged. Good luck with your project!"
+    },
+    {
+      "comment_id": 320357510749843,
+      "user_name": "vUw1VuCtBK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Very interesting discussion! Thanks for raising the questions and thanks for the detailed response."
+    },
+    {
+      "comment_id": 528957755300735,
+      "user_name": "oMTea76nPF",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Big thanks to [user_name]! I'm planning to use [product_name] with its expansion modules. My goal is to create an energy-efficient setup with logic coded for power-saving. During outages, only essential outputs will be activated. A power loss signal will be sourced from the UPS, which seems to provide a contact for this function. I'll also supply only priority sensors and actuators through the UPS—so alarms like fire, security, and water leakage get validated first. Does anyone know which type of battery can be used with [company_name] DC UPS? Is it only compatible with [company_name] battery modules, or can I use traditional 24VDC lead-acid batteries as used in trucks? I think lead batteries might be the best option. The program is almost ready. Currently, I'm working on the control cabinet layout, wiring diagrams, floor plan placement for instruments, I/O list, and device list. Maybe I'm going a bit overboard, but it's a worthwhile hobby. My hope is to complete my design work before starting our new house and running cables. I'll be back if there are any issues as the project continues!"
+    },
+    {
+      "comment_id": 165267758072204,
+      "user_name": "oMTea76nPF",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Hello again! I'm aiming to use [product_name] with its expansion modules, all operating at 24 VDC since my sensors require it. How should I wire the power supply to both base and expansion modules if my sensors are N-switching type? My proposed solution is: - For N-switching sensors: connect 0V to the P1 pin, and 24VDC to the P2 pin. - For P-switching sensors: connect 24VDC to the P1 pin and 0V to the P2 pin. Is this correct? If so, do all N-switching sensors need to be grouped on the same module(s), and likewise for P-switching sensors? Can modules be configured for different switching polarities, or must the whole system use the same polarity?"
+    },
+    {
+      "comment_id": 867451211585085,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Hi, Only the [product_name] model with 24RC can work with N-switching sensors—others can't. On this [product_name], you can change the power supply polarization at the base module, allowing all its inputs to read N-signals. This is also compatible with the dedicated expansion module. The reason is, these modules can use 24V DC or AC, and with AC, polarity constantly changes, which affects input readings. Inputs depend on the module’s power supply polarity, so it works as described. Hope this clarifies things."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are focused on managing power and configuring [product_name] systems with expansion modules, with a special emphasis on energy-saving strategies for backup scenarios. Main topics include turning off non-essential modules during power interruptions, wiring practices for different sensor types, and compatibility of various batteries with DC UPS units. While some technical advice and experimentation is shared, official documentation leaves unanswered questions about warranty and safe operation, indicating room for further clarification.",
+    "user_expectations": "The user hopes to efficiently manage the backup power for their automation setup by only powering essential modules and sensors during outages, ideally using standard lead-acid batteries for UPS and wiring sensors of different switching types correctly. Reliable operation, energy efficiency, and flexible hardware choices are their key expectations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "energy saving",
+      "reliable backup",
+      "flexible configuration",
+      "correct sensor wiring",
+      "battery compatibility"
+    ],
+    "pain_keywords": [
+      "uncertainty about module powering",
+      "lack of official guidance",
+      "battery compatibility",
+      "sensor wiring complexity"
+    ],
+    "feature_keywords": [
+      "expansion module power management",
+      "sensor polarity configuration",
+      "UPS battery options"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance",
+    "17": "Circuit Protection Guidance"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "9953906342",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 439889392402574,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello, I have a program where a process fault counter resets to 0 every midnight, and I want to save the daily counter value for several days. I found a method (as shown in the attached image), but I'm wondering if there is a better approach and the optimal location to store such data. I realize that using the mathematical instruction for reading the counter isn't perfect since the counter is a double word while the instruction is a word, but this doesn't pose a problem since the count rarely exceeds 20."
+    },
+    {
+      "comment_id": 751745787970721,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "You are correct; if the counter stays below 32,768, there shouldn't be issues. I'd recommend using a single weekly timer that generates a daily pulse at midnight. I'll prepare an example to help illustrate."
+    },
+    {
+      "comment_id": 821247022196406,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Here's an example. Please note, however, that storing values this way isn't resistant to power outages. If you need enhanced data protection, you can add MAX/MIN blocks."
+    },
+    {
+      "comment_id": 737519324332349,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thank you for the information. Is this how you save data with the MIN/MAX method?"
+    },
+    {
+      "comment_id": 737172540810060,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Yes, that's right. Use Mode 3 with REM set to On."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discuss strategies for retaining daily fault counter values in a [product_name] environment, considering both data reliability and persistence concerns. The discussion highlights the importance of safeguarding counter data against power failures and addresses limitations related to data type sizes. Users share techniques for automated data storage and inquire about secure practices compatible with the system's capabilities.",
+    "user_expectations": "The user seeks a simple yet dependable solution for storing daily counter data, aiming to prevent data loss even in the event of power cycles, and requests expert recommendations for the most robust storage method.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "daily data logging",
+      "reliability",
+      "power failure protection",
+      "storage accuracy"
+    ],
+    "pain_keywords": [
+      "data loss risk",
+      "datatype mismatch",
+      "complexity of best practice"
+    ],
+    "feature_keywords": [
+      "counter storage",
+      "timers",
+      "memory mode",
+      "MIN/MAX block"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "30": "Data Persistence Confusion"
+  }
+}

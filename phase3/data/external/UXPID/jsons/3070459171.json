@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "3070459171",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 270862608884330,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hi everyone, I'm adapting a program I found in this forum. I created an up/down counter that increases every 60 seconds to track minutes, which then triggers an hour counter. Now, I would like to keep a constant value in the program and compare it to the hour counter—if the accumulated value reaches or exceeds the constant, I want to activate an output or relay. I haven't figured out how to store a constant or compare two values yet. Thanks for any help."
+    },
+    {
+      "comment_id": 240373215223916,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "If both the constant and the hour counter are less than 32768, the solution is straightforward. If they are greater, it's more complex but still manageable. By the way, it's best to directly upload the [product_name] program instead of a PDF file. Edit: Have you considered using the ON function of the counter?"
+    },
+    {
+      "comment_id": 585316696952275,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I wasn't aware of the ON function for the counter; I'll look into it right away. I tried attaching a file named 'Time_comparison_R1.lsc', but I received an 'invalid file extension' error. Am I missing something?"
+    },
+    {
+      "comment_id": 161285503558892,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "You need to compress the LSC file into a ZIP format before uploading it."
+    },
+    {
+      "comment_id": 571490248870475,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Thanks so much!"
+    },
+    {
+      "comment_id": 393383676831457,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I've attached a possible solution based on your program."
+    },
+    {
+      "comment_id": 110170013093641,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "That's exactly what I was looking for. Thanks for all your help!"
+    },
+    {
+      "comment_id": 335503772225106,
+      "user_name": "lemlbtSecs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello, you can use a counter mapped to a memory byte. If you need a double word counter, divide it into two words and compare those."
+    },
+    {
+      "comment_id": 755348768379894,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Thank you for the suggestion, [user_name]. I noticed the Network Analog Input instruction, but I wasn't sure how to apply it."
+    },
+    {
+      "comment_id": 290500225796604,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], I think you may have misunderstood my recommendation. If you don't need to use your hour counter's digital output for other tasks, you don't need additional evaluation as suggested. Why transfer the counter value to VM memory, then read it through network outputs to compare? The up/down counter in [product_name] already features an internal comparator that you can set via the ON and OFF parameters."
+    },
+    {
+      "comment_id": 168546680760748,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Actually, [user_name], I've implemented your solution and it works well. I also appreciate the suggestion about the Network Analog feature—I'm still trying to fully understand how it works and plan to study it further."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed how to compare a counter's value to a preset constant within a [product_name] program. There were questions about the process of storing constants and using built-in comparison functions, such as the ON setting. Users also faced difficulties with uploading and sharing program files due to format requirements. The key insight is that some features for value comparison and file handling are not easily discovered by users, impacting their experience.",
+    "user_expectations": "Users expect the ability to easily store and compare constants to counter values using built-in [product_name] features. They also seek clear guidance and simple file sharing processes when requesting support.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "automatic comparison",
+      "output control",
+      "programmable constants",
+      "internal logic utilization"
+    ],
+    "pain_keywords": [
+      "feature discoverability",
+      "lack of direct comparison function knowledge",
+      "file upload barrier"
+    ],
+    "feature_keywords": [
+      "counter ON/OFF parameter",
+      "value comparison",
+      "constant storage",
+      "output setting"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "23": "File Accessibility Barriers"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "6374032156",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 545360869095349,
+      "user_name": "Qn7uUoEZZY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello. I am working with [product_name] [version_no] configured as a Modbus server. After assigning digital outputs (NQ) and inputs (NI) to certain internal memory addresses (VM), for example NQ1 to v0.0 and NI1 to v3.1, I attempted Modbus communication using QModMaster. According to the mapping table in [product_name] software, Modbus addresses should align as NQ1 -> coil 1 and NI1 -> coil 18. While reading and writing to these coils is possible, the operations do not affect NI or NQ values, nor do changes in NI/NQ reflect in the coils. It seems linking coils to VM through NI or NQ is not functioning. The issue seems isolated to coils, as other register types, such as analog inputs/outputs, work correctly. Is this a software bug, or am I missing something? Best Regards [user_name]"
+    },
+    {
+      "comment_id": 813660852118201,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Please upload your test program as a zip file so the Modbus mapping can be reviewed. A screenshot alone isn't sufficient for analysis. Regards, [user_name]"
+    },
+    {
+      "comment_id": 193604163174468,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "[product_name] uses an offset of +1 for addressing. When you write to V0.0, this maps to coil 2 on the Modbus side. V3.1 on the [product_name] corresponds to coil 26, not coil 18."
+    },
+    {
+      "comment_id": 737485004383792,
+      "user_name": "Qn7uUoEZZY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Thank you for your rapid reply. Apologies for the delayed response. You are correct, the coil addressing on my end was incorrect. Everything is functioning as expected now."
+    },
+    {
+      "comment_id": 952760293117711,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Glad to hear it's resolved ..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user encountered difficulties linking internal memory markers on a [product_name] device to Modbus coils, misinterpreting expected coil behavior as a possible bug. Investigation revealed that the problem was due to incorrect address mapping, and after correcting the Modbus offset, all functionalities operated correctly.",
+    "user_expectations": "Users expect a seamless and intuitive linkage between [product_name] memory markers and Modbus coils, with immediate reflection of changes. Clear mapping documentation or interface is anticipated to prevent address misconfiguration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate mapping",
+      "seamless Modbus integration",
+      "clear documentation"
+    ],
+    "pain_keywords": [
+      "incorrect address mapping",
+      "misleading documentation",
+      "unexpected coil behavior"
+    ],
+    "feature_keywords": [
+      "VM address binding",
+      "Modbus coil mapping",
+      "register configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

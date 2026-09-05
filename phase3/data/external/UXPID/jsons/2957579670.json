@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "branch_id": "2957579670",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 495639582096861,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello everyone! I'm trying to show 32 word values on the [product_name] display, but I get an error about insufficient resources when I add the network analog input number 16. Is there a limit of 16 inputs? Also, can I only add blocks to the display? I attempted to connect a network analog output to an analog flag, but the analog flag can't be shown. Maybe there's a related method to solve the resource issue. I've attached a screenshot showing the VW value and the error that appears when trying to add the 17th network analog input. Thank you for your attention. Best regards."
+    },
+    {
+      "comment_id": 488439261602486,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I'm having the same issue. Your screenshot shows only part of your logic. Please upload the complete code, not just the screenshot."
+    },
+    {
+      "comment_id": 615772128836015,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], The rest of the code isn't related to the screen logic. I'm only displaying amplifier blocks on the display. Best regards."
+    },
+    {
+      "comment_id": 811155734001404,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You are asking for help. If you're not willing to provide details..."
+    },
+    {
+      "comment_id": 204459468294967,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "1. You posted a picture with an error message in Spanish. It would be better to set [product_name] software to English, so others don't need to manually translate, since text from images can't be copied easily. 2. Could you explain why you're using many network analog inputs and amplifiers, which connect to an analog flag? Without a detailed description or the program, it's unclear. You might consider sharing an example program rather than your full code. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 978607237674818,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Here is my code. Summary: On the top-left, I display values pressing the left key six times. Top-right reads modbus values (from temperature sensors) and compares them with two reference values in the user-defined function, then activates a flag. The lower section is where the problem is — I want to display 32 values (16 measurement resolutions + 16 intervals) from the LWE and show them on the [product_name] screen, but only 16 values can be displayed. Thank you very much."
+    },
+    {
+      "comment_id": 722290245511007,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "There might be a solution, though I haven't tested it yet. All values that only need to be shown as a text message could be mapped to an analog multiplexer; check the attachment for an example. You'll need VM mapping to assign up to 4 words for the multiplexer. I hope your modbus device's values overwrite the multiplexer values, but I can't confirm. Maybe someone else with the right hardware could check this. Usually, you can use NAI1 to NAI32 for network analog inputs. If you have issues copying diagram sections, try adding single NAI inputs. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 352133526385439,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I tested the mappings with a Modbus server simulator on my PC, and it seems to work. It is possible to use Modbus values in a [product_name] program without relying on network analog inputs. See the picture: Modbus server simulator on the left, [product_name] display over internal webserver on the right. All values start at zero; after updating holding registers in the simulator, the display message updates. When the Modbus simulator is stopped, all values return to zero. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced a limitation when trying to display 32 analog word values via network inputs in [product_name] software, receiving a resource error at the 17th network input. The user requested solutions to bypass this cap and alternative ways to display more analog values. Suggestions included using multiplexing and value mapping, but initial system behaviors and limitations were unclear, causing confusion.",
+    "user_expectations": "The user wants to display all 32 analog values on the [product_name] display without resource issues, and to easily connect and show analog flag values. They also expect the software to support such use cases or to provide clear, user-friendly alternative methods.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "display multiple values",
+      "expandable input capability",
+      "effective Modbus integration",
+      "enhanced resource limits"
+    ],
+    "pain_keywords": [
+      "resource limitation",
+      "network analog input cap",
+      "limited display functionality",
+      "unclear workaround"
+    ],
+    "feature_keywords": [
+      "network analog inputs",
+      "analog flag",
+      "multiplexer",
+      "display",
+      "VM mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

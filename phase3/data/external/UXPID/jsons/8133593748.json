@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "8133593748",
+    "thread_id": "3055273936",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 171202978811052,
+      "user_name": "F31rVx7Bs5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 10,
+      "comment_body": "Hello everyone, I'm experiencing a significant issue with the 0-10V analog output from the [product_name] module. When any internal relay in the [product_name] PLC switches off, a brief voltage spike of around 9VDC appears. My setup includes three [product_name] modules between the PLC and the analog output module. This short-lived spike is interpreted by the system as a control voltage, which is problematic. Has anyone encountered this before? The spikes last approximately 250-500 milliseconds, not just a single pulse. I have checked the power supply inputs on both the PLC and the analog module, and I can't detect any spikes there when using an oscilloscope. It seems these spikes originate from the PLC's internal relays. I'd appreciate any advice. Thank you."
+    },
+    {
+      "comment_id": 590932561388057,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 10,
+      "comment_body": "Hi, What kind of load do these relays have? If the load is inductive, consider placing diodes in antiparallel across the load. I've not experienced this issue before; usually such spikes are caused by external factors, not internal to the [product_name]. Be sure to check your wiring and load, and use shielded, properly grounded cables for analog signals. Best regards."
+    },
+    {
+      "comment_id": 195633170904678,
+      "user_name": "F31rVx7Bs5",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 10,
+      "comment_body": "I've disconnected all loads from the output terminals of the PLC, but the spikes persist at the analog module's output. The analog output is routed to a voltage-to-current converter via about six inches of hookup wire, which is not bundled with any other wires. With all the relay loads disconnected, diodes aren't required. Do you have any other suggestions? Thanks!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user describes a consistent voltage spike on the analog output of their [product_name] module, triggered whenever an internal relay on the [product_name] PLC turns off. This effect lasts for several hundred milliseconds and is observed even after disconnecting all external loads, suggesting the source is internal to the PLC or module. The spike interferes with control circuits, as it is mistakenly interpreted as a control voltage, causing operational issues.",
+    "user_expectations": "The user expects the analog output of the [product_name] module to remain stable and free of voltage spikes, regardless of the state of any internal relays in the [product_name] PLC.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "stable analog output",
+      "reliable signal transmission",
+      "elimination of voltage spikes"
+    ],
+    "pain_keywords": [
+      "voltage spikes",
+      "misinterpreted control signal",
+      "signal instability"
+    ],
+    "feature_keywords": [
+      "analog output signal",
+      "relay interaction",
+      "signal stability"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

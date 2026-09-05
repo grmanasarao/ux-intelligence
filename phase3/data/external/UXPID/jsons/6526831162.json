@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "6526831162",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 573875699782330,
+      "user_name": "6lwDm5Pdzy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm facing issues when processing analog values. Everything functions correctly during simulation, but inconsistencies appear once the program is downloaded and tested on the actual device. Problem 1: ---Deleted Link, see attachment--- When you look at the screenshot, you’ll notice an analog input (pt100 sensor), an analog amplifier used to convert the signal to temperature, and another block to set an offset due to slight variation between actual temperature and the display result. The issue arises with the analog comparator block, which shows a parameter value of 361, even though the input value is only 353. Ideally, the comparator parameter should reflect the input value of 353. Is this being misinterpreted? Problem 2: ---Deleted Link, see attachment--- Displayed is a simple test with a mathematical instruction block. On the left, in simulation, a value P1 of 348 is set and used elsewhere, showing up correctly as 348. However, after downloading and testing online, even though P1 remains 348, the relevant parameter becomes 0. Why do these results differ between simulation and online testing? Thank you in advance."
+    },
+    {
+      "comment_id": 216529943569380,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "The differences you're seeing are purely in how values are displayed during simulation versus online monitoring. The values in expanded list fields for reference functions are only valid while in simulation. These fields are not refreshed during online mode. To view an analog block’s output in online mode, hover over the block and click the pair of glasses icon that appears. This will reveal the current output value for that block. See the attached video for more details."
+    },
+    {
+      "comment_id": 995126895441658,
+      "user_name": "6lwDm5Pdzy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "I agree, it does make things confusing. Thank you for the explanation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encounters discrepancies between simulation and online monitoring when working with analog values in the development environment. Display behavior and calculation outputs differ between modes, leading to confusion about how the system is really interpreting and displaying its results.",
+    "user_expectations": "The user expects the display and calculation of values to remain consistent and clear across both simulation and real device online testing modes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct analog value display",
+      "consistent results",
+      "accurate monitoring"
+    ],
+    "pain_keywords": [
+      "display inconsistency",
+      "confusing UI",
+      "simulation vs online difference"
+    ],
+    "feature_keywords": [
+      "simulation mode",
+      "online monitoring",
+      "analog input display",
+      "mathematic instruction",
+      "analog comparator"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

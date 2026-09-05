@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "6683977453",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 274317080106004,
+      "user_name": "DAixK7a17B",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello, I am having trouble determining the correct gain and offset values for a 4-20mA sensor input. For example: 100 °C corresponds to 20mA and reads as 1000 units on the [product_name], while 0 °C relates to 4mA and the result is unclear on the [product_name]. The increment is 50, with an offset of -250 and a gain of 1.25, which seems confusing. I am unsure why the offset is not 200. While I can generally calculate gain and offset, the 4-20mA setup is causing issues. Could someone explain how to calculate gain and offset in this scenario?"
+    },
+    {
+      "comment_id": 122962437371509,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "The analog input on [product_name] typically interprets a 0-20 mA current signal (or 0-10V voltage) and translates it to 1000 units. For a 4-20 mA sensor, 4 mA serves as the zero point, leaving 800 usable units from 200 to 1000. Therefore, both amplification (gain) and zero-point adjustment (offset) are required. If you amplify the 1000 units with a gain of 1.25, this becomes 1250 units. Applying an offset of -250 shifts the measurement range from -250 to 1000."
+    },
+    {
+      "comment_id": 510867292516781,
+      "user_name": "DAixK7a17B",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Thank you, your explanation is accurate and very helpful. If we want to convert a 4-20mA signal to display 0-1000 units on [product_name], we should set the gain to 1.25 and the offset to -250. However, I would like to know if there is a formula for calculating these values myself for 4-20mA sensors. One formula could be: gain = (max sensor value - min sensor value) / (max normalized value – min normalized value). For example: gain = (20 - 4) / (1000 - 200) = 0.02. Offset = [(min sensor value x max normalized value) – (max sensor value x min normalized value)] / (max normalized value – min normalized value), so offset = [(4 x 1000) - (20 x 200)] / (1000 - 200). Best regards, [user_name]"
+    },
+    {
+      "comment_id": 815674805247565,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "When setting up a 4-20 mA sensor in the analog amplifier, manual calculations are unnecessary as the [product_name] software computes these automatically. You simply select the 4-20 mA sensor type, input minimum and maximum limit values for the measured range, and specify decimal places. The software then determines the gain and offset for you. For example, with a 4-20 mA sensor ranging from -30 bar to 90 bar and one decimal place: Type: 4-20 mA, Minimum: -300, Maximum: 900. The software calculates a gain of 1.5 and an offset of -600."
+    },
+    {
+      "comment_id": 232798323765408,
+      "user_name": "DAixK7a17B",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Thank you for your reply. I am aware that [product_name] calculates gain and offset automatically and that it's sufficient to input only the minimum and maximum values. Based on your example—gain = 1.5 and offset = -600—I'd like to understand how to manually calculate these for a 4-20mA sensor. Is there a standard method, or does [product_name] use a specific approach for 4-20mA signal conversion? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 491246587066430,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "It is possible to manually compute the gain and offset values. For example, a sensor with 4-20 mA range and a measurement scale from -30 to 90 bar (displayed with one decimal). If you want -30 bar to correspond to 4 mA, you would need to extend the measuring range as it would typically be set for a 0-20 mA sensor."
+    },
+    {
+      "comment_id": 461540799893100,
+      "user_name": "DAixK7a17B",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Very helpful, thank you."
+    },
+    {
+      "comment_id": 529119686109615,
+      "user_name": "DAixK7a17B",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hi, now I want to have the [product_name] display 0-100°C as 0-100 units instead of the default 0-1000 units. Could you review the gain and offset for this setup and let me know if it is correct? For example, 100°C corresponds to 20mA and displays as 100 units, while 0°C relates to 4mA and displays as 0 units. With gain set at 0.13 and offset at -26 (automatically calculated by [product_name]), and limits set to minimum: 0, maximum: 104, is this correct? Additionally, if the sensor records 30°C, will [product_name] show 30 units? I want a one-to-one mapping so that the reading matches the temperature value directly. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 756525887298736,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "The main issue is that the analog amplifier only supports up to two decimal places, which causes rounding errors. For instance, instead of a required gain of 0.125, the amplifier uses a rounded gain of 0.13. This can be resolved by cascading two analog amplifiers or combining an analog amplifier with an arithmetic operation in series."
+    },
+    {
+      "comment_id": 273172263510444,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Yes, it's a similar problem with rounding errors, and the same solutions can be applied."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience confusion and challenges when configuring gain and offset parameters for 4-20 mA sensors using [product_name] and [product_name] software. While the automatic parameter calculation simplifies initial setup, precise manual control is limited due to decimal restrictions and rounding errors. The system works well for general applications, but its lack of transparency and flexibility poses difficulties for users who want to understand or fine-tune the gain/offset formulas themselves.",
+    "user_expectations": "Users expect to manually calculate and verify gain and offset values for 4-20 mA signals, and wish for [product_name] and its software to support precise and customizable mapping without restrictions from rounding or limited decimal places.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "precise mapping",
+      "manual configuration",
+      "transparency in calculation"
+    ],
+    "pain_keywords": [
+      "rounding errors",
+      "insufficient decimal places",
+      "lack of manual control"
+    ],
+    "feature_keywords": [
+      "gain and offset calculation",
+      "analog amplifier",
+      "automatic parameter calculation",
+      "sensor type selection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

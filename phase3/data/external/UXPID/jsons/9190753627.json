@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "9190753627",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 805356095407813,
+      "user_name": "yTWmHPezrp",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello! I'm experiencing an issue with my network setup. I've configured a router to manage both LAN and WAN connections for a PLC. The router has separate IPs for LAN and WAN: ROUTER WAN IP: 192.168.1.2, LAPTOP WAN IP: 192.168.1.10 ROUTER LAN IP: 192.168.0.1, PLC LAN IP: 192.168.0.3 Using NAT and port forwarding on the router, I can: 1) Upload/download programs to the PLC with [product_name] from the WAN side using the ROUTER WAN IP. 2) Access the PLC's web server through the WAN by entering the ROUTER WAN IP in a browser. However, I can't upload or download [product_name] projects via the WAN using the ROUTER WAN IP. The [product_name] software reports: 1) Test: OK 2) Finish: Cannot connect to remote device Everything works fine when my laptop is connected to the PLC within the LAN (with laptop IP: 192.168.0.10); then both [product_name] and [product_name] run successfully. I'm wondering if [product_name] uses a different internal port. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 817710692329900,
+      "user_name": "Gg0uuJOmNn",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "To access multiple subnets, configure your computer with a static IPv4 address and use a subnet mask of 255.255.0.0 instead of 255.255.255.0."
+    },
+    {
+      "comment_id": 386537356271647,
+      "user_name": "yTWmHPezrp",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], Thank you for your suggestion, but this doesn't address my issue. It's not related to the subnet mask. I resolved the problem this morning. The internal port required by the [product_name] software is 8443, which is necessary for the new module series ([article_no]) I was testing. Here is an excerpt from the online help: Note: Devices with [article_no] communicate with a remote [product_name] base module using the TCP protocol on private port 8080. Devices with [article_no] communicate via HTTPS on private port 8443. Once I forwarded this port in the router settings, [product_name] worked correctly. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user experienced problems uploading and downloading [product_name] projects to a PLC over a WAN connection using NAT and port forwarding. While standard software communication and web access were successful, [product_name] transfers failed until the correct internal port (8443 for certain device versions) was properly forwarded. This highlights the need for accurate port information when performing remote operations with different hardware versions.",
+    "user_expectations": "The user expected to remotely upload and download [product_name] projects over WAN by forwarding the router's WAN IP, without needing further configuration changes, similar to other software and web access operations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote project management",
+      "WAN connectivity",
+      "easy remote access"
+    ],
+    "pain_keywords": [
+      "port configuration",
+      "version-dependent behavior",
+      "connection failure"
+    ],
+    "feature_keywords": [
+      "upload/download via WAN",
+      "private port configuration",
+      "module-version support"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "12": "Network Configuration Challenges"
+  }
+}

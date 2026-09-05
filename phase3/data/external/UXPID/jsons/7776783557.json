@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "branch_id": "7776783557",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 176394426834409,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I need to set up a retentive software selector (on/off switch) that can be changed using the internal display of [product_name]. Currently, I'm using the simulator since I don't have the physical hardware. My concept (see attachment) involves using a relay with an impulse current and retentive function enabled for each selector. To trigger changes, I use the left cursor key (C4), verifying which display page is currently active. For page navigation, I utilize five counters, activated by Up and Down cursor keys (C1 and C2). Do you think this is the optimal solution, or is there a simpler way without relying on cursor keys? According to the documentation, cursor key markers are only enabled after pressing ESC, but it also mentions that up and down cursor keys can be used without ESC to move between display pages based on their priority. However, in this scenario, if the operator changes pages with cursor keys without ESC, my program could lose track of the page, allowing the operator to adjust selectors on pages that aren't currently visible. Any suggestions?"
+    },
+    {
+      "comment_id": 959643066821511,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "To trigger an action in the [product_name] program with a cursor key, you must press it together with ESC (ESC plus the required cursor key). This is only functional if at least one message text is currently active."
+    },
+    {
+      "comment_id": 637633643231322,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], Using cursor keys isn't advisable. The limitations of cursor keys aren't apparent in simulation, but they are only active on specific display pages, as mentioned previously. See the attached [document], specifically page 9/9. By placing a parameter in the message text object, users can adjust such parameters, with the interaction defined by which keys to use (this is not coded directly). Reviewing the manual will save you time. Also, don't try to apply solutions from [version_no] controllers directly to [product_name]; look at all the available instructions in the toolbox and adjust your approach to suit [product_name]. It's best to consult the manual for an overview. Good luck."
+    },
+    {
+      "comment_id": 884127159514209,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I've modified the logic so pages are now displayed using two digital inputs instead of cursor keys, but I still don't understand how to change the digital selector (retentive) value without using cursor keys. Any advice or example would be appreciated. Kind regards."
+    },
+    {
+      "comment_id": 618796979278828,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Could you provide a screenshot of exactly what you mean? If you're referring to this: [IMAGE]—that parameter can't be changed via a message text. If that's not it, please share a screenshot."
+    },
+    {
+      "comment_id": 582863613787281,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Or are you referring to a softkey?"
+    },
+    {
+      "comment_id": 531684159650497,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hi, Based on the attachment, the setup seems functional—the pages are changed with I1 and I2, and the selector states are changed using the C4 cursor marker. This allows for retentive selectors to be managed and modified from the [product_name]'s display. However, I dislike using C4 to change selector values because it's tied to the active page. If, for example, an alarm page overlays the current one, an operator could use C4 and unintentionally change the selector value of an unseen page. My question: Is there an alternative method, other than using cursor keys (C4), to adjust selector values on the [product_name] display so the operation is independent of which page is active? It should still maintain retentivity. Thanks and best regards, [user_name]"
+    },
+    {
+      "comment_id": 742838501082783,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Sorry, I'm having trouble understanding your question."
+    },
+    {
+      "comment_id": 129445291951774,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "In the logic I shared earlier, the states of M10, M11, M12, and M13 (which represent selectors) are updated by pressing the right cursor key C4 when the relevant page is active. What I want is to change M10-13 without relying on cursor keys or the current page. I hope that clarifies things—my English isn't perfect."
+    },
+    {
+      "comment_id": 118724889118667,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "You want to know if there's a way to trigger the pulse relays without using the cursorkey C4? Yes, you can use a softkey, which can be set up as a switch or button. Retentivity can be enabled, and operation is done via the [product_name] display by accessing it within a message text. To use it: Select the needed message text with I1 or I2, then press ESC until a black bar appears on the softkey. Press OK, and the black bar will blink. Use cursor up/down to toggle status (OFF to ON). Press OK again, and the softkey sends a pulse—the status resets to OFF. ESC will exit. See the attachment for reference."
+    },
+    {
+      "comment_id": 905333392299724,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Yes! I've made a few changes: • Each selector now uses its own softkey • Softkey is set as a switch with retentivity enabled • The softkey sets the relay block, which no longer needs to be retentive Do you agree with this approach?"
+    },
+    {
+      "comment_id": 909295912876014,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "It's hard for me to give feedback since I don't know your full intentions. Only you know exactly what you're aiming for."
+    },
+    {
+      "comment_id": 127215947938298,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Alright, thanks."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are working to develop stable, retentive on/off selectors that can be adjusted via the [product_name] internal display. Main concerns include limitations with cursor key input, creating dependencies on the active page and risking unintended changes to hidden selectors. There's ongoing confusion about input mapping and context, with some users attempting to transfer knowledge from other [company_name] controllers. The discussion is shifting towards alternative input options, such as softkeys, to provide a safer and simpler way to manage selector states independently of display context.",
+    "user_expectations": "Users would like retentive digital selectors managed from the [product_name] display, using an input method that is independent from cursor keys and active display pages. They hope to achieve intuitive and secure operation, even with multiple pages or alarm overlays, while keeping selectors easily configurable.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe selector adjustment",
+      "display independence",
+      "stable retentive control",
+      "usability"
+    ],
+    "pain_keywords": [
+      "unintended state change",
+      "navigation-dependent controls",
+      "input confusion",
+      "simulation mismatch"
+    ],
+    "feature_keywords": [
+      "retentive selector",
+      "display input",
+      "softkey",
+      "cursor key",
+      "digital input",
+      "message text"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions",
+    "2": "Product Compatibility"
+  }
+}

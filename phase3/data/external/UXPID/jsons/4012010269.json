@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "4012010269",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 201945877856401,
+      "user_name": "4VGt1SJ3uT",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm trying to match Modbus addresses in [company_name] [product_name] ([image] 1.png) and EWON Flexy 201 ([image] 2.png). I'm encountering an issue with matching addresses in the Holding Register: [product_name]: [image] 3.png EWON 201: [image] 4.png Could someone explain why the addresses aren't aligned and advise how to accurately find the corresponding address in [product_name]? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 873913633854223,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "[product_name] does not implement the full Modbus protocol. The Modbus features are only partially available, and certain Modbus functions are missing. However, the necessary capabilities for data exchange are present. It’s important to determine which device acts as the client and which as the server. Also, clarify the direction and type of data you want to transfer between the devices."
+    },
+    {
+      "comment_id": 863667169121060,
+      "user_name": "4VGt1SJ3uT",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "[product_name] acts as the server and Ewon is the client. I want the client to access data from [product_name]. Communication is functioning, but I'm unclear on how [product_name] maps its variable parameters (such as ID 1, 2, 3...) to standard MODICON Modbus addresses (40001, 40002, 40003...). I initially assumed VM addresses would directly correspond with Modbus addresses, but it's unclear how to match the VW parameters to standard Modbus addresses. For instance: ? - 40001 ID 1 - 40002 ? - 40003 ID 2 - 40004 ... Could anyone clarify why this mapping occurs?"
+    },
+    {
+      "comment_id": 142250912518928,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "What do you mean by ID 1, ID 2, etc.?"
+    },
+    {
+      "comment_id": 229427675293814,
+      "user_name": "udO0a0woU9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Generally, the Modbus TCP holding registers map to the variables within [product_name]. For example: Modbus address 40001 = HR1 = VW0 40002 = HR2 = VW2 40004 = HR4 = VW6 You need to make sure S7 connections (“Allow S7 access”) and Modbus (“Allow Modbus access”) are enabled on [product_name], and a [product_name] Modbus Server connection is configured."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced challenges with matching variable addresses between [product_name] and a third-party Modbus client (EWON Flexy 201). Specifically, there was confusion regarding how [product_name] variable IDs and VW addresses relate to standard Modbus holding registers. Partial Modbus protocol support and unclear mapping information led to uncertainty and difficulty during data exchange setup.",
+    "user_expectations": "The user expected an unambiguous and direct mapping between variable IDs or addresses in [product_name] and standard Modbus holding register addresses, hoping for explicit documentation or an interface that would make these correlations straightforward.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct data polling",
+      "address mapping clarity",
+      "interoperability"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "documentation gap",
+      "partial Modbus support"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "variable mapping",
+      "server mode",
+      "S7 access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "2": "Product Compatibility"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "7668259384",
+    "thread_id": "3055273936",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 671329453578430,
+      "user_name": "8G64KX3S3h",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello, I have some experience with [product_name], but I'm running into an issue. My [product_name] with [product_name] analog module is supposed to send a 0-10V signal to my dimmer driver. While the software sends 0-10V correctly when the wire is disconnected from the driver, once I connect it to the driver's module port—where about 12V DC is already present—the output from [product_name] stays at 10V even if it should be at 5V. If I disconnect [product_name] and use a battery at the driver's 1-10V input port, the dimming functions perfectly. Does anyone know what could be causing this? Could it be internal resistance or minimum current flow issues? (I=1mA as per below) Info about the dimmer driver: Light regulation between 0.5% and 100% via PUSH function, 1...10V interface (I=1 mA), or 100K ohm potentiometer and DALI."
+    },
+    {
+      "comment_id": 168735471755821,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "The [product_name] analog module tends to have issues with input signals like those from this dimmer. The 1-10V interface is not the same as a standard 0-10V interface. Furthermore, the dimmer supplies its own voltage to its analog input, which conflicts with the output of the [product_name] module. You can try a circuit that [user_name] shared in the German-language section of the forum."
+    },
+    {
+      "comment_id": 169185312919097,
+      "user_name": "8G64KX3S3h",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Thank you for the information. Could you please provide the link to the German forum? Is the solution from the scheme just theoretical or actually practical?"
+    },
+    {
+      "comment_id": 537218688462243,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "This approach seems practical, not merely theoretical. I can’t recall the exact link, but I downloaded the circuit diagram as an image. If you need further assurance, you could submit a support request and ask [company_name] directly about this issue."
+    },
+    {
+      "comment_id": 306666712449746,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "From what I know, controlling a luminaire dimmer with 1-10V typically means the luminaire outputs about 10V and expects to be connected to ground via a suitable resistor. For example, I have a fluorescent dimmer that uses 1-10V control. Its input terminals had around 12V DC unconnected and gave maximum brightness. When I shorted these terminals, the light went to minimum brightness, with current below 1 mA. Adding a potentiometer varied the brightness. It's important to test resistor values since connecting multiple dimmers in parallel may require different resistance to maintain the same brightness, as they share the load behind one resistor. [user_name]"
+    },
+    {
+      "comment_id": 405470044966728,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Keep in mind that 0-10V and 1-10V controls differ. Unfortunately, there aren't many commercial converters available to bridge these two systems. The only one I know of is listed in the provided link. So far, DIY solutions haven't convinced me, particularly because the control voltage in 1-10V tech is not considered protective and can introduce safety risks. A fault could even result in mains voltage reaching your control setup. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are encountering integration challenges when using [product_name] analog modules with dimmer drivers that utilize 1-10V controls. Discrepancies between 0-10V and 1-10V standards contribute to confusion and operational issues, often leading to nonfunctional dimming or incompatibility. There are also safety concerns about DIY attempts to bridge the gap between these standards.",
+    "user_expectations": "The user anticipates that the [product_name] and analog modules will deliver dependable analog outputs suitable for controlling dimmer drivers, and that integration with both 0-10V and 1-10V lighting dimmers should function smoothly.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dimming control",
+      "system compatibility",
+      "accurate analog output"
+    ],
+    "pain_keywords": [
+      "incompatibility",
+      "incorrect voltage output",
+      "lack of standardized interface",
+      "confusing documentation",
+      "unreliable DIY solutions"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "0-10V signal",
+      "1-10V interface",
+      "dimming compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

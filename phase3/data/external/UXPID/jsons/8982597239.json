@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "8982597239",
+    "thread_id": "1723880927",
+    "publication_year": 2008,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 915384091556048,
+      "user_name": "JPMWMVURRW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 3,
+      "comment_body": "In [product_name] software, how can I simulate a clock restart after an extended power loss, as described in the manual? It says the clock resets to 'Sunday 00:00 January 1', remains paused and flashes, and the module retains its previous state. My goal is to detect if the clock memory has been lost and trigger a warning light. I think I can use yearly and weekly timers, but I need a way to test this approach. Specifically, I want to know if the weekly timer activates at 00:00 when set for 12:00 AM. Is there a simpler method to detect a clock memory loss? Otherwise, I may need to leave the module unpowered for a week."
+    },
+    {
+      "comment_id": 493962153109519,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 3,
+      "comment_body": "Hello! I tried using retentive memory in the simulator. The attached example works so that: when you start the simulator, a message appears and the output flashes; if you simulate disconnecting and reconnecting the module (using the icon next to the Q output), the output stops flashing. To simulate retentive memory loss, shut down the simulator and restart it. Hope this is helpful!"
+    },
+    {
+      "comment_id": 592353904093914,
+      "user_name": "JPMWMVURRW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 3,
+      "comment_body": "[user_name], thanks for your response. Your example is quite helpful. It seems that losing the clock backup might also result in losing retentive block states. Are we certain about this? Regardless, it's a useful testing method. One thing is clear: starting the [product_name] software is not equivalent to a true long-term power loss, since the clock starts running immediately when the software launches. So, is there a way to simulate an actual clock failure?"
+    },
+    {
+      "comment_id": 653272204174427,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 3,
+      "comment_body": "Honestly, the only way to be absolutely sure is to test it directly. I have a module running the program and will continue checking. Once I have a conclusive answer, I'll share my results."
+    },
+    {
+      "comment_id": 937031062720877,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 3,
+      "comment_body": "The solution I previously shared isn't working! I tested it with real hardware today: the clock lost its time, but retentive memory still held its value and didn't reset. You'll need an alternative method to detect a clock reset."
+    },
+    {
+      "comment_id": 847341162099813,
+      "user_name": "JPMWMVURRW",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "I ran a test to see if a combination of year and week timers could detect a stalled clock. After 168 hours without power, the hardware restarted with a correct date but an inaccurate time—at around 5 PM, the clock showed 00:14, not 00:00. This suggests that you can't rely on the restart sequence; you might see something other than either the actual time or a stalled clock. I'll try to reproduce this effect and post further results in a week. For now, I will probably monitor the M8 bit and show a 'check clock' warning when a restart is detected."
+    },
+    {
+      "comment_id": 358080069688463,
+      "user_name": "JPMWMVURRW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "A combination of a week timer and a year timer set for January 1st, 00:00 Sunday does detect a stalled clock. The output activates from 00:00 to 00:01 on January 1, deactivates at 01:02, and remains high until the clock is restarted manually. Note there will also be a brief activation every seven years; if this is an issue, you can add circuitry to monitor the M8 bit too. This workaround is sufficient for my application, but the glitch I mentioned earlier may still occur—I don't have the resources to retest it."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced challenges trying to simulate a long-term power outage and clock failure on [product_name] software in order to validate a detection circuit for clock memory loss. The built-in simulation does not fully replicate the actual hardware behavior experienced during such events, as clock and memory reactions differ between software and real-world scenarios. Retentive memory handling was especially inconsistent. Ultimately, community members relied on testing workarounds, as no direct simulation of clock loss was available in the software.",
+    "user_expectations": "Users expect that [product_name] software will enable reliable simulation of clock restart or memory loss scenarios following a substantial power interruption, mirroring the actual hardware behavior to enable accurate debugging and feature validation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate simulation",
+      "hardware-state parity",
+      "reliable testing"
+    ],
+    "pain_keywords": [
+      "simulation mismatch",
+      "clock state uncertainty",
+      "test limitations"
+    ],
+    "feature_keywords": [
+      "simulation of clock state",
+      "retentive memory",
+      "timer blocks"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "13": "Integration Limitations"
+  }
+}

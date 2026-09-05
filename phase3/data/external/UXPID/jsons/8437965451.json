@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8437965451",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 620522358991074,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hello, can someone assist with ways to reset the output value of a PI Controller block? I've previously used a digital input to perform a reset, but now I want the output to be reset automatically when the PI Controller output value reaches 1000. Any guidance is appreciated. Thanks in advance."
+    },
+    {
+      "comment_id": 205906321738134,
+      "user_name": "CdibE5Rdgy",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], based on your description, I've attached the logic you might need. However, I'm not fully clear on why you want to reset the controller when it reaches saturation, as this may introduce instability in your process. If you can share more details about your application context, we may provide more targeted assistance. Reminder: when simulating, ensure you set the set point (AI2) to a value different from zero so the controller will function as expected."
+    },
+    {
+      "comment_id": 949911043710452,
+      "user_name": "CdibE5Rdgy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Apologies, I forgot to mention the [product_name] project..."
+    },
+    {
+      "comment_id": 331091029912567,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Thanks for your quick response. Your attachment was quite useful. For context: The application involves a Flow Transmitter measuring 200 m³ per hour. Values are captured every second—so dividing 200 by 3600 results in 0.056 m³ per second. If readings remain consistent, this value is added up incrementally each second: the first second is 0.056 m³, the second is 0.112 m³, and so forth. Regardless of changes from the transmitter, the value is continuously added to the totalizer, which only resets upon a manual reset or when reaching the threshold of 32767."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is requesting a way to automatically reset the output of a PI Controller block within the [product_name] environment once a predefined value is reached. Community feedback includes a partial solution via provided logic, but key questions remain around fully automating the process and clarifying the impact of resets on process stability. The discussed scenario reflects a standard totalizer approach in flow measurement, where accumulated values require automated reset based on defined limits.",
+    "user_expectations": "The user is looking for an automated and straightforward solution within the [product_name] platform to reset the PI Controller's output value when it reaches a certain threshold, reducing the need for manual intervention and improving process automation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic reset",
+      "threshold handling",
+      "continuous measurement"
+    ],
+    "pain_keywords": [
+      "manual reset",
+      "lack of automation",
+      "inconvenience"
+    ],
+    "feature_keywords": [
+      "PI Controller output reset",
+      "totalizer",
+      "threshold detection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "22": "Usability Improvement Suggestions"
+  }
+}

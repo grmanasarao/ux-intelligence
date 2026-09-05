@@ -1,0 +1,240 @@
+{
+  "metadata": {
+    "branch_id": "1475641654",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 784857799537938,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "No response yet? I also need help connecting a PT100 to the [product_name] AM2 RTD module and want to confirm if I should use AI as the input for the PT100. Have you resolved this? Thanks for your support."
+    },
+    {
+      "comment_id": 325341396617628,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Refer to the attached [document] for wiring details. Regarding addressing: Usually, addresses AI1 and AI2 are reserved for the [product_name] base module. If you don’t need analog inputs on the base module, or if your base module lacks them, select the option for no analog inputs in the offline settings: File > Properties > Offline Settings > I/O Settings, or use the module’s menu. If no analog inputs are reserved and AM2 RTD is your first analog expansion, addresses will be AI1 and AI2. If two analog inputs are reserved, addresses start at AI3 and AI4. If four are reserved, they start at AI5 and AI6."
+    },
+    {
+      "comment_id": 180957568432562,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "I'm using a PT100 with two wires, blue and red. Should these be connected to U+ and U-? I’ve set AI1 to AI5 but nothing works. Can you assist further?"
+    },
+    {
+      "comment_id": 966831507924195,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Did you bridge U1- and IC1? This step is necessary for 2-wire PT sensors."
+    },
+    {
+      "comment_id": 893286952258960,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Is the AM2 RTD your only analog expansion module? What is the RUN/STOP LED color—red or green?"
+    },
+    {
+      "comment_id": 250201573044878,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Yes, only one AM2 RTD expansion is used. The LED is green. Attached is the screen showing the wiring setup. I’m using AI3, an analog threshold trigger, and output Q1. The simulator works when I change AI3, but the PT100 isn’t working with actual hardware."
+    },
+    {
+      "comment_id": 340224918093683,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Run [product_name] Soft Comfort. Then go to Tools > Transfer > I/O Status. This opens a window displaying current states and values. See the attached [document] for reference. You’ll see I have values on AI1 and AI2. These are analog inputs on my base module. Do the same, take a screenshot, and share it."
+    },
+    {
+      "comment_id": 157939980063123,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Please review the screen."
+    },
+    {
+      "comment_id": 748703379066853,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "No values are appearing in the [product_name] system, indicating a hardware issue. Are you sure the sensor is a PT100? If possible, connect a fixed resistor (120 Ohms) to the module instead of the sensor—this should correspond to about 50°C. Keep the bridge from U1 to IC1."
+    },
+    {
+      "comment_id": 782115793649951,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Yes, it is a PT100. I’ll check another PT100 and also try the 120 Ohm resistor for testing. Regarding wiring, should the blue wire go to U1- with a bridge to IC1, and red to U+?"
+    },
+    {
+      "comment_id": 824916094124832,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "With a 2-wire PT100, it does not matter which terminal each sensor wire connects to. The key is keeping the bridge from U1 to IC1. Did you try a fixed resistor? What was the result? If you have a meter, measure the PT100 resistance and share the result."
+    },
+    {
+      "comment_id": 366844645182763,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello, I connected the resistor and it works, as shown in the attachment. I will test another PT100 because the current one isn’t performing well. Thanks for your help."
+    },
+    {
+      "comment_id": 736209161432233,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "I suspect it’s not a PT100—maybe a PTC or NTC sensor. Edit: Wishing you a pleasant holiday season."
+    },
+    {
+      "comment_id": 553829607603605,
+      "user_name": "8RYb477Ela",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "If your results are from a fixed resistor securely attached, the values should be stable. Check the resistors using a standard multimeter; PT100 typically shows about 100 Ohms at room temperature. Holding the PT100 should cause its value to increase. For NTC types, the value decreases. Regards, [user_name]"
+    },
+    {
+      "comment_id": 633599060964337,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Can you recommend a PT100 brand suitable for my project? I’m looking for maximum precision."
+    },
+    {
+      "comment_id": 540509726776081,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "PT100 sensors come in different designs and housing materials. To assist, please specify the medium and temperature range, and whether you need a 2- or 3-wire sensor. Also, what was the outcome with your previous sensor—was it really a PT100?"
+    },
+    {
+      "comment_id": 459821718914458,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "We’re developing for two air conditioners of 22,000 BTUs for a 30m² room. Would you recommend two or three wire sensors? We discovered the previous sensor was incorrect after further review."
+    },
+    {
+      "comment_id": 423570061531744,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I recommend using a 3-wire PT100. You might want to search platforms like Amazon for suitable options: [url]"
+    },
+    {
+      "comment_id": 550608687619942,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Please check the attached file. This brand offers a 3-wire PT100, 06x50mm, with 2 meters cable."
+    },
+    {
+      "comment_id": 305469739469156,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Attached is the PT100 model we’re considering buying."
+    },
+    {
+      "comment_id": 394024983615963,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "It looks like a good choice."
+    },
+    {
+      "comment_id": 184042152878199,
+      "user_name": "rFeMVxLEKB",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Thank you again. Your assistance is very valuable for my project."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience ongoing difficulties wiring and configuring PT100 temperature sensors to the AM2 RTD analog expansion module within a [product_name] system. Key challenges include correct wiring, analog input assignment, and hardware setup for 2-wire PT100 sensors. Despite successful simulation, the hardware fails to register inputs, prompting repeated troubleshooting and causing uncertainty about sensor compatibility and module configuration. The thread highlights frustration caused by unclear documentation and insufficient error messages.",
+    "user_expectations": "The user expects clear and straightforward guidance for wiring and configuring a PT100 sensor with the AM2 RTD module, as well as confirmation that readings appear correctly in the [product_name] system once the hardware is connected properly.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "working sensor reading",
+      "correct PT100 connection",
+      "accurate analog input",
+      "clear configuration"
+    ],
+    "pain_keywords": [
+      "wiring confusion",
+      "input addressing",
+      "lack of readings",
+      "unclear documentation",
+      "hardware/software mismatch"
+    ],
+    "feature_keywords": [
+      "analog input addressing",
+      "hardware wiring",
+      "sensor compatibility",
+      "input simulation",
+      "hardware status feedback"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "6837140423",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 486146161301318,
+      "user_name": "f1xnztfusD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, Could someone explain why the second counter isn't exactly 10 times the value of the first counter? The first counter adds pulses every second, while the second counter adds pulses every 1/10 of a second. Where might I be making a mistake?"
+    },
+    {
+      "comment_id": 317635207022086,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "You are testing only in simulation mode, not on the actual [product_name]. Simulation doesn't always match real-life behavior. Also, check if the Asynchronous Pulse Generator starts with a high output; if so, after the first cycle, both counters will be at 1. One second later, the 1s counter will show 2 and the 1/10s counter will show 11. Two seconds later, you'll have 3 and 21. Three seconds later, 4 and 31. And so forth..."
+    },
+    {
+      "comment_id": 420606570367044,
+      "user_name": "f1xnztfusD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thanks [user_name], your answer was very helpful. Now I'm facing the opposite issue: the simulation works fine, but the actual device doesn't. In reality, the 1/10s counter quickly jumps to 32767 in a short time. I’ve attached my program. Pressing I3 starts both counters; the 1s counter tracks liters and isn't reset, while the 1/10s counter tracks the 5-second cycle and is reset at the start of each cycle. I appreciate any guidance."
+    },
+    {
+      "comment_id": 503566615015355,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "As mentioned before: simulation is not the same as real operation with the [product_name]. When the asynchronous pulse generator switches to a high signal, the output remains high for 0.01s—during which the program cycles multiple times, causing the count to repeat. Instead, the pulse should only be counted once per cycle. You can fix this by adding a positive edge between the asynchronous pulse generator output and the OR block."
+    },
+    {
+      "comment_id": 643857269886266,
+      "user_name": "f1xnztfusD",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thanks [user_name], using a positive edge resolved the issue with excessive counting."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter discrepancies between simulation and actual hardware in [product_name] modules when using timed counters (1s vs 1/10s). Unexpected counter behavior arises in real use due to interaction between asynchronous pulse generator outputs and program scan cycles, presenting challenges and errors not seen in simulation.",
+    "user_expectations": "Users expect simulation to mirror real hardware performance, especially for pulse counting with different time bases. They want dependable, predictable counting behavior across all modes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct pulse counting",
+      "consistent simulation and real behavior",
+      "reliable measurement"
+    ],
+    "pain_keywords": [
+      "simulation vs. reality mismatch",
+      "unexpected fast counter increment",
+      "error in real hardware"
+    ],
+    "feature_keywords": [
+      "simulation mode",
+      "asynchronous pulse generator",
+      "positive edge detection",
+      "counters"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

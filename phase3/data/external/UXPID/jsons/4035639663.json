@@ -1,0 +1,201 @@
+{
+  "metadata": {
+    "branch_id": "4035639663",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 839470234651847,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "I have a weekly timer that users can set from the front panel, for example from 15:00 to 22:00 each day. I need another output that turns on two hours after the timer starts and turns off one hour before the timer ends. Is there a way to use a block to automate this timing offset, or do I need two separate timers with matching inputs, which could be confusing for users?"
+    },
+    {
+      "comment_id": 105345201693232,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "The main issue is the weekend timer times are stored in hexadecimal format. You need to convert those times to decimal, calculate the time difference, and then set up several timers accordingly. I’ve previously handled hex-to-decimal conversion for an astronomical clock, where I calculated minutes between sunrise and sunset. I’ll work on your problem, but please be patient while I look into it."
+    },
+    {
+      "comment_id": 696023092538357,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Actually, to clarify: I want the second timer to turn on two hours before the weekly timer activates (for things like gas leveling) and switch off one hour before the weekly timer deactivates. The timer is used only during usual working hours, so no need to handle crossings over midnight or multi-day intervals. Accuracy isn't critical; a start time within 15 or 30 minutes is fine, as long as it roughly aligns with the required offset."
+    },
+    {
+      "comment_id": 206633237698757,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Just to check that we’re discussing the same requirement: Example: First weekly timer: On at 5:00, Off at 22:00 Second weekly timer (auto-computed): On at 3:00 (which is 2 hours before the first starts), Off at 21:00 (1 hour before the first ends). Is that what you’re looking for? Edit: Corrected second and first references."
+    },
+    {
+      "comment_id": 512257687301216,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Yes, that's correct. Thank you."
+    },
+    {
+      "comment_id": 926325052425108,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Do your timer on/off times always fall within a single day? Example: On at 5:00, Off at 22:00. Or do they span over days? For example, On at 23:00, Off at 15:00 the next day?"
+    },
+    {
+      "comment_id": 945676080274374,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Typically, times would be set like timer on at 17:00 and off at 23:00. The second timed output (with offsets) would activate at 15:00 and deactivate at 22:00."
+    },
+    {
+      "comment_id": 846275166832713,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "As mentioned, the time format is BCD, so you must convert to decimal, perform time calculations in minutes, and then for a second switch simply revert to BCD format if needed. This requires considerable effort and resources. My suggestion: Use one weekly timer for control, convert the relevant times, and switch another weekly timer set for 00:00, replicating your offset by employing switch-on delays."
+    },
+    {
+      "comment_id": 440163168975704,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "How do I access timer settings within Function Block Diagram logic? I was thinking of starting an hour counter at midnight, then activating the second output when the counter reaches two hours before the timer’s start, and deactivating it one hour before the timer’s end time. Precision to the hour is good enough for this application."
+    },
+    {
+      "comment_id": 788423218163011,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Hello, I am working on your problem and will submit a program suggestion once ready. Please be patient."
+    },
+    {
+      "comment_id": 183780149435651,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Here’s my proposal for a solution. Using an AND block (for example, B042) to generate the output for the simulated second timer events based on calculated offsets."
+    },
+    {
+      "comment_id": 925819618441844,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "You can access clock times (ON/OFF or Days) using VM mapping, but since times are stored in a hex format, calculations can be tricky. I’ve started a small test setup—works reliably for times up to 9:59 (9 hours, 59 minutes), but beyond that the hex format causes problems. Check the HELP section of [product_name] for VM Mapping parameters; this is just an initial approach."
+    },
+    {
+      "comment_id": 958208424904618,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Thanks everyone for your help—I’ve got some useful ideas on how to address this now."
+    },
+    {
+      "comment_id": 893033453318108,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "@[user_name], your program isn’t working correctly."
+    },
+    {
+      "comment_id": 948560634024650,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "Yes, I’m aware. The decimal-hex format only works for times up to 9 hours and 9 minutes. I’ll put more effort into making the program work for all times."
+    },
+    {
+      "comment_id": 244954892148429,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "That's why I went with a different approach in my code."
+    },
+    {
+      "comment_id": 547203010623940,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "It would be much simpler if a dedicated BCD to Decimal (and vice versa) conversion block was available, like some other PLC brands offer. I never saw the need for such a block before, but manipulating timer events shows its value."
+    },
+    {
+      "comment_id": 379985086851317,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 1,
+      "comment_body": "[product_name] is a logic module, not a PLC, which is why such functions aren’t available. Still, I wish they were offered..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having trouble creating a second timed output based on configurable offsets to a weekly timer’s start/stop settings. The main challenge is the time storage format (BCD/hexadecimal), which makes offset calculations and user-friendly access in programming difficult. Manual solutions tend to be error-prone and alternative logic is complicated or resource-heavy.",
+    "user_expectations": "Users want a straightforward way to access weekly timer settings and automate secondary output events based on time offsets in FBD logic. They expect a solution without manual conversion, ideally with built-in blocks or settings that allow uncomplicated offset calculations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automation",
+      "dynamic scheduling",
+      "reliability",
+      "ease-of-use"
+    ],
+    "pain_keywords": [
+      "time format complexity",
+      "manual conversion",
+      "user error risk",
+      "resource intensive"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "timer setpoint access",
+      "relative timing",
+      "FBD logic"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

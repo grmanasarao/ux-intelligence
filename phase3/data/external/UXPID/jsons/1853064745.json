@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "1853064745",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 941509378751805,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello! I have two [product_name] PLCs set up with one acting as master and the other as slave. The slave reads multiple values from the master and outputs them. However, when the master PLC disconnects, the slave keeps showing the previous values. I am looking for advice on how to automatically reset the values to zero on the slave when the master is disconnected and have the values reappear once reconnected, without needing to repeatedly download the program. Thank you!"
+    },
+    {
+      "comment_id": 366295799198269,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Are you using a true Master/Slave configuration? Have you configured one [product_name] as a slave? Or are you referring to a Client/Server setup instead?"
+    },
+    {
+      "comment_id": 712639893859436,
+      "user_name": "udO0a0woU9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "In a Master/Slave arrangement, the slave device does not have its own program and isn't able to write or read data independently. You just assign the device as the slave and that’s all; the master accesses the slave's hardware inputs and outputs. Alternatively, both [product_name] devices can be set as masters with individual programs, in which case you would configure one as a client and the other as a server. The client can then read and write data from the server according to its programming."
+    },
+    {
+      "comment_id": 198664426814860,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I have two PLCs, one configured to act as a master and the other as a slave."
+    },
+    {
+      "comment_id": 685003767182554,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Sorry, I'm not sure I understood your advice. Both PLCs have their own programs. The slave PLC—which is actually set as master in the system—reads values from the other PLC. If the master PLC disconnects, the slave should display zeros, but it continues showing the last values received. If I try to set the slave as a true slave, the system only lets me download if it is configured as master, so both units are set as master."
+    },
+    {
+      "comment_id": 873058342172231,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Actually, this suggests you have a Client/Server connection, not a Master/Slave one, because both [product_name] devices have programs running. In a Master/Slave configuration, the slave does not have its own program and only serves hardware resources to the master."
+    },
+    {
+      "comment_id": 328334012846869,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The [product_name] detects communication errors in different ways, and sometimes does not recognize them at all. 1) If the client is switched to STOP mode, the server detects it and all memory bits (VB0 to VB850) are set low. 2) If the client loses power, the server does not notice and the bits keep their current state. 3) If the Ethernet cable is unplugged: 3.1) With direct connection, the server is aware but memory bits retain their state. You can detect this with a network input using the 'Ethernet error' diagnostic. 3.2) If connected via router, the server won’t recognize the disconnection and bits will not reset. Use a life bit query programmed in both units for better error handling."
+    },
+    {
+      "comment_id": 538903126266398,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "That matches my situation. Could you please explain how to add a life bit query and which blocks to use in the client and server to set all memory bits low? Also, how do I implement an Ethernet error diagnostic function? If possible, provide a screenshot or example. Thank you so much!"
+    },
+    {
+      "comment_id": 969086451116939,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "To clarify: I am not aware of any method to reset all user memory bits (VB0 to VB850) to low in response to a communication error—this can only be done per bit or word. Attached is a small network project illustrating how to query for an 'Ethernet link error.' It also includes the setup of a life bit and how to evaluate it. The client generates a signal that changes state every second, sends it to the server, which checks if it's been HIGH or LOW for more than 1.5 seconds to detect communication loss. The server also echoes the life bit back to the client for evaluation."
+    },
+    {
+      "comment_id": 545471032868445,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "It looks like you've removed your previous post. The network project actually uses two [product_name] devices, each with a separate program. To view the programs, double-click on each device in the project and open their respective code. See the attached screenshot."
+    },
+    {
+      "comment_id": 502991183023296,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Yes, I've found your Client and Server examples, which is why I deleted my previous message. I'm reviewing them now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "There is ongoing confusion among users regarding the networking modes (Master/Slave vs. Client/Server) in [product_name] PLC configurations. Users experience issues where a client PLC fails to reset its values to zero after communication is lost with the server PLC, instead retaining the last received data. These challenges result from missing automatic failover detection or feedback mechanisms in the standard setup, preventing clear error notification and reliable data handling for end users.",
+    "user_expectations": "Users expect their secondary PLC to automatically reset received values to zero and provide a visible indication of communication loss when the primary PLC disconnects, without requiring manual intervention or program downloads after reconnection.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic failover",
+      "reliable data display",
+      "simple configuration"
+    ],
+    "pain_keywords": [
+      "retains stale data",
+      "unclear connection status",
+      "manual resets required"
+    ],
+    "feature_keywords": [
+      "life bit monitoring",
+      "Ethernet error diagnostics",
+      "memory reset on disconnect"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "24": "Data Integrity Concerns"
+  }
+}

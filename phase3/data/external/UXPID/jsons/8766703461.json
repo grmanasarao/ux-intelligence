@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "branch_id": "8766703461",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 792247356536031,
+      "user_name": "QirrDMYOug",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello, I have an old program that used internal analog inputs ANAIN1 and 2. Now after adding an [product_name] analog expansion module to my system, the previously available analog inputs are no longer visible, and the first channel for the new module is ANA1. Can anyone explain what might have happened? Regards"
+    },
+    {
+      "comment_id": 627197009691342,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "It's best if you share more details, like screenshots, so someone can assist you better. Are you saying your previous analog outputs disappeared after adding the module? Did you create a new program in [product_name]? If so, maybe you set the hardware configuration incorrectly, perhaps with zero analog I/O. Please check your I/O settings if you've modified the software."
+    },
+    {
+      "comment_id": 926078861700662,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "The addressing of analog inputs for the expansion module depends on several factors. In the configuration file settings, under offline I/O options, you control how many analog inputs are enabled on the base module. By default, two analog inputs are available, addressed as AI1 (I7) and AI2 (I8). The first analog expansion module uses: Channel 1 = AI3 Channel 2 = AI4 If the base module has no analog inputs activated, the expansion takes addresses AI1 and AI2. With two analog inputs enabled on the base, the module starts at AI3 and AI4. If four analog inputs are enabled, the expansion's inputs begin at AI5 and AI6."
+    },
+    {
+      "comment_id": 411286794212332,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "[product_name] 24RCE does not include onboard analog inputs. Thus, the addresses for the first analog expansion module will be AI1 and AI2."
+    },
+    {
+      "comment_id": 959309568319311,
+      "user_name": "QirrDMYOug",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], You are correct, something seems amiss in the old program. I removed the expansion module, but the integrated analog inputs AI1 and AI2 still do not function. I have set the onboard analog input settings to enable 4 AIs—should I do anything else to activate them?"
+    },
+    {
+      "comment_id": 635302984756728,
+      "user_name": "QirrDMYOug",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "What module type should I use if I need four relays and 24V voltage support? Regards"
+    },
+    {
+      "comment_id": 568686660438947,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Simply removing the module may not be enough. First, confirm which version of [product_name] you have and how many analog inputs can be configured. You should also download the configuration to the controller. Start by uploading your project from the controller to your PC and inspecting the current configuration. It’s possible you made a download by accident. Also, consider sharing some screenshots for clarity."
+    },
+    {
+      "comment_id": 383290452909344,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "A new ([article_no]) analog expansion module will NOT work with older ([article_no] and earlier) controllers. What is the full type number of your base and expansion modules? You can typically find the type number of your base device below the cursor keys. Depending on the base module, the analog inputs on the expansion module could be AI1 and 2, AI3 and 4, or AI5 and 6. The expansion module requires its own 24VDC power supply. Is the LED indicator on the expansion module green or red? If your base unit displays a standard clock, (if not, press the down cursor several times), then use the left or right cursor keys to view the real input value of the analog inputs. This will show which analog input changes when you connect something to the expansion module, helping you identify the input number."
+    },
+    {
+      "comment_id": 376833836907328,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Could you provide more details, such as the part numbers for your base and expansion modules? Please update this thread if you've achieved your intended result."
+    },
+    {
+      "comment_id": 699903518431932,
+      "user_name": "CjD2VFnISk",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "The main issue appears to be that the 24RCE model operates on 24V AC/DC. This version does not have analog inputs, so you cannot use them in your program. For analog inputs, you need either the 12-24V DC version (12/24RCE with relay output) or the 24V DC version with transistor output (24CE). Selecting the correct product is easy to overlook—I made this mistake myself once."
+    },
+    {
+      "comment_id": 139207289610172,
+      "user_name": "5JPplFsR5Z",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "You can use analog inputs with the 24RCE by adding an analog expansion module. Note that the analog range for [product_name] is 0-10V DC. At this point, some recommend connecting another [product_name] in series, such as a 12/24RCEO. I'm curious: by connecting another [product_name], are you upgrading the capabilities, or merely extending them? To clarify, certain models have AI capabilities—the program does not recognize this automatically, so manual editing is necessary. In properties, AI settings determine whether you have matching analog inputs (as explained by others), allowing either high/low or 0-10V analog processing. AI functionality typically comes in input pairs; you choose according to your needs. Adding an extension card can complicate things. If you have a card like one for PT1000 sensors and no analog inputs except for PT1000, then set AI to \"Enable 0 AIs\" in configuration."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users ran into unexpected limitations when adding an analog expansion module to a 24RCE controller system. The expectation was to retain or enhance analog input capabilities, but it became evident that the 24RCE model does not support onboard analog inputs—a detail overlooked initially. This led to confusion regarding module compatibility, proper hardware setup, and software feedback about configuration, causing frustration for users seeking a straightforward solution.",
+    "user_expectations": "Users anticipate that the controller would remain compatible with analog expansion modules and allow retention or addition of analog inputs. They expect the process of expanding input capabilities to be simple and supported by clear configuration and hardware identification steps.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "expand analog input capability",
+      "retain old program functionality",
+      "easy configuration",
+      "compatibility awareness"
+    ],
+    "pain_keywords": [
+      "missing analog inputs",
+      "module compatibility confusion",
+      "unclear hardware capabilities",
+      "unexpected loss of function"
+    ],
+    "feature_keywords": [
+      "analog input detection",
+      "module compatibility",
+      "I/O settings",
+      "hardware configuration indication"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "4": "Hardware Reliability",
+    "8": "Documentation Clarity"
+  }
+}

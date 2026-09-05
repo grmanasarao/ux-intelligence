@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "4543025495",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 479664258220462,
+      "user_name": "pUBcKdSHu0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Hello. I am having some trouble understanding the VM memory area and how to communicate with a [product_name] data block in a [product_name] controller. How can I send temperature values stored as real numbers in my DB to the LOGO VM area? Currently, I receive this value in a NAI block in the LOGO program from a remote device. When the block type is DB, I can only access .DBW. If I try sending the integer value from the [product_name] DB using the PIW, the scaling in LOGO doesn't match, even if I use the same scaling range (-50 to 150 degrees) as in the PLC. Has anyone else experienced similar issues with communication between LOGO and [product_name]? Regards"
+    },
+    {
+      "comment_id": 681803635297153,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "The key point is that LOGO only supports analog values as integers, specifically whole numbers from -32,768 to 32,767. It doesn't recognize double integers or real numbers. For example, if you measure temperature with a PT100 and an AM2 RTD, you'll get values from 0 to 1000 units at first. You can then scale this with an analog amplifier for a display in the range -50 to 200°C without decimal points (-50 to 200), or -50.0 to 200.0°C with one decimal place (-500 to 2000). Decimal placement is only shown on the LOGO or TDE display. If you want to transfer the temperature to [product_name], you send the value as INT from -500 to 2000. In [product_name], convert this INT to a REAL value and divide by 10.0 to get the decimal temperature. For LOGO, you can use VW0 in the VM area, corresponding in [product_name] to DB1.DBW0."
+    },
+    {
+      "comment_id": 419037344034727,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "To illustrate: LOGO sends a temperature such as 157.5°C (represented as 1575 INT) to the [product_name] controller. You first convert the INT to DINT, then DINT to REAL, and lastly divide the REAL value by 10.0."
+    },
+    {
+      "comment_id": 321873570537521,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Here’s one way to interpret your situation: If the temperature is a real value in your [product_name] controller and you want to use it in a LOGO controller, there are two main approaches: 1) Convert the real value to an integer in [product_name] first (for example, multiply by 10 for one decimal precision and change to signed 16-bit integer). Then use NAIx in LOGO to read the integer, with an analog amplifier set to gain=1 and decimals=1. 2) If you want to read a real value (single float is 4 bytes, double float is 8 bytes) in LOGO, use the FI block (float to integer). This block lets you select Float or Double and specify the VM area start address, e.g., VM0. Single float at VM0 uses 4 bytes (VB0-VB3 = 2 words = 1 double word); double float at VM0 uses 8 bytes (VB0-VB7 = 4 words = 2 double words. Check how many bytes your DB uses in [product_name] for the real value. The first method is usually easier for sending temperature readings from [product_name] to LOGO. Regards, [user_name]"
+    },
+    {
+      "comment_id": 147560275753181,
+      "user_name": "pUBcKdSHu0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Thanks! That was really helpful!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are having trouble transmitting real (floating-point) temperature values between a [product_name] PLC and a LOGO controller using the VM area, mainly for analog measurements. LOGO only supports integer analog values, so data must be scaled or converted on both ends. Users are confused about LOGO’s data type limitations and encounter issues with proper scaling and value conversion between the devices due to their different formats and handling of analog data.",
+    "user_expectations": "Users expect to be able to directly send real (floating-point) temperature values from a [product_name] controller to a LOGO controller, maintaining accuracy and decimal precision without complex conversion. They would prefer a simple, straightforward process.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "precise temperature transfer",
+      "easy PLC communication",
+      "seamless value mapping"
+    ],
+    "pain_keywords": [
+      "data type mismatch",
+      "conversion complexity",
+      "scaling errors"
+    ],
+    "feature_keywords": [
+      "real to integer conversion",
+      "VM area mapping",
+      "analog input scaling",
+      "float to integer block"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "2": "Product Compatibility"
+  }
+}

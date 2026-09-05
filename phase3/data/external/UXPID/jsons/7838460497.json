@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "branch_id": "7838460497",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 906449485790508,
+      "user_name": "sAJvGVBpQK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, I am using a [product_name] module together with a [company_name] router. The [product_name] mobile app fails—sometimes it reads the firmware version, but often reports 'communication with hardware is disrupted.' I've tried another monitoring tool, but while it can read I/O values from the [product_name], it can't change the network input values; the application crashes. The router uses GPRS, not 3G. Could this be causing the problem? Thanks, everyone."
+    },
+    {
+      "comment_id": 797719233844205,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, Have you tried monitoring the PLC without using a router—connecting your computer directly and using the official configuration software? This could help you determine whether the issue comes from the hardware, the router, or the monitoring application. I previously had trouble with GPRS on a similar PLC—network latency and delays caused timeouts. Yours might be a similar case. Additional information would help others in the community to assist. Good luck!"
+    },
+    {
+      "comment_id": 148089097247499,
+      "user_name": "sAJvGVBpQK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hi, Monitoring and changing network inputs locally works fine with both monitoring tools. However, since the mobile app requires a router, I can’t test it directly. The problem appears in remote mode—reading values works, but modifying inputs only succeeds locally."
+    },
+    {
+      "comment_id": 974137549943857,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Thank you for your update. Remote connections like yours are beyond my personal experience, but if you can provide more details, the community may be able to offer targeted suggestions. Wishing you good luck."
+    },
+    {
+      "comment_id": 139738126628160,
+      "user_name": "R40RVeEty3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, I've encountered similar issues, which were often related to the ethernet port. [product_name] devices communicate via TCP port 10001; if this port is used by another application or blocked by a firewall, you won't be able to access your device. Suggested steps: Open Command Prompt as administrator, type 'netstat -b' to check which applications are using each port. If something else is using port 10001, close it and try again. Also, consider disabling your firewall temporarily to test."
+    },
+    {
+      "comment_id": 932783924072572,
+      "user_name": "sAJvGVBpQK",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hi, I've checked the network ports and found no issues there. I downloaded a support file from the router and noticed the speed rate was only about 1.2 KB/s. This may be causing the problem."
+    },
+    {
+      "comment_id": 817980809309935,
+      "user_name": "R40RVeEty3",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, Since you can read the firmware version, there is some connection to your [product_name] device. Here's how the PC software usually reads the firmware: it connects to your device on port 10001, sends a specific command (decimal 33, hex 21), and the device responds first with an acknowledgement and then the firmware version. For your problem: When reading or modifying I/O values, the software sends and receives a significant number of bytes. If the connection is slower than the software’s preset timeout, data might be incomplete, causing the program to crash if error handling isn’t robust. Suggestions: Because GPRS is slower than 3G, timeouts may occur when sending/receiving larger amounts of data. If possible, increase your PC software's timeout settings. Try simple operations—like reading firmware, checking PLC status, or Run/Stop PLC—and observe the results. Also, if possible, increase your network speed."
+    },
+    {
+      "comment_id": 874451001997411,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hi, You mentioned a direct connection to your [product_name] without the [company_name] router works well. Have you contacted [company_name] support for help? There might be a simple router setting to change. It’s likely best to reach out to [company_name] for assistance."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are dealing with unreliable remote monitoring and control of their [product_name] device when connected through a GPRS-based [company_name] router. Local mode works reliably, but remote access frequently disconnects, especially when trying to write or modify values; this leads to monitoring software crashes. The key issue seems to be low network speed and high latency, which result in timeouts and incomplete data transmission, further revealed by limited error handling or timeout configuration options in the software.",
+    "user_expectations": "Users expect to monitor and control I/O values on the [product_name] remotely with reliable and stable communication, regardless of location. They would like monitoring applications to operate dependably and consistently, just as they do in local mode, without unexpected crashes or disruptions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote monitoring",
+      "control reliability",
+      "stable remote operation",
+      "full I/O access"
+    ],
+    "pain_keywords": [
+      "unreliable remote connection",
+      "operation crashes",
+      "timeouts",
+      "limited write access"
+    ],
+    "feature_keywords": [
+      "remote communication",
+      "I/O modification",
+      "network performance optimization",
+      "timeout setting"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": [],
+      "Android": []
+    }
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

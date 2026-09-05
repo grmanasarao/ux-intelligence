@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "5035765954",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 860959471641849,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello, I need help with my assignment. I have two temperature measurements (temp1 and temp2) using sensors with ranges from -30 to 60 °C and 0 to 10V output. I want to convert the difference between T1 and T2, which I can calculate with a math instruction, but I am unable to convert the resulting values from \"-2000\" to \"+2000\" to a 0-10V output. How can I map this range to the analog output?"
+    },
+    {
+      "comment_id": 963350964026602,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "To solve this, first add 2000 to your calculated value using a math function. This transforms the range from 0 to 4000. Make sure you perform this addition within the same math block, since [product_name] cannot process negative values outside math operations. After you have your value between 0 and 4000, divide it by 400 to scale it to a range of 0 to 10 for your output signal."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is struggling to convert a computed temperature difference from -2000 to +2000 into an analog 0-10V output using a [product_name] device. The problem originates from the device's limitation with negative values outside of math blocks. Suggestions given include shifting and scaling the calculated value, revealing both a workaround and the product’s limitations in seamlessly mapping bipolar ranges to analog outputs.",
+    "user_expectations": "The user expects the device to provide an easy and direct way to map a bipolar value range to a 0-10V analog output, eliminating the need for complex calculations or manual adjustments.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy value conversion",
+      "analog output mapping",
+      "temperature difference calculation"
+    ],
+    "pain_keywords": [
+      "range conversion complexity",
+      "negative value handling",
+      "scaling limitations"
+    ],
+    "feature_keywords": [
+      "math block",
+      "value mapping",
+      "analog output (0-10V)"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

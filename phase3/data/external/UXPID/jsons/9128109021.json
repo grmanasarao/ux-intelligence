@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "branch_id": "9128109021",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 553624988804588,
+      "user_name": "NIKWd9KHmW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm attempting to send a counter value to an AWS cloud shadow but am having issues. I believe the solution involves using Parameter VM mapping, so I mapped the counter to address 0 as a DWord. In the cloud data transfer configuration, I set a virtual data address to VD0 with updates every second. However, in my AWS shadow I only see \"V..6:0-1\": \"00000000\" and the value doesn’t change. I have a marker set that goes high when the counter reaches 4, so I know the AWS connection itself is functioning. Am I missing something obvious? Could this be a limitation of [product_name]?"
+    },
+    {
+      "comment_id": 401841849332860,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello, Based on your explanation, your configuration appears reasonable. Please verify that the VD0 range in [product_name] isn't simultaneously used for other VM mapping, as this often leads to problems. If your counter is mapped to VD0, make sure you aren't assigning the same for VB0, VB1, VB2, VB3, VW0, VW2, or similar addresses in this range, as doing so can overwrite the counter value in VD0. Hopefully, this clarifies the situation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges transferring a counter value from [product_name] to an AWS cloud shadow, with the value remaining at zero in the cloud despite correct configuration. There are uncertainties regarding the setup, particularly around overlapping memory address mapping. A knowledgeable user points out that memory conflicts in VM mapping are a typical source of this issue, though a definitive resolution is not confirmed.",
+    "user_expectations": "The user expects the counter value to be accurately shown in real-time on the AWS cloud shadow, updating as configured.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time data transfer",
+      "cloud monitoring",
+      "remote value update"
+    ],
+    "pain_keywords": [
+      "data not updating",
+      "configuration complexity",
+      "potential product limitation",
+      "unclear mapping conflicts"
+    ],
+    "feature_keywords": [
+      "cloud data transfer",
+      "parameter VM mapping",
+      "counter value mapping",
+      "VD memory areas"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "13": "Integration Limitations"
+  }
+}

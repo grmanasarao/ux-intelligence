@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "7894019119",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 559861474083240,
+      "user_name": "jYREOjvG37",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "I want to know how to wire the [product_name] module with a 2-wire PT100 sensor connected to M1+ and M1-, with a link between IC1 and M1+. From which point do I get the 0-10V signal to connect to I7 on the [product_name] [article_no]? I tried connecting M1+ to I7 but the temperature readings were unstable. My multimeter showed 0.285V when the temperature was 28.5°C. Is this the correct wiring? Why isn’t the voltage at I7 2.85V instead of 0.285V—am I only measuring the PT100 and missing out on signal conversion? I expected the module to convert the signal to a range between 0-10V. Also, the second row of my module says X11(OUTPUT?) on the left with two terminals, and on the right side, PE with two terminals (which I connected to ground). Are the left terminals meant for connecting to I7 for the 0-10V output? Internet photos show these 4 terminals labeled as PE. What am I doing wrong? Any advice would be appreciated for improving the stability of the readings and information on signal damping. Thanks in advance."
+    },
+    {
+      "comment_id": 489614811939375,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hello, you seem to be mixing different concepts. When you wire the PT100 to the [product_name] module, the appropriate analog input (AI) will show the temperature directly, but you need to set PT100/1000 in the function blocks. Onboard analog inputs operate with 0...10V (1000 step resolution). You can also connect a PT100 to these onboard inputs; however, this requires powering the PT100 and then measuring its signal. Since a PT100 changes resistance only slightly, the resolution is limited to 10mV, giving you a very narrow temperature range or poor resolution. You can find many explanations on the forum regarding why PT100/1000 sensors don't work well with onboard analog inputs. Hope this helps."
+    },
+    {
+      "comment_id": 918488656209560,
+      "user_name": "jYREOjvG37",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "I found the right connection now. Sorry for the confusion—I overlooked a small piece of plastic and a red indicator light on the side."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered confusion and unstable temperature readings when trying to wire a PT100 sensor with a [product_name] module and another module. Key user experience issues include unclear terminal assignments, misunderstanding of analog signal conversion, and difficulty choosing correct terminals for specific measurements. There is frustration with signal stability and a lack of clear documentation about output wiring.",
+    "user_expectations": "The user expects straightforward instructions for converting a PT100 signal to 0-10V, clear wiring guidance, and reliably stable and accurate temperature measurements when using [product_name] modules together.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate temperature measurement",
+      "clear wiring instructions",
+      "stable readings"
+    ],
+    "pain_keywords": [
+      "unstable readings",
+      "unclear terminal markings",
+      "signal conversion confusion"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "0-10V signal",
+      "PT100 sensor support"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "10": "Performance Predictability",
+    "3": "User Guidance"
+  }
+}

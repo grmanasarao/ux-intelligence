@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "branch_id": "7920516981",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 215956153311994,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 8,
+      "comment_body": "I'm attempting to connect [product_name] software with a [product_name] PLC ([article_no]), which is linked to my router. While it connects properly within my LAN, I can't establish a remote connection. I've set up port forwarding (port 10001) to the PLC's IP (192.168.1.90). Although my router gets its IP via DHCP, my PC always uses the same address and I've verified it's accurate. Despite correct settings, each remote attempt produces a 'Cannot access the IP address xxx.xxx.xxx.xxx' error (referring to my router’s public IP). Pinging works when I disable the router's firewall, but even then, the [product_name] software can't connect. Are there alternative steps to try, or does this require a fixed IP address for external access? Thanks for any advice."
+    },
+    {
+      "comment_id": 455955910682408,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 8,
+      "comment_body": "After extensive troubleshooting, I found a partial solution. The [product_name] PLC is set with a fixed IP (192.168.1.90), and my PC uses 192.168.1.99. Instead of forwarding port 10001 to the PLC, I forwarded it to my PC, then used rinetd (also available for Windows, see [url]) to reroute from PC to PLC on port 10001. Now, data passes through my router and PC before reaching the PLC, which works. However, I’m unsure why direct router-to-PLC forwarding fails while passing traffic through the PC works. Any insights would be appreciated."
+    },
+    {
+      "comment_id": 625429507068505,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 9,
+      "comment_body": "I discovered a simple solution: the gateway address in the PLC was incorrect—it should be set to the router’s IP. After correcting this, everything worked, including remote access via the mobile app."
+    },
+    {
+      "comment_id": 398525634062206,
+      "user_name": "cwheEfBRUd",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], I found this discussion through Google and I'm experiencing the same issue. I can connect to my [product_name] PLC locally (using 192.168.1.121), but can't reach it from the internet. My PLC is connected to a router (LAN IP 192.168.1.1, used as gateway), and I've forwarded port 10001 to the PLC's IP. External access still doesn't work. Could you clarify your settings for both the PLC and the [product_name] software? Do you use internal/external IPs or specify a port in the configuration? Thanks in advance, [user_name]."
+    },
+    {
+      "comment_id": 529332376546614,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], Here are the details: For the [product_name] PLC, set its IP to something below 192.168.1.100 (e.g. 192.168.1.90) to avoid DHCP conflicts, and confirm no other devices use this address. Netmask: 255.255.255.0. Gateway: 192.168.1.1. You can let [product_name] software auto-configure these settings. On the router, forward port 10001 to the PLC's IP. In [product_name] software, go to Tools > Ethernet connections, enter the internal PLC IP, netmask, and gateway. Under peer-to-peer connections, add a new Ethernet connection and configure local (server) TSAP as 02.00, enable server connection, accept all requests, and remote (client) TSAP as 01.00. Don't enable 'keep alive'. Save and upload the program—this overwrites the PLC’s IP settings. For remote internet connections, go to Tools > transfer > Configure Network address, add your router's external IP (find it at whatismyip.com), with the netmask set, but leave the gateway blank. This should enable remote access. Hope this helps!"
+    },
+    {
+      "comment_id": 680560249284401,
+      "user_name": "cwheEfBRUd",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Thanks for your help. I’d postponed this project for other priorities, but today I followed your instructions and successfully accessed my PLC from the internet. Your guidance was invaluable. Best regards, [user_name]."
+    },
+    {
+      "comment_id": 849100247444009,
+      "user_name": "PYIHPy2PYW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thank you for the detailed explanation. Your instructions helped me resolve my issue."
+    },
+    {
+      "comment_id": 957974571476220,
+      "user_name": "pn7OPQsCYb",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 7,
+      "comment_body": "Thanks for the detailed answer. I can see my router’s external IP but cannot access the router from outside—let alone the PLC. What steps should we take?"
+    },
+    {
+      "comment_id": 541939852517052,
+      "user_name": "Mz64yedh1W",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "A new question from [user_name] was started in another thread titled 'Establishing a connection between [product_name] and Smartphone by WiFi'. Best regards, [user_name]."
+    },
+    {
+      "comment_id": 725594787088185,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "A new question from [user_name] was moved to a different topic: 'Access four [product_name] PLCs from the Internet.' Best regards, [user_name]."
+    },
+    {
+      "comment_id": 611537310724904,
+      "user_name": "2BN6P2rvrr",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Thanks for the detailed answer."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered notable difficulties setting up remote access for [product_name] PLCs using [product_name] software, mainly due to misconfigured gateway addresses and challenges with router port forwarding. Persistent network errors caused frustration, but the proper configuration of the gateway and correct handling of external IP addresses eventually led to successful remote connections as confirmed by several participants.",
+    "user_expectations": "Users seek straightforward, dependable remote connectivity to [product_name] PLCs using [product_name] software, with clear setup procedures and simple troubleshooting. They expect network configuration—including gateway and port forwarding—to be manageable without advanced networking expertise.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote access",
+      "internet connectivity",
+      "successful setup",
+      "clear instructions"
+    ],
+    "pain_keywords": [
+      "network configuration",
+      "error messages",
+      "port forwarding confusion",
+      "gateway misconfiguration",
+      "external access failure"
+    ],
+    "feature_keywords": [
+      "Ethernet connection",
+      "gateway setting",
+      "external IP support",
+      "port forwarding",
+      "remote management capability"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {
+      "Windows": [],
+      "Linux": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

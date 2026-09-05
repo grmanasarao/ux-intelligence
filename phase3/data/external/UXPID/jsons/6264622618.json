@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "branch_id": "6264622618",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 673186780198335,
+      "user_name": "bMPlKUO2FY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello everyone. After extensive searching and testing, I haven't found a solution for my setup. I am using a [product_name] on a plant connected to a [product_name] device for LTE connectivity, SMS, and email alerts. There's also a Modbus TCP server written in Python running on a remote VPS, which listens for incoming connections on port 502 over the internet. In the network configuration for the [product_name], I add a Modbus server, set the VPS IP, port 502, and select the words to read/write from the server. This works flawlessly when connected to my home network by setting the device IP, subnet, and gateway (my home router). Modbus packets reach the VPS without issue. When configuring the [product_name] with SIM card PIN and APN data (a consumer SIM with no public IP, suitable only for regular internet access, not VPN/DDNS), problems begin. The device reports network connection (status LED green), and NTP synchronization works, but internet routing through the [product_name] as gateway fails—Modbus packets are not forwarded. I've tested multiple SIMs from different operators, but without success. The same SIMs work fine for internet access on a smartphone and a laptop with LTE modem. Connecting a PC directly via LAN cable and using the [product_name] as gateway also failed, giving no internet connection. This leads me to suspect the [product_name] cannot function as a typical LTE modem, possibly due to its design. I'm unsure if I've misconfigured something. Here are the network settings: [product_name] device IP: 192.168.1.120, Subnet: 255.255.255.0, Gateway: 192.168.1.1; [product_name] device IP: 192.168.1.1, Subnet: 255.255.255.0, Default Router: 0.0.0.0. Apologies for the long post, but I hope my situation is clear. Thanks in advance to anyone who reads and responds!"
+    },
+    {
+      "comment_id": 914106682514899,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hi, I don't think this will work. The [product_name] does not support routing in the way common LTE routers do. You could contact [company_name]—they provide presales support for this device. Hopefully, they can assist you. Hope this helps."
+    },
+    {
+      "comment_id": 165556984802886,
+      "user_name": "bMPlKUO2FY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Thanks for your response! This morning I'll be speaking with a [company_name] technician regarding the [product_name] devices, hoping to resolve the issue. I'm also searching for alternative solutions, but currently don't have any ideas. It appears that a [product_name] modem won't be useful for this type of scenario either. I'll update this post after the call, hopefully with a workaround or solution. It's odd and frustrating that an LTE modem can't function as a standard LTE modem."
+    },
+    {
+      "comment_id": 825679245851600,
+      "user_name": "bMPlKUO2FY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello. I spoke with [company_name], but unfortunately, the news isn't good. The [product_name] is not a true LTE modem and does not forward internet connectivity to the RJ45 port. The only reliable method is using an M2M SIM and VPN, as no other options are viable with this device. I may consider switching to a different router, but I'm unsure if my current controller will work properly—I may need to move to another [version_no] series. Thanks to everyone for their support!"
+    },
+    {
+      "comment_id": 699861415215144,
+      "user_name": "kYnwOsTMsU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "I use Teltonika RUT240 routers with my units together with [product_name], and it works very well."
+    },
+    {
+      "comment_id": 676244383187872,
+      "user_name": "uilXywuFBE",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Dear Sir, I had a similar concept, but the Modbus module doesn't function reliably for me (even the SMS module stopped working with the latest update). As an LTE module providing internet to hardware, it's robust and reliable with good failover features. However, monitoring outputs, inputs, flags, and sending alarms/SMS when hardware changes are less dependable. Regarding the LTE modem's capabilities, it's theoretically possible to identify the LTE module and add an RJ-45 port or use the USB port for a virtual ethernet connection, but this is mostly speculative and not generally straightforward. Most LTE modems offer such features in principle, but finding specifics can be difficult."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have encountered major limitations when attempting to use the [product_name] as a standard LTE modem for internet access and remote Modbus TCP communication with [product_name] controllers. While regular LAN configuration works, switching to the LTE setup revealed the device does not route internet traffic as expected. This has led to confusion, frustration, and a search for alternative hardware solutions, with some competitor products noted to be better suited for these requirements.",
+    "user_expectations": "Users expect the [product_name] should work as a standard LTE modem/router, providing internet access for [product_name] controllers and allowing seamless remote Modbus TCP communication.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "internet connectivity",
+      "remote control",
+      "reliable Modbus TCP communication",
+      "seamless integration",
+      "robust operation"
+    ],
+    "pain_keywords": [
+      "no internet routing",
+      "product limitations unclear",
+      "incompatibility",
+      "configuration confusion",
+      "lack of alternative solutions"
+    ],
+    "feature_keywords": [
+      "LTE routing",
+      "Modbus TCP server",
+      "internet forwarding",
+      "gateway configuration",
+      "SMS/email alerts",
+      "NTP sync"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

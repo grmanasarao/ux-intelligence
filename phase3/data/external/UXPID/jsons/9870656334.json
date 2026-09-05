@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "9870656334",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 344394448549272,
+      "user_name": "smcYm4cu7t",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Which blocks are suitable for switching between modes (e.g., automatic/manual) using HMI, and how do you assign a bit to retentive memory?"
+    },
+    {
+      "comment_id": 393422022975511,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "What function should this bit serve? Should it behave as a switch or a button?"
+    },
+    {
+      "comment_id": 518517867890759,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "In HMI, you can use a button. Create a tag named \"button\" (or any preferred name) and assign it to the desired address, for example V0.0. In the button's event settings, set the function to \"SetBitWhileKeyPressed\" for the tag \"button\". In your [product_name] program, use a digital network input with the same address (e.g. V0.0) as the HMI tag. Connect this input to the trigger of a pulse relay and enable retentivity in its settings."
+    },
+    {
+      "comment_id": 824594175202848,
+      "user_name": "smcYm4cu7t",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello, that setup works for a button. But how do you implement this for a switch? When displaying switch status on the HMI, this approach doesn't seem applicable."
+    },
+    {
+      "comment_id": 504870186768930,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "You need to clarify your requirements when asking questions. You initially asked how to switch between manual and automatic modes using HMI, which I addressed. However, you did not specify you wanted to display the mode status. Without clear details, it's difficult to provide accurate answers."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having trouble configuring mode switching (automatic/manual) via HMI using retentive memory. Responses suggest uncertainty about which function blocks to use for switching actions and especially about displaying switch status correctly in the HMI. This reflects a common challenge tied to insufficient documentation and unclear configuration steps.",
+    "user_expectations": "The user wants clear instruction for switching modes on the HMI and for correctly displaying the current switch status using retentive memory. They seek practical examples and recommendations on which function blocks to use for reliable status visualization.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "mode switching",
+      "status visualization",
+      "retentive memory"
+    ],
+    "pain_keywords": [
+      "configuration complexity",
+      "lack of examples",
+      "status feedback uncertainty"
+    ],
+    "feature_keywords": [
+      "mode selection",
+      "retentivity",
+      "HMI button",
+      "status display"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

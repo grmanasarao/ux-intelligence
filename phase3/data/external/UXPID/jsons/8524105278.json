@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "branch_id": "8524105278",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 144723392215543,
+      "user_name": "q1B4zB0jfw",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "[product_name] [version_no] on I1 / I2 ON signal causes the module to send multiple SMS messages (between 2 and 6), but I expect just one message. Am I missing something?"
+    },
+    {
+      "comment_id": 714367771448029,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], What type of output are you using to set I1/I2 to active? It sounds like there may be a floating or unstable signal, possibly if you're using a relay as a trigger. This can result in one \"high\" signal causing multiple transitions internally (from 1 to 0 and back repeatedly) when activated, leading to several assignments. The inputs on the [product_name] are not designed to handle floating signals. You will need to use a debounced output, or manually debounce with a capacitor. Hope this helps. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering an issue where a communication module sends multiple SMS messages in response to a single input, when only one message is expected. This seems related to how the hardware processes the input signal, with insufficient debouncing causing repeated triggers.",
+    "user_expectations": "Users expect each input activation to result in only one SMS message being sent by the module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "single notification",
+      "reliable SMS alert"
+    ],
+    "pain_keywords": [
+      "multiple notifications",
+      "unexpected SMS",
+      "signal handling issue"
+    ],
+    "feature_keywords": [
+      "SMS output",
+      "input debounce",
+      "I1/I2 signal handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

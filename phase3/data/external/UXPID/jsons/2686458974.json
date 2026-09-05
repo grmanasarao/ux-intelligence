@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "2686458974",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 165330350714445,
+      "user_name": "qnGbtan1l3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm new to [product_name] and have a challenge in calculating meters on a plastic film line. My setup uses a roller with a 60mm diameter and one proximity sensor, which generates one pulse for every 188.5mm of roller movement. The speed of the line is about 20m/min. How can I set things up so that the measurement results in exactly 1000mm? Any advice would be appreciated. Regards,"
+    },
+    {
+      "comment_id": 518604511868586,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "1000mm can't be measured exactly, because 1000mm isn't a precise multiple of 188.5mm. You can scale your measurement in millimeters, but it will only round to increments of 188.5mm, with possible adjustments for full millimeters. Check the attached example with comments for more information. Regards, [user_name]"
+    },
+    {
+      "comment_id": 861372313472525,
+      "user_name": "qnGbtan1l3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Thank you [user_name] for your quick response; this is precisely the solution I needed! I updated the mathematics instruction values to V2 = 1834 and V3 = 11. Now the display shows exactly 1000mm. Many thanks, Best regards, [user_name]"
+    },
+    {
+      "comment_id": 438821227949890,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "The display may show exactly 1000mm, but this isn't the true measured length. With 1834mm divided by 11, you get 166.73mm per pulse—but your setup actually gives 60mm x Pi = 188.5mm per pulse. You can't freely choose these values if you want displayed and actual lengths to match. Regards, [user_name]"
+    },
+    {
+      "comment_id": 746841829218404,
+      "user_name": "qnGbtan1l3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "You're correct again; that's the difference between running a simulation and actual operation. I'm learning more every day. Thanks again,"
+    },
+    {
+      "comment_id": 339650964004015,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "It might be beneficial to use an incremental encoder with, for example, 100–300 pulses per rotation rather than a proximity switch that provides just one pulse per rotation. This way, the gap between pulses could be reduced to 5–10mm, significantly increasing resolution. If this option works for your setup, make sure you don't exceed the fast counter input's maximum frequency (5kHz), and keep in mind that not all [product_name] controllers support fast counter inputs. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users new to [product_name] often encounter limitations when trying to achieve exact measurements with basic hardware, like proximity switches that generate only a few pulses per rotation. Because the system relies on discrete pulse intervals, the displayed value may not match the real-world measurement unless the hardware resolution is sufficiently high. Through discussion, users realize that matching display results to true lengths requires more precise measurement hardware or careful calculation.",
+    "user_expectations": "Users expect the system to accurately measure and display specific lengths such as 1000mm, hoping the output corresponds exactly to the physical length processed by their equipment.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate measurement",
+      "millimeter precision",
+      "system understanding"
+    ],
+    "pain_keywords": [
+      "measurement inaccuracy",
+      "hardware limitation",
+      "display mismatch"
+    ],
+    "feature_keywords": [
+      "measurement scaling",
+      "display calculation",
+      "sensor resolution",
+      "pulse count"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

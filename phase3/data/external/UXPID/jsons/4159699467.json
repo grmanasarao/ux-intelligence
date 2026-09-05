@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "4159699467",
+    "thread_id": "1723880927",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 464607478338116,
+      "user_name": "ONac7yn5Sh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "Is it possible to configure the [product_name] [article_no] to generate an alarm condition if the controller fails, stops, or loses power, through an output contact that changes state in case of any malfunction?"
+    },
+    {
+      "comment_id": 921095837899125,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "Hello, You can use a latching relay triggered by an initialization flag to control an output. When the controller is stopped or loses power, the output will be off. When the system resumes operation, the output will be set again. Regards,"
+    },
+    {
+      "comment_id": 370924524771483,
+      "user_name": "2IxhYlBIWy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "It's simpler to keep a digital output always set high; if the program stops, the output drops to zero. Is the intention here to build a watchdog circuit?"
+    },
+    {
+      "comment_id": 344846196332810,
+      "user_name": "ONac7yn5Sh",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "Yes, the goal is to implement a watchdog. The controller's role is to monitor a critical electronic filter circuit and provide feedback in case it becomes nonfunctional. I'm looking for a normally closed contact that opens while the controller runs, and closes to signal an alarm if it stops or loses power. Do all relay outputs default to open status, or can they be configured to default as closed when the controller is off? If all relay outputs are open when the system is off, I'd need to incorporate an auxiliary relay with a normally closed contact."
+    },
+    {
+      "comment_id": 835717899244366,
+      "user_name": "gu0umgnUlx",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "Hello, When the [product_name] is powered off, all digital outputs are also off. Additionally, if you set the device to STOP mode, the digital outputs are off as well. Best regards"
+    },
+    {
+      "comment_id": 901019632620796,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "There are two situations to consider: 1. The [product_name] fails to run 2. The [product_name] is stuck in a running program (although this is rare) You can make an output relay that is always ON when the device operates normally; it will open if the [product_name] fails (e.g., on power loss), but this won't help when the device is stuck in a program. Possible solution: Set an output to turn ON for 1 second every minute. Connect this output to a time delay relay (OFF-Delay) with a delay greater than 1 minute. Also connect it to an ON-Delay relay with a delay less than 1 minute. If the OFF-Delay relay is ON and the ON-Delay is OFF, the device is operating correctly. Which is better: using the [product_name] for this or using two time delay relays? Implementing a true watchdog setup can be complex."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are focused on finding dependable methods to detect and signal when the [product_name] controller either stops, encounters an error, or loses power, which is critical for certain monitoring applications. There is uncertainty regarding the default states of outputs when the device stops or is powered off, and whether outputs can be set to a specific fail-state. The conversation shows that outputs typically turn off and open during stop or power loss, and using auxiliary relays or additional hardware may be necessary to achieve the desired alarm functionality.",
+    "user_expectations": "The user wants the controller to provide a directly programmable output that will switch state and activate an alarm if the system becomes nonfunctional, stops, or loses power. Additionally, there is a desire for outputs to have configurable default or fail states.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable failure detection",
+      "automatic PLC status monitoring",
+      "critical alarm triggering"
+    ],
+    "pain_keywords": [
+      "output state ambiguity",
+      "no configurable fail-safe outputs",
+      "uncertainty in default relay behavior"
+    ],
+    "feature_keywords": [
+      "alarm output",
+      "relay default state",
+      "watchdog circuit",
+      "output fail behavior",
+      "initialisation flag"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "17": "Circuit Protection Guidance"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "branch_id": "5963015056",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 549316886232133,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello everyone, I'm trying to find a way to block a start signal for a specific amount of time. For reference: B010 and B013 are network inputs and prerequisites for water pumps, coming from a thermostat via sensors and an external controller (node-red and raspberry). Currently, I use a timer in node-red to prevent frequent switching, but I prefer to handle this directly in my [product_name] for better safety. B015 stands for I1 (no errors) & manual off. When first started, the fuel burner (Q1) activates with a 10-second delay (B001). It then stops after running for a set time, once a certain temperature is reached. Thank you in advance."
+    },
+    {
+      "comment_id": 715799718301338,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], welcome to the forum. I’m not entirely clear on what you want to achieve. Could you please clarify your remark about stopping after running for a set time when a temperature is reached? What exactly is the signal indicating the temperature threshold?"
+    },
+    {
+      "comment_id": 778446996414282,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], it’s a diesel heater. I control three components: (A) boiler flow pump for tap water, (B) heater flow pump, and (C) complete fuel system (including blower, injector valves, etc). Here’s the logic: If either (A) or (B) is triggered due to low temperature, they start, and 10 seconds later, (C) starts (only if (A) or (B) are running). Once the set temperature is reached, (C) stops, followed by (A) or (B) stopping 5 minutes later. If (C) is turned off, a 300-second delay timer runs. During this delay, (C) should not start again. After the 300 seconds, (C) may restart after another 10-second delay. In summary, I need to block the start signal for a set amount of time (here, 300 seconds). The reason: if either (A) or (B) are running and there’s a minor temperature reading error or change in preset temperature, it could restart (C) unnecessarily."
+    },
+    {
+      "comment_id": 462507871870393,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Have you already created a program for this?"
+    },
+    {
+      "comment_id": 577578026499034,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hi, apologies for the late reply—been busy with work. Yes, I have a working program. It performs well, but needs some fine-tuning."
+    },
+    {
+      "comment_id": 665965598231894,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "If you need help with further tuning, please upload your program to the forum as a ZIP file so we can review it."
+    },
+    {
+      "comment_id": 921653652012796,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello, I considered simplifying the request to a \"trigger\" input and a \"task\" output, possibly using a counter. My design suggestion would look like this: [IMAGE]. Is this what you were aiming for?"
+    },
+    {
+      "comment_id": 513404246578830,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "This solution isn't working for my needs—now I would need to press multiple times to turn the output high. In my case, I1 is a thermostat. Thanks for trying, though."
+    },
+    {
+      "comment_id": 572584200030317,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Could you clarify what should happen specifically? Do you mean when I1 goes LOW again, the output should remain HIGH for a defined time period?"
+    },
+    {
+      "comment_id": 898830796405213,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I managed to solve it—I first built using LDR logic and then converted it to FDB. I implemented Set/Reset logic, where the Reset goes high for 30 seconds. If the input tries to start via the Set, the Reset will block it. This approach works very well."
+    },
+    {
+      "comment_id": 670235000930508,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 387899696482107,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I need to block the start signal for a specific time so it doesn't go high or turn on. Essentially, even if I1 goes high rapidly (for instance, 20 times in a minute), I don't want Q1 to activate each time—blocking prevents it from running. I accomplished this with a timer holding the Reset high, so the Set can't trigger Q."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wanted to implement a timer-based blocking function to prevent a fuel heater from restarting immediately after shutdown, aiming for safety and reliability. They transitioned the logic from external automation tools into the dedicated hardware ([product_name]), and after discussions and experimentation, succeeded using internal Set/Reset logic. Their approach demonstrates adaptability and iterative problem-solving with [product_name] programming.",
+    "user_expectations": "The user seeks an easy way to program a precise and reliable timer-based lockout directly within their [product_name], so the burner cannot restart until a defined period has elapsed, ensuring safer operation and reduced wear. Ideally, this logic should be handled internally and require only minimal program adjustments.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe operation",
+      "automation reliability",
+      "internal timer control"
+    ],
+    "pain_keywords": [
+      "risk of unintended restarts",
+      "tuning required"
+    ],
+    "feature_keywords": [
+      "delay timer",
+      "Set/Reset block",
+      "lockout period"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

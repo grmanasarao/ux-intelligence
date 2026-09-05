@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "branch_id": "2973888646",
+    "thread_id": "1723880927",
+    "publication_year": 2013,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 500482775260996,
+      "user_name": "mETYZgSUGN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "Everyone, how can I enable or disable an analog signal?"
+    },
+    {
+      "comment_id": 200231265000465,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "Hello, if you are referring to analog inputs, their activation is automatic. When the input is configured as digital in your program, that same input cannot be used as analog. For example, if you have four analog inputs, you can select either 2 or 4 analog inputs in the settings through the File > Properties > parameter tab."
+    },
+    {
+      "comment_id": 397621186641112,
+      "user_name": "mETYZgSUGN",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "[user_name], thank you for your response. I should clarify my question: I want to use an analog signal as a reference and also for control purposes. I’ve encountered issues switching the analog signal between two different program blocks. Any advice?"
+    },
+    {
+      "comment_id": 759470736146452,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm still unsure exactly what you are trying to achieve. Perhaps this will help: you can toggle an analog input by connecting an analog amplifier (set Gain to 1) to it. Then use an analog multiplexer to switch—when the condition is 'on', the input is routed to the amp for reference, and when 'off', it outputs a value of 0."
+    },
+    {
+      "comment_id": 728653628432093,
+      "user_name": "YeoD6k7RFh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "It seems you want to use the same analog input in a functional block more than once. This is similar to looping with digital signals, where you need to use a marker; in this case, use an analog marker. If you need to use an analog signal multiple times, working via an analog operator can help you calibrate it once for all uses. Alternatively, if you want to switch between multiple sensors or deactivate a signal, consider using a multiplexer block. With two digital inputs or bits, you can select between four signal sources, or choose a default value when the input is off. I hope these suggestions are useful."
+    },
+    {
+      "comment_id": 556652285302857,
+      "user_name": "mETYZgSUGN",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "Everyone, thank you for sharing your ideas. I solved it slightly differently, but my solution is similar to what [user_name] suggested. I can't upload the file to show it, but I used min/max components to store a value and mathematical operations to set the offset."
+    },
+    {
+      "comment_id": 883629543666274,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "Hello, thanks for your feedback. To upload your file generated in [product_name], you need to compress it first. There have also been server issues recently, so please try again."
+    },
+    {
+      "comment_id": 925927794639929,
+      "user_name": "mETYZgSUGN",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "[user_name], I’m attaching my file."
+    },
+    {
+      "comment_id": 455737316671523,
+      "user_name": "YeoD6k7RFh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "Ouch, [user_name]! Your issue seems to be due to another factor. You are using I1 and AI4, which is confusing. For example: AI1 may be mapped to Pin I7, AI2 to Pin I8, AI3 to Pin I1, and AI4 to Pin I2, depending on your configuration. What you did is possible, but have you switched the system to use four analog inputs? I recently experienced a mismatch this morning between the program and hardware analog modes (2 versus 4)."
+    },
+    {
+      "comment_id": 801264559418979,
+      "user_name": "YeoD6k7RFh",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "I made a sample program for you, but I can't compress and upload it right now—I need to handle customs urgently. I’ll try later."
+    },
+    {
+      "comment_id": 982739721408973,
+      "user_name": "mETYZgSUGN",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "[user_name], I'm not sure what was confusing, but if you review again, there's a straightforward way to set and store an analog value for later processing. In this part of the project I use an analog input for reference and monitoring; ultimately two analog input values will be considered for the final result."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced difficulties with enabling or disabling analog input signals in [product_name] hardware, especially when attempting to use the same signal for multiple operations in their control programs. Forum participants discussed possible solutions such as using multiplexer blocks, analog markers, and calibration functions. Confusion about the mapping of hardware inputs to software inputs and switching between two or four analog inputs was also highlighted, along with issues uploading files due to server problems.",
+    "user_expectations": "Users wish for an intuitive way to enable or disable analog inputs programmatically, enabling flexible reuse of analog signals across different functional blocks without confusion between hardware and software configurations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "flexible analog input usage",
+      "reusable calibration",
+      "streamlined signal routing"
+    ],
+    "pain_keywords": [
+      "input configuration confusion",
+      "unclear signal routing",
+      "file upload issues"
+    ],
+    "feature_keywords": [
+      "analog input switching",
+      "input mode selection",
+      "analog calibration",
+      "mux block"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

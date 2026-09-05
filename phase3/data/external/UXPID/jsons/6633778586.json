@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "6633778586",
+    "thread_id": "4479534060",
+    "publication_year": 2006,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 983037457368970,
+      "user_name": "Ql8f73e7TX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm struggling to get my [product_name] device and my INSYS GSM 4.1 modem to communicate properly. While sending SMS using AT commands works, I can't get an SMS to be sent automatically when it's triggered by [product_name]. Does anyone have suggestions on how to resolve this?"
+    },
+    {
+      "comment_id": 137785647483269,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], To clarify: you are able to send AT commands to the modem and hear the relay click if the command is correct. However, you can't send SMS directly from the modem? There could be multiple causes. If possible, attach your [product_name] program and your HSComm file (zipped) so I can review them. Please also let us know how you connected [product_name] and the modem, and consider attaching a wiring diagram. Best Regards, [user_name]"
+    },
+    {
+      "comment_id": 806581817600983,
+      "user_name": "Ql8f73e7TX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "Sorry if my last message was unclear; it was posted very early in the morning. [product_name] and INSYS GSM are connected as in the attached image (povezava.jpg). The modem works well—manual SMS via AT commands functions, and so does the power-up SMS. My goal is for the modem to send an alarm when the output Q1 switches on. Even after configuring HSComm to monitor Q1 output and assigning the recipient number/text, the modem does not respond. For testing, my [product_name] program simply connects input L1 and Q1, so sharing the program may not help much. Which HSComm file do you need to see? I'm not sure which one to send. Thank you for your assistance."
+    },
+    {
+      "comment_id": 208000906577601,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "The needed file is the .HGP file that HSComm creates when saving your configuration. If you’re using the serial data cable as shown in your image, follow these steps (if memory serves): Once basic settings are done, go to the last menu item in HSComm labelled '[product_name]'. Mark output Q1 twice—first under 'values in use', then again under 'monitored values'. Input your desired settings in the popup windows; that should address it, although I'm not entirely certain. You can also contact INSYS for further support at [url]. Hope this helps!"
+    },
+    {
+      "comment_id": 389345158209084,
+      "user_name": "Ql8f73e7TX",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "Thanks for the reply, but it didn't provide new info. I've attached the HSComm file—please review it and advise if anything looks wrong."
+    },
+    {
+      "comment_id": 379660773487448,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "Hi, I made three adjustments—please check if I've entered the correct country prefix for the recipient's number. It may be necessary to enter all mobile numbers with this format (+...). I've also selected the options 'Automatic SMS processing' and 'Control/Output 2 activated by command (AT, SMS, DTMF)'."
+    },
+    {
+      "comment_id": 490051337833617,
+      "user_name": "GODWCQCj3U",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "I've encountered the same problem with my INSYS modem. Initially, I adjusted settings like baud rate and stop bits to match across [product_name] software, [product_name] device, HSComm, and INSYS. Even then, signals from [product_name] didn’t trigger SMS. I discovered communication would only start after sending a 'STATUS?' SMS to [product_name]; then INSYS and [product_name] finally communicated. This method isn't ideal, but pressing the reset button on INSYS after connecting [product_name] also helps. You’ll know they’re communicating when the RX/TX LEDs flash."
+    },
+    {
+      "comment_id": 201065703242918,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], That's correct—those are good tips. Nowadays, I always press the reset button once after sending a config file to the modem. It hasn’t caused any problems yet!"
+    },
+    {
+      "comment_id": 345258943596108,
+      "user_name": "vSm5i9uYOK",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 12,
+      "comment_body": "Hello, I faced similar issues for a long time between INSYS and [company_name] [product_name] 24. Thanks for the help here. PS: If anyone is interested in selling an INSYS GSM modem, please contact me."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having difficulty automatically sending SMS via INSYS GSM 4.1 modem when triggered by [product_name] outputs, even though manual AT commands work. The issue appears to be related to configuration details between the hardware, HSComm software, and the GSM modem—such as monitoring outputs, formatting phone numbers, syncing serial communication settings, and knowing which files to share for troubleshooting. Users have tried steps like adjusting wiring, software parameters, attempting to manually initiate communication, and hardware resets, but a clear solution and documentation are lacking.",
+    "user_expectations": "Users expect that configuring outputs in HSComm and the modem will enable SMS messages to be reliably sent when triggered, requiring little troubleshooting once initial setup is complete.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "automatic SMS alerting",
+      "reliable integration",
+      "easy troubleshooting"
+    ],
+    "pain_keywords": [
+      "integration complexity",
+      "configuration uncertainty",
+      "communication failures"
+    ],
+    "feature_keywords": [
+      "output triggered SMS",
+      "output value monitoring",
+      "serial communication parameters"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

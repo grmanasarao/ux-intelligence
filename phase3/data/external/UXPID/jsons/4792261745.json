@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "branch_id": "4792261745",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 439479358471116,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Hello. I want to write negative values from [product_name] Web Editor to my [product_name] device and I'm wondering if my current method is optimal. I'm using an analog flag ([product_name] AM1) but in order to use the value in my program, I have to add two additional blocks ([product_name] B001 and [product_name] AM2). Is there a way to achieve this without using these extra blocks? Thanks. [user_name]"
+    },
+    {
+      "comment_id": 347772861174385,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "What format have you set for the input field in [product_name] Web Editor? Unsigned? If so, negative values cannot be entered. You'll need to use Signed format instead."
+    },
+    {
+      "comment_id": 367853849228795,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Hi. I don't have issues passing negative values into the analog flag ([product_name] AM1)—that works fine. Overall, everything is working. I'm mainly asking if there's a more efficient way to handle this."
+    },
+    {
+      "comment_id": 619449770679446,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "I'm not sure why you mention \"negative\" values, since positive values would present the same challenge. Instead, consider using the analog flag ([product_name] AM1), a mathematical instruction, and then map the VM area word via parameter VM-Mapping to the mathematical instruction's parameter V1."
+    },
+    {
+      "comment_id": 596120626457321,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Sorry for any confusion. I mentioned \"negative\" because not all analog blocks accept negative values—for example, the \"counter\" block. I tried writing a negative value to block [product_name] B002 P2, but it didn't work. I'm unsure if it's supposed to accept negative values written directly into P2 from [product_name] Web Editor. In the editor, I chose the \"signed\" option. Edit: I'll try writing directly to [product_name] B002 P2 again later today and will provide an update."
+    },
+    {
+      "comment_id": 773318367642218,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "I've attached a sample program for [product_name] [version_no] and a [product_name] Web Editor V[version_no] project. There are two input fields and one output field. You can enter both negative and positive values in the input fields. The [product_name] device adds the two values and displays the result in the output field."
+    },
+    {
+      "comment_id": 952219171016449,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "You cannot write negative values in an Up/Down counter since these counters only support positive values. If you need negative values in a counter, you will have to implement a custom analog counter."
+    },
+    {
+      "comment_id": 623334841097887,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "I've tried writing directly to the Mathematical Instructions Block [product_name] B002 V2(P2) and didn't get it to work. Then I used a Private Tag instead of a Global Tag, and it worked. Private Tag: Global Tag: So, is it not possible to write to Global Tags?"
+    },
+    {
+      "comment_id": 187316723619871,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 9,
+      "comment_body": "Sorry, I haven't used the tables."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The conversation focuses on methods of writing negative values from [product_name] Web Editor into a [product_name] device, addressing best practices and block limitations. Users highlight that negative values can be input using analog flags and mathematical instruction blocks, but some blocks—such as counters—do not accept negative values by design. There is also discussion about challenges with using Global versus Private Tags for this purpose, as Global Tags were unsuccessful for writing negative values while Private Tags worked.",
+    "user_expectations": "The user wants the ability to write negative values directly to specific blocks in [product_name] using [product_name] Web Editor with minimal extra steps or complex workarounds.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "direct negative value input",
+      "streamlined analog value handling",
+      "clarity on tag usage"
+    ],
+    "pain_keywords": [
+      "inconsistent tag behavior",
+      "workarounds for negative values",
+      "block limitations"
+    ],
+    "feature_keywords": [
+      "signed value input",
+      "Private vs Global Tag",
+      "analog flag",
+      "mathematical instruction block"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations",
+    "30": "Data Persistence Confusion"
+  }
+}

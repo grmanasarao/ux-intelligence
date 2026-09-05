@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "6799653841",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 521979442468379,
+      "user_name": "DByhc6bG1O",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Is it possible for the PLC programming to store a relay state during a power failure, so that when power is restored, it returns to its previous state? I need this for a control loop: if power fails and the loop drops, I want the PLC to wait for a manual reset, not reset itself automatically. But if the system was running normally when power fails, it should resume itself after power returns. Ideally, I’d like to avoid using a battery backup, as that adds cost. For context, this is for a furnace controller."
+    },
+    {
+      "comment_id": 613481053239909,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], Welcome to the forum. You can enable retentivity on different program blocks, both digital and analog, such as latch relays."
+    },
+    {
+      "comment_id": 208957020112338,
+      "user_name": "yF7LjtgvEf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "[user_name], You can utilize pulse or latching relays—the selection depends on your input type. For example, if your input is a pulse from a pushbutton used for on/off, then choose a pulse relay. For separate on and off signals, use a latching relay. In any case, activate the retentivity function in the properties. Help documentation explains: with retentivity enabled, the output signal matches its status prior to the power failure. As a note on safety: in my work, it's strictly forbidden to automatically restart a furnace after a power outage—restart is always manual and requires inspection. Accumulation of fuel in the burner before starting can lead to dangerous conditions. After a power cut, the furnace must be purged and checked before restarting. P.S. I made a small demo, but currently can't upload zip files for some reason."
+    },
+    {
+      "comment_id": 366980925292082,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Off topic: [user_name], Currently, it's impossible to attach any files, not only zip files. This issue started on Friday. On topic: [user_name], I've uploaded a screenshot to cloud storage, you can find it at [url]. You can set retentivity for latching relays or pulse relays. For latching relays, reset is always dominant, while for pulse relays, you can choose whether set or reset is dominant."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants explored how [company_name] PLC modules can preserve relay states through power failures, which is crucial for reliable control. Retentivity can be enabled for latching and pulse relays, allowing outputs to retain their status after power returns. Safety precautions were highlighted regarding automatic furnace restarts, advising manual intervention after outages.",
+    "user_expectations": "Users expect the PLC to remember and restore relay states following power interruptions, avoiding unnecessary manual resets except where safety regulations demand it. The target behavior is that the system resumes its prior state, with options to prevent automatic resets as needed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "state retention",
+      "automation",
+      "reduced manual intervention",
+      "reliability"
+    ],
+    "pain_keywords": [
+      "lost relay state",
+      "unwanted reset",
+      "manual reset requirement"
+    ],
+    "feature_keywords": [
+      "retentivity",
+      "latching relay",
+      "pulse relay",
+      "relay state memory"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "27": "Safety Compliance Concerns"
+  }
+}

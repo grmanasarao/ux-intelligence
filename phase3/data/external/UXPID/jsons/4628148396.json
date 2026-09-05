@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "4628148396",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 539378593263151,
+      "user_name": "GqwAEUNClp",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hello, I have a part of my program that shows whether devices like the pump or fan are in alarm or normal state. In the text settings block, each memory bit (alarm state) is configured the same way, but for one of them, after downloading to the [product_name], the custom texts for TRUE/FALSE are removed unexpectedly. I have to upload and re-enter the texts in the block. Has anyone else encountered this? I deleted and recreated the block, but the problem persists. I hope my explanation is clear."
+    },
+    {
+      "comment_id": 316938380044739,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Similar bugs have been reported before. Please specify the exact [product_name], including article number and firmware version, along with the [product_name] software version you are using."
+    },
+    {
+      "comment_id": 633845699688075,
+      "user_name": "GqwAEUNClp",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I'm working with a [product_name] [article_no]. I'm not certain about the software version, but I'm using [product_name] V8.3. Thanks for your assistance!"
+    },
+    {
+      "comment_id": 416308031926444,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "If you are referring to block comments, these cannot be changed; only program code is transferred to the [product_name], not comments. If you meant something else, please provide more detailed information."
+    },
+    {
+      "comment_id": 485900267527844,
+      "user_name": "GqwAEUNClp",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I'm not sure if block comment is what I'm talking about. I use the 'message texts' block to display the state of a relay coil (ON or OFF). By default, when the parameter is set, the display shows 'OFF' for FALSE and 'ON' for TRUE on the screen or HMI. I modify these to show different words like ALARM and NORMAL. The issue is that, for this particular relay coil, the custom text disappears after downloading the program, leaving blank fields, even though other blocks work fine. I deleted and recreated the message block, but it didn't help. I hope this is clearer now."
+    },
+    {
+      "comment_id": 236107486689202,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "If you had mentioned message text instead of just text, it would have been clearer. I only program in FBD, not LAD. In earlier [product_name] and software versions, issues sometimes appeared when block numbers exceeded 200. I'm not sure if this also affects LAD mode."
+    },
+    {
+      "comment_id": 382348926678646,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hi, I'm replying as a guest. This seems like something that [company_name] support should look into, perhaps via a support request. Forum volunteers may not have the necessary resources to resolve this. If you're comfortable, consider sharing your program to see if others can replicate the issue, or try building a new project to test if the issue persists. Some ideas: a) Remove the trigger from the problematic message block and create a new one similarly to see if behavior changes; b) Change the sequence of the message in the project; c) Change the memory bit and use a new coil for the message. Any of these might provide a temporary workaround until support can assist. I also tend to avoid the LAD programming mode for [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing a recurring issue where custom message texts set within a [product_name] message block are not retained after transferring the program to a [product_name] device, particularly affecting one relay coil. While ON/OFF messages can be replaced with custom values like ALARM/NORMAL, for this specific block, the changes are lost and fields appear blank after download. Other blocks retain custom messages, indicating inconsistent software or firmware behavior, possibly a bug.",
+    "user_expectations": "The user expects any custom message text set in a block for TRUE and FALSE states to be saved and displayed reliably on the HMI for all relevant blocks, matching the stable behavior seen elsewhere. Predictable and consistent handling of message configuration is desired from the [product_name] platform.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "Reliable status display",
+      "Custom messaging",
+      "Consistent configuration"
+    ],
+    "pain_keywords": [
+      "Text lost on download",
+      "Inconsistent behavior",
+      "Block-specific bug"
+    ],
+    "feature_keywords": [
+      "Message text blocks",
+      "Customizable on-screen messages",
+      "Relay coil state display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

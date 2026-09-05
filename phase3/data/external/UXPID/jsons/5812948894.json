@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "branch_id": "5812948894",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 930124761700249,
+      "user_name": "wgeGChGepn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Hello! I am experiencing an issue with communication between my PC and [product_name] Communication Module over a VPN tunnel. I followed a guide on setting up a secure VPN connection between a PC and a [product_name] module. My [product_name] version is [version_no]. Firmware version: [version_no], Bootstrap version: [version_no], Wireless module version: [version_no]. The connection appears established and data service is active via GPRS. The device receives a public IP when it logs into the mobile network, and automatic NTP time synchronization works correctly. For remote access, I configured settings based on section 2.3 of [document]. Since I don't use DynDNS, I edited vpnpeer.conf by replacing the DynDNS entry (line 4) with my public IP address, then saved the cmr.ovpn file. On my PC, I use OpenVPN v2.4.6 to import the configuration and attempt connection. However, the OpenVPN client fails to establish a VPN tunnel to [product_name]; only outgoing bytes are sent, none received. Is there a mistake in my setup, or could the problem lie elsewhere?"
+    },
+    {
+      "comment_id": 759542197829504,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], Based on instructions from [document]: If the [product_name] has logged into the mobile network, the provider assigns a public IP to the SIM card. You can find this IP address in the web interface under 'WAN > Overview.' Make sure to replace the DynDNS entry in line 4 with this SIM card IP address. Did you use the correct IP from the SIM card, rather than your router's external IP? If not, please swap it with the one assigned to the SIM card."
+    },
+    {
+      "comment_id": 534528481267926,
+      "user_name": "wgeGChGepn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 12,
+      "comment_body": "Hi, thank you for your response. I confirm I used the IP address from the SIM card. Is there another way to access the web-based management (GSM network) without using a VPN tunnel?"
+    },
+    {
+      "comment_id": 771464240827049,
+      "user_name": "Bh4gU1p8Cf",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hi, I am encountering the same issue and would like to know if you managed to find a solution. Thanks!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face difficulties establishing a two-way VPN connection between a PC and a [product_name] Communication Module using OpenVPN. Connections initiate, but only outbound data is sent, with no receipt from the device. Despite following the recommended configuration guide and adjusting the public IP settings, reliable connectivity remains an issue. There is uncertainty regarding correct IP assignment, and users are also seeking alternative solutions for remote access beyond VPN.",
+    "user_expectations": "Users expect to efficiently and successfully set up a VPN connection for remote access and management of the [product_name] Communication Module from a PC, with reliable two-way data exchange and ideally, alternative methods for remote access if VPN is problematic.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote access",
+      "reliable VPN connection",
+      "secure management",
+      "communication"
+    ],
+    "pain_keywords": [
+      "VPN not connecting",
+      "no data received",
+      "configuration confusion",
+      "lack of alternative access"
+    ],
+    "feature_keywords": [
+      "VPN tunnel",
+      "public IP address assignment",
+      "remote access",
+      "NTP synchronization"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

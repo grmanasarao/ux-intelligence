@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "5872589903",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 422008782604025,
+      "user_name": "OIz7dZ17WY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello, this is my first time working with [product_name]. Is it possible to read the current count value of an Up/Down counter and compare it to a set value in order to operate a bit, similar to a comparator function in TIA? I want to manage a simple ladder sequence where the current count determines the active step. Thanks."
+    },
+    {
+      "comment_id": 618140908715657,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "It is possible to do this, but it is not as straightforward as with TIA. [product_name] can compare analog values as integers only, using fixed-point numbers (16 bits, -32768 to 32767). The counter itself uses DInt (32 bit) and can reach up to 999,999. If your counter value stays below 32,767, you can use the analog comparator easily. Could you clarify the maximum counter value you expect?"
+    },
+    {
+      "comment_id": 348003101980403,
+      "user_name": "OIz7dZ17WY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Thanks for your response. There are only six steps in the sequence."
+    },
+    {
+      "comment_id": 662530945886682,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Do the six step values range from 0 to 5, or from 1 to 6?"
+    },
+    {
+      "comment_id": 109250200183993,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "You can use one UP/DOWN counter for each comparison, or use a shift register for sequence control. Hope this helps."
+    },
+    {
+      "comment_id": 942182776216943,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Here’s an example for comparing 6 values using a counter. There are alternative methods as well. If you provide more details about your objective, we could offer more specific help."
+    },
+    {
+      "comment_id": 364805250100280,
+      "user_name": "OIz7dZ17WY",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Thanks everyone—I found a workaround."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion focused on ways to compare Up/Down counter values in [product_name] to set values for sequence control, referencing differences from TIA and describing how data type and range limitations in [product_name] affect comparison options. The main topic was methods for controlling sequence steps using counters in the [product_name] software environment.",
+    "user_expectations": "The user would like an easy method to compare a counter's current value with fixed values, similar to features in TIA, for managing step transitions in their sequence.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy value comparison",
+      "step sequence control",
+      "intuitive operation"
+    ],
+    "pain_keywords": [
+      "limited data types",
+      "less intuitive than TIA",
+      "extra work needed for comparison"
+    ],
+    "feature_keywords": [
+      "counter value comparison",
+      "step sequencer",
+      "analog comparator",
+      "integer data handling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

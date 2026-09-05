@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "1618622412",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 320206229588263,
+      "user_name": "XJWmBAJmsJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hello, thank you for your support. I have a question about programming values in the [product_name], such as schedules or timer durations. The values stay as long as they remain unchanged from the initial program. If modified from the [product_name] web editor, those changes seem fine. However, after a power outage and restoring power, the original values from the factory program are reestablished, not the latest values set via the web editor. For example, if a timer is set to 10 seconds in [product_name] software and later changed to 20 seconds using the web editor, everything works until a power loss occurs; once powered again, the timer reverts to 10 seconds. Is there a way to retain the last modified values even after losing power? Can the [product_name] be set to keep these settings after a power cut? Thank you for your assistance."
+    },
+    {
+      "comment_id": 472746607445978,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Which operands in the [product_name] store the values set by the web editor? Are these saved in analog inputs? If possible, please upload the web editor project and the [product_name] program zipped together. If privacy is a concern, you can send me the zip file via private message."
+    },
+    {
+      "comment_id": 724511760714891,
+      "user_name": "XJWmBAJmsJ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I've included an example for reference. Thank you."
+    },
+    {
+      "comment_id": 346797369105782,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Check the attachment. Instead of writing web editor values to the timer via standard parameter mapping, store them in the parameter V1 of a math instruction. This way, the value is saved in flash (voltage-fail-safe) memory. Pass the result of the math instruction to the timer by reference. Be sure to select the correct timebase and use the appropriate data format in the web editor—for simple timers, select unsigned instead of HEX."
+    },
+    {
+      "comment_id": 192758255775876,
+      "user_name": "XJWmBAJmsJ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Thank you for sharing this information. I will test it and update you with my results."
+    },
+    {
+      "comment_id": 239468366704468,
+      "user_name": "XJWmBAJmsJ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Flash memory retention seems to work after a power cut followed by reboot. However, there’s another issue: when updating a value on the web, and triggering a start from entry V0.0, the system adds 256 to my set value. I've attached screenshots and strategy files for reference. Thank you."
+    },
+    {
+      "comment_id": 793571411684999,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "There’s only a single VM memory, byte-addressed. User addressable range is V0.0 to V850.7, a total of 6808 bits or 851 bytes. VM memory bytes are VB0 to VB850. For instance, Word 0 in VM memory (VW0) contains 2 bytes: VB0 and VB1, with VB0 holding bits V0.0 to V0.7 and VB1 holding V1.0 to V1.7. If you’re using VW0 for a timer, you can’t use V0.0 to V1.7 for other functions such as starting the timer."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants addressed how parameter values changed via the [product_name] web editor revert to default factory values after power loss, causing configuration persistence issues. Solutions included storing updated values in flash memory using custom programming methods, but this sometimes led to unexpected results due to overlapping memory allocations.",
+    "user_expectations": "Users expect the [product_name] to maintain the most recently set parameters—even those made through the web editor—even after losing power, and want persistent storage of their settings rather than returning to factory defaults.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent value storage",
+      "parameter retention",
+      "user-friendly memory management"
+    ],
+    "pain_keywords": [
+      "loss of changed values",
+      "lack of persistent memory",
+      "memory addressing issues",
+      "unintuitive value overwriting"
+    ],
+    "feature_keywords": [
+      "flash memory",
+      "VM memory",
+      "web parameter editing",
+      "timer configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "30": "Data Persistence Confusion"
+  }
+}

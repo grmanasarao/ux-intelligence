@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "branch_id": "8095445250",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 114483714412083,
+      "user_name": "B5lIZrgCQ1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm attempting to activate the coils of a [product_name] 8.FS4 via Modbus TCP with Arduino. Initially, I tried using QModMaster, a Modbus simulation software, but it's not working as expected. After hours of searching, I realized I can't set the [product_name] Modbus TCP to Server mode—it only operates as a Client. From what I understand, to change coil states, a request must come from a client, with the server ([product_name]) responding. Any advice or assistance would be appreciated."
+    },
+    {
+      "comment_id": 248479089311300,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "The [product_name] functions well as both client and server in Modbus TCP. To activate coils like Qx, Mx, and NQx, ensure these coil inputs aren't connected in your [product_name] program. For more details, searching for \"Modbus\" in forums—especially in German—can be helpful, as there are many examples. I can't assist with Arduino-specific communication, though. Regards, [user_name]"
+    },
+    {
+      "comment_id": 393370762845913,
+      "user_name": "B5lIZrgCQ1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Thanks for your response. I've tested your shared program—it works for the [product_name] Q1 and M1. As a student, I can't get help at school, and tutorials for Modbus TCP on [product_name] are difficult to find. What needs to be set in [product_name] programming or configuration to modify coil states? I understand that when coils are in use on the left side, changes aren't possible. To enable or disable them, could I use a \"VM\" Holding Register alongside other activation conditions? How is this achieved? Additionally, I'd like to read an analog sensor from [product_name] (presumably through a \"VM\" Holding Register accessible at Modbus address 40001). With QModMaster, I can activate Q1 if I create a new Server Connection and add a \"Q\" (see the attached picture), then setting addresses 1, 2, or 3 and writing '1' activates the coil. I have the spreadsheet with your addresses, but I don’t fully understand it. Once I grasp the [product_name] side, I can handle the Arduino part. I’m open to compensating you for your assistance. Thank you!"
+    },
+    {
+      "comment_id": 771782110121757,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Review the attached example for [product_name] as a Modbus server, with comments provided. Use your PC client to read inputs and write outputs. You'll need the correct IP for your [product_name] for the client setup. Selecting \"Accept all connection requests\" means [product_name] doesn’t need extra info, but you'll need to choose a client if multiple ones exist. Regards, [user_name]"
+    },
+    {
+      "comment_id": 170075648653028,
+      "user_name": "B5lIZrgCQ1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Thank you! Things are nearly working, but there's one point I'm confused about. How was the amplifier assigned to VM100? I see that AI is Register 0 and AQ is Register 512, but I'm not sure how VM100 was defined. Thanks again."
+    },
+    {
+      "comment_id": 788597186555459,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "This is a common issue lately—many try to find fast solutions without reviewing the operating instructions. Open \"Tools\" in [product_name] programming software and choose \"Parameter VM mapping\" to assign analog values to blocks. By selecting a block, you can set the parameter; type depends on the parameter, and the address can be freely chosen between 0 and 850. If a parameter shows a paper and pencil symbol, it means you can write it via Modbus. A good practice for address assignment is: Bit variables V0.0-V99.7, Byte variables VB100-VB199, Word variables VW200-VW398, Double word variables VD400-VD796. This prevents overlapping VM mapping for various value types. You can assign in any way, but following a system helps avoid confusion. Regards, [user_name]"
+    },
+    {
+      "comment_id": 334506138627848,
+      "user_name": "B5lIZrgCQ1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Thanks for taking the time to help. I've spent three full days reading, which makes me feel a bit lost. I've worked for over a year with various controllers such as [version_no], Schneider, and Beckhoff, but I'm still struggling to work with [product_name] independently. Again, I appreciate your time."
+    },
+    {
+      "comment_id": 452657502268994,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "I don't believe you're at fault, maybe just reviewing the wrong documentation sections. I've used [product_name] for years and sometimes forget my initial challenges, too. Wishing you success with Modbus and Arduino."
+    },
+    {
+      "comment_id": 836841277893788,
+      "user_name": "M1SRykYznn",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "[user_name] Thank you! 👍 I recently started learning [product_name] 8. Your example helped me \"connect\" my Android with [product_name] [url] Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are working to control and monitor [product_name] 8.FS4 programmable logic controller coils over Modbus TCP, using Arduino hardware and external software tools. Major user experience challenges are understanding the server/client configurations of [product_name] Modbus, proper variable/parameter mapping inside [product_name] programming software, and locating clear, comprehensive tutorials or documentation. Community shared examples are crucial, highlighting the difficulty users face when trying to access official settings guidance for Modbus on [company_name] hardware.",
+    "user_expectations": "Users are seeking straightforward instructions for activating and controlling coils with Modbus TCP on [product_name] 8.FS4, easy-to-understand mapping of variables and sensors for Modbus communication, and detailed official documentation or tutorials tailored to these specific needs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "Modbus TCP integration",
+      "easy configuration",
+      "variable mapping clarity"
+    ],
+    "pain_keywords": [
+      "lack of documentation",
+      "configuration confusion",
+      "unclear VM mapping",
+      "difficulty enabling server mode"
+    ],
+    "feature_keywords": [
+      "Modbus TCP server/client",
+      "coils activation",
+      "analog sensor reading",
+      "variable mapping (VM)",
+      "address assignment"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

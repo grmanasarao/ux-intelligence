@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "branch_id": "5354882810",
+    "thread_id": "3055273936",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 935404866115330,
+      "user_name": "pQprI0Y6Vd",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm new to [product_name], so I appreciate your patience. For my project, I need to monitor 17 analog inputs and control 2 analog plus 2 digital outputs. From what I've found, it seems you can't use more than 8 analog inputs. Is this a hard limit? Are there any options to go beyond this? If I switch 6 analog sensors to digital ones, the signals would be square pulses between 0-400 Hz. Is it feasible to process these signals using a [product_name]?"
+    },
+    {
+      "comment_id": 615761681061839,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "The numbers you've mentioned are the maximum supported by the system. The internal cycle time of [product_name] affects how well it can manage pulsing signals. Processing 6 signals at 400 Hz isn't recommended, as program complexity and size influence the number of signals that can be reliably handled. You could consider using multiple units in a network, which also allows positioning closer to your field devices. Alternatively, investigating remote Modbus TCP stations might be worthwhile, although I can't personally confirm if it'll meet your needs."
+    },
+    {
+      "comment_id": 306550806036897,
+      "user_name": "Jr5j2S3GMQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], What you're referring to is indeed the maximum number of inputs and outputs that a single [product_name] supports, as outlined in the manual. When expansion modules are added, you can increase the number of inputs/outputs to the maximum configuration. It's possible for [product_name] units to communicate with each other—up to 8 total—and exchange input/output data, which can help expand your setup. You might want to look into the maximum network configuration described for [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges due to input limitations in [product_name], specifically the maximum analog inputs allowed per device. The technical constraints seem fixed by the manual, and the system's cycle time further restricts processing high-frequency digital inputs. Suggestions include networking multiple devices or utilizing expansion modules, but the core need for additional analog inputs in a single device remains unfulfilled.",
+    "user_expectations": "The user wants to expand the system to support more than 8 analog inputs and reliably handle digital signals up to 400 Hz, ideally within a single device.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "input/output expansion",
+      "multichannel monitoring",
+      "scalability"
+    ],
+    "pain_keywords": [
+      "hardware limitation",
+      "input cap",
+      "frequency processing challenge"
+    ],
+    "feature_keywords": [
+      "analog input count",
+      "expansion via modules"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

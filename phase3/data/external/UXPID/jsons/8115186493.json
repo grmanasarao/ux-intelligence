@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "8115186493",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 485054603003466,
+      "user_name": "uilXywuFBE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I am working with a [product_name] module and have stored the admin phone number, but when I send SMS messages to it, there is no response. This is what the log shows: 'Discard SMS messages from unauthorized number (...XXXXXXXXX)'. Thanks for your help."
+    },
+    {
+      "comment_id": 843837796068604,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], have you enabled the SMS reception option for the user? If it's activated and you entered the number correctly, you could try troubleshooting using the wildcard symbol *. When a user is set with * as the phone number and SMS reception is allowed, any number is accepted. This helps verify that SMS functionality works overall. Best regards."
+    },
+    {
+      "comment_id": 549316871698354,
+      "user_name": "uilXywuFBE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Dear colleague, I have enabled the option, and I will test the wildcard method, though I realize it is somewhat risky."
+    },
+    {
+      "comment_id": 980393855969056,
+      "user_name": "uilXywuFBE",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], using the wildcard did work, but I added my country code before the number for additional security. Otherwise, someone could spoof the last digits and gain access. I was hoping the firmware would handle this correctly without needing a wildcard."
+    },
+    {
+      "comment_id": 212652845188383,
+      "user_name": "uilXywuFBE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I experienced something similar—here’s what worked for me: I created two users. One is in the 'Recipient groups' to allow SMS sending without errors, and the other has the '*' asterisk in the number field so incoming messages are accepted (since none of the country code formats or putting + instead of 00 worked except for the asterisk). So, one user is used for receiving, while the other (with a proper number and no *) is used to send SMS from the 'Recipient groups'. Thanks again."
+    },
+    {
+      "comment_id": 901677198794068,
+      "user_name": "uilXywuFBE",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "After further investigation, using '+<country code><phone number>' allows sending and receiving SMS without the wildcard, solving the issue and reducing security risks. This allows a single contact for both directions, and avoids needing the wildcard which could enable spoofing."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced challenges authorizing phone numbers with the [product_name], especially around SMS command functionality. Various phone number formats did not work consistently. Using wildcards enabled all numbers but introduced security risks. The solution was to use the full international format of the number, which worked reliably and reduced the potential for misuse, suggesting that clearer product guidance or automatic number parsing is missing from the module.",
+    "user_expectations": "Users expect reliable and straightforward phone number authorization, without needing to use risky wildcards or experiment with multiple number formats.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "secure SMS authorization",
+      "reliable configuration",
+      "straightforward setup"
+    ],
+    "pain_keywords": [
+      "security concern",
+      "authorization failure",
+      "complex configuration",
+      "need for wildcards"
+    ],
+    "feature_keywords": [
+      "phone number authorization",
+      "wildcard",
+      "SMS reception",
+      "admin configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "6": "Security Concerns"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "branch_id": "1498192006",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 649181297331461,
+      "user_name": "IhTXMPITbC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "I want to use [product_name] Access Tool to read data in Excel, but since it only supports connecting to one PLC, I need to collect data from multiple PLCs in the network into one device. There are two UP/DOWN counters and an hour counter, but I don't know how to begin retrieving the data over the network. Can anyone offer some guidance on where to search?"
+    },
+    {
+      "comment_id": 731439772735812,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Are you referring to having a second PLC, as in another [product_name] device?"
+    },
+    {
+      "comment_id": 568667582577742,
+      "user_name": "IhTXMPITbC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Yes, I am talking about using a second [product_name]."
+    },
+    {
+      "comment_id": 383836251168530,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "This can be achieved using Parameter VM Mapping. You need to add both [product_name] units into a network project and establish a connection between them. Then, with Parameter VM Mapping, you can transfer the values from the counters and the hour counter to the second [product_name]. The Access Tool on this device can then read all the required data. To retrieve data in the Access Tool, you can use formulas such as: Counter 1 -> = LOGOVAR (\"VD0\"), Counter 2 -> = LOGOVAR (\"VD4\"), Hours Counter -> = LOGOVAR (\"VD8\")."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants to gather data from more than one PLC but faces a restriction since [product_name] Access Tool supports only a single device at a time. A more experienced user suggests using network project setup and Parameter VM Mapping between multiple [product_name] modules to centralize and extract counter values. This exchange underlines a common challenge for users attempting to aggregate distributed automation data efficiently.",
+    "user_expectations": "The user expects a straightforward method to read and combine data from several PLCs across a network into one device for processing in Excel, ideally with minimal complexity.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "data aggregation",
+      "multi-device readout",
+      "Excel integration"
+    ],
+    "pain_keywords": [
+      "single PLC limitation",
+      "unclear setup for network data readout"
+    ],
+    "feature_keywords": [
+      "Parameter VM Mapping",
+      "network project",
+      "counter value transfer"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

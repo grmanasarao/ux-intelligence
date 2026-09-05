@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "3609050672",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 900476133029740,
+      "user_name": "yDwWNlnIn8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello! After updating blocks within a UDF, I tried to apply the update in the main diagram. Instead of only updating the internal UDF blocks, elements around the UDF also became disrupted, even though they weren't modified. Specifically: some wires visually shift (which is tolerable); but more seriously, all input parameter connections are lost, which is very frustrating. The main reason I use UDFs is to avoid manual rewiring after each update. For my project, that's 28 connections times 4, with four [product_name] modules in a network. Additionally, the \"time scale\" is reset from \"tx\" to \"ms\" and cannot be reverted using undo, resulting in another 28 operations times 4. The first screenshot is before (organized), and the second is after updating UDFs. Any suggestions for increasing robustness?"
+    },
+    {
+      "comment_id": 865621252585772,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "There’s no workaround. If you modify functions in your UDFs and then update them in the main program, it behaves as if a new version of the [product_name] program is transmitted. Subsequent changes in the main program's parameters and links to inputs and outputs will depend on how the UDF was altered. By the way, your screenshots are too low in resolution for anyone to view the details."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find that updating UDF blocks in the main diagram leads to unintended issues: not only are the desired blocks updated, but connections to input parameters are broken and certain settings like time scale are reset. This contradicts the modular benefit of UDFs, causing users to spend significant time restoring connections and settings, especially when managing multiple modules in networked projects.",
+    "user_expectations": "Users wish that updating a UDF would affect only its internal elements, preserving all external connections and parameter settings. The expectation is that updates should be modular and not require manual reconnection or resetting of properties.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "robust update",
+      "modularity",
+      "efficient workflow"
+    ],
+    "pain_keywords": [
+      "lost connections",
+      "manual rewiring",
+      "parameter resets"
+    ],
+    "feature_keywords": [
+      "UDF update",
+      "input parameter persistence",
+      "time scale retention"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "22": "Usability Improvement Suggestions"
+  }
+}

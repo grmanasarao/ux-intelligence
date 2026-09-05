@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "4389907086",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 360555123199142,
+      "user_name": "oPemDLCRh0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello. I noticed that on two [product_name] modules installed last week, when sending an SMS with MONITOR?, the feedback message shows reversed input and output information. The SMS reply is: CMR I: 10 CMR Q: 10 However, the actual status is I1 is OFF, I2 is ON, and Q1 is OFF, Q2 is ON. If they communicate with each other, the commands work and signals are not swapped, unlike with the MONITOR? command. Interestingly, one module is 4 years old and the other is only a month old, though both were updated with the latest firmware before installation. Is there any solution for this?"
+    },
+    {
+      "comment_id": 514848467537617,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hi, According to the manual, the MONITOR? SMS response you described matches the expected behavior. Refer to page 191 of [url]. The values are bit-coded and should be read right to left: Bit 0 corresponds to I1, Bit 1 to I2, etc. CMR I: indicates the input values block CMR Q: indicates the output values block ******xx input 1 and 2, values from right (I1) to left (I2) ******xx output 1 and 2, values from right (Q1) to left (Q2) CMR I: 10 CMR Q: 10 If I1 is OFF, I2 is ON, and Q1 is OFF, Q2 is ON, then '10' correctly means I2 is ON and I1 is OFF according to this format."
+    },
+    {
+      "comment_id": 735953424370581,
+      "user_name": "oPemDLCRh0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "What can I say? Maybe I should read the manuals more thoroughly! Thank you for the help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The initial concern was about seemingly reversed information in SMS feedback from a [product_name] module after using the MONITOR? command. Another user clarified that the SMS feedback is bit-coded and is meant to be read from right to left, not left to right. The confusion was due to misunderstanding the format, not a fault with the hardware or firmware.",
+    "user_expectations": "The user expects feedback from the MONITOR? SMS to show input and output statuses in left-to-right order, reflecting the physical labeling (I1, I2, Q1, Q2).",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate status monitoring",
+      "quick remote feedback",
+      "clarity in SMS status"
+    ],
+    "pain_keywords": [
+      "confusing SMS feedback",
+      "misinterpretation of bit-coded results",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "MONITOR? SMS command",
+      "bit-coded I/O status",
+      "remote communication"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

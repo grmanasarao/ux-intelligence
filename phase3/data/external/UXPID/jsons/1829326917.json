@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "1829326917",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 634375687186223,
+      "user_name": "x9FJcMWDHp",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello everyone, I am trying to achieve the following: When a digital signal is low or off (same as Q2), the analog output AQ1 should have a minimum of 200 and a maximum of 1000. When the signal is high, the analog output AQ1 should be restricted to a minimum of 200 and a maximum of 750. I have partially accomplished this with the attached logic, but since I used a basic mathematical instruction, the minimum setting of 200 does not function correctly when B018 is high. If B018 is low, the range of 200 to 1000 operates as intended. Does anyone have suggestions?"
+    },
+    {
+      "comment_id": 720678687801931,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I hope I have understood your requirements correctly."
+    },
+    {
+      "comment_id": 353880774134227,
+      "user_name": "x9FJcMWDHp",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "This solution works well. To provide some background, I discovered that when operating my wood pellet burner in series with the temperature shunt, there would be significant overshoot in regulation if I did not limit the output. This caused the pellet burner to quickly shut down and restart. When running my regular wood burner, I still need the shunt to open fully (to 1000). I am testing these functions within a simple program and will integrate them into the reverse function as needed. Thank you for your assistance!"
+    },
+    {
+      "comment_id": 396299015326585,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], you're welcome."
+    },
+    {
+      "comment_id": 598581883301807,
+      "user_name": "x9FJcMWDHp",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Hi [user_name], After experimenting further, I found a better solution using two amplifiers and a multiplexer. This configuration ensures the PI controller utilizes the entire range; for example, in your version, the PI controller would still decrease to 0 even when the AQ was limited to 200 (and likewise up to 1000). By using two amplifiers, the PI controller operates over the full band. See the attached and let me know your thoughts."
+    },
+    {
+      "comment_id": 309197171352643,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "As in many cases, there are multiple ways to solve a problem. If you find your approach better, that's great."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wanted a way to dynamically adjust an analog output's range based on a digital signal. Their first method used basic math instructions and worked for one scenario but failed to maintain the minimum value when the digital signal changed. Through forum suggestions, the user experimented with two amplifiers and a multiplexer, enabling the PI controller to use the full operating range and achieve robust performance under both sets of limits.",
+    "user_expectations": "The user wants the analog output to reliably switch between two sets of min/max limits according to a digital input, and for the PI algorithm to fully utilize the available output range in either configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dynamic limits",
+      "full PI range use",
+      "precise analog control"
+    ],
+    "pain_keywords": [
+      "improper min constraint",
+      "control overshoot",
+      "output cycling"
+    ],
+    "feature_keywords": [
+      "dynamic analog output limit",
+      "PI controller range",
+      "amplifier use",
+      "multiplexer logic"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

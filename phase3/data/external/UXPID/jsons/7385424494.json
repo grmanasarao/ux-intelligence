@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "7385424494",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 698540205905628,
+      "user_name": "FB5rwDSNp6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Good morning, my [product_name] device is connected to two digital sensors. I want to track how long each sensor was ON during the last 24 hours. For example, if I check at 16:16, it should show the ON duration for each sensor from 16:16 the previous day up to 16:16 today. Is this possible?"
+    },
+    {
+      "comment_id": 711530508930990,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "No, that's not currently possible using built-in functions."
+    },
+    {
+      "comment_id": 699614182229122,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Would a data log solution work for you? This would require processing the information externally on a PC to obtain the result you want."
+    },
+    {
+      "comment_id": 246313380405295,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "It's challenging to calculate total ON time when the input signal frequently changes."
+    },
+    {
+      "comment_id": 295340941418421,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Do you plan to check the sensor times every day at the same specific time?"
+    },
+    {
+      "comment_id": 833793885783723,
+      "user_name": "FB5rwDSNp6",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "No, I plan to check at various times and cannot connect the device to a PC. My idea is to press a button on the [product_name] operator panel and get the sensor ON duration for the last 24 hours."
+    },
+    {
+      "comment_id": 260094202587279,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "You cannot access previous states within the [product_name] program. What you can do is start a time counter for the appropriate input. Then, when you send a trigger, say at 16:00, the total ON duration is stored and the counter reset. The next day, at a new time, you repeat the process. This records the duration between each trigger, but it's not a rolling 24-hour window."
+    },
+    {
+      "comment_id": 674780378977492,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Alternatively, you can use a pulse from a weekly timer to trigger at the same time each day. How precise does the timing need to be? Do you need seconds, or just hours and minutes?"
+    },
+    {
+      "comment_id": 615616979067269,
+      "user_name": "FB5rwDSNp6",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Hours and minutes are sufficient for my needs. I set it up as you suggested, with an hours counter reset automatically every 24 hours at midnight. That's the best I can do for now, thank you for your assistance. I also have another question: how can I reset the hour counter every two days at 0:00?"
+    },
+    {
+      "comment_id": 113598145262530,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Accurate answers depend on how precisely the problem is described. For your second question, you need a counter that tracks pulses from a weekly timer. Once two pulses are counted, the operating hours counter should be evaluated and then both counters (operating hours and pulse counter) reset."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find it difficult to create a rolling 24-hour monitoring interval for sensor ON durations using [product_name] hardware alone. Built-in features only allow fixed periodic resets or time calculations, not a rolling window. Effective solutions require either external data handling or more complex logic than the device supports.",
+    "user_expectations": "Users want [product_name] devices to offer real-time, rolling monitoring of sensor states, accessible directly through the operator panel without relying on a PC.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "rolling interval summary",
+      "on-device analytics",
+      "manual data query",
+      "historical sensor activity"
+    ],
+    "pain_keywords": [
+      "no rolling window support",
+      "limited on-device history",
+      "inflexible time counters"
+    ],
+    "feature_keywords": [
+      "rolling 24-hour time interval",
+      "hours counter",
+      "manual reset",
+      "digital sensor monitoring",
+      "TDE interface"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

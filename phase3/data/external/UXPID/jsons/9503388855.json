@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "9503388855",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 723842148152638,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, My fuel heating system failed. I temporarily fixed it using a Raspberry Pi, but I don't fully trust it. So I've switched to a [product_name] controller, which is working well now. Previously, on the Pi, I connected four temperature sensors to monitor the heater, and I liked this setup. I want the temperature readings to also be displayed on the [product_name] web server. I'm trying to send temperature data from Node-RED (running on a Pi) to the [product_name], for example sending 20.9 (converted to 209 in Node-RED and then divided by 10 in a function block). I've read many posts and watched lots of videos, but most only show basic examples with digital inputs and outputs, which work fine. However, I’m missing something for sending integer data. Can anyone share a simple example (just a few lines) showing how to send \"123\" from Node-RED's S7 node to a [product_name]? See my attachment. Thanks"
+    },
+    {
+      "comment_id": 579437687294710,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], Welcome to the forum. The [product_name] controller only accepts integer values, which range from -32,768 to 32,767. The VM memory area is accessed by remote devices as DB1. To write an integer value to word 700 in VM memory, you should write it to DB1, DBW700. I'm not sure about the exact syntax in Node-RED."
+    },
+    {
+      "comment_id": 245002573344135,
+      "user_name": "zWqH7AkG2F",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "DB, DBW... I tried this again, changed some other settings, and finally got it working. See the attachment for my method—there may be better ways to do this."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are looking for a straightforward solution to send integer sensor data from Node-RED to a [product_name] controller for temperature display on its web server. Current guides mostly cover basic digital inputs and outputs, neglecting more advanced topics like writing integer values to memory for logic and visualization. The thread illustrates frustration with existing documentation and highlights the need for clear, practical examples of connecting IoT devices to the [product_name] controller.",
+    "user_expectations": "Users expect concise, step-by-step instructions or examples for sending integer values from Node-RED to the [product_name] for logic functions and web display—without repetitive tutorials on basic digital input/output.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "integration",
+      "real-time temperature display",
+      "webserver visualization"
+    ],
+    "pain_keywords": [
+      "lack of clear examples",
+      "complexity of memory addressing",
+      "documentation gaps"
+    ],
+    "feature_keywords": [
+      "integer data handling",
+      "webserver display",
+      "third-party integration",
+      "memory access (DB1, DBW700)"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "metadata": {
+    "branch_id": "5583579348",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 868363818342889,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm using a PLC [product_name] [article_no], with expansion modules [article_no] (DM16 24R) and [article_no] (AM2 AQ). Are these modules compatible in this setup? The issue is that the output voltage from AQ1 and AQ2 doesn't go beyond 6.2VDC. Monitoring shows a value of 1040 for AQ, and both behave the same. Appreciate any guidance."
+    },
+    {
+      "comment_id": 462206316506814,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "What devices or components are connected to AQ1 or AQ2? Are you measuring the 6.2V directly at the terminals with no load attached? If so, what do you plan to connect as a load?"
+    },
+    {
+      "comment_id": 565993182470173,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Currently, only a voltmeter is connected. The voltage rises from 0V up to 6VDC, then remains steady at that level, even though the monitored value changes. The plan is to eventually use this setup to control a hydraulic proportional valve (0-10VDC) with a 24VDC power supply."
+    },
+    {
+      "comment_id": 635799624913632,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 258939298687467,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Check the specifications regarding connections and loads. As previously mentioned by another user, incorrect loading can cause unexpected readings."
+    },
+    {
+      "comment_id": 810224456320384,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Are you measuring the voltage between U1+ and M at AQ1, and U2+ and M at AQ2?"
+    },
+    {
+      "comment_id": 188768352752795,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Yes, that's how I'm measuring—between U1+ and M1 for AQ1, and between U2 and M2 for AQ2 with ground connected. It's odd that regulation works up to 6.2VDC and then stops increasing. I haven't tested with a load yet, but would expect accurate voltage readings without a load."
+    },
+    {
+      "comment_id": 873618587351277,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Are you sure your voltage meter meets the required specifications? The input resistance should be at least 5kΩ. Have you tried measuring with just a multimeter as the load?"
+    },
+    {
+      "comment_id": 690187207693635,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "I measured with a multimeter and got the same result. No external load has been used yet."
+    },
+    {
+      "comment_id": 792707599376296,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Can you try using a resistor as a load?"
+    },
+    {
+      "comment_id": 801190019555386,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "I might try connecting a frequency converter with an AI input for 0-10VDC and see what happens. Your suggestions have led me in a helpful direction."
+    },
+    {
+      "comment_id": 254323026923968,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Unfortunately, that didn't work. I connected the analog input of the frequency converter (configured for 0-10VDC) with AQ2, but the result stayed the same. Output regulated up to 30Hz, then voltage stuck at 6.2VDC. Unsure how to proceed."
+    },
+    {
+      "comment_id": 478549757572694,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello! It appears your [product_name] output may be set as current output mode. The maximum resistance for current mode is 250 Ohms, resulting in about 5V at 20mA. The observed 6.2V suggests the current output is connected to a high-resistance voltage input."
+    },
+    {
+      "comment_id": 451615655035381,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Is there a way to configure this in the settings? The analog card has behaved like this since it was purchased, and hasn't been installed anywhere else."
+    },
+    {
+      "comment_id": 942485916263647,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "There's nothing you need or can do in this case. Please use the recommended circuit as previously mentioned."
+    },
+    {
+      "comment_id": 796241359769516,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "I followed your instructions and connected a frequency converter, but nothing has worked so far. Should the card be installed in a specific location or need an external power supply? I'm running out of ideas."
+    },
+    {
+      "comment_id": 393084803905764,
+      "user_name": "8RYb477Ela",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Have you checked the power supply to the AM2 AQ module? It requires DC24V. You showed a box with several components; do you have a detailed circuit diagram for it? Try isolating the setup—use only the base module and the AM2 AQ module outside the box, connect DC24V directly, run a test program with a fixed value for AQ1, and measure the output voltage."
+    },
+    {
+      "comment_id": 943462040864332,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I finally tested your suggestion, and it seemed to resolve the issue. When I used just the module without additional components, the frequency converter regulated up to 50Hz. The problem was caused by my LED voltmeter, which disturbed the circuit. After switching to voltmeters with external power, everything worked correctly. Thank you all for your help."
+    },
+    {
+      "comment_id": 822002349421372,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "????"
+    },
+    {
+      "comment_id": 987863668798930,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Yes, I measured using a multimeter, but the LED voltmeter also added significant load to AQ. Thanks for your patience."
+    },
+    {
+      "comment_id": 787550292195293,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Yes, I measured with a multimeter, but the LED voltmeter was causing substantial load on AQ. Thank you for your patience. It turns out the LED voltmeter was the load."
+    },
+    {
+      "comment_id": 818834358631232,
+      "user_name": "I4zWSsUMZI",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Same as above—measured with a multimeter, but the LED voltmeter was creating excessive load on AQ. Thank you for your patience, and I realize now that following your advice sooner would have solved the issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discovered a limitation when measuring analog outputs on the expansion module without a proper load—the voltage peaked at 6.2VDC rather than the expected 0–10VDC range. Though monitoring showed higher values, the hardware behaved as designed due to electrical characteristics. The community highlighted the necessity of following product specifications and using appropriate measurement setups, clarifying that improper loading may lead to misleading results.",
+    "user_expectations": "Users expected the analog output to reach the full 0-10V range set in the software monitoring, and for voltage readings to be correct even without a connected load.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct voltage output",
+      "full analog output range",
+      "device compatibility"
+    ],
+    "pain_keywords": [
+      "limited output voltage",
+      "unexpected analog behavior",
+      "lack of documentation clarity"
+    ],
+    "feature_keywords": [
+      "analog output voltage",
+      "monitoring",
+      "terminal measurement",
+      "output loading"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

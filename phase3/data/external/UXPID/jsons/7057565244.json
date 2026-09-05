@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "7057565244",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 269703317161178,
+      "user_name": "tJffaub0h4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I am attempting to provide support for two [product_name] controllers installed by an electrician who is no longer available. Both controllers appear to be functioning normally, with correct IP, subnet mask, and gateway settings. I am able to ping them and connect using the [product_name] programming software. However, the master cannot control the remote (slave), and both screens periodically display Errors Occurred. The log shows \"ID 6: Network Access Error.\" As a network administrator, I have verified layer three connectivity, but communication between the two controllers is still not working. I am considering replacing one, though I don't have immediate access to a new unit. I am unsure of the model numbers but could check on site. The firmware for both controllers is: [article_no].Standard V1.03.32. Thank you."
+    },
+    {
+      "comment_id": 464650077417315,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Has the connection worked before?"
+    },
+    {
+      "comment_id": 334939180046305,
+      "user_name": "tJffaub0h4",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Yes, it has worked well for several years. The issue was only noticed this week when the system was needed for the first time this spring. It operates a pump for a fertilizer tank, which is only used in the spring and summer."
+    },
+    {
+      "comment_id": 603864973869643,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "How are the [product_name] controllers connected to each other? Is it a direct link or does it go through a router or switch?"
+    },
+    {
+      "comment_id": 358849463917930,
+      "user_name": "tJffaub0h4",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "The master controller is connected via Ethernet to a Cisco switch, which then connects to a Netgear switch. That switch is linked via fiber (with an Ethernet to fiber transceiver) out to the liquid tank where the remote controller is located. The fiber connects to another Netgear switch at the tank (also through an Ethernet to fiber transceiver), and the remote controller connects to that switch. For network testing, I connected my laptop to the Cisco switch on the master side and the Netgear switch on the slave side."
+    },
+    {
+      "comment_id": 676403926949625,
+      "user_name": "tJffaub0h4",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "A solution was found. The \"network access error\" message was misleading. Every reboot of either controller triggered the error message, which kept flashing and led to some confusion. In the end, the problem was resolved by realizing that a NOT logic statement was missing in the code. (Is it possible for code to become corrupted and modify itself?)"
+    },
+    {
+      "comment_id": 964581190302373,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Self-repairing program code would be highly unusual. Without detailed and specific information, it is not possible to determine exactly why this occurred."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced persistent 'Network Access Error' messages on both master and remote [product_name] controllers after years of stable operation. Although network connectivity and access to devices were confirmed, inter-controller communication was unsuccessful. The root cause turned out to be a missing logic statement in the code rather than a network problem, with confusion arising from error messages repeatedly appearing after controller reboots.",
+    "user_expectations": "Users want system diagnostics that can better distinguish between genuine network communication failures and application logic errors, as well as clearer error messages and generally reliable controller behavior.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable diagnostics",
+      "stable remote control",
+      "error transparency"
+    ],
+    "pain_keywords": [
+      "misleading error messages",
+      "troubleshooting difficulty",
+      "unexpected downtime"
+    ],
+    "feature_keywords": [
+      "error logging",
+      "network communication",
+      "PLC programming logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "19": "Bug Reports"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "branch_id": "7204819268",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 589859576535704,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "I'm using an analog module with a [product_name] controller. Two analog outputs send voltage commands to the same device, but never at the same time. They're both linked to a single node. When the first output sends 3V, the second is OFF, and vice versa – when the second sends 5V, the first is OFF. Because both outputs connect to the same node, the contacts of both will measure the node's voltage even if they're not actively sending it. Is this setup acceptable? Does the [product_name] controller notice or respond to seeing external voltage on its output contacts, and could it make any adjustments or reset them unexpectedly? Thank you in advance."
+    },
+    {
+      "comment_id": 156253973647490,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "If I understood your setup, you are sending two analog signals through separate outputs into one analog input. What's the reason for this method? If only one signal is active at a time, you could use a single output and select different values via an analog multiplexer instead."
+    },
+    {
+      "comment_id": 209025420068002,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "In addition to previous suggestions, be aware that sending external voltage to the analog output of the [product_name] expansion module can potentially damage it."
+    },
+    {
+      "comment_id": 634680928211541,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Can you clarify your message?"
+    },
+    {
+      "comment_id": 125613568464792,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "You have the right idea, and I wasn't aware of the multiplexer option. This is my initial experience with [product_name] controllers, and I should have explored the analog features more thoroughly. Thank you again!"
+    },
+    {
+      "comment_id": 894840216203297,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "The multiplexer resolves my original question, but I'm interested in understanding why a small voltage at the contacts could destroy the analog output. I'm not planning to proceed as I first considered, but I am curious whether there would have been any risk."
+    },
+    {
+      "comment_id": 331240627828241,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Keep in mind that analog outputs are always active power sources and remain connected to their terminals, even if set to 0V. These outputs continually try to maintain the specified voltage or current. Picture two batteries connected in parallel with a resistor and a voltmeter. If the resistor becomes zero ohms, the batteries would oppose each other, causing heat and potential damage as the resulting voltage wouldn't be simply 5V or 1V. Applying this scenario to the [product_name] device could result in damage to its electronics."
+    },
+    {
+      "comment_id": 119090297700332,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Understood. Thank you, [user_name]."
+    },
+    {
+      "comment_id": 109113169541736,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "I understand this applies to analog outputs, with the key point being they never disconnect from their terminals. That's what I was asking about. This information along with the multiplexer clarified my analog output issue. Thank you both. Now I'm facing a similar challenge with digital outputs: I want two push buttons activating the same output for different durations, but due to [product_name] connection rules, I can't connect two inputs to one output. My solution is to have two outputs wired to a shared external relay coil. In my diagram, pressing button 2 energizes output Q3, but Q2 (which isn't energized by [product_name]) still 'sees' the 24V at its contact. Does the digital output disconnect when OFF, or does it stay connected but set to zero? Thanks in advance!"
+    },
+    {
+      "comment_id": 183477900610642,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "You can take outputs from blocks B001 and B002, link them using an OR logic gate, and feed the result to a single output (e.g., Q2 on [product_name])."
+    },
+    {
+      "comment_id": 293251404945510,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "A facepalm emoji would fit here."
+    },
+    {
+      "comment_id": 933758465657565,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "I'm still curious about how the controller actually operates internally."
+    },
+    {
+      "comment_id": 131004503176381,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "This question is too broad to answer directly. Try stating your question more precisely, like the detail found in legal documents – use enough clarity to avoid misunderstandings."
+    },
+    {
+      "comment_id": 786708620919487,
+      "user_name": "7eOD7rXBS5",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "To repeat from earlier: Do digital outputs disconnect from source voltage when turned off, or do they remain connected and simply output zero?"
+    },
+    {
+      "comment_id": 791465614467529,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Transistor (PNP) outputs stay connected, but are more robust. Connecting an external source (like a switch) to the output isn't ideal, but can work if you include a diode for extra protection. Relay outputs do disconnect. Be cautious when using mixed voltage types."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discuss wiring two analog or digital outputs in parallel to a shared node or device with a [product_name] controller and extension module. Main concerns include whether output terminals electrically isolate themselves and the risk of external voltages backfeeding into inactive outputs, potentially causing hardware damage. Experienced users explain that analog outputs remain active, even at zero value, and applying outside voltage can break the module. The conversation expands into recommended multiplexing and logical design techniques to reduce risk and improve reliability.",
+    "user_expectations": "The user hopes it is safe to parallel outputs to one device, assuming the module either disconnects outputs when off or can safely handle external voltage at inactive contacts, without hardware damage or unintended side effects.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe outputs wiring",
+      "prevent hardware damage"
+    ],
+    "pain_keywords": [
+      "risk of hardware damage",
+      "unsure output behavior",
+      "poor documentation clarity"
+    ],
+    "feature_keywords": [
+      "analog output behavior",
+      "digital output configuration",
+      "MUX functionality",
+      "output off-state handling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "17": "Circuit Protection Guidance"
+  }
+}

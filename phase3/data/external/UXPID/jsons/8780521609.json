@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "8780521609",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 621123660067722,
+      "user_name": "Y5V3JNBBFA",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I have a [product_name] with firmware [version_no], which I'm using for my pond drum filter and automatic water fill. I'm also monitoring two temperatures and two level sensors. The single module that came with the filter was insufficient for my project's needs, so I purchased an extension module with four inputs and outputs. Everything works well, including the web editor on the SD card. However, I noticed the lack of alert functionality and was unable to establish communication outside my local network. After discovering Node-Red with the S7 node and Blynk node (which I previously used with Arduino), notifications worked fine. My issue is when using more than 15 S7 inputs or outputs; I get incorrect values. I've tried adjusting cycle and timeout settings, changing mode settings, and removing the SD card, but the problem persists. The program for [product_name] is quite large; could this be causing memory or CPU problems? Are these incorrect values affecting the controller's performance? Despite failures, Node-Red continues to update the Blynk app. I've attached the Node-Red flow and the [product_name] program in a zip file."
+    },
+    {
+      "comment_id": 598003749279051,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], welcome to the forum. Can you clarify which alert function you're missing and what exactly you mean by 'communication outside the network'?"
+    },
+    {
+      "comment_id": 191186876016142,
+      "user_name": "Y5V3JNBBFA",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thank you! I can't access the [product_name] from outside my network. I tried changing settings as suggested in other forum threads, but it never worked. With the Blynk app, which uses its own server, I can monitor my system remotely from my phone over mobile data, making it a secure option. Regarding alerts, I'm looking for notifications or emails when, for example, my pump stops, temperature drops, or water filling starts. Blynk currently handles this, but I haven't found similar functions in the web editor or TD."
+    },
+    {
+      "comment_id": 501973768605613,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "So you're trying to remotely access the [product_name], if I understand correctly. This isn't possible directly because external access to the controller outside your home network isn't supported. The easiest workaround is port forwarding on your router, which I don't recommend due to security risks. A safer solution is a VPN connection, which [company_name] provides an example for, though you'd need a mobile communication module. Using this module, you can also resolve alert-related issues."
+    },
+    {
+      "comment_id": 337921128071907,
+      "user_name": "Y5V3JNBBFA",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Thanks for your response. I'm aware of the mobile communication module but it's quite expensive and I don't have space available in my current housing. The Node-Red solution with the Blynk node works as needed. My main question: Is the limitation of 15 maximum inputs/outputs caused by CPU or memory limitations on [product_name], especially given my large program? Also, are the incorrect values critical for controller operation, for example, could it lead to crashes?"
+    },
+    {
+      "comment_id": 877613073278108,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I'm not familiar with any limitation of 15 inputs/outputs. However, I don't have experience with Node-Red or Blynk."
+    },
+    {
+      "comment_id": 140051453713070,
+      "user_name": "zK5eYuCnRD",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Reviewing your Node-Red flow, I see you've defined several S7-in nodes and multiple PLC connections, each retrieving only one variable. It's possible the [product_name] is reaching its limit for simultaneous S7 connections. A better approach would be to set up a single connection to retrieve all variables, reducing the number of simultaneous connections. In the S7-in node, choose the option that retrieves all variables within one message. Hope this helps."
+    },
+    {
+      "comment_id": 192042260698491,
+      "user_name": "Y5V3JNBBFA",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "[user_name], thank you for pointing me in the right direction! The issue is resolved. I was indeed using multiple connections across several S7 input/output nodes. Now, I've set up a single connection and included all necessary inputs and outputs by listing the variables, such as DB1,INT1156. Instead of selecting 'All variables, one per message', I'm still using 'Single variable', but for each new S7 input I select the same connection and pick the required variable from the list."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user encountered incorrect data readings in external applications when connecting more than 15 input/output signals from [product_name] via Node-Red using the S7 and Blynk nodes. This led to concerns about controller memory or CPU limits. The underlying cause was establishing too many simultaneous S7 connections, exceeding the device's capabilities. Modifying the Node-Red setup to use a single S7 connection resolved the problem, ensuring proper data transfer and system stability.",
+    "user_expectations": "The user expects [product_name] to reliably handle communication with more than 15 inputs/outputs through external applications like Node-Red and S7 nodes. They seek accurate data transmission, dependable system expansion, and no operational errors.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable monitoring",
+      "remote notifications",
+      "system scalability"
+    ],
+    "pain_keywords": [
+      "connection limit",
+      "data reliability",
+      "remote communication barrier"
+    ],
+    "feature_keywords": [
+      "S7 integration",
+      "input/output expansion",
+      "remote alerts"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "29": "Scalability Limitations"
+  }
+}

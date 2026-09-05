@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "branch_id": "7980313867",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 712088565754554,
+      "user_name": "HzzVFg7wuq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Hello, I am hoping to work with the current date and time within my [product_name] program as a value to monitor a digital input status. When the input is triggered, I'd like to save the corresponding timestamp into a register for later use. I am aware this is possible on the display, but I want to retain the date and time directly in my program instead. I know VM mapping can be used, but I want a solution within the [product_name] program itself, not involving another system. Thank you for your help."
+    },
+    {
+      "comment_id": 334379549813430,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Unfortunately, this is not possible. Program logic in [product_name] cannot directly access the current date and time; the information is only available in message texts or can be forwarded via VM mapping to another device such as an HMI or a controller. If event logging is required, Data Log functionality can be used if your module is a recent version ([article_no] or newer)."
+    },
+    {
+      "comment_id": 333335751312661,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Mind if I join in? The [product_name] platform is not designed well for tasks involving processing date and time, and the internal clock is not particularly reliable. Your request may not be feasible, but if you clarify your goals, it's possible some suggestions could help. From your description, it seems you want data logging, which is achievable as mentioned earlier. If you need a timer event triggered with the input, more detail would help. Regards."
+    },
+    {
+      "comment_id": 408590637196285,
+      "user_name": "HzzVFg7wuq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Thank you [user_name] and [user_name] for your assistance. I wish to record the timestamp for certain events and display them on my [product_name] operator device. It seems I am limited to logging events and saving them on an SD card, and cannot show them directly on the operator device. I also have a question: If I use an external SD card, do I need to configure the PLC to write to it or does it automatically use the card instead of internal memory? Additionally, does the SD card size affect how many logs can be stored, or is there a fixed limit like 20,000 events? I'm currently using a 2GB SD card. Thanks for your help."
+    },
+    {
+      "comment_id": 295958873185553,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Extract from the manual for [product_name] [article_no]:"
+    },
+    {
+      "comment_id": 748850236112768,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "On the operator device display or web interface, only the most recent event with its timestamp can be shown."
+    },
+    {
+      "comment_id": 575774780245075,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "You posted just before I did. Since I have some code, I'll share it now as a reference."
+    },
+    {
+      "comment_id": 401793895857442,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "Here's a variation: the message remains displayed until the ENTER OK button is pressed on the screen."
+    },
+    {
+      "comment_id": 343701093584780,
+      "user_name": "HzzVFg7wuq",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "I truly appreciate you [user_name] and [user_name] for dedicating time to assist with my issue. I will merge your suggestions and adjust my program accordingly. Thank you again."
+    },
+    {
+      "comment_id": 787490495876901,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "(smile) Just between us: [user_name] appreciates receiving star ratings for helpful posts. If you found the assistance useful, please consider giving a rating. Thank you."
+    },
+    {
+      "comment_id": 970893445475083,
+      "user_name": "HzzVFg7wuq",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "I just clicked to thank you both for your helpful responses. Today I noticed a rating option at the top and gave you both a positive rating for your helpful posts. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking ways to use the current date and time within [product_name] programming to timestamp digital input events and apply these timestamps in logic. However, direct access to real-time data for use in registers is not supported; such information is only exposed in text messages or through data logging features. There is continuing uncertainty regarding SD card storage limits, and users note that historical event review and real-time clock reliability are restricted within the current system setup.",
+    "user_expectations": "Users expect to save and reuse the current date and time in program logic, display event timestamps on their operator device, and log this data to an SD card for accessing historical records.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "event timestamping",
+      "data logging",
+      "historical data review",
+      "display on TDE"
+    ],
+    "pain_keywords": [
+      "no programmatic access to date/time",
+      "display shows only last event",
+      "real-time clock limitations"
+    ],
+    "feature_keywords": [
+      "real-time clock access",
+      "data log",
+      "SD card logging",
+      "display on TDE"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations",
+    "10": "Performance Predictability"
+  }
+}

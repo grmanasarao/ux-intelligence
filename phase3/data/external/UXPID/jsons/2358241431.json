@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "2358241431",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 479069337503027,
+      "user_name": "ME3Eko1AMj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hi, I am planning to set up a network with several [product_name] base modules connected together. Specifically, I want to use a base module with 8 digital inputs and 4 digital outputs, referenced by [article_no], and an extension module with 8 digital inputs and 8 digital outputs, referenced by [article_no]. The power supply is a [product_name] 24V/4.0A device, referenced by [article_no]. My setup on the DIN-rail will be power supply 24V - 4A, followed by a base module plus two extension modules, resulting in 24 digital inputs and 20 digital outputs per group. With three such groups, I expect to have a total of 72 inputs and 60 outputs. Is this calculation correct, or do I lose any inputs or outputs when connecting the base modules via ethernet cables? Also, how is the address of the first digital input on the second base module determined? Is it coded as I1 (similar to the first base module) or I25, or does it use a different scheme?"
+    },
+    {
+      "comment_id": 803547458338838,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello, you do not lose any inputs. You can use network inputs for communication between the modules. The inputs on the second module are still referred to as I1. If you want to utilize them in the first module, you need to use network inputs."
+    },
+    {
+      "comment_id": 224308305359256,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "A [product_name] [version_no] can support a maximum of 24 digital inputs, 20 digital outputs, 8 analog inputs, and 8 analog outputs. A basic module with 8 digital inputs and 4 digital outputs, plus two DM16 extension modules, reaches the maximum digital I/O capacity for a single basic module. Additional DM16 extension modules will not be recognized by a single basic module. Therefore, to achieve 72 inputs and 60 outputs, you need three basic modules networked together. Each basic module uses the same addressing convention: I1-I24 for inputs and Q1-Q20 for outputs, plus AI1-AI8 and AQ1-AQ8 for analog. To make inputs and outputs from one base module available in another, you must transfer them through the network using network inputs and outputs."
+    },
+    {
+      "comment_id": 153236245323096,
+      "user_name": "9ax0xbt5tG",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hi [user_name], I'm a little confused. Why is only one extension module allowed? With a basic module, shouldn't it be possible to connect two DM16 modules—resulting in 24 digital inputs and 20 digital outputs in total? Please confirm, as I just purchased a basic module along with two DM16 units and two AM2 units."
+    },
+    {
+      "comment_id": 541951300765649,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Apologies, that was an error. Each DM16 extension module provides 8 digital inputs and 8 digital outputs. It is indeed possible to use two DM16 units with one basic module."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed integrating several [company_name] [product_name] base and extension modules within a network, asking whether any digital or analog inputs/outputs are lost in the process and seeking clarity on addressing conventions and module capacity limits. It was clarified that inputs/outputs are not lost through networking, each module keeps its own address range, and extension modules have specific maximums per basic module, regardless of network configurations.",
+    "user_expectations": "Users expect all digital and analog inputs and outputs from networked modules to be fully accessible and easily addressable, without limitations caused by networking. They assume clear addressing and straightforward scalability when adding extension modules.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "scalability",
+      "expand I/O",
+      "easy networking",
+      "module addressing"
+    ],
+    "pain_keywords": [
+      "addressing confusion",
+      "unclear networked I/O limits",
+      "expansion uncertainty"
+    ],
+    "feature_keywords": [
+      "network input/output",
+      "digital input/output",
+      "extension module",
+      "maximum capacity"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "29": "Scalability Limitations"
+  }
+}

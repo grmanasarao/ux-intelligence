@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "5213603623",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 785776886421814,
+      "user_name": "amuMqsgb75",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thank you for your assistance. I have a 4-20 mA sensor that needs to be set up so the system activates a solenoid valve after 50 m3 of water flows through. I understand this equates to 700 l/min—should this be the setting for my analog amplifier? The flow rate is 2-42 m3/hr."
+    },
+    {
+      "comment_id": 269130795050825,
+      "user_name": "7P2poSTDlc",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], within the Analog Amplifier block, it's not possible to scale values directly from 0 to 700. The recommended approach is to use a mathematical instruction block to scale the analog value. Here's an example project for reference. Please review it. If this helped, feel free to leave a rating."
+    },
+    {
+      "comment_id": 299894901485054,
+      "user_name": "AXPyAav6ps",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "It sounds like you're using a flow meter sensor. To calculate a volume of 50 m3 with a basic flow meter (in m3/h), you'd need to integrate the actual flow value converted to per second (m3/s), functioning like a totalizer. For instance, if the current flow rate is 24 m3/h, it converts to 0.0066 m3/s (24/3600), and this value should be accumulated every second until you reach your target limit. This integration could be challenging using [product_name] because it only handles integer values (-32768 to +32767), allowing a maximum of five decimal places. For this reason, I would recommend using an affordable [product_name] with a signal board suitable for reading current loop signals."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing setting up a 4-20 mA flow meter sensor with a [company_name] device to control a solenoid valve after a specific water volume passes through. The conversation highlights scaling limitations within the [product_name] and challenges in performing high-resolution calculations due to integer-only processing, suggesting that a different [company_name] controller could be more effective.",
+    "user_expectations": "The user expects the ability to scale and integrate the analog signal from the sensor, set specific volume thresholds, and achieve reliable automation for valve control using the [product_name].",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "volume monitoring",
+      "automated control",
+      "sensor-triggered actuation"
+    ],
+    "pain_keywords": [
+      "scaling limitation",
+      "integration difficulty",
+      "integer-only processing"
+    ],
+    "feature_keywords": [
+      "analog scaling",
+      "integration block",
+      "output control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

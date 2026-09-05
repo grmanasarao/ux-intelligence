@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "branch_id": "2037468443",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 136390328258562,
+      "user_name": "7t48fA0my4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm facing a similar issue where no data log is found through either the [product_name] software ([version_no]) or when using a card reader with my SD card (16GB, FAT32 format; it shows other [product_name] files). I tried copying the program into a new diagram and ran it as a different version, but this did not resolve the problem. Based on earlier posts, I suspect the buffer has not filled yet. I'm unsure about the expected waiting time. Is the 10 bytes per entry, as mentioned by [user_name], always applicable? Or does it vary according to the selected data in the logger block? If it's always 10 bytes, then the calculation is: 512-byte buffer / 10 bytes per entry = 51.2 entries. With one entry every 5 minutes (per my program), it should take 5 min * 51.2 = 256 minutes (about 4 hours). However, after running my program for a day, I still did not see any data log. If the entry size isn't always 10 bytes, how can I determine the exact value? Logger details are attached. --- Split from No Data log found."
+    },
+    {
+      "comment_id": 634875395155253,
+      "user_name": "7t48fA0my4",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Attached is my program file. Please note, it's password-protected due to project requirements. If you wish to help, I will send you the password via personal message. Thanks!"
+    },
+    {
+      "comment_id": 810281838996708,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Then please send me the password ..."
+    },
+    {
+      "comment_id": 456657789137751,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "The [product_name] contains an internal buffer of 1024 bytes for data logging. It's best to review the relevant section of the manual."
+    },
+    {
+      "comment_id": 436190592800398,
+      "user_name": "7t48fA0my4",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I may have expressed myself unclearly earlier, but to clarify: \"[product_name] [article_no] offers a 1024-byte buffer for data logging. When the buffer reaches 512 bytes, [product_name] automatically writes the data to the micro SD card in the slot.\" My point was specifically about the 512-byte threshold needed for writing data to SD, not the total capacity of [product_name]."
+    },
+    {
+      "comment_id": 338410666899488,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "If you activate the enable input every 5 minutes, data is written to the SD card, regardless of whether 512 bytes have been reached. It seems the SD card might be the issue. Which OS did you use to format the card? [product_name] is particularly sensitive to the file system formatting ..."
+    },
+    {
+      "comment_id": 586301800388908,
+      "user_name": "7t48fA0my4",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "It was formatted under Windows 10. I'll try using a different SD card and see what happens. Thanks!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user cannot retrieve data logs using either [product_name] software ([version_no]) or directly from the SD card, despite correct wiring, buffer calculations, and workflow attempts. This situation creates uncertainty regarding buffer sizes, log extraction timing, and possible compatibility or formatting issues with SD cards. Incomplete documentation and a lack of transparent information about logging mechanics and SD card compatibility are causing difficulties for users.",
+    "user_expectations": "The user expects a straightforward and reliable logging and retrieval process using [product_name] software and compatible SD cards, along with clear information about buffer thresholds and log file generation.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable data logging",
+      "accessible logs",
+      "clear documentation"
+    ],
+    "pain_keywords": [
+      "no data logs",
+      "unclear buffer thresholds",
+      "SD card compatibility"
+    ],
+    "feature_keywords": [
+      "data logger",
+      "buffer size",
+      "SD card write process",
+      "software log extraction"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": [
+        "10"
+      ]
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "23": "File Accessibility Barriers"
+  }
+}

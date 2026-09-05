@@ -1,0 +1,334 @@
+{
+  "metadata": {
+    "branch_id": "5188484316",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 994374232171978,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Is it possible to measure time in minutes and seconds? Right now, I'm using a stopwatch to track machine running time, but it just keeps counting upwards after 60 seconds. I know there's an hours counter available, but it only does hours and minutes. Any suggestions?"
+    },
+    {
+      "comment_id": 376200779226613,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "You can use timer functions to accomplish this. They should help you measure time as needed."
+    },
+    {
+      "comment_id": 598813841831139,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], can you specify what exactly you want to achieve? Using timer functions is a general suggestion. It's better if you clarify your requirements so the right solution can be provided. Should the measurement run just once, or should you pause and resume tracking? Normal timers can't be stopped, so you'd need a custom setup."
+    },
+    {
+      "comment_id": 497335009312479,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hi, please check the attached image—I've uploaded a picture of my HMI. When the input is triggered, it currently counts seconds based on my stopwatch output. I'd like this to display as minutes and hours instead. With the hours counter, each minute that passes is shown as 256."
+    },
+    {
+      "comment_id": 954364526091143,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 564787802583975,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Here's the issue: [company_name]'s system transmits time values based on its internal time units. The hour counter uses a minute-based system; for example, if it registers hours and 16 minutes, it transmits 616 minutes (10 hours * 60 + 16). The same applies for the stopwatch when set to minute base."
+    },
+    {
+      "comment_id": 168375205226855,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Bro, just relax. I'll step back and let others provide support. Sorry if I caused any offense—I'm just trying to contribute here. Please don't take it the wrong way."
+    },
+    {
+      "comment_id": 568223632218410,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], here's a possible solution you could try."
+    },
+    {
+      "comment_id": 639922623075012,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "This is great, thank you! The seconds are being displayed on the HMI correctly, but when it reaches 60, a 1 appears in the minutes column and then disappears. Any thoughts?"
+    },
+    {
+      "comment_id": 350307763400267,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "What's the maximum time the stopwatch should track? Is it more than 546 hours? If not, you can separate the values into hours and minutes and show each on a separate field in the HMI."
+    },
+    {
+      "comment_id": 588878385540283,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hi, that's what I've done so far. However, when it hits 1 minute, the minutes column briefly shows '1' and then reverts to a hashtag symbol."
+    },
+    {
+      "comment_id": 401078311533698,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Here’s an example for splitting the stopwatch's value into hours and minutes. The hours can be stored in VW0, the minutes in VW2."
+    },
+    {
+      "comment_id": 113215194346140,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Here's how you can split measured time into minutes and seconds using a time base of seconds."
+    },
+    {
+      "comment_id": 755861534734217,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Thanks! One more question: Is it possible to monitor the difference between two times? For example, I'd like to have a running timer and another timer that activates only while the machine is operating, then calculate the percentage of time the machine was actually running."
+    },
+    {
+      "comment_id": 391708773147502,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "This calculation is only possible with [company_name]'s system if the maximum value of 32767 isn't exceeded. If you're using a time base of seconds, the system can calculate up to a maximum of 9 hours, 6 minutes, and 7 seconds, since it only processes integer values."
+    },
+    {
+      "comment_id": 109725968583515,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "I don't need to calculate more than 8 hours, so is it achievable?"
+    },
+    {
+      "comment_id": 805003952271294,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "If the time base is minutes, the maximum calculation is 546 hours and 7 minutes. If it's hours, then up to 1365 days and 7 hours can be calculated."
+    },
+    {
+      "comment_id": 926624348387901,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "How do I perform this calculation? Is a math instruction required?"
+    },
+    {
+      "comment_id": 819739013134887,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Let me provide an example for you."
+    },
+    {
+      "comment_id": 961941138883878,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Thank you."
+    },
+    {
+      "comment_id": 459493498602877,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Here's the example."
+    },
+    {
+      "comment_id": 957407115704411,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "The outputs in your diagram for minutes and hours don't match what's displayed on the HMI—it's confusing. The output labeled as hours is showing minutes instead."
+    },
+    {
+      "comment_id": 379534901797498,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "This problem occurs because [company_name]'s product only works with fixed-point values. In my program, I subtract 30 from the minutes, and then divide by 60, so hours become separated. Because of fixed-point math, if you divide 30 minutes by 60, it gives 0.5, but [product_name] rounds to 1 minute. That's why 30 is subtracted. In the first minute: 0 - 30 = -30. -30 / 60 = -0.5, rounded to -1. -1 * 60 = -60. Using an analog comparator, value 0 then subtracts -60. 0 - (-60) = 60. So, in the first minute, the program incorrectly showed 60 minutes. I initially missed this because I tested with seconds as the time base instead of minutes. The error is now fixed."
+    },
+    {
+      "comment_id": 274737793218750,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "So now B003 is outputting minutes and B005 is for hours in the VM mapping? I noticed that when it reached 60 minutes, the minute value reset but the hour value went from the hashtag to zero, and after that both started counting up together."
+    },
+    {
+      "comment_id": 435442086971476,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Yes, that's right. B005 now represents hours (VW0) and B003 represents minutes (VW2). This adjustment was made in the VM mapping parameters, and the corrected version is included in the attached program."
+    },
+    {
+      "comment_id": 145899213314245,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Thanks so much for your support! I'm running tests now and it looks promising."
+    },
+    {
+      "comment_id": 514904437388556,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Is your issue resolved now?"
+    },
+    {
+      "comment_id": 818144167387068,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Everything’s working perfectly! All that's left is to add the percentage calculator to show the difference in a separate section."
+    },
+    {
+      "comment_id": 756281600210758,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 28,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "That's great to hear. Are you confident handling that last part yourself?"
+    },
+    {
+      "comment_id": 123172583634100,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 29,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "I'll give it a try myself first—thanks for all your help!"
+    },
+    {
+      "comment_id": 466699528651740,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 30,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], I've managed to integrate the percentage calculator into the program, but I'm not seeing any output, even though the equation looks fine."
+    },
+    {
+      "comment_id": 276873664841384,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 31,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Please upload your program to the forum so it can be reviewed."
+    },
+    {
+      "comment_id": 964440486014408,
+      "user_name": "5ArbSELbuy",
+      "comment_position": 32,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Don't worry, I got it working now! Thanks again."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face challenges displaying machine running time in minutes and seconds on [company_name]'s platform due to how its timer and hour counter functions represent time. The core issue is that the default behavior—showing values such as 256 for elapsed minutes or not transitioning seconds to minutes as a conventional stopwatch would—doesn't match user requirements. As a result, users are forced to implement custom solutions and workarounds to split and display time values correctly on an HMI.",
+    "user_expectations": "Users expect straightforward and native functionality to display machine time in minutes and seconds, with the HMI seamlessly transitioning values as a typical stopwatch does, without needing complex workarounds.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate time display",
+      "user-friendly interface",
+      "minutes and seconds output"
+    ],
+    "pain_keywords": [
+      "confusing time formatting",
+      "lack of native feature",
+      "manual workaround required"
+    ],
+    "feature_keywords": [
+      "timer",
+      "hour counter",
+      "HMI time display",
+      "seconds to minutes transition"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

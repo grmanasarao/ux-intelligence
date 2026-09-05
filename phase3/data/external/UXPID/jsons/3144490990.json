@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "3144490990",
+    "thread_id": "1723880927",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 788226945079619,
+      "user_name": "csLmnlA1Dl",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "In my application, I need one output to run for 4 hours, using a retentive timer. If I switch off the input after 2 hours, the timer should pause, and when I turn the input on again, it should continue from where it left off. I tried using an on-delay timer with retentive settings, but it's not functioning as expected. Even using a retentive on-delay, the timer continues until the set time elapses, regardless of input status."
+    },
+    {
+      "comment_id": 404414026352694,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "Hello, When the input to the timer is removed, the timer (on-delay type) will stop and reset—retentive setting does not change this. Retentive means the controller will remember the timer state only after a power loss, not during input changes. Consider building your own timer logic using a pulse generator and a counter. Regards,"
+    },
+    {
+      "comment_id": 462378364043129,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "This resource could be useful: [url] Note: The link provides a sample [product_name] program for reference. Modify as needed for your application."
+    },
+    {
+      "comment_id": 920283874909005,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 4,
+      "comment_body": "Hi, Enable a pulse generator to create a pulse every second, and use a counter to increment the seconds. When the required number of seconds is reached, activate the counter output. Connect this signal to both the pulse generator's enable and ensure the counter has retentivity enabled. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered an issue where the so-called retentive timer in [product_name] does not actually pause and resume upon input interruption; instead, it proceeds until the total time elapses, not meeting expectations. Other community users clarified that 'retentive' only preserves timer state during power cycles, not when the input signal is removed and reapplied. Custom logic using a pulse generator and counter with manual retentivity is proposed as a workaround.",
+    "user_expectations": "The user expects the timer to temporarily stop when the input is off, resuming with previously counted time when the input is turned back on. They believe the 'retentive' property should enable this pause-and-continue behavior during input transitions, not limited to power failure scenarios.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "elapsed time retention",
+      "timer pause and resume",
+      "reliable timing",
+      "routine automation"
+    ],
+    "pain_keywords": [
+      "timer resets on input loss",
+      "retentive not working as expected",
+      "incomplete feature"
+    ],
+    "feature_keywords": [
+      "retentive on-delay timer",
+      "input state pause",
+      "elapsed time memory"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

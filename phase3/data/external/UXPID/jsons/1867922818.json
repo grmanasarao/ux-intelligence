@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "1867922818",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 196978698958035,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "I am noticing unexpected behavior with retentive values on a newly manufactured [product_name] dated 2016. After powering on the [product_name] for the first time and loading the program from an SD card, I found that some counters set as retentive (default value: 0) displayed unusual nonzero values (for example, 32456). This is unexpected, as the device shouldn't retain retentive values at this stage and should use the default value. Has anyone else observed this? Any suggestions for a workaround? Possible causes could be related to the SD card program possibly carrying over retentive information, differences in load sequence, or the reset pin for retentive elements being wired in a way that prevents initialization. As a result, the true initial value of these elements is unclear, which may explain what we're seeing."
+    },
+    {
+      "comment_id": 527686915362515,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], I'm having trouble understanding your post. Could you describe exactly what you did and what occurred, step by step? Regards,"
+    },
+    {
+      "comment_id": 282078886192525,
+      "user_name": "cdDMlodqBA",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Check this."
+    },
+    {
+      "comment_id": 809444549506746,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "I believe the referenced article clarifies that no retentive value is stored in the program itself. The only possible explanation is that the internal chip program of the [product_name], rather than the user program, failed to erase parameters for retentive memory when loading a new program, leading to random values in retentive memory blocks."
+    },
+    {
+      "comment_id": 552008086195333,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "Brand new equipment was manufactured in a remote area using a new [product_name] and our program loaded via SD card. On first startup, the manufacturer noticed that some retentive counters had nonzero values, even though they should start at zero. This issue appeared only in some units, while most started with the expected zero values."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members encountered inconsistent, nonzero values in retentive counters after initializing new [product_name] units and loading programs from SD cards. These unexpected results raise concerns about how retentive data is handled and the initialization process. Since default values should be zero, uncertainty over the cause affects trust in consistent device behavior.",
+    "user_expectations": "Users expect that all retentive counters in new [product_name] modules will have a zero value upon first startup when a program is loaded, seeking predictable and reliable initialization across devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "deterministic startup",
+      "consistency",
+      "predictable retentive values"
+    ],
+    "pain_keywords": [
+      "random counter values",
+      "inconsistent initialization",
+      "unpredictable behavior"
+    ],
+    "feature_keywords": [
+      "retentive memory",
+      "initialization",
+      "counter default value",
+      "SD card program load"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "10": "Performance Predictability"
+  }
+}

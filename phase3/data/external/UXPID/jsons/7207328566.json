@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "7207328566",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 985298636921528,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "Hello, does anyone know the correct analog input number for the [product_name] AM2 module? To identify the number practically: Use the up/down button on the [product_name] until the date and time are displayed, then use the left/right cursor until the analog input appears. Check which input number changes as you interact with the AM2. Alternatively, in [product_name] software, go to file/properties and switch to I/O settings. If no analog inputs are enabled on the base module, AI1 and AI2 are the correct numbers for the AM2. If 2/4 are enabled, use 3 & 4 or 5 & 6 for connection to AM2. Hope this clarifies things."
+    },
+    {
+      "comment_id": 568491682570474,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Specification: Five analogue temperature sensors (PT100, 0-10VDC output). Sensors 1 to 3 connect to the [product_name] controller's AI-1, AI-2, and AI-7, enabling four analog inputs in the software. Sensors 4 and 5 connect to I1 and I2 on the AM2 module. Power for both controller and module are connected, and the module's green indicator light is on. All inputs show 3-4 VDC physically, though sensors 1 to 3 display different raw values. Please refer to the attached image where variations are highlighted. What could be causing this issue? Thank you & regards, [user_name]"
+    },
+    {
+      "comment_id": 175397185608076,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "A screenshot alone isn’t sufficient, please upload your complete program as a ZIP file. Also clarify - what temperature range does the 0-10V output represent? What amplification factors are set? How is the offset configured?"
+    },
+    {
+      "comment_id": 171687286126260,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you for your response. The program file is now attached."
+    },
+    {
+      "comment_id": 853272230734204,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Without knowledge of the sensor's measurement range, it’s impossible to provide specific guidance. What does the transmitter's 0-10V output correspond to? Is it 0-10V = 0 to 100°C? Or 0-10V = -30°C to 70°C? These details are needed to clarify what the displayed raw values mean in terms of temperature."
+    },
+    {
+      "comment_id": 632239106595938,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I've enabled the four analog inputs in the software. The AM2 I1 and I2 terminals are solely wired to the sensor signal inputs, which are 0-10VDC. Please look at the attached screenshot and see the raw value differences between the [product_name] controller and the expansion module."
+    },
+    {
+      "comment_id": 862708268911497,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "For this heater control system: 0V = -10°C, 10V = 110°C. Details of the temperature sensor: Part Number: [article_no], Origin: UK, Manufacturer: [company_name]"
+    },
+    {
+      "comment_id": 400957446896555,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Given the measurement range of -10.0°C to 110.0°C (a 120°C span), the analog input on the [product_name] converts 0-10V to 0-1000 units. Each unit equals 0.12°C. For example, at AI1 = 312 units: 312 × 0.12°C = 37.44°C; including the offset: 37.44°C + (-10.0°C) = 27.44°C. Therefore, the display should show approximately 27.4°C (with a gain of 1.2 and one decimal place). You've set a gain of 0.12 in the analog amplifier (no decimals), so your screenshot shows real temperature as 27°C. A simulated screenshot is attached showing the effect of a gain of 1.2 and one decimal place."
+    },
+    {
+      "comment_id": 598113896177838,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thanks for your reply. No issues with the analog inputs on the [product_name] controller—problems only exist with the AM2 module I1 and I2 inputs. A1-1, AI-3, and AI-4 are connected properly and working via the controller. The concern lies with AI-5 and AI-6 on the AM2 module’s I1 and I2."
+    },
+    {
+      "comment_id": 512499089206442,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "As long as the sensors are consistent, the conditions remain unchanged—analog input processing is the same whether on the base module or an extension, provided the measuring range and 0-10V output are identical."
+    },
+    {
+      "comment_id": 109571952118752,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "If the sensors are the same, the issue may simply be a wiring error. Double-check your wiring against the diagram in the screenshot."
+    },
+    {
+      "comment_id": 287697791575276,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "To check analog inputs on [product_name]: On the device, press cursor UP to display date and time, then cursor RIGHT to see AI 1-4 values. Note the value for a chosen channel. Move the sensor from this channel to the AM2 module, press cursor RIGHT again to access AI 5-8, and compare values to see if they match. This technique helps verify which AI is reading your sensor input. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience inconsistent analog readings when connecting temperature sensors (0-10V) to both a [product_name] base module and an AM2 analog expansion. Confusion arises primarily due to unclear analog input numbering and representation in the software. Uncertainty over amplification, offset, and gain settings—especially for expansion module inputs—makes calibration and sensor connection challenging. The main difficulty is interpreting raw analog values and converting them to temperature, leading to concerns about sensor accuracy and wiring.",
+    "user_expectations": "Users want clear and reliable analog input readings, seamless mapping between physical sensor connections and software, and consistent temperature value displays regardless of whether connections are on the main controller or expansion module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "sensor calibration",
+      "accurate analog input reading",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "inconsistent input values",
+      "unclear AI mapping",
+      "complex gain/offset setup"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "gain and offset configuration",
+      "I/O Settings",
+      "input mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "30": "Data Persistence Confusion"
+  }
+}

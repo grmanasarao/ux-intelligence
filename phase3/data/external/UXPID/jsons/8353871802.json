@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "branch_id": "8353871802",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 115649415469942,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Instead of connecting [product_name] module 1 to [product_name] module 2 in the network project interface, is it possible to set the first as client and the second as server using Ethernet Connections? If so, when configuring the client connection, how do you move data from NQ1 to NI1 and how many bytes do 'Q' and 'I' variables contain? Thanks for your support."
+    },
+    {
+      "comment_id": 827013387545943,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "You can easily link two [product_name] modules together in diagram view. The ethernet connection setup is shown in the attached file. If possible, please clarify your question about inputs/outputs as it's not fully clear yet."
+    },
+    {
+      "comment_id": 503286926816893,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Now I see how it works in Ethernet Connections. I wasn't sure how the network input and outputs appear there and mistakenly thought they were labeled IB and QB, but you clarified they're set as VB, requiring only 1 Byte. Everything works perfectly now. To transfer NQ1 (0.0), NQ2 (1.0), NQ3 (2.0), and NQ4 (3.0) from client to server, it's configured as VB0 (4 Bytes) to VB0 (4 Bytes). For NI1 through NI4 using the same pattern, that seems correct. Thanks a lot!"
+    },
+    {
+      "comment_id": 866753907556185,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "No. First, the NI and NQ addresses don't directly align with the V-bit addresses. You can pick a V address for NI1 such as V0.0, V3.7, V800.1, or others via block properties. Second, transferring a V-Byte like VB0 includes the V-Bits V0.0 through V0.7. If you move 4 V-Bytes starting at VB0, then you transfer VB0 to VB3, covering V-Bits V0.0 up to V3.7."
+    },
+    {
+      "comment_id": 844080246230489,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Let me clarify with an example for easier understanding..."
+    },
+    {
+      "comment_id": 181478003462910,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Client assignment: NQ1 = V0.0, NQ2 = V0.1, NQ3 = V0.2, NQ4 = V0.3; Server assignment: NI1 = V0.0, NI2 = V0.1, NI3 = V0.2, NI4 = V0.3. Thus, Client VB0 (1 Byte) transfers to Server VB0 (1 Byte). This setup allows 1 Byte to represent up to 8 inputs or outputs—does that sound right?"
+    },
+    {
+      "comment_id": 490858382963674,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Yes, 1 Byte equals 8 Bits. The assignment can be customized as needed. For instance: Client assignments could be NQ1 = V0.0, NQ2 = V0.1, NQ3 = V0.2, NQ4 = V0.3, while Server uses NI1 = V0.2, NI2 = V0.1, NI3 = V0.3, NI4 = V0.0. Other arrangements like Client NQ1 = V0.3, NQ2 = V0.0, etc., mapping to corresponding Server addresses, are also possible."
+    },
+    {
+      "comment_id": 105542615735040,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "In your example, does it mean Client NQ1 = V0.0 sends data to Server NI4 = V0.0 instead of NI1 = V0.2, since the bits don't match?"
+    },
+    {
+      "comment_id": 799710531702390,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "As previously described..."
+    },
+    {
+      "comment_id": 747979697474477,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "[product_name] module 1 (Server, IP 192.168.0.3) and [product_name] module 2 (Client, IP 192.168.0.4) are set up with TSAP: 21.00. I configure the client to write NQ values to the inputs of the server, which are mapped as NI1 (V60.0), NI2 (V60.1), NI3 (V60.2), and NI4 (V60.3). Is this the intended method?"
+    },
+    {
+      "comment_id": 690985018091997,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "You've configured the client module differently than what's consistent in the server module. My suggestion is shown in the attached file."
+    },
+    {
+      "comment_id": 297517622718691,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "My program was set up the same way before. With Ethernet Connections, VB60 is transferred from client to server as a single Byte, just like agreed earlier. That means NI1 (V60.0 from client) moves directly to NQ1 (V60.0 in server), NI2 to NQ2, and so forth. Is that right?"
+    },
+    {
+      "comment_id": 285335937946213,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "You're using a different approach. In your client, NQ values aren't written to VM but to a remote device. Also, TSAP values are not 21.00 and 21.00—they should be 22.00 and 21.00."
+    },
+    {
+      "comment_id": 547106571703092,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I'm a little lost. For instance, let's say: Client NQ1 = V60.2, NQ2 = V60.7, NQ3 = V60.0, NQ4 = V60.5; Server NI1 = V60.0, NI2 = V60.7, NI3 = V60.5, NI4 = V60.2. If I match NQ1 to NI4, NQ2 to NI2, NQ3 to NI1, NQ4 to NI3, that's not correct. But if I set in Ethernet Connections VB60 (1 Byte, Client) to VB60 (1 Byte, Server), then those mappings become true. Is this what you meant?"
+    },
+    {
+      "comment_id": 287331976538649,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Sorry, but I don't quite understand your setup."
+    },
+    {
+      "comment_id": 295745144882506,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "In your client/server scenario: I1 = 1 corresponds to Q1 = 1; I2 = 1 to Q2 = 1; I3 = 1 to Q3 = 1; I4 = 1 to Q4 = 1. In my scenario (see attachment): I1 = 1 goes to Q4 = 1; I2 = 1 to Q2 = 1; I3 = 1 to Q3 = 1; I4 = 1 to Q1 = 1. Is this right?"
+    },
+    {
+      "comment_id": 811670028116198,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "We were discussing the same concept using different language, which caused confusion. It's clear now! Thanks for the support, problem resolved."
+    },
+    {
+      "comment_id": 252695911301307,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": ""
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The users explored how to set up a [company_name] module network so one device operates as client and the other as server through Ethernet Connections. Initial confusion was around the correct mapping and transfer of data between network outputs and inputs, especially with V memory allocations and byte sizing. The conversation clarified that V-Bits are utilized for this, and 1 Byte covers 8 signals. Flexible address mapping is possible but may be difficult for new users to grasp. Experience shared here shows configuration is adaptable, but terminology and block properties need clearer explanation.",
+    "user_expectations": "Users want an easy and clear way to establish client-server communication and map data between [company_name] modules using Ethernet. They expect to know readily how many bytes to allocate for data transfer and to match network output and input addresses efficiently.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clear configuration",
+      "easy byte mapping",
+      "successful data transfer",
+      "flexible addressing"
+    ],
+    "pain_keywords": [
+      "confusing addressing",
+      "unclear data mapping",
+      "setup complexity"
+    ],
+    "feature_keywords": [
+      "client-server Ethernet communication",
+      "V-Bit mapping",
+      "network I/O configuration",
+      "block properties"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

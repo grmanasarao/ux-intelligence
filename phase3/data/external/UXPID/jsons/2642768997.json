@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "2642768997",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 823981948424153,
+      "user_name": "h3HOXKsgIs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I'm facing a similar issue with [product_name] [product_name] Operator Device: when I change the factory default IP for both the base module and Operator Device, sometimes after a reboot (but not always), the Operator Device reverts to its factory IP address. This results in a loss of communication because the base module remains on a different subnet."
+    },
+    {
+      "comment_id": 554125996436633,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I operate two [product_name] Basis Modules (one with display and one without), plus one Operator Device. The Operator Device communicates with the module lacking a display via IP address. Although I've had frequent power failures and system reboots, none of the devices have lost their IP configuration, including both basis modules and the Operator Device."
+    },
+    {
+      "comment_id": 268527666063604,
+      "user_name": "h3HOXKsgIs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "We've seen this bug in more than ten plants, and it appears randomly. If we intentionally switch power on and off, the issue doesn't occur, but around once a month customers report communication failures requiring the IP address settings to be reset."
+    },
+    {
+      "comment_id": 745967697442058,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Consider submitting a support request for further troubleshooting."
+    },
+    {
+      "comment_id": 350532406123905,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Hello, I don't experience problems with similar setups; multiple systems run fine. Verify the power supply: [product_name] modules reboot and scan connected expansion modules during startup. Unstable power may lead to unpredictable behavior. It's especially problematic if voltage dips below specified limits and recovers slowly. I recall a case where a customer lost parts of the program due to someone trying to optimize it directly via keypad, unintentionally deleting segments. Using a lock in the cabinet fixed this. Also, double check if the Operator Device is in Operator or Admin Mode, as settings might be changed unintentionally. Hope this helps."
+    },
+    {
+      "comment_id": 538752380808151,
+      "user_name": "9kubhmLt6G",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "I agree with [user_name]: verify that your power supply is stable and properly sized. I had a similar experience, though my setup did not include an Operator Device; the base module entered STOP mode unexpectedly. This didn't happen during intentional power cycling. Always ensure correct power supply specifications."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members report that the [product_name] Operator Device sometimes resets its IP address back to factory default after a reboot, causing lost communication with the base module if they use different subnets. The issue does not occur with intentional power cycling, but arises spontaneously during routine plant operation, requiring manual network reconfiguration. Other users haven't faced this problem, suggesting unstable power or accidental manual changes as possible causes. This recurring need for IP resets disrupts plant operations and highlights reliability concerns with configuration retention in Operator Devices.",
+    "user_expectations": "Users want the [product_name] Operator Device to consistently retain custom IP settings after any reboot or power cycle and maintain stable communication with the base module, eliminating the need for regular manual network resets.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable network configuration",
+      "reliable operation",
+      "minimal manual maintenance"
+    ],
+    "pain_keywords": [
+      "loss of IP settings",
+      "frequent manual resets",
+      "lost communication",
+      "spontaneous resets"
+    ],
+    "feature_keywords": [
+      "IP persistence",
+      "network settings",
+      "admin/operator mode",
+      "auto reboot recovery"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "30": "Data Persistence Confusion"
+  }
+}

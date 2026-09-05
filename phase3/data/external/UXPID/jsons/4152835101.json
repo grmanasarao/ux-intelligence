@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "4152835101",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 885021140792759,
+      "user_name": "lol4abeSHy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I've created a logging function within the controller, so now I have a file with analogue data. The issue is the data isn't showing in degrees Celsius, but as raw values from the sensor. Is there a calculation or mathematical function I can apply to convert these raw values into degrees Celsius?"
+    },
+    {
+      "comment_id": 906913136172670,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "For analog inputs, you typically need to map the raw signal from the analog amplifier to your temperature values. The raw input might be between 0-1000 units (such as 0-10V, 0-20mA, PT100/1000) or 800 units (like 2-10V, 4-20mA), depending on your analog converter."
+    },
+    {
+      "comment_id": 585409532188679,
+      "user_name": "lol4abeSHy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I'm not sure I understand. In my spreadsheet, I've just taken the number, divided by 10, and then subtracted 15. That seems close, but I can't tell if the conversion will stay linear."
+    },
+    {
+      "comment_id": 155505475807170,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I'm not sure I follow your explanation—especially since you didn't mention using spreadsheets before. Could you upload a sample for clarification?"
+    },
+    {
+      "comment_id": 579096922569087,
+      "user_name": "lol4abeSHy",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "From the controller's log file, I can extract two values—I'm monitoring two analog signals. These values represent different measurement points: AI1 is 297 and AI2 is 293. If I calculate 297 / 10, I get 29.7, but subtracting 15 gives 14.7, which matches the expected degrees Celsius. Is this conversion method correct and linear? Will it remain accurate? Thank you for your feedback."
+    },
+    {
+      "comment_id": 731555205793004,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "AI readings range from 0 to 1000 units, coming directly from the A/D converter. What is the physical temperature range associated with these values? Only you can determine that based on your sensor. For instance, does your sensor cover 0-100°C? To record temperature values, you should normalize the 0-1000 units using an analog amplifier, then log the amplifier output."
+    },
+    {
+      "comment_id": 561830913060600,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I've attached an example showing AI readings from a PT100/1000 sensor."
+    },
+    {
+      "comment_id": 692198992739929,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hi, the best approach is to create an example using your limits. You have an analog sensor connected to an input channel of [product_name]. The temperature (in degrees) depends on the value between 0 and 1000 steps in [product_name]. For example, using an AM2 RTD module with a PT100/1000 sensor, you'll need to scale the values—usually done within the analog amplifier function block settings. If you log the raw AI value, it’s from 0 to 1000. If you log the amplifier's output, it might be from -50 to 200 or -500 to 2000, depending on the sensor's resolution. Attached is an example showing PT sensor values and recording both the raw AI input and the scaled amplifier output. Hope this is useful."
+    },
+    {
+      "comment_id": 372763594027013,
+      "user_name": "lol4abeSHy",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Based on your documentation, your approach looks good. I agree with your method. However, my analog sensor doesn't perfectly fit the PT100/1000 range. For accuracy, I had to adjust the standard settings (like -500 to 2000) to suit our requirements, as using the default values resulted in significant errors. Modifying these values helped the PT100 sensor work correctly. I tried to see if others had similar issues. The lead from the sensor is quite short, and it's sourced from RS as a PT100. I don't have access to my PC today, but I’ll copy the program and upload it for you to review. Thanks again for your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are attempting to convert raw analog input values from sensors into meaningful temperature readings using programmable controllers. They face confusion with inconsistent or unclear scaling methods, and want assurance that their conversion approach is both accurate and linear. Some users resort to manual trial-and-error adjustments due to non-standard sensors or ranges, leading to uncertainties about the reliability of their logged data.",
+    "user_expectations": "Users expect a straightforward, built-in method to convert raw analog input data into precise, linear temperature values (in degrees Celsius), or at least detailed documentation for achieving accurate results with various sensors and configurations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate temperature readings",
+      "easy conversion",
+      "linear scaling"
+    ],
+    "pain_keywords": [
+      "unclear conversion",
+      "manual calculations",
+      "scaling mismatch",
+      "data inaccuracy"
+    ],
+    "feature_keywords": [
+      "analog input conversion",
+      "scaling",
+      "normalization",
+      "degree Celsius output"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

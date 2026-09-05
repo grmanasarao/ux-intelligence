@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "2426129087",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 248186918634121,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello all, I need assistance with setting up the [product_name]. I want to control chamber temperature (adjustable from -5 to +35°C) and set this temperature using the [product_name] operator panel. I'm unsure how to achieve the following: 1) When the temperature drops below the set value, start heating; 2) When it goes above the set value, start cooling. Thank you for any suggestions."
+    },
+    {
+      "comment_id": 743153214134433,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Greetings [user_name], and welcome to the forum. Your question is quite general, so only broad answers can be given without specific details. For a single setpoint, you'll need hysteresis to prevent constant switching between heating and cooling near the set value. Alternatively, do you want two separate setpoints? Limiting input via the display requires additional programming."
+    },
+    {
+      "comment_id": 480229192256611,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], maybe the attached diagram will assist. I need to enter a value from -5 to +35°C using the [product_name] operator panel. Based on current temperature, the system decides which controller is active. Ideally, a three-state controller would be used, but there isn't a dedicated block for that in [product_name]."
+    },
+    {
+      "comment_id": 291076508747707,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Understood. What you need is a three-stage step controller with Up, Stop, and Down functions. Since no dedicated block exists for this, you'll have to create one using existing logical blocks. Typically, a hysteresis is necessary between Up and Down to avoid continuous switching."
+    },
+    {
+      "comment_id": 177744622589873,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I developed a similar program some years ago upon a user's request here in the forum. It might be helpful to you."
+    },
+    {
+      "comment_id": 570933965233140,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Thank you, [user_name]. This isn't a straightforward solution, but I will try to set something up for myself. I appreciate your helpfulness and time. Apologies for my writing; I'm using a translator and don't speak English well."
+    },
+    {
+      "comment_id": 943558016951794,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Perhaps you're looking for a simple approach similar to the attached program. If the temperature is more than setpoint + 1.0°C, cooling is activated. If below setpoint, cooling is deactivated. No action is taken when temperature is within setpoint ±1.0°C. If the temperature is below setpoint - 1.0°C, heating is activated. Above setpoint, heating is deactivated. The threshold for activation and deactivation can be customized. This essentially works as a three-state controller."
+    },
+    {
+      "comment_id": 414154064248843,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Thank you, [user_name], this is exactly what I needed. It's simple now that I understand!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are searching for a way to achieve temperature regulation within a chamber using a [product_name] controller, allowing for adjustment via a connected operator interface. The main difficulty stems from the absence of a built-in three-state (step) control function in [product_name]. Experienced users suggest implementing manual logic with hysteresis to avoid frequent toggling, and community-shared custom solutions help address the problem.",
+    "user_expectations": "Users expect a ready-made temperature control function that handles heating, off, and cooling modes, adjustable via an operator panel, with intuitive options for limiting the setpoint.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic temperature regulation",
+      "setpoint adjustment via display",
+      "three-state control"
+    ],
+    "pain_keywords": [
+      "lack of dedicated control block",
+      "manual logic programming required",
+      "no built-in setpoint limiting"
+    ],
+    "feature_keywords": [
+      "3-point step controller",
+      "hysteresis",
+      "operator display setpoint input"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "3": "User Guidance"
+  }
+}

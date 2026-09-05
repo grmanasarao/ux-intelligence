@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "6848434932",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 302390934269637,
+      "user_name": "r8TzAjm9io",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I have two high-speed input signals from the same engine shaft and need to measure engine direction (left or right). If pulse from input 5 comes before input 6, the engine is turning left; if input 6 comes first, it's turning right. How can I translate this into a 0 or 1 direction status in programming? I've tried various methods, including relay latching, but haven't found a solution. The pulses follow each other closely. Thank you!"
+    },
+    {
+      "comment_id": 359404591696475,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "The [product_name] isn't well suited for tasks like this. Its high-speed inputs can handle signals up to 5 kHz if they go directly to a counter or threshold switch, but direct logic evaluation in the program is cycle-dependent. Because of this, it's not guaranteed that your program will reliably detect which pulse arrived first."
+    },
+    {
+      "comment_id": 819858362522091,
+      "user_name": "r8TzAjm9io",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello, thanks for the response. My signal frequency peaks at 40 Hz, so it's relatively low. Could I implement something with a timer?"
+    },
+    {
+      "comment_id": 320239715041415,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "At 40 Hz, this should be feasible. Are the signals overlapping? Are you using an encoder? Please provide more details."
+    },
+    {
+      "comment_id": 342411446918895,
+      "user_name": "r8TzAjm9io",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hi, in this setup, the engine runs between 1 and around 40-50 Hz. There are two sensors positioned 90 degrees apart on the shaft; the engine can rotate in both directions. Counting both signals works fine, but I need to know the direction. If i5 pulses before i6, the shaft rotates clockwise; if i6 pulses before i5, it's counterclockwise. The signals don't overlap. The intended logic is: clockwise rotation = output 0, counterclockwise = output 1. This will control counting direction. Is this sufficient detail? Thanks again!"
+    },
+    {
+      "comment_id": 836174986107339,
+      "user_name": "GoUonzsWEC",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "When you mention 40-50Hz, do you mean engine speed or the frequency provided by a Variable Frequency Drive (VFD)? Standard asynchronous motors usually reach about 1500 RPM at 50Hz, which is quite fast. If your sensors' signals don't overlap, determining which comes first is even harder; keeping track of time delays between signals is critical. You’d need to measure the interval between i5 and i6, and vice versa, then compare these times to infer direction. This is complex even for larger PLCs. You might consider monitoring motor control commands (forward/reverse contactors with auxiliary contacts), or if using a VFD, connect its analog output to an analog input for feedback instead. These are just examples."
+    },
+    {
+      "comment_id": 881934137798190,
+      "user_name": "bh4qlL9qcg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hi, I’ve shared a small program for [product_name] that works for frequencies not exceeding 5 kHz. For fast inputs (I4 and I5 on [product_name model]), you can detect which signal arrived first and use it for direction. I've used this method with small encoders providing two signals at low frequency. If you want an approach using [product_name], this could work."
+    },
+    {
+      "comment_id": 958398484562887,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "However, the original poster is using two proximity switches, not an encoder."
+    },
+    {
+      "comment_id": 667691406163069,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "A new thread has been opened by [user_name] with the subject: 'Would like to activate one output for clockwise rotation and another for counterclockwise rotation.' Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on the technical challenge of determining engine direction using two pulse signals on [product_name] hardware. Users note that the main issue is [product_name]'s limitation in reliably identifying which pulse came first when signals are close together and non-overlapping. There are suggestions to use counters, auxiliary contacts, or analog outputs for motor control, but consistent, reliable logic for pulse order detection remains uncertain, causing usability concerns for this scenario.",
+    "user_expectations": "The user expects the [product_name] hardware and its software to accurately distinguish the order of sensor pulses, translating them into a clear direction status even at low speeds. They are looking for a straightforward solution to convert these sensor inputs into a reliable indication of engine rotation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "engine direction detection",
+      "accurate pulse sequencing",
+      "binary status output"
+    ],
+    "pain_keywords": [
+      "input timing ambiguity",
+      "limited logic evaluation speed",
+      "hardware constraints"
+    ],
+    "feature_keywords": [
+      "high speed digital inputs",
+      "up/down counter",
+      "edge detection",
+      "direction status output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "29": "Scalability Limitations"
+  }
+}

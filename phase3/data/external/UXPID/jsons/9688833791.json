@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "9688833791",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 158492349676665,
+      "user_name": "Vp7Bnjglnr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello, I've learned a lot from this forum. Here's my first question: I'm using two [product_name] modules (both set as master, [article_no], firmware [version_no]), connected by an Ethernet cable. Each has its own emergency button and horn. When either button is pressed, both alarms activate. This part works. However, if the connection fails (due to breakage or fire), I need both alarms to still go off. I tried using an 'Ethernet link error' and periodic signal exchange, but when the Ethernet cable is disconnected, only one alarm triggers. Does anyone know of a reliable alternative solution?"
+    },
+    {
+      "comment_id": 346813310762432,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], welcome to the forum! To address your issue, try exchanging a heartbeat signal (often called a 'life bit') between the two [product_name] modules."
+    },
+    {
+      "comment_id": 783546628549383,
+      "user_name": "Vp7Bnjglnr",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "[IMAGE] Do you mean something like this?"
+    },
+    {
+      "comment_id": 797925570635789,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I've attached a simple example. Each [product_name] sends a status bit to the other, toggling high for one second and low for the next using an asynchronous pulse generator. The receiving module checks the bit; if it remains HIGH (or LOW) for over 1.5 seconds, communication is considered disturbed. This method helps detect connection issues."
+    },
+    {
+      "comment_id": 456480756879641,
+      "user_name": "Vp7Bnjglnr",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Thanks, this solution works very well!"
+    },
+    {
+      "comment_id": 839768740968742,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], glad to hear it helped!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed ways to ensure reliable cross-alarming between two [product_name] modules in an evacuation system. The initial method, which relied on 'Ethernet link error' detection, failed to trigger both alarms when communication was lost. The recommended solution was to use a heartbeat ('life bit') logic, allowing both modules to monitor each other and trigger alarms reliably even if the connection is interrupted. This improved overall system dependability.",
+    "user_expectations": "The user expects both evacuation alarms to activate reliably, regardless of communication failures between the two [product_name] modules.",
+    "severity_expectation_level": "1",
+    "gain_keywords": [
+      "reliable alarm trigger",
+      "fail safe operation",
+      "synchronized response"
+    ],
+    "pain_keywords": [
+      "communication failure",
+      "incomplete alarm response",
+      "network link dependency"
+    ],
+    "feature_keywords": [
+      "network failover detection",
+      "heartbeat monitoring",
+      "emergency alarm triggering"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

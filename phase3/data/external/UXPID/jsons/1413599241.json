@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "branch_id": "1413599241",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 727445895642891,
+      "user_name": "nz0KqG2QfQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm new here and working with [product_name] [version_no], hoping for some advice. I need to regulate my heater and am having trouble figuring out how to create logic for the setpoint. I have two measurements: outside temperature and return water. The goal is to program so that when the outside temp is -20 degrees, the regulator's setpoint is +50 degrees, and when it's 0 degrees outside, the setpoint changes to +35 degrees for the return water regulator. Any ideas or tips would be appreciated. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 347573938709180,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Here’s a suggested approach for calculating the heat curve."
+    },
+    {
+      "comment_id": 179983241997168,
+      "user_name": "nz0KqG2QfQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Thank you [user_name]; I’ll try this out and hopefully it will help me make progress with the programming."
+    },
+    {
+      "comment_id": 960733500619854,
+      "user_name": "nz0KqG2QfQ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "The calculation helped, thank you. My next challenge is that I receive a value from the curve, say \"350\", which I use as the PI regulator setpoint. I’m trying to incorporate the return water temperature (e.g., 320) into the logic so I can regulate geothermal heating with the PI regulator, where the setpoint comes from the outdoor temperature and the heat curve, and regulation is based on the return water. The regulator then activates two outputs depending on requirements. See the attached file. Sorry for basic questions—it’s been a while since I did this kind of programming. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 280547066674792,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "I'm having trouble understanding your circuit. First, the PI controller input for automatic/manual switching is currently linked to the cursor key, which means it only runs in automatic mode while the button is pressed. Otherwise, it runs in manual mode and outputs a fixed setpoint (defaulted to zero in this program). Second, the PI controller may not be suitable based on how you’re processing its output. Please describe as clearly as possible what you need the program to accomplish."
+    },
+    {
+      "comment_id": 423335603572992,
+      "user_name": "nz0KqG2QfQ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Thanks for your time! 1) The cursor key was used for testing only; I've now changed it so the heaters stay off when the outside temperature is over +20 degrees. 2) My intention is to use [product_name] [version_no] to regulate my geothermal heating, replacing the broken regulator. The old regulator managed the return water based on outside temperature and the heat curve, controlling the compressor (ON/OFF for geothermal heating), and if outside is too cold and extra heat is needed, switching the electrical heater ON/OFF. I hope this explanation helps—if not, let me know and I can provide a better description. Currently, my challenge is that the heat curve setpoint gives a value like 350 but the regulator's input might only be 10."
+    },
+    {
+      "comment_id": 343910652402208,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "I'm still unclear about your circuit setup. For outside temperatures over 2.0°C, you turn off the PI controller—could you explain why? Also, you route the PI controller output to two thresholds, but I'm not sure of their purpose. What's the intended function of the controller when these threshold switches activate or deactivate? Can you describe your desired system behavior, or is there an official documentation available?"
+    },
+    {
+      "comment_id": 643161221839567,
+      "user_name": "AgBoS0krTH",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Here is a description of the function I need to control. I hope this clarifies my goal despite my limited experience with [product_name]. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 158408096721118,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Unfortunately, your description doesn’t clarify things for me. Regulators are often used to manage a mixing valve, for example. Is that the use case here? If so, what type of valve are you working with?"
+    },
+    {
+      "comment_id": 508830027049917,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 12,
+      "comment_body": "Hi. 1) Which [article_no] for the return water sensor QAD ([company_name]) is installed? [url] 2) What type of outside temperature sensor are you using? The problem is complicated due to the curve for the return water sensor (LG-ni 1000), which causes parameter distortion in [product_name] [version_no]. If you used types PT100/PT1000, it would be easier to resolve."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers around difficulties in configuring heating control logic on [product_name] [version_no], focusing on dynamic setpoints derived from outdoor and return water temperatures. Users share experiences and uncertainties with temperature curves, PI controller functionality, and integrating various sensors. The thread highlights obstacles in program design and compatibility, as well as confusion about how the system should operate and respond to different scenarios.",
+    "user_expectations": "Users anticipate that [product_name] [version_no] should allow straightforward, adaptable control of heating systems with dynamic setpoints determined by temperature curves. The system is expected to be user-friendly to program and compatible with relevant sensors.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "automated regulation",
+      "dynamic setpoints",
+      "sensor integration",
+      "system reliability"
+    ],
+    "pain_keywords": [
+      "difficulty replicating old regulator",
+      "complex sensor setup",
+      "PI controller confusion",
+      "documentation gap"
+    ],
+    "feature_keywords": [
+      "PI controller",
+      "heat curve",
+      "sensor compatibility",
+      "automatic/manual switching"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

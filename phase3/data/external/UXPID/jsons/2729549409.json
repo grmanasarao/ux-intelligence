@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "2729549409",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 758104721400776,
+      "user_name": "8WL39SnWVW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm working on a network project that includes four [product_name] units with [version_no] and a HMI panel. I'm new to connecting HMI to [product_name], and I suspect there are some issues with address configuration in my program. When running online, certain network inputs unexpectedly switch states without any indication on the screen, appearing to respond to analog input values in the code. I suspect there may be address conflicts. Is there a recommended approach or guideline for structuring address allocation in such setups? I utilize digital and analog inputs/outputs, flags, network IOs, and VM mapping for parameter adjustments. For example, would assigning the same byte on different [product_name] units with distinct IP addresses cause issues? Since each [product_name] has a unique IP, does the HMI treat them separately? I found some forum lists showing standard VM addresses, would it be preferable to use those rather than assigning them myself? Any advice on network setup would be appreciated. Thanks!"
+    },
+    {
+      "comment_id": 378169076279104,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Because I am not familiar with your [product_name] programs or HMI configuration, I can only make an educated guess. I suspect there is overlap in the VM storage region. Addressing within VM memory is based on bytes. For bits: address format is byte address, bit address, e.g., V0.0 means Byte0.Bit0. For bytes: a byte consists of 8 bits, for example, VB0 encompasses bits V0.0 - V0.7. For words: a word is made of two bytes, the starting address is the left byte, VW0 covers VB0 and VB1, or V0.0 - V1.7. For dwords: a dword has four bytes, with the left byte as the start address, VD0 covers VW0 and VW2, or VB0 - VB3, or V0.0 - V3.7."
+    },
+    {
+      "comment_id": 244919463638915,
+      "user_name": "8WL39SnWVW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], thank you for your response! I found your addressing scheme on the forum—it clarified things and I've already tried it. Can I use V0.0 on [product_name] 1 (with IP 192.168.1.10) and reuse V0.0 on [product_name] 2 (IP 192.168.1.20)? Is there any conflict in the HMI, or does each IP keep things separate? To prevent issues, I've reorganized all VM and network input parameters, and will test tomorrow to see if the spontaneous switching is resolved."
+    },
+    {
+      "comment_id": 578142288977124,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Each [product_name] maintains its own memory space. You can transmit V0.0 from one [product_name] to the HMI without issue, so long as each [product_name] has a separate connection. The HMI uses the connection details to distinguish which V0.0 belongs to which [product_name]."
+    },
+    {
+      "comment_id": 585426097511298,
+      "user_name": "8WL39SnWVW",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Understood! I think I've identified my mistake. I started allocating addresses to network inputs before setting up VM mapping. [product_name] software automatically begins with VW0, and this overlapped with some of my NI addresses. I’ll be able to test and confirm this tomorrow. Thank you for your assistance!"
+    },
+    {
+      "comment_id": 299732355244400,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "That's the issue. If you assign V0.0 - V1.7 for digital bits, you cannot use VW0 elsewhere—doing so causes address overlap."
+    },
+    {
+      "comment_id": 864904662366157,
+      "user_name": "8WL39SnWVW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thanks again, [user_name]! I loaded the revised configuration today and everything worked correctly—no more unintended switching."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced unexpected switching of network inputs in a setup involving several [product_name] units and an HMI panel. The issue was traced to overlapping memory addresses within the VM mapping, causing interference between functional elements. After learning about proper VM addressing and reorganizing their configuration to prevent overlaps, the system functioned reliably.",
+    "user_expectations": "Users expect stable and predictable behavior of network inputs, along with clear guidance for reliable VM address management in multi-device environments. They seek straightforward instructions to ensure a conflict-free memory setup and prevent unintended interactions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable operation",
+      "predictable network inputs",
+      "clarity in memory mapping",
+      "multi-device integration"
+    ],
+    "pain_keywords": [
+      "unexpected switching",
+      "memory address overlap",
+      "setup confusion"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "network input addressing",
+      "memory area management",
+      "automatic addressing"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

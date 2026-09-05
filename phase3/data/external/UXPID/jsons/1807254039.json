@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "1807254039",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 162686585622162,
+      "user_name": "obazFDyW22",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Do network input and network analog input elements reference the same memory location if assigned the same VB or VM address? For example, if a network input uses VB 0.0 and a network analog input references VM 0, are they both pointing to the same register? In a network setup, can a network analog input value be forwarded directly to a network analog output? Please refer to the attached screenshot for clarification. My aim is for the main controller to receive a word from the Modbus master (network analog input), analyze specific bits of that word (network input), and then forward the complete word to other controllers (network analog output) on the network. Is this feasible? Thank you for your support."
+    },
+    {
+      "comment_id": 892128577801556,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The bit at V0.0 is contained within Byte VB0, and also included in Word VW0 as well as Double Word VD0. Writing to V0.0 while also writing to VW0 will result in overlapping memory regions."
+    },
+    {
+      "comment_id": 201509181913066,
+      "user_name": "irdmkTgewS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I've experienced this issue before—unintentionally causing conflicts. However, your example gave me an idea regarding a limitation I've noticed in the [product_name] software: there's no straightforward way to split a word into bits or combine bits into a word. Now I see that using network inputs and outputs as you've illustrated provides a workaround! Thanks for sharing that useful [document]."
+    },
+    {
+      "comment_id": 264885744392285,
+      "user_name": "obazFDyW22",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Just to be clear, my intention is to create overlap between network input and network analog input. This would allow individual bit control while also passing the entire word to another controller. I've updated the image in my original post to show this approach. Is everyone confirming that this method is acceptable?"
+    },
+    {
+      "comment_id": 563227942418610,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Are you referring to the example shown in the attachment?"
+    },
+    {
+      "comment_id": 373391208859856,
+      "user_name": "obazFDyW22",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "No, I’m looking for something different (please see the updated attachment in my original post): Modbus Master -> Controller1 VW0; Controller1 V0.0 -> Controller1 Q1; Controller1 VW0 -> Controller2 VW0; Controller2 V0.1 -> Controller2 Q1. This setup allows a single word sent by the Modbus master to control outputs Q1 and Q1 on both controllers, with each bit in the word indicating which output should activate on which controller."
+    },
+    {
+      "comment_id": 521991933961326,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "There’s an example in the attachment."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion focuses on overlapping variable assignments for network input and analog input elements using [product_name]. The key point is that such overlapping is possible and enables efficient mapping of both bits and words between controllers, facilitating flexible control and data sharing. Users noted some initial confusion and accidental data conflicts arising from overlaps, suggesting improvements are needed for better clarity in variable addressing and visualization.",
+    "user_expectations": "Users expect the product to support overlapping network inputs and analog inputs to enable straightforward bit-level and word-level data operations. They also desire clear and intuitive data mapping for seamless integration of local and distributed logic within networked environments.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "efficient network logic",
+      "bit and word manipulation",
+      "distributed control"
+    ],
+    "pain_keywords": [
+      "confusion in addressing overlap",
+      "lack of bit/word split convenience",
+      "documentation clarity"
+    ],
+    "feature_keywords": [
+      "network input",
+      "network analog input",
+      "bit/word overlap",
+      "data forwarding"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

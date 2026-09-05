@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "2519957781",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 555845699263142,
+      "user_name": "bhgU4jvOae",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I've set up an Ethernet connection between a [product_name] ([article_no]) and a [product_name] CPU ([article_no]), using [product_name] [version_no] and [product_name] [version_no]. I followed the attached guide. The connection works fine, but I encounter an issue during disconnection. Currently, both devices are connected through an Ethernet switch. If I unplug the cable from the [product_name] to the switch, when I reconnect it, the connection quickly recovers. However, unplugging the cable from the [product_name] CPU to the switch prevents reconnection when plugging it back in. It appears the [product_name] only re-establishes connection when its own cable is disconnected and reconnected. How can I ensure automatic reconnection between these devices after any connection issue? To clarify, I plan to use these two devices connected by VPN, likely using several switches between them."
+    },
+    {
+      "comment_id": 903890947269483,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "[product_name] [version_no], [product_name] [version_no], [product_name] [version_no], [product_name] [version_no] ([article_no]), [product_name] The [product_name] CPU and [product_name] are connected via a switch; a network cable runs from the [product_name] to the [product_name]. Regardless of which cable is disconnected (from the switch, CPU, or [product_name]), once it's plugged back in, the connection reliably restores after a few seconds."
+    },
+    {
+      "comment_id": 349162526057864,
+      "user_name": "bhgU4jvOae",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I've managed to solve the issue, though I'm not certain of the reason. Instead of my previous method, I built a network project and the connection now restores correctly in all scenarios. I noticed the default network project TSAP settings: 20.00 for local ([product_name]) and 03.00 for remote ([product_name] CPU). The guide referenced earlier used TSAP 20.00 for local and 10.01 for remote. Using TSAP 20.00 locally and 03.00 remotely in my setup resolved the reconnection problem. I also removed all connection settings for the [product_name] CPU in [product_name]. I still prefer keeping my existing project over the network project since my [product_name] programming uses ladder, which isn't supported in the network project. Thank you."
+    },
+    {
+      "comment_id": 107708669418702,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "In my project, I also use TSAP 20.00 for the [product_name] and TSAP 10.01 for the [product_name] (server). I have not experienced the problem you described."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users noted inconsistent automatic reconnection between [product_name] devices and [product_name] CPUs after Ethernet disruptions. Connections restored correctly when the [product_name]'s cable was disconnected and reconnected, but not so when disconnecting and reconnecting the CPU. Tweaking TSAP settings resolved the reconnection problem for one user, even if the underlying reason remained unclear. Some setups exhibited dependable reconnection regardless of which cable was unplugged, highlighting the impact of specific TSAP configurations.",
+    "user_expectations": "Users expect dependable, automatic reconnection between [product_name] and [product_name] CPU devices after any network disruption, irrespective of which cable is disconnected. They seek a robust configuration or setting to guarantee seamless recovery from any network issues.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic reconnection",
+      "reliable communication",
+      "seamless network recovery"
+    ],
+    "pain_keywords": [
+      "reconnection failure",
+      "TSAP confusion",
+      "limited feedback"
+    ],
+    "feature_keywords": [
+      "reconnection logic",
+      "TSAP configuration",
+      "network project"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

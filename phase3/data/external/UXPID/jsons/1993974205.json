@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "1993974205",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 897181681141970,
+      "user_name": "c4GdUTTiFe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "This thread was split from a discussion on connecting an input analog sensor (4-20mA) to a [product_name]."
+    },
+    {
+      "comment_id": 520365300897414,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Which analog input are you referring to? AI1, AI2, AI3 or AI4?"
+    },
+    {
+      "comment_id": 629758377467297,
+      "user_name": "c4GdUTTiFe",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I want to connect sensors to all available analog inputs. My sensors output 4-20mA, and I plan to connect them to the base module using a 500 ohm resistor. However, I’m unsure about proper wiring setup."
+    },
+    {
+      "comment_id": 473900937612990,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Does your sensor have its own power supply, or is it just a 2-wire sensor?"
+    },
+    {
+      "comment_id": 319801798526839,
+      "user_name": "c4GdUTTiFe",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "No, the sensor lacks a dedicated power supply. It’s a 2-wire vibration sensor."
+    },
+    {
+      "comment_id": 966203854947336,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "In this case, connect +24V from the [product_name]'s power supply to the sensor’s positive terminal. Connect the sensor’s negative terminal to one end of the resistor and to the analog input terminal of the [product_name]. Attach the other end of the resistor to the negative terminal (M) of the power supply."
+    },
+    {
+      "comment_id": 903059325675741,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Alternatively, you could use a 4-20mA to 0-10V signal converter. These are cost-effective and let you fine-tune zero and span settings for optimal input adaptation."
+    },
+    {
+      "comment_id": 360274519282222,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "A 500 ohm resistor works well too. Any tolerance issues can be offset by using an analog amplifier."
+    },
+    {
+      "comment_id": 352979976722158,
+      "user_name": "irdmkTgewS",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Using a resistor results in a 20% loss in possible resolution, which can lead to missing values—so it's not always 'just as well.' This might be fine for some users. For example: - A dedicated 4-20mA to 0-10V converter gives you 1000 distinct values as output. - With a 500 ohm resistor (which I personally use and can confirm works), remember that: • Your sensor’s zero point is at 2V (200 units) • The max sensor value is at 10V (1000 units)"
+    },
+    {
+      "comment_id": 824461972453313,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "If someone is highly focused on achieving 100% resolution, they usually aren’t using a [product_name]."
+    },
+    {
+      "comment_id": 803161369712993,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "You're right about loss of resolution—optimal results require a suitable signal converter with offset and gain adjustment. However, most users connect analog signals directly to the base module to save money, avoiding an analog expansion module or converter. Consider both the accuracy of the analog inputs and the converter itself. Users often search for very precise resistors, but a 499 ohm resistor with 1% tolerance serves the same purpose and is inexpensive. You can calculate resolution as follows: - For 0..10V or 0..20mA, it's range/1000 - For 2..10V or 4..20mA, it's range/800 Then, determine what works best for your setup. Sometimes issues arise from using the wrong sensor, such as choosing one meant for 4000mm when you only need 2000mm, or opting for a sensor output of 4..20mA when other outputs might be more appropriate. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to connect 2-wire, 4-20mA vibration sensors to all analog inputs of a [product_name] base module. The conversation covers practical wiring methods, including power supply connections and the use of resistors or signal converters. Participants point out the trade-offs in measurement resolution and accuracy between resistor-based wiring and using dedicated converters, also noting that high precision may not be necessary for everyone, given the limitations of the [product_name]'s analog inputs.",
+    "user_expectations": "The user is looking for detailed, step-by-step instructions on properly wiring 2-wire 4-20mA sensors to the analog inputs of the [product_name] base module, with the goal of achieving reliable and accurate sensor measurements.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy sensor wiring",
+      "clear connection instructions",
+      "sensor-to-PLC compatibility"
+    ],
+    "pain_keywords": [
+      "lack of clear wiring guidance",
+      "signal resolution loss",
+      "uncertainty on compatibility"
+    ],
+    "feature_keywords": [
+      "analog input compatibility",
+      "signal resolution",
+      "input wiring options"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "10": "Performance Predictability"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "9581187661",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 415307133760738,
+      "user_name": "FHaj9buXSX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "What is the maximum input resolution of inputs A1, A2, A7, and A8 on the analog-to-digital converter? Is it 10 bits or higher? Does the DC input range have the same specification across all [product_name] devices? Is it possible to achieve 12-bit resolution without using dithering?"
+    },
+    {
+      "comment_id": 916229393974948,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "The analog inputs on the [product_name] feature a 10-bit resolution, with values normalized from 0 to 1000. Increasing the resolution beyond this is not feasible. The allowable maximum voltage for both digital and analog inputs is 28.8 V on DC versions or expansion modules powered by DC."
+    },
+    {
+      "comment_id": 574060219846443,
+      "user_name": "FHaj9buXSX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "So, if the input is set to 4–20 mA, does this just remove the lower 200 counts, resulting in a maximum resolution of 800?"
+    },
+    {
+      "comment_id": 882710174374573,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Yes, that's correct."
+    },
+    {
+      "comment_id": 363072794275622,
+      "user_name": "FHaj9buXSX",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "If I use -2 volts for the resistor ground and a 600 Ohm resistor (possibly with 3 diodes in the earth of the [product_name]), will I regain the full 1000 counts? Does anyone know the sampling time, or whether the [product_name] applies averaging or filtering to the A1 input signal? I’m considering dithering or oversampling as ways to improve resolution if possible. The diodes might introduce enough noise, so oversampling could succeed."
+    },
+    {
+      "comment_id": 923461939375570,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Hello, the sampling time for an analog input depends on the scan time of [product_name]. There are examples available on [url] (go to user examples, or refer to the [document]). Regardless of the method, the analog input resolution cannot be increased further—it is fixed by the hardware."
+    },
+    {
+      "comment_id": 543782996117771,
+      "user_name": "FHaj9buXSX",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Back in 1998, generating DTMF tones from a single digital pin was simple. Decoding DTMF with one digital input pin was more challenging. [user_name] wrote a program with about 95% accuracy, utilizing the zero crossing point on a digital input. A 50 MHz, full 7-digit frequency counter was implemented on a 1 MIPS microcontroller, updating nearly once per second with only the display as additional hardware. Everything seems impossible until someone manages to do it."
+    },
+    {
+      "comment_id": 719047810860769,
+      "user_name": "FHaj9buXSX",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "I've developed software that processes 100 samples, sums and displays them, then resets and repeats. On a [article_no], simulation shows 15 bits (range 0 to 32700, or 16 bits if using -32700 to +32700). I modified it to use only 30 samples and divided the display value by 3 to show 100.00. Adjusting (B4 to 100) and (B5 V2 to 1) reverts to the previous settings, but inputs above 3.2V trigger errors. B7 shows either V1 minus V2 or 0 minus B6, but that isn't clear in the parameter list."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers around the maximum analog input resolution for certain [product_name] inputs. Users investigate whether 12-bit resolution or enhancements beyond the standard 10 bits are possible. Responses confirm the limitation to 10-bit resolution due to hardware, and software methods such as dithering or oversampling cannot overcome this barrier. The conversation also touches on input scaling and sampling times.",
+    "user_expectations": "The user hopes to achieve higher-than-10-bit resolution (ideally 12 bits or more) on [product_name] analog inputs, and seeks clarification on whether this can be attained via hardware configuration or software techniques.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "higher resolution",
+      "improved measurement accuracy",
+      "software-based resolution increase"
+    ],
+    "pain_keywords": [
+      "hardware limitation",
+      "cannot achieve 12-bit resolution",
+      "input scaling issues"
+    ],
+    "feature_keywords": [
+      "analog input resolution",
+      "sample averaging",
+      "oversampling",
+      "input scaling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "13": "Integration Limitations"
+  }
+}

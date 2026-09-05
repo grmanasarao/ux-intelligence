@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "3045491387",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 540105420692066,
+      "user_name": "911xJPMMst",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "I'm working to configure my [product_name] as a Modbus client. I am using the EasyModbusTCP Server Simulator ([url]) to simulate the Modbus server, which responds appropriately to requests. I followed a [company_name] training tutorial for setting up Modbus communication with their monitoring device. Requests are successfully exchanged according to the server simulator and other client tools; however, on my [product_name], the online test shows only \"0\" values, and no data appears in the data table. In summary, polling works but I'm not sure how the [product_name] processes the reply, where the data is stored, or how to access it. My [product_name] module version is: [version_no]; FW: [version_no]. Does anyone know what could be causing this issue?"
+    },
+    {
+      "comment_id": 935020177100538,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "The picture you shared contains useful info, but it would be more helpful to upload the program in a ZIP file. I notice you're using a float-to-integer converter—are you certain the values are valid floats? If the data is only integer, skip the converter and use analog network inputs with an analog amplifier. For testing purposes, try enabling the internal web server to view variable values directly, such as VW0, VW2, VW4, etc., as needed to monitor changes."
+    },
+    {
+      "comment_id": 575905076470541,
+      "user_name": "911xJPMMst",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Thank you! That solved my issue. Now, I need to read a signed Long value from the Modbus server (MSB to LSB), which occupies 4 VM registers. The web server lets me select any VM register for visualization and specify data size (Byte, Word, Dword), which is helpful. However, in the diagram editor, the network analog input only accesses a single VM register. Is there a block that can directly read 4 registers and convert them to a signed long? Or should I use a different method? My goal is to use the full signed long value for triggering or similar logic."
+    },
+    {
+      "comment_id": 485973520115844,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "The network analog input uses either two VM register bytes (like VB0 and VB1) or one register word (such as VW0). A limitation of [product_name] is that its arithmetic range for integers is -32768 to 32767. Some blocks use special areas; for example, the up/down counter. You'll notice this when mapping parameters and seeing the use of VD instead of VW. There might be a workaround for assigning larger values, but I haven't found one. Modbus devices can often export values in multiple formats. Look for alternative registers with float or double output—in such cases, you can use a float-to-integer converter and display larger values with parameters like eAq. Keep in mind, though, that you can't perform calculations using long integer or float types, nor compare such values directly."
+    },
+    {
+      "comment_id": 389126417951853,
+      "user_name": "911xJPMMst",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Thanks. Could you clarify the purpose of the Analog amplifier block? Why not simply connect Network Analog Input to an Analog Flag?"
+    },
+    {
+      "comment_id": 478755707734132,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "If you wish to display any analog value, you'll need to use an analog block for selecting a display parameter. You can also use other analog blocks, like the analog threshold trigger. The analog amplifier block should follow at least an analog flag, and the threshold trigger should be followed by an open connector—since you can't leave an output unconnected. Using an analog block also allows you to set a decimal point for representing units correctly, such as showing 327.67 from a value of 32767 for kilowatt-hours."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter difficulties using [product_name] as a Modbus client, particularly in retrieving, storing, and displaying server data due to unclear register mapping and handling of multi-register data types like signed long values. While Modbus communication is established, limitations in arithmetic range and data conversion blocks within the [product_name] configuration environment cause confusion and hinder effective data visualization and processing.",
+    "user_expectations": "Users expect the [product_name] to successfully send/receive Modbus requests, properly store and visualize received values—including multi-register types such as signed long—and enable direct access and manipulation of these values through the graphical programming interface.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data retrieval",
+      "data visualization",
+      "processing signed long values",
+      "trigger application"
+    ],
+    "pain_keywords": [
+      "data mapping confusion",
+      "lack of support for signed long in network analog input",
+      "visualization limitations"
+    ],
+    "feature_keywords": [
+      "VM registers",
+      "network analog input",
+      "web server variable visualization",
+      "analog amplifier",
+      "float-integer converter"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

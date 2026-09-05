@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "branch_id": "6205403961",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 233235146791356,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I have an additional question. What is the easiest way to set a maximum value for a mathematical input? I can currently input mm via the [product_name] operator device, but I want the maximum allowed value to be 30000 instead of 32767."
+    },
+    {
+      "comment_id": 636326967769288,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The [product_name] operator device does not offer a parameter to directly limit input values at the field level, like some HMIs do. Therefore, it will accept values up to 32,767. You can only enforce the input limit within the [product_name] program itself: if the entered value exceeds your threshold, restrict it to the desired maximum and give an error notification."
+    },
+    {
+      "comment_id": 780076717655722,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "What is the recommended method to accomplish this? Please check the attached file showing the section I want to safeguard."
+    },
+    {
+      "comment_id": 212243949458625,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I'm working on your request, but it's taking a bit longer. I'll provide an example soon. Please hold on."
+    },
+    {
+      "comment_id": 520492509824425,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "An alternative method is to use a counter trick. Refer to the attached example with a counter: if the counter value exceeds 30000, a fast pulse generator decreases it. Simulations may appear slow, but running on [product_name] with a typical 1ms cycle time, any value up to 32767 will be corrected to the limit within around 2.8 seconds."
+    },
+    {
+      "comment_id": 776891931990495,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Attached is the example for your reference."
+    },
+    {
+      "comment_id": 289998488763518,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Thank you! This isn’t fully what I need. If you enter 30000 it works, but entering 30001 keeps the previous value. Can it be set so if the input exceeds 30000, the output always becomes 30000?"
+    },
+    {
+      "comment_id": 167438557174086,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Would this approach work?"
+    },
+    {
+      "comment_id": 668396160200884,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "That solves it perfectly! Thank you very much."
+    },
+    {
+      "comment_id": 945067902822500,
+      "user_name": "8RYb477Ela",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "There's also a straightforward method using a counter to impose a 30000 limit. The benefit is that the same point is used for both input and output values, so there’s no need for two comparative values for operators."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are focused on setting a numeric input limit (30000) using [product_name] and its operator device. The operator device itself does not support limiting the input at the interface level, so users must handle the restriction in the program logic. This leads to workaround-based solutions and ongoing discussion about best practices.",
+    "user_expectations": "Users would prefer a simple, direct way to set a maximum permissible value at the operator device input field, rather than depending on logic-level restrictions within the [product_name] program.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "input limitation",
+      "operator protection",
+      "data validity"
+    ],
+    "pain_keywords": [
+      "lack of input limit parameter",
+      "manual workaround",
+      "usability challenge"
+    ],
+    "feature_keywords": [
+      "max input value",
+      "numeric input field",
+      "parameter configuration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests"
+  }
+}

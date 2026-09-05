@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "4046558332",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 543711505741160,
+      "user_name": "N0U5GB16JC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "I have a [product_name] system that starts its operating sequence when triggered by a START/run input (momentary). The customer now requests that the sequence should restart automatically after power loss and restoration, regardless of where it was in the process—beginning from the initial step is acceptable. However, this automatic restart should only occur if the system was active (run mode) before the outage; if it was stopped, the system should not restart automatically. Any advice would be appreciated."
+    },
+    {
+      "comment_id": 609363848139421,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Hello, Are you saying your machine should begin operation again when power returns? When a [product_name] device is powered off while in stop mode or program mode, it will not automatically resume at power up. You can use an initialization flag such as M8, available from [product_name] [article_no], to ready your program for a start. Please be cautious—automatically starting machinery on power-up can be hazardous. Regards,"
+    },
+    {
+      "comment_id": 998310209104387,
+      "user_name": "N0U5GB16JC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "I understand the concerns about auto-start and am advising the customer to reconsider. Still, I managed to achieve the requested behavior by using the RENTIVITY checkbox along with a latch for control. Thanks for your response."
+    },
+    {
+      "comment_id": 423855207792224,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "To have your machine automatically resume operation after the power returns, ensure you recognize the potential dangers—unexpected starts can be risky. Consider implementing an RS (latching relay) function: the start button sets the RS function, and once the process is complete, you reset it. This logic can fit within your current application. By using RENTIVITY features and RS functions together, the program can restart at the point it was interrupted during a power loss."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are exploring ways for a PLC system to automatically resume its operational sequence after a power cycle, provided it was previously running. They discuss implementing initial flags and latching relay logic to enable this functionality, while emphasizing the safety risks of automatic restarts. The main user experience challenge is achieving reliable automation without compromising operator safety.",
+    "user_expectations": "The user expects the controller to automatically resume its process sequence following a power outage, but only if it was previously running, not stopped.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "auto-resume after power loss",
+      "process automation",
+      "state-dependent restart"
+    ],
+    "pain_keywords": [
+      "unsafe auto-start risk",
+      "lack of built-in conditional resume option"
+    ],
+    "feature_keywords": [
+      "auto-restart",
+      "RENTIVITY",
+      "initialization flag",
+      "latch relay"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "27": "Safety Compliance Concerns"
+  }
+}

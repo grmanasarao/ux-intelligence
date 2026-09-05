@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "4201293805",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 540722806488311,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello everyone. I am looking to connect several temperature sensors to a [product_name] PLC. According to the manual, it seems only PT100 or PT1000 sensors are compatible, is that correct? Also, is it necessary to use the [product_name] analog module for connecting these sensors, and is the maximum number of sensors per module limited to 2? If I plan to connect 16 sensors, does that mean I need eight analog modules with 2 sensors each? This appears unusual, but it is what I understand from the manual. Could someone clarify this for me? Thanks for reviewing my questions."
+    },
+    {
+      "comment_id": 521006005504756,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "The [product_name] analog module is made for reading PT100 / PT1000 sensors in the -50 to 200 °C range. Each module supports two sensors. A [product_name] base unit can handle up to 8 analog inputs total. If you already reserve analog inputs on the base module, the count of available analog expansion inputs decreases: - 0 reserved on the base: 8 available for expansion - 2 reserved: 6 available for expansion - 4 reserved: 4 available for expansion To handle 16 sensors, you would need at least two [product_name] PLCs and eight analog modules. Alternatively, you could use an external analog PT multiplexer. For other sensor types, external converters (0-10V or 0/4-20mA output) can be used with a corresponding number of analog modules."
+    },
+    {
+      "comment_id": 365256905571416,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name]. Based on your explanation, using two [product_name] PLCs with four analog inputs each and four modules that support two analog inputs per module should be sufficient. You do not need to buy eight modules in addition to the two [product_name] PLCs, as suggested, correct?"
+    },
+    {
+      "comment_id": 218516782335312,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I am unable to determine which base module you have or intend to use, and therefore can't confirm if it includes analog inputs or if you plan to use them. To summarize: a [product_name] base module can support up to eight analog inputs. If you do not use any analog inputs from the base module itself, you can connect up to eight inputs using four analog modules. If your goal is to evaluate 16 sensors, you would need two [product_name] base modules each equipped with four analog modules."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are clarifying how to connect several temperature sensors to a modular PLC system, specifically regarding sensor type compatibility, module input limits, and module expansion requirements. The conversation highlights uncertainty due to the complexity of analog input allocation and expansion, especially when increasing to a high sensor count.",
+    "user_expectations": "Users expect a straightforward, scalable approach for connecting multiple temperature sensors, along with clear and accessible documentation explaining the limits and requirements for modules and expansion.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "scalable sensor connection",
+      "clarity in wiring limits",
+      "simple expansion planning"
+    ],
+    "pain_keywords": [
+      "complex analog input limits",
+      "unclear documentation",
+      "expansion confusion"
+    ],
+    "feature_keywords": [
+      "analog input expansion",
+      "sensor compatibility",
+      "AM2 RTD module channels"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "28": "Installation Flexibility",
+    "29": "Scalability Limitations"
+  }
+}

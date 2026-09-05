@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "3167397784",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 593016221852768,
+      "user_name": "lemlbtSecs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I need to verify when real data is read from a converter using TCP Modbus to RS485. If the RS-485 connection fails, the [product_name] controller continues to show previous data and does not identify the communication error. A sample function has been added. I read data from the Modbus device into a register every 2 seconds; this data is cleared for 2 seconds before the next read from Modbus. A specific register indicates when data is freshly read from Modbus. If no Modbus read occurs after 5 seconds, the register is reset."
+    },
+    {
+      "comment_id": 943107725776525,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "There might be alternative approaches depending on your Modbus device, but you have not specified its type. Is there a coil or register that reliably changes value in short intervals? For example, a coil could serve as a watchdog signal, updating every second, or a register could act as an internal counter, changing each second. If you have such a signal, monitor it in [product_name] controller for changes. If the value remains unchanged for more than 5 seconds, it indicates an error. Regards, [user_name]"
+    },
+    {
+      "comment_id": 625454168317292,
+      "user_name": "lemlbtSecs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "My device is Altivar 61 and the converter is ET-485."
+    },
+    {
+      "comment_id": 577318959819900,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Do you expect me to search for manuals and resolve the issue? If you need help, please provide the component links and list the relevant order numbers."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user highlights that when the RS-485 connection fails, the [product_name] controller continues to display outdated Modbus data, without flagging any communication errors. This leads to uncertainty about the reliability of the data presented, making it challenging to identify real-time connectivity issues using the existing [company_name] system.",
+    "user_expectations": "The user wants the [product_name] controller to accurately detect and indicate when real-time data from the Modbus-connected device is no longer being refreshed due to communication loss.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable data monitoring",
+      "real-time error detection",
+      "automatic connection loss notification"
+    ],
+    "pain_keywords": [
+      "undetected lost communication",
+      "display of stale data",
+      "missing connectivity error alert"
+    ],
+    "feature_keywords": [
+      "Modbus data validity check",
+      "connection loss detection",
+      "watchdog signal detection"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "24": "Data Integrity Concerns"
+  }
+}

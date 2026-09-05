@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "2904308418",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 347650140354288,
+      "user_name": "RCoMFzVNYf",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Hello, I am using an analog output module [product_name] ([article_no]) for controlling a 0-10V output with a lighting module. I've realized this doesn't function as expected because the dimmer controller provides its own output reference. If anyone knows how to control this via a PLC or if there is a device like a 0-10V controlled potentiometer—which I found works well with manual testing—please let me know. Ideally, I'd like a potentiometer that can be set by a PLC output for brightness levels. Thank you!"
+    },
+    {
+      "comment_id": 492544817110729,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Hello. From my perspective, the control works differently. Pin 2 seems to act either as a 'program' input or as an analog input (the meaning of 'program' input is unclear). The dimmer receives 12V between pin 1 and 3. From the limited information in the documentation snippet you shared, it's hard to be certain. Specifying which device you're using and providing an English manual might help. Alternatively, you should contact the manufacturer directly for more detailed info. Since your issue isn't strictly related to [company_name], support here may vary. The more detail you share, the easier it is for others to help."
+    },
+    {
+      "comment_id": 941652331558967,
+      "user_name": "RCoMFzVNYf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Hello, I appreciate your reply. I've had brief contact with the manufacturer, but received little documentation. In summary: The yellow wire supplies 12V and the purple-grey wire gives 11V for the dimmer/controller. I recognize this isn't a [company_name] issue, but wanted to see if others have used a PLC to manage light dimming. There are significant differences between typical PLC 0-10V analog outputs and lighting dimmer input standards. Many thanks!"
+    },
+    {
+      "comment_id": 167991398136118,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Using a shared signal ground between your LED dimmer's power and the controller should resolve the issue. If your controller uses the same power source, this is already achieved. You could use an analog isolation circuit for further separation, but this adds expense. It's hard to advise without knowing your exact connections. Try placing an adequate resistor or potentiometer between the analog output and the dimmer; this will reduce the voltage seen by the dimmer. Test with measurements to see if a resistor is necessary."
+    },
+    {
+      "comment_id": 729959199107956,
+      "user_name": "RCoMFzVNYf",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Thanks again for the feedback. In my tests, all three dimmer wires need connecting. Wired to a potentiometer, 12V yellow to Z1, dimmer negative grey to Z2, and dimmer positive purple to the wiper, the dimming functions as expected. Attempts to reproduce this with the PLC haven't succeeded in controlling the dimmer properly, suggesting the signals need isolation. Is there such a thing as an analog potentiometer? That seems like the only solution for my problem. Thanks!"
+    },
+    {
+      "comment_id": 347884054436490,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "You haven't specified how the PLC was wired. Consider searching for 'isolated analog converter' or 'isolated analog duplicator,' either as a ready-made device or DIY circuit. For initial guidance, you might find signal conditioning resources helpful: General info and product selection links."
+    },
+    {
+      "comment_id": 133518927770170,
+      "user_name": "cZQANX744b",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Hi, Your setup sounds like it needs a function similar to DALI. If so, a PLC alone can't dim without extra hardware. Note that an analog output can act similarly to a potentiometer."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The core issue described is incompatibility between the analog output from a [product_name] module and standard lighting dimmer requirements. The analog output from the PLC doesn't easily control the dimmer, as the dimmer references its own voltage. This results in user frustration and confusion about correct interfacing, compounded by insufficient device documentation and a lack of clear forum guidance. There is uncertainty about the need for electrical isolation or additional components.",
+    "user_expectations": "The user expects that the PLC analog output should control standard 0-10V dimmers in a straightforward way, like a manual potentiometer, with minimal extra hardware or complex wiring. The user looks for specific advice, proven approaches, or references for integrating a PLC with common dimmer units, preferring solutions that are acknowledged by the community or manufacturer before considering generic electronic workarounds.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "lighting dimming via PLC",
+      "smooth analog control",
+      "potentiometer equivalence"
+    ],
+    "pain_keywords": [
+      "incompatibility",
+      "signal isolation",
+      "lack of documentation",
+      "interface confusion"
+    ],
+    "feature_keywords": [
+      "0-10V analog output",
+      "signal isolation",
+      "interfacing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

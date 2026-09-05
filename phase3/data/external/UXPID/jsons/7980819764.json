@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "branch_id": "7980819764",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 484690602605158,
+      "user_name": "LgvXAhJi1M",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Hello! I am attempting to communicate with Sharp7 and a [company_name] [product_name] unit ([article_no]). Consider this simple [product_name]Soft example: [ I1 ]------------------------[ Q1 ]. My hardware setup includes a button and a diode connected to the [product_name]. When I press the button (wired to I1), the diode (wired to Q1) turns on. I can read the states from the VM addresses for the input and output: Input (I1) - VM address 1024.0 (0000 0001); Output (Q1) - VM address 1064.0 (0000 0001). I'm working with [product_name]Soft Comfort [version_no]. I want to set I1 high (simulating a button press) using my C# software, so the diode lights up. However, I'm unable to write to 1024.0. My log message says: Log : FAILED writing INPUT buffer to [product_name] - CPU : Address out of range. Any ideas on what I'm doing wrong? Let me know if you need more details. As I understand, DB1 (database 1) is always used for [company_name] [product_name] ([article_no])."
+    },
+    {
+      "comment_id": 459826366625459,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "You cannot write to a physical digital input; you are only able to read the state of a physical digital input."
+    },
+    {
+      "comment_id": 945919778498112,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "To change the state of Q1, you can: 1. Remove the connection between I1 and Q1. This allows you to control Q1 directly with C#. It's also possible to directly write to M1-M64, provided the left side of the flag is open. 2. Add an OR block between I1 and Q1, and add a network input NI1 to the OR block. This gives you the ability to change the status of Q1 through either I1 or NI1. For NI1, you can use a local VM address (e.g., V0.0, which is the first bit of the DB block). Usable addresses for bits include V0.0-V0.7, V1.0-V1.7 up to V850.0-V850.7. You can also use bytes (VBx), words (VWx), or double words (VDx) for statuses, counters, or integer values, but be sure not to overlap addresses (if using V0.0, avoid using VB0, VW0, or VD0 at the same time). Which client are you using for your C# program? Regards, [user_name]"
+    },
+    {
+      "comment_id": 567392482645824,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Also, your [product_name] is not [article_no], but [article_no]. It is a [product_name] [version_no], and in device selection, you should pick [product_name].[version_no]. The system for article numbers has changed at [company_name]. Previously, the [product_name] series number was at the end of the order number (like [article_no]), but now it's shown in the middle segment ([article_no])."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are attempting to control a physical input on a [product_name] device via C#. There is some confusion about addressability and write access to input/output signals, especially with not being able to write to physical inputs. Community members clarify the hardware limitations, suggest alternative programming approaches, and point out the importance of selecting the correct device version for compatibility.",
+    "user_expectations": "The user hopes to trigger the same result as if a button was physically pressed (input I1) by writing to the [product_name] input address through software, allowing control of a diode connected to Q1 by remote means.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote control",
+      "simulation",
+      "software-driven input"
+    ],
+    "pain_keywords": [
+      "cannot write to input",
+      "address out of range",
+      "hardware limitation",
+      "confusing addressing"
+    ],
+    "feature_keywords": [
+      "write access",
+      "address assignment",
+      "memory mapping",
+      "external control",
+      "device version compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

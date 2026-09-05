@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "2470455066",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 790449295731563,
+      "user_name": "kM8AJlP3Xs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "How can I map the time from the [product_name] device and read it on a KINCO HMI? [BINARY_DATA_REMOVED] Thank you and regards, [user_name]."
+    },
+    {
+      "comment_id": 892262992861961,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Are you referring to the RTC time? The RTC is stored in the VM addresses: VB985 represents the Year, VB986 is the Month, VB987 is the Day, VB988 is the Hour, VB989 is the Minute, and VB990 is the Second. Additionally, VB998 holds the Day of the week as an integer (1 for Sunday, up to 7 for Saturday)."
+    },
+    {
+      "comment_id": 945288812966146,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "It's unclear why you edited a moderator-closed topic. Based on what you wrote, I can only advise: If the incorrect variable format is used on the Kinco side, the error isn't due to [company_name]. I've repeatedly used the specified variables as bytes, always with accurate results. If issues persist with Kinco software, please reach out to Kinco support. Also, how do you connect to the [product_name]? Is it via Ethernet TCP/IP with the S7 protocol or Modbus TCP/IP? This isn't from the manual, but from online help. The values are not integers but BCD or hexadecimal."
+    },
+    {
+      "comment_id": 336806326953423,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 556316035273007,
+      "user_name": "kM8AJlP3Xs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Good afternoon, I tried mapping those addresses, but they didn't work for me. Checking the [product_name] manual, I found it references other addresses and compatible HMI devices: for example VM991, VW1002, hour/minutes at 994, seconds at 997, month/day at 992. I couldn't get the day of the week, and in the weekly timer it's stored as a byte. I'm communicating with the [product_name] via Ethernet to the KINCO display, reading them using the Number Component (there's no V on KINCO, only VW). In BASIC ATTRIBUTES for VW994 (hour/minutes), I had to disable ENABLE INPUT to avoid time modification. In NUMERIC DATA, I configured it as hexadecimal, integer = 2, decimal = 2, min = 0, max = 9049. VW997 is for seconds, VW992 for month/day. This setup works for me. Thanks and best regards, [user_name]."
+    },
+    {
+      "comment_id": 113747427558654,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "VB985 to VB990 are integer values: Year, Month, Day, Minute, Second. VB991 to VB996 use BCD encoding: Year, Month, Day, Hour, Minute, Second. VB998 is an integer for Day of the week (1 = Sunday, 7 = Saturday). Believe it or not, this is factual."
+    },
+    {
+      "comment_id": 979998147039885,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "@manualfina: The issue may be that we don't know your exact testing procedure, and can't confirm the third-party device is functioning correctly. A demonstration video from [user_name] may help, as well as further discussion in related topics. Especially note that the [product_name] can't read its own RTC directly. Refer to the discussion titled 'Read RTC from within [product_name]'."
+    },
+    {
+      "comment_id": 215687422849706,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "You can see in the attached video that it's possible to change the date and time in a server-side [product_name] from a client-side [product_name]. While the example isn't perfect since variables are always written to the server (which stops the RTC), it illustrates that the specified variables are accessible and that the signed integer format is valid."
+    },
+    {
+      "comment_id": 405030232579831,
+      "user_name": "kM8AJlP3Xs",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "The connection is via Ethernet S7 protocol."
+    },
+    {
+      "comment_id": 704282469925142,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "What would you like to share with us?"
+    },
+    {
+      "comment_id": 280624593235677,
+      "user_name": "kM8AJlP3Xs",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Good morning, on the KINCO HMI I configured VW994 to read hour/minute. Under Numeric data, I set it to hexadecimal, WORD, with integer = 2, decimal = 2, min = 0, max = 9049, successfully reading current time from the [product_name]. I had to disable EnableInput to prevent the time from being altered. In KINCO's Number Component, there is no 'V' option, only VW and VD. I'm communicating using S7 Ethernet protocol. Thank you and best regards, [user_name]."
+    },
+    {
+      "comment_id": 539206190089868,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "If the Kinco HMI cannot interpret a byte, but only supports Bool (Vx.y), Word (VWx), and DWord (VDx), getting a proper display isn't possible. Reading individual bytes in integer format as a Word (VW988) would produce incorrect results."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are working to access and display the real-time clock data from a [product_name] device on a Kinco HMI using an Ethernet S7 protocol. There is ongoing clarification about the correct memory addresses, data types (integer versus BCD), and configuration settings required for the Kinco interface. The conversation highlights inconsistent documentation and the need for clearer guides or examples when integrating third-party HMI devices with [product_name] hardware.",
+    "user_expectations": "Users expect straightforward guidance that allows easy retrieval and display of real-time clock data from [product_name] devices on third-party HMI hardware, without extended troubleshooting.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time clock synchronization",
+      "reliable variable mapping"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "data type mismatch",
+      "integration complexity with third-party HMI"
+    ],
+    "feature_keywords": [
+      "RTC data addresses",
+      "Ethernet S7 protocol",
+      "BCD vs integer data formats"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

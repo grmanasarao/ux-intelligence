@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "3738458510",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 612455311434795,
+      "user_name": "ELFd4Bjn7N",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello [company_name] community, I'm new to PLCs and am having difficulty getting accurate analog readings, whether viewing them on the [product_name] Web Editor or via IO status. I'm using several 4–20mA sensors, but when reading a value of 200, it shows as zero. I'm working with an analog extension module and analog input 3, configured in an analog threshold with a 0 minimum and 1000 maximum measurement range. My goal is to present most of the measured values as percentages on the [product_name] Web Editor, but I'm not able to get the correct output values. I've checked multiple forum posts and watched many YouTube tutorials on analog scaling, but cannot get the numbers to match the real sensor values. For example, if I have a pressure sensor measuring 1–100 PSI, and the [product_name] handles 0–1000 units, I assume that 500 units should represent 50 PSI. How can I get the sensors to correctly display actual values, such as temperature, humidity, or pressure? What am I missing? Thank you!"
+    },
+    {
+      "comment_id": 664553321307401,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "The analog inputs of the [product_name] and the analog extension module convert any signal, whether 0–10V, 0/4–20mA, or PT, into a range of 0–1000 units. You need to scale these 1000 units to the physical value of your sensor. Depending on your sensor's measuring range, usually an analog amplifier is sufficient, but if the range is like yours (1–100 PSI), you may need to use two amplifiers or a mathematical function to accomplish the scaling. There's also a limitation: [product_name] only supports integer values, no floating point, affecting calculation accuracy. For a 4–20mA sensor, consider the following correspondence: 0mA = 0 units 4mA = 200 units 8mA = 400 units 12mA = 600 units 16mA = 800 units 20mA = 1000 units This means that instead of 1000 usable units, you actually have 800 units, since 0–200 units are reserved for the initial 4mA current. So your usable range is 200–1000 units. There's no universal solution; it depends on the sensor's specific characteristics."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are often unsure about how to interpret and scale analog signals from sensors when using [product_name] controllers with analog extension modules. The main challenge relates to converting the raw analog input, especially from 4–20mA sensors, into practical values such as PSI or percentages on the [product_name] Web Editor. Users encounter unexpected readings due to system limitations, like integer-only outputs, making accurate calculation and display difficult.",
+    "user_expectations": "Users anticipate that sensor data will directly correlate with actual real-world values (like PSI or percentages) when viewed on [product_name] interfaces, particularly the web editor. They prefer a simple, reliable process to convert or scale these input values for clear and accurate display, without complex calculations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sensor readings",
+      "easy value scaling",
+      "correct unit display"
+    ],
+    "pain_keywords": [
+      "incorrect sensor scaling",
+      "integer result limitations",
+      "confusing analog value map"
+    ],
+    "feature_keywords": [
+      "analog scaling",
+      "unit conversion",
+      "LWE visualization",
+      "integer-only processing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

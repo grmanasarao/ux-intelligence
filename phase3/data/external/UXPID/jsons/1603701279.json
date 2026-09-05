@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "1603701279",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 372725344184214,
+      "user_name": "Q5BYDx70aC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "What is the purpose of the FE (functional earth) terminal? I notice many [product_name] modules work fine without it, but it must have some function."
+    },
+    {
+      "comment_id": 948522837848534,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "These clamps are meant for connecting the shielding of shielded cables, but one of these terminals should be attached to the PE. However, this should not be confused with a potential equalization terminal."
+    },
+    {
+      "comment_id": 578690062664784,
+      "user_name": "Q5BYDx70aC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "If I have only one [product_name] module, does that mean there's just a single FE terminal and I simply wire it to ground? From what I understand, it's standard to connect the shield of a shielded cable to PE, so what is the specific purpose of FE?"
+    },
+    {
+      "comment_id": 547159291493234,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "The idea is to keep the signal-carrying wire and its shield together for as long as possible before connection. If you separate them a meter before the connection point, the wire is exposed for that distance, which increases its susceptibility to interference."
+    },
+    {
+      "comment_id": 867142568686860,
+      "user_name": "Q5BYDx70aC",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I agree with your approach: carry the signal right to its endpoint and then connect it (say, after 60 meters) to PE instead of FE. Is there a difference between connecting to PE versus FE? There must be, but it's not clear to me."
+    },
+    {
+      "comment_id": 328647644163520,
+      "user_name": "yF7LjtgvEf",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "The FE terminal on the [product_name] PLC module is primarily used for the network connection side. Under normal circumstances, the [product_name] PLC doesn't require it. It's generally intended for cases when non-shielded cables are used or the RJ45 connector lacks a shield. As [user_name] mentioned, the network relies on ground as a reference. I've also seen many installations without the FE terminal, using basic cables, which sometimes resulted in communication glitches. Adding a ground wire to the FE terminal resolved these issues. In my home setup, seven [product_name] PLC modules are on the same network as computers and other devices. I haven't yet connected the FE terminal to ground and have had no issues, but I use high-quality Cat6 cables with all shields grounded at the switches, except for short patch cables which are unshielded."
+    },
+    {
+      "comment_id": 919220602395553,
+      "user_name": "Q5BYDx70aC",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thank you both for your explanations."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are looking for clear information about the role and importance of the FE terminal on [product_name] modules. Many users report that their devices work without connecting the FE terminal, but the specific advantages or reasons for FE use—especially relating to grounding and cable shielding—are unclear. Responses suggest that connecting FE improves signal quality and reduces interference in certain network setups, yet its necessity seems dependent on installation details. Lack of straightforward documentation contributes to user uncertainty about proper cable shielding and grounding practices involving the FE terminal.",
+    "user_expectations": "Users expect practical advice about when and why to use the FE terminal compared to PE grounding, guidance on the differences, and recommendations for signal shielding to ensure minimal interference.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "understanding FE terminal",
+      "improved communication",
+      "reliable grounding",
+      "minimize interference"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "uncertain grounding methods",
+      "potential communication failures",
+      "lack of clear usage scenarios"
+    ],
+    "feature_keywords": [
+      "FE terminal",
+      "grounding",
+      "shielded cables",
+      "network connection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "17": "Circuit Protection Guidance"
+  }
+}

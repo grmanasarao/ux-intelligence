@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "1671960610",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 244205685193540,
+      "user_name": "46MibJx6Ar",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, I created a project where I connected an encoder to the I4 input to measure speed in meters per minute. I set the target value with AI1 (I7), which determines the distance for each meter. I compare this target with the actual speed, and use two digital outputs to control a valve to adjust a turbine motor, ensuring it reaches the desired speed per meter. The encoder roller radius is 40 mm, and it generates 2000 pulses per revolution. I uploaded the program and would appreciate feedback or discussion, as I suspect there might be a calculation mistake or other issue I’m missing. Thank you for your assistance."
+    },
+    {
+      "comment_id": 377545699406450,
+      "user_name": "TLHRrZMX5p",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], here’s a link with examples for [product_name] that could be helpful for your project: [url]"
+    },
+    {
+      "comment_id": 262704013546050,
+      "user_name": "46MibJx6Ar",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "I’m concerned about how to calculate speed in meters per minute, as I’m a bit confused. Since [product_name] only works with integer values, maybe there’s a mistake in this area."
+    },
+    {
+      "comment_id": 383922518121883,
+      "user_name": "46MibJx6Ar",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "If anyone with more experience could check my calculations, I’d like to know if they’re correct in my program."
+    },
+    {
+      "comment_id": 774539741178183,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "What’s the maximum value you need for meters per minute? For instance, if 32,767 m/min is sufficient, it’s best to calculate directly in mm/min and use three decimal places for accuracy. Regards, [user_name]"
+    },
+    {
+      "comment_id": 858622419330245,
+      "user_name": "46MibJx6Ar",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello, the speed is much lower than 32,768—maximum is around 10 m/min. So, is my speed calculation correct?"
+    },
+    {
+      "comment_id": 241974093066311,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Your calculation seems fine, but 2 * Pi * 40 / 2000 * 1000 is about 125.66. To improve accuracy, you can change your formula: instead of multiplying by 60, multiply by 6; instead of dividing by 1000, divide by 10,000. Then, multiply by 12,566. So: mm/min = frequency * 6 * 12,566 / 10,000. Alternatively, adjust the gate time setting of the digital threshold trigger. One rotation equals 2 * Pi * 40 = 251.33 mm, or 2000 pulses, so each pulse is 0.1257 mm. For 10,000 mm/min, that’s 79,577 pulses/min, or about 1.33 pulses/s. For 1000 pulses, the cycle time is roughly 0.75s. If you set the gate time to 0.75s, calculations complete in one step. You just need arithmetic for decimal places, as the threshold trigger doesn’t allow decimal place settings. Your current method is valid, but this is another option. Regards, [user_name]"
+    },
+    {
+      "comment_id": 250950721599382,
+      "user_name": "46MibJx6Ar",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Thanks a lot for your suggestion about the alternative approach. I have another question: In B002 (the counter for actual distance), once it reaches 32,768 pulses, B007 can’t calculate further. If the total distance is 350 meters, how can I calculate and show this on the [product_name] display? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 454821655183695,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Split your counting into two stages: one counter for mm and a second for meters. For every 1000 mm, you get about 7,958 pulses. When the first counter hits 7,958, reset it and increment the meter counter by one. Display them as: mm = first counter * 1000 / 7958 and m = second counter directly. If cascading the counters is tricky or you need more details, feel free to ask. Regards, [user_name]"
+    },
+    {
+      "comment_id": 957440668159509,
+      "user_name": "46MibJx6Ar",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Thanks again. I got it working with two counters—one for mm and another for meters. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is challenged by configuring speed and distance calculations with an encoder on [product_name] hardware, particularly due to limitations with integer-only math and counter overflow. Users discuss workarounds for decimals and managing large counts with split counters. Practical advice is sought for formula accuracy, device settings, and readable data display given system constraints.",
+    "user_expectations": "Users expect [product_name] to provide accurate calculations for speed and distance, better support for decimal handling, and intuitive ways to manage large counts and display formats.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate measurement",
+      "display distance",
+      "counter overflow handling"
+    ],
+    "pain_keywords": [
+      "integer-only calculations",
+      "counter limit",
+      "display formatting"
+    ],
+    "feature_keywords": [
+      "pulse counter",
+      "calculation logic",
+      "display output",
+      "cascaded counters"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "8": "Documentation Clarity"
+  }
+}

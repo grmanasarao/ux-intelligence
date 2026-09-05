@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "6562434335",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 794717683394225,
+      "user_name": "X4PAXZNJnQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "Hello, I'm working with a signal from a potentiometer that ranges from 3V to 8V, and receiving feedback from an actuator between 0 and 10V. I set up a program to control the actuator through feedback and the potentiometer, but it's not functioning as expected. For instance, when the setpoint is 3V, I want feedback at 3.3V; at 8V, feedback should be 9V. The actuator moves by activating two digital outputs for either direction. Can anyone guide me? It feels like the scaling might be off."
+    },
+    {
+      "comment_id": 428765887367435,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "You haven’t specified what the output should be when the input falls below 3V or above 8V. My program works within the 3–8V range. Settings for the analog amplifier need to be calculated: Span is 9 - 3.3V = 5.7V, Input = 8 - 3 = 5V, so the complete range mapping (0–10V internal in [product_name]) is 5.7/5 = 1.14. [product_name] only calculates with whole numbers, so I multiply values by 100. In this setup, the output is consistently 12 units too high, so subtract 12 from the result. The system works internally with values from 0–1000, representing 0–10V at the analog output."
+    },
+    {
+      "comment_id": 402615269271414,
+      "user_name": "X4PAXZNJnQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "The setpoint can't drop below 3V or rise above 8V due to hardware limits on the potentiometer. The actuator should not go beyond 3.3V to 9V, even though feedback covers 0–10V. I want to software-limit this to 3.3V and 9V. The actuator is controlled through digital outputs (see the referenced schematic). I'll look into your example. Edit: I believe the setup works now by using comparators. Thanks a lot! Do you have any advice on implementing software limits effectively?"
+    },
+    {
+      "comment_id": 647282060202897,
+      "user_name": "X4PAXZNJnQ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "After some testing, changing the input range to 2.2V–6.8V, and the output span to 3.5V–9.4V doesn't produce the expected results. I used the value 1290 in B002 and 13 in B004. At 2.2V the output is 2.71V, and at 6.8V it’s 8.64V. The math seems confusing now, as I need to add in the math block instead of subtract. Any explanation on this adjustment?"
+    },
+    {
+      "comment_id": 587710806408270,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], thank you for sharing the image. It helped clarify your objective. Please see the ZIP attachment for an assortment of files: program concepts, two types of spreadsheets with graphs, JPEG notes for simulation, and an example graph output from the spreadsheet. The spreadsheet is very useful for entering amplifier parameters—less manual math, more automated calculation. I prefer letting these files show the reasoning instead of providing lengthy explanations; they should make it clear. The core issue is: Both analog signals read into [product_name] must be rescaled to match the same range; otherwise, comparing for control isn’t feasible. If anything is unclear, feel free to ask—either myself or others can assist."
+    },
+    {
+      "comment_id": 790203157105215,
+      "user_name": "VG0ld1hzYm",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "My solution works for the 3–8V range. I still maintain [url] for reference."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants face challenges with scaling and mapping analog signal ranges when using [product_name] hardware. The device works with internal values (0–1000 for 0–10V), requiring integer-based calculations, which complicates scaling and setting voltage limits—particularly when input and output ranges are adjusted. Resources like spreadsheets and simulation files are welcomed for parameter calculation and visualization, helping minimize manual errors and making setup easier.",
+    "user_expectations": "Users want to configure and change analog signal scaling and set software limits within the [product_name] application, expecting clear correspondence between varied inputs and outputs. They also hope for straightforward math in parameter setup and simple software solutions to enforce and constrain output voltages accurately.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise analog scaling",
+      "configurable software limits",
+      "clear parameterization"
+    ],
+    "pain_keywords": [
+      "complex scaling",
+      "manual math errors",
+      "unintuitive configuration"
+    ],
+    "feature_keywords": [
+      "analog comparators",
+      "math instruction block",
+      "scaling interface",
+      "software limits"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

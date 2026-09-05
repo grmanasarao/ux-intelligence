@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "branch_id": "5066388518",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 300538310644360,
+      "user_name": "XEDB0ULru2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello. I'm looking for advice regarding a control setup. I have a pressure transmitter (0-25 bar) with a 4-20mA output, and a valve that also uses a 4-20mA input. I want to use just part of the transmitter's signal to control the valve: when the pressure is 10 bar or less, the valve should be closed (0%, 4mA), and when it's 15 bar or more, the valve should be fully open (100%, 20mA). Is it possible to achieve this using [product_name]? If so, how can I set this up? Thank you. [user_name]"
+    },
+    {
+      "comment_id": 322686382934483,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Please refer to the attached file."
+    },
+    {
+      "comment_id": 698458182492233,
+      "user_name": "XEDB0ULru2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "This solution matches my requirements. Thank you. I have some follow-up questions: 1. Which hardware would you suggest? 2. Could you provide some details about the parameter settings and the calculations involved, in case I need to adjust them? 3. Is it possible to change the target pressure directly using the device display? Thank you again. [user_name]"
+    },
+    {
+      "comment_id": 389796229585693,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "That's a bit challenging to specify without knowing more about your environment. If you do not need AC inputs, my recommendation is to use a [product_name] with DC power supply. You'll also need an analog output module and a compatible power source, since the analog module needs 24 VDC. This system includes digital inputs, some of which double as analog inputs (0-10V). For evaluating a 4-20mA signal, use a 500 Ohm precision resistor to convert the current to a voltage signal. If you want to input the current signal directly, you'll require an additional analog input module. Article numbers for some hardware: [product_name] = [article_no]. Analog input module = [article_no] Analog output module = [article_no] The current hardware version is [version_no]. There is a newer version ([version_no]) on the way, available for order from [company_name] but not yet being shipped, according to my last check. If you want to wait for the updated hardware, note that usually only the last part of the article number changes (e.g., [article_no]). The analog converter in [product_name] translates analog inputs to units ranging from 0-1000. With a 4-20mA (2-10V) signal, only values from 200-1000 (800 units) are used. To make full use of the range, the first analog amplifier scales the signal, and the second amplifier stretches it further so the display can show 0.00 to 25.00. This requires two amplifiers due to input constraints: a single analog amplifier only allows a gain factor up to two decimal places. To ensure only the 10.00 to 15.00 bar range is mapped to the analog output, I used thresholding and multiplexing blocks to cap limits accordingly. For inputs below 10.00 bar, the system outputs the lower limit; above 15.00 bar, the upper limit; and within the range, it passes the scaled value. Analog outputs require input values in the 0-1000 unit scale. Changing values through the display and cursor keys is possible, or alternatively via the internal web server over the network."
+    },
+    {
+      "comment_id": 379932480572071,
+      "user_name": "XEDB0ULru2",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Thank you for your help. I appreciate your guidance."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants described a control solution using [product_name] hardware to convert a 4-20mA pressure transmitter signal into a matching valve control output, focusing on how to map a specific portion of the input range. Discussions reflected user needs regarding analog signal management, recommended hardware choices, parameter adjustment, and the ability to configure or modify settings via both device display and network interface. Technical explanations covered scaling, signal conversion, and range thresholding while prompting questions about hardware selection, mathematics behind configuration, and flexible setpoint changes.",
+    "user_expectations": "Users expect the [product_name] system to allow straightforward scaling and mapping of analog input to output, flexible setpoint adjustments via the device display, and comprehensive guidance regarding hardware decisions and setup calculations.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "customizable scaling",
+      "easy setpoint input",
+      "hardware compatibility",
+      "remote and local configuration"
+    ],
+    "pain_keywords": [
+      "hardware selection uncertainty",
+      "complexity of scaling math",
+      "setpoint adjustment complexity"
+    ],
+    "feature_keywords": [
+      "analog signal scaling",
+      "threshold mapping",
+      "display setting input",
+      "web server configuration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "1": "Upgrade Recommendations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

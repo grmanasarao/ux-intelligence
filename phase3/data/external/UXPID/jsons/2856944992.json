@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "branch_id": "2856944992",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 446536538381252,
+      "user_name": "8R7DMiy5Y9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hello, I've managed to configure the HMI using [product_name] V16 to communicate with [product_name] for several functions, but I'm unable to display the correct date and time from [product_name] on the HMI. I'm using date and time information as a template for the screens. Could anyone offer guidance to help with this?"
+    },
+    {
+      "comment_id": 460274315747655,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "[product_name] does not provide date and time in the VM area as formatted strings like \"hh: mm: ss\" or \"mm: dd: yyyy\"; instead, they're supplied as individual byte-wise variables. If you set up separate input/output fields for each byte variable on the HMI, you'll be able to both display and modify date and time values directly from the HMI."
+    },
+    {
+      "comment_id": 706409289394342,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I've attached an example. The communication setup is all done within [product_name]. There's nothing else needed in [product_name]—the HMI independently reads and writes all variables."
+    },
+    {
+      "comment_id": 312002050620453,
+      "user_name": "8R7DMiy5Y9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "After extraction, how should I open the attached files?"
+    },
+    {
+      "comment_id": 486522699945066,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "You mentioned you're working with [product_name] V16. My attachment is a V16 project file in Zip format."
+    },
+    {
+      "comment_id": 966601651166280,
+      "user_name": "8R7DMiy5Y9",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I uploaded your program to the HMI, but it still doesn't show the correct date and time. The template error is: \"the process tag is missing\"."
+    },
+    {
+      "comment_id": 662269483214148,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I don't have the HMI device; I can only test with the simulation tool. The simulation works, as shown in the attached screen recording."
+    },
+    {
+      "comment_id": 152741363093979,
+      "user_name": "8R7DMiy5Y9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I've resolved the issue—I just needed to configure the time server in the HMI. Thanks for your help."
+    },
+    {
+      "comment_id": 262497879929181,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Is your problem resolved now? Which time server are you referring to?"
+    },
+    {
+      "comment_id": 217219414729099,
+      "user_name": "8R7DMiy5Y9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I set [product_name] as the time server in the HMI according to the instructions."
+    },
+    {
+      "comment_id": 813439740469705,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I'm not sure how the correct HMI time is connected to displaying the date/time from [product_name] on the HMI."
+    },
+    {
+      "comment_id": 642130237927525,
+      "user_name": "8R7DMiy5Y9",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I configured the NTP settings of [product_name] to act as the time server and enabled \"synchronization with time server\" in the HMI, using [product_name]'s IP address. It looks like it can be set up in [product_name] configuration too, but I couldn't find a method for doing this with [product_name]. Anyway, it's working now and seems less complicated than other approaches."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users faced challenges syncing date and time information from the [product_name] device to the HMI through [product_name] V16. Main issues included representing time/date as byte variables, configuring HMI process tags, and establishing the HMI to use [product_name] as its time server. These setup difficulties initially prevented successful synchronization, but after following advice on proper configuration, users managed to resolve the issue.",
+    "user_expectations": "Users expect a straightforward method to show the date and time from [product_name] on the HMI with proper formatting and real-time syncing, using [product_name] V16.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "time synchronization",
+      "correct display",
+      "real-time monitoring"
+    ],
+    "pain_keywords": [
+      "incorrect time display",
+      "complex data representation",
+      "missing process tag"
+    ],
+    "feature_keywords": [
+      "time server configuration",
+      "date and time display",
+      "process tag linking"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

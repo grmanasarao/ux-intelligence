@@ -1,0 +1,236 @@
+{
+  "metadata": {
+    "branch_id": "8530854689",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 445680015186386,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm trying to activate a relay on a connected Modbus 30-channel relay module. According to the manual, I need to send the following Modbus TCP command to switch Relay 1 on: 00 00 00 00 00 06 01 05 00 00 FF 00. I want this command sent when DI1 input becomes active. How can I achieve this? The command works fine when tested locally with Modbus Poll."
+    },
+    {
+      "comment_id": 555789253761834,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "You cannot directly enter this command (00 00 00 00 00 06 01 05 00 00 FF 00) in the [product_name] user program. The configuration only supports LAD or FBD. In a network project, only FBD is possible."
+    },
+    {
+      "comment_id": 141622347224851,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "[product_name] only supports signed integers for analog functions. To send the 'on' command for relay 1 on the Waveshare module, transmit the integer value -256. For the 'off' command, use the value 0. Please refer to the attached document."
+    },
+    {
+      "comment_id": 927709530775814,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Thanks for your guidance, but it's not functioning as expected. Why should -256 be sent? Are the Modbus settings configured correctly? I also tried different starting addresses like 1 and 2. Any suggestions?"
+    },
+    {
+      "comment_id": 595866169385703,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Keep in mind that [product_name] uses 1-based Modbus addressing, while the Waveshare module uses 0-based addressing. The first address for Waveshare is 0, so accessing HR0 from [product_name] requires HR1 in the connection table. The 'on' command is FF00 (hex), which is equal to 65280 in decimal, and 65280 unsigned represents -256 in signed format."
+    },
+    {
+      "comment_id": 143984308115951,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "That explanation makes sense. Should my program work now, or is there another possible mistake?"
+    },
+    {
+      "comment_id": 712599268956825,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "There might be an overlap in VM memory due to double allocation of VW0."
+    },
+    {
+      "comment_id": 660824012303724,
+      "user_name": "tuLbKYc7ij",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Based on the byte count, you're referencing a MODBUS TCP frame. The breakdown is as follows: 00 00 (Transaction Identifier, 2 bytes); 00 00 (Protocol Identifier, 2 bytes); 00 06 (Length Field, 2 bytes); 01 (Unit Identifier, 1 byte); 05 (Function Code - 'Write Single Coil', 1 byte); 00 00 (Coil Address, 2 bytes); FF 00 (Coil Value, 2 bytes - turns the coil on). For more details, consult the protocol documentation."
+    },
+    {
+      "comment_id": 626234261194273,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "If you use Modbus with [product_name], you don't need to know detailed protocol structures. @[user_name], could you upload your program as a zip file?"
+    },
+    {
+      "comment_id": 718010416467402,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "@[user_name], I conducted a test with a [product_name] and a Modbus server simulator. Check the attached screen recording."
+    },
+    {
+      "comment_id": 314522225742219,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Here is my program. I suspect something is wrong with the VW addresses. Please see my next post."
+    },
+    {
+      "comment_id": 785358940845687,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "It looks promising. Could you send the program? I suspect an issue with the VW addresses. I added a second input, but writing to VW2 also modifies VW1 from 0 to 256. Is it correct to have 2-word lengths in the Modbus table, and should the ID be set to 1?"
+    },
+    {
+      "comment_id": 969409002069666,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "The Modbus connection table contains these entries: VW0 - 2 Words - HR1 - 2 Words; VW2 - 2 Words - HR3 - 2 Words. The first entry writes VW0 and VW2 to HR1 and HR2, while the second entry writes VW2 and VW4 to HR3 and HR4. Holding Registers and VW variables are both words (16 bits), but HR addressing is word-based while VW is byte-based. For example: HR1, HR2, HR3, HR4... VW0, VW2, VW4, VW6... So the increment for VW addresses should be 2 instead of 1, as in the case for HR."
+    },
+    {
+      "comment_id": 212260675472139,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I made the changes, but it still isn't working. I set the sending interval to 2 seconds. The relay's RXD and TXD indicators light up every 2 seconds, indicating that communication is happening. Is there another way to transmit FF00 instead of -256?"
+    },
+    {
+      "comment_id": 159206456289637,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Here's the configuration of the Modbus relay module."
+    },
+    {
+      "comment_id": 115882262106674,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "In your simulation, Mode 06 - write single register is being used, but this didn't work in my Modbus Poll test tool. When I use Mode 05 - write single coil, it works. How can I determine which mode is used by the [product_name] Modbus communication?"
+    },
+    {
+      "comment_id": 324944029969183,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Can you provide a screenshot of Modbus Poll showing when you switch the relay?"
+    },
+    {
+      "comment_id": 167037145014101,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Try this solution ..."
+    },
+    {
+      "comment_id": 129731094043984,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Excellent! That did the trick. Thanks everyone for your support. The attachment includes the settings and live data table."
+    },
+    {
+      "comment_id": 217029702232727,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Sounds great ..."
+    },
+    {
+      "comment_id": 868222466872987,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I have another question. I want to connect 9 Modbus relay modules, but there are only 8 connectors available. Is there any way to add one more? When I try to configure [product_name] as master, I can't add more entries in the connection table. Any ideas?"
+    },
+    {
+      "comment_id": 903067994279812,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "No. [product_name] supports up to 16 connections, but only 8 as clients. However, you can route the relay-on commands for the ninth device through one of the first eight."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants encountered challenges integrating a [company_name] hardware controller with a Waveshare Modbus relay via Modbus TCP. Issues stem from the limited programming options and signed integer restrictions in the [company_name] environment, prohibiting direct transmission of Modbus TCP frames. Addressing mismatches and possible memory variable overlaps added complexity, prompting users to rely on protocol conversion understanding and manual troubleshooting.",
+    "user_expectations": "The user wants an easy method to send a functional Modbus TCP command from a [company_name] device to activate a relay on a Waveshare module, using standard configuration tools. They expect dependable, clear operation and simple addressing.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simple relay control",
+      "operation via standard input",
+      "seamless third-party device integration"
+    ],
+    "pain_keywords": [
+      "addressing mismatch",
+      "unsupported command format",
+      "variable overlap",
+      "datatype confusion"
+    ],
+    "feature_keywords": [
+      "Modbus TCP communication",
+      "LAD/FBD language support",
+      "signed integer handling",
+      "address mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

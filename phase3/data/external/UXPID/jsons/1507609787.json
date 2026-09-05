@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "1507609787",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 856594189019172,
+      "user_name": "JfwBnjzGBG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I'm working on a project where I want to set up a temperature sensor that connects to an analog input using a PT100 sensor and a 0-10V transmitter. The transmitter and control unit both use a 24V supply. The output from the transmitter (0-10V) is connected to the input terminal. The sensor measures between -30°C and 180°C. The analog input in the control unit has an option for 0-20mA or 0-10V, and I selected the 0-10V range. After input, the signal goes through an analog amplifier, set for a 0...10V sensor with -30 as minimum and 180 as maximum. This is used to display temperature on the screen. Currently, the transmitter outputs 4.95V, and the room temperature is around 22–23°C, but I don't understand how 4.95V relates to that temperature. Shouldn't the resolution be something like 10V divided by (180+30)? Furthermore, the display shows -3°C, and the value doesn't change, even as the sensor voltage increases. Any suggestions?"
+    },
+    {
+      "comment_id": 641106944460881,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "You didn't specify whether you're using a [product_name] basic module or an analog expansion module. The terminal labeling I1 for AI1 isn't typical for either the base module or the analog expansion for 0-10V signals. For base modules with 0-10V inputs, AI1 is usually on terminal I7, while on analog expansion modules, terminal I1 is for current signals (0/4-20mA), and U1 is for voltage signals."
+    },
+    {
+      "comment_id": 374830075011545,
+      "user_name": "JfwBnjzGBG",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Thank you, [user_name]. I have a [product_name] and changed the input to I7. Now the temperature display responds to the sensor. However, although I set the sensor range to -30 to 180°C, it's currently showing 7.1°C at 4.95V."
+    },
+    {
+      "comment_id": 518460870596272,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Could you provide more details about your external transmitter, or a link to the datasheet? Also, please upload your program (zipped) so we can review it."
+    },
+    {
+      "comment_id": 344114209928973,
+      "user_name": "JfwBnjzGBG",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "I've attached my program as a zip file. Right now I am working with AI1 to get everything functioning before continuing. The transmitter is a cheap online option so documentation is minimal. Here’s the transmitter link: [url]. Thank you for your help!"
+    },
+    {
+      "comment_id": 694660734582399,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "If you want the display to show one decimal place, you need to adjust the settings accordingly. Compare to your AI2 settings where you've picked PT100/PT1000, measuring -50 to 200°C. For one decimal, set minimum to -500 and maximum to 2000, corresponding to -50.0 to 200.0°C on the display. Let us know if you have questions."
+    },
+    {
+      "comment_id": 480161159313670,
+      "user_name": "JfwBnjzGBG",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Hi again, I understand your explanation. I avoided the PT100 amplifier setting as I thought that's only for modules with built-in transmitters from [company_name]. My issue is not with decimals but with how my transmitter’s signal is interpreted and converted to Celsius by the control unit. Earlier, I described my setup and voltage readings, but I’m not clear on whether the 0-10V range should linearly correspond to temperature. With my current AI1 settings, the display shows 7°C while the real temperature is around 22°C, and switching to PT100 does not change this. Can I adjust the analog amplifier settings to compensate for this discrepancy?"
+    },
+    {
+      "comment_id": 252711915459716,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "To clarify: the control unit converts any analog input signal into a 0-1000 unit scale, whether it’s 0/2-10V, 0/4-20mA, or PT100/PT1000. Your transmitter provides 0-10V, which the system translates to 0-1000 units. The analog amplifier then scales that. For example, if your transmitter is meant to measure -30 to 180°C, set the amplifier parameters to -30 minimum and 180 maximum; the software calculates the appropriate gain (like 0.21) and offset (-30). Setting one decimal place makes the display show values from -3.0 to 18.0. Alternatively, using settings of 300 minimum and 1800 maximum (with one decimal) would result in a display range from -30.0 to 180.0°C."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered issues mapping voltage outputs from a temperature transmitter to accurate readings on their control unit's display. Incorrect setup led to mismatches in temperature readings and lack of response, caused by confusion between analog input wiring and signal scaling. Participants emphasized the importance of correct configuration for input selection and amplification settings to obtain reliable temperature values.",
+    "user_expectations": "The user expects the control unit to accurately convert and display temperature readings from the transmitter’s voltage output. They want straightforward wiring and software settings that reliably map the signal to the true temperature, easily displayed in degrees Celsius.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sensor scaling",
+      "easy configuration",
+      "correct temperature display"
+    ],
+    "pain_keywords": [
+      "input mapping confusion",
+      "incorrect readings",
+      "signal scaling complexity"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "temperature display",
+      "signal amplifier",
+      "wiring selection"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "branch_id": "5998623100",
+    "thread_id": "4479534060",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 696493300783863,
+      "user_name": "6jAHdz3rIB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Hello everyone! I tried to create an app for reading and writing data from/on [article_no], following instructions from [url]. I managed to establish a connection with the PLC, but I am unable to read or write data properly. Using dc.readBytes (Nodave.OUTPUTS, 0, 0, 2, null), I attempted to read Q5, but received unexpected results. The log indicates \"Connection OK\" but the PDU length is 0, which seems odd. Suspecting a connection block issue with [product_name], I tried changing settings as suggested on [url], including updating the port from 102 to 10001, but experienced the same issue. My smartphone is connected to my laptop's hotspot and I can verify that the official [product_name] app works well. Any help is appreciated, and sorry for my English. Thanks."
+    },
+    {
+      "comment_id": 764068744278895,
+      "user_name": "qWJFMZ8R4D",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Hello, the official [product_name] app uses port 10001, whereas libnodave uses port 102. I created an Android app ([article_no] HMI) using the libnodave library, but the response time for receiving data is quite long—around 300ms. However, I only read all 850 VM at once. You can find my app on Play Store. [user_name]"
+    },
+    {
+      "comment_id": 564790630716547,
+      "user_name": "6jAHdz3rIB",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Hello, thanks for your response. Could you share the code to read all 850VM?"
+    },
+    {
+      "comment_id": 188526438989982,
+      "user_name": "qWJFMZ8R4D",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Here is a sample code for reading words (16 bits): read_vm(1,0,425). The hex_string variable will contain the 425 words in hexadecimal format (01080000EF1000000000...). The function is as follows: public static String Read_VM(int db,int adr,int cont){ int x = 0; int val; int l; String hex; String hex_string = \"\"; try{ dc.readBytes(Nodave.DB, db, adr*2,cont*2, null); while( x < cont ) { val = dc.getBYTE(); hex = Integer.toHexString(val); l = hex.length(); if (l < 2) { hex = \"0\" + hex; } if (l > 2) { hex = hex.substring(l - 2, l); } hex_string = hex_string + hex; val = dc.getBYTE(); hex = Integer.toHexString(val); if (val < 16 && val > -1) { hex = \"0\" + hex; } l = hex.length(); if (l > 2) { hex = hex.substring(l - 2, l); } hex_string = hex_string + hex; x++; } } catch (Exception ex) { System.out.println(ex); hex_string = \"ERROR_Read_VM\"; } return hex_string;"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is developing an Android application to communicate with a [product_name] module using libnodave. Despite successfully establishing a connection, read/write operations are unreliable and return inconsistent results. Another community member clarifies port differences between the official app and libnodave and provides sample code for reading VM data, noting significant response latency. The discussion highlights technical challenges regarding port settings, protocol compatibility, and limitations when using unofficial libraries with [company_name] hardware.",
+    "user_expectations": "The user hopes to read and write data reliably from the [product_name] module using libnodave on Android, aiming for performance and consistency similar to the official [company_name] app.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "mobile remote control",
+      "custom automation",
+      "direct PLC access",
+      "real-time monitoring"
+    ],
+    "pain_keywords": [
+      "communication failure",
+      "protocol mismatch",
+      "unexpected data",
+      "slow response"
+    ],
+    "feature_keywords": [
+      "read/write access",
+      "VM area reading",
+      "app-to-PLC communication",
+      "network port configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Android": []
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability",
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "branch_id": "9324262230",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 294270377191155,
+      "user_name": "n12ujfTp9w",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm working on a project where I need to communicate with a [product_name] controller via Modbus RTU. For this, I'm using a [product_name] module that converts Modbus RTU and uses [product_name] software to write values directly to the controller. This setup works when there are no other devices on the Modbus network, or when the controller is not connected to the module. Whenever I connect all devices and transmit anything other than zeros, I get a timeout error and the module stops responding. Restarting the entire system restores functionality. The issue does not appear if only zeros are sent, meaning no data changes. I have tried changing the communication method, such as using Modbus TCP instead, and different slave/master configurations but encounter the same problem. I confirmed that device addresses do not conflict, and cables are short. Other sensors can be read without issue. I increased the timeout over a second, and I'm only attempting to set some bits—so nothing complex. Has anyone experienced this or found an alternative solution? Any advice is appreciated! Thanks in advance!"
+    },
+    {
+      "comment_id": 168156693009052,
+      "user_name": "9hWGZk12my",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], I have run into a similar issue. In my configuration, I use a [product_name] module as a router with an RS485 RTU device connected, along with two [product_name] controllers. I have three server connections that are active. The diagnostic LED is green, but there’s no data transfer. If I add a fourth, dummy server connection, the connection is restored. It appears that some settings are lost but aren't reflected when checking via the browser interface, as everything looks normal there."
+    },
+    {
+      "comment_id": 181197387288595,
+      "user_name": "n12ujfTp9w",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Do you have more than one device connected through Modbus RTU? My issue always starts when another device is connected, and I send any value other than zero."
+    },
+    {
+      "comment_id": 295785807923303,
+      "user_name": "9hWGZk12my",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Currently, only one device is connected as master and the [product_name] module is the slave."
+    },
+    {
+      "comment_id": 287578384407218,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 673146974414636,
+      "user_name": "9hWGZk12my",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "In this [url] example, there are two devices connected to the Modbus RTU network."
+    },
+    {
+      "comment_id": 929622686986609,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 749658203705928,
+      "user_name": "cZQANX744b",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hi, A [product_name] module can communicate with one [product_name] controller, but several Modbus RTU devices can be connected to a single module. Each Modbus RTU device must have a unique unit ID. Although I don't have extensive experience with Modbus RTU sensors, your description suggests your devices could be using the same unit ID. Generally, sensors from the same vendor often share a default unit ID, so you need to configure each device with a different one. The image illustrates where unit IDs should be set on the sensors. Hope this helps."
+    },
+    {
+      "comment_id": 641068770129366,
+      "user_name": "n12ujfTp9w",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello, everything functions properly until I connect another Modbus RTU device, which leads to issues. Sending only zeros works fine, but any other data causes trouble. Does the image just show how to forward input values, or something else? Thank you!"
+    },
+    {
+      "comment_id": 929739457732267,
+      "user_name": "cZQANX744b",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hi, If you have one Modbus RTU device operating with the default unit ID and connect another that shares this ID, both will be connected to the module with the same unit ID. You need to assign a different unit ID to each device to avoid this issue. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report persistent communication problems when connecting multiple devices to a [product_name] controller via a [product_name] communication module and Modbus RTU. The system often becomes unresponsive with timeout errors, requiring a full restart to restore functionality. The issue is linked to multiple devices potentially sharing the same unit ID, even when other configuration aspects—such as timeouts and master/slave roles—are adjusted. Users express frustration because configuration errors do not appear clearly in the web interface, and only temporary fixes like adding a fake server connection restore communication.",
+    "user_expectations": "Users expect dependable Modbus RTU multi-device communication through the [product_name] communication module to the [product_name] controller, without timeouts, dropped connections, or reboot requirements. They want the system to support multiple devices smoothly and to provide clear diagnostics and configuration error reporting.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable multi-device communication",
+      "system stability",
+      "transparent diagnostics",
+      "modbus integration"
+    ],
+    "pain_keywords": [
+      "timeout error",
+      "system freeze",
+      "unit ID conflict",
+      "lack of diagnostics",
+      "unresponsive CIM"
+    ],
+    "feature_keywords": [
+      "Modbus RTU communication",
+      "unit ID management",
+      "device addressing",
+      "system reboot",
+      "status diagnostics"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "19": "Bug Reports",
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "branch_id": "3918046336",
+    "thread_id": "3055273936",
+    "publication_year": 2011,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 828934779703082,
+      "user_name": "QfVgTzs4Ng",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, how can I capture I/O status (such as protocol or port information) from [product_name] [article_no] in a way similar to the method described here: [url]? I am using FaqFactory software, which allows flexible creation of data protocols over ethernet (serial via TCP/IP). Best regards, [user_name]"
+    },
+    {
+      "comment_id": 310203726991658,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Hello, if your SCADA system supports a [version_no] communication driver over ethernet, there is a good chance it will work."
+    },
+    {
+      "comment_id": 143562383750066,
+      "user_name": "QfVgTzs4Ng",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Thank you, but unfortunately, I do not have the necessary driver in Azeotech DaqFactory. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 880570494225415,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Hi, I reviewed that SCADA program and its features, and I think using OPC could be a solution. PC Acces provides an OPC server capable of connecting to a [version_no] PLC, and therefore to a [product_name] as well. Try searching this forum for PC Acces. You might also want to check your SCADA developer’s support page to ask if [version_no] communication is possible. Since others likely have similar questions, a solution might already exist. Regards,"
+    },
+    {
+      "comment_id": 235864695778421,
+      "user_name": "QfVgTzs4Ng",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 11,
+      "comment_body": "Over the recent long weekend I managed to get it working. I spent time using an ethernet packet analyzer to discover communication similar to what is described in [url] by SNATAX. Communication to [product_name] at its IP address and port 10001 utilizes specific packets: for example, for status requests (Status?), mode (Mode?), stop/run commands and reading all statuses (which yields a 70-byte packet). Investigation of this data packet provides access to all inputs and outputs (e.g., byte 4 contains codes for I1-I8, byte 5 for I9-I16, etc.). I created a new protocol definition in Azeotech DaqFactory, allowing reliable visualization of necessary [product_name] data on my PC. This procedure depends heavily on the SCADA software you are using. Feel free to ask further questions. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed the challenges and solutions for accessing and visualizing I/O status from a [company_name] [product_name] [article_no] using third-party SCADA software. Frequent issues include the absence of native driver support and limited protocol documentation, often necessitating protocol reverse-engineering and manual integration. The conversation shows that network traffic analysis and custom protocol configuration can enable successful integration, highlighting the need for better third-party support and clearer documentation.",
+    "user_expectations": "Users expect easy integration between [product_name] [article_no] and third-party SCADA software, preferably through standard protocols, detailed documentation, or existing drivers, to facilitate dependable and smooth visualization of I/O data.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "integration",
+      "I/O visualization",
+      "protocol discovery",
+      "PC-based monitoring"
+    ],
+    "pain_keywords": [
+      "lack of drivers",
+      "manual protocol reverse engineering",
+      "limited documentation",
+      "third-party support gap"
+    ],
+    "feature_keywords": [
+      "I/O status",
+      "Ethernet protocol",
+      "custom driver integration",
+      "protocol documentation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

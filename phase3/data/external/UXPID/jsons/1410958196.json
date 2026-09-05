@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "1410958196",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 243591380615231,
+      "user_name": "cdMZn3VQsx",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hello, I have a [product_name] running [version_no] connected to AWS IoT Core. The device successfully updates its reported state in the AWS shadow whenever values are sent from AWS (e.g., via a Lambda function). However, when setting a value in the desired field, the [product_name] only responds if I stop the device and start it again (STOP → RUN). I'm using an analog output (for example, AM..4:41-1) that isn't programmatically connected, which should make it writable through AWS as referenced in a [company_name] community post. State Examples: 1. In RUN mode: { \"state\": { \"reported\": { \"AM..4:41-1\": \"0000\" } } } 2. In STOP mode: { \"state\": { \"desired\": { \"AM..4:41-1\": \"0020\" }, \"reported\": { \"AM..4:41-1\": \"0000\" } } } 3. After switching back to RUN mode: { \"state\": { \"reported\": { \"AM..4:41-1\": \"0020\" } } } Questions: - Is this a known limitation in the [product_name] firmware [version_no]? - Is there any way for the [product_name] to apply the desired state live, while in RUN mode? I've extensively reviewed documentation, forum threads, and sample projects, but haven’t found a definitive answer. It's surprising, since dynamic updates seem fundamental for IoT-enabled hardware. Any advice or insight would be appreciated. Thank you!"
+    },
+    {
+      "comment_id": 687551562566999,
+      "user_name": "cdMZn3VQsx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Please note: The issue was not fixed in update [version_no]."
+    },
+    {
+      "comment_id": 405624866559017,
+      "user_name": "cdMZn3VQsx",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hi everyone, I wanted to share an update — the issue is resolved, although I'm not sure exactly what changed. After removing my initial data table and configuring a simple test program, I restored my original setup and recreated the data table as before. Now, everything works as expected in RUN mode, with no need for STOP → RUN toggling. Perhaps I missed something in the AWS shadow update process, or maybe some glitch or legacy state was interfering. It feels a bit random, but the important point is that it's functioning now. Thanks to everyone who considered or read this. I'm posting the solution in case it helps others facing a similar situation. Regards,"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread describes an issue where a [product_name] running [version_no] did not adopt desired values set in AWS IoT shadow while in RUN mode, requiring a STOP→RUN cycle instead. This behavior conflicted with expectations for IoT functionality. The problem appeared to resolve after recreating the setup, though the precise cause remained unclear: possibilities include a glitch, outdated state, or configuration oversight. Lack of root cause determination leaves some uncertainty for future users.",
+    "user_expectations": "The user expects the [product_name] to automatically apply output changes from AWS IoT shadow 'desired' fields in RUN mode, without needing to stop and restart the device.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time shadow updates",
+      "dynamic state syncing",
+      "seamless IoT device operation"
+    ],
+    "pain_keywords": [
+      "delayed shadow application",
+      "manual intervention required",
+      "uncertain root cause",
+      "lack of documentation"
+    ],
+    "feature_keywords": [
+      "IoT shadow integration",
+      "RUN mode state management",
+      "cloud value synchronization"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "24": "Data Integrity Concerns"
+  }
+}

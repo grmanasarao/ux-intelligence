@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "4330728529",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 239467926608298,
+      "user_name": "BFwmYRSkhy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello, I am new to [product_name]. I would appreciate assistance. I have a [product_name] 230RCE and am working with the Sharp7 library in C#. The output Q1 is connected to a light, and I want to send a command to control it. I have tried various functions like DBWrite, WriteMultiVars, and WriteArea, but none worked. I only have output Q1 available according to the diagram in [product_name] [version_no]. Could you provide a sample command for this? Thank you."
+    },
+    {
+      "comment_id": 823509412915144,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "It’s usually not possible to control an output directly with external code. You should use an Input Flag M or a Network Input, then use VM Mapping and C# to control these inputs, which in turn will operate your output."
+    },
+    {
+      "comment_id": 955777451290510,
+      "user_name": "BFwmYRSkhy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "How do you use flag M? Should it be connected like M === Q1? Could you share a command to control flag M in [product_name] 230RCE? Because the Sharp7 library supports many devices, I tried different approaches but haven't figured out what works. Thanks for your support."
+    },
+    {
+      "comment_id": 742696322827982,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Yes, you can use flag M or Network Input and apply a VM address for the Network Input. As for C#, I’m not familiar with the specific commands. Searching the forum may help since someone might have shared relevant information already."
+    },
+    {
+      "comment_id": 740931965000738,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "If you have a [product_name] [article_no], make use of the integrated web server. Which [product_name] do you have exactly? Please provide the order number and firmware version."
+    },
+    {
+      "comment_id": 963051221201778,
+      "user_name": "BFwmYRSkhy",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I've searched but found no support for flag M and output control with [product_name] 230RCE. I’m sharing everything I’ve learned and the issue so far. Any help would be appreciated. Thanks."
+    },
+    {
+      "comment_id": 382562103395365,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "You should use the VM (variable memory) area in [product_name]. In Sharp7, this is referenced as DB1. For example, Q1 in [product_name] is at VM address V1064.0, or DB1.DBX1064.0 in Sharp7. However, I’m not certain about the exact syntax in Sharp7. Note that you can only write directly to an output if its input is not linked to other blocks in the [product_name] program."
+    },
+    {
+      "comment_id": 986840052363081,
+      "user_name": "BFwmYRSkhy",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "[product_name] 230RCE lacks a DB. Although I tried configuring VM, I couldn't find any suitable command. Could you provide assistance on using flag M?"
+    },
+    {
+      "comment_id": 741264569687368,
+      "user_name": "BFwmYRSkhy",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Here's a simple example using flag M."
+    },
+    {
+      "comment_id": 450031408130757,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Maybe I was unclear or you misunderstood. In [product_name], there’s variable memory, also known as VM memory, and in Sharp7 it’s addressed as DB1. If you write a 1 to bit 0 of byte 1104 of DB1 in Sharp7, that corresponds to V-bit V1104.0 in [product_name], which is flag M1. Direct writing to flags works like digital outputs, provided the input is not connected to anything else in the [product_name] program. The firmware handles parameter assignment automatically in these cases."
+    },
+    {
+      "comment_id": 184133626994705,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "That's not accurate. If, for example, output Q1 isn't connected to anything in the program on its input side, then you can switch the output remotely. The same logic applies to flags."
+    },
+    {
+      "comment_id": 996677207592374,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Thanks [user_name] for clarifying the information and apologies for my earlier mistake."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering difficulties controlling outputs on a [product_name] 230RCE module remotely via C# and the Sharp7 library, especially regarding the use of variable memory (VM) and flag M addresses. There is uncertainty about the correct command syntax and how VM areas correlate with Sharp7 addresses, as well as misunderstandings about how internal connections within the [product_name] program can restrict direct write operations from external code.",
+    "user_expectations": "Users expect to control [product_name] output Q1 directly from C# using the Sharp7 library. They are looking for clear guidance or a code example, particularly focusing on how to utilize flag M or VM mapping for output control.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "external control",
+      "automation",
+      "remote output operation"
+    ],
+    "pain_keywords": [
+      "lack of documentation",
+      "feature confusion",
+      "command syntax uncertainty"
+    ],
+    "feature_keywords": [
+      "variable memory (VM)",
+      "flag M",
+      "output control",
+      "Sharp7 integration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

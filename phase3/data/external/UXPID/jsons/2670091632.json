@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "branch_id": "2670091632",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 964228159384631,
+      "user_name": "MFHBgRdPp9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Based on the attachment, Modscan shows a value of 32770 on 30002, while my [product_name] displays -32770. As the value increases, the reading on the [product_name] moves toward zero and Modscan's value rises above 32770. Is there a reason for this discrepancy, and is it possible to get an exact match on my [product_name]? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 124070870348814,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The [product_name] typically supports only 16-bit integer values (-32,768 to 32,767). When the value exceeds 32,767, it's interpreted as negative. You haven't explained the method used to read the value into [product_name] Soft Comfort."
+    },
+    {
+      "comment_id": 306730321669683,
+      "user_name": "MFHBgRdPp9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I have a 10 kg load cell, so I require 10,000 units from 10 kg. My conversion formula is attached. It first converts -32766 to zero, then matches it to 10,000 units based on the load cell's capacity. If someone has a better approach, please share. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 771727307900306,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I don't find your formula logical, as it doesn't yield a practical outcome. For values between 0 and 32767 above NAI, NAQ is always 32767. For 32768 or 32769 above NAI, NAQ becomes -32768. With 32770, NAQ shows zero. For NAI between 32771 and 65535, NAQ remains 32767. Edit: Please clarify. What is the format of the value from Modbus? Is it an unsigned integer? What is its maximum value?"
+    },
+    {
+      "comment_id": 471787014373667,
+      "user_name": "MFHBgRdPp9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "According to my module application, the value at 0.001 V is 32770. I assume the maximum is 65540, since it increases with voltage. At 0 V and 32770, my [product_name] reads -32766. I'm unsure of the Modbus number format or how to check it. Essentially, I want the [product_name] to show zero when the load cell outputs 0 V. Could you suggest the most dependable method to achieve this? P.S. The previous formula isn't quite right. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 409174575483259,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Since your ADAM analog input ranges from -10V to +10V, 0V corresponds to 32,767, suggesting your data format is a word, not integer. Thus, 0.001V yields 32,770, and +10V should give 65,535. In word format, the maximum can't exceed 65,535. Refer to the attachment for further guidance. The digital network input contains the sign bit in VW0."
+    },
+    {
+      "comment_id": 414851302994156,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The main issue likely stems from using the incorrect analog mode on your 6017 module. If your load cell amplifier outputs 0–10V, switch the 6017 to this mode instead of ±10V. You can also scale the input voltage on this module to output a value from 0–10,000 for 0–10,000g. Refer to Advantech's operating instructions for proper setup. Regards, [user_name]"
+    },
+    {
+      "comment_id": 521697820356004,
+      "user_name": "MFHBgRdPp9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "It seems the Apax utility doesn't offer a 1–10V option, which I need. After researching, I haven't found a workable solution using my current knowledge. Is there a straightforward way to handle this scaling, or does it require programming? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 157604425526369,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "If changing the ADAM interface to 0–10V isn't possible, I recommend following my previous suggestion."
+    },
+    {
+      "comment_id": 725742363097297,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Excerpt from the manual: 4.3 ADAM-6017: 8-channel Analog Input/2-channel Digital Output Module The ADAM-6017 features 16-bit, 8-channel analog differential inputs with programmable ranges. It supports analog inputs and two digital outputs, accepting input types such as millivolt (±150, ±500, 0–150, 0–500 mV), voltage (±1, ±5, ±10, 0–1, 0–5, 0–10V), and current (0–20, 4–20, ±20mA). Data is sent to the host in engineering units, and each channel can be configured separately for different applications. See attachment..."
+    },
+    {
+      "comment_id": 998597473640406,
+      "user_name": "MFHBgRdPp9",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Even though the manual says 0–10V is selectable, I can't find this option. It seems to differ from ±10V (which covers -10 to +10V). Does anyone know how to locate this setting? Here's a snapshot from Apex Version 2.6.00 (B04). I'm unsure where to look for this option."
+    },
+    {
+      "comment_id": 837414909078381,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I'm unfamiliar with the ADAM 6017 and the related configuration software or web interface. It might help to contact the manufacturer's support team."
+    },
+    {
+      "comment_id": 903490725886305,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The Adam6017 includes an internal web page. Connect it to your PC and enter its IP address in your browser. As advised, refer to the instructions for setting up the module. Since we don't have access to the hardware, setup is your responsibility. It's possible to scale the value regardless of the mode, ensuring you get 0 for 0g and 10,000 for 10,000g. If you can't adjust the module's settings, you may need to process the value in the [product_name] controller. Regards, [user_name] P.S. Consider resolving each point sequentially: 1. What voltage does the load cell amplifier produce (e.g., 0–10V for 0–10,000g)? 2. Have you connected the amplifier output with correct polarity? 3. What settings, calibration, or changes have you made on Adam-6017? If unsure, reset to factory default."
+    },
+    {
+      "comment_id": 787363383497327,
+      "user_name": "OBr1aNILha",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "I'll clarify the suggested solution simply: We need to remap the range from -32,768 to 32,767 (signed) to 0 to 65,536 (unsigned), following: - signed -32,768 → 65,536 unsigned - signed -1 → 32,768 unsigned - signed 0 → 0 unsigned - signed 32,767 → 32,767 unsigned Since [product_name] uses a 16-bit short integer and can't handle values over 32,767, we reduce precision by dividing everything by 10, aiming for: - -3,277 → 0 to 6,554 This approach offers better precision than typical 0–1,000 sensor readings. There are two scenarios: 1) If input is negative, apply: input (negative) + 6,553.5 2) If input is zero or positive, no conversion is needed For Analog Network Inputs from Adam 6017 Modbus/TCP addresses (40001–40008), I created a custom UDF block as shown in the attachment. After the block, calibrate the analog amplifier to match measured units (mA, V, Bar, kg, etc.). I hope this helps. If you have a more efficient solution, please share. Thank you in advance, [user_name] Chios, Greece"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering scaling and conversion problems when transferring analog data from an external I/O module via Modbus to their [product_name] controller. There is uncertainty around the handling of signed versus unsigned integers, voltage scaling configurations, and achieving accurate measurements that reflect sensor output. Limitations of the [product_name], which only supports 16-bit integers, lead to discrepancies with higher unsigned values from external modules. Configuring both the external module and the [product_name] for precise, usable data proves challenging.",
+    "user_expectations": "The user wants their [product_name] to show zero when the load cell provides 0V, scaling up accurately to the sensor's maximum value as voltage increases, to reflect the full measurement range (i.e., 0–10,000 units for 0–10 kg).",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate measurement",
+      "direct value mapping",
+      "correct scaling"
+    ],
+    "pain_keywords": [
+      "scaling issue",
+      "signed/unsigned interpretation",
+      "value mismatch",
+      "complex configuration"
+    ],
+    "feature_keywords": [
+      "Modbus data format handling",
+      "analog value scaling",
+      "16-bit integer processing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "2": "Product Compatibility"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "branch_id": "7038056729",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 206554548566026,
+      "user_name": "CruqMn7UZX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello! I need to connect 3 [product_name] PLCs to SCADA on a PC via Modbus TCP. In this setup, the PLCs act as slaves, while SCADA is the master. Data transfer between PLCs is routed through SCADA. Is it possible to configure the PLCs to send data directly to SCADA, and also exchange data with each other without using SCADA (in case the PC running SCADA is offline)? As I understand, PLCs are slaves to SCADA but would act as masters for each other. Unfortunately, I cannot check this now as I only have one PLC available. Thanks."
+    },
+    {
+      "comment_id": 526591948523646,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "You can set up an additional Modbus or [product_name] connection between the PLCs. However, you must determine which connection takes priority, and expect a more complex programming process. Kind regards [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 105629507905747,
+      "user_name": "CruqMn7UZX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Thank you! Can you explain how to set the priority between the connections?"
+    },
+    {
+      "comment_id": 829189722937088,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "The PLCs can monitor a live signal coming from SCADA (you might implement a watchdog for this). If this signal is absent, the system will use data from another PLC. I am curious why communication first goes through SCADA instead of directly between PLCs? [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 481811884500484,
+      "user_name": "CruqMn7UZX",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Thank you for the helpful information! I will give more details: there are 3 counters on 3 [product_name] PLCs, and the results need to be sent from each PLC to SCADA and also shared between each PLC. Based on your explanation, it seems there should not be any issues. There is a network project from [product_name] attached."
+    },
+    {
+      "comment_id": 592749816087953,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "From what you described, it sounds like you only need to read the counter values, without sending any settings from SCADA or other PLCs, correct? If so, no advanced programmatic link is required. Just request the current counter values via each connection (both Modbus and between PLCs)."
+    },
+    {
+      "comment_id": 570180410852790,
+      "user_name": "CruqMn7UZX",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Yes, that's correct. I am only reading the counters' data from 3 [product_name] PLCs and displaying them in SCADA and on 3 [product_name] operator devices. Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed how to set up multiple [product_name] PLCs so they can exchange data with a SCADA system and directly among each other. Main points included network layout, determining master/slave roles, and minimizing programming complexity for fallback communication if SCADA is offline. It became clear that reading values from multiple devices is simple, but there was initial uncertainty about how to prioritize communication channels.",
+    "user_expectations": "Users expect that PLCs will be able to seamlessly send data to SCADA and directly to one another, with automatic fallback to PLC-to-PLC communication if SCADA becomes unavailable. They also hope for an easy configuration process with minimal programming required.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "redundant communication",
+      "remote monitoring",
+      "automatic failover",
+      "counters visibility",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "complexity in prioritization",
+      "uncertainty about direct PLC communication",
+      "limited hardware for testing"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "data sharing",
+      "master/slave role management",
+      "counter value read",
+      "operator panel display"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "22": "Usability Improvement Suggestions"
+  }
+}

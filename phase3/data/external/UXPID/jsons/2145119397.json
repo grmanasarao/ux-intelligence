@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "2145119397",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 931346316771469,
+      "user_name": "RAec5gNSD9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello everyone! I attempted to measure feedback time using a Stopwatch function as shown in the attached example. Can someone assist me with integrating a comparator to check the time difference between each Stopwatch instance? If the difference between the two Stopwatch readings surpasses 50ms, I want it to indicate a failure. Thank you in advance."
+    },
+    {
+      "comment_id": 607113821693372,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "You could use three analog comparators, correct?"
+    },
+    {
+      "comment_id": 344796608060522,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "No."
+    },
+    {
+      "comment_id": 913250087896772,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "The Stopwatch’s measured value is 32 bits wide (DWord), but the analog comparator handles only 16-bit inputs. If the time value goes beyond 32,767, the Stopwatch keeps running, but the analog comparator stops at 32,767. So, using a simple analog comparison works only if the value stays below 32,767."
+    },
+    {
+      "comment_id": 629902734736633,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello. Does anyone else share concern about the 50ms difference? I previously attached an idea: the left side was a test concept and the right side a comparison suggestion. The approach wasn’t suitable and the attachment has been removed. Apologies for any inconvenience."
+    },
+    {
+      "comment_id": 864120163261435,
+      "user_name": "RAec5gNSD9",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hi! Thank you, this is sufficient for my needs. Could you send me the program (with the comparator settings) for reference? Thanks again."
+    },
+    {
+      "comment_id": 283283828945493,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], Here’s an idea if you want to experiment with comparator functions."
+    },
+    {
+      "comment_id": 888095133385858,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Your settings for the comparators are incorrect. The minimum time unit for the Stopwatch is 1/100s, not 1/1000s. If you click on the block, you’ll see 1/100s as the base value. Although the block is labeled as \"ms\", 1 unit is actually 10ms. Therefore, you need to enter 5, not 50, into the comparator; the circuit works only if the measured time doesn’t exceed 5 minutes, 27 seconds, and 67 hundredths. Also, similar to other users, I’m skeptical whether a minimum resolution of 1/100s can precisely capture a 5/100s time difference."
+    },
+    {
+      "comment_id": 396989431550678,
+      "user_name": "RAec5gNSD9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Thank you all, this discussion has been very helpful for me."
+    },
+    {
+      "comment_id": 871184463379314,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hello. Please clarify a couple of points from your previous example (thanks for sharing!). What is the function of amplifiers labeled B29, B30, and B31? How is a difference window of -50ms and +50ms managed? Thanks in advance."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The original poster is trying to compare time differences between two Stopwatch functions and trigger a fault if the gap exceeds a certain threshold. The discussion identifies practical barriers: the hardware/software analog comparator’s 16-bit limit compared to the Stopwatch’s 32-bit value, and the Stopwatch’s resolution of only 1/100s, making it tricky to measure short intervals exactly. Participants suggest various concepts and clarify implementation details, but agree on the constraints and do not provide a straightforward, functioning solution.",
+    "user_expectations": "The user is looking for an accurate and dependable method to compare time measurements from Stopwatch functions—alerting when the time gap crosses a specified threshold (such as 50ms) and reliably flagging such cases.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate timing",
+      "automatic failure detection",
+      "easy comparison"
+    ],
+    "pain_keywords": [
+      "comparator bit width limit",
+      "low time resolution",
+      "usability confusion"
+    ],
+    "feature_keywords": [
+      "Stopwatch block",
+      "Analog comparator",
+      "timing threshold"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "10": "Performance Predictability"
+  }
+}

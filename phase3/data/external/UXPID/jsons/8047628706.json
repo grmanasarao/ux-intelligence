@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "8047628706",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 611302567183927,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Has anyone worked with the Hour-Counter in the [product_name] [article_no] version? It doesn't seem to register any durations of 1 minute or less. In the earlier [article_no] version, the counter would also register seconds—so 3600 instances of 1-second signals were counted as one hour. Now, each period must be at least 1.01 minutes to be counted."
+    },
+    {
+      "comment_id": 392044017057872,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Hello, even with [product_name] 6, the Operating Hour Counter did not register seconds. If the signal stays at \"1\" for more than 40 seconds, the counter registers one minute. So, if you have a sequence with a 40-second \"1\" and then some \"0\", each time the counter records one minute. This results in a delay of up to around 20 seconds per minute. Nevertheless, I still prefer how [product_name] 8 counts, as it’s meant to be an operating hour counter, not a seconds counter."
+    },
+    {
+      "comment_id": 868141882247598,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "I also ran tests using the [product_name] [article_no] version. 1) In simulation mode, with an exact 60-second signal, the operating hours counter recognizes one minute. 2) On an actual device with exactly 60 seconds, the counter does not increment. 3) With a real device, if you have 60 seconds plus 0.01, so 60.01 seconds, the counter then records one minute."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have found that the Hour Counter in the latest [product_name] [article_no] version behaves differently than before. Now, the counter only registers periods longer than approximately 1.01 minutes, reducing flexibility for shorter intervals. Prior versions could count seconds, making them more precise for varied timing scenarios. Differences between simulation and real device behavior are creating confusion among users.",
+    "user_expectations": "Users expect the Hour Counter to register intervals as short as one second as in earlier versions. They desire accurate and flexible time tracking, regardless of the duration of each period.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate time tracking",
+      "short interval counting",
+      "consistency with previous versions"
+    ],
+    "pain_keywords": [
+      "interval limitation",
+      "inconsistency",
+      "loss of fine time resolution"
+    ],
+    "feature_keywords": [
+      "Hour Counter",
+      "minimum interval",
+      "time measurement"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

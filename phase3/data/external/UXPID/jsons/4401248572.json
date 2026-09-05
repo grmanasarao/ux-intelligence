@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "4401248572",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 320570042598011,
+      "user_name": "9c9zz7tUEb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, I'm a bit confused. I'm trying to use a [product_name] as a wire-out meter for a small winch, which uses a rotary quadrature encoder producing 25 pulses per revolution. The drum operates at a maximum of one revolution per second. My setup includes a [article_no] model, and I've connected the encoder to inputs 3 and 4. Phase 1 is wired to the direction input of an up/down counter, while Phase 2 is wired to the counting input. At very slow speeds, everything works properly, but increasing the speed causes missed pulses and incorrect counts, especially with direction changes. Oscilloscope readings show clean signals, and swapping the encoder phases or counter inputs only reverses direction detection, not the underlying issue. I believe the frequency input should be sufficient, yet the problem persists with no other function blocks between the encoder and the counter inputs. I’m wondering if only the Count pin supports high-frequency input and if a quadrature clock converter chip between my encoder and [product_name] might help? Any advice is welcome. Regards"
+    },
+    {
+      "comment_id": 703406517158421,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "The counting input is specifically designed for high-frequency signal evaluation, but only if connected directly to the fast input of the [product_name], without any intermediate logic block in between. Using a logic block like an AND circuit makes the counting cycle-dependent. The other counter inputs such as reset and direction are not equipped for fast input signals."
+    },
+    {
+      "comment_id": 348064193288097,
+      "user_name": "9c9zz7tUEb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "That explains the issue! Thanks for clarifying. I'll consider using a quadrature decoder chip to improve the setup. Thanks again."
+    },
+    {
+      "comment_id": 974391123537276,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Using [product_name] alone is not ideal for directly connecting rotary encoders."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encounters missed pulses and incorrect counts when connecting a rotary quadrature encoder to a [product_name], especially at anything but very slow rotations. Although signal inputs appear clean, the platform struggles with direction changes and higher pulse rates, suggesting that input processing speed—particularly for direction detection—is insufficient.",
+    "user_expectations": "The user anticipated that the [product_name] could reliably register all pulses and direction changes from a rotary encoder within the specified frequency range, including with moderately fast or dynamic inputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate pulse counting",
+      "reliable direction detection",
+      "real-time encoder interfacing"
+    ],
+    "pain_keywords": [
+      "missed pulses",
+      "input speed limitation",
+      "incorrect direction detection"
+    ],
+    "feature_keywords": [
+      "fast input processing",
+      "up/down counter",
+      "rotary encoder support"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

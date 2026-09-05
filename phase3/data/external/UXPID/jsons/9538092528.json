@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "9538092528",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 826221982542768,
+      "user_name": "byk4caY8FO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "I have a battery-powered sensor sending results via WiFi to a [product_name] controller. If the sensor's software loop is set to 500 ms, the results are received correctly by the controller. However, increasing the loop time to 1 second for battery savings causes noticeable delays before the controller registers the data. Is there a way to extend a timeout on the controller to tolerate slower Modbus responses? On my PC Modbus test software, I can set timeouts up to 30 seconds; I would like to achieve similar functionality with the controller."
+    },
+    {
+      "comment_id": 174772197423554,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "No, this option is not available."
+    },
+    {
+      "comment_id": 179202924578264,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "Hello, it depends on your Modbus setup. If the [product_name] controller acts as the Modbus client, you can configure how frequently it synchronizes with the Modbus server. This information may assist you further."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The issue involves a sensor sending data at longer intervals to conserve battery, which causes delays in data reception on the [product_name] controller using Modbus. Unlike PC-based Modbus tools with configurable response timeouts, the controller lacks such flexibility, limiting its use in low-power or infrequent sensor scenarios.",
+    "user_expectations": "User seeks the ability to adjust Modbus response timeouts on the [product_name] controller to support slower sensor updates, similar to the options available in PC-based utilities.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "flexible Modbus timeout",
+      "better compatibility with slow sensors",
+      "battery conservation"
+    ],
+    "pain_keywords": [
+      "fixed Modbus timeout",
+      "delayed data updates",
+      "usability limitation"
+    ],
+    "feature_keywords": [
+      "Modbus timeout setting",
+      "response interval",
+      "polling frequency"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

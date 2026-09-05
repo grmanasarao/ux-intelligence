@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "1084790270",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 375302922773140,
+      "user_name": "OVQ9QeROIZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hi, I'm working on a program and facing an issue. I need to generate a synchronous pulse when the off-delay timer reaches 10 minutes remaining. If I use a pushbutton to increase the setpoint of the off-delay while there are 10 minutes left, the pulse should reset, and once there are 10 minutes left again, it should pulse once more. Is this feasible?"
+    },
+    {
+      "comment_id": 680295591425247,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "You could use two off-delay timers. Set Timer 1 to total time minus 10 minutes, and Timer 2 to 10 minutes. Arrange them sequentially for a signal when there are 10 minutes remaining. Check the attachment and try using seconds for testing purposes."
+    },
+    {
+      "comment_id": 426734815623497,
+      "user_name": "OVQ9QeROIZ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "That approach works, but here's the challenge: a counter tracks the input minutes, but even when it's under 10 minutes, you can still modify the master off-delay timer's setpoint, even as it's running. How can I generate a pulse each time the remaining time drops below 10 minutes, and stop the pulse when the setpoint changes back above 10 minutes, repeating this pattern? It's tricky to explain, but I hope someone can help."
+    },
+    {
+      "comment_id": 573140056692145,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I'm not completely sure what you're asking, as my English skills are limited, but I tried to understand your goal. Is this what you meant?"
+    },
+    {
+      "comment_id": 223616581865321,
+      "user_name": "OVQ9QeROIZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "No, but it's a start. My intent is when the last 10 seconds begin, you should still be able to change the setpoint. If, during these final 10 seconds, you increase the time (e.g., with your program's I1), the signal to Q2 stops. When it's above 10 seconds, and then drops below again, the signal to Q2 restarts. Do you follow? It's complicated, which is why I posted here."
+    },
+    {
+      "comment_id": 418673252683341,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "There are some difficulties: 1) My English isn't very strong; 2) I'm not sure I fully understand your needs; 3) You can't stop off-delay timers in [product_name] programs. I created a time-delay on setup, using AND and OR blocks to simulate a stoppable off-delay; 4) The remaining time isn't accessible in [product_name], only in specific versions with virtual addresses; 5) I think this version of the program is a bit closer to what you want."
+    },
+    {
+      "comment_id": 407187223940804,
+      "user_name": "OVQ9QeROIZ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I don't understand the program you sent, because the on-delay b010 keeps running. I'm not sure what you're trying to show me. I am using the latest [product_name] version 8 ([article_no])."
+    },
+    {
+      "comment_id": 874264997991789,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "B010 is set to minutes, so it's a long wait. You should start over. Create a pulse using an asynchronous pulse block—one pulse per minute, or use seconds for testing. Build time delay timers in combination with counters that operate with the pulse block. This way, you can stop, start, or reset as needed, and monitor the remaining time."
+    },
+    {
+      "comment_id": 403290755369208,
+      "user_name": "OVQ9QeROIZ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I think I understand a bit now. Would you be able to make a sample program so it's clear what you mean? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 528060352071429,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "It should look something like this. It's not perfect—I need to go to bed now and will be busy tomorrow. If issues arise, please be patient for a few days. Test it out. It starts imperfectly—when I3 is off and power is on, it starts with one time delay."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to build a flexible pulse generation routine connected to an off-delay timer in [product_name], so the pulse logic adapts to setpoint changes during runtime. The key challenge highlighted is the limited ability to access the remaining time of off-delay timers with [product_name], which complicates dynamic pulse generation. Language barriers and difficulties explaining logic are also slowing progress.",
+    "user_expectations": "The user expects to flexibly generate pulses exactly 10 minutes before an off-delay ends, with these pulses resetting and reoccurring as the setpoint rises above or falls below the 10-minute threshold in real time.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dynamic timing",
+      "flexible pulse logic",
+      "setpoint adjustability"
+    ],
+    "pain_keywords": [
+      "timer logic limitations",
+      "lack of remaining time access",
+      "communication difficulty"
+    ],
+    "feature_keywords": [
+      "off-delay timer",
+      "pulse generation",
+      "setpoint change handling",
+      "remaining time readable"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

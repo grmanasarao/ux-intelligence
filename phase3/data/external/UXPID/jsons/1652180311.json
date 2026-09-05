@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "branch_id": "1652180311",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 414720259724292,
+      "user_name": "drf7jObOL3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Hello, I tried connecting a second Modbus client to the [product_name] server port (such as 503) while one client was already connected. The connection failed until I disconnected the existing client, after which the second client connected successfully. Is there a restriction of a single client per server port (502-509)? Can this limit be changed or is it permanent? Thanks in advance."
+    },
+    {
+      "comment_id": 838045644007361,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "No, the port numbers are set and cannot be changed."
+    },
+    {
+      "comment_id": 348136972948983,
+      "user_name": "drf7jObOL3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Yes, of course. I am asking whether multiple clients can connect to a single port (such as 502) at the same time or if it only allows one client per port simultaneously."
+    },
+    {
+      "comment_id": 190102170740263,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "How have you configured the connection? Please upload your program or share screenshots."
+    },
+    {
+      "comment_id": 938474826638809,
+      "user_name": "drf7jObOL3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Here you go:"
+    },
+    {
+      "comment_id": 102036990769964,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Hmm... In this situation, I don't think you can enter information for multiple connections in the list. If requests come from different clients, how would the [product_name] know which client is making each request? What's your objective? Are you trying to allow multiple clients to write to the same variable?"
+    },
+    {
+      "comment_id": 310269295652133,
+      "user_name": "drf7jObOL3",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "No, I just want several clients to read the same variable. For example, consider a photovoltaic (PV) system, where the [product_name] reads Modbus variables about power availability and sets variables for smart loads that can be enabled based on other inputs. Every load should be able to read the same variable so it activates depending on the available PV power at a specific time. That's the goal: one producer of information and multiple consumers."
+    },
+    {
+      "comment_id": 132598437030898,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "That's the concept. But not everything that is theoretically possible can be implemented in practice. I’m sorry, I’m uncertain here as I haven't tried this setup with [product_name]. It might be helpful to submit a support request."
+    },
+    {
+      "comment_id": 709343630625008,
+      "user_name": "drf7jObOL3",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Understood. It seems there can only be one active connection for each logical server port. With 8 logical ports, I can connect up to 8 devices simultaneously, each on ports 502 through 509. If multiple devices need to connect to a single port, I'd have to manage connections for each one individually. That's fine. Thanks for your help."
+    },
+    {
+      "comment_id": 495554223834382,
+      "user_name": "vcTLbq3fOG",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I’m working on a similar setup for a project to utilize excess power in a PV system instead of sending it to the grid. Did you manage to resolve this? Was your system grid-tied or off-grid?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have found that only one Modbus client can connect to a [product_name] server port at a time, preventing multiple clients from accessing the same variable simultaneously on a single port. The port numbers are fixed, and the [product_name] allows only one active connection per logical port. To enable multiple consumers, users need to manage separate connection cycles. There is a desire for multi-client connectivity, especially for scenarios where shared monitoring or control data is needed.",
+    "user_expectations": "Users expect support for multiple simultaneous client connections to a single Modbus server port on the [product_name], allowing several clients to read the same data variable at once.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "multi-client access",
+      "data sharing",
+      "parallel reading"
+    ],
+    "pain_keywords": [
+      "single-client limitation",
+      "connection failure",
+      "port scalability"
+    ],
+    "feature_keywords": [
+      "Modbus server port",
+      "client connections",
+      "simultaneous access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

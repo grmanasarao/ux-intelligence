@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "7444958660",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 317103749126460,
+      "user_name": "qkGF7v4Dif",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm trying to access the standard virtual memory (VM) address of a [product_name] module using an Ewon Flexy 205. Reading digital inputs or outputs works fine with the S7 protocol (similar to accessing digital inputs through Ewon using the S73&400 method). However, reading the actual VM mapping directly isn't working. I can't retrieve flags or analog values. For instance, IA3 in the [product_name] is an analog input for level measurement, and according to the VM mapping, it should be at VM1036. Ewon offers modifiers like I, C, T, M... I've tried MW1036 and various other addresses and modifiers, but keep getting unusable results—random numbers like 0, -1, or 65284. Communication is happening, but I can't find the correct mapping address. Are the addresses shifted somehow? It seems the VM mapping might be accessible but not with the addresses listed in the PDF document. Thanks in advance for any help!"
+    },
+    {
+      "comment_id": 203428952675860,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "You can externally access the VM area as an S7 data block by using DB1. I'm not certain about the exact syntax required by Ewon, but in your situation, VW1036 (for AI3) would translate to DB1 with DBW1036."
+    },
+    {
+      "comment_id": 205020257361520,
+      "user_name": "qkGF7v4Dif",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "It's really straightforward once you know how—many thanks for your help! Using DB1W1036, I was able to read the level measurement perfectly. It makes sense to use a DB for this, but the help documentation doesn't mention \"use DB1W***\"—or at least I couldn't find it. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 198837166804969,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Glad I could assist!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced challenges in accessing virtual memory areas on a [product_name] module using the S7 protocol with an Ewon Flexy 205. While digital I/O data was accessible, flags and analog inputs were not retrievable using documented VM mappings, leading to confusing results. The workaround involved treating the VM area as S7 data block DB1 with the proper address syntax, which resolved the issue instantly. This points to inconsistencies or gaps in documentation regarding internal memory mapping and third-party integrations.",
+    "user_expectations": "The user expects clear, reliable documentation for accessing internal memory areas (VM mapping) on [product_name] devices using standard protocols with third-party hardware. They want analog and flag data addresses in manuals and help files to match actual usage, allowing straightforward setup without ambiguity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable VM access",
+      "analog value retrieval",
+      "integration with external devices"
+    ],
+    "pain_keywords": [
+      "documentation gap",
+      "address mapping confusion",
+      "integration hurdle"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "S7 protocol",
+      "analog input read",
+      "data block addressing"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

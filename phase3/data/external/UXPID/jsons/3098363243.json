@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "3098363243",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 917614905124624,
+      "user_name": "8hbF1crrLy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I have a program running on [product_name] Main PLC [article_no] ([product_name] variant, with 8 digital (4 analog) inputs and 4 digital outputs), together with an expansion unit [article_no] ([product_name] expansion module featuring digital IO). Is there a way to check if the expansion module is present using the software? I'd like to hide message boxes related only to the expansion module. Currently, I have sets of message boxes linked to high flags, but I want to make one of those flags depend on the presence of the expansion."
+    },
+    {
+      "comment_id": 164914032086250,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "You could use a digital network input evaluated as a diagnostic bit. Errors that can be detected include: - Ethernet link issues, - Expansion module changes, - SD card read/write issues, - SD card missing, - SD card full. Maybe the 'Expansion module has changed' option could be used for your scenario."
+    },
+    {
+      "comment_id": 659502045841119,
+      "user_name": "8hbF1crrLy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "That sounds promising. Would it mean the system could detect the expansion module added while the program is active? If so, I might be able to use a set/reset arrangement to enable or disable message boxes depending on whether the expansion module is present."
+    },
+    {
+      "comment_id": 703718476254967,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I'm not sure it's possible to add a module while the [product_name] is operating or changing. Personally, I wouldn't recommend trying it."
+    },
+    {
+      "comment_id": 764219381303735,
+      "user_name": "8hbF1crrLy",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Thanks for that advice. Unless there's a better solution, I think I'll simply use an additional digital input set to high in order to enable the extra message texts."
+    },
+    {
+      "comment_id": 193452834164829,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "In your situation, I'd suggest experimenting with the expansion module. If detection doesn't work as desired, you can then proceed with your backup plan."
+    },
+    {
+      "comment_id": 541556418352559,
+      "user_name": "8hbF1crrLy",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I've decided to use a softkey to control groups of message boxes, running a high flag through the softkey. This way, various softkeys on the configuration message can enable or disable different groups of message texts."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are trying to find a way to automatically detect the presence of an expansion module in [product_name] systems to show or hide message-specific UI elements. There’s interest in automating this process instead of relying on manual flag settings. Proposed solutions include using diagnostic bits or resorting to manual digital input methods, suggesting there is no straightforward software solution available for automatic detection.",
+    "user_expectations": "The user hopes to achieve automated detection of an expansion module through software, which would allow message sets to be enabled or disabled without needing manual intervention.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated detection",
+      "dynamic UI",
+      "error-free operation"
+    ],
+    "pain_keywords": [
+      "manual configuration",
+      "lack of auto-detection",
+      "unclear diagnostics"
+    ],
+    "feature_keywords": [
+      "expansion module presence flag",
+      "diagnostic bit",
+      "message box enable/disable",
+      "softkey grouping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "1089365072",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 323885075094736,
+      "user_name": "bxgLOSUvBC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Apologies if my question is unclear or the translation isn’t perfect. I’m new to working with [product_name]. Is it possible to map the value of a counter, or retrieve that value to an analog module since these can be mapped? Thank you for any help."
+    },
+    {
+      "comment_id": 420680601191861,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "The value from a counter is a 32-bit DINT, while an analog flag accepts a 16-bit INT. You can transfer the value only if the counter stays below 32,767; otherwise, VM mapping is needed. Could you specify exactly where you intend to transfer the value?"
+    },
+    {
+      "comment_id": 625680118754946,
+      "user_name": "bxgLOSUvBC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I want to count parts in a mostly manual station and connect this to a matrix OPC for visualization in a SCADA ignition system."
+    },
+    {
+      "comment_id": 221995816929159,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "If OPC can communicate with the [product_name] controller via S7 protocol, you can use Parameter-VM-Mapping to accomplish this."
+    },
+    {
+      "comment_id": 403629245821369,
+      "user_name": "bxgLOSUvBC",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "That method works. Problem solved, thank you."
+    },
+    {
+      "comment_id": 342208516870111,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], you're welcome."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The primary concern arises when mapping the value of a counter from a [company_name] [product_name] controller to a SCADA system using OPC. Users were uncertain about data type compatibility and value range limits between counters and analog flags. Technical guidance from the community resolved these uncertainties, especially relating to protocol-based data mapping options.",
+    "user_expectations": "Users seek a straightforward way to read and map counter values from the [company_name] [product_name] controller for use within an external SCADA platform using OPC protocol.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data integration",
+      "SCADA visualization",
+      "OPC communication"
+    ],
+    "pain_keywords": [
+      "data type conversion",
+      "counter mapping",
+      "protocol compatibility"
+    ],
+    "feature_keywords": [
+      "counter value mapping",
+      "analog flag",
+      "VM mapping",
+      "S7 protocol"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

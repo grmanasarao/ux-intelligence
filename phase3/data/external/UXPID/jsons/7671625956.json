@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "branch_id": "7671625956",
+    "thread_id": "4479534060",
+    "publication_year": 2009,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 649643961555261,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Beam me up Scottie! Preferably through GSM remote service to my [product_name]. PSTN/Fixed Line Remote Service ========================= A similar method was demonstrated for [product_name] back in October 2003 for [article_no] (refer to attached zip file). The documentation outlines some insights on communication—like how crossover Tx & Rx means modem DCE to [product_name] DTE, and how modem AT command settings are relevant. This process was later replaced with the Modem Cable and Wizard in [product_name] V6, but essentially, the fundamental checks remain—review COM port settings and validate the modem cable with a multimeter. GSM-Based Remote Service ===================== This has been an ongoing topic. Here are some details I've gathered, hoping others might contribute more experiences or information. I've investigated this for several years and identified three main challenges: 1) 11-bit GSM modem support Although this is typically cited as the primary issue, other factors may also contribute. Most GSM modems support only 10-bit character framing such as 8N1 or 7E1 (with configurations for start bit, data bits, parity, and stop bit). Some modems can be configured with AT commands to change this setup, and a few even allow 11-bit communication on the RS232 side (PC & [product_name] interface) while maintaining 10-bit communication over GSM. Many modem manufacturers use a 'wireless module' or 'cellular engine' from companies like: - [company_name] (now Centerion) - Wavecom/Sierra Wireless - Sagem - Motorola - Telit - Sony Ericsson Check whether these support 11-bit protocol and how to configure their AT commands accordingly. [product_name] typically requires 8E1 industrial framing (start bit, 8 data bits, EVEN parity, and stop bit), offering basic error detection and correction. Some industrial modems are capable of 11-bit framing (see attached file), though I haven’t personally tested or verified their internal modules. 2) Synchronous vs. Asynchronous Communication Synchronous communication uses extra handshaking lines for the devices to synchronize clocks and coordinate data transmission statuses. Asynchronous methods do not synchronize transfer rates, requiring one side to interpret the flow and timing of bits without explicit coordination. More details can be found in the attached document and further explained through external sources like Wikipedia. Adapter wiring suggests asynchronous communication, though specific AT modem settings may introduce some confusion. See attached documentation for more details. 3) Transparent vs. Non-Transparent Data Transfer Excerpts from a cellular provider (included in the documentation) help explain this further. The Radio Link Protocol (RLP) used in non-transparent mode introduces network-based error correction, which could impact communication reliability with [product_name]. Non-transparent communication employs RLP for enhanced error correction and data integrity, utilizing acknowledgement signals and buffering to ensure an uninterrupted transmission. Transparent data, on the other hand, means no additional GSM-side error correction. Not all cellphones and modems support non-transparent (RLP-based) transmission. Faxing standards (Group 3) use transparent protocols. That’s all for now—please share any further clarifications or experiences."
+    },
+    {
+      "comment_id": 193671307623212,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], Just wanted to acknowledge your insights and experience. I don’t think there’s much more to add. Thank you for sharing this information—it’s undoubtedly useful. Your attachment was downloaded 12 times in one day, which says a lot! Keep up the good work. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 175151841052794,
+      "user_name": "YAA2TKY8oF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Hello Barbarian, Just want to \"\"comment\"\" your expirience and knoledges. I don't know who could add something. Thank you for share all this information here. I hope that this is helpful. And for a one day your attachment was downloded 12 times. I think this is more then commnents. Keep Walking! Best regards, Hristo Mihalev"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread discusses recurring technical difficulties with implementing GSM-based remote service for [product_name], focusing on modem protocol issues such as 11-bit framing, synchronous vs. asynchronous communication, and transparent vs. non-transparent data transmission. Industrial users face barriers due to limited documentation and unclear modem compatibility, especially when compared with established PSTN methods. No confirmed solutions are provided, highlighting a continued gap in support and reliable technical guidance.",
+    "user_expectations": "[product_name] users seek stable and clear documentation for setting up GSM-based remote Teleservice, including definitive modem compatibility guidelines and configuration instructions.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote access",
+      "GSM connectivity",
+      "reliable Teleservice",
+      "modem compatibility"
+    ],
+    "pain_keywords": [
+      "configuration complexity",
+      "compatibility issues",
+      "lack of tested solutions",
+      "protocol barrier",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "GSM Teleservice",
+      "modem setting",
+      "character framing",
+      "asynchronous/synchronous modes",
+      "error correction"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

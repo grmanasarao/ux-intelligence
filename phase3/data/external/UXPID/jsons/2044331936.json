@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "branch_id": "2044331936",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 245717866993087,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello all! I'm new to programming, though I've learned the basics from my automation courses. I'm facing an issue that's really frustrating. I'm using a [product_name] controller and a 0-250mbar pressure sensor, but I don't have the calibration unit for it ([company_name] PL2058). I'm working with [product_name] software version [version_no]. The sensor isn't quite right for my needs due to its coarse resolution, and budget constraints mean I can't replace it. It outputs between 3.69 mA and 5.49 mA in the working range I'm interested in. I have a [product_name] controller without display, plus an external [product_name] display. My program runs, but adapting the sensor's limited span to the [product_name] logic isn't working out. I want to show the 3.69 - 5.49 mA as a 0-100% bar graph (just the bar, no numbers), since I need adjustable setpoints to control a pump and valve. No matter what I try, it still only reads the normal 4-20mA range from my test signals. If anyone could advise or point me in the right direction, I'd really appreciate it. Thanks in advance, [user_name]"
+    },
+    {
+      "comment_id": 803978691768393,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], welcome to the forum. According to the sensor's datasheet, the output signal is 4-20 mA, so it shouldn't be evaluating from 3.69 mA to 5.49 mA—4 mA is the minimum. How are you getting a reading below 4 mA? Maybe the sensor isn't wired correctly?"
+    },
+    {
+      "comment_id": 589622198858519,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Thank you! I've already learned a lot here. As for getting 3.69 mA, I'm just guessing—it could be a faulty sensor. I'll double-check my wiring. Maybe the sensor's just poorly scaled, or it got damaged in storage. I connected it to 24 VDC: L+ to +, L- to -, and for analog output, I wired the remaining lead to +, L- to -. I may be wrong—I need to inspect more closely. Thanks again for your help!"
+    },
+    {
+      "comment_id": 586916068169466,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Is the sensor powered by the same voltage supply as the [product_name] controller? How did you wire the sensor? Did you connect it to the base unit or to an analog module like AM2? I’ll need more precise details to help."
+    },
+    {
+      "comment_id": 472427353053992,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Absolutely. The sensor gets powered by the [product_name] power supply, same as the PLC. It connects to the input of an AM2 module, which links to the [product_name] base by built-in connector and works fine. Supplying 4-20mA from a test meter works with no issues."
+    },
+    {
+      "comment_id": 234074138359305,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "If your wiring was correct, you shouldn't see values below 4 mA. Which AM2 terminal did you connect the sensor output to? The usual scheme is: sensor pin 1 to +24 VDC, pin 3 to 0 VDC, pin 2 to analog input (I1 or I2) on AM2. The M-terminal of the analog input (M1/M2) goes to 0 VDC of the power supply."
+    },
+    {
+      "comment_id": 855357719199648,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 750597185770276,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Then there's likely a fault with the sensor."
+    },
+    {
+      "comment_id": 157610270200779,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Turns out the sensor is faulty. Thank you so much for your help—it made a big difference for me today! I'll definitely recommend you. Time to order a new sensor."
+    },
+    {
+      "comment_id": 788859617776493,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Have you tried resetting the sensor to its factory settings? It might help."
+    },
+    {
+      "comment_id": 639676737991333,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I wish I could, but I don’t have the calibration tool (like pp2001) required for that. The sensor itself has no buttons, and I haven’t found any workaround online despite all my searching. Thanks for suggesting it, though."
+    },
+    {
+      "comment_id": 974200044004598,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "That's unfortunate. For reference, here's more info: [url]"
+    },
+    {
+      "comment_id": 490564705019680,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Every automation enthusiast dreams of equipment like that—and having a Hart."
+    },
+    {
+      "comment_id": 850680425845209,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello again! I have to admit, I made a mistake—I measured the mA signal on the wrong terminals. The realization hit me this morning, so I quickly checked at work and confirmed it. Now, back to my original challenge: I’ve got a 0-250mbar pressure sensor, and I only need to use a small portion of its range in my program. I’m working with a 5-liter water tank. The sensor reads 4.018 mA at 0 liters and 6.245 mA at 5 liters. I’m using [product_name] and a TDE, with a bar graph showing 0% at 4.018 mA and 100% at 6.245 mA. How should I scale my analog input and amplifier blocks in [product_name] software so this works? Any suggestions are welcome—I feel stuck and mentally exhausted. My program also uses two comparators to start/stop the pump, plus code to change the tank filling level with F-buttons. Your help here is invaluable."
+    },
+    {
+      "comment_id": 436893086925952,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I've attached a small program for [product_name]. It scales 4-20 mA to 0-250 mbar: 4 mA is 0 mbar, 6.245 mA is about 35 mbar. The 0-35 mbar range is mapped to 0-5000 ml after filtering."
+    },
+    {
+      "comment_id": 412231736414031,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Wow, that's way more help than I expected—thank you! Now I can finally make this work, once I study your references. As mentioned, I’m just an amateur."
+    },
+    {
+      "comment_id": 387077647792212,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Thanks again for all your help! One last question: can I use Fig. 1 from this page to change my tank’s max level? I tried using the \"B004 LIMIT MAX\" block from your Tank_Volume suggestion but it doesn’t respond correctly to changes from the setpoint code. I'd like the TDE’s F-buttons to adjust max level in percent, but I may be in too deep. The TDE responds to setpoint changes—I used this in an older program—but I can’t unify the 0-100% numbers with B004 from the Tank Volume code. Any advice? Apologies if I’m not making sense."
+    },
+    {
+      "comment_id": 738448364427408,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "The B004 block just calculates the level; it isn't linked with controlling the maximum level. The B003 and B004 triggers filter the display range—0 to 35 mbar mapped to 0-5000 ml. To use the fill level for control, take the value measured in ml and compare it with your setpoint. If the level matches or exceeds the setpoint, stop the pump. If you'd like an example, let me know which keys to use for the setpoint adjuster."
+    },
+    {
+      "comment_id": 127175336511254,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I'll reach out tomorrow—I'm in a rush now."
+    },
+    {
+      "comment_id": 998378392860915,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Morning! An example would be great. I want to use F1 (up) and F2 (down) keys. The setpoint can display in ml, percent isn’t needed. A default should be 2500 ml, so users don’t need endless button presses. My TDE should show: Main page (already working) with two sensors for ml and liters. One of my codes for counting 0-2000 liters moves fine up to 1999.0, then jumps to 200.0—odd. F4 changes to the 'alter setpoint' page, where I want PV and SP shown on separate lines, with F1/F2 for changing the SP value. Enter confirms. I hope that's enough explanation—very excited to see suggestions."
+    },
+    {
+      "comment_id": 233928098128159,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "It’s fixed! Your explanation clarified what the code actually does, which solved my issue. I misunderstood at first."
+    },
+    {
+      "comment_id": 815628130124655,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "If you change the setpoint using a counter, no need to confirm with enter."
+    },
+    {
+      "comment_id": 277720527682961,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "This is mainly for user convenience—pressing enter would return the TDE to the main page."
+    },
+    {
+      "comment_id": 682653305418405,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "That isn't possible. You can't access the ENTER or ESC key status in the [product_name] program—only F keys are available."
+    },
+    {
+      "comment_id": 795883440709010,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Is it different using a [product_name] without screen but a TDE for display? I seem to have programmed a way to move between screens with the F4 button, and use F1/F2 for setpoint changes with up/down counter logic (like in the 'Heater' example), and enter returns to the main window. Is this impossible as you say? I used messages and priorities to make this mechanism work, using 'acknowledge message' to switch back. Please say if I need to change anything. Anyway, my main challenge is letting users change the tank's max fluid amount. The span is 0-5000 ml, but max level needs to be adjustable. Display formatting is a separate question—I can display everything on one screen if necessary."
+    },
+    {
+      "comment_id": 372525140751930,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "The TDE isn't really an HMI. You can't switch screens directly by pressing a button—you have to use logic in [product_name] to handle F-button triggers, then set/reset memory accordingly. Check the example I attached for adjusting a setpoint with counters and F-buttons, including a starting default value. See if that fits your needs."
+    },
+    {
+      "comment_id": 963431063919101,
+      "user_name": "XDjEBbhk5j",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Indeed, learning never stops. My automation instructor always told me I tend to overthink things—this was one of those times. Your solution is much simpler than I would have come up with. Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user had difficulty adapting a third-party pressure sensor with a limited and incorrect signal range to a [company_name] controller setup, leading to issues with input mapping for process control and display. The main issue turned out to be a faulty sensor, not the hardware or software from [company_name]. Standard modules such as the [product_name] controller and analog expansion module operated correctly when provided proper signals.",
+    "user_expectations": "The user anticipated they could accurately read and scale the sensor output within the [product_name] system—even with the sensor's limited range—so they could visualize process values and implement automated control functions. They wanted to easily adapt input data to a bar graph display, and conveniently change setpoints for controlling tank filling and related operations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct input scaling",
+      "visualization",
+      "setpoint adjustment",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "incorrect sensor reading",
+      "nonstandard sensor compatibility",
+      "difficult diagnostics"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "bar graph display",
+      "setpoint adjustment"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

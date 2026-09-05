@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "8383551772",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 900319767030301,
+      "user_name": "kyzQjgD5XS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], I have a [product_name], version [version_no], and I'm using [product_name] software version [version_no]. I am planning to purchase a flow sensor (yf-s402) as described here: [url]. The sensor outputs 4380 pulses per liter via a Hall Sensor. For each pulse, the high level is above 4.7V with 5V DC input, and the low level is below 0.5V at 5V DC. For the [product_name] controller with a 12/24V version, the digital inputs are: - low level: less than or equal to 5V - high level: at least 8.5V Given 4380 pulses per liter/min, that's about 73 pulses/sec. I'm planning to connect this to input I3 and will set the simulator to 73Hz. Will a high pulse of 4.7V allow I3 to detect the input? Does the controller register 4.7V as a logic high? Thank you. --- Split from 'Flow measuring with water meter.'"
+    },
+    {
+      "comment_id": 773134305874682,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "No, the digital input of the [product_name] sees 4.7VDC as a logic low. You can use an optocoupler between the sensor's output and the digital input to adapt the signal. What is the operating voltage of your flow meter? Is it 5VDC or something higher, like 5-12VDC or 5-24VDC?"
+    },
+    {
+      "comment_id": 863325265896468,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], Wouldn't it be better to select a sensor that is directly compatible with the [product_name]? If the sensor provides analog output, you could avoid converting pulses to flowrate (see example). Regards, [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 352198555487059,
+      "user_name": "kyzQjgD5XS",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], sorry for my basic question about logic levels. I bought the meter, and just in case, also got a PC817C optocoupler. It didn't work since its input needs at least 50mA and the meter can only handle up to 10mA. Additionally, the optocoupler has a current gain. The controller runs at 24V, and I used a divider to feed 11V to the counter. The counter's output is 5.4V. Using a BC547 transistor where 5.4V is applied to the base and 20V sent to I5, everything operates correctly."
+    },
+    {
+      "comment_id": 879282023071009,
+      "user_name": "kyzQjgD5XS",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], this is just a test setup – mini pump, mini solenoid valves, multi-level soil moisture sensors, etc."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to connect a [product_name] controller to a third-party water flow sensor that outputs a digital signal below the controller's required high-level input voltage. Hardware solutions such as optocouplers and transistors are suggested to overcome the voltage mismatch. There is also consideration of using a sensor with analog output for easier integration, highlighting challenges when working with external sensors and [company_name] controllers.",
+    "user_expectations": "The user hopes to achieve reliable direct digital pulse input from the flow meter sensor to the [product_name] controller, preferring a straightforward solution without complex hardware adaptations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable pulse detection",
+      "easy sensor integration",
+      "experimental automation"
+    ],
+    "pain_keywords": [
+      "logic level incompatibility",
+      "sensor input threshold",
+      "hardware adaptation complexity"
+    ],
+    "feature_keywords": [
+      "digital input threshold",
+      "pulse counting",
+      "external sensor integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

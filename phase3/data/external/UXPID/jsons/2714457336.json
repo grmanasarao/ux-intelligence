@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "2714457336",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 613913405278503,
+      "user_name": "12sWvzzk3k",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Hello, I am considering the use of a [product_name] basic module [article_no] and an AM2 expansion module [article_no] for a water level control setup. The sensor is a two-wire 4 to 20mA HART (E+H) transmitter, model FMP51. My question is: can the AM2 analog input module connect to a 4 to 20mA HART signal, specifically to read the 4 to 20mA analog value? Thank you for your help. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 545644692918521,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], the short answer is that the AM2 expansion module cannot be used as a HART module. It operates only as an analog module. For more details, refer to the technical data: [url]. HART communication requires specific electronics, including a modem, which the AM2 does not have. For information on HART modules, see this Texas Instruments document: [url]. HART signals are superimposed FSK signals over 4-20mA analog messages ([url]). The AM2 simply reads analog input values and cannot interpret HART data. There are no HART-capable modules in the [product_name] offerings. If you need to process HART signals, consider a different platform, such as ET 200M or ET 200SP: • ET 200M HART analog input: [url] • ET 200SP HART analog input: [url]. Hope this helps. Also, as another user mentioned, if you only wish to read the analog signal and not HART variables, the AM2 module will work for analog measurement. Apologies for any confusion. D.C."
+    },
+    {
+      "comment_id": 656348318072340,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "HART protocol combines digital communication with an analog signal. From your description, you seem interested only in reading the 4-20mA analog value, not the digital portion. In this case, yes—the AM2 module can be used to read just the analog component. By design, the HART signal does not affect the analog measurement. For further information, see this discussion: [document]. Remember, your field device may require configuration via HART, which you might need to do using either a built-in interface or a handheld programmer. Be sure no control functions like PID are active in the instrument. Please consult your E+H supplier."
+    },
+    {
+      "comment_id": 429690333744634,
+      "user_name": "12sWvzzk3k",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Thank you for your guidance and information, which has been very helpful. My aim is to read analog input values, not HART variables. Considerations regarding instrument options and cost are also important. Best regards,"
+    },
+    {
+      "comment_id": 895056694023902,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "In the image you provided, is the selected product the one you actually ordered? If so, that item supports both analog and HART signals separately, which should address your concerns. Note that the internal analog resolution operates between values of 0 and 1000. Depending on your requirements, this resolution might not be sufficient."
+    },
+    {
+      "comment_id": 761113443731561,
+      "user_name": "12sWvzzk3k",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 123460090709347,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "We posted responses simultaneously. Please make sure not to miss my earlier answer as well as the updated information. Wishing you success with your project."
+    },
+    {
+      "comment_id": 156146212233459,
+      "user_name": "12sWvzzk3k",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], if you choose separate analog and HART capabilities, costs increase. Preferably, the basic two-wire 4-20mA HART signal (no extra cost) is sufficient for your application. The guided radar sensor is about 2000mm long in a 2 cubic meter tank, used for water level monitoring and pump control. Best regards,"
+    },
+    {
+      "comment_id": 152475873544619,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Your setup should work well for your needs. For example, detecting water depth between 1m and 2m means [product_name] will measure in increments of (2m - 1m)/1000, or 1mm steps. Since water movement is more than 1mm, you won't be switching the pump for tiny level changes. Issues may arise if you require a larger measurement range or are tasked with precise flow totalizing."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants clarified that the AM2 analog expansion module can capture the 4-20mA analog signal from a HART-enabled device but cannot process HART digital data, as it lacks the necessary modem. The discussion also mentioned possible resolution limitations that could affect precision in water level measurements. For full HART capability, other platforms were recommended.",
+    "user_expectations": "The user anticipates using the AM2 module to read basic 4-20mA analog outputs from a HART device for water level monitoring, in a cost-effective way without needing access to HART-specific digital features or investing in additional HART hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "cost-effective measurement",
+      "water level monitoring",
+      "simple analog integration",
+      "pump control"
+    ],
+    "pain_keywords": [
+      "no HART variable access",
+      "limited measurement resolution",
+      "additional cost for HART"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "4-20mA compatibility",
+      "resolution 0-1000"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "29": "Scalability Limitations"
+  }
+}

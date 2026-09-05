@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "5627932902",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 112250409787340,
+      "user_name": "gka9Haauyt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm attempting to connect to a [company_name] PLC using Excel alongside [product_name]. I can successfully show an input status in an Excel cell (0 = Low, 1 = High). My issue arises when I incorporate custom VBA code to display a UserForm in Excel if the cell value exceeds zero—this triggers a type mismatch error at the If statement in VBA. Interestingly, this error only occurs when [product_name] is used; my code works as expected without it. Is there any restriction in [product_name] that prevents combining other VBA code? Here's the relevant portion of my Excel VBA: Private Sub Workbook_SheetChange(ByVal Sh As Object, ByVal Target As Range) If Range(\"A1\").Value > 0 Then UserForm1.Show End If End Sub"
+    },
+    {
+      "comment_id": 687274474182740,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hi, A bit of a late reply, but to clarify: There’s no limitation in [product_name] that stops the use of other VBA code. The 'Type mismatch error' is caused when trying to assign or compare values of different types in VBA. Your code should function properly as long as the connection to the PLC via [product_name] is established and the cell contains either 0 or 1, rather than a non-numeric error like #VALUE!. Also, remember that Worksheet_Change events are only triggered when users directly modify worksheet cells—not when a cell changes due to recalculation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is integrating [product_name] with Excel to utilize live PLC data and invoke VBA UserForms based on cell values. Use of [product_name] seems to disrupt the VBA event framework, causing a type mismatch error, although the code operates correctly in its absence. Another contributor clarifies that there’s no fundamental incompatibility; the issue appears rooted in data types and Excel’s event handling, rather than a limitation of [product_name].",
+    "user_expectations": "The user anticipates [product_name] will interact smoothly with Excel VBA, supporting real-time PLC value monitoring and subsequent automated actions within Excel, free from compatibility errors.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "PLC monitoring in Excel",
+      "VBA automation",
+      "real-time data display"
+    ],
+    "pain_keywords": [
+      "integration error",
+      "VBA compatibility",
+      "Excel event handling"
+    ],
+    "feature_keywords": [
+      "Excel cell update",
+      "VBA event triggers",
+      "real-time data interface"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

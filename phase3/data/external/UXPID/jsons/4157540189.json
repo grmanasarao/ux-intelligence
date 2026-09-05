@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "4157540189",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 418247507729167,
+      "user_name": "DVKMI39rzb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "After creating /etc/sysconfig/network/ifcfg-eth0 on a Gentoo Linux system, I managed to get [product_name] [version_no] working. Appreciate the tip. However, another Gentoo installation is still not functioning, and I don't know why. The main interface is also eth0, so I set up an empty file there. Now I encounter 'java.lang.UnsupportedOperationException: adapter type is not support' as referenced in another thread. I notice more interfaces like wlo1 and vmnet1 are present but not in use; I created empty files for those too. Now I get 'java.lang.UnsatisfiedLinkError: /usr/lib64/rxtx-2/librxtxSerial-2.2pre1.so: undefined symbol: minor.' Linking appears correct here. ------------------------------------------------------------------------------------------ Split from Bug-report: Java error in [product_name] [version_no] linux ."
+    },
+    {
+      "comment_id": 544209218936472,
+      "user_name": "DVKMI39rzb",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "I might not have separated this from the original discussion, since it's related to the same issue: [product_name] is failing to detect the Ethernet interface. I'm puzzled as I have 4 setups—2 using Gentoo and 2 using OpenSuse LEAP. One Gentoo and one OpenSuse are functioning properly, but the other two show different errors on the Dialog Tools->Select Hardware. The current OpenSuse system reports 'cfg script file format is not support.' Usually, OpenSuse has /etc/sysconfig/network/ifcfg-eth0 along with other files in that location, but I tried an empty version as seen in working installations."
+    },
+    {
+      "comment_id": 890231022927632,
+      "user_name": "udO0a0woU9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], Linux Instructions: • Supports 32/64-Bit, Suse Linux 11.3 SP3, Kernel 3.0.76. The product has only been validated with this configuration, and we lack experience with your particular setup. Perhaps another user has experience with alternate systems? [company_name] Support."
+    },
+    {
+      "comment_id": 551605735164347,
+      "user_name": "DVKMI39rzb",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "I'm aware of that limitation. Yet, SLED is from 2009, and SP3’s security patches are from 2013, while [product_name] [version_no] was released in 2017 or 2018. Bug reports about newer OpenSuse LEAP versions have been declined, as well as OpenSuse 11.3 or SLES11SP1, which are compatible with SLED11. Since we got some distributions to work, the discrepancy should be minimal. But without any guidelines or definitions concerning /etc/sysconfig, troubleshooting becomes difficult."
+    },
+    {
+      "comment_id": 743197873978204,
+      "user_name": "DVKMI39rzb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "I've resolved this issue. Decompiling [document] explained a lot: this error appears when /etc/sysconfig/netsuse/ifcfg-eth0 is missing. Now I’ve created a symlink from /etc/sysconfig/netsuse/ to /etc/sysconfig/network/."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced several errors while attempting to use [product_name] [version_no] on Gentoo and OpenSuse Linux systems. Problems stemmed from differences in Linux system directory structures and unclear expectations for required configuration files. Inconsistent detection of Ethernet interfaces and varied error messages added confusion, emphasizing the need for improved documentation and support for a wider range of Linux environments.",
+    "user_expectations": "The user expects [product_name] [version_no] to reliably recognize network interfaces and function across major Linux distributions like Gentoo and OpenSuse. More transparent guidance about necessary files and better support for diverse Linux systems is desired.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "software compatibility",
+      "network recognition",
+      "platform support"
+    ],
+    "pain_keywords": [
+      "undefined symbol",
+      "unsupported adapter type",
+      "missing documentation",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "hardware selection dialog",
+      "network interface detection",
+      "linux configuration compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Linux": [
+        "Gentoo",
+        "OpenSuse",
+        "OpenSuse LEAP",
+        "SLED",
+        "SLES"
+      ]
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

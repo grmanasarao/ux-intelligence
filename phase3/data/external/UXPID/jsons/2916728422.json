@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "2916728422",
+    "thread_id": "4479534060",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 677731214517811,
+      "user_name": "fFk6cmhmyN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "My post was moved from the [product_name] forum to the general [product_name] forum, but it belongs here. I'm working on displaying and editing start/stop times from a weekly timer set in a [product_name] module using the HMI panel. This is my first time with [product_name] and this is the only issue I'm stuck with. Any help is welcome. Thank you."
+    },
+    {
+      "comment_id": 700441883216447,
+      "user_name": "gu0umgnUlx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "Hello, First, configure your start and stop times using [product_name] in the VM Mapping section. Next, set up the connection in [product_name] Flexible, choosing the correct communication driver. Then, define your variables and use the same addresses as in [product_name]. I've attached a screenshot, but I use [product_name] V11; however, the process should be similar in [product_name] Flexible. Also, have a look at this [url]: How to set up a connection between [product_name] and an HMI Panel? Hope this helps. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 862751557714849,
+      "user_name": "fFk6cmhmyN",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "Thanks, but this is the standard advice given when asking about [product_name] integration with [product_name]. I get the impression even moderators lack hands-on experience with this setup. What I need is to read the memory address where the timer's start/stop times are stored and display this in HH:MM format. The memory is in word format, and I need to extract 4 bits at a time and show them as decimal values. Does anyone know how to do this?"
+    },
+    {
+      "comment_id": 880887984641263,
+      "user_name": "gu0umgnUlx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 12,
+      "comment_body": "I see what you're trying to achieve, but it's not straightforward. As far as I know, start/stop times can only be stored in a Word. One idea is to use memory VW0, where hours go in vb0 and minutes in vb1, but they're not stored as decimal values. You could create a text list with all possible time values and their corresponding decimal representations. Then display two symbolic I/O fields using this text list and connect them to the hour and minute tags. Hope this helps clarify the approach."
+    },
+    {
+      "comment_id": 916463615956843,
+      "user_name": "g0LWaHnTm9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "If the field is open for editing, you can change the I/O field's display format to \"Hexadecimal\" so you can enter times in the \"hhmm\" format. This prevents invalid entries like letters A to F or values beyond valid hours/minutes."
+    },
+    {
+      "comment_id": 150338778783202,
+      "user_name": "tfeuWEXnPX",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Hello, I have the same issue. Were you able to resolve it? [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having trouble integrating weekly timer start/stop values from [product_name] modules with an HMI panel using [product_name] software. They struggle to display and edit these times in an HH:MM format because the information is stored as a Word, making conversion and presentation challenging. The process is complex for first-time or less experienced users, requiring advanced configuration and workarounds. Most advice provided is generic or demands significant manual setup, which frustrates users.",
+    "user_expectations": "Users want a simple and intuitive way to view and edit weekly timer start/stop times in an HH:MM format from the HMI panel, without needing complex configuration or manual formatting steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy configuration",
+      "HH:MM display",
+      "editable timer"
+    ],
+    "pain_keywords": [
+      "memory conversion complexity",
+      "lack of guidance",
+      "not user friendly"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "HMI integration",
+      "start/stop time format display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "7961593935",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 275607810400428,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "[product_name] V8.3 and earlier require Java Runtime Version 8 (Oracle), for example: jdk1.8.0_144.jdk. [product_name] V8.4 needs Java Runtime Version 11 (Amazon OpenJDK), for example: amazon-corretto-11.jdk. For download details, see [url]. If you're on macOS and struggle with having multiple Java Runtime versions, or wish to run older [product_name] versions with different Java requirements, you can edit the info.plist in the application bundle (e.g. [product_name] V8.3.1) and modify this key: <key>jre_path</key><string>/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home</string>. This allows [product_name] V8.3.1 to use Java Runtime Version 8. Hope this helps."
+    },
+    {
+      "comment_id": 862211476872387,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I'm not a Mac user, but I believe this tip could be useful for anyone using macOS."
+    },
+    {
+      "comment_id": 530358503119451,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I'm not a Java developer, so I'm unsure why [company_name] uses a global Java Runtime. I know other programs use global Python, and updating Python sometimes breaks the application or causes instability. Many developers package an embedded Python runtime with dependencies inside the application. Using one shared Java runtime for multiple applications often leads to problems, in my opinion."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face issues running several versions of [product_name] on MacOS because each version requires a different Java Runtime. Older releases depend on Oracle JRE 8, while newer ones need Amazon Corretto JRE 11, forcing users to manually switch or configure runtimes. This reliance on a global Java installation, rather than bundling the runtime, complicates maintenance and can cause instability if system-wide Java is updated.",
+    "user_expectations": "Users want the application to operate smoothly regardless of Java runtime changes, without having to manually adjust or switch global Java versions for each software release.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless compatibility",
+      "ease of use"
+    ],
+    "pain_keywords": [
+      "runtime conflicts",
+      "manual configuration",
+      "instability"
+    ],
+    "feature_keywords": [
+      "embedded Java runtime",
+      "multi-version support"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "MacOS": []
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges"
+  }
+}

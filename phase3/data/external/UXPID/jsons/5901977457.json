@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "5901977457",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 547835777485791,
+      "user_name": "zcdNTIBci3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I am searching for a way to display a message with a timer preset, where the timer is set in one [product_name] configuration and its block is in another [product_name] setup."
+    },
+    {
+      "comment_id": 215941159418181,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Here is an example for you. Check out Parameter-VM-Mapping. Ensure the timers in both [product_name] units use the same time base."
+    },
+    {
+      "comment_id": 118630554324711,
+      "user_name": "zcdNTIBci3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Thank you for the response, but I still need some clarification. The timer preset for message B002 refers to the off-delay B001 in one [product_name] unit. I aim to access the B001 on-delay in another [product_name] unit. Is there something I need to adjust in my [product_name] software environment?"
+    },
+    {
+      "comment_id": 620882488752790,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Using the display, you can enter the timer value in the message text for B001. The remaining time of B001 matches the timer value, and Parameter-VM-Mapping allows transferring this remaining time to the VM area. Through network connection, one [product_name] unit sends the value to another unit’s VM area. Then, in the second unit, this value can be mapped to the timer as the starting value."
+    },
+    {
+      "comment_id": 118327146656467,
+      "user_name": "zcdNTIBci3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Can this work in simulation, or do two actual [product_name] units on a physical network need to be used?"
+    },
+    {
+      "comment_id": 831542197881171,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Simulation mode in [product_name] software doesn’t cover all functions. I have tested the proposed solution with two physical [product_name] units, version [version_no]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to synchronize timer presets and display messages between two networked [product_name] devices. The thread explores mapping and transferring timer parameters, and whether it requires specific settings in the [product_name] software environment. It is noted that simulation mode does not fully represent physical network behavior, so hardware testing is needed for complete validation.",
+    "user_expectations": "Users expect to transfer and access timer presets between networked [product_name] units via software configuration, and are seeking information on whether simulation mode is sufficient for testing or if physical devices are necessary.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote timer preset access",
+      "message display",
+      "parameter synchronization"
+    ],
+    "pain_keywords": [
+      "simulation limitations",
+      "configuration uncertainty",
+      "networked operation complexity"
+    ],
+    "feature_keywords": [
+      "parameter-VM-mapping",
+      "timer block",
+      "network connection",
+      "simulation mode"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

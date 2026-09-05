@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "branch_id": "8321459188",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 419010994274603,
+      "user_name": "Krpo1lWuBl",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Been trying to capture data from one of my [product_name] devices for quite a while, but I’m not sure how to access the required data. Regarding the table you shared back in 2018—if I have data stored in AM3, can I read it directly from AM3 V1118.2 DB1,DBX1118.2, or do I need to log it to variable memory first? Are there any simple YouTube videos or guides that show step-by-step how to get this working? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 336947559119525,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Welcome to the forum. I need to apologize for an error in my previous PDF. The AM operand is actually a word operand (16 bits), not a bit operand. That means AM3 shouldn’t have the V1118.2 (DB1, DBX1118.2) address, but instead VW1122 (DB1, DBW1122). I’m attaching a corrected version of the [document]."
+    },
+    {
+      "comment_id": 651892785977737,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Which platform are you using to read and write data? Are you working with Node-RED Modbus TCP, and if so, which nodes are you using? Different protocols such as S7 and the various Modbus variants require slightly different approaches. Sharing a screenshot or more details would help to better understand your setup."
+    },
+    {
+      "comment_id": 781330343933408,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I think there might be some misunderstanding regarding [user_name]'s issue."
+    },
+    {
+      "comment_id": 994739672374669,
+      "user_name": "Krpo1lWuBl",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Thanks for the quick replies—I'm still new to all this. I have three analog pt100 sensors and a switch connected; the goal is to capture temperature readings. I’ve successfully tested connectivity with Node-RED by switching Q4 from a Node-RED input and it works. Looking for advice on the best way to capture data from the [product_name] and get it into Node-RED. Cheers,"
+    },
+    {
+      "comment_id": 329170651344234,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "You mentioned an issue with AM3 in your first post. I’ve updated my PDF file. Could you clarify what specific problem you’re experiencing now?"
+    },
+    {
+      "comment_id": 664829865451443,
+      "user_name": "Krpo1lWuBl",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I set up a connection and want to bring AM1-AM3 readings into Node-RED. I’ve also set up a connection with one AM1 variable, but I can’t seem to capture its value—think I’m doing something wrong. Regards,"
+    },
+    {
+      "comment_id": 903372858260198,
+      "user_name": "Krpo1lWuBl",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I’ve got AM1 working in Node-RED using DB1,INT1118, based on a forum reference. But when I try mapping AM2 as DB1,INT1118.1, it still reads the AM1 input. Clearly I’m missing something. Thanks,"
+    },
+    {
+      "comment_id": 320722734259702,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "For help with Node-RED syntax, take a look at this web page: [url] node-red-contrib-s7. My PDF only shows the [company_name] S7 syntax."
+    },
+    {
+      "comment_id": 309385097692883,
+      "user_name": "Krpo1lWuBl",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "As mentioned, I’m new to this. For reference, I’ve used: AM1 VW1118 DB1,DBW1118, AM2 VW1120 DB1,DBW1120, AM3 VW1122 DB1,DBW1122. I’ve set up these in Node-RED as: DW1,INT1118 - Reading 12, DW1,INT1119 - Reading 3072, DW1,INT1120 - Reading 11. The 12 and 11 respond to the temperature probes, but I can’t figure out INT1119. How do I relate your PDF info to what needs setting on the Node-RED node? I’m confused. Cheers,"
+    },
+    {
+      "comment_id": 468667938939434,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Not sure what’s going wrong… For AM1 in the [product_name], it occupies VW1118 as an integer, made of two bytes: VB1118 and VB1119. VW1120 uses VB1120 and VB1121; VW1122 uses VB1122 and VB1123. Calling DB1,INT1119 in Node-RED mixes these bytes. Maybe posting your question in another conference related to IOT2000 might help—those experts know Node-RED better."
+    },
+    {
+      "comment_id": 137956152794381,
+      "user_name": "Krpo1lWuBl",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Don’t worry, I just had a similar moment—pulled all the wiring out of my [product_name]. I had activated four analogue inputs but didn’t read the bytes correctly. Checked all inputs individually, realized each is two bytes long, and had entered them sequentially. Sorry for the confusion."
+    },
+    {
+      "comment_id": 566208673758545,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "No worries, mistakes are part of learning. Has your issue been resolved now?"
+    },
+    {
+      "comment_id": 612662240211567,
+      "user_name": "Y5V3JNBBFA",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "[user_name] is correct about the 2-byte arrangement. For AM1 you should use DB1,INT1118 in Node-RED, for AM2 use DB1,INT1120—so each next AM input skips two bytes."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user aims to read and integrate analog measurement values from a [product_name] device into Node-RED, facing challenges due to unclear memory/address mapping and platform-specific syntax differences. Errors in previous documentation and lack of step-by-step resources further complicate the process for new users.",
+    "user_expectations": "The user expects to easily retrieve data from analog memory locations (AM1-AM3) in [product_name] and directly configure access in Node-RED using clear, straightforward documentation or tutorial resources. There is a strong preference for concise guides and video walkthroughs that simplify the integration steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful data capture",
+      "seamless integration",
+      "temperature monitoring"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "documentation clarity",
+      "integration difficulty",
+      "troubleshooting complexity"
+    ],
+    "feature_keywords": [
+      "analog memory addressing",
+      "Node-RED integration",
+      "memory mapping",
+      "variable logging"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity",
+    "12": "Network Configuration Challenges"
+  }
+}

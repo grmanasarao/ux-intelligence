@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "4887816258",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 199598686345357,
+      "user_name": "occta9imAK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm experiencing a problem when trying to use the average value from two analog sensors. Calculating the mean using a math function works correctly, but when this value is sent to an analog threshold trigger, the output appears to be incorrect. For example, with manual inputs of 500 and 300, I receive 400 as the average, but the threshold trigger seems to output 500 instead. I appreciate any advice on what might be causing this issue."
+    },
+    {
+      "comment_id": 208418950250700,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Welcome to the forum. You've set the analog amplifier values to the correct measuring range. After adding the two values and dividing by two, the mean calculation is accurate. With 500 and 300, you get 400. However, when you use the threshold trigger with additional amplification, the 400 is converted back to 500. The calculation is: input value (400) * gain (2.5) + offset (-500) = output for the threshold trigger. 400 * 2.5 = 1000, 1000 + (-500) = 500. For correct operation of the threshold trigger, set the gain to 1 and the offset to 0, which are the default settings."
+    },
+    {
+      "comment_id": 543954286011620,
+      "user_name": "occta9imAK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I realized the solution myself: I needed to adjust the gain and offset values, since they were already handled earlier in the process. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user discovered a mismatch between the expected mean of two analog sensor values and the output from the analog threshold trigger. The average calculation was correct, but the threshold trigger produced different results due to gain and offset settings that had not been properly accounted for. This caused confusion about the correct operation of the system.",
+    "user_expectations": "The user expects that the average of two analog sensor readings should be consistently interpreted by the analog threshold trigger, with no unexpected changes caused by additional configuration parameters.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog processing",
+      "expected output values",
+      "correct sensor averaging"
+    ],
+    "pain_keywords": [
+      "unexpected values",
+      "configuration confusion",
+      "incorrect analog trigger activation"
+    ],
+    "feature_keywords": [
+      "analog averaging",
+      "threshold trigger",
+      "gain and offset parameters",
+      "simulation mode"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

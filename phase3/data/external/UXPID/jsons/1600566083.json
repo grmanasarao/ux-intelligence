@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "1600566083",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 223510395540883,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "I've been searching for an answer to this for years and still haven't found a solution from [company_name] or anywhere else. Hoping some new members here might be able to help. I'm using [product_name] (version [version_no], but have had the same problem on several earlier revisions). I write programs in LAD format and don't have time to learn FBD. I've inherited a longstanding program with an 'IM' coil used, apparently similarly to how I'd use an 'M' coil. However, 'IM' isn't mentioned in the software help section. The issue is that there seem to be limitations on connectivity—sometimes, when I tie into it, the program freezes for around three minutes and resumes without explanation or details. Nobody at [company_name], including tech support, engineers, or vendors, seems familiar with the 'IM', nor can they explain the difference between 'M' and 'IM'. What exactly does 'IM' do and how is it different from an 'M'? Why is it so difficult to find a straightforward answer?"
+    },
+    {
+      "comment_id": 647471854477932,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello, You actually received the answer already: It seems clear to me. Could you provide a screenshot if you still have this issue? Regards,"
+    },
+    {
+      "comment_id": 321599043563314,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "[user_name], thanks for your reply. However, I'm not sure what you meant here: \"IM are Internal Marker (internal flags) and are used to complete one line (relay coil) and then get the result of the line as a 'normally closed contact' to another line.\" Are IM flags always normally closed? Why is that? How is it different from an 'M' relay coil? Here's a screenshot of the section that locked up when I tried to connect M18 to IM11. After replacing IM11 with an 'M', the lockup didn't occur, but I still need to test it."
+    },
+    {
+      "comment_id": 198986641032001,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello, That was just a quoted explanation, not my own wording. What message do you receive when you try connecting to your IM? I experimented in LAD (which I rarely use)—see attached pdf. IM isn't only NC; you can configure it as NC and NO. According to the software help: You may use an internal flag to end a current path and continue it on a new one. Unlike the flag block, this doesn't use a flag resource of your [product_name] device. The difference between an M block and IM is you can't choose any number for the relay coil; there's only one IM, and each time you use one, you get a new IM with a higher number. Hope this clarifies things. Regards,"
+    },
+    {
+      "comment_id": 636687651202368,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Ah, I see! I don't get any specific message; the software just freezes and then resumes after about three minutes. I still don't fully see the functional distinction, but if it works as a simple continuation, the representation seems odd. I will test the modified program, where I replaced IM with an M, and check if there's any practical difference. Thanks!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are unsure about the functional and practical differences between 'IM' and 'M' coils within the LAD editor of [product_name], especially due to unclear documentation. Occasional software freezes when interfacing with 'IM' coils, without any error messages, have led to user frustration. Existing help documentation provides little clarification, and support from [company_name] has been uninformative.",
+    "user_expectations": "Users expect clearer documentation and practical guidance on the distinctions and proper usage of 'IM' versus 'M' coils, in addition to stable program operation with no unexplained software freezes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "clarity",
+      "documentation",
+      "software stability"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "software freeze",
+      "lack of error feedback"
+    ],
+    "feature_keywords": [
+      "IM coil",
+      "M coil",
+      "LAD editor",
+      "internal marker functionality"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "19": "Bug Reports",
+    "7": "Product Support Satisfaction"
+  }
+}

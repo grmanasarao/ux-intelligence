@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "4870516577",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 255306613087509,
+      "user_name": "VSeVo1Q76X",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I need help with analog inputs on a [product_name] [version_no] [article_no]. The cover mentions using A1 and A2 analog inputs via I7 and I8 digital terminals. Analog sensors have V+ and M wires; should V+ go to I7 and M to I8? How is A2 wired then? Since digital inputs share the general ground, does connecting V+ to I7 (A1), V+ to I8 (A2), and a shared ground to M make sense? I'm not an expert in programming [product_name], so please excuse simple questions. Any guidance would be appreciated. Thank you!"
+    },
+    {
+      "comment_id": 664010725619183,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Could you provide the exact sensor manufacturer and model? Is it a 2-wire sensor? What output signal does it provide: 0-10V, or 0/4-20mA? The analog inputs on this base module accept only 0-10V. If your sensor outputs a current signal, you'll need a 500 Ohm resistor to convert the current to a voltage signal."
+    },
+    {
+      "comment_id": 244485530437952,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Make sure your [product_name] is powered by a DC power source (12 or 24VDC). Your sensor should ideally be a 3-wire sensor with a DC output, maximum 10V. Both sensor and [product_name] can use the same power supply, provided the positive and negative terminals are shared. Connect the sensor output to I7 (which will serve as AI1) or to I8 (for AI2) in your control logic. For 2-wire 4-20mA sensors, the wiring differs: the sensor's power positive should match the [product_name] power, and the negative wire goes to I7 or I8. Insert a 500 Ohm resistor between I7 (or I8) and the negative terminal of the power supply. In your program, you can treat a 4-20mA sensor as a 2-10V sensor after conversion."
+    },
+    {
+      "comment_id": 423539990451594,
+      "user_name": "VSeVo1Q76X",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Thank you for the detailed explanation, that's very useful. To clarify, can I use both A1 and A2 analog inputs at the same time? The analog signal I referred to comes from an MM420 device, which provides a 0-10VDC output."
+    },
+    {
+      "comment_id": 381855526385114,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Yes, your [product_name] supports two independent analog inputs by default, so you can connect two different sensors for analog data. Note that if you configure I7 as an analog input (AI1), it cannot be used simultaneously as a digital input. Additionally, you can use the software on your [product_name] to configure up to four analog inputs, reassigning I1 and I8 as AI3 and AI4."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Community members are discussing the proper way to connect and configure analog sensor inputs on a [product_name] [version_no] [article_no], focusing on adapting digital inputs (I7, I8) as analog inputs (A1, A2). There is some uncertainty regarding wiring—especially about common wiring for both the sensor and controller power supplies, and whether both analog inputs can be used at the same time. Users share advice concerning sensor compatibility for voltage and current signals and highlight how input mode settings affect digital input usage.",
+    "user_expectations": "The user seeks clear guidance on how to wire analog sensors to the [product_name] inputs and confirmation that both A1 and A2 can function simultaneously as analog inputs. They also expect clarification regarding input channel limitations and the need for straightforward setup instructions.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "correct sensor wiring",
+      "safe use of analog inputs",
+      "simultaneous input usage"
+    ],
+    "pain_keywords": [
+      "wiring confusion",
+      "input mode ambiguity",
+      "analog vs digital input functionality"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "digital input",
+      "input mode configuration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges"
+  }
+}

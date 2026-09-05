@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "5074682264",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 373147299838814,
+      "user_name": "63NMNi8dhj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I was able to read and write inputs, outputs, and flags using libnodave, but is it possible to access and modify blocks, such as timer values? For example, if you have a multifunction switch with parameters for off delay time or permanent light, can you set or get different values from the [product_name]?"
+    },
+    {
+      "comment_id": 508869285563671,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello, Set up the configuration so you can write to the controller at DB1VB100. Then, in [product_name] software, start the online test, open the data table, and add VB100. Now, you should see the value coming in from libnodave. This confirms you can transfer data between libnodave and [product_name]. To adjust parameters as mentioned before, use the VM-mapping table in the [product_name] software, select the function block needed, and choose the parameter of the function block you want to change. Parameters you can change or just view are indicated in the VM-mapping table. Alternatively, you can read the VM-address in the program via NAI, use an analog function block, and then reference it to handle the value accordingly. Hope you find this helpful."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking advanced methods to exchange data between external libraries and [product_name] controllers, aiming to manipulate internal function block parameters like timer values rather than just basic I/O. There is some uncertainty around proper mapping and access to deeper memory regions and parameters, which can impact usability and flexibility for those requiring beyond-standard control capabilities.",
+    "user_expectations": "Users expect to have the ability to directly access and change internal block parameters, such as timer values, in the [product_name] controller using external tools like libnodave, in a way similar to manipulating standard I/O or flags.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "access internal parameters",
+      "advanced control",
+      "remote value manipulation"
+    ],
+    "pain_keywords": [
+      "limited external access",
+      "complex mapping",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "function block parameter mapping",
+      "VM-address",
+      "external write/read"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

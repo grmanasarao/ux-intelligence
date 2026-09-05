@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "branch_id": "4587839741",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 786949667037427,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Returning to this topic: I've managed to finish the job, which involves controlling two actuators and getting position feedback as 0-10V analog signals. The driver is controlled by digital outputs (Q1 and Q2 for motor directions). My issue is that the motor moves too quickly and often overshoots the reference point, sometimes getting stuck in a cycle as it tries to return. I'm using a [product_name] with transistor output and set the actuator's operating range to 0-1000. I want to set up a PWM cycle updating every 500 ms, but haven't succeeded yet. My goal is for the PWM frequency to be at its lowest when the analog difference is zero, and highest when it's 1000. Could someone share a sample program?"
+    },
+    {
+      "comment_id": 386956411642458,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "I've attached my program—it might seem a bit unclear. My aim is to control PWM on outputs Q1, Q2, Q3, and Q4. Another challenge is that the actuator runs at 250 mm/second, which is too fast for my needs, and it overshoots the correct position when stopped. Any guidance would be appreciated."
+    },
+    {
+      "comment_id": 306775013511030,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "It's difficult to assist with your current program since it's confusing and contains mostly Turkish comments with many blocks. You might consider simplifying your issue to a smaller example program with English comments and a clear explanation of the required function. As I understand, you want to move to a specific position, but it's unclear which value is your setpoint and which is your actual value. What do you need for the PWM output? Keep in mind, [product_name] is not optimal for fast and finely controlled PWM signals; the available frequencies provide only coarse adjustments, not precise tuning."
+    },
+    {
+      "comment_id": 232961004925076,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thank you for your response. Most of the program works fine, but my main request is to receive PWM signals with maximum resolution from outputs Q1, Q2, Q3, and Q4. In summary, the program determines an analog value based on certain conditions, then moves the linear actuator to this target value. Position feedback is continually monitored via analog signals, and the actuator is stopped when it reaches the setpoint. However, because the actuator is fast, it repeatedly overshoots the target."
+    },
+    {
+      "comment_id": 575464711632221,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "This setup controls an agricultural machine, applying fertilizer based on the operator's speed, working width, and desired amount. When speed changes, the two actuators constantly adjust to deliver correct fertilizer amounts. Because the setpoint often changes, the actuators are always moving. My aim is that if the actuator is far from the setpoint, it moves quickly, and as it approaches the target, it slows down. Everything needs to happen within 2-3 seconds due to the actuators' high speed."
+    },
+    {
+      "comment_id": 483987886002079,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Check the attached example to better understand the limitations of the PWM block in [product_name]. Try out different parameter values and observe the result. If a PWM frequency of 100 Hz is needed, the time setting must be 00:01s, but with this configuration, the output doesn't respond to analog input as the minimum time setting is 00:01s. Setting this to 00:10s gives 10 levels, normally selectable in the 0–1000 range, with the PWM changing at every 100 and a frequency of 10 Hz. With 01:00s, you get 100 levels, the PWM updates every 10, and the frequency drops to 1 Hz. For fast PWM with more levels, consider using an external PWM controller with an analog input (0–10V), which can be managed by an AM2 AQ module. Try running the program on actual hardware; simulations may not display the exact behavior."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are struggling to achieve fine and high-frequency PWM control with [product_name] equipped with transistor outputs to manage linear actuators. The core issue is frequent overshooting due to low PWM resolution and speed constraints, making precise adjustments hard, especially in applications with rapidly changing setpoints. Users highlight limitations in available PWM levels and frequency, ultimately restricting actuator speed regulation and system responsiveness.",
+    "user_expectations": "Users hope to accomplish smooth, high-resolution, and quick PWM output from [product_name] for precise speed control of actuators, reducing overshoot near targeted positions. They also expect straightforward setup and flexible PWM adjustment, aiming for accurate and real-time control to match shifting operational targets.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "precise control",
+      "actuator speed modulation",
+      "prevent overshoot",
+      "real-time adjustment"
+    ],
+    "pain_keywords": [
+      "low PWM resolution",
+      "slow PWM frequency",
+      "overshoot",
+      "limited fine-tuning",
+      "dynamic setpoint challenge"
+    ],
+    "feature_keywords": [
+      "PWM block",
+      "transistor outputs Q1-Q4",
+      "analog feedback",
+      "fine frequency adjustment"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "29": "Scalability Limitations"
+  }
+}

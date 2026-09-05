@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "branch_id": "8342622550",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 477637998696172,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I am reading temperature values from a network analog input as a four-digit number, for example, 2050 for 20.5°C. Using an analog amplifier, I can adjust the decimal point to display the temperature as 20.50. My question is how to consistently display the value as 20.5. I think dividing by 100 and setting one decimal place will achieve this."
+    },
+    {
+      "comment_id": 533674589210997,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You should use an analog amplifier with a gain of 0.1 and configure it to show one decimal place. See the attached file for reference."
+    },
+    {
+      "comment_id": 388521961827709,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you, that resolved the issue. I have an additional question: when I need to compare the temperature value to a constant, which value and scale should I use? Should I compare the raw input value (like 2050 for 20.5°C) to 2100 (for 21°C), or use the amplifier output (such as 20.5) and compare with 21? What is the appropriate approach?"
+    },
+    {
+      "comment_id": 717485394916237,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "There is a distinction between how values are displayed and their actual analog values in the program. The display shows 20.5°C because it uses one decimal place, but the program processes 205 following amplification. Therefore, you should compare 205 with 210 (which represents 21.0°C)."
+    },
+    {
+      "comment_id": 367986853859922,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "That clarifies it and shows why I wanted to confirm. Thanks!"
+    },
+    {
+      "comment_id": 528060688790756,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You are welcome."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are discussing how to convert and display analog temperature readings, focusing on ensuring decimal placement is handled correctly. Some confusion arises from distinguishing displayed values from internal program values, particularly regarding their use for comparisons versus display formatting.",
+    "user_expectations": "The user is looking for a straightforward way to display analog temperature inputs in a readable format and wants explicit instructions on comparing scaled and raw values inside the software.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate display",
+      "clear comparison",
+      "readable values"
+    ],
+    "pain_keywords": [
+      "confused scaling",
+      "display vs. program values"
+    ],
+    "feature_keywords": [
+      "analog amplifier",
+      "network analog input",
+      "decimal point"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "metadata": {
+    "branch_id": "2526032931",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 110934400383011,
+      "user_name": "NrHcUe1te8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm new to the forum. I hope you can help me, and maybe someday I can help others too. I'm facing an issue programming a floor heating control system. I have two PT100 sensors: one measures the water temperature (AI3), and the other monitors the outside temperature (AI4). The actuator is a [company_name] valve with a 0–10V input. I want to implement PI regulation, so the water temperature setpoint depends on the outside temperature. For example, when it's 0ºC outside, the water setpoint is 45ºC; for higher outside temperatures, I subtract the outdoor temperature from the desired water flow temperature. If the outdoor temperature is 5ºC, I set the flow to 40ºC, etc. To prepare the outside temperature as the setpoint for my PI regulator, I have everything working in simulation. However, when I program my [product_name], the analog amplifier output (SP conditioning) gives me only the offset, not the actual scaled analog value (AX). In simulation, the values are correct. Strangely, the graphical SP display shows the correct value, but not in the small menu on the block image; plus, the valve always seeks the position for 45ºC, regardless of input. To confirm, if I manually set 35ºC to the SP input, the valve moves to 35ºC. I hope someone can assist. I've attached an image of my setup (simulation)."
+    },
+    {
+      "comment_id": 527630741766817,
+      "user_name": "lemlbtSecs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Try running your program in online test mode. In this mode, check the AQ value live on the [product_name]."
+    },
+    {
+      "comment_id": 571103832710778,
+      "user_name": "NrHcUe1te8",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hi, I've tried that. My issue is that when I run the [product_name] in online mode, the AX value for SP conditioning (used for the PI regulator setpoint) only takes the offset value programmed in SP conditioning — not the real AX calculation (AX*gain+offset). This only happens in online mode; the AX value is correct in simulation. Thank you very much."
+    },
+    {
+      "comment_id": 267997465858232,
+      "user_name": "lemlbtSecs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Send me your program."
+    },
+    {
+      "comment_id": 802944944966649,
+      "user_name": "sJM5db1Ilr",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Could you please share your program? I’d like to help solve this for you! Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 702287608580183,
+      "user_name": "NrHcUe1te8",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "How do I send you the program?"
+    },
+    {
+      "comment_id": 236467387439041,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Compress the program into a zip file and attach it to your post."
+    },
+    {
+      "comment_id": 740061142590503,
+      "user_name": "NrHcUe1te8",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Alright. Here is my program attached. Thank you."
+    },
+    {
+      "comment_id": 716984878027158,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "You amplify the water temperature signal twice: first with the analog amplifier after the analog input (Gain = 0.25), and again in the PI controller (also Gain = 0.25). This double amplification distorts the signal. In your case, the PI controller should have a gain of 1 and offset of 0. I've modified your program ([document])."
+    },
+    {
+      "comment_id": 867859869494533,
+      "user_name": "lemlbtSecs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Insert the project file here (in LSC)."
+    },
+    {
+      "comment_id": 297537177283377,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Are you aware that your file is a network project for LSC V8.1 (file extension \"mnp\")?"
+    },
+    {
+      "comment_id": 167597970819737,
+      "user_name": "NrHcUe1te8",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hi, sorry for the delayed response – personal reasons kept me busy. Thank you very much. I’ll try your suggestions and report back."
+    },
+    {
+      "comment_id": 703817768902282,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "New question by [user_name] was moved to a separate thread titled \"Can I control speed and Torque by [product_name] PWM output?\". Best regards [user_name]_Moderator"
+    },
+    {
+      "comment_id": 519163715276561,
+      "user_name": "NrHcUe1te8",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hi. I finally returned to the installation site to test things again, but the issue persists with the new program. In the attached image, you can see the problem with the SP conditioning block. In simulation, the Ax value in the SP conditioning block is correct (15), but in online test with the [product_name] running, the Ax value always equals the offset programmed in the block (45) instead of the expected value. Maybe I’m missing something obvious, but this is really frustrating because the PI controller input isn’t correct, and the water flow temperature never adjusts to changes in outside temperature. Thank you all for your help."
+    },
+    {
+      "comment_id": 683372947823930,
+      "user_name": "NrHcUe1te8",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "I forgot to attach the simulation image."
+    },
+    {
+      "comment_id": 554038880967762,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Attached is a sample for a weather-dependent value. You can use this by connecting a PI regulator block as a setpoint to the output of B004 (instead of AM3). Hope this helps."
+    },
+    {
+      "comment_id": 665408778702114,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "I've created a complete program for you."
+    },
+    {
+      "comment_id": 324302131894406,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], There's an issue with your project – it contains an error that's hard to identify. The project file seems corrupted. I rebuilt your project and now the PI controller works."
+    },
+    {
+      "comment_id": 404318236068947,
+      "user_name": "NrHcUe1te8",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Thank you very much. I will give it a try."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main issue discussed is a mismatch between analog signal conditioning results in simulation and real-world (online) operation. In simulation, the setpoint for the PI-controlled floor heating behaves correctly, processing both gain and offset as expected. However, on actual hardware, the signal conditioning block outputs only the offset, not the computed analog value, resulting in incorrect temperature regulation by the valve. This inconsistency is traced back to double amplification and configuration errors, with users providing troubleshooting advice, sharing program files, and suggesting corrections.",
+    "user_expectations": "The user expects analog signal processing and PI regulation to function identically in simulation and real-world (online) hardware, ensuring accurate temperature control based on sensor readings. They also expect clear visibility and monitoring of the analog values for proper system validation and troubleshooting.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate signal processing",
+      "simulation-real parity",
+      "correct PI regulation",
+      "transparent configuration"
+    ],
+    "pain_keywords": [
+      "signal distortion",
+      "mismatch online vs simulation",
+      "double gain application",
+      "confusing output display"
+    ],
+    "feature_keywords": [
+      "analog amplifier",
+      "PI controller",
+      "setpoint conditioning",
+      "online test",
+      "simulation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

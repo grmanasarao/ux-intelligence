@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "branch_id": "3944314782",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 542536045427463,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm working on different systems using a [product_name] device. Now I want to experiment with MODBUS but I'm having trouble understanding how to proceed. I have a Victron Cerbo GX, which offers data reading via MODBUS. My goal is to measure the voltage at the inverter input and use that reading to switch an output on the [product_name]. The PDF I have lists the relevant registers. Could someone clarify how to read the specific register value?"
+    },
+    {
+      "comment_id": 545168229920617,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "You want to read a Modbus register (16-bit analog value, unsigned) as a bit (coil), but that's not possible. Could you provide more details about the Victron device, such as the register address and unit-ID? If you have documentation or a link to it, please share."
+    },
+    {
+      "comment_id": 457663708776181,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thanks for responding quickly. Here is the documentation I've got: [url]"
+    },
+    {
+      "comment_id": 271856025993331,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Which registers exactly are you aiming to read?"
+    },
+    {
+      "comment_id": 164379958952074,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Try the following approach."
+    },
+    {
+      "comment_id": 579219465959770,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thank you for the fast reply. I plan to test your suggestion tonight. I’ll update soon if it works."
+    },
+    {
+      "comment_id": 785551210181049,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hello, It took me a bit longer to test. Things aren't fully working yet, but we're making progress. My Cerbo GX now displays the following."
+    },
+    {
+      "comment_id": 441605536469004,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Start with holding register 4. The inverter's addressing starts at 0, while [product_name] starts at 1. So, HR3 from [product_name] corresponds to HR2 on the inverter, which isn’t registered."
+    },
+    {
+      "comment_id": 254944643943499,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "I've changed the configuration and it's working. Now I want to read the input frequency 1 value, but I suspect I’m making another mistake. Can anyone assist?"
+    },
+    {
+      "comment_id": 895965707427312,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Try this solution. [IMAGE]"
+    },
+    {
+      "comment_id": 435267048810556,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "I tried using this approach."
+    },
+    {
+      "comment_id": 297143455445238,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "So, did it work?"
+    },
+    {
+      "comment_id": 524095963943722,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "No, it isn’t working. Can you help me troubleshoot?"
+    },
+    {
+      "comment_id": 346706607247860,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "\"No, it isn’t working\" isn’t specific. Did you get any value at all? Please share a screenshot."
+    },
+    {
+      "comment_id": 965246956633162,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "My current goal is to read the AC input 1 frequency, but I seem to be stuck in the Modbus connection configuration."
+    },
+    {
+      "comment_id": 226487457537805,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Did you check my previous message?"
+    },
+    {
+      "comment_id": 205874750008470,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Sorry, I misread earlier. It seems to be working now. Thanks for your support."
+    },
+    {
+      "comment_id": 364080015647856,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Could you explain how you determined the starting addresses 6 and 10?"
+    },
+    {
+      "comment_id": 343697246176970,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "HR4 (which is HR3 + Offset + 1) is transferred to VW0. HR5 (HR4 + Offset + 1) to VW2, HR6 (HR5 + Offset + 1) to VW4. Similarly, HR10, HR11, HR12 follow the same pattern for VW6, VW8, and VW10. [IMAGE]"
+    },
+    {
+      "comment_id": 163690092210373,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thanks, I tested several options and it’s working now."
+    },
+    {
+      "comment_id": 905015804067702,
+      "user_name": "n8WNHEJ0WP",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Use the NAI function block, it works with Cerbo GX."
+    },
+    {
+      "comment_id": 516499363768936,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Got it, looks like it’s your first post. Have you read the whole thread?"
+    },
+    {
+      "comment_id": 838244870229388,
+      "user_name": "n8WNHEJ0WP",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello! I’ve reviewed the previous messages. At home, I'm experimenting with [product_name] version [version_no], and different Modbus TCP devices. My setup includes a home battery (17 kWh), solar PV (4 kWp), a heat pump boiler, and a heat pump monoblock. The [product_name] controls the system effectively. The Cerbo GX and a Victron battery monitor connect to [product_name] via Modbus TCP. I also have four battery banks (Daly BMS), connected to Cerbo GX using UART to USB. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 712316174424173,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "If you’ve read the thread, why post outdated information? That's not relevant now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are integrating a [product_name] device with Modbus communication to retrieve data from a Victron Cerbo GX. The key challenge is proper mapping and reading of Modbus registers, as differences in address indexing (zero-based vs. one-based) can cause confusion. Users are also uncertain about converting between analog and coil data formats, which leads to trial-and-error and seeking community help.",
+    "user_expectations": "Users want to easily read analog values from specific Modbus registers on the Victron Cerbo GX using a [product_name] device, and use these values within their automation logic. They expect detailed guidance on register mapping and configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful Modbus readout",
+      "automated output control",
+      "register mapping clarity"
+    ],
+    "pain_keywords": [
+      "register addressing confusion",
+      "data format compatibility",
+      "lack of clear documentation"
+    ],
+    "feature_keywords": [
+      "Modbus register reading",
+      "analog input mapping",
+      "output switching logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

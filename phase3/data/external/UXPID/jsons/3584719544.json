@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "branch_id": "3584719544",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 534735313489937,
+      "user_name": "e00ghFMZNo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, My [product_name] program reads a Modbus register from a device on the same network, which works fine. However, I only need bits 7, 8, and 9. How can I achieve this? Thanks in advance."
+    },
+    {
+      "comment_id": 500896589260368,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Which [product_name] are you using exactly? Please provide the [article_no]."
+    },
+    {
+      "comment_id": 109726861837191,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Perhaps you can use a network input block where you select the word and the specific bit."
+    },
+    {
+      "comment_id": 863610376690165,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "He is reading registers, not discrete inputs or coils."
+    },
+    {
+      "comment_id": 160382817027604,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "If you provide more details, users can assist you more effectively."
+    },
+    {
+      "comment_id": 425768136337415,
+      "user_name": "e00ghFMZNo",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "I am reading register 131, which is 16 bits. I only need bits 7, 8, and 9."
+    },
+    {
+      "comment_id": 121101155879701,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "That does not match your earlier description. You wrote 'registers 7, 8, 9.' With a Holding Register, you cannot read single bits from the Modbus device directly. You must read the entire register first. In [product_name], you can extract the bits using digital network inputs."
+    },
+    {
+      "comment_id": 422385833928726,
+      "user_name": "e00ghFMZNo",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Apologies for any confusion. I have the register value in my [product_name] program. Right now, the value is 24833 (0110 0001 0000 0001). What is the method to check bits 7, 8, and 9 and see if the value is 010?"
+    },
+    {
+      "comment_id": 413711720997937,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "So you have normal mode set on the Modbus device, correct?"
+    },
+    {
+      "comment_id": 168077263302371,
+      "user_name": "e00ghFMZNo",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Yes."
+    },
+    {
+      "comment_id": 689397506704848,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "[IMAGE]"
+    },
+    {
+      "comment_id": 857405353717324,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I advised using a network input block to extract register bits. Perhaps there was some misunderstanding about the request."
+    },
+    {
+      "comment_id": 946238245537425,
+      "user_name": "e00ghFMZNo",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Thank you. It seems to be working now."
+    },
+    {
+      "comment_id": 781957009303595,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "No, I understood. The [product_name] can't read individual register bits directly. You must first import the entire register into a VM word in [product_name]. Then you can select the required bits using network inputs."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread focuses on extracting bits 7, 8, and 9 from a 16-bit Modbus register within a [product_name] environment. Users encounter challenges in reading individual bits after transferring the register value via Modbus TCP. There is some confusion between handling register addresses and isolating specific bits, but the recommended solution is to read the full register and then use network input blocks to select desired bits.",
+    "user_expectations": "The user wants a straightforward way to extract and analyze bits 7, 8, and 9 from a Modbus register within the [product_name] system.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "bit-level access",
+      "register evaluation",
+      "precise data extraction"
+    ],
+    "pain_keywords": [
+      "unclear bit extraction",
+      "register vs bit confusion",
+      "software usability"
+    ],
+    "feature_keywords": [
+      "Modbus register reading",
+      "bit manipulation",
+      "digital network inputs"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

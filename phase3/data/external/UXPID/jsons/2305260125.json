@@ -1,0 +1,203 @@
+{
+  "metadata": {
+    "branch_id": "2305260125",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 608705745605809,
+      "user_name": "15gGUNhshY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, How can I set up scaling for a 4-20 mA input signal to display 0-1470 rpm on my [product_name]? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 197053600550123,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "For your scenario, I suggest using a two-stage amplification. First, use one amplifier to convert the 4-20mA signal to 0-1000 units. Then, apply a second amplifier with a gain of 1.47 (since 1000 x 1.47 = 1470) to reach the desired output range. Using just one amplifier for 0-1470 could trigger warnings and result in imprecise values."
+    },
+    {
+      "comment_id": 543753531610275,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Could you clarify which hardware you’re currently using?"
+    },
+    {
+      "comment_id": 640734496036818,
+      "user_name": "15gGUNhshY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, The input signal is 4-20mA from an inverter. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 910222622433477,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "I think [user_name] is asking: Which [product_name] version do you use? [article_no] or another one? The base modules only support 0-10V signals. You'll need an analog expansion module for current signals."
+    },
+    {
+      "comment_id": 506712151398162,
+      "user_name": "15gGUNhshY",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm using [article_no] with an AM2 expansion module."
+    },
+    {
+      "comment_id": 163454399342706,
+      "user_name": "15gGUNhshY",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], 1- For scaling 4-20 mA to 0-1000 units, I tried Gain: 62.5 Offset: -250, but these don’t match the values shown by the program. 2- Could you elaborate on analog flags and open connectors? 3- Is this method used to display RPM values on an HMI device?"
+    },
+    {
+      "comment_id": 587180917399864,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "1.) I'm not sure I understand your question. A gain of -62.5 can’t be set in an analog amplifier. For detailed info, right-click the analog amplifier block and select 'Help' in the context menu. 2.) Every block output (digital or analog) needs to be connected or completed: Digital outputs can be linked to another block, set with a digital flag, or direct output, including open connectors. Analog outputs follow similar logic, with analog flags and outputs. Unfinished outputs cause errors and can’t be transferred to [product_name]. 3.) Message texts are only shown on a [product_name] display, its associated display or embedded Web server—not on an HMI."
+    },
+    {
+      "comment_id": 204468871846527,
+      "user_name": "15gGUNhshY",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, Using y = ax + b where a = 62.5 and b = -250: If x = 4, y = 0. If x = 20, y = 1000. Still, these gain and offset values differ from those in the program."
+    },
+    {
+      "comment_id": 586901467543313,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "The analog amplifier’s gain doesn’t directly match 'a' from your formula. Gain here multiplies the value after A/D conversion, e.g.: 0 mA = 0 units, 4 mA = 200 units, ... 20 mA = 1000 units. With a 4-20 mA sensor, you use 200-1000 units (an 800 unit range). 1000 units x 1.25 = 1250; with an offset of -250, you get 0-1000 units."
+    },
+    {
+      "comment_id": 818267665605774,
+      "user_name": "15gGUNhshY",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, I’m having trouble following your explanation. Could you clarify how to scale 4-20mA to 0-1000 units? What settings do I use for gain and offset?"
+    },
+    {
+      "comment_id": 155052996891672,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "The value 'a' (62.5) from your formula relates to 1000 units at 16 mA, meaning the slope is 62.5 units for each 1 mA change."
+    },
+    {
+      "comment_id": 559683434334465,
+      "user_name": "15gGUNhshY",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, How are gain and offset values calculated when setting up the analog amplifier?"
+    },
+    {
+      "comment_id": 173624627079589,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "For a sensor using 4-20mA settings, please see the attachment. These are standard defaults provided by the sensor selection in the analog amplifier block."
+    },
+    {
+      "comment_id": 886935826762880,
+      "user_name": "15gGUNhshY",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, I want to understand how the analog amplifier computes gain and offset values."
+    },
+    {
+      "comment_id": 208830648148198,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Unfortunately, I don't have any further details to add as I’ve shared all I know."
+    },
+    {
+      "comment_id": 959022832652042,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "The attached excerpt from the [document] manual for [product_name] [article_no] might clarify things."
+    },
+    {
+      "comment_id": 825383347111238,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "A new question started by [user_name] has been moved to a separate thread titled 'Scaling with [product_name]'. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user intends to scale a 4-20 mA signal to a specific RPM output using a [product_name] with an analog expansion. The user is confused about the difference between mathematical gain/offset and the way analog scaling is managed by [product_name]. Others provide clarification on the A/D conversion process, necessary module configuration, and differences in how outputs appear on different display devices. There is frustration over hardware limitations and display restrictions.",
+    "user_expectations": "The user expects to directly apply mathematical gain and offset to achieve accurate scaling from 4-20 mA to 0-1470 RPM. They also anticipate being able to view these scaled values on an HMI device.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise scaling",
+      "signal conversion",
+      "rpm display",
+      "hardware compatibility"
+    ],
+    "pain_keywords": [
+      "scaling formula mismatch",
+      "display limitations",
+      "hardware confusion",
+      "documentation gap"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "gain/offset configuration",
+      "HMI display",
+      "analog flag",
+      "open connector"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

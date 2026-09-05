@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "5755971220",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 856275849443009,
+      "user_name": "mC4Xc4vRa8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "I'm having issues with the temperature curve spreadsheet included in [product_name] examples. Can someone advise the proper gain and offset settings for [article_no] so the water supply setpoint matches the outside air temperature values listed below (all temperatures in Fahrenheit)? At 90°F outside air: water supply 130°F At 80°F outside air: water supply 135°F At 70°F outside air: water supply 140°F At 60°F outside air: water supply 145°F At 50°F outside air: water supply 150°F At 40°F outside air: water supply 155°F High limit cutoff: don’t exceed 160°F Alternatively, these water supply setpoints: At 90°F outside air: water supply 130°F At 80°F outside air: water supply 140°F At 70°F outside air: water supply 145°F At 60°F outside air: water supply 150°F At 50°F outside air: water supply 155°F At 40°F outside air: water supply 160°F"
+    },
+    {
+      "comment_id": 887147267865657,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], and welcome to the forum. Your post is in the wrong section—the moderators will likely move it to the correct [product_name] board. Could you clarify your request? The settings for the analog amplifiers [article_no] are specified in Celsius, not Fahrenheit."
+    },
+    {
+      "comment_id": 926124803201428,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "For these temperature values, the recommended settings in [article_no] are: Gain: -0.5 Offset: 1750 To apply a cutoff at 1600, use an analog threshold trigger along with an analog multiplexer, since a simple amplifier block can’t achieve a non-linear cutoff."
+    },
+    {
+      "comment_id": 936790669236706,
+      "user_name": "mC4Xc4vRa8",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "That was very helpful! So, to achieve the following: At 90°F outside air: water supply 130°F At 80°F outside air: water supply 140°F At 70°F outside air: water supply 145°F At 60°F outside air: water supply 150°F At 50°F outside air: water supply 155°F At 40°F outside air: water supply 160°F I would change the gain and offset in [article_no] to: Gain: -0.5 Offset: 1800 Thanks again."
+    },
+    {
+      "comment_id": 544738410574932,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "You can adjust the settings as you prefer, but it won't resolve the issue. The water setpoint increments are not linear—there’s a 10-degree step between the first two points but only 5 degrees between the others."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing difficulties correctly configuring temperature setpoints using spreadsheet examples and analog amplifier blocks associated with [product_name], mainly due to confusion between Fahrenheit and Celsius units and the need for non-linear mapping. There is uncertainty regarding how to achieve the desired control curve and how to apply high limit cutoffs using available configuration tools.",
+    "user_expectations": "The user hopes for an easy solution that allows outside air temperatures (in Fahrenheit) to be mapped directly to water supply setpoints—both with linear and non-linear curves—using analog block parameters and example resources for [product_name]. The solution should also incorporate a high limit cutoff.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise temperature control",
+      "easy configuration",
+      "customizable setpoints"
+    ],
+    "pain_keywords": [
+      "unit confusion",
+      "inability to set non-linear curve",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "analog amplifier",
+      "gain and offset settings",
+      "analog MUX",
+      "threshold trigger",
+      "temperature unit"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

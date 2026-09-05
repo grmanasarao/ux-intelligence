@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "branch_id": "3773868449",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 149275346820995,
+      "user_name": "RBm0Oj1Mqu",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I'm having trouble getting data from a MODBUS device connected to a [product_name] via a MODBUS RTU/TCP converter (Waveshare RS485 to Ethernet) set in RTU to TCP mode. Accessing MODBUS data from my PC using Windows tools like ModbusPoll works perfectly, indicating the communication and converter setup are correct. The converter is set up as a server, with [product_name] operating as the client. Despite trying multiple approaches, I can't get it to work with [product_name]. When reading with PC software, the Link LED stays solid blue (TCP connection established), but with [product_name] attempts, the blue LED just flashes briefly then goes green, and diagnostic info shows no MODBUS connection. I experimented with different register addresses, starting at MODBUS 0x0000 (should be 1 in [product_name]), tried 30001, 40001, and other variants, but the connection consistently breaks. I've tested both client Ethernet MODBUS connections and analog network inputs, including adjusting poll time, but nothing worked. Notably, if I use the wrong MODBUS device ID, the blue light remains ON and diagnostics show a MODBUS connection - suggesting TCP link is established, but the following request (reading MODBUS data) terminates the connection. Debugging became difficult, as my switches don't let Wireshark see the traffic."
+    },
+    {
+      "comment_id": 392640041859044,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Which [product_name] device do you have specifically? Sorry, I missed your information about version [version_no] (8.4). What is the unit ID (slave address) of your Modbus RS485 device?"
+    },
+    {
+      "comment_id": 966470466658055,
+      "user_name": "RBm0Oj1Mqu",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I've tried several unit IDs; currently using 1. I also tested with another controller and had no issues there. It seems [product_name] doesn't accept the MODBUS TCP response and closes the connection. When testing with PC software, data transfer works fine. Whenever the MODBUS TCP-RTU gateway responds to [product_name], the TCP link is dropped for an unknown reason. Additional testing showed the MODBUS connection to the converter is established, but sending a response causes the TCP connection to end. If the RS485/RTU part is purposely incorrect (so no answer goes back to [product_name]), the TCP connection remains open, as shown by the Link LED status."
+    },
+    {
+      "comment_id": 855305499550218,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "What type of Modbus RTU device are you using?"
+    },
+    {
+      "comment_id": 436306319729068,
+      "user_name": "RBm0Oj1Mqu",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "It's an Eastron SDM630MCT variant, though I've tried others—so I don't believe the RTU device is the issue. I captured new Wireshark traces today and learned more: The MODBUS TCP request and response appear fine in the logs, but instead of a single keep-alive TCP request, [product_name] sends multiple TCP packets, which eventually causes the TCP connection to shut down. As a result, [product_name] doesn't process the returned MODBUS data. I attached the Wireshark logfile. Use filter for ip.addr == 192.168.1.224 (the MODBUS gateway). [product_name] is at 222."
+    },
+    {
+      "comment_id": 590353690331649,
+      "user_name": "7qnQTupqzi",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Hello, did you manage to find a solution?"
+    },
+    {
+      "comment_id": 802699371610989,
+      "user_name": "cZQANX744b",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Hello, what firmware version does your [product_name] [version_no] device have? There are two firmware updates for [product_name] [version_no], one of which ([version_no]) improves communication. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing MODBUS TCP communication issues between the [product_name] [version_no] device and a Waveshare MODBUS RTU/TCP converter, despite successful tests with PCs and other controllers. The [product_name] establishes a TCP connection but closes it after receiving a MODBUS RTU response, preventing data access. Wireshark traces show requests and responses are exchanged, but unexpected TCP activity from [product_name] results in broken connections and data not being processed. Firmware versions and updates are highlighted as possible factors.",
+    "user_expectations": "The user expects the [product_name] [version_no] device to build and sustain a MODBUS TCP connection, reliably reading data from MODBUS RTU devices through the converter—just like with PC software or other hardware.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "stable MODBUS TCP communication",
+      "data access",
+      "protocol compatibility"
+    ],
+    "pain_keywords": [
+      "connection drops",
+      "unprocessed response",
+      "interoperability issues",
+      "debugging difficulty"
+    ],
+    "feature_keywords": [
+      "MODBUS TCP client",
+      "Ethernet communication",
+      "diagnostics",
+      "firmware compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability"
+  }
+}

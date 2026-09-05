@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "7640078465",
+    "thread_id": "4479534060",
+    "publication_year": 2011,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 799502790280116,
+      "user_name": "DULAzQP2Y1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm trying to connect a [version_no] with a new [product_name]. I'm using the TCPIP connection type for [version_no], and both devices have internet access. For the client connection, I've set Remote TSAP to 20:02 and entered the [version_no]'s IP. The operation is set to READ, length 1, local address VB0, and remote address MB100, with Keep-Alive disabled. On the [version_no], the connection appears active, with TSAP 20.02 for local and 20.00 for the partner connection. However, in the configuration tool, status shows as 'Is being set up' and error as 'unknown'. I want the [product_name] to be the active connection and the [version_no] as passive. I've tried various configurations, including setting the [version_no] as passive, but nothing happens in the [product_name] program. Additionally, the server connection can't be established."
+    },
+    {
+      "comment_id": 437668025447136,
+      "user_name": "B0HZYmfLbO",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "If your data type is WORD, you should set the length to 2. This might help!"
+    },
+    {
+      "comment_id": 275866759629548,
+      "user_name": "DULAzQP2Y1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "I already tried that, but it still doesn't work. To check if the connection is functioning, the [version_no] writes 0 and FFFF every second to MW100. In the [product_name] online test, I can see that the information isn't coming through. Is there anything needed on the [version_no]? Normally there isn't."
+    },
+    {
+      "comment_id": 128736347780926,
+      "user_name": "B0HZYmfLbO",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Typically, you shouldn't need anything extra. But try this: Create a data block (DB1), write the value from MW100 to DB1.DBW0, then enter in the [product_name] configuration: Operate: Read | Length: 2 | Local Address: VB0 | Remote Address: DB1.DBB0. Do the LEDs (Rx/Tx) for data transfer flash?"
+    },
+    {
+      "comment_id": 718543670646197,
+      "user_name": "DULAzQP2Y1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Thanks for the suggestion, but it didn't work. I've attached a screenshot: showing the connection setup in [product_name], the connection status from the configuration tool, and the online response. The RX/TX light is always on due to ongoing communication. Also, when checking diagnostics/statistics, if I disconnect the [product_name], the online status turns RED and the number of connections in use decreases. This indicates the [product_name] connects to the [version_no], but no data transfer is visible."
+    },
+    {
+      "comment_id": 136301033093146,
+      "user_name": "DULAzQP2Y1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Now it works. I changed the IP address to another [version_no] on the network, which also didn't work. After switching back to the original [version_no], the connection started working for unknown reasons. The software does not provide clear feedback. For another [version_no], changing the TSAP in [product_name] made it work, with the slot number indicated by the .02 value. In summary, if [product_name] is the active partner, no changes are required on the PLCs; the configuration on the [version_no] was unnecessary."
+    },
+    {
+      "comment_id": 658968312919946,
+      "user_name": "ORmFnizPuo",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "I can confirm after testing communication between a [version_no] and [product_name]: No configuration is needed in the setup tool if [product_name] is the client. My configuration displays an integer value read from a DB in the [version_no] on the [product_name]'s screen."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered considerable challenges setting up TCPIP communication between [product_name] and [version_no], primarily due to unclear feedback and limited guidance from the configuration software. There was uncertainty about whether connection issues arose from incorrect parameters or deeper misconfigurations. Eventually, a successful link was achieved, but the solution's rationale remained unclear, indicating non-intuitive software feedback and diagnostics.",
+    "user_expectations": "Users expect a reliable and straightforward setup experience, with clear feedback and effective diagnostics from the software when configuring TCPIP communication between [product_name] and [version_no] devices. They seek the ability to quickly identify and resolve configuration errors.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful TCPIP communication",
+      "diagnostic clarity",
+      "reliable configuration"
+    ],
+    "pain_keywords": [
+      "unclear diagnostics",
+      "connection setup confusion",
+      "lack of guidance",
+      "feedback insufficiency"
+    ],
+    "feature_keywords": [
+      "TCPIP client connection",
+      "online diagnostic tools",
+      "netpro status indicators",
+      "data block reading"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "22": "Usability Improvement Suggestions"
+  }
+}

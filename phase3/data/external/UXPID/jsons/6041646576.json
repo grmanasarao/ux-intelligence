@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "6041646576",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 503648168948762,
+      "user_name": "M2tYuBGVbt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, Does [product_name] include any internal protection against short circuits or electrostatic discharge, or any settings that would switch its operating mode from RUN to STOP? I encountered an issue: when the PLC is turned on for the first time, it operates without problem but then stops by itself after a few hours, requiring a manual restart from the base panel. I can't check the current program status since the device is overseas. Are there any external factors or settings that could lead to this situation? Thanks in advance! Best regards, [user_name]"
+    },
+    {
+      "comment_id": 114207361998631,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "No, there are no relevant settings for this behavior. The error might be caused by a brief power supply drop. Other causes would be speculative."
+    },
+    {
+      "comment_id": 896611452902428,
+      "user_name": "M2tYuBGVbt",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Normally, after a power failure, [product_name] resumes operation in RUN mode if it was already running. In this situation, it started in RUN mode, but was later found in STOP mode. Testing the same program in an emulator, I get normal resume after powering off and on, with no issues. I did not use any initialization flags that could cause disruption. Thank you for your prompt response."
+    },
+    {
+      "comment_id": 634256236666201,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Hi, Try locking the cabinet with a key lock to check if the issue persists. Sometimes, operators switch [product_name] to STOP mode, then call for service. To prevent this, consider switching to operator mode (for [product_name] and associated panels separately). In this mode, operators without the password cannot change to STOP mode. The default password is mentioned in the manual, but you can set a custom password under Tools/Transfer/Access Control—use the apply button. Hope this helps."
+    },
+    {
+      "comment_id": 716149583090159,
+      "user_name": "M2tYuBGVbt",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Hi [user_name], Thank you for your feedback. In my case, the issue might be genuine; I say this because I received a message from [company_name] support confirming that this situation sometimes occurs with [product_name]. [company_name] would like to further investigate the problem. I will post updates as the situation develops so everyone can stay informed. Have a nice day."
+    },
+    {
+      "comment_id": 102006725576679,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "This behavior is new to me personally, and I wasn't aware that [company_name] recognized it as a problem. Could you specify exactly which model of [product_name] you are using?"
+    },
+    {
+      "comment_id": 626062858365161,
+      "user_name": "M2tYuBGVbt",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "I am using [product_name] [article_no] with a basic panel [product_name] Color."
+    },
+    {
+      "comment_id": 588323713403332,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], In industrial settings, I always use auxiliary relays for digital inputs and outputs to isolate [product_name] from external events such as short circuits, overcurrent, or voltage instability. This may address part of your issue. I agree with [user_name]: keep [product_name] locked in a cabinet. Generally, the PLC doesn't fail; human error is more likely, especially when supervision is remote. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report that the [product_name] PLC unexpectedly switches from RUN to STOP mode after a period of operation, requiring manual restart from the base panel. There is uncertainty about whether this results from hardware faults, such as power supply interruptions, external factors, or unauthorized actions by operators. Feedback highlights the need for clearer information on protection mechanisms, improved diagnostics, and enhanced access control for reliable operation.",
+    "user_expectations": "Users expect the PLC to run reliably without unexpected switches from RUN to STOP mode, to have effective internal protections, and to be equipped with settings or diagnostics that help detect and prevent such incidents.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable operation",
+      "diagnostic transparency",
+      "protection mechanisms"
+    ],
+    "pain_keywords": [
+      "unexpected STOP mode",
+      "manual restart required",
+      "unclear cause"
+    ],
+    "feature_keywords": [
+      "RUN/STOP mode control",
+      "operator access restriction",
+      "diagnostic logging"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "17": "Circuit Protection Guidance",
+    "6": "Security Concerns"
+  }
+}

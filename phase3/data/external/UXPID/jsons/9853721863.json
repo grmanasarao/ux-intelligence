@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "9853721863",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 170472813202015,
+      "user_name": "sJM5db1Ilr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello everyone. Does anyone know if it's possible to gradually adjust the setpoint or manipulated quantity on a PI controller using a ramp function? I want to smoothly increase the setpoint to 65°C when PI control is activated. The PI controller documentation indicates this is possible, but the method is unclear to me. It mentions selecting a function by block number, which I'm not familiar with. Could someone explain? regards [user_name]"
+    },
+    {
+      "comment_id": 616876219559459,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "What value should the ramp function use? Is it for the automatic setpoint, or for manual operation? Where should the ramp start, and how do you intend to determine its slope?"
+    },
+    {
+      "comment_id": 637197210263804,
+      "user_name": "sJM5db1Ilr",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "[user_name], thanks for responding so quickly. I'll try to clarify: 1. Value of the ramp function: I plan to set it so the automatic setpoint increases from ambient temperature (around 5°C) to the 65°C target over 10 minutes. 2. Setpoint for automatic operation: Yes, it's for the automatic setpoint. 3. Ramp start and slope: I described that in point 1 above. 4. Setpoint for manual operation: Eventually, I want to enable manual setpoint adjustment using a function, likely with pulse up and down controls."
+    },
+    {
+      "comment_id": 334793853518924,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Here is an example: The ramp increases the setpoint by 0.1°C per second. Over 10 minutes, the total increase is 60.0°C. Starting from 5.0°C, the calculation is: 5.0°C + (0.1°C × 600 seconds) = 65.0°C."
+    },
+    {
+      "comment_id": 801362180971174,
+      "user_name": "sJM5db1Ilr",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Thank you, that clarifies things a lot."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on using a ramp function with a PI controller to smoothly adjust the setpoint temperature. The original user seeks advice on implementation details, while others provide clarification and a practical example, leading to improved understanding of how to configure the ramp and calculate the required settings.",
+    "user_expectations": "The user aims to implement gradual setpoint adjustment using a ramp function on the PI controller, with a clear method for configuration as described in the controller's documentation, applicable in both automatic and manual operation modes.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "smooth setpoint adjustment",
+      "temperature ramping",
+      "clear implementation"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "PI controller setpoint adjustment",
+      "ramp function",
+      "manual vs automatic mode"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

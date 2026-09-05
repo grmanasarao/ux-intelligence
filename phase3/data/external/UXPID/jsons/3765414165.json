@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "branch_id": "3765414165",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 139546373194759,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm new to [product_name]. I've written a program to convert encoder input to millimeters. However, the math instruction I have needs to switch several outputs, and I'm unsure how to achieve that. Is it possible to count the millimeters (from the output of the math instruction) using a counter or similar? Please see the attachment for clarification. I hope my explanation is clear! I need a pulse or something for each millimeter so I can create a setpoint and disable an output when the target is reached."
+    },
+    {
+      "comment_id": 427688090894167,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "If I understand correctly, you'd like to compare the calculated millimeter value to one or more setpoints and perform actions accordingly. Is that right?"
+    },
+    {
+      "comment_id": 170546878340607,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Yes, that's exactly what I want. When it reaches a specific millimeter value, it should slow down, and when it matches the setpoint, it should stop."
+    },
+    {
+      "comment_id": 659447133594207,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "You can achieve this using various function blocks, such as the analog comparator, analog threshold trigger, or analog differential trigger."
+    },
+    {
+      "comment_id": 144123631191448,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I think you're referring to this (see attached image). In this setup, it counts down to zero, and the output changes accordingly."
+    },
+    {
+      "comment_id": 976502287893879,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Yes, that's one possible solution. Another example is shown in the attachment."
+    },
+    {
+      "comment_id": 735271581661667,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Thanks! I'll try these methods to see which one works best."
+    },
+    {
+      "comment_id": 732116324693040,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The code works well, but the maximum millimeter output I get is 16161 mm. Please see the attachment with the calculation. I know the max output is 32767, but I'm unsure what I'm missing."
+    },
+    {
+      "comment_id": 107148774827077,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "It's challenging to assist without knowing your exact parameters. For example, how fast do the pulses arrive? What's the value of one pulse? How many pulses in total over the measured distance? According to your formula, each pulse represents approximately 0.4932 mm, similar to a multiplication factor of 0.5. The math instruction can only process values up to 32,767 at the inputs. If the counter provides values exceeding 32,767, the system limits it to 32,767. Thus, 32,767 * 0.4932 = 16160.6844, rounded to 16161."
+    },
+    {
+      "comment_id": 987931237235554,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "That's correct! Your calculation matches mine. I need to find a solution since I require a range up to roughly 25,000 mm for cutting. Perhaps using a second counter for each meter and then resetting the millimeter count. Thank you."
+    },
+    {
+      "comment_id": 516800766260493,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Alternatively, you can use the threshold-switch function of the counter. For 25,000 mm: 25,000 / 0.4932 = 50,689 pulses. Use two counters in parallel; set the ON parameter of the first counter for switchover to slow and the ON parameter of the second counter for shut-off."
+    },
+    {
+      "comment_id": 595722037837155,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "The operator wants to enter the value in millimeters directly. I need to simplify the interface so only millimeter values are input on the display. While [product_name] is easy to use, it's somewhat limited. Next time, I may opt for a standard PLC."
+    },
+    {
+      "comment_id": 202640234142572,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "In that case, you'll need an HMI. If you add a second counter to convert millimeters to meters, be aware there could be lost pulses. Only fast input processing with counters is fast, while standard logic runs per cycle. If the fast input isn't directly linked to the counter input, counting speed depends on [product_name]'s cycle time."
+    },
+    {
+      "comment_id": 958248877677504,
+      "user_name": "3fv1rSvi5y",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "I think I need to switch back to PLC. Is there truly no way to use a variable higher than 32,000? Are all [product_name] modules the same in this regard? Otherwise, I may return to [product_name]. Thank you for the help!"
+    },
+    {
+      "comment_id": 926185877001942,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "With all [product_name] modules, mathematical functions are limited to -32,768 to 32,767, using 16-bit integers."
+    },
+    {
+      "comment_id": 243840226396545,
+      "user_name": "bCuy8KMMqs",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 10,
+      "comment_body": "Assuming your pulse source is a wheel or roller: If you increase the wheel circumference by a factor of 2.027575, each turn will correspond to one millimeter, depending on your distance resolution. If you can't get a wheel exactly 2.027575 times larger, you can apply a correction factor in the formula."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to use [product_name] to convert encoder pulses to millimeter measurements and trigger outputs at setpoints. The main challenge encountered is the internal numeric limitation of the math instruction, which processes values only up to 32,767. This effectively caps the measurable distance at approximately 16,161 mm. Alternative blocks and counting strategies were discussed, but the key issue remains the system’s restricted measurement range and how to work around it.",
+    "user_expectations": "The user expects [product_name] to handle encoder input and compare it to millimeter setpoints over their entire required range (at least 25,000 mm), allowing for control actions at these setpoints without encountering internal numeric constraints.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise control",
+      "process automation",
+      "reliable distance measurement"
+    ],
+    "pain_keywords": [
+      "numeric limitation",
+      "distance cap",
+      "unexpected behavior"
+    ],
+    "feature_keywords": [
+      "math instruction",
+      "setpoint comparison",
+      "analog comparator",
+      "counter"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

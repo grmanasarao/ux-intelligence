@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "branch_id": "5648824894",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 284029862267197,
+      "user_name": "9yz8TmeLS1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm working on setting up a down counter with a variable start value, which users input via an HMI interface. When the counter reaches zero, output Q1 goes high. Resetting with a button should prompt the counter to operate again. However, I’m struggling to maintain the previously set start value, as the counter keeps reverting to zero. Could anyone advise how to resolve this?"
+    },
+    {
+      "comment_id": 668432931052219,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Please upload your [document] as a ZIP file."
+    },
+    {
+      "comment_id": 873941272336762,
+      "user_name": "9yz8TmeLS1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "This is a segment of the full program."
+    },
+    {
+      "comment_id": 208470326543625,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "You've only uploaded part of the program and haven’t specified which counter you're referring to. I can only make assumptions about the issue. In your shared code, the link between the 'Start Value' of the B009 counter and the HMI is missing. You also haven’t mentioned the model of the HMI. If I map the B009 counter's 'Start Value' parameter to VM memory, load the program to my [product_name], and simulate the HMI, it functions correctly. See the attached video. Which data type is set up in the HMI? It needs to be a double word (DWord)."
+    },
+    {
+      "comment_id": 180828035727053,
+      "user_name": "9yz8TmeLS1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello, I realize my earlier description was brief; apologies for that. My English isn’t perfect so I’m using Google Translate. The problem is with the B005 counter not retaining a value input through an HMI KTP700. After pressing reset, the start value gets stuck at zero. Later, I identified this was due to a wrong address; DWord was correct. I have another issue: Once B005 (hours) reaches zero, it stays there until I press reset. Only then does it start counting down again. The B009 (minutes) counter resets to a fixed start time with its own reset—currently four minutes for testing, but this will be set to sixty minutes. B009 continues counting when B005 is already zero. If B005 is zero, B009 should also remain at zero for a clean display. How can I achieve that?"
+    },
+    {
+      "comment_id": 790632735847083,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Because only part of the code and no full [product_name] project is provided, I can offer only general advice. When Q1 is high, display zero instead of the minute value; you could use an analog multiplexer to do this."
+    },
+    {
+      "comment_id": 237986009268797,
+      "user_name": "9yz8TmeLS1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Yes, it’s just a section of the total program, repeated four times. The purpose is to track the operating hours of a grinder, and trigger a notification for lubrication after a set number of hours. This involves mills T5-1 to T5-4, but only T5-1 is in the uploaded file to keep it small. I’ve attached the entire [product_name] v16 program. Specifically, I can’t work out how to prevent the minutes in B009 from running past zero, similar to how hours in B005 stop. B009 keeps running, even when it should stop at zero if B005 is zero. I’m not very experienced yet. Thank you in advance for your support."
+    },
+    {
+      "comment_id": 576650485280899,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "With the current program setup, the minutes will always be reset to their start value. However, you can configure the HMI to display zero minutes when Q1 is active."
+    },
+    {
+      "comment_id": 379615543067058,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Another issue: Only part of the [product_name] program has been uploaded. There is no parameter VM mapping, and you have memory overlap problems in the VM region. You’re using VD0 along with V-bits from VB0 (V0.0 - V0.7). These bits form part of VD0. VD0 = VW0 + VW2 = VB0 + VB1 + VB2 + VB3 = V0.0 - V3.7."
+    },
+    {
+      "comment_id": 573329235446507,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Here’s a suggestion: Use an analog multiplexer, so when Q1 is off, the MUX passes through the B009 counter value, and when Q1 is on, it outputs zero. Also, remove the entry for B009 from the VM Mapping parameter and adjust the HMI tag table value from VD16 to VW16."
+    },
+    {
+      "comment_id": 344800771890635,
+      "user_name": "9yz8TmeLS1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello, Is VW16 compatible with DWord format?"
+    },
+    {
+      "comment_id": 996625569526974,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "VD16 = VW16 + VW18. [company_name] uses Big Endian formatting. For the HMI, you can use VD16, but then the minutes should be written not in VW16, but in VW18."
+    },
+    {
+      "comment_id": 422834728360114,
+      "user_name": "9yz8TmeLS1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], thank you for your support. I’ve been testing your ideas and searching for more examples, but I’m still having difficulty. I’m probably making mistakes due to my incomplete understanding, but I’d like to learn. Since you said it’s not feasible given the program design, is there an alternative or sample solution you could suggest?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants faced complications configuring a [product_name] counter system where the start value was set via an HMI interface. The main challenges involved ensuring that entered values persisted after resets, synchronizing hour and minute counters, and handling memory mapping correctly. Problems included mismatched or overlapping addresses, confusion on the correct data type, and difficulties ensuring the visual display accurately represented the logical state of the counters.",
+    "user_expectations": "The user is seeking a counter setup where the HMI inputted start value persists after resets, that both hour and minute counters behave in sync, and that the HMI shows the correct counter status in real time.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "retained start value",
+      "synchronization",
+      "accurate display",
+      "user-configurable counters"
+    ],
+    "pain_keywords": [
+      "lost input values",
+      "counter synchronization issue",
+      "memory mapping confusion",
+      "incorrect display values"
+    ],
+    "feature_keywords": [
+      "counter reset behavior",
+      "HMI variable input",
+      "parameter VM mapping",
+      "analog MUX",
+      "memory addressing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "22": "Usability Improvement Suggestions"
+  }
+}

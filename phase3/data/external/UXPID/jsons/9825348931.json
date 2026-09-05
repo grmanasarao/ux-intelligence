@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "branch_id": "9825348931",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 503542643054303,
+      "user_name": "k5gFmMjN6v",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello, I want to use an analog network input just like a physical analog input, so I can use its value to modify a counter parameter. This works with a real analog input but not with a network analog input. Is anyone able to assist?"
+    },
+    {
+      "comment_id": 515570846974994,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I've tested this both in simulation and on hardware using [product_name] V8.0 and a [product_name] [article_no].Standard FS01. The \"ON\" parameter of a forward/backward counter reacts as expected with a direct analog input from the [product_name], and also with the analog network input from the [product_name]. Which parameter do you want to modify? Could you upload your program as a ZIP file?"
+    },
+    {
+      "comment_id": 196001162155344,
+      "user_name": "k5gFmMjN6v",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Here's the program."
+    },
+    {
+      "comment_id": 997496331814255,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "You have two connections to another device. That device writes the states of input bytes (IB) 1 and 2 into VBs 0 and 1 of the [product_name]. The VBs 0 and 1 form the VW0. In your [product_name] diagram, you use analog network input (NAI) 2 with address VW0, which functions. For analog network input (NAI) 1 with address VW2, you mention it does not work. Where does NAI 1 get its value? I don't see anything referencing it in your diagram."
+    },
+    {
+      "comment_id": 409513993278198,
+      "user_name": "k5gFmMjN6v",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I previously attached the wrong file as the program. This is the correct one. When I simulate the network input, the value changes on my display. I can include a screenshot of that."
+    },
+    {
+      "comment_id": 931193382345034,
+      "user_name": "k5gFmMjN6v",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "In the screenshot you can see the value as 114, which comes from an app on my phone."
+    },
+    {
+      "comment_id": 545508110461253,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I'm not sure what you're doing, but even in this diagram there is no value written in VW2. Where are these connections directed? What's the partner device? Is it an app? Both connections on the partner device use TSAP 01.00, which won't work. Please describe exactly what you're trying to accomplish."
+    },
+    {
+      "comment_id": 474806809246473,
+      "user_name": "k5gFmMjN6v",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I use an app called HMI MULTI [product_name] in which you can set an analog value (%VW1). In network 1, I set up an analog network input and linked it directly to an analog output, which works fine. It only functions when I use address VW2, oddly enough. I want it to change a counter value but that isn't working. Please see my latest program."
+    },
+    {
+      "comment_id": 152299962506406,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I've now configured the transmission of two words in the connection list: VW0 and VW2. VW0 consists of VB0 and VB1, VW2 of VB2 and VB3. For NAI1, you need to write %VW0 in the app; for NAI2, write %VW2 in the app. Edit: I found the app manual online, so I've corrected my previous statement: %VW0 in the app links with [product_name] VW0, and %VW1 in the app links with [product_name] VW2."
+    },
+    {
+      "comment_id": 522166280299570,
+      "user_name": "k5gFmMjN6v",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "It works now. I thought changing the Ax output in the table, which connects to the counter On value, would also update when watching online. That isn't the case, but the function blocks do work as expected. Thank you for the help."
+    },
+    {
+      "comment_id": 674565301190375,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Did you check the expanded parameter field list under each block while monitoring online? These fields don’t update live when watching online—they only refresh during simulation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users investigated how to use analog network inputs as functional equivalents to direct analog inputs for counter parameter control in [product_name]. Various mapping issues arose regarding addresses and external app integration. Community troubleshooting clarified how to correctly map app addresses to [product_name] addresses, enabling successful analog network input operation after several tests and file revisions. Overall, the process highlighted the need for clearer documentation and more intuitive addressing when working with third-party tools.",
+    "user_expectations": "Users expect analog network inputs to behave like physical analog inputs for changing parameters, such as driving a counter value. They also seek clear and straightforward mapping when integrating with third-party apps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter control",
+      "remote analog input",
+      "third-party app integration",
+      "real-time input mapping"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "third-party integration",
+      "visualization issues",
+      "input feedback mismatch"
+    ],
+    "feature_keywords": [
+      "analog network input",
+      "counter parameter",
+      "VW address mapping",
+      "online monitoring"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

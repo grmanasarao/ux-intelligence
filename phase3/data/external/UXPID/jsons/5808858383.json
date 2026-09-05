@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "branch_id": "5808858383",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 717520522076656,
+      "user_name": "9gjnFs8dFE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Hello, I want to manage the temperature of an aquarium using a PT100 sensor and a [product_name] controller. Is there an example available? Thanks in advance."
+    },
+    {
+      "comment_id": 134213668671291,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "It's not possible to connect a PT100/PT1000 sensor directly to a [product_name] controller for evaluation. You need either the [product_name] expansion module [article_no] or an external transmitter that converts the PT100/PT1000 signal to a 0-10V or 0/4-20mA signal. The choice of analog input depends on the hardware setup, such as using an expansion module or a base module's analog input."
+    },
+    {
+      "comment_id": 392614785492450,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I've implemented this before—the hardest part was finding an affordable waterproof PT100 probe, around £80 in my case. There are many waterproof PT100 sensors on the market, and I attached mine to a filter inlet pipe. Connect it to the [product_name] expansion module and set the control so that if the temperature is below the setpoint, the heater turns on, and if above, it turns off. I included a 0.5°C hysteresis based on a sample from [company_name] to prevent rapid switching. The temperature setpoint can be adjusted via front panel buttons, though in my setup (26°C), I didn't need frequent changes. I also added a switch that, if held for 3 seconds, disabled the heater during maintenance and flashed the display as a warning. Temperature was logged to an SD card every 30 minutes, though the actual variation was small—between 25°C (while heating) and up to 28°C during hot days. The heater thermostat was set to 28°C as a backup in case of code errors. In retrospect, except for temperature logging, the built-in heater thermostat worked as effectively as my [product_name] program, but with much simpler configuration. Attached is a picture of the early prototype before the module was installed."
+    },
+    {
+      "comment_id": 913850947047870,
+      "user_name": "9gjnFs8dFE",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I already have the [product_name] expansion module. I am looking for an example for temperature control at +25°C with a -0.5°C ON-OFF setting. Thank you!"
+    },
+    {
+      "comment_id": 944154102099433,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Here is one possible approach."
+    },
+    {
+      "comment_id": 676564725965860,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Connect the corresponding RTD input block to an analog threshold trigger. Within the block, set the inputs for PT100/PT1000 with a resolution of 0.1. Configure the ON level to 255 (25.5°C) and OFF to 245 (24.5°C). Note the inversion: when the output is high, the heater is off. The actual inversion was done with an external relay so that if the PLC stopped or someone missed the run mode, the heater would stay on, relying on its own thermostat for safety. This setup switches the heater on below 25.5°C and off above 24.5°C. We also encountered various interference issues due to weak RTD signal levels, so the system must be carefully designed and programmed with safeguards against false signals."
+    },
+    {
+      "comment_id": 367432715639708,
+      "user_name": "9gjnFs8dFE",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "The 3-wire PT100 probe is wired into its dedicated module. Thanks everyone for your support. Wishing you all a great day, [user_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants shared methods for integrating a PT100 temperature sensor with a [product_name] controller for aquarium temperature regulation. The discussion emphasized the necessity of compatible expansion hardware, the complexity compared to simpler thermostat options, and the importance of system safety, reliability, and additional features such as data logging. Signal interference issues and robust system programming are crucial considerations for effective implementation.",
+    "user_expectations": "Users seek practical examples for implementing temperature control with ON/OFF logic and hysteresis using a PT100 sensor and [product_name], prioritizing straightforward wiring and reliable performance.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "temperature control",
+      "automatic switching",
+      "temperature logging",
+      "system reliability",
+      "hysteresis"
+    ],
+    "pain_keywords": [
+      "complex setup",
+      "need for extra hardware",
+      "system interference",
+      "potential overengineering"
+    ],
+    "feature_keywords": [
+      "PT100 sensor integration",
+      "analog input module",
+      "temperature threshold",
+      "ON/OFF control",
+      "hysteresis",
+      "data logging"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "4": "Hardware Reliability",
+    "9": "Feature Requests"
+  }
+}

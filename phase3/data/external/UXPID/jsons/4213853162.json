@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "4213853162",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 404598622560024,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello, We use an analog input expansion module to connect a 4-20 mA level transmitter. The end user performs input scaling directly using the integrated [product_name] display, since measurement ranges such as 0-5 meters or 0-10 meters could be applied. Two decimal places are shown on the display, giving centimeter-level precision. To scale the analog input, we utilize the 'Analog amplifier' function block with corresponding configuration. We have two questions after reading the [document]: 1) We observed that scaling depends on parameters such as 'Min', 'Max', 'Gain', and 'Offset', but only 'Gain' and 'Offset' are editable via the 'Message text' block. Is it correct that adjustment is only possible for 'Gain' and 'Offset'? Is there any way to change 'Min' and 'Max' differently? 2) For a 0-10 meter transmitter, we set: - Sensor 4..20 mA - Min 0 - Max 1000 - Gain 1.25 (autocalculated) - Offset -250 (autocalculated) - Decimal 2 For a 0-5 meter transmitter, we set: - Sensor 4..20 mA - Min 1 - Max 505 - Gain 0.63 (autocalculated) - Offset -125 (autocalculated) - Decimal 2 In theory, setting Min 0 and Max 500 would be correct, but the logic software returns an error. Is this expected? For a 0-5 meter level transmitter, should we configure as if it were a 1 to 5.05 meter device?"
+    },
+    {
+      "comment_id": 469125551954803,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "The issue is that the analog amplifier block only allows two decimal places for the gain factor setting. With a 4-20 mA sensor and a 0.00 to 5.00 m range, the ideal gain is 0.625, but the amplifier rounds it to 0.63. This rounding leads to unexpected min and max value requirements. Min, Max, Gain, and Offset are linked and can't be altered separately. See the attachment for details. In such situations, I usually use two analog amplifiers in sequence: the first converts 4-20 mA to 0-1000 units, and the second remaps that to 0.00 to 5.00 m."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter limitations when scaling analog input signals from a 4-20 mA transmitter for various measurement ranges using the [product_name] display and related function blocks. These challenges stem from restrictions around which amplifier parameters can be modified by users and rounding issues with gain factor precision. This leads to confusion and necessitates complex configuration workarounds.",
+    "user_expectations": "Users expect direct, detailed control over all amplifier scaling parameters—Min, Max, Gain, and Offset—via the [product_name] display or at runtime, along with precise decimal display for different sensor ranges.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "scaling flexibility",
+      "fine precision",
+      "easy runtime adjustment"
+    ],
+    "pain_keywords": [
+      "limited decimal precision",
+      "inflexible parameter adjustment",
+      "configuration error"
+    ],
+    "feature_keywords": [
+      "scaling block parameters",
+      "gain decimal places",
+      "runtime configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "branch_id": "4318484912",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 785833303882419,
+      "user_name": "qzEjWHCMKe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, apologies for my English and any misunderstandings. I am trying to read values from a [company_name] Countis E24 Ethernet Modbus counter using my [product_name]. The communications tables are available here: [url]. However, I cannot establish communication even though the PORT and address are entered correctly. I suspect the problem comes from the table, but I lack experience with this protocol and hope someone can assist me."
+    },
+    {
+      "comment_id": 270185478143651,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Could you upload your [product_name] program as a ZIP file?"
+    },
+    {
+      "comment_id": 843586794323749,
+      "user_name": "qzEjWHCMKe",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hello, thank you for your reply. This is a beta test program made simply to check if I can read a value from the [company_name] counter."
+    },
+    {
+      "comment_id": 650056285435943,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "I do not have access to that address."
+    },
+    {
+      "comment_id": 284993699743000,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "The Modbus holding register (50514) is a double register (50514 + 50515). You need to transfer two words starting at address 50514. There is an issue though: this value is a 32-bit unsigned integer, while the [product_name] can only read 32-bit or 64-bit float values using its F/I converter, not 32 or 64-bit unsigned integer values."
+    },
+    {
+      "comment_id": 961067287602984,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Example: Transfer two words from start address HR50514 to your [product_name], start address VW0, two words. If the value is less than 32,768, you can read the value in the right two bytes, which is VW2, with a standard analog network input. Are you certain the Modbus port is 505? And is the Unit-ID set to 255?"
+    },
+    {
+      "comment_id": 652052779987047,
+      "user_name": "qzEjWHCMKe",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Thank you very much for taking the time to help. Here is a screenshot of the communication table. Regarding port and ID: The port is configurable on the [company_name] E24, and typically port 502 is set. The default ID is 255, but I will try 1. Concerning the tables, dealing with 32 bit is a problem as the sign can be misplaced on the BIT. I will read it using a specific software like Modbus Doctor to see if these correspond to the expected value."
+    },
+    {
+      "comment_id": 789513382029964,
+      "user_name": "qzEjWHCMKe",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 117718883936255,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "You may need to use 50515 (+50516) as the start address if there is an offset of +1. Modbus servers commonly use port 502 by default, so it is surprising you set port 505 in the transfer table. I am not sure what unit ID your Modbus device uses as the documentation does not specify. What voltage are you measuring – is it 230VAC? If so, a simple analog network input should work. For 230 VAC, you would read 230.00, and analog inputs may go up to 327.67 VAC."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The core challenge is establishing MODBUS TCP/IP communication between the user's [product_name] and a third-party [company_name] Countis E24 Modbus counter, particularly when attempting to read 32-bit unsigned integer values from the counter. A technical limitation is identified: the [product_name] cannot directly read unsigned 32-bit integer values from the MODBUS registers, leading to interpretation issues for registers exceeding 16-bit. Discussions further delve into MODBUS specifics such as port numbers, unit IDs, and address offsets, compounding user confusion and communication problems.",
+    "user_expectations": "The user expects their [product_name] to reliably read all relevant register values, especially 32-bit unsigned integers, from the [company_name] counter via MODBUS, without requiring manual conversion or creating interpretation challenges.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy 3rd-party device integration",
+      "correct value reading",
+      "flexible MODBUS protocol handling"
+    ],
+    "pain_keywords": [
+      "32-bit unsigned integer limitation",
+      "protocol configuration confusion",
+      "address offsets",
+      "usability struggle",
+      "modbus communication failure"
+    ],
+    "feature_keywords": [
+      "MODBUS TCP/IP",
+      "register value type support",
+      "analog network input",
+      "port configuration",
+      "unit ID"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations",
+    "12": "Network Configuration Challenges"
+  }
+}

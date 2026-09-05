@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "1849586427",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 688524340569752,
+      "user_name": "Og3Xr1UUr5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I've built a project to read a Drager Regard 3900 gas detection system using [product_name] via Modbus. I want to visualize the data remotely using [product_name] web editor. While I can see my data on the controller (verified using the I/O-status), it doesn't update on the web interface. Could someone help me figure out what's missing? I've attached both my controller program and web editor project. Thank you for any assistance. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 859781541431294,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I transferred your controller program to my [product_name] (software version [version_no]) and the web editor project as well. Since I don’t have your Modbus device, I removed the Modbus connection to simulate values. The simulated results (AM1 to AM4) are visible in the extended web server without any issues."
+    },
+    {
+      "comment_id": 856056673351973,
+      "user_name": "Og3Xr1UUr5",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "That's odd. I'm using software version [version_no], which shouldn't make a difference, right? Still, it's not working on my end. My base module is a [article_no] ([article_no] version). I've attached the I/O-status log showing a value for AM2, but the web server still displays nothing (see screenshot). Does anyone know what could be wrong? Any support would be appreciated. Regards, [user_name]"
+    },
+    {
+      "comment_id": 841028066586865,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Let’s look at your calculation for AM1. The value from B002 (AM5) is multiplied by B003 (AM6), then divided by 1000. The log shows AM5 = 0, AM6 = 50. So 0 * 50 / 1000 = 0 and AM1 is 0. For AM2, you have B018 (AM7) times B019 (AM8), divided by 1000. Log says AM5 = 548, AM6 = 10. So 548 * 10 / 1000 = 5.48, rounded down to 5 by the controller — AM2 shows 5. For AM3, B034 (AM9) multiplied by B035 (AM10) and divided by 1000 gives 0 as AM5 = 0, AM6 = 100. For AM4, B050 (AM11) times B051 (AM12) and divided by 1000 results in 0 with AM5 = 0, AM6 = 1000."
+    },
+    {
+      "comment_id": 286011505946166,
+      "user_name": "Og3Xr1UUr5",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "That still doesn't clarify why AM2 is not updating on the extended web server. Does anyone have further ideas? I'm really stuck. Thank you in advance."
+    },
+    {
+      "comment_id": 128234683652361,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I can't say for sure. For me, it works when I simulate the VM data. Which [product_name] web editor version are you using? And which browser?"
+    },
+    {
+      "comment_id": 653511229027715,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "See the attached screen recording."
+    },
+    {
+      "comment_id": 737638063147051,
+      "user_name": "Og3Xr1UUr5",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I created the original web server using [product_name] web editor v1.1. After upgrading to v1.2 and redeploying the project, everything works as expected. Thanks for the help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered issues with real-time Modbus device data not updating on the [product_name] web editor interface, even though the values appeared on the controller. Upgrading the web editor software resolved the problem, indicating it was a software version compatibility or bug issue, not a configuration or hardware problem. Users also reviewed the logic and calculations to rule out programming errors.",
+    "user_expectations": "Users expect the [product_name] web editor interface to automatically and reliably display updates from the controller in real time for remote sensor monitoring.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable visualization",
+      "remote monitoring",
+      "real-time data"
+    ],
+    "pain_keywords": [
+      "data not updating",
+      "compatibility issues",
+      "software versioning confusion"
+    ],
+    "feature_keywords": [
+      "web interface",
+      "data visualization",
+      "Modbus data display"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "19": "Bug Reports"
+  }
+}

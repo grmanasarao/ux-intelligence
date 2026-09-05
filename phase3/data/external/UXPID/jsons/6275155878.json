@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "6275155878",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 348282188286879,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Hello, I want to confirm my understanding of the Data Log feature. I've attached a timing diagram illustrating which signals trigger logs and when. There are two buttons for starting and stopping a cooling machine, as well as a temperature sensor monitoring the container's temperature. The Data Log in the program is set to record I1 to I8, M1 to M8, and the analog amplifier (which converts the analog signal to an actual temperature reading). My interpretation is: For digital signals, the rising and falling edges of I1, I2, and M1 are captured; for analog signals, their actual values are logged only when a rising or falling edge on I1, I2, or M1 occurs. Additionally, when the Data Log Enable input is on, a value from the analog amplifier is recorded. Is this correct? I'm working with [product_name] [version_no]. For this setup, the interval between I1 and I2 pulses should not be shorter than ten minutes. Thank you."
+    },
+    {
+      "comment_id": 136721006602666,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Since the enable input (EN) is consistently held high, only one log entry is created. A new record is generated when an edge changes from low to high. There must be a minimum pause of 500 ms between edges; otherwise, any edge transition within 500 ms is disregarded and not recorded."
+    },
+    {
+      "comment_id": 765414220486642,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Thanks for your response. So, does this mean one data record is logged for each positive edge in the Data Log function? I defined my logging data as: I1 to I8 (1 byte), Q1 to Q8 (1 byte), and Analog parameter (1 byte). Suppose I switch the Data Log Enable input with 500 ms on and 500 ms off. Without an SD card, approximately 30 records are stored in 30 seconds, and new records will not be captured until an upload is performed. Is this correct?"
+    },
+    {
+      "comment_id": 454221328793323,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Yes. The analog parameter uses either 2 or 4 bytes. A high signal is sufficient for one logging cycle, followed by a 500 ms low signal. The internal memory for Data Log allows 1024 bytes, with up to 512 bytes for logging. Once this 512-byte threshold is reached, the data tries to write to an SD card. If an SD card is not present, further logging cannot continue."
+    },
+    {
+      "comment_id": 959677828943283,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Thank you again."
+    },
+    {
+      "comment_id": 334222867246526,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "As a tip: there is a 'To thank' button below each post if you'd like to show appreciation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are seeking to understand the data logging mechanism in [product_name] [version_no], focusing on how digital and analog signals are captured and the restrictions when an SD card is unavailable. The discussion emphasizes edge detection logic, memory constraints, and intervals for recording analog values as central topics. Effective memory management and the impact of cycle timing on logging are highlighted as primary considerations.",
+    "user_expectations": "Users expect the Data Log feature to behave predictably with well-defined rules for logging digital and analog signals. They look for clear explanations on memory usage, logging cycles, and the operational limitations, especially when no SD card is present.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "correct logging behavior",
+      "memory clarity",
+      "event detection understanding"
+    ],
+    "pain_keywords": [
+      "unclear edge detection",
+      "memory limitation confusion",
+      "SD card absence handling"
+    ],
+    "feature_keywords": [
+      "Data Log function",
+      "edge detection",
+      "memory management",
+      "analog value cycle"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

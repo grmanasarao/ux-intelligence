@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "branch_id": "9716873396",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 212577578976136,
+      "user_name": "B8SjIneOUr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I'm close to having a fully functional project, but the test connection to the cloud failed after successful registration. I followed the workaround tutorial for AWS, uploaded the [product_name] Web Editor, and I can now view my web page through my iPhone. However, the device is not connecting to the PLC. I'm nearly there. Please let me know what further information I can provide to help get this device connected to the cloud. Thank you in advance."
+    },
+    {
+      "comment_id": 126756804740702,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hi, Please verify whether your [product_name] is transmitting data to AWS: - Log into your AWS account. - Go to IoT Core, Manage, Things, and select your [product_name] using the IoT Thing name. - Check if the configured data is being sent to AWS. If no data is transmitted, ensure your cloud data settings are correct in [product_name] Soft Comfort. The [product_name] should be in RUN mode. You can use onboard diagnostics to confirm connectivity with AWS. If data is transmitted, check that the IoT name in the Web Editor matches the one in IoT Core—these must be identical for data to appear in your AWS dashboard. Hope this helps."
+    },
+    {
+      "comment_id": 351823449638221,
+      "user_name": "B8SjIneOUr",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Thank you very much for your reply. I must have a configuration issue with the [product_name]. When I check IoT Core and select the name, then view classic shadow, I see the analog inputs change through the AWS interface from my iPhone—but the PLC does not reflect changes. Additionally, any changes to the PLC inputs during operation are not shown in the Shadow. I ran onboard diagnostics and the Cloud Status shows: Cloud: AWS State: Connecting (Endpoint: a1XXXXXXXXXXmv-ats.iot.us-east-1.amazonaws.com) Device: project name (used for IoT thing in the Web Editor and during setup in [product_name] Soft Comfort) When I run the test connection I get a red screen with error 81: unable to connect to DNS Server. It seems the issue is likely on the [product_name] Soft Comfort configuration side. Further assistance would be greatly appreciated. Thank you again. Also, following advice from another post, I tried matching the IP address and default gateway using IP Config, but that didn't resolve it."
+    },
+    {
+      "comment_id": 746617525632413,
+      "user_name": "udO0a0woU9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], Have you configured the correct standard gateway IP address for your router? What DNS settings did you use in your router? Regards, Tech Support"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main challenge is establishing cloud connectivity between a [product_name] PLC and AWS via the Web Editor and [product_name] Soft Comfort. Although registration and web access through a mobile device are successful, the actual connection between the PLC and the cloud fails due to DNS errors and network configuration issues such as gateway and DNS settings. As a result, real-time data exchange between the PLC and AWS is not achieved.",
+    "user_expectations": "The user is seeking seamless and reliable cloud connectivity for real-time data exchange between the [product_name] PLC and AWS. They expect clear, actionable guidance on diagnosing errors and correcting configuration settings for successful cloud integration and control.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "cloud connection",
+      "real-time data exchange",
+      "remote access",
+      "functional integration"
+    ],
+    "pain_keywords": [
+      "DNS error",
+      "network configuration",
+      "connection failure",
+      "troubleshooting complexity"
+    ],
+    "feature_keywords": [
+      "cloud integration",
+      "onboard diagnostics",
+      "web interface",
+      "PLC data visibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "iOS": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

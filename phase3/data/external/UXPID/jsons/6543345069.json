@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "branch_id": "6543345069",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 239392926817529,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Good afternoon, I have three analog functions: SF014, SF017, and SF018. SF014 uses two thresholds: OFF (VW4) and ON (VW6), which I adjust through I/O fields in the HMI. I want the ON limits for SF017 and SF018 to use the same addresses, VW4 and VW6, and this works—changing the values in the HMI updates both. For the OFF limits of SF017 and SF018 (VW8 and VW10), I want them set so OFF = ON - 1 (for instance, OFF=39 if ON=40). How can I configure these OFF values for the analog functions, ensuring OFF = ON - 1, but without creating extra I/O fields?"
+    },
+    {
+      "comment_id": 598341318616221,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "For setpoints ON (b) and OFF (a), I would recommend using analog network inputs instead of Parameter VM Mapping. You can refer to the example in the attached file."
+    },
+    {
+      "comment_id": 729010308593914,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Thank you, your advice has been very helpful! I have another question: If I want to display the values \"70-1\" and \"40-1\" on the HMI as AM1 and AM2, how do I assign their addresses in the HMI? Should I use VM0 and VM2 or something different? Thanks in advance!"
+    },
+    {
+      "comment_id": 787059108006076,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I'm not sure why you want to show those values on the HMI, but just to clarify—you can't directly display analog marker values there. AM1 does not necessarily correspond to VW0, and AM2 is not VW2 by default. Use Parameter VM Mapping to assign the output from your mathematical instructions to available VM memory words."
+    },
+    {
+      "comment_id": 633016615612053,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Understood, it's working, thank you. One last question: I have two [product_name] modules connected to the HMI, let's call them Module 1 and Module 2. When I input VW4 and VW6 on the HMI, the values are sent to Module 1 and I only have two I/O fields. Is there a way to transfer the VW4 and VW6 values to Module 2 without adding more I/O fields? As shown in my setup, it doesn't work as needed—I have to input the same value multiple times."
+    },
+    {
+      "comment_id": 204737908820809,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Create a link between both [product_name] modules and transfer 4 bytes starting from address VB4 from Module 1 to Module 2."
+    },
+    {
+      "comment_id": 803432847353642,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "So, since 4 bytes equals 2 words, both VW4 and VW6 will be sent to the second module, correct?"
+    },
+    {
+      "comment_id": 899083558038821,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Yes, that's correct. VW4 uses VB4 + VB5, and VW6 uses VB6 + VB7. You transfer 4 VBs, starting at VB4 and ending at VB7."
+    },
+    {
+      "comment_id": 666058899464194,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I've set up the connection, but the data isn't reaching the second module. I need to transfer data between the modules even when the computer is disconnected from the network switch. Any suggestions?"
+    },
+    {
+      "comment_id": 760837955307421,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Not at the moment. Could you please upload both [product_name] programs as ZIP files?"
+    },
+    {
+      "comment_id": 928837873069637,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Here they are! The file Vinha_1 Cuba is for Module 1 and Vinha_2 Cuba is for Module 2. Both are programmed in LAD. The ZIP also includes the network files, with both programs in FBD. I'm not sure why Module 2 isn't receiving data from Module 1. EDIT: I just updated the network, fixed some errors, so it should be correct now, but it still isn't working properly."
+    },
+    {
+      "comment_id": 149877421355249,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Ideally, I'd have a second flowrate sensor to test with Module 2, but I'm waiting for more equipment to arrive. I can't access VW2 (VB2 + VB3, analog input from the flowrate sensor) on Module 2, and it also isn't getting VW4 and VW6. EDIT: I updated the ZIP in the previous post. Sorry, I hadn't updated Module 2 for some network issues yesterday."
+    },
+    {
+      "comment_id": 847411503388411,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "You can't create a network project using LAD diagrams. On both [product_name] modules, I've set up the connection. In the client module's connection table (Module_1), I've assigned the correct byte range (VB4-VB7)."
+    },
+    {
+      "comment_id": 228734157690339,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I realized I needed to define roles as server and client under Ethernet Connections. After converting the files to FBD, I was able to convert the words as you explained. Thanks! Is Module 1 considered the client because it sends data to the server, which just receives it?"
+    },
+    {
+      "comment_id": 760656267049697,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "[product_name] modules connect as client (master) and server (slave). Only the client has a connection table to set up which data to send/receive and its direction. The server only responds to requests: 'Send data' or 'Receive data' as managed by the client."
+    },
+    {
+      "comment_id": 119785450361743,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Thank you so much, it's all working perfectly now."
+    },
+    {
+      "comment_id": 160744900027584,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], you're welcome!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are configuring dependent analog parameter thresholds on multiple [product_name] modules using an HMI and a limited number of I/O fields. There is uncertainty about how to map and display specific memory values on the HMI, as well as how to transfer user inputs and calculated variables between modules without extra I/O. Main issues include parameter mapping, memory addressing, variable transfer between devices, and restrictions related to HMI display functions.",
+    "user_expectations": "Users want to set thresholds based on other parameter values (such as OFF = ON-1), display calculation results on the HMI, and pass these values to a second [product_name] module without adding more I/O fields.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter synchronization",
+      "minimal HMI fields",
+      "automated threshold calculation",
+      "multi-device operation"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "HMI display limitation",
+      "parameter sharing complexity",
+      "non-functioning synchronization"
+    ],
+    "feature_keywords": [
+      "I/O field configuration",
+      "threshold parameter linking",
+      "memory address mapping",
+      "LOGO-to-LOGO communication"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "22": "Usability Improvement Suggestions"
+  }
+}

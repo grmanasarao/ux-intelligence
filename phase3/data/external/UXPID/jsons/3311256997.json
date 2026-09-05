@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "3311256997",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 920972621817127,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], I have two [product_name] modules, and I used your example a couple of years ago. Now, I'm working with analog communication between two [product_name] devices. The issue is that when I disconnect one of them, the analog output freezes, causing the other device to keep receiving the last connection value. I want one device to detect the communication failure so the other can switch to alternative programming logic. I've only changed the physical analog output, not the internal analog setup. Thanks in advance. [url]"
+    },
+    {
+      "comment_id": 854559801803002,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "You should monitor the communication and respond appropriately if it fails. Note that simulation does not always mirror the actual behavior of [product_name]s."
+    },
+    {
+      "comment_id": 265248712620585,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Before simulating, I encountered the problem in the wiring. When disconnecting the UTP cable, both digital and analog outputs freeze as in the simulation. Inside the UDF, the output switches off when disconnected and works correctly. I tested between two different [product_name] models; I sent a signal from one to another and disconnected the link, causing the input on the receiving module to freeze. It should show a low input, but it doesn't change. [url]"
+    },
+    {
+      "comment_id": 799502714596150,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I'm going to check the actual [product_name] modules again."
+    },
+    {
+      "comment_id": 213165677690558,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I've checked again and found that, after disconnecting the link, the outputs retain their last value. I created a UDF to address this issue, but ideally, this problem shouldn't occur. Is there a better approach? [url]"
+    },
+    {
+      "comment_id": 629703414903112,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Please share your UDF."
+    },
+    {
+      "comment_id": 847348320287767,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I created a simple program and uploaded images to Dropbox; there's also a PDF available."
+    },
+    {
+      "comment_id": 165852976867768,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I've attached an example for exchanging status bits between two [article_no] devices, including the use of diagnostic bits in both [product_name] modules."
+    },
+    {
+      "comment_id": 577788837333600,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I send a flip-flop oscillator signal from one [product_name] and monitor for it on the other side of the link."
+    },
+    {
+      "comment_id": 308994650439824,
+      "user_name": "oobTuoeNsU",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you very much [user_name], your solution works well for this issue."
+    },
+    {
+      "comment_id": 774464429259469,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], you're welcome."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users reported an issue with analog and digital outputs between two [product_name] version [version_no] modules: disconnecting the UTP cable causes the outputs to freeze and hold their last value. This differs from expected behavior, as users want immediate detection of a communication failure and a reset output. Simulated responses also do not accurately reflect what happens in real hardware, adding confusion.",
+    "user_expectations": "Users expect the receiving module to automatically detect communication failure and reset or change its outputs to a predefined safe state, rather than maintaining the previous value.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable communication status",
+      "automatic failure detection",
+      "safe fallback behavior"
+    ],
+    "pain_keywords": [
+      "output freeze",
+      "missed failure state",
+      "simulation mismatch"
+    ],
+    "feature_keywords": [
+      "communication monitoring",
+      "automatic output reset",
+      "diagnostic signals"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

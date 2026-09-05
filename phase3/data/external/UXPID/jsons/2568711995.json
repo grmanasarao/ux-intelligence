@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "branch_id": "2568711995",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 984394588648305,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello, we typically use the \"Softkey\" block with retentive enable as a software selector, adjusting the \"Status\" parameter via the BM display (see [document]). Now, we want to change this \"Status\" block parameter through ModBus, but \"Softkey\" blocks can't be included in the VM configuration. Is there any way to implement such functionality? The goal is to allow switch status changes from both the BM display and the ModBus client. Thanks everyone!"
+    },
+    {
+      "comment_id": 335152073164423,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "No, this isn't possible."
+    },
+    {
+      "comment_id": 818428817303451,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], thanks for replying! As an alternative to \"Softkey,\" I could use a \"Network input\" (like VB 0 Bit 0), which ModBus can read and write without issues. However, I can't modify this \"Network input\" bit from the BM display. Is there a way to change the \"Network input\" from the BM display? Thanks."
+    },
+    {
+      "comment_id": 673614511932825,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "No, that's not possible either."
+    },
+    {
+      "comment_id": 300405455127320,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "However, I might have a solution for your problem. Try converting the softkey into a button and generate a dynamic signal from the network input. You can use a cycle pulse, created from the static network input signal, by continuously resetting a network output with the same address using a LOW block. Then, connect the softkey output and network input to an OR block, and link the OR block's output to the trigger input of a pulse relay. [document]"
+    },
+    {
+      "comment_id": 209098998400780,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I'll try your suggestion tomorrow and provide feedback!"
+    },
+    {
+      "comment_id": 100539283402802,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Your solution works well. The only drawback is that on the BM display, I need to set up two fields: one that lets the operator change the switch state (which immediately reverts after being set) and another that shows the retentive state of the selector (whether changed by switch or ModBus). Thanks again!"
+    },
+    {
+      "comment_id": 317180500028628,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "It's just like in reality—you can't have everything."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user discovered that the \"Softkey\" block with retentive enable can't be managed through ModBus, and a workaround using \"Network input\" doesn't work due to BM display limitations. The proposed approach, combining a button softkey, network input, OR block, and pulse relay, was accepted as technically suitable, but the user was dissatisfied with needing two separate fields on the display interface.",
+    "user_expectations": "The user prefers a way to seamlessly control the switch status on the [company_name] module from both the BM display and the ModBus client, aiming for unified display and control functionality.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dual control",
+      "remote access",
+      "status synchronization",
+      "seamless integration"
+    ],
+    "pain_keywords": [
+      "limited ModBus access",
+      "dual-field UI requirement",
+      "separated controls"
+    ],
+    "feature_keywords": [
+      "Softkey block",
+      "retentive enable",
+      "BM display control",
+      "ModBus connectivity",
+      "network input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

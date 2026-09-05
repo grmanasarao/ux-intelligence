@@ -1,0 +1,264 @@
+{
+  "metadata": {
+    "branch_id": "1139014305",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 229349687492911,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I'm having trouble getting a [product_name] (article_no [article_no]) to communicate with a Circutor CEM M ETH energy meter ([url]). I need to retrieve voltage data from the meter. I followed an online tutorial ([url]), updating only the IP address and the starting address (1842 for voltage on the Circutor meter), but I'm only getting zero values. When I connect a computer directly to the Circutor CEM M ETH and use Modbus software, data is read successfully. Thanks!"
+    },
+    {
+      "comment_id": 758873629575410,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Try using the project attached. Make sure you configure the correct IP addresses for your devices."
+    },
+    {
+      "comment_id": 848002226192796,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Thank you for helping, but it's still not working. I see 0V on all three phases. I set the IP addresses for both [product_name] (192.168.0.8) and the Circutor CEM M ETH (192.168.0.50) in the program. More details: If I connect the Circutor to the ethernet network without the [product_name], I can request Modbus voltage data from my computer, but when the [product_name] joins the network, the Circutor stops responding to data requests. Even after removing [product_name], the Circutor stays unresponsive until it's restarted."
+    },
+    {
+      "comment_id": 208108194931433,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I don't have enough information about the CEM M ETH. Is it operating as a Modbus server or client?"
+    },
+    {
+      "comment_id": 865764562882321,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Here's some info on the CEM M ETH: [url], [url], [url]. Regarding your client/server question, I'm a beginner in Modbus. I set the CEM M ETH as a client based on an example from another post ([url]), but my situation is similar to that example. Thanks for your replies."
+    },
+    {
+      "comment_id": 647329952523556,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I'm familiar with the PAC example, but it doesn't seem helpful here since we're unsure whether communication is actually happening."
+    },
+    {
+      "comment_id": 807322247863974,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello, Since you want to read data from the CEM M ETH, shouldn't it be set up as a Modbus Server? Your [product_name] is configured as a Modbus Client. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 612929120264643,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I've reviewed all available documents, but none specify whether the device operates as a client or server."
+    },
+    {
+      "comment_id": 845406726058691,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Communication between CEM-M-ETH and the computer works fine with the software; the issue seems to be the [product_name] configuration. For example, when requesting voltage for one phase (address 732 hex), the response is 8CF hex: C:\\mbus>mbus x192.168.0.50 p502 010407320002 DB9700000006010407320002 DB9700000007010404000008CF 100.00%"
+    },
+    {
+      "comment_id": 933244101450264,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "In [product_name], you can select whether it functions as a client or server."
+    },
+    {
+      "comment_id": 492407195825159,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Setup in [product_name] can be correct only if we know whether the modbus device is configured as client or server. I've written many programs for communication between [product_name] and modbus devices."
+    },
+    {
+      "comment_id": 571871468746553,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Try this: Connect to the [product_name] and monitor online activity. Click the highlighted icon below to open the data table. Enter addresses VW0 to VW10 as shown in the screenshot. This lets you see if any data is being received by [product_name]. Please share a screenshot so we can review. [IMAGE]"
+    },
+    {
+      "comment_id": 799707084350201,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "[user_name], thanks again for your assistance. Attached is the screenshot; there's no data at VW0, 2, 4, 6, 8, or 10."
+    },
+    {
+      "comment_id": 330802578871519,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Thanks for your help. I also tried configuring CEM M ETH as a server using the program shared by [user_name]."
+    },
+    {
+      "comment_id": 956727159832178,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello, Have you tested address 1843 (Offset + 1)? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 603062916837861,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Yes, I've tried both 1842 and 1843. I ran many tests before posting here. A strange issue is that the CEM M ETH seems to get blocked after I connect the [product_name] to ethernet—after disconnecting the [product_name], the CEM M ETH remains unresponsive until power is cycled. By \"blocked,\" I mean it stops responding to my computer software. I also tried adjusting the read interval in LSC."
+    },
+    {
+      "comment_id": 103522411426571,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I've set this up in my uploaded project..."
+    },
+    {
+      "comment_id": 624916616191905,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "It appears there's no communication between [product_name] and the Modbus device. Have you used my project or your own program?"
+    },
+    {
+      "comment_id": 397300556966795,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "It appears there's no communication between [product_name] and the Modbus device. Did you use my project or your own code? - your project."
+    },
+    {
+      "comment_id": 661147841325686,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Are the [product_name] and the Circutor CEM M ETH directly connected? If not, try a direct connection and avoid connecting the PC to the Circutor at the same time."
+    },
+    {
+      "comment_id": 687918876511160,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "All right, thank you, I just tried a direct connection but still see no voltage data on the [product_name]'s display."
+    },
+    {
+      "comment_id": 403425675888936,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Then a different problem exists. This isn't an issue with [product_name]..."
+    },
+    {
+      "comment_id": 468539492003828,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "However, when I use Modbus software on my PC, the CEM M ETH provides correct voltage and other data. The problem starts when the [product_name] joins the network. Could it be a data format issue between HEX and DEC?"
+    },
+    {
+      "comment_id": 309027581443331,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "No, zero is the same in HEX and DEC. Sorry, I'm not familiar with your Modbus device, and its documentation isn't very clear. I don't think I can help further in this case."
+    },
+    {
+      "comment_id": 171516947467922,
+      "user_name": "lW6GrzoWKi",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Update: I reached out to Circutor, and they've confirmed the device is a Modbus TCP server. They're investigating the issue now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing difficulties establishing communication between a [product_name] and a Circutor CEM M ETH energy meter via Modbus. The [company_name] device continually reads zeros instead of the expected voltage data, even though a standard Modbus software on a PC retrieves the correct data. Adding the [product_name] to the network causes the meter to stop responding to all Modbus requests, which can only be resolved by restarting the meter. Uncertainty around client/server roles and lack of clear documentation are contributing to user frustration.",
+    "user_expectations": "Users expect reliable Modbus communication between the [product_name] and the third-party meter, as well as straightforward documentation or practical examples for setup. They want the [product_name] to read voltage data correctly, without disrupting existing network operations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable data reading",
+      "simple configuration",
+      "third-party device integration"
+    ],
+    "pain_keywords": [
+      "communication failure",
+      "zero data readout",
+      "unclear Modbus role",
+      "network disruption"
+    ],
+    "feature_keywords": [
+      "Modbus client/server configuration",
+      "third-party device integration",
+      "network communication"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "4752171298",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 520512056258132,
+      "user_name": "200oIouaF1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Hi everyone, I have another question. I set up a counter that goes up to 3, sends a pulse, and then resets. Then I use a second counter to track how many times it reaches 3. My problem is this: I want to count the pulses from the first counter, but only for the 1st and 2nd occurrences, not the third. For example, if the first counter reads 2 and the second counter reads 5, the third counter should be at 10. I've tried various approaches, but the pulse gets processed too late, sometimes causing a double count on the third pulse. If this isn't clear, I can show an example tomorrow. For now, I'm off to sleep. Good luck finding a solution!"
+    },
+    {
+      "comment_id": 396422282276584,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Hello, Are you experiencing missed pulses or double counting? Does this issue occur during simulation or on the actual PLC hardware? It would help to see your program—sharing it sounds like a good way to get the right solution. Is the file you attached what you're trying to achieve? Regards, [user_name]"
+    },
+    {
+      "comment_id": 435222598285557,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Are you referring to a program similar to mine?"
+    },
+    {
+      "comment_id": 568087708014006,
+      "user_name": "200oIouaF1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Marcjan’s solution is close, but I'd like to do it using just 3 timers. That way, I only need to change the first timer—say, set it to 5—while keeping the second timer unchanged and having the third count the pulses from 1 to 4. This is what I initially attempted: simple and logical, but it doesn’t work properly. You’ll notice the first counter has a slight delay in its output, which causes it to process the pulse before another block can prevent an extra count. On another note, what Toeternitoe showed in their example is new to me—thanks for sharing that! Also, am I correct in assuming you’re both Dutch? As someone just starting with programming, I am curious what you use this for and which industry you work in. For now, let’s call it a tie for who solved it first—game on!"
+    },
+    {
+      "comment_id": 555259328946077,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Hello, I made some changes to your program—hope it fits your needs. And yes, I’m Dutch! No secret there. Regards, [user_name]"
+    },
+    {
+      "comment_id": 740514692035134,
+      "user_name": "200oIouaF1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Thanks Marcjan, your program worked fine until I tried changing the number of pulses from 3 to another value or to 1, and then it stopped working. This is because I need to count the chain's wheels between those that are greased, and ideally, the number should be easily adjustable—just in one counter. I also modified my program and found it was easier than expected. Thanks for all your help, but I'll keep the trophy for now. Try it out and see if you think it's good or if you can improve it even further."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are collaborating on developing a flexible counting logic for an automation system using programmable counters. Their main focus is creating modular counting where thresholds and output pulses can be easily adjusted and remain synchronized. They are troubleshooting issues like missed and double counts, as well as delays in pulse processing, aiming for a solution that is both logical and easy to update.",
+    "user_expectations": "Users expect an intuitive, flexible counting system where threshold values can be changed simply, preferably by modifying just one setting. They want reliable, accurate pulse counting without missed or duplicate counts, with the system responding predictably to changes in configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "flexibility",
+      "ease of configuration",
+      "accurate counting"
+    ],
+    "pain_keywords": [
+      "missed counts",
+      "double counts",
+      "delay in output",
+      "inflexible threshold"
+    ],
+    "feature_keywords": [
+      "adjustable counter threshold",
+      "modular logic",
+      "pulse counting"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

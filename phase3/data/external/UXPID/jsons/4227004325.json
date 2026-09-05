@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "branch_id": "4227004325",
+    "thread_id": "1723880927",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 409797015235678,
+      "user_name": "UE8ULE88cX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hello everyone, I'm facing an issue with the [product_name] display. During simulation, everything works as expected, but when I upload the program to the device ([article_no]), the results are incorrect. I've configured the text message to show ON/OFF for a marker, and while it appears correctly in simulation, the device display does not reflect the marker status properly. Please review the program. Thanks."
+    },
+    {
+      "comment_id": 971197195817724,
+      "user_name": "qworx6qEkk",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], I tested your program and it displays OFF first, then after triggering signal I1, it shows ON. I tested this with [product_name] [article_no], since downloading to [article_no] is not allowed."
+    },
+    {
+      "comment_id": 300135283352516,
+      "user_name": "UE8ULE88cX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], I'm not sure why it's not working on [product_name] [article_no]. I have the 12/24 RC version. I'll check my application to see if the marker is ON. The operator sets parameters using the TD display, with the F1 key switching the parameter ON/OFF. While the program switches the marker, it doesn't update the display correctly. For example, changing the input parameter with F1 key (I1) works, but not with the marker."
+    },
+    {
+      "comment_id": 325011719039515,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hello, [product_name] [article_no] only allows status text for DI and AQ, not for flags. This limitation was present in [product_name] [version_no]. Upgrading to [product_name] [version_no] resolves this, and when [article_no] hardware is selected, only supported options for status text are available."
+    },
+    {
+      "comment_id": 346964063474904,
+      "user_name": "UE8ULE88cX",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], I have a question—is it possible to assign any text to the counter on the TD display with [product_name] [article_no]? For example, I'd like the display to show a message to the operator indicating which program is being adjusted. Using a BCD pulse and a counter, I want the display to show descriptive text (like 'M14') instead of just numbers (e.g., 1 = Lietsse, 2 = M14, 3 = Din). Is it possible?"
+    },
+    {
+      "comment_id": 577164794829207,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hello, This can be done, but you'll need more than one counter. Please see the example attached. Regards,"
+    },
+    {
+      "comment_id": 668835746621823,
+      "user_name": "UE8ULE88cX",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], This is a good suggestion, but it doesn't suit my application because I have two other parameters on the main screen. There are several combinations, with the screwdriver having three programs and the laser parameter being ON/OFF. I need the display to show which program is selected for the screwdriver and the status of the laser. I only want to change four characters on the second line, right side. I think it's not possible with [product_name]. Thank you."
+    },
+    {
+      "comment_id": 457446041072996,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hello, In that case, you could create multiple screens with identical parameters except for the text you want to change. Regards,"
+    },
+    {
+      "comment_id": 809929643869032,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hi, regarding your initial question about status text: You want to use a digital flag to display a status text. As mentioned, [product_name] [article_no] doesn't support digital flags to trigger status text. If you have unused outputs on [product_name] [article_no], you can use one for the status text. There's an attached example showing how to achieve this with an unused output. Controlling an output on [product_name] that isn't wired or used is straightforward. Hope this helps."
+    },
+    {
+      "comment_id": 326251924760786,
+      "user_name": "UE8ULE88cX",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hi, thanks everyone for your responses. To [user_name]: I understand your suggestion, but the application has many combinations—this approach is challenging but not impossible. I'd prefer a simpler solution, because simplicity is best. To [user_name]: I don't have additional outputs; if I did, it would be easy. Thanks. I'll keep searching for a simple and effective solution."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users struggled to show dynamic status information on the TD display using [product_name] [article_no] hardware. Simulation results did not match the physical device, mainly because the hardware cannot use internal markers (flags) for status texts—only inputs/outputs are supported. Several workarounds were suggested, but users found the limitations restrictive and solutions more complex than desired.",
+    "user_expectations": "Users expect the TD display to provide real-time status messages that update according to internal program markers. They want hardware behavior to match simulation outcomes and ideally prefer straightforward solutions without complex logic or multiple screens.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy configuration",
+      "reliable status display",
+      "simulation-hardware consistency"
+    ],
+    "pain_keywords": [
+      "hardware limitation",
+      "status text restriction",
+      "marker flag unsupported"
+    ],
+    "feature_keywords": [
+      "TD display status text",
+      "marker flag display",
+      "simulation accuracy"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

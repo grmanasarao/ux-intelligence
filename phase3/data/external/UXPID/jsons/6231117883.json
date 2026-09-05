@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "6231117883",
+    "thread_id": "1723880927",
+    "publication_year": 2009,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 758158954022075,
+      "user_name": "VBMZZe0au2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm new to working with [product_name], although I have experience programming other PLCs. We have a project where we want to adjust a setpoint for a pressure controller using the operator display panel. The pressure controller accepts analog input from any compatible analog output module. Is this feasible with [product_name]? We considered using cursor keys to raise or lower the analog output value, ideally using up/down keys for adjustments. However, I can't find a way to do this with the current logic software. Has anyone achieved this or does anyone have suggestions or example programs? I'm eager to learn more if someone has a solution."
+    },
+    {
+      "comment_id": 840104313310087,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 2,
+      "comment_body": "Hi, You can achieve this, but changing values with cursor keys requires also pressing the ESC key, which isn't the most user-friendly approach. Using the function keys on the [product_name] TD is a better method. Here's an example that covers both approaches. Hope this helps."
+    },
+    {
+      "comment_id": 305541822207405,
+      "user_name": "VBMZZe0au2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 2,
+      "comment_body": "Thank you for the example. My challenge now is understanding how AM flags relate to the actual output values of the analog output module. I was hoping it's possible to hold a function key for continuous increment/decrement of the analog value, but your example requires multiple presses. How does the AM flag convert to actual analog output? It's still a bit unclear in the logic. Also, is there a way to show AQ1 and AQ2 values directly on the text display? Thank you."
+    },
+    {
+      "comment_id": 256412608176983,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 2,
+      "comment_body": "Hi, Check out my approach using key inputs for a more comfortable experience. Cursor keys work for short pulse inputs, while external keys can serve as long-press inputs, enabling continuous pulses if held down. You can set input range with parameters and adjust the scaling using multiplexers and amplifiers. For your task—outputting a range of 0 to 1000 on the analog module—you could set Gain = 10, which means only 100 steps are needed to span 0 to 1000. The circuit in the attachment is built as a complete solution but can be simplified as needed. I'm not sure if the function key supports holding for continuous pulses, so please test this. You can replace the external key with a function key, and similarly adjust for cursor keys. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are investigating how to incrementally adjust analog output values through operator panel keys on [product_name]. They wish for an intuitive and continuous adjustment method and are unclear about the mapping between internal adjustable memory flags and actual hardware output values. There are further questions about the ability to monitor analog output values directly on the operator display for better real-time feedback, highlighting a need for user-friendly and efficient control.",
+    "user_expectations": "Users expect to increment or decrement analog output values smoothly by holding down buttons for continuous adjustment and to view updated values directly on the display for immediate feedback.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time setpoint adjustment",
+      "direct analog output control",
+      "TD display feedback"
+    ],
+    "pain_keywords": [
+      "limited key functionality",
+      "unclear AM flag mapping",
+      "lack of continuous value change",
+      "no direct value display"
+    ],
+    "feature_keywords": [
+      "analog output adjustment",
+      "key input handling",
+      "value display on TD",
+      "AM flag transfer"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

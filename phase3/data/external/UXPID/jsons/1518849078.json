@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "1518849078",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 968980745852255,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Is it possible to transmit the analog value from an up/down counter using Modbus?"
+    },
+    {
+      "comment_id": 116484710558528,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Note: The [product_name] type mentioned only supports Modbus TCP/IP, not Modbus RTU or ASCII. If your Modbus device does not support TCP/IP, you'll need a converter from RTU or ASCII to TCP/IP. If your Modbus device works with TCP/IP, consider the following: identify which device is server and which is client, determine the unit-ID of your Modbus device, and remember that the HR register in [product_name] starts at 1. If your Modbus device HR register starts at 0, add an offset of 1. A screenshot of a possible solution is attached."
+    },
+    {
+      "comment_id": 241205457017388,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Yes, you can achieve this. In the [product_name] configuration, use virtual memory mapping to copy the counter value into the v-memory. The counter uses a double-word data format. You can then transfer this value from [product_name] to a holding register in your Modbus TCP/IP device. Hope this is helpful."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are exploring methods to transfer an up/down counter's value as an analog signal using Modbus and a [product_name] module with TCP/IP support. They emphasize the importance of selecting the correct Modbus protocol, understanding differences in register addressing, and configuring virtual memory mapping. While the process is feasible, proper setup of device roles and communication details is crucial for successful operation.",
+    "user_expectations": "The user expects an easy way or built-in function within [product_name] to send the up/down counter value as an analog signal to another device via the Modbus protocol.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "analog value transfer",
+      "Modbus integration",
+      "counter output mapping"
+    ],
+    "pain_keywords": [
+      "protocol compatibility",
+      "register addressing",
+      "modbus configuration complexity"
+    ],
+    "feature_keywords": [
+      "TCP/IP communication",
+      "HR register offset",
+      "VM-mapping",
+      "up/down counter value",
+      "analog output"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "branch_id": "3039164674",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 327664743264253,
+      "user_name": "BM8ZgN8qJ5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm new to [company_name] products and would appreciate your patience. I have a control cabinet from a machine that has two [product_name] modules connected to an [product_name] Ethernet switch. I want to access the programming; the setup includes an Ethernet cable to the switch. I installed [product_name] software [version_no], connected power and Ethernet. When adding a new device in the network tab, the software sets the IP to 192.168.0.1, but connection fails due to a subnet mismatch. The software offers to add a local IP, which I accept, and assigns 192.168.0.254, but connection still fails. I'm not familiar with Ethernet setup and would like advice on reading the program and establishing communication. Thanks."
+    },
+    {
+      "comment_id": 640534005935973,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Welcome to the forum, [user_name]. What is your goal – transferring the programs from both [product_name] controllers to your laptop for modification or archiving? If you don’t have the original programs, you’ll only get the existing code, as [product_name] doesn't store comments and the block diagram can be confusing. What are the IP addresses and subnet masks of your laptop and the controllers? If their IPs are on different subnets, communication through [product_name] software won't work."
+    },
+    {
+      "comment_id": 326268400952232,
+      "user_name": "BM8ZgN8qJ5",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Thank you for responding. The controllers operate a sequence of valves and motors on a machine I'm unfamiliar with, so I don't have the original programs. I aim to connect, monitor, debug, and potentially modify the sequence. The network tab when adding a device shows: IP 192.168.0.1, subnet mask 255.255.255.0. After following your instructions, my PC lists: IP 192.168.0.254, subnet mask 255.255.255.0. Hope this clarifies the setup."
+    },
+    {
+      "comment_id": 955888425457488,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Inserting a device is only necessary when creating a new [product_name] project. If you want to upload programs from existing controllers, use a different process. Your laptop temporarily sets its IP to 192.168.0.254 if its original address isn’t in the same subnet as the controllers; it resets after you restart. Ensure both laptop and controllers share the same subnet (first three segments of IP, e.g. 192.168.0). Only the last segment should differ between devices. All subnet masks must be identical. For example: PC IP 192.168.178.027, first controller 192.168.178.030, second 192.168.178.031, third 192.168.178.032, all using subnet mask 255.255.255.000."
+    },
+    {
+      "comment_id": 471484542395524,
+      "user_name": "BM8ZgN8qJ5",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Thanks. How do I check the current IP addresses of the controllers and my PC?"
+    },
+    {
+      "comment_id": 842010667431556,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Open your network project and follow the steps shown in the referenced video."
+    },
+    {
+      "comment_id": 912703507101800,
+      "user_name": "BM8ZgN8qJ5",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Thank you. I tried using 'ipconfig' in Command Prompt to get my computer’s IP address, but nothing shows up. Device Manager reports all adapters are working, but I can't locate an Ethernet adapter in [product_name] software. Will connecting through wifi help?"
+    },
+    {
+      "comment_id": 708931251108680,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Does your computer have a LAN port? If so, an Ethernet adapter should be installed. Type 'ipconfig /all' in the command prompt and take a screenshot."
+    },
+    {
+      "comment_id": 288436251105049,
+      "user_name": "BM8ZgN8qJ5",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "When I run 'ipconfig/all' with no network connection, I see 'media disconnected' for wifi and Ethernet adapters, no IP shown, and no Ethernet adapter detected in [product_name] software. Once I connect via wifi or Ethernet, the adapter works, displays an IP address, and shows up in the software. Is it correct to connect the controllers where wifi is available, join wifi, connect Ethernet to the switch, then use the 'go online' function to locate them?"
+    },
+    {
+      "comment_id": 756815890721029,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "What are the settings for your PC’s network adapter – is it set to obtain an IP automatically, or is a fixed IP configured?"
+    },
+    {
+      "comment_id": 623733857404552,
+      "user_name": "BM8ZgN8qJ5",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Yes, the PC receives its IP automatically. Addresses differ for wired and wireless, but [product_name] software can detect them. Is there a way to set it so I don’t need a network connection each time? Would this be configured in Device Manager under the Ethernet card tab?"
+    },
+    {
+      "comment_id": 700653014232445,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "You can assign a fixed IP address. Go to Control Panel > Network and Sharing Center > Change Adapter Settings. Double-click the relevant adapter, click on Properties, then double-click 'Internet Protocol Version 4 (TCP/IPv4)'. Select 'Use the following IP address' and enter your details. If unsure, consider your changes carefully."
+    },
+    {
+      "comment_id": 816813601753434,
+      "user_name": "BM8ZgN8qJ5",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Update: I connected an old wireless router via Ethernet to my laptop and also linked the controller to it. This assigned an IP to my laptop and [product_name] software detected both the Ethernet adapter and IP. I was able to locate and connect to both controllers."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face challenges setting up Ethernet links between their computers and [product_name] modules, mainly due to mismatched IP addresses and subnet masks and limited networking expertise. Configuring the same subnet for all devices and locating correct IP addresses are critical steps that are often unclear. Users are also unsure about procedures in the software and how to find device IPs or enable adapters. Guidance is needed regarding network setup and diagnostics to successfully connect and modify controller programs.",
+    "user_expectations": "Users expect to be able to establish network communication between their computer and [product_name] modules with minimal networking experience, enabling retrieval, analysis, and adjustment of machine programs without requiring expertise in Ethernet configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "program retrieval",
+      "debugging",
+      "modification",
+      "easy connection"
+    ],
+    "pain_keywords": [
+      "network configuration",
+      "Ethernet adapter detection",
+      "subnet mismatch",
+      "setup confusion"
+    ],
+    "feature_keywords": [
+      "network tab",
+      "Ethernet connectivity",
+      "device discovery",
+      "IP configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

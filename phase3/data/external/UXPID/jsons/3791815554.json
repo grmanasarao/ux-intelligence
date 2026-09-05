@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "3791815554",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 557676443113024,
+      "user_name": "Pcno5mC3pz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "When output Q1 switches off, I need to generate a pulse for the wiping relay to initiate the next step in the program. I tried using a wiping relay with the input inverted, but this activates during power-up, which is not desired. Any suggestions?"
+    },
+    {
+      "comment_id": 887515465915194,
+      "user_name": "j5V3wgiXhn",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "You could try using flag M8, it might help."
+    },
+    {
+      "comment_id": 687820897145479,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Connect the output Q1 to a NAND (Edge) block to create a pulse when Q1 turns off. From there, link to a latching relay (RS Relay) and then to the wiping relay. Don't forget to reset the RS block. Refer to the attachment for more details."
+    },
+    {
+      "comment_id": 375980432342348,
+      "user_name": "Pcno5mC3pz",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "This works perfectly, thanks a lot."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main challenge is sending a pulse to a wiping relay only when output Q1 turns off, without triggering it during system start-up. Current approaches cause unwanted activation at power-up, so users proposed using internal flags and function blocks for precise pulse generation. Implementing these suggestions solved the issue, resulting in positive feedback.",
+    "user_expectations": "The user wants a reliable method to pulse the wiping relay strictly when Q1 switches off, avoiding activation during system start-up.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise event control",
+      "reliable relay actuation",
+      "program step automation"
+    ],
+    "pain_keywords": [
+      "unintended power-up activation",
+      "relay false trigger"
+    ],
+    "feature_keywords": [
+      "output pulse on state transition",
+      "event-triggered relay",
+      "relay logic blocks",
+      "NAND(Edge) block",
+      "RS Relais"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

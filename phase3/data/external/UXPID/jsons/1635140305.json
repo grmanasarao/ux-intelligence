@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "1635140305",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 358073950908439,
+      "user_name": "9iEjDVMxAS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Does anyone have suggestions on creating a program that calculates the square root of the sum of squares for three analog inputs (0-20)? I managed to get a basic version working, but it fails once inputs go above 10 (see attachment). Maybe splitting calculations and combining afterward could help. I need at least one decimal place in the output. Any advice is appreciated, thanks in advance."
+    },
+    {
+      "comment_id": 792284044329081,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "It would be helpful if you could upload your actual program instead of using a low-quality screenshot."
+    },
+    {
+      "comment_id": 244385204559014,
+      "user_name": "9iEjDVMxAS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Program files such as .lsc are available online, but the forum doesn’t allow direct .lsc attachments."
+    },
+    {
+      "comment_id": 803958513314904,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Consider uploading your program as a ZIP file instead of a PDF..."
+    },
+    {
+      "comment_id": 422308849458436,
+      "user_name": "9iEjDVMxAS",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 105717585319109,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello AutoGen_3409392, welcome to the forum. This approach won’t work. When you multiply in block B009, the value exceeds the maximum allowed limit of 32,767. The switching parameter in B014 also only allows up to 20,000. If you adjust the multiplication in B009 to use 10 instead of 100, the range would be acceptable, but this would result in a loss of precision. Regards, [user_name]"
+    },
+    {
+      "comment_id": 153392879222746,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Your program uses three analog inputs, each with a maximum value of 20. Squaring each input gives a maximum of 400 per input. Summing these reaches 1,200. Multiplying this sum by 100 results in 120,000, which exceeds the positive integer range of 32,767. Linking the output from B009 to the off parameter in B014 further limits the value to 20,000. You haven’t explained why this structure is necessary. Attached is a program originally from [user_name] on the German-language forum, allowing calculation of the square root of a number up to 32,766."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to develop a mathematical program to calculate the square root of the sum of squares from three analog inputs (each ranging from 0 to 20), but faces limitations due to integer overflow and block constraints in the product. Community feedback indicates that exceeding value limits leads to program crashes, while lowering multiplication factors can reduce calculation accuracy. The main insight is that current software and hardware limitations within the product restrict users from performing advanced mathematical operations when intermediary results become too large.",
+    "user_expectations": "Users expect the product to handle advanced mathematical calculations on analog inputs without encountering value overflow, and to deliver precise decimal results throughout the supported input range.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog math",
+      "decimal output",
+      "extended input range"
+    ],
+    "pain_keywords": [
+      "integer overflow",
+      "range limits",
+      "loss of precision",
+      "calculation crash"
+    ],
+    "feature_keywords": [
+      "analog input handling",
+      "arithmetic blocks",
+      "square root calculation",
+      "decimal output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

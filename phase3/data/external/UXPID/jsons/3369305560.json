@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "3369305560",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 347305540106707,
+      "user_name": "pofLaoAVW4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Hello, I have a setup involving a pulse flowmeter sensor, which technically should function, but currently it isn't working. The sensor outputs about 250 Hz at full flow, and its pulses vary between 0 and 10 volts. It's an open collector sensor with a built-in 10 kOhm pull-up resistor. Testing with both an oscilloscope and a multimeter shows expected performance. I'm using a [article_no] and have connected its output to input I3 (designated as high speed), configuring [product_name] to use an up-counter, but there's no response. Switching to input I2, which supports low speed, does register the signal, but it can't handle the required frequency range. I've seen another forum post describing a similar setup where using an external pull-up resistor as low as 0.5 kOhm solved the issue for someone else. Is my problem possibly tied to the internal 10 kOhm resistor? Or am I missing something? (Note: I can't change the internal resistor.) Regards, [user_name]"
+    },
+    {
+      "comment_id": 873177685897162,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Since you have an oscilloscope, monitor the signal levels directly to ensure they're switching properly. You could also try adding an extra resistor between the input and ground to see if it affects the behavior. Experiment and observe whether it changes the results."
+    },
+    {
+      "comment_id": 601711465664693,
+      "user_name": "pofLaoAVW4",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "Hello, and thanks for the suggestion. I've tried using an additional resistor ranging from 0 to 10 kOhm, but it hasn't helped. Voltage measurements revealed that when the sensor is high and not connected to [product_name], the output sits at about 12 volts, which is normal. When I connect the output to inputs like I1, I2, I7, or I8, voltage reads at 10.6 volts, indicating a 'high' state. However, when connected to I3, I4, I5, or I6, the voltage drops to 4.5 volts, which seems 'low.' This likely explains why the counter isn't registering pulses. There appears to be a difference in how the high speed inputs handle the signal, lowering the output voltage. I'm not sure why this happens. I'm considering switching from a 12V to a 24V power supply to see if the high level voltage at I3-I6 improves. I'm interested in understanding why the voltage changes depending on the type of input connected. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 659733213787382,
+      "user_name": "zWAaW8zd9A",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 1,
+      "comment_body": "It seems probable that you need to use an amplifier or a Schmitt trigger to stabilize your signal. I generally use a simple schematic for this purpose; you may want to adjust the value of the 2K7 resistor or the Zener diode depending on your needs. Supply voltage can range from 5 to 30V DC, and with a higher supply voltage, increase the 100 ohm resistor accordingly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering issues with the high speed input channels (I3-I6) on [product_name], where pulse signals from a flowmeter are not detected, while low speed inputs (I1, I2, I7, I8) function correctly. This suggests a difference in signal sensitivity or voltage threshold between input types. The root cause may involve the design of the input circuitry or interaction with the internal pull-up resistor, leaving users unsure how to resolve signal compatibility issues and voltage differences.",
+    "user_expectations": "Users expect the high speed inputs (I3-I6) of [product_name] to reliably detect and count pulse signals from their flowmeter sensor, enabling accurate measurements at higher frequencies, similar to what is achieved with the low speed inputs.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "pulse counting",
+      "high frequency measurement",
+      "compatible input handling"
+    ],
+    "pain_keywords": [
+      "signal not counted",
+      "voltage drop on high speed input",
+      "unclear input requirements"
+    ],
+    "feature_keywords": [
+      "high speed digital input",
+      "input voltage threshold",
+      "internal pull-up resistor"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "2873397116",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 616388480783711,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "I'm trying to understand how to use the [product_name] communication interface module but keep facing issues. I have several projects with a universal RTU-2 TCP gateway, including a relay card I want to control using [product_name] and the communication module. In [product_name], I create a marker (flag), output, or network output high, which I want to write into the UDM register of the module. My goal is to read this via RESTful API and eventually send it to the RS485 relay card, though I haven't reached that point yet. Transferring a word from [product_name] to the module works and can be accessed via RESTful API. Can anyone advise? More details can be found in the [document]."
+    },
+    {
+      "comment_id": 588269646676686,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, if you are unable to transfer a single bit, you may need to use a flag or similar and transfer a byte or word instead, depending on what is supported. With [version_no], only entire bytes—not individual bits—can be transmitted. Hope this clarifies things."
+    },
+    {
+      "comment_id": 877641231516360,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "After some trial and error, I've got network output 10.1 working and can now control relay 1 of my RS485 device. However, I'm still interested in how marker handling is done—I haven't figured that out yet. You can see what I tried in the attachment."
+    },
+    {
+      "comment_id": 953834726890753,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, adjust the second line of your [version_no] data transfer table and your ModbusRTU data table. In your program, you use M5, but in your [version_no] and Modbus tables you transfer MB5. Remember, M5 isn't part of MB5—it's part of MB0. MB0 includes M1 to M8, MB1 covers M9 to M16, MB2 contains M17 to M24, and so forth. Hope this helps."
+    },
+    {
+      "comment_id": 768552194197550,
+      "user_name": "Mi2WTVI6qa",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "This is extremely helpful! Guidance like this should be included in the manual. Hopefully, [company_name] will add this information. Thank you for your assistance!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users struggled to transfer a single bit from the [product_name] controller to the UDM register of the [product_name] communication module for RESTful API use in controlling a relay card. Word transfers were simple, but mapping bits to memory bytes was confusing. The forum's collective troubleshooting provided the necessary explanations, highlighting missing details in the official documentation.",
+    "user_expectations": "Users expect clear documentation on bit-level data transfer between [product_name] devices and communication modules, with helpful instructions provided in the official manuals.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable relay control",
+      "RESTful data access",
+      "clear integration guidance"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "bit/byte mapping confusion",
+      "manual lacks necessary detail"
+    ],
+    "feature_keywords": [
+      "bit-wise data transfer",
+      "marker mapping",
+      "UDM register"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

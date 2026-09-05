@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "2313493359",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 822313527110114,
+      "user_name": "AgvnCjjUPY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hello, I am using [product_name] version [version_no] and [product_name] version [version_no]. In my project, there are several writable analog value fields, each mapped to a specific VM address through the correct block type and number. However, when I submit a value in one field, all other fields also change to that same value, as if they're linked together. Does anyone know why this might be happening? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 541208261746835,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Could you please upload your [product_name] program and [product_name] project as a ZIP file?"
+    },
+    {
+      "comment_id": 774924809069798,
+      "user_name": "AgvnCjjUPY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Uploaded – thank you."
+    },
+    {
+      "comment_id": 628683361310259,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "In the Parameter-VM-Mapping table, use the parameters in DWord format. The addressing in [product_name] is byte-oriented. A DWord consists of 32 bits, or 4 Bytes, or 2 words. If you use address 2 for the first DWord, you are utilizing VB2 through VB5. If the second DWord uses address 3, it occupies VB3 through VB6, leading to overlap. Therefore, after using address 2 for the first DWord, the next logical address should be 6, not 3."
+    },
+    {
+      "comment_id": 225922706177112,
+      "user_name": "AgvnCjjUPY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thanks, that makes perfect sense now. Appreciate your help!"
+    },
+    {
+      "comment_id": 363503424226393,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Glad that resolved it."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users working with analog values in a project encountered interconnected value fields, where inputting a value in one field affected others. The main issue was confusion about address mapping for analog parameters, specifically overlapping address assignments due to DWord format in the mapping table. Proper address spacing and clearer documentation during configuration are important for a smooth user experience.",
+    "user_expectations": "Users expect each analog value input to operate independently, so changes in one field should not affect others.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "independent analog control",
+      "correct variable mapping",
+      "clear parameter assignment"
+    ],
+    "pain_keywords": [
+      "field interdependence",
+      "address overlap",
+      "unexpected behavior"
+    ],
+    "feature_keywords": [
+      "analog value field",
+      "parameter-VM mapping",
+      "DWord address allocation"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

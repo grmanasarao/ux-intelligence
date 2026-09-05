@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "4272555625",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 958870877129039,
+      "user_name": "d6wx223X0i",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello everyone! I'm working on a program and need to read the current value (Ta parameter) from an \"edge triggered wiping relay.\" In simulation mode, everything functions as expected: the block displays the correct timing during TL and then switches to counting TH. However, when I download the code to [product_name] [version_no], the behavior changes completely—the Ta parameter no longer counts and always remains at zero. This is my first experience where simulation and real hardware act differently. Any advice on how to resolve this?"
+    },
+    {
+      "comment_id": 803017356098364,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Did you check if your Trigger is actually functioning? Is it coming from a Digital Input or are you using some [product_name] HMI?"
+    },
+    {
+      "comment_id": 270937261470386,
+      "user_name": "d6wx223X0i",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "The trigger does work, as verified in online mode—the line connected to the trigger is active, and after 15 seconds (TL parameter), the block output turns on for 10 seconds (TH parameter). The logic in this branch seems correct, but the logic in the upper branch fails on the actual PLC, even though it works in simulation. During the 15+10 seconds, the Ta parameter stays at zero in real hardware, although it increments in simulation."
+    },
+    {
+      "comment_id": 983825563774917,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "This is a known viewing issue, encountered by many users. The values shown in the table under the block include only predefined and simulation-updated parameters, such as the Aq values. Real Aq values are presented differently. You may want to check other threads regarding analogous issues, like viewing Mathematic Instruction and Counter values in Live Test Mode."
+    },
+    {
+      "comment_id": 764209732178171,
+      "user_name": "d6wx223X0i",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "In this case, it's more than just a display problem—the program itself behaves differently in the PLC versus simulation. After reviewing the process, I've identified the cause. Screenshots are attached in a zip archive. 01 - Simulation: Block B063 is counting TL (visible in a lower window with AM3), output = 0 02 - Simulation: Block B063 counts TH, output = 1 03 - Online: Block B063 counts TL (visible only in AM3), output = 0 04 - Online: Block B063 stops counting because the trigger is missing. The trigger drops out in the actual PLC during the transition from TL to TH in Block B063 due to a low signal in Block B071 for a single cycle. In simulation, Block B071 remains active through the transition, which is the key difference. Adding an off-delay timer after Block B070 should resolve this. I chose another solution that works, so I am not changing it back. Thank you, [user_name], for your support."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered discrepancies between simulation and actual PLC operation, particularly involving the Ta parameter in the 'edge triggered wiping relay.' In simulation, parameter updates are visible and accurate, whereas in real hardware, updates fail and values remain static. Both viewing discrepancies and underlying execution differences between simulated and real environments were highlighted.",
+    "user_expectations": "The main expectation is for the Ta parameter to update and display accurately in both simulation and real PLC environments, reliably representing the block's runtime behavior. Users also anticipate that logic execution will be consistent across simulation and live hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate real-time parameter updates",
+      "simulation-reality consistency",
+      "reliable monitoring"
+    ],
+    "pain_keywords": [
+      "mismatch simulation vs real PLC",
+      "parameter not updating",
+      "different logic behavior",
+      "viewing error"
+    ],
+    "feature_keywords": [
+      "parameter display",
+      "actual value update",
+      "online monitoring",
+      "simulation mode"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

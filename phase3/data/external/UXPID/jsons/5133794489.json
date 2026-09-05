@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "5133794489",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 707865520402308,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Good morning, I'm trying to read some digital values (1/0) that are inside a 16-bit word. Some bits of this word represent statuses, such as connected or not connected. I've allocated space in the V memory of the [product_name], but I'm unable to read anything using network digital inputs. I've attempted storing the values in the VW area and tried reading individual bits, but it's not working. Can someone assist me? Thank you for your support. [user_name]"
+    },
+    {
+      "comment_id": 586236801832202,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "I am attaching the settings I used for register reading. Thank you very much."
+    },
+    {
+      "comment_id": 868925106558991,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Is this the data you want to read? If so, try transferring it as HR40185 into VW0 (1 Word). Note: The [product_name] applies an offset of 1. If your device uses an offset of 0, try reading as HR40184. In the [product_name] program, use network inputs (NIs) to read the bits, for example: NI1 = address V1.0 = Bit 0 = Connected; NI2 = address V1.1 = Bit 1 = Available; NI3 = address V1.2 = Bit 2 = Operating; NI4 = address V1.3 = Bit 3 = Test. Edit: Please verify that the unit-ID 200 is correct."
+    },
+    {
+      "comment_id": 710317238136374,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "I'm sharing the address information for Fronius. Thank you for your reply. I also tried 40184, and inserted two words in the VW field, but still can't read any values. I added network digital outputs for NI1 through NIn, but it's still not working. I am attaching my settings so you can check if they are correct. Thank you."
+    },
+    {
+      "comment_id": 114187632141773,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Yes, I want to acquire the string shown in your photo."
+    },
+    {
+      "comment_id": 841664128361592,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello, I've configured it as you described, but VW0 is already used for another service in my case, so I used VW636 and then: V637.0 (NI1), V637.1 (NI2), V637.2 (NI3), V637.3 (NI4). I don't understand why you're writing to VW0 and reading bits in V1. It's still not working. Thanks for your help; do you have any thoughts on this?"
+    },
+    {
+      "comment_id": 534525870359679,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Please note the use of \"e.g.\". I don't know which VW addresses are unused in your setup."
+    },
+    {
+      "comment_id": 877144612137118,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello, I can't even read the word as a numerical value using a network analog input—the register reads as zero. I suspect the machine isn't configured for all logs."
+    },
+    {
+      "comment_id": 179102410970988,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "I can't provide further information about this at the moment."
+    },
+    {
+      "comment_id": 853697103612867,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello, I used a Modbus scanner program for troubleshooting, and the register we're discussing appears empty, as do many other registers labeled active by Fronius. I will need to contact Fronius to find out why this issue is occurring. Thanks for your assistance. [user_name]"
+    },
+    {
+      "comment_id": 871487403451797,
+      "user_name": "eoy3DQfwDD",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Try using address ID1 instead of ID200 (keep 200 set in Fronius). That's how I resolved it, and now I can read all addresses as specified in the Fronius Excel documentation."
+    },
+    {
+      "comment_id": 111531214635034,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Welcome to the forum, [user_name]. This is an English-language forum, so please write your future posts in English. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is experiencing difficulties reading digital status bits from a 16-bit word in an inverter using a [product_name] device via Modbus TCP. Despite various memory mappings and attempts with both digital and analog network inputs, no data is retrieved. The user’s troubleshooting reveals that the target register is empty, indicating a potential configuration issue on the inverter side rather than with the [product_name]. The discussion highlights confusion regarding memory addressing and proper methods for Modbus data access, and shows that the software lacks clear diagnostics and guidance for integrating with third-party Modbus hardware.",
+    "user_expectations": "The user expects to read individual digital status bits from a specific register in the inverter using a [product_name], and for the software and device to provide clear guidance and effective integration with third-party Modbus equipment.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful Modbus integration",
+      "remote status monitoring",
+      "bit-level data access"
+    ],
+    "pain_keywords": [
+      "inability to read data",
+      "unclear memory mapping",
+      "lack of diagnostic feedback"
+    ],
+    "feature_keywords": [
+      "network digital input",
+      "Modbus register mapping",
+      "V memory assignment"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "8271480813",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 231028387295955,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Hello everyone, I need assistance regarding the ACS712 current sensor and how to scale its analog input effectively. The sensor range is 0-20A, and its output voltage ranges from 2.5V to 4.5V as per the datasheet. According to the example from [document], my calibration uses: Gain: (20-0) / (4.5 - 2.5) = 10 and Offset: 10 * (-2.5) *100 = -2500. After uploading these values to [product_name], readings around 6-10A seem accurate, but when measuring less, there's a noticeable difference of about 1.5A. What could be causing this? Am I missing something? I also checked the sensor output when measuring 0A, and it read 2.53V instead of 2.5V. This affects the gain calculation: (20-0) / (4.5 - 2.53) = 10.1, but the gain can only be +/-10. Can someone advise how to set this up correctly?"
+    },
+    {
+      "comment_id": 311062661012421,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "I've made an example for you based on the sensor's data. Here, 0.5V corresponds to -20.0 (unit) and 4.5V to 20.0 (unit). Adjusting the Gain and Offset parameters in the analog amplifier will allow you to compare different configurations."
+    },
+    {
+      "comment_id": 478315612436844,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "But what does that mean? Should I just find the correct gain and offset values experimentally, possibly due to temperature effects? The sensor's temperature remains steady around 28°C, but the readings still lack linearity."
+    },
+    {
+      "comment_id": 176103150166733,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Apologies, I previously used incorrect units. With the sensor, 0.5V equals -20.0A, and 4.5V equals 20.0A. I've corrected that. Please note the sensor operates at 5VDC and [product_name] at 24VDC. Therefore, two separate power supplies are needed. Are the 0VDC connections of both power supplies linked?"
+    },
+    {
+      "comment_id": 529754023947422,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Thank you, it's working perfectly now! After adjusting the gain from 1 to 0.99, the readings matched those from the multimeter. Excellent! For reference, my [product_name] uses 12V, and the ground connections for both [product_name] and the sensor are tied together."
+    },
+    {
+      "comment_id": 516665800574235,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Glad to hear that everything is functioning well. You're welcome!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced challenges with analog input scaling when integrating the ACS712 current sensor and [product_name], primarily at lower current readings. Calibrating the gain and offset was crucial to resolve accuracy discrepancies, which were caused by slight variations in sensor output voltage at zero current. The discussion also emphasized the importance of having a common ground between the sensor and the system to ensure accurate measurements.",
+    "user_expectations": "The user expects precise and consistent current measurements from the [product_name] setup, closely matching results from reference instruments such as a multimeter, across the full sensor range, including low current levels.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate measurement",
+      "reliable scaling",
+      "calibration matching multimeter"
+    ],
+    "pain_keywords": [
+      "nonlinear readings",
+      "offset in measurements",
+      "calibration difficulty",
+      "gain limits"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "gain adjustment",
+      "offset adjustment"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

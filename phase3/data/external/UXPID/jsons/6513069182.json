@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "6513069182",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 573195188448477,
+      "user_name": "2mrd98zsy5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "I am trying to read an analog input connected to AI2. From the [product_name] interface, I can see the value changing. When I try to access it using the S7 protocol through both Kepware and Node read, I’m unable to retrieve the value. Kepware reports the error: 'Warning [company_name] TCP/IP Ethernet Channel1.[product_name] | Unable to read data from device. | Memory type = 'AI', block start = 2, block size = 2 (bytes), Reason = 'Device returned data access error'. Error code = 0X5.' Should remote reading of the AI2 value using S7 protocol be possible? If yes, what might be causing this issue? Thanks"
+    },
+    {
+      "comment_id": 627915682817206,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "I’m not familiar with Kepware specifically, but I recommend checking how the tag is set up and how it’s being utilized. If it’s configured for read-write access, try switching it to read-only. Alternatively, send the analog input to a network analog output and read the corresponding V-memory address, such as VW0, instead."
+    },
+    {
+      "comment_id": 288737243278299,
+      "user_name": "k1Iz3TosZk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hello, [user_name]. I found a helpful video on YouTube that assisted me earlier. Is this what you are looking for? [url]"
+    },
+    {
+      "comment_id": 659976316373431,
+      "user_name": "lemlbtSecs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Hello, you can read the value directly as a word from memory. For example, AI1 corresponds to memory word VW1032."
+    },
+    {
+      "comment_id": 922153329710939,
+      "user_name": "2mrd98zsy5",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 6,
+      "comment_body": "Thank you all for your support. Using memory address VM1034 resolved the problem."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user sought to remotely access an analog input value from a [product_name] device using the S7 protocol via third-party applications, but encountered a device data access error. The problem was related to proper configuration and identifying the correct memory address for external read access, which ultimately solved the issue.",
+    "user_expectations": "The user expects to be able to read analog input values from a [product_name] device remotely using the S7 protocol and compatible third-party applications without encountering errors.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote data acquisition",
+      "integration with third-party software",
+      "correct memory access"
+    ],
+    "pain_keywords": [
+      "data access error",
+      "incomplete documentation",
+      "configuration difficulty"
+    ],
+    "feature_keywords": [
+      "analog input readout",
+      "S7 protocol compatibility",
+      "memory word mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

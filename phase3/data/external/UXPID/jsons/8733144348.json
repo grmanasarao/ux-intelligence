@@ -1,0 +1,321 @@
+{
+  "metadata": {
+    "branch_id": "8733144348",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 105988989724823,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello. How can I change the state of the softkey through the website? I attempted to add the softkey block to the variable memory configuration table, but was unsuccessful."
+    },
+    {
+      "comment_id": 938272392898120,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Softkeys are not functional within the web editor; they only work on the display or through the operator panel. In the web editor, use a digital value and configure a digital network input in the program. To monitor the softkey status, show the condition of M2 in the web interface."
+    },
+    {
+      "comment_id": 637305082600338,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Does anyone know how to achieve the following function: I have pulse timers setting an M2 flag for time triggering, and I've included a programmable switch to enable or disable this function from the panel level. I've also shared an option from the website."
+    },
+    {
+      "comment_id": 947761013931692,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "It's not possible to operate or display a softkey using the extended web server. Softkeys can only be accessed via the display, operator panel, or the device’s simple web server. In the extended web server, treat softkeys as digital values, assign them to a bit in V-memory, and reference this in the program as a digital network input."
+    },
+    {
+      "comment_id": 181607988392233,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "That’s how I would address it using the extended web server."
+    },
+    {
+      "comment_id": 532228708813334,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "The network input probably doesn't retain its state after a power cycle, right? I would like the parameter to be persistent. I considered using the pulse relay but it's not accessible from the panel. Ideally, I want a binary parameter editable from both the panel and website, with state stored after restart."
+    },
+    {
+      "comment_id": 103076210277255,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "By panel, do you mean the device's display?"
+    },
+    {
+      "comment_id": 190595914227412,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Yes, either the device display or operator panel."
+    },
+    {
+      "comment_id": 510064630958610,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Here is one possible solution: Use a softkey as a momentary button. Send a V-bit from the web server, which operates as a switch, not a button. In the program, convert the switch function to a push button by matching the digital network output address to the input. Link both outputs (softkey and network input) to an OR block, then connect the OR block's output to a pulse relay's trigger."
+    },
+    {
+      "comment_id": 925952252329779,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "There’s still an issue: users at the panel may not know whether the function is enabled or disabled, or whether status is on or off. On the website, you can show the network output connected to the pulse relay to get on/off status."
+    },
+    {
+      "comment_id": 487871912716246,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "To show pulse relay status, use the ON-OFF function in a message text displayed on the device."
+    },
+    {
+      "comment_id": 584682852630099,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I can display the pulse relay status (auto/manual mode) in the message text, and place the softkey next to it to switch modes."
+    },
+    {
+      "comment_id": 911240497714674,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "From the programming shown earlier, I don't interpret the softkey as a manual/automatic switch but rather as a release function."
+    },
+    {
+      "comment_id": 801666520172472,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "The function is implemented as discussed. Simulation works correctly. I’ll do a check on the actual device tomorrow."
+    },
+    {
+      "comment_id": 319026311613660,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "It looks good."
+    },
+    {
+      "comment_id": 627302646558838,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Overall, it works. However, changing the parameter from the display can be confusing for users. Beside the text \"Change\" there's always an off button, and only the mode (auto/manual) is shown to the left. We'll need to clarify this in the user manual."
+    },
+    {
+      "comment_id": 797202140361400,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "As I stated previously, to my understanding, the function is a release, not a manual/auto switchover. Has your problem been resolved?"
+    },
+    {
+      "comment_id": 765334741909595,
+      "user_name": "WJrCMZhox4",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Yes. Thanks for the assistance."
+    },
+    {
+      "comment_id": 114284171925779,
+      "user_name": "SQUSas6wFU",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hi, is there a better solution available now? My setup is similar: I control two rollup motors, automatically (temperature/wind) or manually. I use a software switch to select auto mode. When it’s off, motors are manual; when auto is on, motors respond to sensors. While I can toggle the switch directly on the device, I can't find a clean solution for the web interface. Requirements: changes on either device or web should be reflected on the other, and settings should be preserved across both."
+    },
+    {
+      "comment_id": 824474470157104,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], welcome to the forum. This can’t be done with a softkey, since the web server only displays its status—it can’t change it. You'll have to find another method."
+    },
+    {
+      "comment_id": 741577667587424,
+      "user_name": "SQUSas6wFU",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hi [user_name], thanks for the welcome and the quick answer. It's unfortunate that there’s no straightforward solution; that would have been very useful. I’ll try to come up with a workaround. Thanks,"
+    },
+    {
+      "comment_id": 968859762603577,
+      "user_name": "SQUSas6wFU",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "One workaround might be possible, but it comes with a drawback: the device setting can be misleading for users. For example: Automatic mode: [ ] Off [x] On. But as far as I understand, there's no solution for this issue. In the display message, I've added the soft switch state (editable) and the XOR state that shows \"Manual\" (off) or \"Auto\" (on). I'll upload additional posts with configuration screenshots."
+    },
+    {
+      "comment_id": 902553171933780,
+      "user_name": "SQUSas6wFU",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "When the software switch (B002) is set to \"on,\" the mode switches to \"Auto\" as expected."
+    },
+    {
+      "comment_id": 869793104619263,
+      "user_name": "SQUSas6wFU",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "With B001 still on, if we set V0.0 to 1 (as the only way to get \"button presses\" from the web), the mode goes to \"Manual.\" But B002 remains \"on\", which may confuse users with the interface."
+    },
+    {
+      "comment_id": 657829169964881,
+      "user_name": "SQUSas6wFU",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "If B001 is set to \"off,\" the mode returns to \"Auto\"—still confusing. Any suggestions for improvement are welcomed. I think the main issue is the soft switch state (B002) can't be changed programmatically. Is there a way around this?"
+    },
+    {
+      "comment_id": 162559553114224,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "That’s exactly the problem with the softkey. Here's another suggestion: Treat the softkey and the web server bit both as buttons, not switches. Connect both to an OR block, then send the output to the trigger input of a pulse relay."
+    },
+    {
+      "comment_id": 355170585657473,
+      "user_name": "SQUSas6wFU",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Good suggestion! I've implemented as recommended, and it seems workable for now. For the softkey used for switching states, it always shows \"Off\" on the display. Is there a way to change that to \"Switch mode\" or similar? Thanks for your help!"
+    },
+    {
+      "comment_id": 610624630865143,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "No, that's not possible. The status texts \"ON\" and \"OFF\" are fixed and can't be changed. You'll always see \"OFF\" since it only shows \"ON\" for a single cycle."
+    },
+    {
+      "comment_id": 925603752019536,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 28,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "If you want to upload multiple images or files, combine them in a ZIP archive and attach it."
+    },
+    {
+      "comment_id": 452691184767082,
+      "user_name": "MIbOGKpTjs",
+      "comment_position": 29,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hello, that's exactly the solution I was looking for—a device program for two rollup motors with wind and temperature sensors. Could you please share your program?"
+    },
+    {
+      "comment_id": 853677733441119,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 30,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "How is this topic related to rollup motors, wind, and temperature sensors?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users want to control and monitor softkey states via the web editor, but encounter system restrictions: softkeys cannot be interacted with or shown via the web interface—only through the device display, operator panel, or basic web server. As a workaround, digital memory bits substitute softkeys in the web editor, but syncing between website and panel, providing clear status indications, and retaining state after restarts remains challenging. These limitations make seamless integration across interfaces complicated and less intuitive.",
+    "user_expectations": "Users expect to easily control a binary parameter from both panel and website, view its status consistently on both, and have settings persist after power cycles.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "state synchronization",
+      "remote and panel control",
+      "status visibility",
+      "persistent settings"
+    ],
+    "pain_keywords": [
+      "cannot control softkey via website",
+      "inconsistent status display",
+      "no state persistence",
+      "confusing operation"
+    ],
+    "feature_keywords": [
+      "softkey",
+      "binary parameter",
+      "panel interface",
+      "web interface",
+      "persistent state"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions",
+    "30": "Data Persistence Confusion"
+  }
+}

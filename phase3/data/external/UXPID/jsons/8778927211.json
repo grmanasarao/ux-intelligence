@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "8778927211",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 588444757833143,
+      "user_name": "j09YEbWyB2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "I've started using UDF blocks to streamline program layouts. However, I've noticed a discrepancy between simulation and actual installations. Unconnected inputs seem to float high and trigger outputs in real setups, which I did not observe during simulation. To mitigate this, I began connecting a baseline status to these inputs. Has anyone experienced similar issues? I'm concerned that simulation results are not fully reliable. For reference, I've attached a PDF and provided a [url]. There was no input for the pump, yet the alarm output still activated."
+    },
+    {
+      "comment_id": 431442290476251,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Can you upload your UDF file directly to the forum?"
+    },
+    {
+      "comment_id": 679299507114539,
+      "user_name": "j09YEbWyB2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "I've uploaded a PDF as requested."
+    },
+    {
+      "comment_id": 959038241615841,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Please zip the lma-file before uploading the ZIP version."
+    },
+    {
+      "comment_id": 414686729173114,
+      "user_name": "j09YEbWyB2",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "I've provided a [url] instead."
+    },
+    {
+      "comment_id": 197062788694666,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Which specific input are you referring to—the analog input?"
+    },
+    {
+      "comment_id": 550419627723024,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "In the UDF file you posted, I don't notice any difference between the simulation and live environment. In both scenarios, the analog input remains unwired. Output Q1 switches because no pulses are detected and the negation logic is routed through the input for ON / OFF. There's a one minute delay before B057 activates. The UDF seems to be functioning as designed."
+    },
+    {
+      "comment_id": 551302447821024,
+      "user_name": "j09YEbWyB2",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Sorry, I uploaded the wrong file. Take a look at the new attachment. There's an AND block—no connection from the pump, but the output still triggered?"
+    },
+    {
+      "comment_id": 514832946440958,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "The issue is with the AND block. The connector 'I1 (pump on)' in the UDF behaves as if it's unconnected when not wired externally, causing only the analog comparator's negation to function. Sometimes, adding an OR block can resolve this."
+    },
+    {
+      "comment_id": 210152668727205,
+      "user_name": "j09YEbWyB2",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Thanks for your demonstration. My main concern is simulation results; on PC the output doesn’t switch high. Your OR block suggestion is useful—I'll need to consider this for all UDF blocks where inputs can be omitted in a system."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users noticed that simulation and real system behaviors differ when using UDF blocks, particularly if inputs are left unconnected. Simulations did not reliably predict the outputs seen in live installations, which led to confusion and uncertainty about simulation accuracy. This mismatch caused concerns about system reliability post-deployment.",
+    "user_expectations": "Users expect simulation results to accurately reflect actual system behavior, especially with logic blocks that have unconnected or optional inputs. They want consistent and predictable performance between simulated and physical environments and clear methods for handling such inputs effectively.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simulation reliability",
+      "predictable logic",
+      "easy program layout"
+    ],
+    "pain_keywords": [
+      "simulation inconsistency",
+      "unexpected outputs",
+      "floating inputs behavior"
+    ],
+    "feature_keywords": [
+      "UDF blocks",
+      "AND block",
+      "simulation mode",
+      "input states handling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

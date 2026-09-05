@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "branch_id": "2291231895",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 421615802552010,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello, I am using [product_name] to write to a coil via Modbus. I noticed that if I link the coil to a physical input in the [product_name] program, the Modbus command doesn't function. When I remove the coil from the [product_name] program, the Modbus command works again. It appears that only one method—either the program or Modbus—can control the coil at a time. Is it possible to activate the coil using both methods?"
+    },
+    {
+      "comment_id": 566472204015411,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "You can't write to a physical input—physical inputs can only be read."
+    },
+    {
+      "comment_id": 568398378544568,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi, that's not exactly what I meant. Check the simple program I wrote for [product_name]. When the program runs, I'm unable to activate Q1 using a Modbus command (write single coil fc: 05). If I delete the program, the Modbus command works."
+    },
+    {
+      "comment_id": 120849484416278,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "If you have a digital output, such as Q1, in a [product_name] module, you cannot change the output state through Modbus if it's being handled by the program. Here's why: When [product_name] runs its cycle, it first reads the peripheral and network signals, processes the logic, and then updates the outputs. Modbus signals are applied before logic processing, so only the input (like I2) controls output Q1 in your example. If you remove I2 and leave only Q1 in your program, its state becomes controllable via Modbus."
+    },
+    {
+      "comment_id": 580973131715480,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you for clarifying. I can confirm that after removing the program, I could activate Q1 remotely. I'm wondering if there’s any way to control both at once. So far, it seems not. This poses a challenge—for example, controlling building lights might require both physical buttons and remote activation. Similarly, in industry, you may need both remote shut-down and programmed physical switches."
+    },
+    {
+      "comment_id": 857837927341227,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "But your question hasn't addressed that yet. You only asked why the output state is sometimes changeable via Modbus. I answered that. You could set up a flag or digital network input in [product_name], then use an OR function between input I2 and the output."
+    },
+    {
+      "comment_id": 331168944597529,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thanks, that's a good suggestion. I tried it, but couldn't figure it out. With the network input, it requests settings I’m unfamiliar with—please refer to the attached image. I'm using Codesys on the device, but could also use Node-RED. What is the unit ID, and which coil number should I use?"
+    },
+    {
+      "comment_id": 420220665142499,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I can't answer that—you'll need to determine it. You must configure the coil in IoT, and I don't know what unit ID your device has."
+    },
+    {
+      "comment_id": 832662455698734,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thanks anyway. I decided to write a single coil to M1 at address 8257, like the example shown in [url]. However, M1 isn't activating. The program still works with I2, so I assume it will activate when M1 is."
+    },
+    {
+      "comment_id": 623054192332429,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "It's working now! The key is that, in Codesys, the Modbus address for M1 is 8256, not 8257. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users found a technical limitation with controlling a digital output via both program logic and Modbus on [product_name]. When the output is managed through program logic, Modbus control is restricted, allowing only one form of control at a time. This constraint originates from how [product_name] processes inputs and outputs, limiting the flexibility needed for industrial setups that require both local and remote operation.",
+    "user_expectations": "Users expect to simultaneously control the same digital output using both [product_name] logic and remote Modbus commands, enabling unified local and remote management.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "local control",
+      "simultaneous activation",
+      "flexible automation"
+    ],
+    "pain_keywords": [
+      "control conflict",
+      "documentation confusion",
+      "address mapping",
+      "limited integration"
+    ],
+    "feature_keywords": [
+      "Modbus write",
+      "digital output assignment",
+      "network input",
+      "memory coil",
+      "OR logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

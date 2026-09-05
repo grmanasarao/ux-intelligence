@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "2883717021",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 153962544388680,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Good morning, I need assistance connecting an RS485 temperature and humidity sensor to port AB on the [product_name]. I've configured Modbus RTU for RS485, baud rate 9600, with 1 start bit, 8 data bits, no parity, and 1 stop bit. I’ve set up the data transfer table with VW2 mapped to HR, starting at 30, length 1, Unit ID 1. In [product_name] software, I added the module and Modbus with an analogue network input, but no data is being received. The sensor datasheet is attached. Any help would be appreciated."
+    },
+    {
+      "comment_id": 987040615474165,
+      "user_name": "udO0a0woU9",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "What is the status of the DIAG LED on your [product_name] module? It should be green. How is your [product_name] connected to the module? For example, if you’re using port1, the P1 LED should also be green. I’m assuming you are using Modbus TCP on your [product_name] with [version_no]. If that is the case, both Modbus and S7 communication need to be enabled in [product_name]."
+    },
+    {
+      "comment_id": 468582627404528,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Thank you for your response. The P1 LED on the [product_name] module is green and connected to the [product_name], while the P2 LED is green and connected to the laptop. Modbus TCP is enabled. I originally enabled S7 communication, but disabled it since I’m now using Modbus TCP. I selected analogue input since I have a temperature and humidity sensor. The manual suggests using Hex code, so I’m unsure whether my input type is correct. During online diagnostics, the only value displayed is 0.0. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 219473742332926,
+      "user_name": "udO0a0woU9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "For Modbus TCP with [product_name] [version_no], you must activate S7 communication in addition to Modbus. P1 and P2 LEDs are good. Make sure the DIAG LED on the [product_name] module is green; if it’s off, there might be an issue such as a power supply problem. The module requires a 12/24V power supply (range: 10.2 to 28.8V DC). Without power, the DIAG LED will be off. [product_name] processes bits and integers (2 bytes). Using the conversion block, you can handle 4- and 8-byte floating point values as well. However, single bytes and strings can’t be processed directly. The hex values mentioned for your sensor seem like strings, and it’s unclear if I/O addresses or holding registers are used. Since holding registers are 2 bytes, I suspect I/O addresses are in use."
+    },
+    {
+      "comment_id": 576415385340581,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Consider using a PC with a USB RS485 interface and software to configure and read data from the RTU sensor. This will help verify sensor functionality. [url]"
+    },
+    {
+      "comment_id": 950380592591753,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "[url]"
+    },
+    {
+      "comment_id": 625649700465846,
+      "user_name": "cZQANX744b",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hi, start by checking whether your sensor's value appears in the [product_name] memory. You can use the RESTful API Interface for this. If enabled in [product_name], enter this URL in your browser: [url] (replace with IP address and VW30 register as noted). The browser should show the sensor value. Afterward, set up data exchange between VW30 of the [product_name] and [product_name] using ModbusTCP or S7. Typically, configuring [product_name] as the server makes these changes faster than repeatedly loading programs onto [product_name]. Hope this helps."
+    },
+    {
+      "comment_id": 716158952081547,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Currently, only a zero value is displayed. Is it possible to set HR to 0?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are experiencing challenges when trying to interface an RS485 temperature and humidity sensor with the [product_name] module through Modbus RTU and TCP protocols, using [product_name] and [product_name] software. The main issues involve configuring the correct input type—especially when handling hexadecimal values and string formats— and obtaining readings beyond zero. Feedback from others clarifies technical limitations of [product_name] in processing certain data formats and highlights necessary module and communication settings, but the problem of getting valid sensor data remains unresolved.",
+    "user_expectations": "User expects to reliably read, process, and display sensor values in [product_name] software via the [product_name] module, with proper data communication over Modbus RTU/TCP, regardless of the sensor's data format.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful sensor integration",
+      "modbus data acquisition",
+      "reliable sensor readings"
+    ],
+    "pain_keywords": [
+      "no data received",
+      "configuration confusion",
+      "non-integer data handling issue"
+    ],
+    "feature_keywords": [
+      "modbus rtu/tcp input",
+      "analogue input configuration",
+      "data type conversion"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "12": "Network Configuration Challenges"
+  }
+}

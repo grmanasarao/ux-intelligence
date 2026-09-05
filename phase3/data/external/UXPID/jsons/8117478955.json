@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "branch_id": "8117478955",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 173636664535902,
+      "user_name": "hdCOTdug2I",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hello, I developed the logic and it's functioning correctly in [product_name] ([version_no]), but when transferring it to a [product_name] ([article_no]), it doesn't work as intended. The issue seems to be with an up/down counter that's supposed to activate on the second count and deactivate on the third. In [product_name], it works correctly, but in the PLC and during online monitoring, it activates on the first and deactivates on the second count. The attached logic includes this counter labeled B057. Please review the attachment and try the following steps: Set Input 1&2 to ON, then Input 3 ON, Input 3 OFF, Input 4&5 ON, Input 1&2 OFF, Input 3 ON, Input 3 OFF, and finally Input 4&5 OFF. I appreciate any suggestions or help you can provide."
+    },
+    {
+      "comment_id": 246003696020678,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "If the program's function is unknown, it's difficult to assess its accuracy. You mentioned it works in simulation but not in real application. I suspect signals, especially I3, may behave differently than they do in simulation."
+    },
+    {
+      "comment_id": 441519312361174,
+      "user_name": "hdCOTdug2I",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thank you for your reply. The system is designed to count tires passing a specific point. There are five lasers and five LDRs opposite each other, with lasers directed at the LDRs. [url] When a tire rolls through and interrupts the light, an input is triggered. The attached pattern helps ensure only tires are detected. For instance, the first column (cells 1&2 or 4&5) gets sensed; assuming 1&2 are column one: 1&2 ON (tire enters), 3 ON (front sidewall), 3 OFF (passes cell 3), 4&5 ON (middle), 1&2 OFF (tire is passing), 3 ON (back sidewall), 3 OFF (tire is passing), 4&5 OFF (tire fully passed). Watching the video at [url] clarifies this pattern. Regarding I3, I can observe its triggering in real time via [product_name], using slow tire movement and monitoring step by step. The counter B057's role is to ensure I3 is triggered exactly twice, then it outputs to B054 (or B051 for reverse direction) for counting. If you have ideas to replace B057 or use different logic, please let me know. Thanks."
+    },
+    {
+      "comment_id": 181978511996742,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Again, if the simulation works, real-world signal input may behave differently. I can't confirm if signals in practice match those in simulation. How rapidly do the signals change? How many tires are detected per second?"
+    },
+    {
+      "comment_id": 947298915458046,
+      "user_name": "hdCOTdug2I",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "It’s unable to count even a single tire, regardless of how slowly it's moved. Without the up/down counter (B057), it counts as fast as one tire in under half a second. I haven't tried moving it faster. Could there be a bug within the PLC? Monitoring in 'online test', I see inputs toggle, and I3’s first trigger immediately creates an output for B057."
+    },
+    {
+      "comment_id": 116954385387862,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "After watching the video, the sequence appears different. The video displays: I1 + I2 ON, I3 ON, I3 OFF, I1 + I2 OFF, I4 + I5 ON, I3 ON, I3 OFF, I4 + I5 OFF. In practice, even so, the counter resets after every I3 pulse, not after every second pulse as intended."
+    },
+    {
+      "comment_id": 612491259628391,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "This issue might be solvable with a change in logic."
+    },
+    {
+      "comment_id": 494458303416512,
+      "user_name": "hdCOTdug2I",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thanks for your response. I modified your logic as shown in the attachment, but it still isn’t working. The main issue is only with this counter, which doesn’t function properly in the PLC—even in a simplified scenario. The following movie is the correct one (the previous description was updated):"
+    },
+    {
+      "comment_id": 236917956460716,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "My logic works: I1 and I2 are high, so the flip-flop is set, enabling the counter. This lets it count I3’s pulses. When I4 and I5 toggle, the flip-flop resets, which clears and disables the counter."
+    },
+    {
+      "comment_id": 780299172083053,
+      "user_name": "hdCOTdug2I",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Can someone test this logic on a PLC to verify if the message 'Hello' actually appears on the screen?"
+    },
+    {
+      "comment_id": 845560053058633,
+      "user_name": "hdCOTdug2I",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "I identified the issue—there was a fault within the PLC itself. After changing the input from 3 to 8, everything works, including the main program. Perhaps it’s related to a malfunctioning relay inside the PLC?"
+    },
+    {
+      "comment_id": 471404766118947,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "I've tested it with my module and confirm the text appears. Which PLC type do you have, one with 12/24VDC? In that case, I3 is a fast counter input. If possible, try other inputs like I7 or I8 for this feature."
+    },
+    {
+      "comment_id": 104824793542109,
+      "user_name": "hdCOTdug2I",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thanks for testing and sharing your results. I'm using 24V for this unit, so that might be influencing things."
+    },
+    {
+      "comment_id": 101546570160425,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Only modules with a purely DC power supply have fast counter inputs, specifically I3 to I6."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The primary issue is a discrepancy between simulation results in [product_name] ([version_no]) and actual hardware execution on [product_name] ([article_no]) when using an up/down counter. While simulation behaves as intended, hardware triggers the counter prematurely, leading to confusion and undermining trust in accurate deployment for time-sensitive signal processing.",
+    "user_expectations": "The user expects that logic verified in simulation will function identically on real hardware. They also require precise and reliable signal handling to count tires accurately.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "accurate tire counting",
+      "simulation-hardware parity",
+      "reliable automation"
+    ],
+    "pain_keywords": [
+      "simulation/hardware mismatch",
+      "counter does not trigger as expected",
+      "debugging difficulty",
+      "false triggers"
+    ],
+    "feature_keywords": [
+      "up/down counter",
+      "signal monitoring",
+      "input sequence processing",
+      "PLC display output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

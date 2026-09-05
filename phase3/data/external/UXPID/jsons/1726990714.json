@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "branch_id": "1726990714",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 764919953810126,
+      "user_name": "iojJjllJjs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Hello! I created a program for a client that uses an hours counter to track the active time of a pump, which is switched on and off several times daily. Now, the client would like the time displayed in seconds as well, but as I see it, this isn't possible with the [product_name]. Also, I’m experiencing an issue: in simulation, the hours counter resets correctly using the reset-all signal, but on actual hardware, the first minute after a reset is added incorrectly—rather than 60 seconds, it adds after just 45 seconds, leaving a 15-second discrepancy. All subsequent minutes count as expected. Could someone help clarify this?"
+    },
+    {
+      "comment_id": 166642010813258,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Hello, why do you expect to count seconds with an operating hour counter? On [product_name], the operating hour counter tracks minutes, not seconds. If you want a similar counter with second-level resolution, you’ll need to program it yourself. Hope this helps."
+    },
+    {
+      "comment_id": 746381612257932,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Can you share your program or at least a part of it? If you want an hour-counter tracking seconds, minutes, and hours, you can implement it manually. See the attachment for guidance."
+    },
+    {
+      "comment_id": 856617777670736,
+      "user_name": "iojJjllJjs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "[user_name]: For the same reason I get time in minutes, I’d expect second-level detail. I don’t have the program on hand but could post it later. I’ve already tried the example shown, but it’s not accurate—compared to a stopwatch, it runs about 1 second slow per minute. So if the timer shows 10 min 0 sec, actual time is 10 min 10 sec. About the hours counter issue, it seems like a bug in [product_name]. I suspect a background seconds timer isn’t resetting when the hours and minutes are reset, causing inconsistent results. For instance, if the counter displays 1h20min, there might actually be 1h20min30sec counted. When I reset, it sets to 0h0min30sec rather than zeroing everything. It may be that this seconds timer never stops."
+    },
+    {
+      "comment_id": 622430933405665,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Hi, since you’re using a digital system, half the lowest resolution is utilized for counting. The [product_name] operating hour counter works with 1-minute resolution. At 30 seconds, the counter adds a minute. That's simply its design: any time shorter than 30 seconds isn't counted. This behavior applies universally. You might try using a stopwatch for improved accuracy and using message text functions to display the time as 00:00, which works in [product_name] [article_no]. The stopwatch generally yields better precision."
+    },
+    {
+      "comment_id": 135206178050886,
+      "user_name": "iojJjllJjs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Thanks for clarifying—was that documented anywhere? I’m not convinced this explains my issue, since in my case, the counter flips after only 45 seconds, even though the signal lasts the full period. Shouldn’t the measurement be accurate if the input is maintained? The stopwatch function is exactly what I need, but unfortunately, the [product_name] in question was shipped a year ago and now only needs a program update (it has [version_no]). Do you have any suggestions on why a counter updated every second can still lag behind real time?"
+    },
+    {
+      "comment_id": 278356781214535,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Hi, in older [product_name] versions, you can generate a pulse every second and count with a counter. The downside is that counter values take up a lot of characters in a text message. I recommend splitting it like this: counter for seconds, minutes, and hours—each displayed on a separate line for clarity. Hope that helps."
+    },
+    {
+      "comment_id": 477138877069272,
+      "user_name": "iojJjllJjs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "I tried this method before starting the thread but ran into an issue: I used an on-delay timer set to 1 second and compared the result on the [product_name] with a stopwatch. After one hour, my counter was 60 seconds behind. I also tried a pulse generator with 500 ms on/500 ms off—with the same lag. Is there an inherent delay in [product_name]?"
+    },
+    {
+      "comment_id": 200057144845064,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], I might have a suggestion, but it would help to see your program so we can review and troubleshoot together. Thanks. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 910390758382154,
+      "user_name": "iojJjllJjs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 11,
+      "comment_body": "Here is the program. =)"
+    },
+    {
+      "comment_id": 982722551348855,
+      "user_name": "TmhmscizAV",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 1,
+      "comment_body": "Hi, I’ve set up an hours, minutes, and seconds counter similar to the previous attachment, with successful display on the [product_name]. Can anyone suggest how to reset this counter using any of the four cursor keys available on the [product_name]? I can utilize cursor keys in the program but haven’t figured out how to reset all counters with them."
+    },
+    {
+      "comment_id": 408343911648194,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 1,
+      "comment_body": "Is it similar to the attachment you mentioned? It’s essentially the same program but this version includes a reset feature."
+    },
+    {
+      "comment_id": 597108017119111,
+      "user_name": "TmhmscizAV",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 1,
+      "comment_body": "Thanks for sharing the solution. It worked perfectly."
+    },
+    {
+      "comment_id": 226157942812136,
+      "user_name": "TtUdi5FrbR",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "@[user_name] Thank you for showing this timer—it’ll save me lots of time. Why not set both TH and TL to 50 ms each for balance? Best wishes."
+    },
+    {
+      "comment_id": 237993554676388,
+      "user_name": "cZQANX744b",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Hi, around a decade ago, [product_name] devices processed much slower. If the program required a long scan time, that approach wouldn’t have worked. Modern [product_name] (e.g., version 8) typically scans in 0.1 ms per function block. Hope that clarifies things."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced limitations with the [product_name] operating hour counter, which only measures time in minutes, not seconds. Attempts to implement workarounds using custom pulse counters resulted in noticeable time drift and precision issues when measured with a stopwatch. Additionally, the hour counter exhibited anomalies after resetting, specifically with the first minute being incremented too early, causing inaccuracies. The absence of second-level resolution and non-uniform counter behavior made precise time measurement challenging.",
+    "user_expectations": "Users expect the [product_name] to provide detailed elapsed time in seconds, minutes, and hours, with reliable and accurate measurement on both simulated and actual devices. Consistent behavior, especially after reset operations, is important for meeting user requirements.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise timing",
+      "time display in seconds",
+      "accurate hours counter",
+      "simulation-hardware consistency"
+    ],
+    "pain_keywords": [
+      "inaccurate timing",
+      "no seconds display",
+      "counter lag",
+      "version limitations",
+      "reset anomaly"
+    ],
+    "feature_keywords": [
+      "hours counter",
+      "stopwatch function",
+      "on delay timer",
+      "pulse generator",
+      "message text display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

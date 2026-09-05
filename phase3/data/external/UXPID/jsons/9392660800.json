@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "9392660800",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 259800456050780,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I'm setting up a Modbus connection over Ethernet between an ESP32 and a [product_name]. Through this link, I transmit temperature readings from the ESP32 to the [product_name]. The issue is that, while the Arduino Serial Monitor shows accurate temperature values, on the [product_name] display, the values sometimes all switch to zero for a second or two before returning to normal. I've tried multiple software solutions, so I'm beginning to suspect it might be a hardware issue instead. While reviewing the [product_name] manual, I found a page (see attached) that discusses a ground connection, which I'm having trouble understanding. I now think it could potentially be the cause of my problems. Has anyone else encountered this situation? Is that ground connection truly necessary, and can someone explain why? I'd appreciate any advice. Thank you."
+    },
+    {
+      "comment_id": 244832518385660,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "This terminal isn't a PE (Protective Earth), but rather an FE (Functional Earth). You must connect the FE terminal to earth ground, which links the ethernet cable shielding to ground to dissipate electrical interference. Please see the attachment."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing occasional temperature readings dropping to zero when connecting ESP32 and [product_name] via Ethernet Modbus. The display intermittently fluctuates, then resumes normal operation, implying possible electrical noise or interference. There is uncertainty about the importance of proper grounding and lack of clarity in the hardware documentation, especially when integrating third-party devices.",
+    "user_expectations": "The user wants a stable and dependable temperature display on the [product_name], without unexpected zero values. They also seek clear instructions regarding hardware setup, particularly grounding requirements.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable communication",
+      "accurate display",
+      "understandable wiring"
+    ],
+    "pain_keywords": [
+      "intermittent zero readings",
+      "unclear documentation",
+      "possible hardware interference"
+    ],
+    "feature_keywords": [
+      "FE terminal",
+      "ground connection",
+      "ethernet shielding",
+      "display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

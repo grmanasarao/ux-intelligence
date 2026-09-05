@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "branch_id": "6294297230",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 494086640941883,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "I need help with an application. I have a cutting machine with a motor controlled by a frequency converter, and I'm detecting pipe speed via an encoder with a maximum output frequency of 4kHz. My issue is how to convert the 0-4 kHz signal into a 0-10V output. Any advice would be appreciated."
+    },
+    {
+      "comment_id": 497224161166824,
+      "user_name": "3ixKEebCxA",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Can you clarify your requirements? You could use one of the high-speed inputs (up to 5 kHz) to count, then process using a threshold trigger in your program. Alternatively, there are frequency-to-voltage converters available commercially."
+    },
+    {
+      "comment_id": 359952895172947,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "My main issue is how to convert a 0-4 kHz signal to a 0-10V output using [product_name]."
+    },
+    {
+      "comment_id": 465842363286965,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "This is one possible solution. Some modules with fast counter functionality (for example, [product_name] [article_no]) allow you to use high-speed inputs like I3-I6 for this purpose."
+    },
+    {
+      "comment_id": 816661098895609,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "[product_name] isn't suitable for this task—there will be control lag, which isn't ideal. It's generally not recommended to use a PLC for this. Many variable speed drives can accept a frequency pulse as a reference, which is better. Alternatively, you can use frequency-to-analog converters (Phoenix Contact is an option). What device is actually controlling the pipe speed? If it's also a drive, you may want to connect directly from the drive to the cutting machine."
+    },
+    {
+      "comment_id": 622220487159753,
+      "user_name": "Wts2Y75ilx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "As far as I know about [product_name], I agree with your assessment. Generally, a PLC is a viable solution though—specifically, a [version_no] with suitable IRT IOs could potentially handle the requirements. My experience is more with dedicated motion control solutions, but this seems promising."
+    },
+    {
+      "comment_id": 955177468522516,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "[user_name]: That should work if you adjust the input frequency range. Thank you. [user_name]: Yes, tube speed is managed via 0-10V voltage, but my cutter needs to be mobile and the speed doesn't always match the voltage."
+    },
+    {
+      "comment_id": 442389825991293,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "This small program takes a 0-4,000 Hz input and produces a 0-10V signal. Ensure you use a high-speed input as indicated in the [product_name] manual—likely I3, I4, I5, or I6. I haven't tested its performance myself!"
+    },
+    {
+      "comment_id": 295104665187852,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "That's a fair point—my prior answer was too absolute. \"No PLC solution in the [product_name] price range is a good idea.\" My opinion remains that an in-drive solution offers the fastest response to real-time changes. For budget options, consider something like Omron MX2 or Yaskawa V1000."
+    },
+    {
+      "comment_id": 567966991558878,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "automatic translator: [user_name]: I'm not sure why synchronisation isn't implemented. This device uses a [version_no] for measuring length with an IRC. But I'm still learning [product_name]. I think [product_name] could handle frequency-to-voltage conversion. What are the main programming differences between [product_name] and [product_name]? [user_name] (Czech): I don't know why no synchronisation is in place. This setup uses [version_no] and IRC for length measurement, but I don't know [product_name] well yet. I believe [product_name] could manage the frequency to voltage conversion. How different is programming in [product_name] compared to [product_name]?"
+    },
+    {
+      "comment_id": 456452729438182,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Hello. There are significant differences between the [version_no] family and [product_name]. [product_name] is intentionally less powerful to avoid overlapping with the [version_no] range, and is marketed as an 'intelligent relay.' For instance, the [version_no] can read up to 100kHz with special inputs, and normal inputs read at 1kHz. Motion control can generate pulses at 100kHz in open loop. What do you mean by 'measuring the length of the IRC'? Measuring length and synchronizing drive speeds are different, especially when speed isn't directly controlled. Maybe I've misunderstood your requirements. Do you need to measure distance, rather than synchronize speeds? Please clarify so we can help you better. It would help if you could provide a diagram showing the setup—hand sketches are fine. Where's the tube and blade, and what needs to be synchronized? Does the tube speed stay constant? How precise does the cut need to be? Regards, [user_name]"
+    },
+    {
+      "comment_id": 972267398477177,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "I need to synchronize the speed of the saw on a mobile truck with the speed of the tubes. Cutting accuracy required is +/- 2 mm on a 4 m length at a speed of 25 m/min."
+    },
+    {
+      "comment_id": 178512583837098,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Hello. Please bear with me a bit longer. Thank you for sharing the image; it's similar to what I imagined. However, we're missing information about the saw's movement. Could you show which movements need to be synchronized? I suspect this is a 'flying saw' application, where the saw blade moves in sync with the pipe, going down to cut, lifting while maintaining sync, then returning to its starting position. Is this correct? [user_name]"
+    },
+    {
+      "comment_id": 276753009688550,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Here's the basic diagram of the saw."
+    },
+    {
+      "comment_id": 489766357130083,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Thank you for sharing the image. Let me explain some of the challenges with this application: If [product_name] is used for analog output and perfect sync speed is achieved, when should the movement begin to ensure proper cutting position? The saw blade needs time to accelerate to sync speed, and as the speed can vary, the movement start position changes accordingly. How will [product_name] calculate this variable? Also, if the pipe speed changes during movement or cutting, how quickly does the saw blade need to respond? For flying saw applications, servo-driven systems are commonly used. I believe your application matches this type."
+    },
+    {
+      "comment_id": 982828816682784,
+      "user_name": "DD4BlRA4iy",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Today I tested the solution provided by [user_name] and [user_name]; with some small edits, it works as needed. Speed variations during operation are minor, only a few mm/min. I only had to change the drive setup for the feed truck, since the trolley starts moving first, then the clamping jaws, and lastly the blade. Many thanks to everyone!"
+    },
+    {
+      "comment_id": 933510175704197,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], If you prefer not to purchase an F/V converter and have access to an electronics lab, you can use an LM2907 or LM2917. Check the datasheet for details. Let me know if you'd like the circuit diagram. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to synchronize a cutting machine that uses a frequency converter for motor control. The main technical challenge is converting a 0-4 kHz encoder signal into a 0-10V analog signal for real-time synchronization. The debate centers on whether [product_name] controllers or [product_name] PLCs can handle the high-speed input and conversion, versus using a direct drive solution or frequency-to-voltage converters. Some users express concerns about lag with [product_name] and consider drive-integrated solutions a better alternative. The differences in programming and functionality between [product_name] and [product_name] PLCs are also highlighted.",
+    "user_expectations": "The user is seeking a simple, reliable solution using either [product_name] or [product_name] PLCs to convert frequency signals to a 0-10V output for accurate machine synchronization, with minimal delay and straightforward programming.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "real-time signal conversion",
+      "machine speed synchronization",
+      "straightforward programming"
+    ],
+    "pain_keywords": [
+      "response lag",
+      "controller capability limits",
+      "uncertain programming differences"
+    ],
+    "feature_keywords": [
+      "high speed inputs",
+      "frequency to analog conversion",
+      "counter functions",
+      "Profinet IRT"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "branch_id": "9292636884",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 971117898490276,
+      "user_name": "KZcAFzqSW3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I am attempting to read the date and time from [product_name] using Modbus. According to the [product_name] manual, these are located at VB985...VB990, but I am unable to convert these addresses for Modbus FC3 or FC4 functions. Can someone provide an example? Thank you in advance."
+    },
+    {
+      "comment_id": 638122858559508,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Who is acting as the client and who is the server in your setup? Which [product_name] version are you using?"
+    },
+    {
+      "comment_id": 944669634871686,
+      "user_name": "KZcAFzqSW3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], thank you for your assistance. [product_name] FS4 is configured as the server, and the test client is Modbus Tester from Schneider Electric or the PowerHud Modbus tester tool. I've also tried making requests with other PC libraries and tools, but none have worked."
+    },
+    {
+      "comment_id": 202918378203132,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "This can be accomplished, but there are limitations. You can access this VM memory area remotely through Modbus, although only by word rather than byte. For this, the holding register function FC3 must be used. You need to read HR492 to HR495. HR492 = VW984 = VB984 + VB985. VB985 contains the year. HR493 = VW986 = VB986 + VB987. VB986 is the month, VB987 is the day. HR494 = VW988 = VB988 + VB989. VB988 stores the hours, VB989 the minutes. HR495 = VW990 = VB990 + VB991. VB990 represents the seconds."
+    },
+    {
+      "comment_id": 828997588560871,
+      "user_name": "KZcAFzqSW3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Thank you very much, this solution works perfectly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user had trouble accessing real-time clock date and time data from a [product_name] device using Modbus. The main challenge was converting the memory addresses from the [product_name] manual into correct Modbus function calls. The thread provided clarification on how to use holding registers and the FC3 function to solve this issue, and the user was able to successfully read the required information.",
+    "user_expectations": "The user expects clear guides and mapping between [company_name] memory address formats and corresponding Modbus access protocols to smoothly retrieve PLC internal data.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "access RTC data",
+      "modbus address mapping",
+      "integration with 3rd party tools"
+    ],
+    "pain_keywords": [
+      "address mapping difficulty",
+      "documentation ambiguity"
+    ],
+    "feature_keywords": [
+      "Modbus communication",
+      "RTC access",
+      "memory mapping"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

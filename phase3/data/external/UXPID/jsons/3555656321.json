@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "3555656321",
+    "thread_id": "1723880927",
+    "publication_year": 2007,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 967930585263660,
+      "user_name": "EtMvsxaHLQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2007,
+      "comment_month": 9,
+      "comment_body": "Has anyone tried using two 4-20mA inputs, with one as the reference and the other as the variable? The goal is to compare the two and use the difference to provide a proportional 0-10V analog output, based on the reference input. Thanks."
+    },
+    {
+      "comment_id": 121456306369385,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 9,
+      "comment_body": "Hello! I'm not sure I understand your setup. Do you want the output to be the difference between the two inputs? For example: AI1 minus AI2 equals AQ1."
+    },
+    {
+      "comment_id": 625792143391960,
+      "user_name": "EtMvsxaHLQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 9,
+      "comment_body": "To clarify my situation: LoadA (200kw) is mapped to analog input 1, and LoadB (200kw) to analog input 2. If LoadB drops to 150kw, I need the analog output to reduce LoadA accordingly. The analog output should decrease the generator's kW. If LoadB rises again, then LoadA should increase its value. Hope this helps explain the issue."
+    },
+    {
+      "comment_id": 927788617232137,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 9,
+      "comment_body": "Hello! It sounds like you might need a PI (Proportional-Integral) function here. In my example: I1 is the ON/OFF control AI1 is the process value AI2 is the setpoint AQ1 is the process output AQ1 adjusts itself to bring AI1 closer to AI2 (where changing AQ1 affects AI1). I hope this matches what you are looking for."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is working to achieve generator load sharing by measuring two separate loads using analog inputs and aims to generate a proportional analog output reflecting their change. Initial confusion about the calculation method is resolved with further explanation. A key user experience insight is that selecting the appropriate control strategy or logic function for load balancing is not always apparent in [company_name] products.",
+    "user_expectations": "Users expect to leverage analog inputs for dynamic control of generator load, with the system adjusting the analog output in proportion to changes between measured loads. Users anticipate the availability of simple, intuitive logic or control functions for this type of process in [company_name] products.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic load adjustment",
+      "balanced generator output",
+      "dynamic response"
+    ],
+    "pain_keywords": [
+      "unclear function block selection",
+      "difficulty mapping real-world logic",
+      "lack of example use cases"
+    ],
+    "feature_keywords": [
+      "analogue input",
+      "analogue output",
+      "PI controller",
+      "logic function block",
+      "load balancing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

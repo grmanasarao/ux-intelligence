@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "branch_id": "7075215899",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 257555584341435,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Is it possible to switch outputs to ground with the [product_name] transistor output version? The injectors receive 12VDC and are activated by switching to ground for fuel spray. Sent from App."
+    },
+    {
+      "comment_id": 269900080595045,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "No, the transistor outputs switch positive 24 VDC. If you need to switch to ground, you will have to use a [product_name] with relay outputs."
+    },
+    {
+      "comment_id": 537376626374348,
+      "user_name": "SWseeItON6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "A [product_name] does not have sufficient inputs and outputs to manage a gasoline engine, and its processing speed would be a major limitation. At a basic level, you would need sensors for throttle position, MAP/MAF, rpm (flywheel), cam (if using coil-on-plug), water temperature, intake air temperature, lambda sensors (possibly two), and so on. Outputs are similarly demanding. For this purpose, an aftermarket ECU such as Megasquirt is more appropriate. [product_name] isn't suitable for this application."
+    },
+    {
+      "comment_id": 321779985569265,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Thank you. I understand that there aren't enough I/O, but I plan to use [product_name] as a supplementary system, not a standalone ECU. I'm considering an interface board with FETs for switching the injector ground in case [product_name] can't do so directly. I picked the transistor output version because it is faster than relays. This is just an idea; I'll see what results I get in the future. Thanks again! Sent from App."
+    },
+    {
+      "comment_id": 875078932595553,
+      "user_name": "SWseeItON6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Again, [product_name] isn't the right hardware for your needs. As far as I know, the only [product_name] models with transistor outputs are for 24V operation, meaning you'd need a dedicated power supply. Maximum output current is 300mA, while many car injectors draw 750 mA at 12V (16 ohm resistance). You'd need to use a freewheeling diode to protect the output transistor from flyback. The maximum switching frequency is 10 Hz (100 ms). For a typical 4-cylinder engine, injector opening at idle is roughly 2.5–3.5 ms, so [product_name] is too slow for this task. The relay output version can handle the higher current but introduces further speed limitations. How would you construct a fuel map using [product_name]? For this purpose, something like Megasquirt (see [url]) is more appropriate. Please let me know if I'm mistaken."
+    },
+    {
+      "comment_id": 157088849109385,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Thank you for the helpful advice. My intention is to use it as a supplementary system to extend the injection period during high boost, specifically on cars with large turbochargers. Normal functionality and idle will remain managed by the original ECU. Hence, the 100 ms switching period might be usable at high RPM or maximum boost, when the factory ECU pulse width is maxed out. This is a niche application, mainly for racing or drag racing. I understand [product_name] isn't fast enough, but could using several outputs in parallel allow for dividing the pulse width below 100 ms? Is that feasible in your opinion? Sent from App."
+    },
+    {
+      "comment_id": 267599756668869,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "[company_name] states in the manual that the actual switching frequency for transistor outputs depends purely on the cycle time of the [product_name] program."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed whether [product_name] with transistor outputs could be used as a piggyback controller for fuel injectors in vehicles. The thread identified key hardware constraints, such as the inability to sink current, lack of sufficient I/O, limited processing speed, and inadequate output current for automotive injectors. The conversation illustrated the mismatch between user expectations for flexibility and speed versus the actual capabilities of the hardware.",
+    "user_expectations": "The user anticipated that [product_name] could be fast and adaptable enough to control injector outputs to ground via transistor outputs and serve as a configurable add-on for supplementary fuel injection under certain engine load scenarios.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "supplementary fuel control",
+      "high boost enrichment",
+      "precision switching",
+      "customization for racing"
+    ],
+    "pain_keywords": [
+      "output not ground-switching",
+      "insufficient I/O",
+      "low switching speed",
+      "inadequate output current",
+      "complex workaround needed"
+    ],
+    "feature_keywords": [
+      "transistor output switching",
+      "relay output switching",
+      "output current capacity",
+      "switching frequency",
+      "cycle time"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations",
+    "10": "Performance Predictability"
+  }
+}

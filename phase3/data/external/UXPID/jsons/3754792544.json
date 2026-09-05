@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "branch_id": "3754792544",
+    "thread_id": "3055273936",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 960664466175542,
+      "user_name": "uqdk4wNUN0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I want to connect my temperature sensor directly to the [product_name] analog input, without using the [product_name] extension module. Here’s the manual for my sensor: [url]. I have a [product_name] model [article_no] and I'm using the [product_name] software. I'm new to this and would appreciate any suggestions."
+    },
+    {
+      "comment_id": 441389938720245,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Please specify the exact type of your temperature sensor."
+    },
+    {
+      "comment_id": 934361066581131,
+      "user_name": "uqdk4wNUN0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "The pyrometer provides a 4-20mA output."
+    },
+    {
+      "comment_id": 489223310496383,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Your [product_name] only accepts analog inputs in the 0-10V range. To connect a 4-20mA sensor, you’ll need a 500 Ω (half-watt) resistor to convert the current signal to a corresponding voltage signal (2-10V). For wiring: connect the +24VDC from the [product_name] to the sensor’s white wire. Attach the brown wire to the 500 Ω resistor and the analog input (like I7), and connect the other end of the resistor to the 0VDC."
+    },
+    {
+      "comment_id": 432018405986106,
+      "user_name": "uqdk4wNUN0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I've made the connections but I'm unsure about the correct analog value configuration. For example, my sensor measures -50 to +1030°C, but I need to work within 25 to 800°C. How should I set the analog thresholds and calculate the temperature using mathematical instructions?"
+    },
+    {
+      "comment_id": 755664633774225,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 684814577531696,
+      "user_name": "uqdk4wNUN0",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I tried the suggested values, but the output is still incorrect—I'm reading -28 or -29 (raw input of 210). My pyrometer’s specs are 4-20mA and -50 to +1030°C. To fix the scale: 1. The analog input gets a voltage of 2-10V via the 500 ohm resistor. 2. For the 0 to 800°C range, I calculated the voltage as 2.37V to 8.30V. 3. The [product_name] interprets 0-10V as 0-1000 counts, so for scaling 0-800°C I need to map 237 (0°C) and 830 (800°C). Could you help clarify how to set this up correctly?"
+    },
+    {
+      "comment_id": 522911992214552,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Using a gain of 1.35 and offset of -320 with a 4-20mA sensor, when I get 210 AI units I get a temperature of -36."
+    },
+    {
+      "comment_id": 557235754153437,
+      "user_name": "uqdk4wNUN0",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "That's what I'm seeing too, but the sensor is still showing incorrect readings. I can share my wiring diagram. It looks like the voltage reading at input I7 is not correct. Additionally, when I connect the [product_name] expansion module, it isn't detectable in [product_name] software."
+    },
+    {
+      "comment_id": 214812184715114,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Your wiring diagram is correct. Unlike STEP 7 or TIA, [product_name] doesn’t have hardware settings—just install the expansion module, and it will be recognized on the bus automatically."
+    },
+    {
+      "comment_id": 362467549184509,
+      "user_name": "uqdk4wNUN0",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Could you assist with the [product_name] programming blocks needed to read temperature from this sensor? Here’s what I tried, but the initial analog input reads 200, resulting in a calculated temperature of -5°C. Any ideas for improvement?"
+    },
+    {
+      "comment_id": 713620659392222,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "If you’re converting using a 500 Ω resistor, keep in mind that the internal resistance of the [product_name] is in parallel with it—resulting in a lower effective resistance, about 497 Ω. This is likely why you see -5°C instead of 0°C."
+    },
+    {
+      "comment_id": 736277615564193,
+      "user_name": "uqdk4wNUN0",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Now I'm connecting the sensor directly to the [product_name] extension module at 4-20mA output, but the readings are unchanged. This indicates that no current may be flowing from the sensor."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are trying to connect a 4-20mA temperature sensor to the analog input of the [product_name] base unit, which only supports 0-10V signals. There is confusion around converting current to voltage with a resistor, calibrating the signal, setting scaling values, and interpreting raw input counts. Users are also unsure about module detection and configuration in [product_name] software, especially regarding the extension modules.",
+    "user_expectations": "Users expect guidance for proper analog input scaling and calibration for a 4-20mA sensor, accurate temperature readings in [product_name] software, and automatic recognition of expansion modules without manual configuration.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "accurate temperature measurement",
+      "seamless sensor integration",
+      "reliable hardware recognition"
+    ],
+    "pain_keywords": [
+      "incorrect analog scaling",
+      "hardware recognition issue",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "automatic module recognition",
+      "mathematic instruction for calibration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

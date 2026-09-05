@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "7473774058",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 275418470171247,
+      "user_name": "uilXywuFBE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I need some assistance with interpreting Modbus values. I’m using a 4-20mA sensor and want to monitor its scaling via a VM address. My amplifier’s output falls to a negative offset when the signal drops below 4mA, which causes issues with Modbus readings. When the value is positive, the Modbus read works well, but when it goes negative, I see values between 64801 and 65532. I’d like to convert these readings from -750 up to zero so I can trigger an alarm when the value falls below zero. Thank you all for your help!"
+    },
+    {
+      "comment_id": 116088312388496,
+      "user_name": "uilXywuFBE",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Upon further investigation, the Modbus response is 0xfd21 or 64801. After converting from HEX to Decimal and performing a two's complement conversion, I get the actual value."
+    },
+    {
+      "comment_id": 629812683652621,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "It seems the Modbus word is using the incorrect data format. The [product_name] operates with 16-bit signed integer values ranging from -32,768 to 32,767. If you read these values on the Modbus side as 16-bit unsigned integers (range 0–65,535), you’ll see results like -1 (signed) as 65,535 (unsigned) and -750 (signed) as 64,786 (unsigned)."
+    },
+    {
+      "comment_id": 374177714931768,
+      "user_name": "uilXywuFBE",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Thank you for your response. Should I change something on the [product_name] side, or do I need to adjust how I read Modbus values from my Modbus master (the client requesting data from [product_name_version_no])?"
+    },
+    {
+      "comment_id": 944772115878081,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "You can also detect sensor errors on the [product_name] side and send them as digital signals to the Modbus master. What type of Modbus master are you using? Is it a PLC?"
+    },
+    {
+      "comment_id": 636886267555890,
+      "user_name": "uilXywuFBE",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Sensor error? My scaling amplifier utilizes the output from a 4-20mA sensor measuring 0–300 bar pressure; settings provide 0 at 4mA and 300 bar at 20mA. I am using Node-Red to query the Modbus data and will soon need to display this information on an HMI. Thanks for your support."
+    },
+    {
+      "comment_id": 330360993993878,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I’m not sure if Node-Red allows you to change the data format from unsigned to signed, as I haven’t used Node-Red before. With an HMI, you can set the tag table to interpret values from [product_name] as signed integers. The connection between [product_name] and the HMI can be configured using Ethernet TCP/IP, allowing for sensor error detection."
+    },
+    {
+      "comment_id": 890310088448956,
+      "user_name": "uilXywuFBE",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Hello all, after some research, I discovered that in Node-Red you can convert a 16-bit value to a signed 16-bit integer using this code: msg.payload[0] = (msg.payload[0] << 16) >> 16. This solution worked well. [snip]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are facing issues interpreting negative sensor values from a 4-20mA sensor connected through Modbus to a [product_name] controller. This occurs due to the data format used in Modbus communications, where negative values interpreted as unsigned become large positive numbers, complicating sensor error detection such as a cable break. There is uncertainty over whether corrections should be made in the [product_name] configuration or within the Modbus master application. Users aim to clarify the signal handling and error detection process in both Node-Red and HMI systems.",
+    "user_expectations": "Users expect their [product_name] controller and Modbus clients to provide accurate representation of negative sensor values, allowing for reliable error signaling when output drops below the minimum threshold. Furthermore, they want straightforward configuration steps for monitoring and alerting in both Node-Red and HMI environments.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate negative value interpretation",
+      "sensor error detection",
+      "alarm triggering"
+    ],
+    "pain_keywords": [
+      "Modbus data format mismatch",
+      "unsigned vs signed integer confusion",
+      "difficulty in negative value handling"
+    ],
+    "feature_keywords": [
+      "16-bit signed integer handling",
+      "Modbus communication",
+      "tag table signed/unsigned selection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "24": "Data Integrity Concerns"
+  }
+}

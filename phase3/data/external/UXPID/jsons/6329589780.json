@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "branch_id": "6329589780",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 890443589042935,
+      "user_name": "ir3YdPp0nI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Hello, is it necessary to use flyback (freewheeling) diodes to protect relay or transistor outputs when connecting electro-valves such as air valves (24VDC, 24VAC, etc.)? I am aware that [product_name] controllers have internal protection, but is that adequate?"
+    },
+    {
+      "comment_id": 399925690771434,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "I personally would not rely solely on the internal protection; I recommend including external components like freewheeling diodes, varistors, or RC elements to ensure proper safeguarding."
+    },
+    {
+      "comment_id": 949728029422491,
+      "user_name": "ir3YdPp0nI",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Would these two-conductor diode terminal blocks with a 1N4007 diode be suitable? [company_name] 2001-1211/[article_no], [company_name] 2002-1211/[article_no]. [url] [url] Are these appropriate for this use case? How exactly should I connect them to a 24VDC valve: For example, should +24VDC run from the transistor output to this terminal block and then to the valve?"
+    },
+    {
+      "comment_id": 801681106059256,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Freewheeling diodes are intended for use with DC circuits only. The diode should be placed in reverse parallel to the valve or relay coil."
+    },
+    {
+      "comment_id": 919475666611352,
+      "user_name": "ir3YdPp0nI",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Should the diode connection look like what is shown in the attached image?"
+    },
+    {
+      "comment_id": 803328035719516,
+      "user_name": "ir3YdPp0nI",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Should the diode connection look like what is shown in the attached image?"
+    },
+    {
+      "comment_id": 934898842200697,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Yes, that connection is correct."
+    },
+    {
+      "comment_id": 122298262967865,
+      "user_name": "ir3YdPp0nI",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "If I have multiple outputs with coils, can they all be wired similarly as shown?"
+    },
+    {
+      "comment_id": 900857494402490,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "The wiring scheme is fine, but keep in mind that transistor outputs typically supply only up to 0.3 amps."
+    },
+    {
+      "comment_id": 801813115335495,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 5,
+      "comment_body": "Regarding DM24 and similar [product_name] controllers with transistor outputs, these likely use the Infineon ITS4140 power switch per channel. The datasheet indicates there is already a freewheeling diode present."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are unsure if external protective diodes are needed when using relay or transistor outputs of [product_name] controllers to drive inductive loads such as electro-valves. There is concern over whether the device's internal protection is adequate against flyback voltage when switching these loads off. The discussion shows differing opinions and users requesting confirmation and clear wiring instructions, as well as considerations of output current limits and whether protection is needed for DC versus AC loads.",
+    "user_expectations": "Users expect either sufficient internal protection from [product_name] controllers for handling inductive loads, or definitive instructions on when and how to install external protection devices like flyback diodes. Clear and practical examples for diode connections are sought, along with reliable guidance for safe operation.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "output protection",
+      "reliable operation",
+      "clear documentation"
+    ],
+    "pain_keywords": [
+      "uncertain internal protection",
+      "connection ambiguity",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "transistor output current limit",
+      "internal flyback diode",
+      "external protection requirement"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "17": "Circuit Protection Guidance"
+  }
+}

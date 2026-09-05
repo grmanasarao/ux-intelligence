@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "7732162114",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 644760785475083,
+      "user_name": "v8eBVF8dtv",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I'm using [product_name] version [version_no] and facing a simulation issue: a Mathematic Instruction block is not using the updated value from an Up/Down Counter that's mapped through Parameter VM. Objective: I want the current count from the Up/Down Counter to serve as an input for calculation (e.g., counter value multiplied by 100). My configuration: the Up/Down Counter counts pulses, remanence is activated, and its value is mapped to a Variable Memory address. The math block reads this address for its operand and multiplies by a constant; it's always enabled, and outputs zero when disabled. The problem is: when simulation starts, the math block calculates correctly with the initial value. But if the counter value increments, the math block output does not update—it remains stuck at the initial calculation instead of reflecting the new counter value. I've confirmed the math block logic works with constants, checked the counter value does change, redone the VM mapping, tried different VM addresses, restarted [product_name], and made sure numeric VM addresses are used. It seems like the math block is not polling for fresh data during simulation, or VM mapping isn't updating live. Has anyone else faced this simulation issue? Is there a setting or workaround so the math block can dynamically use the updated counter value? Testing this in a minimal new project shows the same issue. Any advice would be appreciated!"
+    },
+    {
+      "comment_id": 617271622978882,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], Your detailed problem description is appreciated. It would be even more helpful if you could share your project file or a minimal sample that demonstrates this error. One question: why are you connecting the counter to the math block through VM memory instead of linking the parameter values directly? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 845244400477222,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "VW10 is not the lower word of VD10; the lower word of VD10 is actually VW12."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user describes a simulation behavior in [product_name] where a Mathematic Instruction block does not update its calculation based on live changes to a mapped counter value via Variable Memory. As a result, outputs remain fixed to the initial value instead of reflecting ongoing logic updates, undermining the reliability of simulation results.",
+    "user_expectations": "The user expects that in simulation mode, the Mathematic Instruction block will continuously reference and use the updated live value from the Up/Down Counter mapped through Variable Memory, allowing calculations to match real-time logic changes accurately.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate simulation",
+      "real-time calculation",
+      "live value updates"
+    ],
+    "pain_keywords": [
+      "static calculation output",
+      "non-updating input values",
+      "simulation mismatch"
+    ],
+    "feature_keywords": [
+      "Parameter VM Mapping",
+      "simulation mode",
+      "Mathematic Instruction block",
+      "Up/Down Counter",
+      "variable memory addressing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "10": "Performance Predictability"
+  }
+}

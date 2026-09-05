@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "1233415299",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 993475259186308,
+      "user_name": "7NnKRjukmX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hello, I understand that the VM memory of the [product_name] device is not persistent. I created a switch button on a website to trigger a relay contact, but after a power outage, the digital network input with VM returns to a low state. How can I enable retention for a bit and store the button state both on the website and in the controller, so they restore their previous state after a restart? Thank you."
+    },
+    {
+      "comment_id": 577733726272987,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Your explanation is quite broad. Which website do you mean? Is your signal static or does it change dynamically?"
+    },
+    {
+      "comment_id": 781977035903550,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hi. One approach is to separate the button trigger event from displaying the button's state. You can use a toggle action for the trigger; the Pulse-Relay function may be helpful here. Its output can then be read to show the state of the button. By setting the retention attribute for this function, you can preserve its state after power loss. Does this help? If not, please share what you’ve already implemented."
+    },
+    {
+      "comment_id": 823438659752391,
+      "user_name": "7NnKRjukmX",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Thanks for your replies and sorry for my problem description. My English isn’t very good. I'm sharing an example file showing what I did. The user can select a button to set a pump to automatic mode. If there’s a power outage, this selector resets to 0 and the process doesn't automatically resume. Thanks again."
+    },
+    {
+      "comment_id": 251008456758686,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], the issue is that the VM area isn't retentive. I’ve attached a possible solution. I added a push button with different images for On and Off, giving them the address V101.5, and placed this button over the switch button with address M1. In the [product_name] program, I toggle a pulse relay block to enable retention, and the output connects to the flag M1."
+    },
+    {
+      "comment_id": 952734503222175,
+      "user_name": "7NnKRjukmX",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "It becomes clear once you review the file. Thank you for your help and your support for new users. Small tips like these help overcome individual limitations."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges with the lack of memory retention in [product_name] devices, which causes digital network inputs and control states managed via web interfaces to reset after power failures. This leads to interruptions in processes reliant on those states since the VM area is non-retentive by default. There is a desire for the system to restore its operational condition automatically after restarts.",
+    "user_expectations": "Users expect the [product_name] hardware to maintain the state of virtual memory bits and connected controls through power cycles, so that processes can continue without requiring manual reset.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "retentive memory",
+      "automatic restart",
+      "state preservation"
+    ],
+    "pain_keywords": [
+      "non-retentive memory",
+      "lost state after power failure",
+      "manual restart required"
+    ],
+    "feature_keywords": [
+      "memory retentivity",
+      "web button control",
+      "relay state",
+      "pulse relay instruction"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "2120475823",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 620511773764772,
+      "user_name": "M9lPVyXSYQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I need assistance. I have created an hour counter in VM type with data format Dword at address 0, and I want to display it on an HMI from another manufacturer. Using an NAI, I can only select VW, which displays different data. How can I instruct the NAI to use VD and show the true hour counter value? Also, my analog amplifier reports up to 32767, and then the values go negative. I need to show an hour meter of 83000 hours. Any help is appreciated. [user_name]"
+    },
+    {
+      "comment_id": 401307477763891,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Welcome to the forum. The NAI module is limited to transmitting only integer values within the range of -32,768 to 32,767, which applies to all analog functions including the amplifier. Does your HMI support displaying Dint values? You haven't mentioned the specific HMI model."
+    },
+    {
+      "comment_id": 979007553904731,
+      "user_name": "M9lPVyXSYQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "The HMI model is BRAINCHILD - TYPE: 750."
+    },
+    {
+      "comment_id": 267202049295417,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I'm not familiar with the Brainchild 750 HMI. In [product_name], VD refers to DInt, a 32-bit integer format. How is the data from Brainchild read—are you using it as a Vx value or as a DB1 value?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is encountering difficulties in transferring an hour counter value from a [company_name] controller to a third-party HMI. The main issue is that the communication interface only allows integer values within a limited range, causing incorrect display for large hour readings. Integration challenges stem from mismatched data types and the numeric limits of the interface, which especially affect higher counter values.",
+    "user_expectations": "The user wants the hour counter value from the [company_name] device to be accurately sent and shown on the external HMI, even for high values, without any data discrepancies or conversion issues.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate hour counter display",
+      "HMI data integration",
+      "large value support"
+    ],
+    "pain_keywords": [
+      "data type limitation",
+      "range overflow",
+      "integration incompatibility"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "DInt data support",
+      "analog input range",
+      "NAI"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

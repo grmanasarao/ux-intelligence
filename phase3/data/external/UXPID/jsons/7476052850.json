@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "7476052850",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 265064642784178,
+      "user_name": "wddsFM41PR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Hello, I want to add additional devices to my PLC, which requires powering it off. Will this reset any of the PLC’s settings and force me to reconfigure everything? After reconnecting, I plan to upload new code from my PC to the controller. Do I need to redo the connection setup between PC and PLC?"
+    },
+    {
+      "comment_id": 168088962674864,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Sorry, but I’m not fully clear on your issue or what you’re trying to achieve. Could you provide more details?"
+    },
+    {
+      "comment_id": 193694648415569,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "When you turn OFF the power, all standard settings and the program remain in the controller. So after powering ON, it will operate as it did before shutting down. Only blocks with retentive mode enabled will keep their values from before the power OFF; all other values reset to those in the original program. If you reprogram the controller with a new or existing program, all previous values in blocks, timers, etc., are overwritten by the new program."
+    },
+    {
+      "comment_id": 484623146418485,
+      "user_name": "zo7T5vAr8d",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "If you want specific variables to be maintained after reboot, you must assign them to blocks that have retentive functionality (for example, mapping a memory word to the threshold input of a watchdog timer and enabling retentivity in the block)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are concerned about whether powering off the [product_name] PLC to add devices will cause loss of settings or require reconfiguration. The discussion clarifies that standard settings and programs are retained after a power cycle, but variables not set as retentive will reset to their default states. It is important to configure retentive memory for any variables that need to persist through a power cycle.",
+    "user_expectations": "The user expects that after a power cycle, the controller’s settings and programmed logic will remain unchanged, and the communication setup between the PC and PLC will not require reconfiguration.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "settings retention",
+      "no reconfiguration",
+      "persistent variables"
+    ],
+    "pain_keywords": [
+      "potential data loss",
+      "uncertain power cycle behavior",
+      "loss of variable state"
+    ],
+    "feature_keywords": [
+      "retentive memory",
+      "power cycle",
+      "program upload"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

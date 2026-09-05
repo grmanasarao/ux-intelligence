@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "3925158297",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 888348522567765,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello all, I'm working with an ESP32 board (server) that sends data to a [product_name] PLC (client) via Modbus TCP. The setup works, but I want to fully understand the underlying communication. According to the [product_name] software manual: \"Each Modbus connection can be configured as a client or a server, where local and remote IPs are set respectively. The server provides the data and responds to requests from the client.\" I'm unclear about how the [product_name] makes these requests. Does it send them automatically? How frequently does the [product_name] client send its requests? Is this determined by the synchronization interval shown in the attached screenshot? On my ESP32, writing data to register X only happens after the [product_name] requests it? Conceptually, the client sends requests and the server replies. However, in my case, I only observe the ESP32 writing to the register at intervals defined in my Arduino IDE code (I use Arduino IDE for programming). I don't see my ESP32 responding to any incoming requests. Possibly, the part of my code handling this is: EthernetClient client = EthServer.available(); if (client.connected()) { modbusTCPServer.accept(client); // poll for Modbus TCP requests while client is connected modbusTCPServer.poll(); } This server code was sourced online, and I need to understand how the protocol operates internally. Thanks for your patience with my lengthy message."
+    },
+    {
+      "comment_id": 134312587446743,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thread closed as the question was posted twice. The second post, with the subject 'Communication through Modbus,' is available in the [product_name] - Communication section. Best regards, [user_name]_Moderator"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to gain a deeper technical understanding of Modbus TCP communication between an ESP32 (server) and a [product_name] PLC (client), particularly the request/response polling mechanism. The referenced [product_name] documentation suggests partial comprehension, but uncertainty remains about how the client initiates requests and the precise timing—especially with code running on Arduino IDE. The system functions without errors, but the user is searching for clarity on how protocol timing and workflow drive data interaction.",
+    "user_expectations": "The user wants a clear explanation of how and when the [product_name] device, as a Modbus TCP client, sends requests, and how this affects the timing and data flow with the ESP32 server. They seek insight into protocol timing and request/response interactions.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "protocol understanding",
+      "correct communication timing",
+      "transparent request cycle"
+    ],
+    "pain_keywords": [
+      "unclear request cycle",
+      "lack of protocol insight",
+      "uncertain trigger timing"
+    ],
+    "feature_keywords": [
+      "Modbus TCP configuration",
+      "client/server role management",
+      "poll interval setting"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

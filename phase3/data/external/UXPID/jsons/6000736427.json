@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "6000736427",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 159770358527834,
+      "user_name": "8hbF1crrLy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I understand the general idea, but my scenario is a bit different. I have a tank level sensor based on pressure, with a measurement range of 0–10 meters. My tank, however, is only 6 meters high, and I want the display to show 100% full when the reading reaches 6 meters. For setting up an amplifier input for 4–20 mA signals, should I keep the minimum at 0, set the maximum to 600, and allow the gain and offset settings to auto-adjust?"
+    },
+    {
+      "comment_id": 210769863512973,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "No, that's not the correct approach. You need to configure the analog amplifier parameters for the sensor to cover the 0–10 meter range. Then, you should scale or multiply the values within the 0–6 meter range by a factor of 1.67 to ensure the display reads 100% at your tank's maximum height."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants to map a 4–20 mA tank level sensor to display 100% when their tank is full at 6 meters, while the sensor itself measures up to 10 meters. There is confusion about whether configuration settings should reflect the physical sensor range or the specific application, highlighting the need for proper scaling and calibration to match installation parameters.",
+    "user_expectations": "The user expects a straightforward method to calibrate the sensor system so that their specific tank height appears as 100% on the display, independent of the sensor's total measurement range.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate display",
+      "custom calibration",
+      "application-specific scaling"
+    ],
+    "pain_keywords": [
+      "unclear configuration",
+      "sensor mapping",
+      "calibration ambiguity"
+    ],
+    "feature_keywords": [
+      "scaling",
+      "analog amplifier",
+      "4-20 mA input",
+      "display calibration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "3486504625",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 401131028020004,
+      "user_name": "CkJ64x0X4F",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Hello everyone, I have a thermal controller project using [product_name] controllers. Specifically, we're using a base module ([product_name] with display, [article_no]) plus an RTD module and a power supply rated at 0.6A. The temperature sensor initially reports zero, then corrects itself to the actual value after a few seconds. I swapped the base module for another [product_name] version and it worked flawlessly, so the sensor and wiring are functioning. Any advice would be appreciated."
+    },
+    {
+      "comment_id": 588474706793978,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "I understand the issue you're describing. Could you clarify the problem in more detail? Would you be able to upload your program file? Also, where is the sensor positioned and which module is it connected to: the base module or the RTD extension?"
+    },
+    {
+      "comment_id": 372573779078906,
+      "user_name": "CkJ64x0X4F",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "My concern is that the temperature display briefly drops to zero before returning to the actual reading. Is the power supply sufficient for the setup? This behavior doesn't occur with one [product_name] configuration but does with another. I'll share the program soon."
+    },
+    {
+      "comment_id": 836489424684823,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "From a functional standpoint, it shouldn't matter whether you're using either [product_name] variant. There might be another reason for the problem. Have you fully inserted the contact slides and checked that the contact points are clean without resistance? Did this issue always exist, or did it start after a recent change?"
+    },
+    {
+      "comment_id": 892166615589384,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Are you able to measure how much current the power supply is delivering? The [product_name] module typically requires between 0.025A and 0.1A (0.6W to 2.4W). A 24VDC 0.6A power supply might be too weak. Could you try using one with higher current?"
+    },
+    {
+      "comment_id": 324352440928027,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "The module shown in your video appears to be a different [product_name] variant than the one you mentioned. Your base unit has either 2 or 4 analog inputs by default. The first analog input from the extension module is typically numbered as AI3 in the software. You may need to update the analog input number in your program. Note that on the base module, you can select either 2 or 4 analog inputs; this may affect how the extension module’s analog inputs are mapped (e.g., the first could be AI5)."
+    },
+    {
+      "comment_id": 861156208123179,
+      "user_name": "CkJ64x0X4F",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "I can't measure the current usage. However, I did test with a different power supply rated at 1.6A and saw no improvement. Please review the attached connection diagram; everything is connected properly. Contacts are clean, no resistance. The issue started only after switching from one module variant to another."
+    },
+    {
+      "comment_id": 358873640601505,
+      "user_name": "CkJ64x0X4F",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "How do you change the analog input assignment? Is it through the settings menu (on-board AI settings)?"
+    },
+    {
+      "comment_id": 158357967284872,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "It appears there’s been some confusion regarding your module type. You stated it was a 24RCE, but it’s actually the 12/24RCE version, which is significant. The 24RCE has no onboard analog inputs, while the 12/24RCE has four. By default, two are enabled (AI1 and AI2), and their addresses are reserved for the base module, regardless of usage. This means that the first analog channel on your RTD extension will be AI3. You should update the program address from AI1 to AI3 or disable the onboard analog inputs in your configuration. To deactivate onboard analog inputs, go to: File > Properties > Offline Settings > I/O Settings (reference attachment)."
+    },
+    {
+      "comment_id": 157918498762509,
+      "user_name": "udO0a0woU9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "In addition to potential address issues, an incompatible extension module might be the cause. For your [product_name] controller, you will need a compatible extension module with [article_no]. I couldn't read the module order code in the video. The correct part number should be [article_no]."
+    },
+    {
+      "comment_id": 514140886978990,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "You can also update the I/O settings via the controller’s menu options."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users reported that temperature readings on a [product_name] controller intermittently dropped to zero and then returned to normal, an issue not seen on another model of the same controller family. This suggests a configuration, wiring, or compatibility issue specific to the hardware in use. Key challenges included confusion over hardware type, proper analog input addressing, and ensuring matched, compatible modules and base units.",
+    "user_expectations": "Users hope for stable and accurate temperature sensor readings across all compatible controller versions. They are also looking for clearer guidance in documentation and the user interface for setting up analog inputs and selecting compatible modules.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable temperature monitoring",
+      "consistent sensor behavior",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "inconsistent readings",
+      "analog input confusion",
+      "compatibility issues"
+    ],
+    "feature_keywords": [
+      "analog input addressing",
+      "expansion module compatibility",
+      "power supply handling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

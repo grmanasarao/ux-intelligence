@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "1401913949",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 817763405473418,
+      "user_name": "cYylK7G67F",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello. Can anyone assist? I'm trying to write a value in [product_name] (eAQ) using [product_name], and I want to create a block in [product_name] so the measurement shows correctly. Currently, it's displaying the value 32767. This measurement relates to [product_name]. The block entered in [product_name] is [article_no] (vm mapping type word). In the [product_name] message text, I enter block [article_no], and the record works for [product_name] measurements. How can extended analog output eAQ from [product_name] be displayed in [product_name]? An image is attached. Looking for help. Thank you."
+    },
+    {
+      "comment_id": 430295454164758,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], the value is too high for [product_name]. It can only handle INTEGER values in the range -32768 to 32767. That's why the value is capped at 32767."
+    },
+    {
+      "comment_id": 305802324208946,
+      "user_name": "cYylK7G67F",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Thank you for the information."
+    },
+    {
+      "comment_id": 588784407874699,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Try changing the resolution in the block properties from 0.100 to 1.000."
+    },
+    {
+      "comment_id": 671429613222586,
+      "user_name": "cYylK7G67F",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "You solved my issue. It works perfectly now. Thank you."
+    },
+    {
+      "comment_id": 385418463527488,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Glad to help! Just remember, if the value exceeds 32,767 again, the issue will return."
+    },
+    {
+      "comment_id": 226192465829679,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "You can display the eAQ value from the F/I converter on the [product_name] display in a message text, but it will not show decimal places. Calculating with eAQ is not possible."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience limitations when transferring extended analog output (eAQ) values from [product_name] into [product_name], due to integer overflow and absence of decimal precision. [product_name] only supports integer values between -32768 and 32767, which leads to errors when larger or non-integer values are required. Adjusting block settings can provide a temporary fix, but core restrictions on value range and precision remain.",
+    "user_expectations": "Users expect [product_name] to reliably transmit and display analog values, including those above 32,767 and values with decimals, in [product_name] without accuracy loss or errors.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct measurement display",
+      "integration with TIA Portal",
+      "handling large analog values",
+      "decimal precision"
+    ],
+    "pain_keywords": [
+      "integer overflow",
+      "loss of decimal places",
+      "device limitation"
+    ],
+    "feature_keywords": [
+      "integer value range",
+      "analog output (eAQ)",
+      "block properties",
+      "display"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

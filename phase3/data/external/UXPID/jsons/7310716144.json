@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "branch_id": "7310716144",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 799318943838741,
+      "user_name": "byk4caY8FO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I'm attempting to read a Modbus value from an electricity meter, listed in the 'Float Reverse Word' format (refer to the images attached). Successfully, I read the correct value at address 42 (30042) for Total kW using a PC-based Modbus master, as shown in the LE-swapped column of the attachment. When I connect to the [product_name] as a VW (third image) and read the VW as F to I (fourth image), the values do not match those from the PC Modbus master. I've tried reading addresses 41 and 43 but did not obtain sensible results. Notably, the Big Endian column value in the second image is a mix of the high byte from 42 and the low byte from 44—part kW and part kVA—but because the system's power factor is near unity, the reading is close to the correct result. Any ideas on retrieving the accurate value for [product_name] would be appreciated. I mainly need the top three digits."
+    },
+    {
+      "comment_id": 556720355363293,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Have you verified whether the registers are Input Registers (IR)? I believe they're Holding Registers (HR). You need to swap the words. For VW100, do the following: Register 42 to VW102 and Register 43 to VW100."
+    },
+    {
+      "comment_id": 730589329343276,
+      "user_name": "byk4caY8FO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "They are input registers. The manufacturer admitted the register numbering was incorrect. The device does not respond to a read Holding Register command. I’ll review the VW configuration tomorrow."
+    },
+    {
+      "comment_id": 512699311748378,
+      "user_name": "byk4caY8FO",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I've changed the VW setup as advised. The latest results, along with PC Modbus master readings (about 0.3 currently), and [product_name] values are attached—three screenshots capture the readings, which show other random values (mainly 0, -32768, and -999999999). I also tried using Double values, but neither the PC Modbus master nor [product_name] produced logical outputs."
+    },
+    {
+      "comment_id": 648838690683518,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Could you share the manual for the Modbus device? Or provide a link to the documentation?"
+    },
+    {
+      "comment_id": 611046703243603,
+      "user_name": "byk4caY8FO",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Here's the data sheet. The initial 3 or 4 digits in the Modbus address need to be excluded."
+    },
+    {
+      "comment_id": 226749850584791,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "The Modbus device uses 0-based addresses, while [product_name] uses 1-based addresses. Apply an offset of 1 for Modbus addresses in the connection configuration. Also, swap the words as follows: Register 43 to VW102 and Register 44 to VW100."
+    },
+    {
+      "comment_id": 582721347244897,
+      "user_name": "byk4caY8FO",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "That worked, thank you. A larger gap between VW addresses is needed when reading two registers: first at 100 and 102, second at 106 and 108. Using 104 and 106 for the second set results in corrupted values. I can accurately get one value as eAq from the F/I, but it doesn't transfer as an extended analog output, as shown in the screenshot. Is it possible to use the eAq value by splitting it into high and low readings?"
+    },
+    {
+      "comment_id": 365585058089426,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I'm unsure why different gaps between addresses are necessary. Regarding your float values exceeding 32,767: [product_name] is designed for integers only (-32,768 to 32,767). To transfer such float values with Modbus, the F/I and I/F converter blocks were added for Modbus communication. These can be used for display purposes (eAq) on the [product_name] display or web server, but not for calculations. That's why the value doesn't carry over to math instructions. Mathematical instructions aren't enabled in your current setup, resulting in an Aq value of 0."
+    },
+    {
+      "comment_id": 309588964372733,
+      "user_name": "byk4caY8FO",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Thank you for your assistance. It's disappointing that, while we can display the value in eAq, we can't split and use it elsewhere. Ideally, if I could read the least significant half, I could monitor for rollovers and increment a counter. Your help enables me to read my solar generation and adjust the feed rate for the anaerobic digester accordingly."
+    },
+    {
+      "comment_id": 666581807488502,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "It's not feasible to extract or evaluate a float value using just one word from the pair. Understanding the structure of float and real numbers is necessary."
+    },
+    {
+      "comment_id": 149229223122708,
+      "user_name": "byk4caY8FO",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I was exploring handling the long integer output from the eAq of the F/I function. Analog operations typically range up to 10,000—so when the lower segment reaches 9,999, further increases would reset to 0 and increment a counter for the higher segment. If the eAq integer could be structured this way, it would integrate well with existing functions."
+    },
+    {
+      "comment_id": 241388625604809,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Perhaps this is helpful: The VD0 value is 283121. The resolution indicated in B001 is 10,000, making the Aq value of B001 equal to 283.12."
+    },
+    {
+      "comment_id": 205949880432366,
+      "user_name": "byk4caY8FO",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I'm reading electricity meter values and need to track changes daily or hourly. In your example, I'd want to know if the reading is 283121 or 283129. I can estimate by regularly reading kW and multiplying by time to approximate kWh, but precise numbers are important to me. Ideally, I'd like to access the least significant digits."
+    },
+    {
+      "comment_id": 536130613200559,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Accessing the least significant digits using [product_name] isn't possible."
+    },
+    {
+      "comment_id": 540944796480800,
+      "user_name": "byk4caY8FO",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Thanks everyone for your support."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users faced challenges when trying to read and process floating-point Modbus values from electricity meters into [product_name]. Although some values could be displayed or partially read, converting and utilizing these float values within [product_name] for further calculations was not practical due to the device’s integer-based architecture. While F/I converter blocks enable Modbus float display, they don’t allow the values for internal math operations or partial extraction.",
+    "user_expectations": "Users expect [product_name] to reliably read, interpret, and process Modbus float values in reverse word format, facilitating further math operations and internal logic. They also seek the possibility to display and extract all significant float digits—preferably including methods to work with partial data within the device’s logic.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct float reading",
+      "data usability",
+      "solar system monitoring",
+      "integration with logic"
+    ],
+    "pain_keywords": [
+      "float processing limitation",
+      "register addressing confusion",
+      "cannot perform calculations",
+      "modbus format handling"
+    ],
+    "feature_keywords": [
+      "F/I and I/F converter blocks",
+      "Modbus communication",
+      "display (eAq)",
+      "math instruction"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

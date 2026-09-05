@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "branch_id": "8369792370",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 630716654743873,
+      "user_name": "ia2Kji23xF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, I am planning to include a data log block to my [product_name] program, with the aim to log both digital and analog values. Could someone explain how the data log block operates in practice? What is the logging interval? For digital signals, does it log the value at each interval, or does it only log when changes occur (i.e., if signals do not change, does it still create log entries)?"
+    },
+    {
+      "comment_id": 297185698515501,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Based on the manual, the minimum log interval is 500 ms; intervals shorter than that cannot be logged. Both digital and analog signals can be logged, including their inputs, outputs, and flags, as well as function blocks used in the program."
+    },
+    {
+      "comment_id": 704759031115306,
+      "user_name": "ia2Kji23xF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thank you, I missed the 500 ms detail in the manual. So, does this mean it logs all values at each interval, rather than just changes? Additionally, I want to log every 30 seconds. If I use a pulse generator before the data log block and set the pulse width to 10 ms (the minimum allowed), will the log block record just one entry every 30 seconds, or could it potentially miss a log (for example, if the pulse width is less than the cycle time, will the logged value be 1 or 0)? Thanks again."
+    },
+    {
+      "comment_id": 237140675836991,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "From the manual: [product_name] provides a 1024-byte buffer for data logging. When the buffer reaches 512 bytes, data is written to the micro SD card. If data is generated faster than it can be written, data loss may occur. To prevent this, ensure the enable signal for the data log block is triggered no more frequently than every 500 ms. Without a micro SD card, only 512 bytes can be stored, and excess data is lost. All parameterized values are logged, regardless of whether changes have been made."
+    },
+    {
+      "comment_id": 689512242073610,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hello, Based on my experience with data logging in [product_name] version_no, a 10 ms pulse at the data log block input is sufficient for recording. So a generator with 10 ms ON and 29.9 seconds OFF should work; otherwise, try increasing the pulse width to 100 ms. Regarding logging: every positive edge at the ENABLE input of the data log block records all configured data, independent of signal or value changes. For triggered recording, you can use an OR gate to combine the trigger signal and pulse generator, allowing both cyclic and event-based logging. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking clarification regarding the operation and interval of data logging in [product_name], specifically how digital and analog signals are captured—whether logging occurs by timed interval or only on changes. Main concerns include reliability of logged data and risk of data loss due to buffer limits. Users discuss manual guidelines concerning log intervals and buffer capacity, and seek practical advice for integrating pulse generators with the logging process.",
+    "user_expectations": "Users expect the system to log all parameterized values reliably at defined intervals, without missing entries. They want the system to support both cyclic and event-based logging, and seek clear documentation on how logging intervals, buffer capacity, and triggering mechanisms interact.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "reliable data logging",
+      "understand logging interval",
+      "avoid data loss"
+    ],
+    "pain_keywords": [
+      "documentation clarity",
+      "possible data loss",
+      "buffer limitations",
+      "uncertainty about triggers"
+    ],
+    "feature_keywords": [
+      "data log block",
+      "logging interval",
+      "buffer size",
+      "event/cyclic logging"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity",
+    "24": "Data Integrity Concerns"
+  }
+}

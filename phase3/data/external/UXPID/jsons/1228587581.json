@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "branch_id": "1228587581",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 578143980116692,
+      "user_name": "jF3uhYRAqH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Excuse me, writing from Japan. I'm considering switching from [company_name] PLC to [product_name] and researching its move functionality, but couldn't find documentation in the online help. I have three questions: 1) Is the MOVE function available in [product_name]? 2) If so, is there a sample program? 3) If not, what alternatives exist to implement this functionality? For reference, in [company_name] PLCs, executing 'MOV #100 D100' stores the value 100 in D100. Regards, [user_name]"
+    },
+    {
+      "comment_id": 877716256742658,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "[product_name] doesn't have memory in the form of PLC flag words or data blocks and relies on graphical programming only. A traditional 'MOVE' function isn't present; how you simulate MOVE depends on your intended outcome. Please specify your application scenario."
+    },
+    {
+      "comment_id": 704257999608088,
+      "user_name": "jF3uhYRAqH",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Regarding using the MOVE command, is such an operation feasible with controllers such as [version_no] or higher? I'd like to use numerical data (like setting D0 = 100 or D0 = FF) in registers with [product_name]. My goal is to program conditional branching and expressions using these numerical values. Could you share a simple example?"
+    },
+    {
+      "comment_id": 155473635179544,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "As mentioned previously, [product_name] lacks PLC-style memory and therefore does not support data registers. However, the 'Analog MUX' block enables you to store and select among four different integer values using two control inputs. Only integer processing is possible—floating point numbers aren't supported. For your requirements, [version_no] would likely be a better fit."
+    },
+    {
+      "comment_id": 584698259587163,
+      "user_name": "jF3uhYRAqH",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "So, using the 'Analog MUX' block in [product_name], is it correct that storing integer data (like D0 = 100) is possible? If so, could you provide a sample program to illustrate this method?"
+    },
+    {
+      "comment_id": 429039235119409,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Please refer to the attachment."
+    },
+    {
+      "comment_id": 838057010054601,
+      "user_name": "jF3uhYRAqH",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Thank you for explaining integer handling and providing the sample program for [product_name]. It's unfortunate that it can't be programmed like a regular PLC. Still, its integrated networking and web server functions set it apart in this price range, making it quite appealing. Thank you for your guidance. Regards, [user_name]"
+    },
+    {
+      "comment_id": 125240754084598,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], [product_name] is a powerful automation tool, though not a PLC in the strict sense. Its programming approach differs from conventional PLCs. There is an active discussion community for this product. Where you'd typically use MOVE, alternative solutions are often available—for example, a timer's setpoint is part of its block, and the screen or web interface can expose it for user adjustment, so moving data into registers isn't required. To be fair, [product_name] isn't suited for complex equations or precision motion control tasks. The next options would be products like IOT2000 (similar to Arduino industrial use) and [version_no]."
+    },
+    {
+      "comment_id": 645740517530403,
+      "user_name": "jF3uhYRAqH",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Thank you for the information about [product_name]. For settings like timers, built-in screens, or PWM, the value is entered via the configuration screen for each function block. I believe this is the data management method for [product_name]. Regards, [user_name]"
+    },
+    {
+      "comment_id": 403697883755934,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "That's why I mentioned you need to clarify your specific application needs. There's no direct MOVE instruction in [product_name]; generally, data can transfer between blocks, but the approach depends entirely on your scenario. Only LAD and FBD programming languages are supported."
+    },
+    {
+      "comment_id": 721374808844719,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "[user_name], since you mentioned PWM: I would not recommend using [product_name] for controlling stepper motors. When working with [product_name], using FBD (Function Block Diagram) is advisable—users such as ixo65 would agree. If you're more familiar with Ladder Logic, transitioning to FBD may be challenging initially, but results can be excellent once you adapt."
+    },
+    {
+      "comment_id": 810070213052477,
+      "user_name": "QEilmkMFgY",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hi, I realize this thread is old, but I'm posting in case someone is searching for MOVE-like operations similar to S5 or S7 PLCs. First, set an address in the variable memory table; for example, I take an analog amplifier value and store it in Word 2. Then, I use Analog Input, Analog Mux, and Analog Output to transfer that value to a different memory location. There might be better approaches, but this works for me—hope it's helpful!"
+    },
+    {
+      "comment_id": 998547715211539,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "What you've implemented isn't strictly necessary."
+    },
+    {
+      "comment_id": 635868507931382,
+      "user_name": "QEilmkMFgY",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Please share a better method and help benefit the community! Thanks for your feedback."
+    },
+    {
+      "comment_id": 268635802764576,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "[IMAGE]"
+    },
+    {
+      "comment_id": 840781159331755,
+      "user_name": "gZ11QkUkcA",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "Apologies for replying late—I'm looking to 'move' a daily production number into a 'previous day output' register at each shift's end. Is there a simpler way than using Analog Mux to do this? A MOVE command would be extremely useful. I operate several machines with [product_name] and prefer to keep them for cost reasons. While [version_no] makes this straightforward, budget constraints make switching difficult. Thanks to everyone for the forum!"
+    },
+    {
+      "comment_id": 836422752788569,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "[product_name] does not offer a dedicated MOVE block. You'll need to use alternative blocks to replicate this functionality. There are multiple ways to approach the problem, depending on whether the transferred value needs to be persistent in the event of a power failure. Assuming you're using an up/down counter, I've attached a small program showing two possible solutions."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are evaluating [product_name] and note the absence of a traditional MOVE function for data transfer between memory locations, a feature found in other PLCs like Omron and [version_no]. Limitations include lack of general-purpose data registers, restricted handling to integers only, and reliance on graphical programming. Solutions like the Analog MUX block offer basic workarounds, but [product_name] falls short of more flexible PLCs in data manipulation. Nevertheless, its networking capabilities and integrated web server are recognized as valuable features for its price.",
+    "user_expectations": "Users expect [product_name] to have a MOVE function similar to conventional PLCs, enabling direct numerical value storage within data registers and supporting more complex conditional logic. They also seek sample programs and clear documentation to facilitate implementation.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy data manipulation",
+      "conditional programming",
+      "networking capabilities",
+      "web server integration"
+    ],
+    "pain_keywords": [
+      "no MOVE function",
+      "no general-purpose data registers",
+      "restricted data handling",
+      "only integer processing",
+      "graphical programming only"
+    ],
+    "feature_keywords": [
+      "MOVE function",
+      "data registers",
+      "Analog MUX block",
+      "Web server",
+      "integer processing",
+      "programming languages LAD and FBD"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests"
+  }
+}

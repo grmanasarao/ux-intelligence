@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "5050851541",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 407384939956088,
+      "user_name": "kMwVsxHXvG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Can someone review this small User-Defined Function (UDF) I've created? The start signal activates a delay timer, then after the delay, it triggers a forward output followed by a reverse output. However, pressing reset doesn't do anything, and I can't figure out why. Even if the start input is active, I still want it to reset."
+    },
+    {
+      "comment_id": 651077260754067,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "If you press reset before the UDF completes setting the output, nothing happens because the reset only affects the latching relay, not the off-delay timer."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having trouble with the UDF reset functionality. Specifically, the reset command only resets the latching relay and ignores the off-delay timer, which prevents a full reset of the process. This leads to unpredictable control when trying to stop or reset the cycle before it's finished.",
+    "user_expectations": "The user wants the reset feature to immediately and completely stop and reset all relevant states, including timers, regardless of current output or cycle stage.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "immediate reset",
+      "full process control",
+      "predictable UDF behavior"
+    ],
+    "pain_keywords": [
+      "reset does not work",
+      "incomplete function response",
+      "frustration with process control"
+    ],
+    "feature_keywords": [
+      "reset function",
+      "delay timer",
+      "output control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "branch_id": "5160575046",
+    "thread_id": "1723880927",
+    "publication_year": 2007,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 777064290280083,
+      "user_name": "LhzYpacLYS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2007,
+      "comment_month": 8,
+      "comment_body": "I'm working with a temperature transmitter that outputs 1-5 VDC for a 0-135°F range, connected to a 0-10 VDC analog input. I'm struggling to calculate the necessary gain and offset for converting this signal to engineering units. I can display the value in the message text, but the scaling isn't accurate. Any advice would be appreciated."
+    },
+    {
+      "comment_id": 248366809106962,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 8,
+      "comment_body": "To translate your input to output using an amplifier, use the equation: output = input * GAIN + Offset. For your conversion: 1 V (100 internal units) maps to 0°F, and 5 V (500 internal units) maps to 135°F. Calculations yield GAIN = 0.3375 and Offset = -33.75. Set GAIN to 0.34 and Offset to -34 for practical implementation. This means 1 V displays as 0°F, and 5 V as 136°F. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 526431904148687,
+      "user_name": "LhzYpacLYS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 8,
+      "comment_body": "Thank you for the explanation, [user_name]!"
+    },
+    {
+      "comment_id": 455631191730239,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 8,
+      "comment_body": "Hi! Another approach: since any analog function lets you choose a 0-10V input, if 5V equals 135°F, 10V matches 270°F. Just select an input range from 0 to 270°F for direct scaling. Hope that helps!"
+    },
+    {
+      "comment_id": 740925401695770,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 8,
+      "comment_body": "Note that this method requires 0V to represent 0°F. However, the original question is about translating 1V to 0°F. For anyone needing to scale analog inputs, here's a concept: The relationship between input voltage and output using gain and offset is explained in section 4.3.6 of the manual. The general equation is output = input * GAIN + OFFSET, valid for inputs within 0 to 1000 units (0-10V). If the minimum input isn't zero, use the derived equations in the manual for OFFSET and GAIN. Example calculation for your specs results in OFFSET = -33.75 (~-34) and GAIN = 0.3375 (~0.34). Carefully select the range and decimal display options, since analog functions only handle integers and round as per the handbook. If you want to show decimals in messages, define the number of decimal places and adjust your calculation sequence accordingly. Only certain input terminals and module types support particular input ranges; see the manual for details. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 339025146888228,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 8,
+      "comment_body": "Wow! I overlooked the 1-5V input, sorry. Normally, I divide the range by 4 (135 / 4 = 33.75) and create a conversion table: -33.75° at 0V, 0° at 1V, and so on, up to 303.75° at 10V. I use -33.75 and 303.75 as parameters for scaling, which aligns with what others described after applying a decimal shift in the message text. Have a great week!"
+    },
+    {
+      "comment_id": 938474118951354,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], I don't fully understand your comment about missing the 1V to 5V range. The equations are based on handbook specs and require values in internal units (-32767 to 32767, or 0 to 1000 for hardware analog inputs), not direct volt readings. Convert voltage to internal units (multiply V by 100), then use the equations for OFFSET and GAIN. These formulas are universal once you have the corresponding value pairs, so tables are unnecessary for linear transformations. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 192794902887852,
+      "user_name": "dyxOIoI36C",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "I'm having trouble with scaling too. I'm using a sensor with an output proportional to tilt angle, ranging from 0.3 to 4.5 V, and want 0.3 V to show 0° and 4.5 V to show 90° on the screen. I managed a solution for 0-10V output but decided against amplifying due to potential noise. My setup is analog input > amplifier > threshold > message > output. I tried uploading my file but it's not allowed."
+    },
+    {
+      "comment_id": 104822542869717,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Please share your program, if possible."
+    },
+    {
+      "comment_id": 186325261632172,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], please check the attached example—it's set up according to your specs and includes an Excel file calculating the required amplifier values. To upload a file, it should be zipped or renamed to .zip. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 915660698909426,
+      "user_name": "dyxOIoI36C",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "I tried viewing the file but received an error that my software can't view its type. Not sure how to proceed."
+    },
+    {
+      "comment_id": 378528257554185,
+      "user_name": "dyxOIoI36C",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "I'll try uploading the file again. Thanks for all your help! Please note, this solution was trial and error, so I can't explain the details."
+    },
+    {
+      "comment_id": 220147225595644,
+      "user_name": "dyxOIoI36C",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "I've managed to view the program and my simulation runs fine. I'd like some clarification on the operating principle, so I'll review it further. Thanks again! Other forums suggested these controllers couldn't handle this, but they can. I'm considering using a threshold to prevent values below 0.3V and above 4.5V—any recommendations?"
+    },
+    {
+      "comment_id": 952648538529215,
+      "user_name": "dyxOIoI36C",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Program works well after viewing; thanks a lot. Would an analog threshold trigger block help keep the reading between 0.3V and 4.5V?"
+    },
+    {
+      "comment_id": 543156548564377,
+      "user_name": "dyxOIoI36C",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "I removed the analog multiplexer and downloaded the program to the controller. I'll run sensor tests soon. Thanks!"
+    },
+    {
+      "comment_id": 552868696484669,
+      "user_name": "dyxOIoI36C",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "I connected a potentiometer, and the voltage readings are stable. But with the sensor, values change too quickly unless held steady, and the displayed value is about half what it should be. Adding a 200pF capacitor at the output helped a little. I'm considering lowering the resolution, but that's not ideal. Can a delay or sampling function be used to hold or update the reading every few seconds?"
+    },
+    {
+      "comment_id": 547759024061952,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], did you verify the sensor output with a multimeter? The internal resistance of analog inputs (about 75k Ohm) can affect readings, as noted on the German section of the forum. That could be altering your input values. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 985212843407437,
+      "user_name": "dyxOIoI36C",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], I've connected my sensor now (sorry for the delayed response). I realized I hadn't soldered the wires, which caused unstable readings. After fixing the connections, the values updated slowly and predictably. The datasheet for my ADXL103 sensor recommends a low-pass filter on the output, but that increased instability. Thanks to everyone for your assistance!"
+    },
+    {
+      "comment_id": 329938767634840,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], analog signal filtering is possible with suitable circuits (like Bessel or Butterworth), as shown in previous forum resources. Recent solutions use averaging (mean value) and memory blocks. There are zipped attachments in the German forum section demonstrating mixing control and low-pass filter methods, which may help."
+    },
+    {
+      "comment_id": 377572811888339,
+      "user_name": "yjdQdmrWYk",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm new to analog programming with these controllers. I have a CO2 sensor outputting 0.5-4VDC, which I'd like to convert to 4-20mA. On my analog output module, this would mean translating 4-20mA to 0-1000 internal units. I've tried GAIN: 2.86 and OFFSET: -143, but real voltage tests aren't giving correct readings. I referenced examples from [user_name] and [user_name], but they use multiplexer functions not supported by my controller version. Before upgrading, I want to know if these examples will work or if alternative solutions exist. Any suggestions?"
+    },
+    {
+      "comment_id": 559630591350950,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], your project may not be possible with your current module—it only supports 0-10V output, not mA. The company plans a new module supporting both volt and mA outputs, but availability is uncertain. Multiplexer features need module series [version_no]. If you get a new analog output module with mA capability, you'd use an amplifier to convert 0.5-4.0V to 4-20mA: 0.5V equals 50 units, 4V equals 400 units, 4mA is 200 units, and 20mA is 1000 units, with GAIN = 2.28 and OFFSET = 86. Use a multiplexer to restrict output range to 0-1000 units. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 435097798250734,
+      "user_name": "yjdQdmrWYk",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], thanks for your fast reply. I'm referring to expansion module [article_no] (AM2 AQ). The datasheet says it has 4-20mA output, but mine only has voltage output. I've checked with my supplier, and am seeing different specs and prices—could this be a newer generation? Supplier descriptions mention new features in the latest [version_no], with support for more analog inputs and 4-20mA output. I'm confused; any insight? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 818191187574823,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], my information is correct. Official support pages confirm the current AM2 AQ module ([article_no]) only provides 0-10V outputs. The upcoming model ([article_no]) will support both 0-10V and 4(0)-20mA outputs, but it's not yet available. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 245883631034781,
+      "user_name": "yjdQdmrWYk",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], I've acquired the new AM2 AQ ([article_no])—see attached photo. My program is working and ready; thanks for your guidance. If anyone wants the code, it's in the attachment. I have questions: 1. Do inputs I7 and I8 correspond to AI1 and AI2, and I1/I2 to AI3/AI3 in the software regardless of analog input count settings? 2. Does the controller support only 2 analog outputs? 3. What's the function of 'Protection Active' in function block settings? 4. Is communication between the basic module, expansion, and display RS232 or TTL? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 235288419086223,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], here are brief answers: 1. Yes, the input mappings are correct. 2. Yes, only 2 analog outputs are supported. 3. With 'Protection Active' enabled, you can't change block parameters during RUN mode; see handbook for more. Otherwise, parameters can be edited without switching modes. 4. Basic module to display uses RS-485; signal/protocol for basic to expansion modules is unclear. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 906128720944596,
+      "user_name": "yjdQdmrWYk",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Thanks for your help and answers."
+    },
+    {
+      "comment_id": 222449334334968,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 26,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 4,
+      "comment_body": "Hello to everyone with scaling questions, the latest version of my Excel tool for calculating gain and offset for analog amplifiers is now available under: Calculation of GAIN and OFFSET for analog amplifier V3. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 472053435004095,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 27,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "A new question by [user_name] is now in a separate thread titled 'Gain and offset for scaling.' Best regards, [user_name]_Moderator"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges in scaling analog inputs to engineering units with [company_name] controller modules, especially when input ranges start above zero (such as 1-5V or 0.3-4.5V). The main issues involve determining accurate gain and offset parameters, understanding the internal integer value mapping, and coping with rounding errors and integer-only processing in the amplifier blocks. Providing decimal display in messages requires extra configuration. While experienced users provide formulas, some find the documentation and explanations complex or not practical for real applications, revealing gaps in official documentation and usability of scaling features.",
+    "user_expectations": "Users expect simple, intuitive scaling of analog signals to meaningful engineering units (like temperature or angle) for display, with easy handling of non-zero start ranges, minimal need for complex calculations, and clear step-by-step guidance or configuration tools to assist in setup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate engineering units display",
+      "reliable analog scaling",
+      "clear setup process"
+    ],
+    "pain_keywords": [
+      "scaling complexity",
+      "gain/offset calculation confusion",
+      "documentation clarity",
+      "rounding limitations"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "amplifier block configuration",
+      "message text display",
+      "decimal place selection",
+      "integer arithmetic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

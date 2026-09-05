@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "3614915281",
+    "thread_id": "3055273936",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 492412807923629,
+      "user_name": "eMYy9p0cqv",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm reviewing the data sheet for my [product_name] and noticed a significant difference in output \"A\" when comparing inductive versus resistive loads. It states: \"Relay outputs switching capacity for inductive loads, max. 3A; for resistive loads, max. 10A.\" I plan to control eight 12V solenoids, each drawing up to 40W (approximately 3.33A). Should I use separate relays for each solenoid, or is operating near the 3.33A limit acceptable?"
+    },
+    {
+      "comment_id": 769612584338144,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Hi, It's generally not advisable to operate devices right at their rated maximum. If you have room for external relays, it's better to use them; this makes it simpler to replace relays if the contacts become welded. Also, consider adding a diode across each coil (anti-parallel) if they're DC coils for protection."
+    },
+    {
+      "comment_id": 274366711041362,
+      "user_name": "tDslqAnPgb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Are the solenoids AC or DC? For AC solenoids, diodes aren't suitable, but varistors can be used as protection. For more insights, see: [document]."
+    },
+    {
+      "comment_id": 267903067164139,
+      "user_name": "qworx6qEkk",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Refer to this comparison: AC vs. DC Solenoids – Ledex – Solenoid [url]"
+    },
+    {
+      "comment_id": 878394694215057,
+      "user_name": "eMYy9p0cqv",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "The solenoids are DC, powered by a car battery. Their specifications are: '3-Position 200psi 10mm (3/8\") Orifice 40W coil'. Normally, the car provides about 14VDC, which gives a calculated current I=P/U = 40/14 = 2.85A. Does the 40W refer to peak or typical power? Also, will adding a diode affect how fast the air valves operate?"
+    },
+    {
+      "comment_id": 230662722847127,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Installing a diode across the coil won't slow down the valves. The diode helps reduce sparking between relay contacts when they open, extending contact life."
+    },
+    {
+      "comment_id": 454257881837284,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "For inductive loads like these, vendors generally provide protection solutions for relays, often in the form of a diode as described, to safeguard the relay contacts."
+    },
+    {
+      "comment_id": 558001171653670,
+      "user_name": "eMYy9p0cqv",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "Does anyone have a link to the type of diode needed? Is there a version that can be mounted on a 35mm DIN rail?"
+    },
+    {
+      "comment_id": 433652354170168,
+      "user_name": "qworx6qEkk",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "You can use a 1N4007 diode or check out options from Weidmuller."
+    },
+    {
+      "comment_id": 251239595892761,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 3,
+      "comment_body": "A 1N4... series diode can be placed in the solenoid connector or across the terminals on the DIN rail."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on understanding relay output limitations for [product_name] when controlling multiple DC solenoids, especially in automotive conditions. Contributors clarify the reduced current rating for inductive loads and the importance of protective components such as diodes or varistors to prolong relay contact life. There is also some uncertainty regarding whether the solenoid's wattage refers to peak or standard operation, and best practices for integrating protective devices are explored.",
+    "user_expectations": "The user wants to safely operate several DC solenoids using the relay outputs of [product_name] without risking overload or damaging the relays. They expect clear advice on current ratings for inductive loads, guidance for protective diode installation, and suggestions for convenient hardware mounting.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable operation",
+      "relay contact protection",
+      "safe load switching",
+      "easy installation"
+    ],
+    "pain_keywords": [
+      "risk of relay overload",
+      "relay contact welding",
+      "lack of clarity on safe current limits for inductive loads"
+    ],
+    "feature_keywords": [
+      "relay output current rating",
+      "inductive load protection",
+      "DIN rail mounting compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "17": "Circuit Protection Guidance"
+  }
+}

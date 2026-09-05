@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "branch_id": "3470738735",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 894385673858334,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I am using VW10 as a network input in my [product_name], but it resets to zero after each restart. I've connected it to [product_name] runtime advanced. How can I retain this value?"
+    },
+    {
+      "comment_id": 306036870908935,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "As far as I know, there isn't a way to store values in the VM area permanently. The issue is that the VM area isn't retentive, and the setpoint from the HMI only gets stored there. When restarting the [product_name], the setpoint resets to zero. Unfortunately, I can't test this myself since I don't have an HMI on hand."
+    },
+    {
+      "comment_id": 899228499654643,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I tried to create a program for your scenario. As mentioned, I don't have an HMI for actual testing. I used the web server, and it worked in that setup. The test used a [article_no].Standard, but I do not have FS04, FS05, or FS06. In hardware selection, FS4 was chosen."
+    },
+    {
+      "comment_id": 102860073436185,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I was able to solve this by using a Max/Min block."
+    },
+    {
+      "comment_id": 520280286908694,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I'm not very familiar with block diagrams, but Max/Min seems to be the best solution for now. Thanks."
+    },
+    {
+      "comment_id": 740389823168298,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "You can switch the diagram view from FBD to LAD. However, it's better to learn FBD, as LAD in [product_name] is buggy and doesn't support all features."
+    },
+    {
+      "comment_id": 413174224873111,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Here's how it looks in LAD."
+    },
+    {
+      "comment_id": 814712436720385,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "As you mentioned, there are many issues. My previous LAD solution didn't work for decreasing values. I ended up copying your logic and converting it to LAD. It would be really helpful if at least 100 bytes of the VM area were made retentive in a future update. I really like this [product_name] FS6."
+    },
+    {
+      "comment_id": 298641269671088,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "The issue in your program is that the enable input for the MAX/MIN block is always set to 1, but it should only be set to 1 for a single cycle—specifically when you want to store a new value."
+    },
+    {
+      "comment_id": 706463837029530,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Yes, that's true. With this logic, it's not possible to set the value to zero, correct?"
+    },
+    {
+      "comment_id": 567989008971126,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Exactly. If zero was allowed, the latest stored setpoint would be overwritten every time the system restarts, which is not the intended behavior."
+    },
+    {
+      "comment_id": 655585061697174,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Yes, that's fine for now. I don't need this functionality all the time."
+    },
+    {
+      "comment_id": 206888394170871,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "You can manually set the value to zero by adjusting the program. Automatic zero setting doesn't work, as the automation can't determine when zero is specifically needed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing a challenge where values stored in the VM (Variable Memory) area of their [product_name] controller revert to zero after restarts or power losses, as the VM area lacks retentive capability. This causes HMI-based setpoints to be lost, disrupting operational continuity. The discussion reveals user frustration with current limitations and suggests the need for future product updates that allow at least part of the VM area to be retentive, addressing demands for consistent data preservation.",
+    "user_expectations": "Users expect that values saved in the VM area should remain persistent after restarts or power outages. They are looking for built-in options that ensure certain data is reliably retained across reboots, eliminating the need for manual re-entry and improving process reliability.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent data",
+      "reliable operation",
+      "continuous workflow"
+    ],
+    "pain_keywords": [
+      "non-retentive memory",
+      "data loss",
+      "manual re-entry",
+      "buggy logic diagrams"
+    ],
+    "feature_keywords": [
+      "VM area retention",
+      "block diagrams",
+      "FBD",
+      "LAD",
+      "Max/Min block"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "24": "Data Integrity Concerns",
+    "30": "Data Persistence Confusion"
+  }
+}

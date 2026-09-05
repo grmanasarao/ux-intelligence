@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "6932017991",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 353104010015979,
+      "user_name": "CCURZhSWRG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello! I am facing an issue reading and writing Modbus data. A few days ago, I connected the [product_name] to my PC and everything worked well—I could access Modbus data using QModMaster. Problems started when I tried writing a simple C# program with the EasyModbus library to communicate with the PLC. It worked with the EasyModbus Slave simulator, but when connecting to [product_name], I got a Visual Studio error: \"System.IO.IOException: Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host.\" After this error, QModMaster could no longer read/write data either. For functions like 'Read Coils' at address '0', I now receive errors such as \"Read data failed. Error: no error.\" and the port shows as closed. (See attached images)"
+    },
+    {
+      "comment_id": 435964161864848,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "The description is detailed but misses specifics. It’s possible an earlier connection was left open. I do not specialize in C programming, so I can't assist further. Please provide more details for others to help."
+    },
+    {
+      "comment_id": 979388755218301,
+      "user_name": "zK5eYuCnRD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Try using port 510 instead of 502."
+    },
+    {
+      "comment_id": 548537425191972,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Why choose port 510? There are eight static connections with [product_name]. For Modbus server, ports are usually set from 502 to 509 depending on the connection point (refer to network project). For Modbus client, any port can be specified, but typically ports start at 502."
+    },
+    {
+      "comment_id": 262380047343796,
+      "user_name": "zK5eYuCnRD",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "The screenshot from the original poster indicates \"Port is closed.\" They’re attempting to connect with port 502. I faced a similar issue with my new [product_name], where connections only succeeded on port 510. If the user can connect using port 510, it may rule out issues with their C# code—the network project setup might be the root cause."
+    },
+    {
+      "comment_id": 173926998239245,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "In your situation: Is the [product_name] acting as the master (client) or slave (server)?"
+    },
+    {
+      "comment_id": 103973166714775,
+      "user_name": "zK5eYuCnRD",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "The [product_name] is configured as \"Master.\" However, I can read and write from another device (acting as master), which makes [product_name] appear as the slave."
+    },
+    {
+      "comment_id": 948209490408952,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "If [product_name] is set as master (client) in a Modbus TCP/IP connection, you can freely select the port for the Modbus slave (server) device. The software defaults port number 502 for the Server because Modbus standardizes it. As a slave, [product_name] uses port 502 for its first static connection, then increases by one for each additional connection up to port 509."
+    },
+    {
+      "comment_id": 839144513697452,
+      "user_name": "CCURZhSWRG",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Thanks for your help. Changing to port 510 resolved the issue, but I’m unsure why it previously worked with port 502."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users experienced unpredictable Modbus TCP/IP connectivity when using [product_name]. Communication started reliably with standard tools, but custom code altered connection behavior, causing port access failures even with mainstream software. The disruption led to confusion, mostly because documentation and guidance on port usage and setup for different operating modes was unclear.",
+    "user_expectations": "Users expect stable and predictable Modbus TCP/IP communication with [product_name], both with standard tools and custom applications. They look for straightforward, reliable instructions on how to configure and use correct port numbers.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "stable communication",
+      "flexibility with software tools",
+      "clear configuration"
+    ],
+    "pain_keywords": [
+      "port confusion",
+      "connection instability",
+      "unclear error messages"
+    ],
+    "feature_keywords": [
+      "Modbus TCP/IP",
+      "static TCP port assignment",
+      "master and slave modes"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

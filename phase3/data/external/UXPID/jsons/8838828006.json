@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "8838828006",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 745465526698003,
+      "user_name": "luOdaCrnWX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, I'm working on a project where I need to establish Modbus RTU communication between a [product_name] module and a third-party actuator. In my setup, I use a [product_name] module configured as a Modbus RTU master. Communication from my computer to the actuator works fine using Modbus Poll, and communication from my computer to the [product_name] module works properly with Modbus Slave. However, direct communication between the [product_name] module and the actuator is problematic. My test configuration connects the [product_name] module's twisted pair (port A and B) to the actuator's corresponding ports, and the signal grounds are joined. The cable length is only 0.5 m. I've enabled the terminal resistor on the [product_name] module, but not on the actuator, since it's not typically needed for short distances like this. According to a [document], register 1000 and 1001 contain the actuator’s uptime, which I'm reading into VW0 and monitoring online. Although a value is received and appears correct, it updates extremely slowly (several minutes between updates) and inconsistently. Does anyone have suggestions for troubleshooting this unstable communication or ways to improve it? Thanks in advance!"
+    },
+    {
+      "comment_id": 939266775421480,
+      "user_name": "AXPyAav6ps",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "It’s possible the communication rate is too high when using default settings, causing occasional success only. Try increasing the “modbus response delay” of the slave (you can adjust this in the appropriate register as described in the manual), and also set a longer custom interval on the [product_name] module, such as 200ms."
+    },
+    {
+      "comment_id": 731372406701469,
+      "user_name": "luOdaCrnWX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Thanks for your prompt reply. I adjusted the custom interval on the [product_name] module to 200 ms and increased the read delay on the actuator to 50000 us, which should give a total delay of 53 ms based on the manual. Unfortunately, this has not resolved the issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing problems with slow and unreliable Modbus RTU data updates between a [product_name] module and a third-party actuator. While communication tests between each device and a PC work correctly, direct communication between the [product_name] module and the actuator is inconsistent and delayed. Attempts to change timing parameters and communication intervals have not led to noticeable improvement, suggesting a possible incompatibility in timing or protocol settings.",
+    "user_expectations": "Users anticipate stable and prompt Modbus RTU communication when reading values from the actuator through the [product_name] module. They expect that adjusting configuration parameters will improve consistency and update speed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable communication",
+      "reliable data transfer",
+      "timely updates"
+    ],
+    "pain_keywords": [
+      "slow updates",
+      "inconsistent data",
+      "unstable communication"
+    ],
+    "feature_keywords": [
+      "Modbus RTU master",
+      "custom interval timing",
+      "register readout",
+      "terminal resistor"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability"
+  }
+}

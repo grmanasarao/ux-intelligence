@@ -1,0 +1,201 @@
+{
+  "metadata": {
+    "branch_id": "9587551470",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 380275645047449,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Hello, I need to determine the pull-up resistance for an S0 kWh meter, specifically the internal resistance value of I5 for a [product_name] 8 [product_no]. I couldn't find this information in the manual. Did I miss it?"
+    },
+    {
+      "comment_id": 468275959208238,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "You don't actually need the exact value. Try starting with a 10 kOhm pull-up resistor, then test with lower values like 8.2 kOhm, 6.8 kOhm, 4.7 kOhm, and 2.2 kOhm. Usually, 2.2 kOhm works well."
+    },
+    {
+      "comment_id": 510946412484235,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "I tested those values, but none worked. The manual for the kWh meter ([company_name] iEM2010) provides a method to calculate the required pull-up resistance. The formula is: Pull-up resistance = (VDC / 0.01) - internal resistance of the PLC."
+    },
+    {
+      "comment_id": 546821957080910,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Actually, it's a pulldown resistor you should be using. Based on the instructions, 24 VDC connects to terminal S0+. S0- goes to the [product_name] input, which is wired internally to M, so you can't use a series resistor as described. Instead, connect a 2.2 kOhm resistor in parallel to the [product_name] input."
+    },
+    {
+      "comment_id": 184740914486920,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Apologies, I used the wrong terminology earlier. I followed your diagram but still didn't receive any pulses, which is why I wanted to calculate the resistance."
+    },
+    {
+      "comment_id": 312428281714035,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "If you wire it as I described, the input resistance for the [product_name] doesn't matter. With a 24 VDC supply for the S0 output, the calculation is: 24 VDC / 0.01 A = 2400 Ohm. If you're not getting pulses from the [product_name], the issue lies elsewhere."
+    },
+    {
+      "comment_id": 539167500145735,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "That's correct—I discovered the input stays high, even when the kWh meter is disconnected. Does this suggest that the input is faulty?"
+    },
+    {
+      "comment_id": 337282103099609,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "I find that difficult to believe. Did you disconnect absolutely everything from that input?"
+    },
+    {
+      "comment_id": 350355777504048,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Yes, I disconnected everything and even restarted the [product_name]."
+    },
+    {
+      "comment_id": 174275321530162,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "I can't diagnose this remotely. Honestly, I don't think the input is defective, but anything is possible."
+    },
+    {
+      "comment_id": 630933031943284,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "What does that indicate? Is the input now broken?"
+    },
+    {
+      "comment_id": 203918837703218,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Is it possible the input was damaged after being connected to S0 for a week with pulses being registered, but without a pulldown resistor?"
+    },
+    {
+      "comment_id": 883817298228999,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "No. Without the pulldown resistor, the [product_name] would simply register no pulses."
+    },
+    {
+      "comment_id": 781874841631571,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "That's unusual—it's unfortunate considering this was a brand new [product_name]. I expected a failed input would stay low, but this one remains high."
+    },
+    {
+      "comment_id": 678552920621423,
+      "user_name": "8RYb477Ela",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Are you sure there's no wire or resistor at I5, and the [product_name] controller still shows a high signal? Can you try using I3, I4, or I6? First, test the input with a button from L+ to Ix, not using the S0 signal."
+    },
+    {
+      "comment_id": 657774753874539,
+      "user_name": "zDWM9cJLIX",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Yes, all other I/Os work correctly. I5 remains high. Are the I/Os protected against short circuit?"
+    },
+    {
+      "comment_id": 971600974887389,
+      "user_name": "8RYb477Ela",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Short circuit with what exactly? You can connect an input to M (0V) and L+ (12/24V) safely. If the voltage exceeds 28.8 V or is negative (such as a 230V phase), you'll have issues. If you're certain you've checked everything, you might need to use another input."
+    },
+    {
+      "comment_id": 816382348521673,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "If any digital input remains high when nothing is connected, it's likely that the [product_name] input is faulty. You might want to try deleting and reloading the program to see if the input status changes."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered difficulties determining the needed resistor configuration (pull-up vs. pull-down) for integrating an S0 kWh meter with a [product_name] controller input. The lack of internal resistance specifications and a non-responsive input signal led to confusion about wiring and concerns regarding possible input damage. The discussion showcased troubleshooting, attempts to apply formulas from the meter's manual, and practical switching between different inputs to resolve the issue.",
+    "user_expectations": "Users expect transparent and complete documentation of device input characteristics, straightforward instructions for integrating third-party meters, and dependable behavior from the controller inputs.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful integration",
+      "accurate input pulse detection",
+      "clear electrical documentation"
+    ],
+    "pain_keywords": [
+      "missing input resistance info",
+      "no signal response",
+      "possible hardware fault",
+      "documentation gap",
+      "integration difficulty"
+    ],
+    "feature_keywords": [
+      "input resistance specification",
+      "digital input behavior",
+      "pull-up/pull-down configuration guidance"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "4": "Hardware Reliability"
+  }
+}

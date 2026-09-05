@@ -1,0 +1,199 @@
+{
+  "metadata": {
+    "branch_id": "5256584102",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 948130693773727,
+      "user_name": "MWk6FEJMsY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello, I have a 4-20mA sensor input connected to a pressure sensor, and a 0-10V output going to a frequency converter. My goal is to send a signal to the frequency converter to keep the pressure at a specified value using function block logic. How can I achieve this?"
+    },
+    {
+      "comment_id": 798701053274423,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You should use an analog amplifier with a gain of -1.25 and an offset of 1250."
+    },
+    {
+      "comment_id": 206672846070162,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Your initial requirement was different, and it's challenging for others to help if you keep changing the specifications. Sometimes, you start new threads with requirements that are the same as the changes you make here. It may be more efficient to consider exactly what you need before posting, and then provide detailed information about your requirements."
+    },
+    {
+      "comment_id": 606822603814168,
+      "user_name": "MWk6FEJMsY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Sorry, you’re right. I now have a clear idea of what is needed for my project, and the updated requirement is correct."
+    },
+    {
+      "comment_id": 331989802636606,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "A PI controller may work for your application, but your explanation isn’t very detailed. Are there any direct dependencies between the pressure and inverter? If you increase the analog output to the inverter, does the analog input for the pressure also increase? Check the first online help section for the PI controller block in [product_name] to learn the basics, and then you can ask more specific questions about using it."
+    },
+    {
+      "comment_id": 630272922690287,
+      "user_name": "MWk6FEJMsY",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I’m not sure how to configure the PI controller. Here’s what I tried: the setpoint is 30, which is the pressure I want to maintain. If the measured pressure is above the setpoint, the output is zero. Otherwise, I want to send a signal to the 0-10V frequency converter to keep the pressure at the setpoint. [url]"
+    },
+    {
+      "comment_id": 253801477115160,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Your link doesn’t work—it just opens the Google Drive login page. You can attach your [product_name] configuration file as a zip file in your post."
+    },
+    {
+      "comment_id": 658594710464801,
+      "user_name": "MWk6FEJMsY",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Here is the updated link. [snip]"
+    },
+    {
+      "comment_id": 856766799761628,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "What exactly should the controller accomplish? The PI controller operates in only one direction, which you define: Upward regulation means if the pressure drops below the setpoint, the controller will increase the value until the setpoint is reached. Downward regulation means if the pressure exceeds the setpoint, the controller reduces the value until the setpoint is met. You need to specify the operating direction. By default, it is set to ‘Upwards,’ but you can change it to ‘User defined’ for downward regulation."
+    },
+    {
+      "comment_id": 634976842929866,
+      "user_name": "MWk6FEJMsY",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I think there’s been some confusion. I need to output a signal between 0 and 10V to maintain a pressure of '30.' The output should change dynamically based on the pressure reading, but I’m not sure how to implement this logic."
+    },
+    {
+      "comment_id": 283527543186096,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I believe you misunderstood what I was explaining. The PI controller can only regulate in one direction, either upwards or downwards—not both. With your configuration in the analog amplifier, it looks like you have a 0-16 bar pressure sensor that outputs a 4-20mA signal, correct? And the PI controller should keep the measured value at 3 bar, correct?"
+    },
+    {
+      "comment_id": 578331211309557,
+      "user_name": "MWk6FEJMsY",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Yes, you understood correctly."
+    },
+    {
+      "comment_id": 914395217293012,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Then please explain more precisely what the actual problem is..."
+    },
+    {
+      "comment_id": 799622942036368,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Why are you setting the gain in the PI controller to 10? That doesn’t make sense; it’s better to leave it at 1."
+    },
+    {
+      "comment_id": 498800957525153,
+      "user_name": "MWk6FEJMsY",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I’m not sure how to program the logic to keep the pressure at 3 bar."
+    },
+    {
+      "comment_id": 985975808242456,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "If I’ve understood correctly, you want to prevent the pressure from dropping below 3 bar. I’ve created a sample program for this purpose. For better control accuracy, I set the analog amplifier to have higher resolution (including two decimal places). You can input the controller setpoint on the display. The controller is set for upward regulation—if the actual pressure value exceeds the setpoint, the analog output sends 0 volts. The further the pressure falls below 3 bar, the higher the output voltage rises, up to a maximum of 10 volts."
+    },
+    {
+      "comment_id": 606253384581519,
+      "user_name": "MWk6FEJMsY",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Thank you very much!"
+    },
+    {
+      "comment_id": 128953315653676,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "You’re welcome."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is finding it challenging to set up a control loop to maintain a target pressure using a [company_name] controller with analog input and output. The discussion highlights uncertainty in configuring PI controllers inside [product_name] software and how to effectively link sensors, control logic, and the frequency converter output. Other forum participants indicate that specifying regulation direction and parameters is complicated, and available documentation or online help may not provide step-by-step guidance in a clear manner.",
+    "user_expectations": "The user hopes to find a simple and straightforward method for setting up pressure control with analog input/output and wants clear instructions for configuring the PI controller within [product_name] software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic pressure control",
+      "stable analog output",
+      "easy PI controller setup"
+    ],
+    "pain_keywords": [
+      "difficult PI controller configuration",
+      "unclear setup process",
+      "unintuitive documentation"
+    ],
+    "feature_keywords": [
+      "PI controller block",
+      "setpoint configuration",
+      "analog I/O"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

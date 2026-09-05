@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "5714169271",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 940285914028691,
+      "user_name": "efK15nH2ST",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello, I need assistance with a new project where I'm using a [product_name] to automatically start and stop a diesel water pump and avoid basement flooding. I plan to use an inductive sensor for RPM monitoring. My challenge is to first move the engine stop lever to 'START' position, wait for stabilization, and then increase RPM to pump water. I want to avoid using two solenoids due to mechanical complexity. I'm considering a 12V DC stepper motor with a screw mechanism for linear movement, controlled by two output signals from [product_name] to reverse polarity for direction changes (only one polarity active at a time, so no need to oppose currents). The outputs depend on float level switches and monitored RPM (0-approx 8V AC at full RPM). How can I get [product_name] to send pulsed DC to the stepper motor based on RPM needed? For shut down, the throttle should close and stop when RPM hits zero. Any advice would be appreciated."
+    },
+    {
+      "comment_id": 665826576876642,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello, This approach won't work. A stepper motor requires a much higher start/stop frequency than what [product_name] can support."
+    },
+    {
+      "comment_id": 455616249838852,
+      "user_name": "efK15nH2ST",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Thanks, I have another idea: using a standard 12V linear motor with limit switches on the throttle quadrant to control motor activation and position."
+    },
+    {
+      "comment_id": 979516512183583,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "I prefer the solution mentioned. In our setup, we used a 24V DC motor—specifically a truck wiper motor—placed in the same position as the stepper motor would have been. Switching directions is done with solid-state relays. This works for us because we can fabricate the mechanical parts needed, which may not be an option for everyone. Alternatively, look into non-[product_name] solutions. Some devices combine stepper motor amplifiers, indexers, and controllers, and allow programming in BASIC or C. Check suppliers like RS Components to explore available options. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users aim to control a diesel water pump's throttle using a [product_name], with RPM monitoring and float switches. The initial idea was to use a stepper motor driven by pulse outputs from [product_name], but it's noted that the device cannot produce signals at the frequency needed for stepper motor control. Alternatives proposed include linear or conventional DC motors using limit switches, or using external controllers designed specifically for stepper motors. The main concern is [product_name]'s output limitations for actuating motors where precise or rapid pulsing is essential.",
+    "user_expectations": "The user expects the [product_name] module to provide a pulsed DC output directly controlling a stepper motor based on real-time RPM readings. Ideally, motor actuation should be straightforward and electrically managed via the PLC, without complex or elaborate mechanical solutions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simple automation",
+      "direct control",
+      "precise actuation",
+      "pump protection"
+    ],
+    "pain_keywords": [
+      "output limitations",
+      "unsuitable for stepper motor",
+      "complex workaround",
+      "lack of direct support"
+    ],
+    "feature_keywords": [
+      "pulse generation",
+      "motor control",
+      "actuator output",
+      "signal frequency"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

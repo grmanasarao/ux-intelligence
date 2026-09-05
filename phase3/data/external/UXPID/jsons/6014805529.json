@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "branch_id": "6014805529",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 115475444981150,
+      "user_name": "WCai6Wspyu",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Good morning, I'm using two analog comparators to increment or decrement a counter based on an analog input. The binary representation of the counter value is used to activate outputs, which then adjust the analog input—essentially, it's working like a measurement and control system. I also want to set the counter to specific predefined values, and I've tried several approaches: - Saving the counter value in memory and attempting to modify it via an analog network output on command. However, [product_name] does not allow this, and there’s no error or alarm generated. - Using mathematical operations to add the required difference to the current counter value. The problem is, if the counter is disabled, its value stays at the last setting or zero. Also, circular operations aren’t allowed, even if none of the mathematical operations overlap in execution. I did discover that you can change the value using the display screen on [product_name], and also through a Modbus operation. The screen method isn’t suitable because I require automation, but Modbus could work if [product_name] could trigger itself or if I use another device just for this command. The issue is Modbus works on a cycle, so the fixed value would keep being sent to the device, continuously resetting it and preventing increments or decrements. You could theoretically communicate the counter changes to the second device, but this isn’t an ideal workaround. I was wondering if anyone has found other solutions. Modifying the on/off values isn’t helpful because I’m not using the counter’s threshold function. Any advice would be appreciated! Thanks in advance! Best regards, [user_name]"
+    },
+    {
+      "comment_id": 511919064115504,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "I'm sorry, but I am not completely clear about the issue you're facing. Could you please upload your program to the forum?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is encountering difficulties with [product_name] when trying to set counter values to predefined or fixed levels automatically in a control loop. Existing solutions either repeatedly overwrite the counter value, preventing increment/decrement, or are blocked by system limitations. The lack of error notification on unsupported operations adds to the user's frustration, and other workarounds like Modbus or manual input do not meet the need for automation.",
+    "user_expectations": "The user expects to be able to set a counter to a fixed or predefined value automatically through [product_name] logic, without constant overwriting or requiring manual action. They also seek clear system feedback when functions are unsupported.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated process control",
+      "programmable fixed value setting",
+      "real-time adjustment"
+    ],
+    "pain_keywords": [
+      "unsupported operation",
+      "continual overwriting",
+      "lack of error feedback",
+      "manual intervention required"
+    ],
+    "feature_keywords": [
+      "counter value set",
+      "VM rewrites",
+      "mathematical operation limitations",
+      "modbus control"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

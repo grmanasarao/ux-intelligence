@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "branch_id": "5312619071",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 833676864730319,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, Is there a way to have a lookup array or table in [product_name], allowing user values to be stored in a centralized or global module?"
+    },
+    {
+      "comment_id": 778877103049818,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "There isn't a direct memory area like a data block available in [product_name]. For blocks with retentivity enabled, data are saved to flash memory during power loss. Using the mathematical instruction, you can choose whether the analog output resets to zero or retains the last value when disabled. Parameter values set via a remote device or [product_name] display/interface are also secured in flash memory against power failure."
+    },
+    {
+      "comment_id": 416298307218771,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I plan to use the math instruction block to manage fragmented data at startup, but the limitation is it only works with integers, not floating point numbers. Does this mean I need to simulate floating point by scaling and dividing? I’ve attached a spreadsheet schema used to set up, for example, a water dosing algorithm with scaling coefficients. What’s the best approach for achieving a similar concept in FBD—like establishing constants and prepping calculations for multiple vectors?"
+    },
+    {
+      "comment_id": 161472560278239,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "[product_name] only supports fixed-point arithmetic; floating-point calculations aren't native. Data type is Integer (range: -32768 to 32767). The math instruction uses slip-point arithmetic internally, but the output returns to fixed-point."
+    },
+    {
+      "comment_id": 219528574969626,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thanks for the quick reply. It's unfortunate about the limitation—I'm improvising as seen in my example image to achieve something like a flow rate of 0.535, but I can't transfer that calculation’s output into other fields. In your example, the input flag is inverted (shown in red), but the calculated value appears at the output—how is that happening? Regarding the display of numbers like 0.333, is it mainly set manually in the decimal points dialog and not dynamically adjusted in real time?"
+    },
+    {
+      "comment_id": 350985919519229,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "No, you can’t forward values like 0.535 to another block. There isn’t a value of 0.535 in the output as per your screenshot; outputs are rounded and use fixed-point, so the calculation in B001 results in 1. Setting three decimal places in the display text would show 0.001, but these are only for display purposes and don’t affect the actual value. Negating the enable input means the calculation block always processes its instructions without condition. The number of decimal places shown depends on how your calculation output is configured. Ultimately, you’ll have to decide on the display format and calculation basis individually."
+    },
+    {
+      "comment_id": 939799835799727,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thanks, that clarifies things—I was just double checking because I found the limitations surprising. I don't see parallels with typical programming, like using schemas, precalculation, or definition tables. The closest I’ve used is Pure Data, which is much more flexible. There’s nothing quite like that for the [product_name] hardware. How do users establish parameter tables or similar data structures? Is there a recommended approach, or am I overlooking something? I’ve thought about using the analog amplifier with retentivity as a data store, but I wonder if there’s a better solution. Apologies for being new to this; I’ve tried [product_name] before and had some success, but this project requires basics not supported by the system."
+    },
+    {
+      "comment_id": 527648473521435,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "[product_name] isn’t a conventional PLC. Even [company_name] refers to it as a logic module rather than an advanced arithmetic controller. Essentially, it's a programmable relay with limited fixed-point arithmetic capabilities."
+    },
+    {
+      "comment_id": 642644065025878,
+      "user_name": "Jr4BnNG9Zu",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Got it. My application is just a simple 3-step water dosing sequence with a sensor readout—not a complex project, but it does need basic parameter handling. For reference, Pure Data works impressively even with something like an atmega2560—having similar flexibility with [product_name] would be excellent. Looks like I’ll need to look elsewhere for this project. Thanks for your help; if you know of any similar resources, I’d appreciate suggestions. All the best."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are frustrated by [product_name]'s limits regarding lookup tables, floating point operations, and flexible data storage. They expect features like global variables, pre-calculation of user values, and advanced parameter management—functions often available in other platforms. [product_name] is seen as restricted due to its fixed-point arithmetic, lack of floating-point support, and absence of dynamic data structures for storing or accessing parameters.",
+    "user_expectations": "Users expect [product_name] to offer global storage for user-defined variables or tables, support for floating point arithmetic, and methods to predefine constants and parameters. There is a desire for programming capabilities similar to those found in standard development environments.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "lookup table",
+      "global variables",
+      "floating point support",
+      "mathematical flexibility",
+      "parameterization"
+    ],
+    "pain_keywords": [
+      "no lookup table",
+      "no floating point",
+      "fixed point limitation",
+      "restricted data structures",
+      "limited parameter handling"
+    ],
+    "feature_keywords": [
+      "lookup table",
+      "floating point math",
+      "global data storage",
+      "retentive memory",
+      "parameter block"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations"
+  }
+}

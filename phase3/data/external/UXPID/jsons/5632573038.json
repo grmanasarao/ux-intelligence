@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "5632573038",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 849202230337294,
+      "user_name": "mG0yKqCKWa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm trying to set up communication via Modbus using a software suggested in this forum, but I can't read a specific variable memory address. I've attached two screenshots showing what I've managed so far. My goal is to access VM address 60 through holding register 2, but currently I can only read/write mapped VM positions as shown. Using a Float/Integer converter with VM address 60 and using 60 as the starting register doesn't write the value as expected. What could I be missing? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 558741520261104,
+      "user_name": "lemlbtSecs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hi, when writing data from the controller to holding register 1001, the value actually appears in HR 1000 in our Modbus device. [user_name]"
+    },
+    {
+      "comment_id": 218893170009419,
+      "user_name": "mG0yKqCKWa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "From the screenshot, I'm trying to read register 21, assuming it corresponds to VW21, but instead it's reading the variable with ID 21, which is the ON time for the weekly timer found at VW40. How can I access a variable at VW60 that's not listed in this table?"
+    },
+    {
+      "comment_id": 837597542752877,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "A user called [user_name] posted a discussion about [product_name] and Modbus in the German-speaking section and shared an Excel spreadsheet as a PDF file."
+    },
+    {
+      "comment_id": 265906347578027,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Be aware of the difference in address numbering: Modbus registers use word-based addresses starting at 1, while V-memory is byte-based and starts at zero. Reference #1: [IMAGE], Reference #2: [IMAGE]. The PDF provided by [user_name] is useful for understanding how [product_name] software handles address mapping."
+    },
+    {
+      "comment_id": 235900436122389,
+      "user_name": "mG0yKqCKWa",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Thank you for the PDF; it's been helpful. I see that the Float/Integer block uses VM instead of VW. With this info I've managed to change VW values but still don't understand how VM relates to Modbus register addresses. If I set the block to VM.60, which Modbus register address do I change to send a float to the controller? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 870700873396233,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "There isn't a VM60 in [product_name]; only VW60 exists. VM covers the entire variable memory area. Open [product_name] software and use the help function to search for \"VM\" (see screenshot)."
+    },
+    {
+      "comment_id": 165425352474270,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "[IMAGE] It's recommended to avoid using float data types. Floats are 32 bits (occupying two Modbus addresses and four VB segments), and [product_name] has limitations handling floats. It's better to use integer values."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are encountering difficulties translating variable memory addresses to Modbus registers when using [product_name]. Confusion arises from the distinction between VM and VW memory areas and data type handling, especially with floats versus integers. Documentation and examples on address mapping between Modbus and the controller's memory could be clearer and more accessible for basic communication tasks.",
+    "user_expectations": "Users expect a straightforward and well-documented approach for mapping variable memory and Modbus addresses, including guidance on sending and receiving both float and integer values, and readily available resources explaining how Modbus registers correspond to the controller's memory layout.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless Modbus integration",
+      "easy memory addressing",
+      "float/integer data exchange"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "incomplete documentation",
+      "float handling issues"
+    ],
+    "feature_keywords": [
+      "Modbus register mapping",
+      "V-memory addressing",
+      "float/integer support"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

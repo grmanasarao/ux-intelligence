@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "8902207709",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 979421461606100,
+      "user_name": "2weDt2z6xB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "When configuring [product_name] in ETS to send a value from KNX to [product_name], and it's a 2-byte float (to variable memory), I notice the value is automatically rounded by [product_name]. For example, a temperature of 13.4°C in KNX is shown as 13°C in [product_name]. Is there a way to preserve fractional digits in the float value? The [product_name] manual mentions: When handling floating-point values, the interpolation points on the KNX side can have decimal places, but values sent to [product_name] are rounded off by [product_name] if needed."
+    },
+    {
+      "comment_id": 715863020320538,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "[product_name] can only process integer values (whole numbers), and does not support real numbers (floating point). I do not have experience with KNX or ETS software. Are you able to multiply the value on the KNX side by 10? If so, you could represent a decimal place within [product_name]—at least for display purposes."
+    },
+    {
+      "comment_id": 962464798066858,
+      "user_name": "2weDt2z6xB",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Good point. I configured [product_name] in ETS to multiply the number by 10, so for example, 12.5°C gets represented as 125 in [product_name]. This solution works as intended now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face a limitation when integrating KNX with [company_name] products: these devices only process integer values, so floating-point numbers received from KNX are automatically rounded. This restricts precise measurement needs and leads users to seek alternative ways to retain the decimal information.",
+    "user_expectations": "Users prefer these devices to accept and process floating-point values with their fractional digits preserved, ensuring accurate data transfer from KNX without losing precision.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "decimal preservation",
+      "accurate data transfer",
+      "float value support"
+    ],
+    "pain_keywords": [
+      "automatic rounding",
+      "data loss",
+      "no float support"
+    ],
+    "feature_keywords": [
+      "integer-only memory",
+      "KNX integration",
+      "value scaling workaround"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

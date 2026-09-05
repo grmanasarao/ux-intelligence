@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "branch_id": "1182084427",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "feedback"
+  },
+  "content": [
+    {
+      "comment_id": 354517527612396,
+      "user_name": "oAhWuhDhHi",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "When users encounter problems running Java applications on macOS, it's important to analyze the root cause. [company_name] currently specifies that they use AWS Corretto version 11.0.13.8.1 JRE for [product_name] version 8.4, and this JRE can be found at [url]. According to AWS FAQ, Corretto 11 has packages available for Linux, Windows, and macOS. Windows supports versions 10 or later and various server releases. macOS support includes all versions receiving security updates from Apple, currently Monterey (version 12) or newer on x64 and aarch64 architectures. Multiple major Linux distributions are supported as well. The gist is that to use modern features and ensure compatibility on macOS, users should upgrade to [product_name] version 8.4, since both AWS Corretto and OpenJDK no longer support older macOS versions. Still, the [company_name] CD references Mac OS X versions that dropped PowerPC (like version 10.6). If there's a Java vulnerability and your system isn't supported, you lack protection. It may be time for [company_name] to discontinue support for outdated Mac OS X releases. When [company_name] omits the VM from the Mac installation CD, users are left unsure which JRE to pick. [company_name], perhaps it's time to update the [product_name] CDs for clarity. Typically, current macOS can't run apps designed for Snow Leopard (10.6). This is what's often called legacy support. If someone upgrades [product_name] from 8.3 to 8.4 on an older OS, but the OS is no longer supported, that's a problem, as noted above. Believing that 8.4 supports older macOS versions due to the JRE limitations is misguided. Many find [product_name] issues with macOS more prevalent than on Windows. Just because app A runs on a given platform doesn't mean it's officially supported. Users must accept this or seek alternatives if things break. Apple often changes things for innovation, whereas Windows maintains long legacy support, meaning apps run for decades. Developers targeting Windows may stay with legacy approaches, while Mac developers adapt due to forced system changes. Ultimately, innovation sometimes means breaking with the past. The intent here isn't to confuse; rather, it's to clarify that claiming [product_name] supports legacy macOS, but referencing its new version, ignores key background details."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report compatibility challenges when using [product_name] version 8.4 on older macOS versions, due to updated Java runtime requirements—that is, AWS Corretto JRE 11 only supports newer versions of macOS (Monterey and above). This leaves legacy macOS users without support, while Windows environments can handle older applications more easily. The lack of a bundled JRE for Mac installations adds confusion about which runtime to use, increasing uncertainty for users trying to run the software on unsupported operating systems.",
+    "user_expectations": "Users expect clear official communication from [company_name] regarding which macOS versions are compatible with each [product_name] release, and better consistency between the Java runtime shipped with the software and platform support. More transparency and improved instructions are desired to avoid confusion.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "compatibility",
+      "clarity",
+      "future-proofing"
+    ],
+    "pain_keywords": [
+      "outdated OS support",
+      "installation confusion",
+      "Java version mismatch"
+    ],
+    "feature_keywords": [
+      "Java runtime",
+      "platform compatibility",
+      "OS support documentation"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {
+      "Windows": [],
+      "MacOS": []
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

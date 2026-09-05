@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "8626371177",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 903825122031780,
+      "user_name": "5ICi2MZOat",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, I'm attempting to use the web-server feature for remote ON/OFF control of a water pump. I've added [product_name] function blocks to my logic program, resulting in some remote access; however, the feature is not working as required. The function keys remain \"OFF\", and when \"PRESSED\" they generate a very brief pulse, which is too short to activate a relay. Is it possible to adjust the length of this impulse, or configure the keys to operate as standard on/off switches? In simulation, their behavior can be changed, but this does not affect the actual hardware, where the impulses remain short. I tried various off-delay function blocks, which work in the simulation, but the web-server function keys override these settings during real operation and only issue a short pulse regardless of the off-delay configuration. I have also attempted using the cursor keys instead, but they function the same way."
+    },
+    {
+      "comment_id": 700042104851938,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "No, it is not possible to modify the pulse duration of the TD-key. However, you can use off-delays to extend the signal. The TD-keys only generate pulses and cannot act as switches. Connecting the TD-key to a pulse relay enables toggling: the first key press activates it, and the second key press deactivates it."
+    },
+    {
+      "comment_id": 919436898969257,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "Hi, please review the attached example. Hopefully, this will assist you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users trying to use the web-server feature for remote control experience difficulties because the function keys produce only short pulses with fixed duration. Although simulated behavior can be adjusted, these changes do not transfer to physical hardware. The inability to set function keys as persistent on/off switches leads to frustration. Proposed workarounds include utilizing off-delay blocks and pulse relays to simulate the intended operation, exposing a gap between simulation capabilities and real usage.",
+    "user_expectations": "Users want the ability to configure web-server function keys as persistent ON/OFF controls, or change the duration of their pulse, to ensure reliable relay operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable remote ON/OFF control",
+      "consistent hardware response",
+      "customizable key behavior"
+    ],
+    "pain_keywords": [
+      "inflexible function keys",
+      "discrepancy between simulation and hardware",
+      "momentary pulse too short"
+    ],
+    "feature_keywords": [
+      "web-server function keys",
+      "TD function key adjustment",
+      "simulation mode consistency"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

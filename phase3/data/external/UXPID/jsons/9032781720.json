@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "9032781720",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 698882858808545,
+      "user_name": "4hz9PmUd4P",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm trying to implement the following setup using [product_name] controller and [product_name] HMI panel. Is this achievable? I have four switches represented graphically in the HMI, and I'd like them to be interlocked. For example, if I activate switch 1 and it stays on, then when I operate switch 2, it turns on while switch 1 turns off. Can the switch status and position be updated both from the [product_name] controller to the HMI and vice versa? Thanks."
+    },
+    {
+      "comment_id": 936968512029136,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "You should create four push buttons in [product_name] HMI software. For each button, configure a designated V-bit under its properties to be set upon pressing the button and reset upon release. For example, Push Button 1 would operate V-bit 0.0 through the HMI. The system then communicates back to the HMI that the corresponding latch relay is active using V-bit 1.0 as feedback."
+    },
+    {
+      "comment_id": 587926443779255,
+      "user_name": "4hz9PmUd4P",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hello, thank you for your response. What's the simplest way to reset the latch if the activated button is pressed again? Currently, I have implemented a timer so pressing turns it on and pressing and holding turns it off. I'm looking for a straightforward way to have one press turn it on and another press turn it off. Cheers."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is working to create mutually exclusive switch behavior using a [product_name] controller and HMI. The main challenge is ensuring two-way synchronization and control between the HMI graphics and the logic of the controller, so that activating one switch automatically deactivates others and both devices reflect the current state accurately and immediately.",
+    "user_expectations": "The user seeks an intuitive interlocked operation of switches from the HMI, with real-time status updates and seamless bidirectional control and feedback between the [product_name] controller and HMI interface.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "interlock switches",
+      "bidirectional status",
+      "simple control operation",
+      "real-time feedback"
+    ],
+    "pain_keywords": [
+      "complex toggle operation",
+      "lack of bidirectional control",
+      "manual workaround"
+    ],
+    "feature_keywords": [
+      "HMI push button logic",
+      "interlocking",
+      "bidirectional feedback",
+      "touch operation graphics"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "22": "Usability Improvement Suggestions"
+  }
+}

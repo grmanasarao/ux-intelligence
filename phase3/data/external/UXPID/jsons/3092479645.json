@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "branch_id": "3092479645",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 123923599513999,
+      "user_name": "5JPplFsR5Z",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello, I am seeking a method to trigger an action based on entropy. I want to delay an analog signal for a specific period and then use a comparator. Is it possible to apply two average value calculations with different intervals, use a mathematical function on the results, then run it through an analog threshold trigger to determine high or low outcomes? The challenge is that averaging tends to reduce deviations, so the first average interval should be short, while the second must be long enough to detect changes, which impacts both averages over time. This approach quickly becomes complicated and resource-intensive, leading to experimental solutions. Is there a way to time-delay either an analog signal or its digital value, and set the comparator to trigger at intervals longer than the delay?"
+    },
+    {
+      "comment_id": 131982762764222,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], what you're describing isn't easily achievable given limited resources. Analog signals can't be directly time-delayed in terms of their shape, though it's possible to delay sampled values. Irregular timing is possible to some extent, but both approaches consume significant resources in [product_name]. What exactly do you have in mind?"
+    },
+    {
+      "comment_id": 112727823907499,
+      "user_name": "5JPplFsR5Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Perhaps it's feasible, but I'm unsure what to search for. I've tried using multiplexers and counters to store values, but they lose information when an input arrives. Could you suggest search terms or methods? Alternatively, if it's easier, please help with this: I want [product_name] to display \"up\" when temperature rises and \"down\" when it falls, using a deviation of 1°C with a calculation every 15 seconds, and repeat 15 seconds later. Please skip setting up the message text and assume the starting point is immediately after the analog amplifier."
+    },
+    {
+      "comment_id": 969563135740703,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Try exploring the help sections for relevant blocks and focus on understanding how each works."
+    },
+    {
+      "comment_id": 100371128990966,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], how does this relate to the original topic? From your earlier post, you seem to want to sample the temperature at fixed intervals, compare the new measurement to the previous one, and then evaluate whether the value has increased or decreased. Is that correct?"
+    },
+    {
+      "comment_id": 903656182839495,
+      "user_name": "5JPplFsR5Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I realized my earlier observation was mistaken. After reviewing the watchdog solution, it only works near a specific temperature. In such cases, a threshold trigger serves the same role, and if you need two positive outputs you can invert the signal. [user_name], you are correct. While we can't directly measure entropy, we can indicate if it's positive or negative, for example through a closed surface."
+    },
+    {
+      "comment_id": 510867776584832,
+      "user_name": "5JPplFsR5Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I've found some progress. Is it possible to keep the value of a \"data storage after 5 seconds\" counter stable through a reset? Can a digital value be converted into an analog one? If so, I could add an average and complete this approach."
+    },
+    {
+      "comment_id": 543290549418504,
+      "user_name": "GoUonzsWEC",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "You can use an analog multiplexer or a mathematical function to convert a counter's digital value to analog. For storing analog values, set \"When EN=0, Keep last value\" in the block parameters; a short pulse at EN will save the value. The best method to check \"Is the value increasing or decreasing over the last 15 seconds?\" is to compare two averages—one over 15 seconds and another over 1 second—using the \"Average value\" blocks. Shift registers and mathematical blocks could enable storage of up to 32 values for comparison, but the program would become quite large (roughly 200 blocks), likely offering little benefit over the simpler average and comparator setup."
+    },
+    {
+      "comment_id": 588073279176286,
+      "user_name": "5JPplFsR5Z",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Using two averages has issues with repeatability, as mentioned. After the second round, the program loses accuracy because counter updates outpace the averages, leading to invalid comparator values. I doubt a more complex program would offer any improvement. Could you share the initial structure of your proposal? Also, I tried looping the same signal to create a perpetual cycle, but that didn't work."
+    },
+    {
+      "comment_id": 781167028136619,
+      "user_name": "5JPplFsR5Z",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Thank you, [user_name]. Here's how to store two temperatures and calculate their difference: If result is positive, use output X1; if negative, X2. In the example, the general sampling time is 11 seconds, interlude is 10 seconds, first sample at about 5.01s, and second sample at about 10.01s."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on time-delayed comparison of analog signals to track temperature changes (increase or decrease) at set intervals, using [company_name] function blocks. Participants identify limitations such as averaging blocks equalizing values, difficulties with storing and comparing analog values across intervals, and resource constraints that make complex solutions impractical. Users express frustration with the lack of precise signal delay options and the inefficiency of workarounds, emphasizing challenges in achieving reliable repeatable results.",
+    "user_expectations": "Users want a simple and efficient way to delay and compare analog values at defined intervals, with stable value storage and periodic evaluation—preferably through built-in blocks or straightforward logic rather than resource-heavy or complicated alternatives.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise signal comparison",
+      "stable value storage",
+      "repeatable logic",
+      "efficient resource use"
+    ],
+    "pain_keywords": [
+      "imprecise averaging",
+      "complex workaround",
+      "resource constraint",
+      "poor repeatability"
+    ],
+    "feature_keywords": [
+      "analog signal delay",
+      "comparator",
+      "data storage",
+      "average value",
+      "counter",
+      "timed comparison"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "29": "Scalability Limitations"
+  }
+}

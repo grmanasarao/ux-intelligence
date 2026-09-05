@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "8536205444",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 267682354315875,
+      "user_name": "wOtpGrZdOq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I am implementing [product_name] [article_no] [version_no] in a network environment where MQTT communication is unstable. I want to create a solution to confirm that pulses are delivered, so that the counter is decremented by the server after message delivery, rather than simply resetting the counter—even in cases of message loss. Currently, I have configured an analog flag as the total counter, which is sent via MQTT every 10 seconds. However, I have not found an effective way to decrement the pulse count, only to reset the total. Is there a recommended approach for this?"
+    },
+    {
+      "comment_id": 671518057786359,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Hello, check my function blocks and notice the changes compared to yours. To increment, you should use DIR and connect the pulse to the CNT input of the counter function block. Hope this supports your setup."
+    },
+    {
+      "comment_id": 683527617269492,
+      "user_name": "wOtpGrZdOq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Understood, but is there a way to transmit the On and Off values of the counter using MQTT? I would prefer sending the full value at once rather than multiple pulse messages."
+    },
+    {
+      "comment_id": 518800306074429,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Hello, yes, the optimal way is using VM-mapping for the counter (via a VM-mapping tool). You assign an address in the controller's VM-memory that reflects the counter value. In simulation, you will notice the counter value appears at the designated VM address (for example VD0), which can then be transferred through MQTT. Reference the data table for MQTT transfers. Hope this helps."
+    },
+    {
+      "comment_id": 864729314909725,
+      "user_name": "wOtpGrZdOq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I attempted this, but it doesn't seem to function properly. I've set up VD0 for subtraction in the mathematical operation, but the values do not update when received via MQTT."
+    },
+    {
+      "comment_id": 363114989644347,
+      "user_name": "cZQANX744b",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "That's because VD0 is currently configured to transfer every 30 seconds. This means you will only see the value change at those intervals."
+    },
+    {
+      "comment_id": 869860261422839,
+      "user_name": "wOtpGrZdOq",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "However, the value in AM1 does not change even after 30 seconds. I was expecting the value to be used in the mathematical operation and to update after the subtraction. Is there a method to achieve this?"
+    },
+    {
+      "comment_id": 936093947022064,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "How do you intend for this subtraction to operate? The equation present in the mathematical statement is: (B2-(0-0))+0. Therefore, AM1 continues to show the numerator's value."
+    },
+    {
+      "comment_id": 954511589508638,
+      "user_name": "wOtpGrZdOq",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "My goal is to subtract the value mapped in VD0, so that it can be controlled through MQTT."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on the difficulty of reliably confirming and decrementing a counter using MQTT in unreliable network conditions with a [company_name] controller. While VM-mapping and analog flags can transfer counter values, users are unclear on how to programmatically decrement (rather than reset) the counter once pulse delivery is confirmed. There is confusion regarding how transferred values interact with internal mathematical instructions.",
+    "user_expectations": "The main expectation is for a user-friendly, programmatic way within [product_name] to decrement a counter following server confirmation of message delivery over MQTT, and to reliably move and process these values as part of logic operations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable pulse tracking",
+      "counter confirmation",
+      "network robustness"
+    ],
+    "pain_keywords": [
+      "counter not decremented",
+      "MQTT message loss",
+      "unclear instruction mapping"
+    ],
+    "feature_keywords": [
+      "counter decrement",
+      "VM-mapping",
+      "MQTT delivery confirmation",
+      "Mathematic instruction"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

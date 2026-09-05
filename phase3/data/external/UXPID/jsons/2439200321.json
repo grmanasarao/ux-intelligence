@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "2439200321",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 456423179277589,
+      "user_name": "Bzbl8VqUPV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello, I would like to set the ON/OFF limits of a counter using a Modbus command. Is this possible? If so, what would be the correct Modbus function code and address format? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 836007064616109,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "On the Modbus side, you need to write the values to 2 Holding Registers. Can you clarify what type of Modbus device you are using? Is it configured as a client or a server?"
+    },
+    {
+      "comment_id": 932426779684166,
+      "user_name": "Bzbl8VqUPV",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Thank you for the assistance. The issue is resolved. A document indicated Q1 was at VM address 8193, but the correct address is actually 8192."
+    },
+    {
+      "comment_id": 430649685522030,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello, To update values, write the new value into a holding register, then read this register in [product_name] using an unused VM-memory location. In your [product_name] program, you can use a timer and link the ON and OFF parameters through VM-mapping to the VM addresses received from your Modbus holding registers. Please keep in mind: After a power cycle, these values will reset to 0 unless your Modbus device updates them again."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed how to adjust counter limits in a [company_name] device via Modbus, focusing on address mapping and function codes. The main difficulties included discrepancies between documentation and actual VM address assignments, and uncertainty about value persistence after power cycles. Experts outlined how to map Modbus holding registers to [product_name] VM-memory and integrate the parameters in the control logic, highlighting challenges with documentation reliability and non-persistent data storage.",
+    "user_expectations": "The user aims to update counter limits remotely through Modbus, seeks precise guidance on function codes and address mapping, and expects these settings to persist after device reboot.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote parameter update",
+      "address mapping",
+      "Modbus integration"
+    ],
+    "pain_keywords": [
+      "documentation inaccuracy",
+      "persistence after reboot",
+      "Modbus address confusion"
+    ],
+    "feature_keywords": [
+      "Modbus holding register mapping",
+      "counter ON/OFF limit",
+      "VM-memory"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "30": "Data Persistence Confusion"
+  }
+}

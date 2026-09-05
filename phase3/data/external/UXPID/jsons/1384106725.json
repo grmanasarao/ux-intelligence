@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "1384106725",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 275824068128257,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hi [user_name], I want to know if it's possible to change the counter value between two [product_name] devices without using the [product_name] Access Tool. Is there another way to transfer values between [product_name]? I managed to do this via network analog output, but the value stays at 32767. I need to count up to 500000. The program is attached."
+    },
+    {
+      "comment_id": 128767587451300,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You can read the counter value (up to 999,999) and transfer it via VM parameter mapping from one [product_name] to another, without using the Access Tool. However, on the receiving [product_name], there's no way to display the value. Could you clarify what you want to achieve with the counter value on the second [product_name]?"
+    },
+    {
+      "comment_id": 749965853106206,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "This setup is for an agricultural machine that plants seeds in the ground. It has 8 units, each dropping 20 seeds per second. The main goal is to monitor the seed count and prevent issues. Two [product_name] devices are used for fast counting, and I need to know the number of seeds planted by the end of the day."
+    },
+    {
+      "comment_id": 433292978492093,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Are the two [product_name]s located in different places, or do you not have displays? As mentioned, you can transfer a counter value (up to 999,999) to another [product_name], but you can't display or further process the value on the second device. The mathematical limits for [product_name] are -32,768 and 32,767 due to integer value restrictions."
+    },
+    {
+      "comment_id": 227226278373759,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hi [user_name], thank you for your assistance. I have displays and two [product_name]s working together. The entire machine is controlled from a single display, with one [product_name] dedicated only for fast counting."
+    },
+    {
+      "comment_id": 168364398099215,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I performed another test. Initially, I ruled out this option because it didn't work in simulation. When I tested with two actual [product_name]s, it worked. You can transfer a counter value higher than 32,767 (up to 999,999) to another [product_name], and display it using another counter."
+    },
+    {
+      "comment_id": 193196518928729,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Dear [user_name], thank you for your solution. I tried your suggestion and it worked well, but I couldn't replicate it at my workplace. I think I made a mistake—B005 ... B008 aren't working. Can you assist me?"
+    },
+    {
+      "comment_id": 919296272592925,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You also need to transfer the V-words (VW0, VW4, VW8, and VW12) to the other [product_name]. I’ve set it up for you; see the attached file."
+    },
+    {
+      "comment_id": 181028220339907,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you very much for your help. This solution was extremely useful to me."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced difficulties transferring large counter values between two [product_name] devices due to integer limitations and display restrictions. Joint troubleshooting clarified successful methods for transferring and displaying higher counter values, leading to improved usage and clearer results.",
+    "user_expectations": "Users expect to transfer and display counter values exceeding 32,767 between two [product_name] devices without relying on extra software, enabling accurate monitoring of machine performance.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate counter transfer",
+      "high-value seed monitoring",
+      "real-time display"
+    ],
+    "pain_keywords": [
+      "integer value limitation",
+      "value transfer restriction",
+      "display challenges"
+    ],
+    "feature_keywords": [
+      "counter value transfer",
+      "display value",
+      "fast counter",
+      "value mapping"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "30": "Data Persistence Confusion"
+  }
+}

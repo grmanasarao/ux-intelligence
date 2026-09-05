@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "6092933720",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 823536394708679,
+      "user_name": "sJM5db1Ilr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello everyone. I'm fairly new to [product_name]. In my application, I'm using an analog ramp generator to gradually increase the output AQ, from 4 mA to 20 mA, to control a valve positioner. The system is programmed and simulated; everything works as intended. When measuring the output with a meter, results are as expected. However, when I connect the positioner directly to the AQ current output, the minimum value rises to 4.86 mA instead of 4 mA. This causes the valve not to close completely. There's an amplifier function block between the ramp generator and the AQ output. I switched the output to 0-10V and changed the output device, which works fine in both meter measurements and when connected to a valve. Does anyone know a solution for this? I plan to install a signal isolator between the AQ output and the valve positioner, but I’m wondering if this step is actually needed? Thanks [user_name]"
+    },
+    {
+      "comment_id": 179641799678285,
+      "user_name": "sJM5db1Ilr",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "I've attached my program for review. Valve three is currently set up with 0-10V output for testing purposes. Valves 1 and 2 are configured for 4-20 mA."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user observes that the analog output from [product_name] produces a higher minimum current than configured (4.86 mA instead of 4 mA), which affects the correct operation of the valve when connected directly to the controller. This issue doesn't appear during simulation or when measuring with a meter, nor when using a voltage output mode. It suggests that hardware factors such as output load or calibration may influence real-world behavior.",
+    "user_expectations": "The user expects the analog output to consistently deliver a minimum signal of 4 mA at the lowest setpoint to ensure proper valve function, matching both simulated and meter-measured values.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate output",
+      "correct valve control",
+      "hardware reliability"
+    ],
+    "pain_keywords": [
+      "output inaccuracy",
+      "valve not closing",
+      "unexpected current"
+    ],
+    "feature_keywords": [
+      "analogue output",
+      "current output (4-20mA)",
+      "amplifier function block",
+      "output calibration",
+      "simulation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

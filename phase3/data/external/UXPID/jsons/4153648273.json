@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "4153648273",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 118849410719838,
+      "user_name": "GqgLPs2OD0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Hello, I am running two [product_name] modules—one on [version_no] and one on [version_no]. The [version_no] unit performs well, but the [version_no] is continually changing its IP address. I manually set it to 192.168.1.62, but after some time, it switches to 192.168.20.62, and the gateway changes as well. There is no other device on the network using this address. Does anyone have suggestions for resolving this? It worked smoothly before without any issues."
+    },
+    {
+      "comment_id": 290342265159143,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "This kind of behavior with a [product_name] module is the first I've heard about. The IP address is stored in non-volatile memory and should only change through: the settings menu on the device (when stopped), downloading a project with a new IP, or loading a program with a different IP from an SD card during restart. Any other occurrence suggests a possible fault in the device."
+    },
+    {
+      "comment_id": 439516414690951,
+      "user_name": "GqgLPs2OD0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I plan to remove the SD card from the [product_name] module, as it might have an outdated address stored. However, I am wondering why the IP changes spontaneously without a reboot or program update."
+    },
+    {
+      "comment_id": 214438880760490,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Are you certain that the [product_name] does not restart, perhaps due to brief power interruptions? Try modifying your program to connect the initialization flag (M8) with the input of a persistent counter. Display the counter value in a message. This will help you monitor if restarts are happening."
+    },
+    {
+      "comment_id": 950465830806648,
+      "user_name": "GqgLPs2OD0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I reloaded my configuration in [product_name] software and transferred it again to the [version_no] module using the 'write to SD card' feature, and now the IP remains fixed. Could you clarify what a persistent counter is and how to verify that the module isn't restarting?"
+    },
+    {
+      "comment_id": 287662478022457,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "As mentioned earlier, the initialization flag (M8) activates only once at startup. If you connect M8 to the input of a counter configured for persistence, the counter will retain its value even after a power failure or when the module stops, incrementing each time the device restarts. Refer to the attached video for illustration."
+    },
+    {
+      "comment_id": 228111992308868,
+      "user_name": "GqgLPs2OD0",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Thank you for your help. I have implemented the suggestion and am now monitoring to see if the issue recurs."
+    },
+    {
+      "comment_id": 505260990623795,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "A new question originally submitted by [user_name] has been split into a separate topic, focusing on factory reset behavior of [product_name] operator device after reboot. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Community members encounter unexplained changes in IP address and gateway on the [product_name] basic module ([version_no] variant), causing significant confusion and impacting network consistency. The issue seems to occur without overt reboots or configuration changes, and is considered highly unusual unless initiated by program transfer, SD card operation, or manual update. A user worked around the disruption by re-uploading their configuration using [product_name] configuration software and enabling the 'write to SD card' option.",
+    "user_expectations": "Users expect network settings, especially IP and gateway configurations, to be reliably persistent unless directly modified. There is a need for predictable device behavior and secure retention of important settings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent IP configuration",
+      "network reliability",
+      "transparency of device behavior"
+    ],
+    "pain_keywords": [
+      "unintended IP changes",
+      "network instability",
+      "lack of change transparency"
+    ],
+    "feature_keywords": [
+      "IP address configuration",
+      "FLASH memory storage",
+      "initialization flag",
+      "remant counter"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "12": "Network Configuration Challenges"
+  }
+}

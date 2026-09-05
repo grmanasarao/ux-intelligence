@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "6391405567",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 345349228923160,
+      "user_name": "2Ka6Dsi19z",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "A valve actuator controls the valve opening between 0 and 100%. However, the feedback sensor provides 5.2 mA at fully closed (0%) and 20 mA at 80% open. How can the feedback sensor be scaled to accurately represent the full 0 to 100% valve position?"
+    },
+    {
+      "comment_id": 809038409859652,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "This can't be done as described. The maximum analog input that [product_name] can read by current is 20 mA. If the sensor sends 20 mA at 80% opening, it won't be able to read values for 100%, since they'd exceed 20 mA."
+    },
+    {
+      "comment_id": 304585200854790,
+      "user_name": "2Ka6Dsi19z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Thanks for your answer. Is it possible to subtract 200 units from the feedback value (assuming the feedback is scaled between 0 and 1000) using a mathematical function?"
+    },
+    {
+      "comment_id": 425045606856907,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "To subtract 200 units from the signal, you don't necessarily need a complex mathematical function; a basic analog amplifier with an offset of -200 should suffice."
+    },
+    {
+      "comment_id": 981132482947917,
+      "user_name": "2Ka6Dsi19z",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Can this method solve the following issue? A valve actuator opens from 0 to 100%, but the feedback sensor sends 5.2 mA at fully closed and 20 mA at 80% open. How can the feedback sensor be scaled so that it matches a true 0 to 100% valve position?"
+    },
+    {
+      "comment_id": 331032104029198,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "You asked: Can this method solve the following issue? A valve actuator opens from 0 to 100%, but the feedback sensor sends 5.2 mA at 0% and 20 mA at 80%. How can the feedback sensor be scaled to match a full 0–100% valve position? The way the question is written makes it difficult to understand. If 0% = 5.2 mA and 80% = 20 mA, then 100% would be about 23.7 mA, which [product_name] cannot handle. So [product_name] won't show 100%. It's not clear what type of signal your sensor actually produces, but guessing from your mention of subtracting 200 units, perhaps it's a 4–20 mA signal. Would you instead like to scale the 0–80% range as 0–100% for display purposes? If so, it could be approached differently."
+    },
+    {
+      "comment_id": 270329251564093,
+      "user_name": "2Ka6Dsi19z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Thank you for your assistance. Assume the sensor is faulty; I would like to use a software method to ensure the valve opens fully."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are facing a limitation where [product_name] analog input can only read current up to 20 mA, but their valve feedback sensor reaches higher values at maximum opening. This causes confusion about how to scale sensor feedback readings to accurately indicate 0–100% valve position. The conversation highlights uncertainty about the sensor type and software-based solutions, reflecting a need for greater flexibility in input scaling and signal handling within [product_name].",
+    "user_expectations": "Users expect to adjust the feedback sensor's signal using [product_name] software so that the full valve stroke (0–100%) is accurately represented, even when the sensor’s maximum output current exceeds [product_name]'s accepted range.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate scaling",
+      "full range representation",
+      "software-based adjustment"
+    ],
+    "pain_keywords": [
+      "input range limitation",
+      "scaling difficulty",
+      "sensor malfunction"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "signal scaling",
+      "input range handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

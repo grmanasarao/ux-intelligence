@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "5808575323",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 891613530692382,
+      "user_name": "VoRTYvFhuU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Hello, I have set up an S7 connection between the [product_name] and [product_name] [version_no]. The [product_name] acts as a client and can read/write data blocks on the [version_no] successfully. Now I am looking for ways to perform diagnostics. When the connection fails, the display on the [product_name] turns red to show an error. I tried using a network input and set the parameter to \"Ethernet network error,\" but it isn't working. Is there a way to check the connection status without relying on data exchange bits? Thanks."
+    },
+    {
+      "comment_id": 697376368675341,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I'm also interested in achieving such a connection between [product_name] and [version_no]. Could you share your project here? In the meantime, you might consider toggling a bit from the [version_no] and resetting it with the [product_name], similar to heartbeat monitoring found in HMIs."
+    },
+    {
+      "comment_id": 723518719084746,
+      "user_name": "RRVbJEdyXy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "There really isn't a reliable way. Using a Network Input block with Diagnostics enabled and selecting \"Ethernet link error\" as the diagnostic type works only if the [product_name] is directly connected to the [version_no]. If they're connected through a network switch and the link to the [version_no] drops, an error won't be reported because the [product_name] is still connected to the network switch."
+    },
+    {
+      "comment_id": 467810735386701,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "That's absolutely right. So, the best way to monitor the connection reliably is to use a heartbeat bit."
+    },
+    {
+      "comment_id": 269574272020417,
+      "user_name": "mt8nLGWH5e",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "If you want to diagnose the network status, you need a Network Input block. To monitor the status of S7 Communication specifically, a heartbeat bit is necessary."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are seeking methods to monitor and diagnose the Ethernet connection status between a [product_name] acting as client and a [product_name] [version_no]. Existing diagnostic options do not provide consistent notifications when network issues occur, especially in scenarios involving a network switch. Users recommend implementing a heartbeat or lifetime bit for reliable connection status monitoring. There is dissatisfaction with the limited effectiveness of current diagnostic features for typical network setups.",
+    "user_expectations": "Users want to reliably monitor the connection status between [product_name] and [version_no], ensuring they receive clear error alerts when the connection is lost, regardless of network configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable diagnostics",
+      "automatic error notification",
+      "monitor communication health"
+    ],
+    "pain_keywords": [
+      "network status undetected",
+      "need for manual workaround",
+      "diagnostic limitation"
+    ],
+    "feature_keywords": [
+      "Ethernet link error diagnostic",
+      "network status monitoring",
+      "heartbeat monitoring"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "10": "Performance Predictability"
+  }
+}

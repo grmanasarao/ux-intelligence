@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "1489726608",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 454307318810005,
+      "user_name": "80vZVynzl0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hello, I am working with a [product_name] [article_no]. I need a timer that keeps its value after the input stops and continues from where it left off once the input is active again. Based on advice found here, I used an asynchronous pulse generator linked to a counter to control the output. My goal is an 8-minute output time, with 1-second increments. I set the pulse and interpulse widths to 50 and 100 seconds each, totaling 1 second, and set the counter threshold to 480 (480 seconds). When I run the simulation for 8 minutes, it shows a discrepancy of about 20 seconds compared to a separate on-delay timer also set for 8 minutes. I tried using two alternating on-delay timers with 0.5-second switching and still get a difference. I'm stuck and unsure why this happens. Any suggestions are welcome. Thank you, [user_name]"
+    },
+    {
+      "comment_id": 563449493962967,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "A possible solution is provided in the attachment. The starting value and ON setting of the counter should be the same for proper operation."
+    },
+    {
+      "comment_id": 296968283685060,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "In simulation mode on your computer, certain functions, such as fast timers, pulse generators, and counters, may run slower than on the actual [product_name] device due to your PC’s processing workload. The program is likely to work much more reliably on the actual hardware."
+    },
+    {
+      "comment_id": 250898550239490,
+      "user_name": "80vZVynzl0",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thank you for the suggestions, but it doesn't seem to have resolved the issue. The attached image shows a separate timer added for comparison with the pulse generator, and the times still do not match. I also tested it by downloading to the [product_name] device, and observed the same issue. I need the system to send an output exactly every 8 minutes, but none of the configurations I tried achieve this."
+    },
+    {
+      "comment_id": 479198595911557,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Your comparison setup is not accurate. The extra timer starts immediately with the flip-flop settings, while the pulse generator starts with a 1-second delay. If you require exactly 8 minutes, I’m unable to offer additional solutions."
+    },
+    {
+      "comment_id": 566259945054331,
+      "user_name": "80vZVynzl0",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "The extra timer is included only to show how the times fall out of sync. Starting both timers from the same point with a 1-second delay still results in about a 20-second difference after 8 minutes. Thank you for your help so far."
+    },
+    {
+      "comment_id": 748078398189706,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "This time discrepancy appears only in simulation. On the actual [product_name], the timing matches when the counter completes its cycle. If there are repeated stops, an offset may occur, but you can adjust the pulse generator's ratio and counter values to minimize this (refer to the attachment). I tested the program with a stopwatch block in my [product_name] [article_no] and observed no significant timing differences, even with multiple pauses."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering timing discrepancies with the timer function in a [product_name] device when attempting to achieve precise and resumable 8-minute intervals. When implementing a setup with a pulse generator and counter, the output time drifts by approximately 20 seconds compared to expected results, both in simulation and on real hardware. Efforts to synchronize the timers more accurately have not met expectations, causing some frustration among users.",
+    "user_expectations": "Users expect the timer solution on the [product_name] device to deliver exactly 8-minute output intervals, with seamless retention and continuation after interruptions, and for simulation results to closely match performance on the actual hardware.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "accurate timer",
+      "pause and resume",
+      "synchronization"
+    ],
+    "pain_keywords": [
+      "inaccuracy",
+      "timer drift",
+      "pausing issues"
+    ],
+    "feature_keywords": [
+      "timer",
+      "pulse generator",
+      "counter",
+      "simulation mode"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

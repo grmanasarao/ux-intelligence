@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "7254789317",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 229485746891631,
+      "user_name": "RrSFeGVxwM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Good morning everyone, I'm seeking advice on a temperature monitoring challenge at home. I use a PT100 sensor and have set up MAX/MIN values with analog threshold triggers for minimum and maximum readings. My goal is to record these daily MAX/MIN temperatures for each day of the week and have them reset and be overwritten the following week. This approach would let me maintain a week-based calendar of daily temperatures. I can build a weekly clock to trigger and log these temperatures each day, but I'm struggling with retaining each day's temperature data for a full week. Any help would be greatly appreciated. (Hardware: [product_name] [article_no] with RTD) Thank you, [user_name]"
+    },
+    {
+      "comment_id": 916913517262674,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Attached is a possible method for retaining min/max temperature values across seven days. The example works for scaling PT100/1000 readings without decimal places. If you need to handle and display values with decimal places, you'll need to add an analog amplifier after each MAX/MIN block, since these blocks don't support decimal displays."
+    },
+    {
+      "comment_id": 892861880245969,
+      "user_name": "RrSFeGVxwM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "[user_name], I'm truly impressed! This is an ingenious solution I wouldn't have thought of myself. It's extremely helpful, thank you so much. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 173843649906984,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hi [user_name], You're welcome. Here is an updated version, now supporting a decimal place in the display."
+    },
+    {
+      "comment_id": 670425413096549,
+      "user_name": "RrSFeGVxwM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "[user_name], I adjusted your first example and it's working wonderfully. I removed the analog amplifier and added a threshold trigger for each day, which I then read using my App ([product_name]). The results look excellent, and I simulated seven consecutive days by adjusting the internal clock. Now I just need to figure out a way for the days of the week to automatically cycle forward (otherwise, I turn them into -1, -2, -3, etc.). Thanks again for all of your help so far."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users collaborated on retaining daily temperature min/max values for a 7-day cycle using sensor and control hardware in a home setup. The main challenge was persisting values for each day and managing decimal display limitations. Shared examples and continued discussion helped solve most concerns, with only the automatic day rollover remaining as an unresolved detail.",
+    "user_expectations": "The user is looking for an easy-to-use solution to record and maintain daily temperature min/max values for seven days, with accurate decimal display and an automated system for weekly cycling, without requiring manual effort.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic temperature history",
+      "accuracy",
+      "intuitive weekly data logging",
+      "decimal display"
+    ],
+    "pain_keywords": [
+      "daily value retention",
+      "decimal display limitation",
+      "weekly cycle automation"
+    ],
+    "feature_keywords": [
+      "min/max logging",
+      "daily value storage",
+      "decimal support",
+      "analog threshold triggers",
+      "weekclock"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

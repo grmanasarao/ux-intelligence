@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "branch_id": "8586238650",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 526500758281965,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "It appears that [product_name] may not be able to convert hexadecimal values to decimal natively, correct? I was considering using [product_name] with multiple digital temperature sensors via a Modbus adapter, where temperature data is provided as hexadecimal."
+    },
+    {
+      "comment_id": 785304365840998,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "[product_name] does not include a built-in function block for converting hexadecimal to decimal. You would need to create this conversion logic manually."
+    },
+    {
+      "comment_id": 964560922723374,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Are you referring to hexadecimal or BCD format? Do you have a link to the device? I've posted a converter in the German forum; here's the link to the converter. Regards, [user_name]"
+    },
+    {
+      "comment_id": 699031541271813,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you. Here is the description I have: it's an 8-sensor module ([product_no]), each sensor provides 2 bytes of data."
+    },
+    {
+      "comment_id": 496917765894786,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Did you know this module supports Modbus RTU? [product_name] can only handle Modbus TCP/IP natively, not Modbus RTU. To use Modbus RTU with [product_name], you'll need a gateway that converts Modbus RTU to Modbus TCP/IP."
+    },
+    {
+      "comment_id": 999141061377564,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Exactly. My [product_name] is already communicating through the gateway to a [product_no] module from the same manufacturer and a power meter."
+    },
+    {
+      "comment_id": 551198542256234,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "No conversion of values is required in this case, just certain comparisons. If the value is between 0-10000, then the temperature matches that range with one decimal place. If above 10000, the temperature is calculated as 10000 minus the value, again with one decimal. [product_name] does not recognize 65535 as a value, but it can be treated as -1 for comparisons. Regards, [user_name]"
+    },
+    {
+      "comment_id": 407547926670169,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Here's an excerpt from the user manual:"
+    },
+    {
+      "comment_id": 694648478750763,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Please disregard this as it's just number representation—you can use hexadecimal like 16x0F or decimal 15; the bits are equivalent. Try running the attached program in a simulation. Copy this section into your code, with your network setup ready, and adapt the analog network input for your usage. Regards, [user_name]"
+    },
+    {
+      "comment_id": 656131006690150,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you, [user_name]. The simulation worked, so I feel more confident about ordering the device I mentioned."
+    },
+    {
+      "comment_id": 801933129900307,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "A more robust solution would be to use a Modbus TCP/IP device for direct connection, though they tend to be more expensive. Regardless, your current device will work as long as the Modbus RTU-TCP/IP converter supplies the Modbus registers as specified. For 8 DS18B20 sensors, you'll need 8 distinct registers on the TCP/IP end that match the format described. Regards, [user_name]"
+    },
+    {
+      "comment_id": 437753581007391,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I finally obtained a slightly different device—it offers 12 inputs and reports data as integers. It's working well; no conversion needed, just setting the decimal point."
+    },
+    {
+      "comment_id": 346198225833001,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Could you share which device you selected? This could help other users as well. Regards, [user_name]"
+    },
+    {
+      "comment_id": 316436167011266,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Of course—it's the DS18B20-RS485, a 12-channel temperature isolation acquisition module, and it's available online."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion started with concerns over [product_name]'s lack of built-in hexadecimal to decimal conversion for sensor data received through Modbus adapters. Members clarified that, although an automatic conversion block doesn't exist, manual programming and understanding value representation make it possible to interpret sensor data accurately. Supportive advice increased users’ confidence in using the system for their sensor integration needs.",
+    "user_expectations": "Users hope for [product_name] to provide native support for hexadecimal to decimal conversion and seamless handling of Modbus communication when integrating sensor data.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "sensor integration",
+      "data conversion",
+      "system compatibility",
+      "simulation confidence"
+    ],
+    "pain_keywords": [
+      "lack of native conversion",
+      "modbus protocol limitation",
+      "manual programming required"
+    ],
+    "feature_keywords": [
+      "Hex to Decimal conversion",
+      "Modbus TCP/IP",
+      "function blocks",
+      "data representation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "3": "User Guidance"
+  }
+}

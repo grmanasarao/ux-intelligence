@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "8723546244",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 698235877149296,
+      "user_name": "8R33IjVLo7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "I have a requirement to connect 64 WiFi sensors to a [product_name] module. Can this be achieved via Modbus communication?"
+    },
+    {
+      "comment_id": 283990014204513,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "To address this, more details are needed about your sensors and signal processing. Even if compatible, the hardware provides only 32 analog network inputs, making it impossible to complete the task with just one [product_name]. You would need to split the program across at least two modules or switch to a larger PLC."
+    },
+    {
+      "comment_id": 555936452716182,
+      "user_name": "8R33IjVLo7",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "I'm using ESP8266 WiFi modules to output the sensors' binary statuses (NO/NC). With network inputs on the [product_name] PLC, only 8 inputs are usable. I plan to use [product_name] Web Editor for monitoring sensors and controlling a single actuator valve for water flow. Is there another way to set up 64 sensors?"
+    },
+    {
+      "comment_id": 485510954457513,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "You need several [product_name] modules for this setup, or could consider Modbus IO modules instead of ESP devices, though that can be expensive. Alternatively, a Raspberry Pi or similar, running software like NodeRed, IO broker, or FHEM, could aggregate ESP sensor data and transmit processed values to the [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encounters hardware input limitations when trying to connect a large number of WiFi sensors to the [product_name] module. The module only supports a limited number of network analog/digital inputs, making it unsuitable for direct connection of many sensors. Suggestions include using multiple modules, larger PLCs, or intermediary systems to expand input capabilities.",
+    "user_expectations": "The user expects to directly connect all 64 WiFi sensors to the module, preferably using network or Modbus protocols, and manage monitoring and control through the system's interface.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "high input capacity",
+      "easy integration",
+      "remote monitoring",
+      "expandability"
+    ],
+    "pain_keywords": [
+      "input count limitation",
+      "scalability",
+      "integration difficulty",
+      "cost of alternatives"
+    ],
+    "feature_keywords": [
+      "network input count",
+      "Modbus support",
+      "digital input expansion",
+      "monitoring interface"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

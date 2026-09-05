@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "branch_id": "3799620568",
+    "thread_id": "3055273936",
+    "publication_year": 2011,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 915655566243461,
+      "user_name": "vKzcNrxrQq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 4,
+      "comment_body": "I reviewed the datasheet for [article_no], but couldn't find a temperature versus resistance curve. Do all PT100 sensors share the same characteristic curve? I'm asking because I plan to use the [article_no] module for PT100 sensors and am unsure if it will work with any 3-wire PT100 sensor. Thanks in advance everyone."
+    },
+    {
+      "comment_id": 565209906933873,
+      "user_name": "vUw1VuCtBK",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 4,
+      "comment_body": "PT100 sensors are not simply temperature-dependent resistors."
+    },
+    {
+      "comment_id": 995879034492710,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 4,
+      "comment_body": "You can find a resistance table at [url]. Most PT100 sensors are very similar (within 4% variance), generally measuring from -200 to 850 degrees Celsius and having a resistance of 100 ohms at 20 degrees."
+    },
+    {
+      "comment_id": 740214292499742,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 4,
+      "comment_body": "For your setup, you should use an AM2-PT100 Module ([article_no]). However, it only works within a -50 to +200 degrees Celsius range."
+    },
+    {
+      "comment_id": 559780565276551,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, I've previously calibrated Pt100 sensors at a calibration facility, so these details are helpful for industrial work: 1) A Pt100 uses fine platinum wire, measuring 100 ohms at 0°C, or at the triple point of water, which is a standard calibration reference. 2) Other kinds of platinum temperature sensors have different resistances at this reference point (e.g., Pt25 is 25 ohms, Pt1000 is 1000 ohms at 0°C). 3) The [product_name] AM2 PT100 and the newer RTD expansion modules contain intelligent resistance bridges similar to a Wheatstone bridge. 4) When connecting a Pt100, the AM2 module applies a known voltage and current to the sensor. 5) Measuring values of resistance, voltage, and current creates bridge imbalance, reflecting the temperature. 6) The module then produces a 0-1000 output value to the [product_name] program, proportional to the signal. 7) The RTD module can detect whether a Pt100 or Pt1000 is connected. 8) The PT100 expansion module only supports Pt100 sensors; using other types yields highly inaccurate results. 9) The RTD module provides correct readings only for Pt100 or Pt1000 sensors. 10) Signal scaling is only intended for Pt100 and Pt1000 in the -50 to +200°C range; the internal 0-1000 value matches only this temperature range. 11) Using other sensor types or ranges will cause incorrect scaling. 12) It is recommended to use Pt100 or Pt1000 sensors for the -50 to +200°C range, as they are standard and widely available (from various suppliers). 13) If you must use different types or ranges, add a signal converter (to 0-10V, 0-20mA, or 4-20mA) and adjust scaling yourself in the [product_name] configuration. Hope this clarifies things!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion focuses on compatibility between PT100 sensors and the [product_name] AM2 PT100 module ([article_no]). Users are unclear about sensor types, operating ranges, and accurate matching between modules and sensors. The intelligent bridge feature and scaling boundaries of the module are noted, and several participants stress the need for clearer documentation—especially about compatible temperature ranges and the requirements for signal conversion when using non-standard sensors.",
+    "user_expectations": "Users expect that any 3-wire PT100 sensor should work reliably with the [article_no] module. They want clear information about acceptable operating ranges, interchangeability between sensor types, and straightforward technical documentation for the temperature-resistance curves.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "compatibility",
+      "accurate temperature measurement",
+      "easy integration",
+      "sensor interchangeability"
+    ],
+    "pain_keywords": [
+      "unclear compatibility",
+      "narrow supported temperature range",
+      "limited sensor support",
+      "scaling issues with non-standard sensors"
+    ],
+    "feature_keywords": [
+      "sensor compatibility",
+      "supported temperature range",
+      "internal scaling",
+      "3-wire connection",
+      "signal conversion"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

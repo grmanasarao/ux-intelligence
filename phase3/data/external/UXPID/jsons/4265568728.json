@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "4265568728",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 440208479902926,
+      "user_name": "kYnwOsTMsU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello, is there any way to send an HTTP request from [product_name]? If that's not possible, I considered using it together with a Teltonika VPN router. The idea is to have [product_name] communicate with Teltonika via Modbus, and then send the HTTP POST alarm to the server through the Teltonika modem. I don't need to transfer specific data from [product_name], just trigger a simple HTTP request to a specified server address to let it know to read data from the unit. Thanks."
+    },
+    {
+      "comment_id": 924767646305437,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello, from what I understand, you want to connect to a server when an error occurs. Sending a notification only during errors (not continuously) is only possible using a specific communication module via SMS. Other options, like Modbus and [product_name], require a continuous connection between devices. For Modbus, if you set [product_name] as the client, you can adjust the communication cycle, but it will always stay connected with the other Modbus device. Hope this helps."
+    },
+    {
+      "comment_id": 125882004646035,
+      "user_name": "kYnwOsTMsU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello, thank you. We have a VPN tunnel set up between the server and the unit with [product_name], so the connection is in place. I'm still looking for a way to trigger an HTTP POST to the server address whenever an alarm signal occurs. [user_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is investigating if [product_name] can send an HTTP request to a server when triggered by an alarm, aiming for a straightforward alarm notification solution. Replies clarify that this function isn't available directly in [product_name]; only SMS via a dedicated module or continuous Modbus/[product_name] connections are supported. Current technical limitations restrict the implementation of one-way HTTP notifications using [product_name].",
+    "user_expectations": "User expects [product_name] to natively send HTTP requests or POSTs in response to alarms, rather than relying on persistent communication or repeated data polling.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated HTTP notification",
+      "event-driven alarms",
+      "remote monitoring"
+    ],
+    "pain_keywords": [
+      "lack of HTTP capability",
+      "limited event-based communication",
+      "no native POST support"
+    ],
+    "feature_keywords": [
+      "HTTP request",
+      "alarm trigger communication",
+      "Modbus client",
+      "SMS notification"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations"
+  }
+}

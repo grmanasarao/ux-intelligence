@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "branch_id": "6279951345",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 907591783521915,
+      "user_name": "e4p1JQiCle",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "I am currently researching Ethernet communication options for a [product_name] PLC. When scanning the network with Wireshark, I observe a TCP stream where elements of the loaded program are visible alongside many blank sections. Does anyone know what higher-level protocol is being used here? Is it similar to the connection established by programming software when communicating with the PLC? Below is an excerpt from the stream I followed: K...........GetHWType....'..K..`.............K...........GetHWId......'..K .`..............K...........CheckState...'..K..`.............K...........CheckState...'..K..`.............K...........GetVersion...'..K .`..............K...........GetPrgHead...'..K..`..................}...J.....Uihu...\\Uihu...\\Uihu...\\Uihu...\\K...........CheckState...'..K..`.............K...........HasHoursCnt..'..K..`.............K...........GetAiCnt.....'..K..`.............K...........CheckMS......'..KP.`.................KP..........StartDown....'......];._.K..`............K.0.........InDown.......'................;.E.2LUihu...\\Uihu...\\Uihu...\\Uihu...\\..................................."
+    },
+    {
+      "comment_id": 513658043925431,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "The S7 protocol can be selected in Wireshark, which reveals more details about the communication. However, I haven't used this option myself and can't assist further. Regards, [user_name]"
+    },
+    {
+      "comment_id": 802126956878665,
+      "user_name": "e4p1JQiCle",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Thank you for your response. I am able to view and interpret the communication between a [product_name] HMI device, since it uses S7 protocol. However, when writing a program to the PLC, the communication is transmitted as a TCP stream rather than S7. The programming PC initiates a connection with the PLC in ASCII, but after the initial setup it's not directly translatable—only the variable memory states that I've defined in the program can be recognized. Here are some stream excerpts: 00000000 4b c0 01 e0 00 00 00 00 00 00 00 00 47 65 74 48 K....... ....GetH 00000010 57 54 79 70 65 00 00 00 10 27 00 00 WType... .'. 00000000 4b 10 01 60 00 00 00 00 00 00 00 00 00 00 00 00 K..`.... ........ 00000010 00 . 0000001C 4b c0 01 e0 00 00 00 00 00 00 00 00 47 65 74 48 K....... ....GetH 0000002C 57 49 64 00 00 00 00 00 10 27 00 00 WId..... .'. 00000011 4b 20 01 60 00 00 00 00 00 00 00 00 00 00 00 00 K .`.... ........ 00000021 81 00 .. 00000038 4b c0 01 e0 00 00 00 00 00 00 00 00 43 68 65 63 K....... ....Chec 00000048 6b 53 74 61 74 65 00 00 10 27 00 00 kState.. .'. 00000023 4b 10 01 60 00 00 00 00 00 00 00 00 00 00 00 00 K..`.... ........ 00000033 02 . 00000054 4b c0 01 e0 00 00 00 00 00 00 00 00 43 68 65 63 K....... ....Chec 00000064 6b 53 74 61 74 65 00 00 10 27 00 00 kState.. .'. 00000034 4b 10 01 60 00 00 00 00 00 00 00 00 00 00 00 00 K..`.... ........ 00000044 02 . 00000070 4b c0 01 e0 00 00 00 00 00 00 00 00 47 65 74 56 K....... ....GetV 00000080 65 72 73 69 6f 6e 00 00 10 27 00 00 ersion.. .'. 00000045 4b 20 01 60 00 00 00 00 00 00 00 00 00 00 00 00 K .`.... ........ 00000055 00 00 .. 0000008C 4b c0 01 e0 00 00 00 00 00 00 00 00 47 65 74 50 K....... ....GetP 0000009C 72 67 48 65 61 64 00 00 10 27 00 00 rgHead.. .'. As shown below, I can compare the program with the TCP stream to confirm this is indeed the communication between the PC and PLC. ......StartDown....'......];._.K..`............K.0.........InDown.......'................;.E.2LUihu...\\Uihu...\\Uihu...\\Uihu...\\................................... .. ........................................................................................................off .............aantal werks .............tukken ............. ............. ............. .............ON start .............feed in ............. ............. ............. ............. ...K@.`................K.0.........InDown.......'................feed ............. ............. ............. ............. ............. .............Return ............. ............. ............. ............. ............. .............cooling down .............off in ............. ............. .............K@.`................K.0.........InDown.......'...... ............. .............trip .............no fault? .............press reset ............. ............."
+    },
+    {
+      "comment_id": 536683438037359,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "I've attempted to decode the communication using various tools in the past, but found it too time-consuming. Programming the controller without the official software doesn't seem feasible in my experience. The most practical method is to use tools that allow simple status queries for inputs and outputs. Wishing you success in finding a solution! Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main topic is investigating how the [product_name] PLC communicates via Ethernet, with an emphasis on understanding the protocol beyond the identified TCP streams. While tools like Wireshark can expose some details, the protocol used between the PLC and the programming software is not easy to interpret or reverse-engineer. Other users confirm that advanced communication or programming without official support is significantly restricted and mostly limited to basic status monitoring, due to insufficient public documentation.",
+    "user_expectations": "The user is looking for clarity regarding the programming protocol used by the [product_name] PLC, hoping to develop bespoke integrations or alternative programming workflows, similar to how S7 protocol details are accessed on other PLC platforms.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "protocol transparency",
+      "custom integration",
+      "Ethernet communication",
+      "programmatic access"
+    ],
+    "pain_keywords": [
+      "lack of protocol documentation",
+      "unreadable TCP stream",
+      "closed system",
+      "limited third-party access"
+    ],
+    "feature_keywords": [
+      "Ethernet protocol",
+      "programming interface",
+      "status query",
+      "S7 protocol"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

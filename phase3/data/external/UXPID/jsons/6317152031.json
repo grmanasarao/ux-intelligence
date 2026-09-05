@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "6317152031",
+    "thread_id": "3055273936",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 369168399887410,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "What is the shortest input duration needed for an edge-triggered wiping relay to activate its output? I understand it reacts to the rising edge, but is there a minimum pulse width requirement?"
+    },
+    {
+      "comment_id": 214090926611374,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "The typical maximum input frequency is 4 Hz (refer to the handbook), so the minimum time should be around 0.25 seconds."
+    },
+    {
+      "comment_id": 566650704097285,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "Yes, that's what I thought, since the timer responds to the rising edge. Thanks for your response."
+    },
+    {
+      "comment_id": 903360859973427,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 9,
+      "comment_body": "There are often unreliable electrical signals due to noise and spikes on the network. It's important that the controller reacts only to valid signals at the input and not to noise. Each input is equipped with a filter to ignore brief signals. For this input module, signals shorter than 0.25 seconds are disregarded, based on the 4 Hz specification. However, certain versions include a high-speed input for counters, functioning up to 4 kHz; this is specific for counter operations. To detect signals shorter than 0.25 seconds, you can connect the fast input to a counter, set the counter to a max of 1, and reset it after each detection. The reset pulse can be used for the edge-triggered function. Quick inputs depend on your controller model—consult the manual. Fast inputs are available only on DC versions; the 230V version does not have this feature."
+    },
+    {
+      "comment_id": 514540726040902,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "A new question published by [user_name] has been split into a separate thread with the topic '[product_name] controller SF command, EDGE TRIGGERED WIPING RELAY'. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are discussing the minimum input pulse duration needed for reliable edge detection by an edge-triggered wiping relay using a [product_name] module. There's concern over how well input filtering works, especially with brief or noisy signals, and some suggestions reference hardware limits and workarounds for faster signals using counters. The discussion highlights the need for clearer documentation and practical examples regarding signal processing and edge detection.",
+    "user_expectations": "The user wants explicit specifications for minimum pulse width requirements when using an edge-triggered relay, as well as recommendations for managing rapid or noisy signals with [product_name] modules.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "reliable edge detection",
+      "minimize signal noise",
+      "precise signal handling"
+    ],
+    "pain_keywords": [
+      "unclear specifications",
+      "input filtering limits",
+      "difficulty handling fast signals"
+    ],
+    "feature_keywords": [
+      "input filter",
+      "edge detection",
+      "quick input for counters"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "10": "Performance Predictability"
+  }
+}

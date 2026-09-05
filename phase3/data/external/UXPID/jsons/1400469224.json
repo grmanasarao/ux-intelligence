@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "1400469224",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 256210109125267,
+      "user_name": "23LCalKlCe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm using [product_name] to read data from an electricity meter. If the Modbus TCP connection fails, it's not apparent—the displayed data stays as the last transmission. Is there a way to indicate that the data is outdated due to a lost connection?"
+    },
+    {
+      "comment_id": 235205975990599,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "I suggest looking for a clock signal or an incrementing counter on the meter's side. If there is a seconds register, the lowest bit should update every second. Within [product_name], you could use two on-delay timers, such as 1.5 seconds for low and high signals; if either timer output activates, you can detect a fault. Regards, [user_name]"
+    },
+    {
+      "comment_id": 113244650021735,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Please share the manufacturer's name and device type designation, or provide a link to the register address documentation for this device."
+    },
+    {
+      "comment_id": 655569325814816,
+      "user_name": "23LCalKlCe",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "[company_name] EM340DINAV23XS1PFB I'm using a [product_name] to convert signals from Modbus RTU to Modbus TCP."
+    },
+    {
+      "comment_id": 859763340582421,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "It's a bit tricky since the EM341 model offers extra registers for date and time, but your EM340 may not. If any register has a frequently changing or escalating value, such as voltage, current, power, or energy readings, you could compare the previous and latest values every few seconds—say, 1 to 5 seconds. Identical values could indicate a broken Modbus connection. Let us know if there's a specific value that you expect to update promptly. Best regards, [user_name] P.S. See the attachment for a sample solution comparing previous and current values."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users note that [product_name] hardware does not clearly show when the Modbus TCP link to an electricity meter fails; it simply shows the last available data, making it difficult to spot if the values are outdated. The thread discusses possible alternatives, such as monitoring changing register values or using external timing functions, due to the lack of a native feature for connection status. There is a desire for straightforward notification of communication issues to avoid misreading stale data.",
+    "user_expectations": "Users expect the [product_name] to visibly highlight when the Modbus TCP communication drops and alert that displayed data is no longer current or trustworthy.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data freshness",
+      "real-time monitoring",
+      "connection loss indication"
+    ],
+    "pain_keywords": [
+      "no connection failure alert",
+      "stale data",
+      "unclear status"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "data validity display",
+      "status indicator"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

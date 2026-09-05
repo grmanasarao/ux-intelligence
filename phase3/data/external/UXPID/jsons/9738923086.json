@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "branch_id": "9738923086",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 939727568669711,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Hello, My project requires logging variable values from a [product_name] module, making them accessible for customers via a database. The setup uses Node-Red and MQTT. I am having trouble establishing communication between Node-Red and the [product_name]. Other forum posts show input and output mapping for [version_no] devices, listing examples like \"I1 = V1024.0 = DB1.DBX1024.0\". I need information about reading VM blocks from [product_name], or details about the underlying logic. My hardware and setup includes: Raspberry Pi 2 Model B (IP 192.168.3.112), Debian Stretch with Node-Red, Modbus Contrib, S7 Contrib, Mosquitto on the local network. The module [product_name] ([article_no]), IP 192.168.3.50, has digital inputs, one analog input for level monitoring, some outputs, and VM values for storing measurement and timing data. I’m not expecting a full solution, just some help understanding how to organize and read the VM logic. After a few days of trying, I’d appreciate some guidance!"
+    },
+    {
+      "comment_id": 453884357019246,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Attached are some PDF documents. The VM memory area in [product_name] modules is used for data exchange with external devices. Users have access to a defined VM area, ranging from VB0 to VB850. Beyond VB851, access is restricted, as it’s reserved for the operating system; only partner devices can use this part of the VM in [product_name]."
+    },
+    {
+      "comment_id": 874452686108272,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], Were you able to resolve your problem based on my earlier response?"
+    },
+    {
+      "comment_id": 823883126798758,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Sorry for my late reply, I was busy learning new information. Thanks [user_name]—your advice was great! This kind of feature should be included by default in the next edition of [product_name] configuration software. It would make IoT project development much faster if Modbus/S7 addressing was readily available, or even a dedicated [product_name] Node for Node-Red. Your help, especially pointing out the [document], provided the clarity I needed. Now I just need to adapt some JSON scripts. Some technical notes: the S7Comms node is working, with correct Rack, Slot, and DB1 settings; it runs on port 102, without extra settings needed on the module or BM. If you’re comfortable with scripting, this method is efficient, and [company_name] recommends it. As for Modbus TCP Contrib, it offers more options, but you must create a Modbus connection on the module—just right-click on one of the blocks under BM, add a server connection, and select Modbus (note: use port 503, not the Node-Red default of 502). In both approaches, a valid VM list is all you need, with no further settings required or need to memorize every coil or analog address. If anyone is interested, I can share my list—perhaps for review first. These are my personal experiences, and my setup may evolve over time."
+    },
+    {
+      "comment_id": 971512137914294,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], Thank you for your feedback."
+    },
+    {
+      "comment_id": 687434501729385,
+      "user_name": "ZPfPQFC4se",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello, I would appreciate seeing your Modbus mapping list. Thanks!"
+    },
+    {
+      "comment_id": 880678517081951,
+      "user_name": "5bKCY8tXu9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Hi, the provided links don’t seem to work—can you update them? Thanks."
+    },
+    {
+      "comment_id": 300324221840079,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Both links here work for me; I'm able to download from each. Which specific link do you mean?"
+    },
+    {
+      "comment_id": 774679468208717,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Perhaps you’re referring to the Node-Red contrib package files—they appear as links due to underlining. Here’s how to proceed: • Install and launch Node-Red on a Linux or compatible device • Access Node-Red’s package manager in the interface • Search and install the recommended contrib modules; these will add new node blocks to your workflow toolkit. Many tutorials can be found on YouTube. Here’s a particularly clear video about Node-Red and MQTT: [url] Main info portal: [url]—search for \"S7\" or \"Modbus TCP\" for related packages. The flows page at [url] offers modules and configuration guides—including one for adapting S7 nodes to [product_name] ([url]). Full instructions are included. I will test this out soon; @ixo (i.e. [user_name]), maybe check it out? It looks like it already has all addresses mapped! Maybe there will be full Azure support in future releases."
+    },
+    {
+      "comment_id": 347938906436005,
+      "user_name": "5bKCY8tXu9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 8,
+      "comment_body": "Right, I assumed those were regular web links. Thanks for clarifying and for sharing the correct resources!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are working on integrating variable memory (VM) values from [product_name] modules with Node-Red and MQTT, targeting IoT and open-source data access scenarios involving third-party hardware. Initial confusion involved how to identify and read VM addresses for Node-Red, focusing on S7Comms and Modbus TCP communication. Lack of clear documentation and accessible address lists created hurdles; however, referencing help documents and community feedback helped resolve the integration issue.",
+    "user_expectations": "Users expect clear and easily accessible documentation, and built-in features within [company_name] software, to simplify VM address mapping for third-party integration. They want efficient, hassle-free interoperability with Node-Red, and seek future support for modern IoT and cloud service connectivity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy VM address mapping",
+      "IoT data integration",
+      "faster development"
+    ],
+    "pain_keywords": [
+      "documentation gaps",
+      "complex VM address logic",
+      "integration difficulty"
+    ],
+    "feature_keywords": [
+      "VM blocks",
+      "address mapping",
+      "Modbus/S7 connectivity",
+      "third-party integration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {
+      "Linux": [
+        "Debian"
+      ]
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "12": "Network Configuration Challenges"
+  }
+}

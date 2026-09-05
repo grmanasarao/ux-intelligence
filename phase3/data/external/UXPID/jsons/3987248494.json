@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "3987248494",
+    "thread_id": "4479534060",
+    "publication_year": 2008,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 493353893341858,
+      "user_name": "pnJL1fqDUV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 12,
+      "comment_body": "Hello, I have four [product_name], and I want to transmit some digital input values from [product_name] #1 to [product_name] #2, [product_name] #3, and [product_name] #4. I considered using the EIB communication module for each [product_name] and interconnecting all modules. Is this feasible? If so, how can I write and read the data bits between the modules? Thank you in advance for any replies. [user_name]"
+    },
+    {
+      "comment_id": 594449848868344,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 12,
+      "comment_body": "Hi [user_name], I’m not very familiar with EIB, but I believe it should be possible. Personally, I haven’t used this method because deploying an EIB communication module for each [product_name] and linking them is quite expensive (in fact, at this price, you might consider controllers with more features and communication capabilities, such as the PLC 'XLt' from [url]). You might only require basic digital I/O to connect your [product_name] units. The most efficient approach could be adding a DM8 24 module (for each [product_name]) with transistor outputs, which can be directly attached to [product_name] inputs and offer fast, non-mechanical switching. In such cases, the logic for each of the four [product_name] programs should be designed to minimize the number of I/O signals required to interconnect them (for example, to switch a specific program section or select an operating mode for one or several units). With some additional logic blocks, it’s possible to implement a compact communication protocol. For instance, you could use a defined number of pulses to convey multiple commands over a single signal line, using a 'counter' block with a 'pulse generator' block and flexible counter parameter assignment; or employ several 'edge-triggered wiping relay' blocks capable of producing 1 to 9 pulses per trigger (allowing for up to 9 commands over one I/O line). On the receiving side, input pulses can be counted by multiple counters to extract different commands. I hope these ideas assist you in establishing communication among your four [product_name] modules. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are exploring methods to link several [product_name] modules for sharing digital input data. While using EIB communication modules is technically an option, it is viewed as unnecessarily expensive for small-scale setups. Alternatives emphasizing direct digital I/O connections and optimized logic design for minimal wiring are recommended, illustrating a preference for simple and cost-effective solutions when networking multiple [product_name] units.",
+    "user_expectations": "The user is seeking a straightforward, budget-friendly approach to transmit digital signals from one [product_name] to several others, without adding excessive complexity or significant cost.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "cost efficiency",
+      "easy networking",
+      "signal transmission"
+    ],
+    "pain_keywords": [
+      "high cost",
+      "complexity",
+      "lack of simple communication feature"
+    ],
+    "feature_keywords": [
+      "digital input exchange",
+      "inter-module communication",
+      "expansion module"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "18": "Cost Optimization",
+    "13": "Integration Limitations"
+  }
+}

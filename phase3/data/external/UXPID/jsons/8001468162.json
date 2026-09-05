@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "8001468162",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 941077204445176,
+      "user_name": "vcsROd2spn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello, How can I implement feedback for network disconnection? I have two [product_name] devices connected; one sends a network signal to activate output 1 (Q1) on the second, but when the network disconnects, output 1 stays enabled. I want it to turn off if there is a network failure. It seems this happens because one acts as master and the other as slave, with the slave waiting for commands? Is there a way to automatically disable the output on network loss?"
+    },
+    {
+      "comment_id": 715372824058192,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Do you really have a master/slave communication setup? Are you looking for master/slave power? This type of communication has several downsides, including using up all program memory on the slave [product_name]. Only the diagnostic bit on the master [product_name] is available. You can add a network input to the program, select diagnostic mode for block properties, and choose Ethernet link error for diagnostic type. If you had master/master communication, you could send a heartbeat bit between [product_name] devices to monitor their state—this is the approach I use."
+    },
+    {
+      "comment_id": 123820050687857,
+      "user_name": "vcsROd2spn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thank you very much! It works perfectly!"
+    },
+    {
+      "comment_id": 929055031479327,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Glad to help!"
+    },
+    {
+      "comment_id": 797227832108972,
+      "user_name": "WUD9VaX1Qu",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Why am I experiencing disconnects in my similar project? I created a heartbeat to monitor if it continues disconnecting. Distance is 40 meters."
+    },
+    {
+      "comment_id": 626966094142411,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Welcome to the forum. The official language here is English. Please write your messages in English, as not everyone speaks Turkish. Automatic translation tools may not convey your post accurately."
+    },
+    {
+      "comment_id": 326167096088726,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "We need more details. How are the [product_name] devices connected—directly or through a router? What are their IP addresses? Are both in the same subnet? Could you upload your [product_name] programs as a ZIP file?"
+    },
+    {
+      "comment_id": 657030992743653,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "From what I see, there’s a watchdog function built using two on-delay timers depending on the state of M9. Possibly, M9 is an input signal from a pulse generator on the second [product_name]. However, more information is needed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users working with [product_name] controllers in a network master/slave setup discussed challenges when the network disconnects, especially with slave outputs staying activated without proper feedback. The main issue is ensuring reliable detection of network loss to promptly deactivate outputs for safety. Recommended solutions included using diagnostic bits, Ethernet link error monitoring in [product_name] programming software, or implementing a heartbeat signal for continuous supervision. These solutions were positively received by the original user.",
+    "user_expectations": "The user expects the system to accurately detect network disconnection and immediately switch off relevant outputs if communication between [product_name] modules fails.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "network disconnection feedback",
+      "safe output deactivation",
+      "reliable monitoring"
+    ],
+    "pain_keywords": [
+      "output remains activated after disconnect",
+      "lack of immediate feedback",
+      "program memory wasted in slave"
+    ],
+    "feature_keywords": [
+      "network diagnostics",
+      "Ethernet link error",
+      "watchdog/life bit",
+      "output control on disconnect"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

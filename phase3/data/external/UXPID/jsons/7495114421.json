@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "7495114421",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 626620157643740,
+      "user_name": "chU6UnxOW4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "I have some new [company_name] [product_name] units, and I'm noticing differences in how data is provided via Modbus: some units use Big Endian while others use Little Endian. The documentation says it should just be Big Endian, but my experience doesn’t match this. Does anyone have suggestions? For instance, I read a register showing 1 on the device, but if I interpret it as Big Endian it reads 256."
+    },
+    {
+      "comment_id": 565413027156674,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "[company_name] devices operate with Big Endian, including [product_name]."
+    },
+    {
+      "comment_id": 220888640801021,
+      "user_name": "chU6UnxOW4",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "That’s what I understood too, but something seems different now. I have a register that shows 1895 on [product_name] yet, instead of reading as 0767 it is showing 6707, which converts to 26375. Previous PLCs worked fine, but the most recent batch seems off even though we haven’t changed any settings."
+    },
+    {
+      "comment_id": 732627794278892,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "I don’t have any indication that something has changed. This situation seems odd. If you suspect a recent change, I suggest contacting [company_name] support through a Support Request."
+    },
+    {
+      "comment_id": 299521196176523,
+      "user_name": "udO0a0woU9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "All [product_name] versions use Big Endian format. If your communication partner uses Little Endian, you need to swap the bytes."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering inconsistencies when interpreting data from Modbus registers on different [company_name] [product_name] units, with some devices appearing to use different byte order formats. This results in confusion and doubts about device documentation and reliability.",
+    "user_expectations": "Users expect all [company_name] [product_name] units to consistently use Big Endian format for Modbus communication, as documented. They also expect reliable behavior and no unexplained changes between hardware batches.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data consistency",
+      "predictable communication",
+      "hardware reliability"
+    ],
+    "pain_keywords": [
+      "unexpected data format",
+      "communication inconsistency",
+      "possible batch differences"
+    ],
+    "feature_keywords": [
+      "Modbus register handling",
+      "endianness",
+      "data format consistency"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

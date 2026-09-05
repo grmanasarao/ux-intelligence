@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "branch_id": "7608141858",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 672898078637689,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, The [product_name] [article_no] introduces several new function blocks. I’d like to share a practical evaluation of the “average” block here: The “average” block calculates a periodic average over a number of past values. While this is technically feasible, using all analog inputs within reasonable circuit complexity only allows up to n = 32 values (with an entry value range from 0 to 1000). Despite these limitations, the block is impressive – according to the manual, n can be up to 32767 (depending on sampling time), and each entry value can cover the full analog range from -32768 to 32767. A drawback is that the minimal total sampling time (St) is just 1 second, meaning measurements are spaced by St/SN. Using this block for analog input signals requires paying attention to these constraints, as low scanning rates may lead to undetected measurement errors or inaccurate block results. For previous versions like [product_name] [article_no], there was a way to filter analog display values in text messages, though this also risked low scanning frequencies. Similar filter blocks can help make displayed values appear more stable, but this isn’t ideal when those values are needed for further calculations. It’s clear that changes in analog input updates controlled by [product_name] hardware could lower the scanning rate, but this can’t be adjusted further within the system. In general, reducing scan or update frequency should be avoided to ensure digitized analog signals are as accurate as possible. Unfortunately, block parameters cannot be defined by reference. Block behavior when activating the “EN” and “R” input pins: - If entry “R” is enabled, the block skips the current sampling time and ignores the output. - If “EN” is set to “0” briefly, sampling is paused (but not reset). This means you cannot restart sampling without clearing the output, which hinders potential mid-cycle adjustments or alignments. Additionally, circuit designs reusing the block’s output must account for the output being forced to zero during St instead of retaining the previous measured value. Summary: As an alternative (to previously published circuits), the “average” block (available only on [product_name] [article_no]) can filter analog inputs, provided these parameter requirements are met: - St / SN = 0.300 s (Basic module analog inputs) - St / SN = 0.050 s (Expansion module analog inputs) Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user gives a thorough assessment of the 'average' function block featured on [product_name] [article_no], pointing out its technical strengths such as wide parameter ranges and high possible averaging counts. However, key limitations include a fixed minimum sampling interval and lack of dynamic (by reference) parameterization, which could introduce value measurement inaccuracies and limit real-time analog input filtering. Additionally, the handling of enable and reset inputs diverges from typical expectations, resulting in extra circuit complexity and potential confusion for users seeking standardized average processing.",
+    "user_expectations": "The user would like the average block to support dynamic and real-time adjustment of parameters, such as referencing values from elsewhere in the system, plus a shorter minimum sampling interval to allow more responsive and precise monitoring of analog signals.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "real-time signal filtering",
+      "accurate average computation",
+      "dynamic parameterization"
+    ],
+    "pain_keywords": [
+      "sampling interval limitation",
+      "inflexible parameters",
+      "non-standard block behavior"
+    ],
+    "feature_keywords": [
+      "average block",
+      "analog input filtering",
+      "enable/reset handling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions",
+    "10": "Performance Predictability"
+  }
+}

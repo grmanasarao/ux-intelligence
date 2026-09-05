@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "branch_id": "6206015111",
+    "thread_id": "1723880927",
+    "publication_year": 2009,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 424050900341008,
+      "user_name": "4IKmShSWem",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Hello, As you know, the [product_name] ([article_no]) features 4 high-speed inputs capable of 5kHz operation. I believe the typical cycle time for [product_name] is approximately 25 Hz. My question is: how does [product_name] detect digital signals on these high-speed inputs? I've used the attached file to test the system cycle time in simulation mode."
+    },
+    {
+      "comment_id": 665163509736996,
+      "user_name": "qDdg0l3c2s",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "The [article_no] offers 4 high-speed counter (HSC) inputs. The assignment for which inputs support this function is fixed; it is I3, I4, I5, and I6. No software configuration is needed—these inputs always operate in fast mode, whether used for HSC or standard digital input. Internally, the inputs likely trigger a hardware interrupt to the processor, making their operation independent of the user program cycle time. Otherwise, during regular processing, [product_name] would be able to finish a cycle in less than 200 microseconds (1 / 5000)."
+    },
+    {
+      "comment_id": 416543629476444,
+      "user_name": "4IKmShSWem",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Thank you [user_name]. So this means: 1. High-speed inputs work independently of the cycle time. 2. If I connect input I3, for example, to a counter, the counter operates correctly? Could you share a simple example program? Thanks in advance for the support."
+    },
+    {
+      "comment_id": 739944242190695,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 4,
+      "comment_body": "Adding to the previous points: To count high-frequency pulses, you should connect one of the four high-speed inputs (I3-I6) directly to an up/down counter or a threshold trigger function block. This can be set up straightforwardly. From my experience, only when the inputs are directly connected to either of these two function blocks does [product_name] reliably register all pulses (as also mentioned in the manual). If you include additional function blocks (such as AND, OR, etc.) between the input and the counter/threshold trigger, the maximum count frequency will drop—likely to below 1kHz, slower than the 5kHz capability. For pulse counting and simply showing speed or distance in a message, it works (e.g., with ultrasonic sensors). However, for applications needing precise encoder measurements or regulation, [product_name] might be too slow."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are asking for details on how high-speed inputs in the [product_name] ([article_no]) module can accurately capture high-frequency signals, given that the cycle time of the user program is slower. The discussion points to hardware interrupts allowing independent operation of these inputs and highlights a need for clear documentation about input limitations when logic functions are added. Overall, users show gaps in understanding how to connect high-speed inputs to counters or triggers for optimal performance.",
+    "user_expectations": "Users expect the [product_name] module’s high-speed inputs to reliably count pulses independently of the program's cycle time, and would like usage to be intuitive without significant frequency loss when extra logic is included.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate counting",
+      "fast signal detection",
+      "hardware-level performance"
+    ],
+    "pain_keywords": [
+      "cycle time confusion",
+      "frequency limitation with logic blocks"
+    ],
+    "feature_keywords": [
+      "high-speed input",
+      "counter connection",
+      "hardware interrupt"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

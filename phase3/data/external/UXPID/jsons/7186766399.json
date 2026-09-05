@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "7186766399",
+    "thread_id": "3055273936",
+    "publication_year": 2009,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 127729416485757,
+      "user_name": "cEZxzIgqkL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 7,
+      "comment_body": "Hello, I need help connecting a humidity sensor to a [product_name] 12/24RC and configuring it in the [product_name] program to show correct readings. Here is the sensor's datasheet: [url]. Any assistance would be greatly appreciated. /[user_name]"
+    },
+    {
+      "comment_id": 950472585350369,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 7,
+      "comment_body": "Hi! It looks like your sensor isn't designed for industrial use; it requires an additional temperature sensor and signal linearization. I recommend using an industrial-grade humidity sensor like this one: [url]."
+    },
+    {
+      "comment_id": 590203492920834,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 7,
+      "comment_body": "Hello humidity enthusiasts! Issues with [product_name] and the first sensor type include: [product_name] can't provide a 1kHz excitation frequency; it can't measure resistance apart from Pt100, so extra electronics are required. The sensor's resistance output depends on both temperature and humidity—and values must be referenced from a spec sheet look-up table, which [product_name] cannot store. Even if a known voltage and a AM2 analog input module (0..20 mA) are used, the range won't fit, and outputs are non-linear. The sensor suggested earlier features a linear voltage output (1-4V with 5V supply). By using a [product_name] Analog Amplifier with 0..10V input, Gain = 3.81, Offset = -407 (thanks to the spreadsheet used for calculations!), you can display 10-95 %RH with 1 decimal place. Just handle values outside the desired range ([product_name] analog values less than 133 or greater than 355)—this could be managed using a comparator and a math block (on [article_no]). Overall, this is a better solution than the first option. Thanks again for the suggestion; I'll archive this sensor type!"
+    },
+    {
+      "comment_id": 615930056207230,
+      "user_name": "xZRuBVhg2W",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 7,
+      "comment_body": "Hello, Another option is to use [company_name] products, specifically Temp.-Humidity sensors such as QFM65 ([url]) or QFM66 ([url]). Regards,"
+    },
+    {
+      "comment_id": 102353171171126,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 7,
+      "comment_body": "Thanks! These options provide a straightforward linear signal (0-10 V), but availability and price might be concerns. The originally referenced sensor is a smaller electronic component, not a complete measurement system, so we may need to find a simpler, more accessible sensor for interfacing with the [product_name]. The following sensor ([url]) is similar to the original resistance type but acts like the linear one mentioned earlier, so the Gain & Offset calculation previously described should apply. I believe that resolves the issue!"
+    },
+    {
+      "comment_id": 351646979900995,
+      "user_name": "cEZxzIgqkL",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 7,
+      "comment_body": "Thanks for the quick replies. I followed [user_name]'s advice and tried the HIH-3610 sensor, but it's discontinued, so I purchased the newer HIH-4000 model instead. I hope it works—thank you all for your help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members discuss how to connect a humidity sensor to a [product_name] controller. The original sensor is not compatible due to signal and electrical limitations of the [product_name] analog input module—specifically issues with frequency, resistance measurement, and non-linear outputs. Users recommend sensors with a linear voltage signal for easier integration, and explain the need for additional electronics or software for non-linear sensors and lookup table support. Alternatives from [company_name] and other brands are considered, focusing on ease of integration and signal scaling.",
+    "user_expectations": "The user is looking for clear, practical advice to wire a humidity sensor to a [product_name] controller and configure the [product_name] program for accurate display. Solutions should be easy to implement, cost-effective, and suitable for small-scale applications.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "sensor compatibility",
+      "accurate measurement",
+      "easy wiring",
+      "correct display"
+    ],
+    "pain_keywords": [
+      "signal incompatibility",
+      "complex setup",
+      "non-linear output",
+      "lack of documentation"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "linear voltage signal",
+      "compatibility",
+      "scaling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "6264911145",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 698996034590224,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello, this example is helpful, but can you show how to create the splitter block in ladder logic? My entire project uses Ladder, so I would appreciate guidance."
+    },
+    {
+      "comment_id": 595435614110981,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The splitting block is a user-defined function (UDF), which can only be programmed in Function Block Diagram, not Ladder. That's why I've provided a Ladder logic solution that includes both the Time_split program and the associated function."
+    },
+    {
+      "comment_id": 357008060379631,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Thank you very much! I'm reading a value from an off-delay timer and trying to reference the total minutes from its current time, but it's not working as expected. Also, could you explain the purpose of your SF004 analog threshold trigger? Again, UDFs can only be programmed in FBD, not Ladder. Thanks for the tailored Ladder program integrating both Time_split logic and its function."
+    },
+    {
+      "comment_id": 488886982886026,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Have you reviewed the Parameter VM Mapping in this program? You can access it via: Tools > Parameter VM Mapping."
+    },
+    {
+      "comment_id": 242419636931938,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The logic works, but the extracted minutes block only shows remaining minutes, and the value decreases over time. I want this value to be read from the HMI and remain constant. Again, the split block as a user-defined function can be written only in FBD, not Ladder. The program I shared integrates both the Time_split routine and its block functionality."
+    },
+    {
+      "comment_id": 221234604752413,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Apologies if there is confusion. I implemented your request by adapting the Time_split user-defined function to Ladder logic, as previously discussed. If you need something different or further clarification, please specify exactly what you want so I can assist you better."
+    },
+    {
+      "comment_id": 362550127698389,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Thank you for your time—the program works as needed. I would just like to change the time from the HMI, but this doesn't seem possible. Is it feasible to adjust the hours and minutes seen on the HMI? If so, please explain how."
+    },
+    {
+      "comment_id": 600653370047194,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Please reference the attachment."
+    },
+    {
+      "comment_id": 361401496700326,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Thank you very much. The issue is resolved."
+    },
+    {
+      "comment_id": 489363391716922,
+      "user_name": "YT3uCi0uV9",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Thanks for sharing the splitting program—it was very useful. Could you clarify the formula used? For example, I don't understand the use of 29 as a threshold in SF004, or the reasoning behind the analog comparator. If you have a mathematical formula for converting minutes to hours and minutes, I'd appreciate a detailed explanation."
+    },
+    {
+      "comment_id": 508786878414404,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Here's how SF002 works: The HMI's hours setpoint is in parameter V1; it's multiplied by 60 (V2) to convert hours to minutes. The minutes setpoint (V3) from the HMI is added, determining the total minutes. This value references the off-delay timer setting. The remaining time of the off-delay timer is transferred to memory (VW8) using Parameter VM Mapping, then read back via analog input and managed through SF009 and SF003 instructions. The analog threshold trigger (SF004) checks if total minutes exceed 29—if so, the analog MUX (SF005) outputs 30, otherwise 0. The total minutes from SF003 go to SF006; here, hours are calculated by first subtracting SF005's output (either 0 or 30), which ensures integer math and prevents rounding problems when dividing by 60. For example, dividing 54 by 60 rounds up to 1, but (54-30)/60 rounds down correctly to 0. SF006 produces the hour value, which is multiplied by 60 in SF007 to get the minute portion of the hours. SF008 then determines the remaining minutes by subtracting the total hours in minutes from the total minutes. This gives the minutes portion."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users wanted to convert a user-defined Function Block Diagram–only splitter block into Ladder logic to fit their existing projects using [product_name]. Throughout the discussion, they encountered restrictions such as UDF limitations in Ladder, timer value extraction challenges, parameter mapping, and formula design for hour-minute conversions. Continued collaboration, explanations, and stepwise logic breakdowns led to problem resolution and greater understanding.",
+    "user_expectations": "Users expect to replicate the FBD-only splitter block functionality in Ladder logic, directly read and adjust timer values from the HMI, and gain a clear understanding of the mathematical formulas underlying the provided control logic.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "LAD logic equivalence",
+      "HMI integration",
+      "understanding formulas",
+      "time split customization"
+    ],
+    "pain_keywords": [
+      "UDFs not supported in LAD",
+      "timer value extraction difficulty",
+      "HMI parameter modification"
+    ],
+    "feature_keywords": [
+      "UDF in FBD",
+      "LAD programming",
+      "Time_split block",
+      "Parameter VM Mapping",
+      "analog threshold triggers"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

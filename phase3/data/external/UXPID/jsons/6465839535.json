@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "6465839535",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 902927677453141,
+      "user_name": "RHzLJHXz3q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I'm using VW0 to initiate actions in my project, with values coming from a remote system. The issue is that in the example I followed, VW0 gets reset from a MUX linked to NAQ1 every cycle, which is too frequent. Ideally, VW0 should only be set to 0 after the process in the project completes. Is there an analog function to move a 0 into VW0 only after a specific bit turns true? Thanks."
+    },
+    {
+      "comment_id": 913959767321149,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Could you clarify which block provides the value during normal operation in each cycle?"
+    },
+    {
+      "comment_id": 983889373973841,
+      "user_name": "RHzLJHXz3q",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "No other block writes to VW0 apart from a remote device and the analog MUX shown. The remote system only writes a value once. I need VW0 to be reset to zero after the task triggered by the nonzero value is completed. All actions are based on boolean logic. Example: when the remote system writes 50 to VW0, it starts a pump. After the pump starts, I need to write 0 to VW0 within the controller."
+    },
+    {
+      "comment_id": 784201722262615,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Here's a possible solution. If you want VW0 to be set to 0 for just one cycle or until a new start occurs, try using an AND (Edge) block, labeled as B002. If you want VW0 to remain at 0 as long as the cycle end is pending, then you can remove B002."
+    },
+    {
+      "comment_id": 138507480697895,
+      "user_name": "RHzLJHXz3q",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I think I understand. The first rung takes the value from the remote system, and if I1 turns true, it resets VW0 to 0. In my scenario, I1 only pulses, but that's sufficient since the subsequent actions will be executed, which weren't happening with the previous method that reset every cycle. I just need the reset to happen after a boolean trigger, not every cycle."
+    },
+    {
+      "comment_id": 896848203947078,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "In the initial network, VW0 is read and linked via the analog amplifier to the analog MUX's first parameter. The MUX writes the value to VW0. If I1 shifts from 0 to 1, the MUX writes 0 into VW0."
+    },
+    {
+      "comment_id": 974986911786319,
+      "user_name": "RHzLJHXz3q",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I'll test it in the morning. It looks like you've answered how to write a value after a task completes via a boolean trigger. Now I can process the task and reset the value to zero afterward, instead of clearing it before the task starts. I'm using a communication interface module to send values, so there is some SMS latency and shifting of values in the user data memory. Thank you for your assistance!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion focuses on controlling when to reset an analog value (VW0) to zero, aiming to do so only after a boolean-triggered task completes instead of every cycle. This change ensures downstream tasks are properly executed and improves the sequence's reliability.",
+    "user_expectations": "User seeks a way to clear the analog value in VW0 solely after a successful, boolean-triggered task completion, preventing premature resets and ensuring dependable downstream operations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable task execution",
+      "precise value resetting",
+      "sequential process"
+    ],
+    "pain_keywords": [
+      "premature value reset",
+      "missed downstream tasks",
+      "timing issues"
+    ],
+    "feature_keywords": [
+      "analog value reset",
+      "boolean trigger linkage",
+      "MUX function block"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

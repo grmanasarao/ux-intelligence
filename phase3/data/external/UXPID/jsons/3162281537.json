@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "branch_id": "3162281537",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 607834086488680,
+      "user_name": "0YjcpSCPWD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I'm facing a new problem. I installed the program I had trouble uploading yesterday, and it's working well except for one issue. I need complete retentivity: all counters that the math instructions rely on are retentive, so their values remain after a power cycle, which is good. I enabled 'protection' on all math instructions and set them to hold their previous values when disable is zero. This setup works if the enable is high: values persist through power cycles, and with power on but enable low, they still show the prior value. However, if the power is removed when enable is low, they reset to zero instead of keeping the previous value. Is there a way to make these blocks retain their values after power cycles, even if enable is low?"
+    },
+    {
+      "comment_id": 342230803372952,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Values entered directly into a mathematical instruction block parameter are stored in flash memory when there is a power failure. However, if values are written by reference to the parameters, they are not stored. Unfortunately, there is no option to enable retentivity in this case. The only workaround is to connect the output of the math instruction block to the input of a MAX/MIN block, which allows retentivity to be set."
+    },
+    {
+      "comment_id": 756026079408716,
+      "user_name": "0YjcpSCPWD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I'll test this solution at work and see if it helps. I expect it should work. Thank you in advance, I'll update you on my results."
+    },
+    {
+      "comment_id": 500550834448097,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "You might try using the M8 startup flag with a short delay, if needed, for the Enable input of the math block."
+    },
+    {
+      "comment_id": 378946122962606,
+      "user_name": "0YjcpSCPWD",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "That's a good suggestion, but the math instructions aren't always enabled—they reference counters, stop when the pulse count is reached, but counters keep running. If the math instruction stays enabled, the value keeps changing since the counter continues counting."
+    },
+    {
+      "comment_id": 871410574836936,
+      "user_name": "0YjcpSCPWD",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "That worked. I added additional lines to the logic, and now the program does everything I need, as far as I can tell. Thanks so much for your help with these issues."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered a challenge with retention in math instruction blocks—values revert to zero when enable is low during power cycles, disrupting the retention logic. The feedback clarifies there's no built-in retentivity switch for this scenario, but integrating workaround blocks like MAX/MIN can address the issue. Overall, while the program functions reliably in most cases, retention for more complex logic is not easily configurable, limiting flexibility.",
+    "user_expectations": "The user expects all counters and math instruction outputs to remain stored and persistent, regardless of the enable condition during power cycles. They would like an easy, configurable option to enable retentivity on all logic blocks.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data persistence",
+      "reliable retention",
+      "configurability",
+      "program consistency"
+    ],
+    "pain_keywords": [
+      "inconsistent retention",
+      "non-retentive math blocks",
+      "manual workaround",
+      "extra programming effort"
+    ],
+    "feature_keywords": [
+      "retentivity",
+      "mathematical instructions",
+      "enable input",
+      "MAX/MIN block",
+      "protection option"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

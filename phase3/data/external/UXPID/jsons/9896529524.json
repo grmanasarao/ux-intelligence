@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "branch_id": "9896529524",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 435565030234499,
+      "user_name": "yCOzBubyRh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "I'm connecting [product_name] expansion module to [product_name] base module. What is the analog input (AI) for the [product_name] expansion module in [product_name] engineering software [version_no]?"
+    },
+    {
+      "comment_id": 577253884485881,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "You need to check how many analog inputs are enabled on your base module. Go to File > properties > I/O-Settings. If the base module doesn't have analog inputs, then AI1 is the first address on the first expansion module. If you enable two analog inputs on the base module, then AI3 is the first address on the expansion module. If four analog inputs are enabled, the first address on the expansion module will be AI5."
+    },
+    {
+      "comment_id": 222769511469201,
+      "user_name": "yCOzBubyRh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "None of the analog inputs are functioning!"
+    },
+    {
+      "comment_id": 459106045758420,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Is the LED on your expansion module showing green, red, or is it off?"
+    },
+    {
+      "comment_id": 731791667482317,
+      "user_name": "yCOzBubyRh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "The LED is green."
+    },
+    {
+      "comment_id": 440510063967279,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "What is the complete article number of your base module?"
+    },
+    {
+      "comment_id": 312051721855669,
+      "user_name": "yCOzBubyRh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "[article_no]"
+    },
+    {
+      "comment_id": 751628934000788,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "So you have a 12/24VDC module without display. In that case, AI5 is the correct number for the first analog input on your expansion module. What type of PT sensor are you using? Is it 2-wire, 3-wire, or 4-wire?"
+    },
+    {
+      "comment_id": 571061029426123,
+      "user_name": "yCOzBubyRh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "I'm using a 3-wire PT100 sensor."
+    },
+    {
+      "comment_id": 694411244208673,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Connect one blue wire to U1-, the second blue wire to IC1, and the red wire to U1+."
+    },
+    {
+      "comment_id": 597414569053586,
+      "user_name": "yCOzBubyRh",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Yes! Thank you so much! Everything is working now!"
+    },
+    {
+      "comment_id": 678877876386100,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "Glad to hear it's working for you now."
+    },
+    {
+      "comment_id": 959657738504848,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 6,
+      "comment_body": "If a user isn't sure which analog input number the analog sensor is attached to, there are a few ways to figure it out: For modules with or without display, open [product_name] engineering software [version_no] and connect to your base module. Then go to Tool/Transfer/I/O-Status and connect to your base module. On your PC screen, you'll see a list of all standard I/O. Disable all except the analog inputs. Make sure all unused AIs show a 0 signal, then connect each sensor one by one, and check which AI displays a value change. If your module has a display, use the cursor to scroll until the date and time are shown, then press right until the analog inputs are displayed (usually 3-4 times); here you can see the values for each analog input. Connect sensors one at a time and see which one changes. Additional points: If your base module has onboard analog inputs, you can configure how many to use (0, 2, or 4) in the IO settings via File/Properties. When viewing the I/O-Status list in [product_name] engineering software, you can specify a log file name and create a CSV file that will record standard I/O data as long as the list is open. On the base module with a display, selecting an analog input value (e.g., AI1) and pressing OK will show this value in a trend view on the display. Hope this helps."
+    },
+    {
+      "comment_id": 887952693069301,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "A new question was published by [user_name] and moved to a separate discussion about analog input values on the module display remaining at zero. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The initial challenge was figuring out which analog input address to use for the expansion module with the engineering software while connected to the base module. The confusion involved the configuration steps in the software and the wiring for the PT100 sensor. At one stage, no analog inputs seemed to work, pointing to either a software or wiring issue. Step-by-step questions, clarifications on hardware configuration, and wiring instructions eventually resolved the issue, helping the user successfully connect and read data from the sensor.",
+    "user_expectations": "The user seeks a straightforward method for identifying and setting up the correct analog input address in the software for their expansion module, and expects an easy hardware connection process with clear guidance, aiming for reliable and functional sensor readings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "find correct input",
+      "sensor integration",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "unclear AI mapping",
+      "inputs not working",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "analog input address",
+      "expansion module integration",
+      "sensor wiring"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

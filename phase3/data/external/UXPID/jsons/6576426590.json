@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "branch_id": "6576426590",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 641978920639429,
+      "user_name": "KxwfelTXDq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hello, I'm looking for advice on programming an application where I need to read a solenoid valve 24 VDC pulse (duration: 0.15 to 1 sec). The timing between pulses varies depending on the machine. If over 30 sec passes between pulses, an alarm should trigger. How can I approach programming this? Any help would be appreciated."
+    },
+    {
+      "comment_id": 979055580357730,
+      "user_name": "R40RVeEty3",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], You can use a counter to count the pulses and an on-delay timer to check the gap between them. With these outputs, you can create the alarm logic."
+    },
+    {
+      "comment_id": 754357489151987,
+      "user_name": "R40RVeEty3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "I've attached a sample program to help illustrate how it works. Hope you find it useful."
+    },
+    {
+      "comment_id": 628642149740117,
+      "user_name": "KxwfelTXDq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], I have several questions: 1. What is the purpose of switch I2 for turning on M1? 2. Why use 'AND with edge evaluation'? The definition says it outputs only if all inputs are 1, and at least one was 0 previously, but only one input is connected. 3. I want to reset the alarm manually and not based on pulse duration. 4. How do I ensure the alarm triggers if there’s more than 30 sec between pulses? I’m finding this logic challenging to understand."
+    },
+    {
+      "comment_id": 581752429633256,
+      "user_name": "R40RVeEty3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], I used I2 and M1 for simulation—to control when the system starts. Refer to the Programming manual or the help section in the programming software. If nothing is connected to the block, it acts as high (1). Are you resetting the alarm from an input manually? Sorry for the earlier misunderstanding. I've attached a new sample that lets you use I2 for alarm reset and I4 for pulse input. Give it a try and share your feedback."
+    },
+    {
+      "comment_id": 819176112334028,
+      "user_name": "KxwfelTXDq",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], Yes, I want to reset the alarm manually through an input. In norikafu2.lld, I noticed the alarm triggers when the second pulse is less than 30 sec apart; I actually need it to prompt when the second pulse is more than 30 sec apart."
+    },
+    {
+      "comment_id": 591379408942238,
+      "user_name": "R40RVeEty3",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], You can adapt the earlier example to meet your requirement. This forum aims to guide you, so try things out and ask specific questions. To have the alarm trigger when the second pulse occurs after 30 seconds, you don’t need a counter. Replacing it with a latching relay saves memory. This is just a sample—you can refine and ensure safety before applying it to your machine. Please review the attached example carefully."
+    },
+    {
+      "comment_id": 119198613032191,
+      "user_name": "KxwfelTXDq",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name], Thank you for your support. I’m currently using a latching relay and was considering alternative blocks that could pick up a negative edge to continue with the timer. Couldn’t find an exact match, so your advice is helpful. Many thanks!"
+    },
+    {
+      "comment_id": 614822379738910,
+      "user_name": "R40RVeEty3",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], You can use the NAND(Edge) block if you need to measure the gap (30 sec) between the negative edge of Pulse 1 and the positive edge of Pulse 2. TIP 1: If you need this functionality for multiple solenoid valves (for example, three, each with separate alarm outputs like Q1, Q2, Q3 from pulse inputs I4, I5, I6), you can create your own block called UDF (User Defined Function) and use it multiple times. This is only available on OBA7. TIP 2: For high-speed pulses, use high-speed inputs up to max 5 KHz (like OBA6, 12/24VDC I3, I4, I5, I6). Refer to the LOGO manual for details."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are working to set up [company_name] logic modules for detecting pulse signals and managing solenoid valve alarms, focusing on variable intervals between pulses. The discussion highlights difficulties understanding block configurations, programming manual resets for alarms, and implementing timing logic. Users seek clear, practical explanations and references to documentation for programming blocks.",
+    "user_expectations": "Users expect simple, reliable programming solutions for detecting pulse intervals, the ability to reset alarms manually, and accessible guides explaining programming blocks and their use.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "pulse monitoring",
+      "alarm triggering",
+      "manual reset",
+      "logic customization"
+    ],
+    "pain_keywords": [
+      "logic block confusion",
+      "manual not clear",
+      "reset not intuitive",
+      "complex programming"
+    ],
+    "feature_keywords": [
+      "alarm reset",
+      "pulse interval detection",
+      "edge-triggered logic blocks",
+      "User Defined Function (UDF)",
+      "high speed input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

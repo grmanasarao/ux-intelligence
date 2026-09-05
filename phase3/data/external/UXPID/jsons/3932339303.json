@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "3932339303",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 447466055166097,
+      "user_name": "fW66tMIjJU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I've been working on establishing communication with a [product_name] to poll various states and statuses of the specific device I'm using ([article_no]). Initially, I tried S7 communication, but it did not provide full protocol access, so I switched to [product_name] decode, given that it successfully supported several required functions. Using Packet Sender and these ASCII strings, I've managed to interact with the device: K\\c0\\01\\e0\\00\\00\\00\\00\\00\\00\\00\\00CheckState\\00\\00\\10'\\00\\00 K\\c0\\01\\e0\\00\\00\\00\\00\\00\\00\\00\\00GetProfile\\00\\00\\10'\\00\\00 K\\c0\\01\\e0\\00\\00\\00\\00\\00\\00\\00\\00GetIOStatus\\00\\10'\\00\\00 K\\c0\\01\\e0\\00\\00\\00\\00\\00\\00\\00\\00GetFW\\00\\00\\00\\00\\00\\00\\00\\10'\\00\\00 K\\c0\\01\\e0\\00\\00\\00\\00\\00\\00\\00\\00SwitchMode\\00\\00\\10'\\00\\00 K\\c0\\01\\e0\\00\\00\\00\\00\\00\\00\\00\\00GetClock\\00\\00\\00\\00\\10'\\00\\00 I am interested if there are additional similar commands for the [product_name], for tasks such as triggering the OK button, setting the clock, or assessing logic blocks. Any contributions would be appreciated."
+    },
+    {
+      "comment_id": 935404820608599,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "To read or set the real-time clock, you can utilize the VM area. These VM addresses serve special functions: Edits: VB 991–VB 996 correspond to VB 985–VB 990, providing equivalent functions but with values in hexadecimal format."
+    },
+    {
+      "comment_id": 247568725946747,
+      "user_name": "fW66tMIjJU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thanks for your feedback. I'm already familiar with this method. My inquiry is specifically about TCP packet commands, not DB read/write approaches."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to communicate programmatically via TCP protocol with a [product_name] ([article_no]) to poll device states, activate interface elements like the OK button, and manage system functions such as clock setting. Some successful command strings are shared, but the user seeks a comprehensive or official list of supported TCP commands for advanced interactions. Responses so far offered memory variable methods rather than protocol specifics, exposing a lack of shared documentation or community expertise on direct TCP command usage for the hardware.",
+    "user_expectations": "The user expects access to an official or thorough list of TCP packet commands for controlling and querying the [product_name] ([article_no]), with options to trigger device interface actions and set operational parameters, beyond basic memory variable workarounds.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "automation",
+      "TCP command access",
+      "protocol documentation"
+    ],
+    "pain_keywords": [
+      "limited command documentation",
+      "incomplete protocol access",
+      "third-party integration difficulties"
+    ],
+    "feature_keywords": [
+      "TCP command set",
+      "remote interface control",
+      "clock setting",
+      "OK button trigger"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

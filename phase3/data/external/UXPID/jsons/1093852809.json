@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "1093852809",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 602400362797665,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Why is the panel's clock running 6 minutes and 16 seconds late compared to the actual time, as referenced by a DCF77 clock? Entering an NTP IP address in the settings does not correct the issue. Is this something that cannot be fixed, or is there an alternative solution?"
+    },
+    {
+      "comment_id": 833673140513343,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "You can synchronize the time between different controller versions and an operator panel. In the NTP settings of the controller, set it up as an NTP client and provide the IP address of an NTP server. This will allow the device to obtain the correct time and date. Within your engineering environment, set up a connection for the operator panel using the relevant communication driver. This makes it possible to activate area pointers for synchronization purposes. To synchronize time, make sure the global area pointer for date and time is enabled for the connection using the correct communication driver. Specify address VW991 for this configuration."
+    },
+    {
+      "comment_id": 438531156489456,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 4,
+      "comment_body": "Initially, synchronization didn't work. Eventually, I located the issue: in the Connections -> Parameter section, the IP address for the station was incorrect. After correcting it, the clock displayed the correct time. Thanks for the assistance."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main issue was a noticeable lag between the operator panel's clock and real time, which couldn't be resolved through standard NTP settings. Advice from another user revealed that the cause was incorrect connection configuration, emphasizing the importance of attention to network and device settings during NTP synchronization in automation systems.",
+    "user_expectations": "The user anticipates that the operator panel's clock will be accurately synchronized with external time sources like DCF77 or an NTP server through standard configuration steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate clock",
+      "time synchronization",
+      "reliability"
+    ],
+    "pain_keywords": [
+      "clock deviation",
+      "NTP not working",
+      "misconfiguration"
+    ],
+    "feature_keywords": [
+      "NTP server support",
+      "time synchronization",
+      "connection parameters",
+      "area pointer configuration"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

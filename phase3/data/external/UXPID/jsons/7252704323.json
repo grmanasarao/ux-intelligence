@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "branch_id": "7252704323",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 790081694138756,
+      "user_name": "RMmejeBpD6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello, Were you able to resolve your issue? I am experiencing a similar problem with [article_no] (firmware [version_no]) and a 1500ppr encoder. Using just one channel works as expected, and with two counters for both channels, the values match. When I connect the second channel for direction input, it works in both directions but only at very low speeds (maximum 10 pulses per second). I checked with an older [article_no] and that works fine. I also tried a new firmware version ([version_no]) but didn't see any improvement."
+    },
+    {
+      "comment_id": 907340998086536,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "You won't receive a reply from [user_name] as they are no longer part of this community. Correct pulse counting on high-speed inputs only works properly if the inputs are directly connected to the counter, without any logical operation between the high-speed input and the counter. If there is any logic in between, counting only occurs within one program cycle."
+    },
+    {
+      "comment_id": 303343039330463,
+      "user_name": "RMmejeBpD6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hello, I connected I3 to the count input and I4 to the direction input of a counter, then added a message block to display the current value, removing all other elements. At slow encoder speeds (up to 10pps/10Hz), counting works correctly in both directions, but above that, measurements become unreliable. I tested using two counters, with I3 going to the count input of counter1 and I4 to the count input of counter2, leaving both direction inputs disconnected. The results from both counters matched (sometimes counter1 showed +1 depending on encoder position). My encoder has 1500ppr, and turning it manually for nearly one full rotation (1200-1300 pulses), this is the value received, suggesting these are high-speed inputs (at least 1.3kHz). Is it possible that the direction input is configured to operate as a slow input, or am I missing something in the setup?"
+    },
+    {
+      "comment_id": 465210517527826,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "That setup will not work as intended. The direction input of the counter should be connected to a constant high signal if counting downward is required. By switching the second track of the encoder to the direction input, it continuously alternates between counting up and down. In my opinion, using a [product_name] for A/B encoder signal evaluation is not suitable."
+    },
+    {
+      "comment_id": 331480437333824,
+      "user_name": "RMmejeBpD6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "I conducted additional tests with an older [product_name] ([article_no]), which is specified to have 2kHz fast input—about 2.5 times slower in theory than the newer version. With the direction input disconnected, I received 1200-1300 pulses during roughly one second of manual turning, so 2kHz seems feasible. When the second channel is connected to the direction input, I reach about 200-220pps; beyond this, pulses are missed. The newer [product_name] should theoretically manage at least 500pps, but I am only able to achieve around 10pps. My project is fairly simple, requiring just a few centimeters per second (roughly 50-100pps from the encoder), so this solution was an affordable and straightforward option. However, due to this limitation, I may need to use either a single channel with data from a frequency inverter or an external impulse counter."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants encountered notable issues when using [product_name] modules for encoder pulse counting, especially when incorporating direction input. While single-channel setups functioned reliably, using both channels (count and direction) drastically reduced maximum counting speed and led to errors at frequencies above very low thresholds. Tests with older module versions showed improved but still suboptimal results. Overall, users concluded current [product_name] counter designs are insufficient for applications involving A/B encoder signals or direction handling at reasonable speeds.",
+    "user_expectations": "Users expect [product_name] modules to provide reliable high-frequency pulse counting from encoders and correctly process direction input at speeds exceeding 10pps, aiming for performance comparable to older modules or alternative products.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable high-speed pulse counting",
+      "direction-aware encoder decoding",
+      "affordable simple solution",
+      "compatibility with existing encoders"
+    ],
+    "pain_keywords": [
+      "unreliable counting above 10pps",
+      "DIR input limits speed",
+      "loss of pulses",
+      "inconsistent counting",
+      "product unsuitable for A/B encoders"
+    ],
+    "feature_keywords": [
+      "high speed counter",
+      "DIR input",
+      "encoder compatibility",
+      "pulse frequency support",
+      "direction processing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "13": "Integration Limitations"
+  }
+}

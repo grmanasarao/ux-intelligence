@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "branch_id": "1248786714",
+    "thread_id": "3055273936",
+    "publication_year": 2006,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 201943088684950,
+      "user_name": "ipeRhzEOJR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm putting together a lighting system for my home. It will be controlled by three [product_name] units using basic pushbuttons. Each controller will include two [product_name] expansion modules and one [product_name] analog expansion. Most light fixtures will connect directly to relay outputs, while larger lamp groups use an auxiliary modular relay. I plan to use a [product_name] 24V power supply, which comes in 1.3A and 2.5A versions. Will the 2.5A supply handle everything, or is it possible to parallel multiple power supplies to increase capacity? How many would be needed for this setup? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 552677969390032,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "Yes, you can connect several [product_name] power supplies in parallel for additional current. More details can be found here: [url]. The type of [product_name] power needed depends on the current drawn by your loads and motors—if they are powered by the same source. The controller and extension modules consume minimal current. Check the technical specs in the manual and compute the total current required by your loads. Also, note: the [product_name] basic module lacks analog inputs compared to other versions, so if you need to connect analog sensors, you’ll need additional expansion modules. Regards, [user_name]"
+    },
+    {
+      "comment_id": 521606094933973,
+      "user_name": "ipeRhzEOJR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "I am working on a home lighting control system—no motors involved, just lights as outputs. I do not need analog inputs but will use analog outputs to operate 0-10V dimmers. Larger light groups will be controlled via auxiliary 24V relays, not directly connected to controller outputs. The [product_name] power supply will only need to support the three controllers with their extensions, some 24V signal lamps, and a few auxiliary relays. According to the manual, the controller draws 20-75mA on 24VDC. That’s 20mA for the controller plus 13.75mA for each output relay coil, totaling 75mA. Is this accurate? It seems very low. For three controllers, each with four digital modules and one analog module, the maximum total is roughly 1.275A. A single 2.5A or 4A [product_name] power supply should be enough. Or, for higher reliability, two 2.5A units can be connected in parallel."
+    },
+    {
+      "comment_id": 617282830366108,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 10,
+      "comment_body": "You should calculate it as follows: the 20-75mA figures refer to dissipation current—20mA is when no inputs/outputs are active and 75mA is with all I/O active, excluding external loads. To be safe, use max current values: 75mA for each controller, 75mA for each digital expansion, and 50mA for each analog module. For three controllers with extensions: 75x3 + 75x6 + 50x3 = 825mA. Add the load current to this sum. The 2.5A [product_name] power supply should be sufficient for all components, as the auxiliary relays and signal lamps do not require much current. The 1.3A version may be inadequate. Please check these calculations yourself."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are reviewing how to select and size [product_name] power modules to ensure a home lighting system, built with multiple controllers and extension modules, is supplied adequately. There is uncertainty about calculating power needs and whether it’s possible to parallel power supplies for redundancy. Users seek clarity on interpreting datasheet current values and require explicit guidance for designing a reliable system.",
+    "user_expectations": "Users expect straightforward advice on the required power supply size, precise calculation methods for total current demand, and confirmation on whether multiple power supplies can be paralleled for greater reliability.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable power",
+      "correct dimensioning",
+      "easy calculation",
+      "redundancy"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "calculation confusion",
+      "uncertainty sizing"
+    ],
+    "feature_keywords": [
+      "current consumption",
+      "paralleling supplies",
+      "redundancy",
+      "relay outputs",
+      "analog outputs"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "17": "Circuit Protection Guidance"
+  }
+}

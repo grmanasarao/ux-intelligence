@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "6797174636",
+    "thread_id": "3055273936",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 813651121048124,
+      "user_name": "IldZbqIcAE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I’m seeking advice on a program that computes a cumulative mean from a temperature sensor, with updates every 15 minutes. The message should show the actual mean value from a specific block. The attached program works well during simulation and on the [product_name] display, but the [product_name] operator display consistently shows \"0.0\". Does anyone know what might be causing this discrepancy? Thank you in advance, [user_name]"
+    },
+    {
+      "comment_id": 443324793586554,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 12,
+      "comment_body": "Hi, I’ve uploaded the program to my [product_name] device and both the main screen and the operator display correctly show the value. I’m using [article_no] with [product_name] panel."
+    },
+    {
+      "comment_id": 443841956831161,
+      "user_name": "IldZbqIcAE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Thank you for your quick response! I forgot to mention I’m using a different version ([article_no]) and [product_name] panel, purchased just last week. I’ve tried several workarounds, including adding a math instruction block that references the mean value block and then using that new math block in the text block. The result is that the [product_name] display shows the correct value, but the operator display continues to show only the initial value (the first measured temperature). So, both displays are showing different values for the same function block. Any tips or alternative solutions would be greatly appreciated."
+    },
+    {
+      "comment_id": 477844575424738,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hi, I believe the issue relates to the high number assigned to the function block you’re trying to display. Try these steps: - Find a basic function block with a number below 100. - Replace it with the same type from the instruction tree using drag-and-drop; this frees up the previous block number. - Substitute the block you want to show on the operator display with the same type; this assigns it a lower number. Note that you’ll have to re-enter parameters in the message text since the old block number is no longer available. Test again afterward. Hope that helps."
+    },
+    {
+      "comment_id": 841407215653313,
+      "user_name": "IldZbqIcAE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I really appreciate your help! I spent a lot of time on this problem and didn’t realize the block number was causing it. By adding math blocks with low numbers tied to the amplifiers in the original layout, everything is now functioning as expected. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main challenge was inconsistent value presentation between two display interfaces: while the mean temperature calculation appeared correctly on the [product_name] module’s main display and in simulation, the operator panel showed only a static or incorrect value. The root cause was identified as using a high-numbered function block, which the operator panel could not process as expected, revealing inconsistent handling of function blocks between device displays.",
+    "user_expectations": "The user anticipated that the operator panel display would reflect dynamic calculated values from any function block, matching the behavior of the main display and allowing reliable monitoring across different devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "consistent display",
+      "real-time monitoring",
+      "reliable feedback"
+    ],
+    "pain_keywords": [
+      "display inconsistency",
+      "misleading information",
+      "unsupported function blocks"
+    ],
+    "feature_keywords": [
+      "TD display value update",
+      "block reference handling",
+      "function block compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

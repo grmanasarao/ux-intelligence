@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "2076341629",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 743714804221026,
+      "user_name": "sLPTLQQfXb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hello everyone. I'm very new to PLCs, so I may have some basic questions. Looking at the hours counter block in [product_name] V5, I couldn't get it to work as intended. I want the counter to run while the input is 1, accumulating time, and to pause (but not reset) when the input is 0, so it resumes counting from where it left off when input returns to 1. Is this possible with the hour counter block? If not, is there an alternative simple timer function? Also, will [product_name] V7 support both [article_no] and [article_no] controllers? Thank you in advance."
+    },
+    {
+      "comment_id": 321121547329383,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hi, Yes, the hour counter is designed for that purpose, such as counting operating time for maintenance intervals. The newer controllers also include a stopwatch that measures in milliseconds. The software help section describes these features in detail. You can program all controllers with [product_name] V7, but functions unavailable on your selected device won't appear. Press CTRL+H to select your specific controller before you begin programming. Regards,"
+    },
+    {
+      "comment_id": 453807920174589,
+      "user_name": "sLPTLQQfXb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Thanks for your reply. However, I can't seem to get the counter to stop counting when the input at 'En' is turned off. I'm not sure what I'm missing."
+    },
+    {
+      "comment_id": 627568311103999,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Please share your program here. Compress your [document] file into a .ZIP archive and upload it. This way, we can review it to help you find a solution."
+    },
+    {
+      "comment_id": 813896679127953,
+      "user_name": "sLPTLQQfXb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Actually, I haven't written a program yet. I'm still trying to understand how the 'hour counter' block operates. I can trigger the counter to start, but I can't get it to pause without resetting. I simply want it to count when the input is active and stop when input is inactive."
+    },
+    {
+      "comment_id": 457404067183952,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hello, As others have mentioned, the OHC should function according to your expectations. If you encounter issues, there may be a misconfiguration in your test. Save your program, zip it, and upload it so we can take a look and identify the problem."
+    },
+    {
+      "comment_id": 105581004386496,
+      "user_name": "sLPTLQQfXb",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hello again. I'm working on a simple program to alert an operator when two filters require cleaning: Filter A after 1 hour and Filter B after 2 hours of runtime. The program currently operates as follows: if I1 and I2 are turned on, the counters begin as expected. If I1 and I2 are turned off after 30 minutes and then back on 15 minutes later, leaving them running, the counter triggers output 1 hour after I1 and I2 were first activated, which isn't correct because the filters were only used for 45 minutes in total. A conventional mechanical hour counter should only run when the machine operates and pause when it stops. That's the behavior I'm aiming for. Thanks again for your assistance."
+    },
+    {
+      "comment_id": 334140574043396,
+      "user_name": "sLPTLQQfXb",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Interesting update. After my last post, I upgraded my software from [product_name] V5 to V7. I noticed the hour counter block now displays minutes as well as hours. Rewriting the program, the simulation worked as desired this time. Both versions of the program are identical, so I'm unsure why it works properly in V7 but not in V5. Thank you for your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user experienced difficulty with the hour counter feature in an older programming software version. Despite correct logical setup, the hour counter did not pause when the input switched off but continued counting. After updating to a newer software version, the feature worked as expected, suggesting an improvement or bug fix in the software.",
+    "user_expectations": "The user expects the hour counter to only accumulate time when the input is active and to pause—retaining its count—when the input turns off, accurately reflecting actual usage time.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate runtime counting",
+      "interval-based notification",
+      "realistic simulation"
+    ],
+    "pain_keywords": [
+      "incorrect counter behavior",
+      "software inconsistency",
+      "lack of clarity"
+    ],
+    "feature_keywords": [
+      "hour counter block",
+      "retain value",
+      "simulation accuracy",
+      "software upgrade"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "branch_id": "7603958937",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 899824545807389,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Hello! I need help understanding how networks work. Sometimes it feels confusing. For example, how can I create the same type of connection as shown in the screenshot, but manually instead of using drag-and-drop?"
+    },
+    {
+      "comment_id": 180918956310897,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "You can add network inputs or outputs, then double-click them to open a menu with options such as VM address, selecting another [product_name] in your project, and specifying the address directly."
+    },
+    {
+      "comment_id": 463551428781302,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Attached is a video and the relevant project file. It demonstrates how to manually set up a client/server connection between two [product_name] devices. You normally connect them by dragging and dropping, but this details manual setup. Two things to keep in mind: the device where you start the connection acts as the client, and a box defines the TSAP. There are nine boxes displayed: the left double box allows for eight dynamic connections, while the other boxes designate static connections with assigned TSAPs—ranging from TSAP 20.00 to 27.00. Once a connection is made, double-clicking it brings up the data transfer table, where you can specify which data from one [product_name] is sent to another."
+    },
+    {
+      "comment_id": 788488374358122,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Thanks! Could you explain the difference between dynamic and static connections, and why it matters?"
+    },
+    {
+      "comment_id": 614249034259232,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Based on what the manual states: a [product_name] can handle up to 16 connections, with a maximum of eight being static. Static connections use fixed resources, while dynamic ones do not. Please refer to the attachment for details."
+    },
+    {
+      "comment_id": 508064764871234,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "During program development, an incorrect connection appeared for BM KOU (see screenshot). The program has no NI or NQ for it and operates normally. Yet, a static connection remains unnecessarily occupied. How can this be removed?"
+    },
+    {
+      "comment_id": 143334773178675,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "Your project contains errors that typical users cannot fix. I exported the KOU program as a separate diagram and noticed concealed connections under Ethernet settings. This seems unusual. There was a similar issue discussed on the German forum. The suggested solution was to submit a Support Request and share your project with [company_name] support for further investigation. They might be able to resolve it. Again, the problem arose from connections made via drag-and-drop."
+    },
+    {
+      "comment_id": 413659715582575,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "One thing I'm confused about: You wanted to know how to manually create connections between [product_name] devices rather than using drag-and-drop. I shared an example for manual setup, but you ended up using drag-and-drop in your project."
+    },
+    {
+      "comment_id": 972434839637947,
+      "user_name": "udO0a0woU9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "You can fix your project file by creating a new one as follows: 1. Copy the file using Windows Explorer. 2. Remove all network communication elements. 3. Start a new project file. 4. Copy and paste contents from the old file (excluding the communication) into the new one. 5. Rebuild your network communication—either manually or with drag-and-drop, but it's best not to use both methods together."
+    },
+    {
+      "comment_id": 845150725555360,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "This approach doesn't work. Even if you remove all network inputs and outputs from your programs, the [product_name] device with 192.168.0.2 still retains an open connection on TSAP20.00, which can't be deleted. You need to export the program for 192.168.0.2 and edit it as an individual LSC file to remove the existing S7 connection from Ethernet settings. If you try to copy all the blocks into a new diagram, you might encounter a Java error due to inconsistent data. The only solution is to save the diagram after deleting the connection, then import it back into your project."
+    },
+    {
+      "comment_id": 892114518914811,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "I created the project using drag-and-drop, then came to the forum to ask about alternative methods. Based on the example, what is done automatically via drag-and-drop can't be exactly replicated manually; the manual process is different and less straightforward."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find managing network connections confusing, particularly when it comes to manually removing or fixing persistent static connections in [product_name] projects. The steps to address these issues are unclear, sometimes resulting in project errors or the need for advanced troubleshooting or support assistance. Documentation and feedback within the software do not always help users correctly resolve complex network setup problems.",
+    "user_expectations": "Users want a simple and clear way to create, understand, and delete network connections—especially static ones—using the software interface or straightforward documentation. They expect the system to offer transparent behavior for network management and an intuitive process for correcting errors or unwanted configuration changes, without risking project integrity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "control network connections",
+      "fix/remove incorrect/static links",
+      "project integrity"
+    ],
+    "pain_keywords": [
+      "undeletable static connection",
+      "inconsistent data",
+      "lack of clear removal method",
+      "confusing interface"
+    ],
+    "feature_keywords": [
+      "network communication",
+      "static/dynamic connections",
+      "drag-and-drop/manual creation",
+      "TSAP assignment",
+      "project export/import"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "12": "Network Configuration Challenges"
+  }
+}

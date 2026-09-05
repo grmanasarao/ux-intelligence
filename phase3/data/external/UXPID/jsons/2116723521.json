@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "2116723521",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 457389248465196,
+      "user_name": "BX2b8c8m3d",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm creating a control program for the shutters in my home. Everything generally works as intended (timed closing, alarm integration, etc.), but I need assistance displaying the shutter position. For example, in my test setup (see attachment), the values on outputs may eventually exceed 28 or drop below 0. Could someone guide me on how to address this issue? Thank you in advance for your quick response. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 855289897579239,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "This issue is expected since you're using two timers without physical limit switches, and operate outputs for preset durations. For instance: if your system restarts, both timers are at zero. When you command the shutter to move up, then stop by briefly activating the opposite direction, the timer for the movement direction might stop at 15 seconds. If you next activate the down direction and let it run uninterrupted, the timer counts 28 seconds. When calculating position, you subtract the 'up' value from the 'down' value: 15s - 28s = -13s. Without a sensor counting actual movement, these offsets will always occur."
+    },
+    {
+      "comment_id": 575598121889393,
+      "user_name": "BX2b8c8m3d",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you for your reply. I understand this issue. My question is whether it's possible to determine the shutter's position, using only open/close timings, without encoders. Perhaps another function block might help, or maybe restricting the counter range to between 0 and 28 could solve it? It's a basic shutter—the total movement time is 28 seconds up or down. If you apply longer running time, limit switches will stop the motor. Open to any suggestions :-) Best regards, [user_name]"
+    },
+    {
+      "comment_id": 926370178053168,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Is that even feasible? Without an encoder, you cannot reliably know the shutter's position—there's no way to account for all partial movements. If you change direction mid-way, the full movement time isn't always used. Without synchronization, these offsets remain."
+    },
+    {
+      "comment_id": 332792802179800,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Try checking the program attached. In that example, the movement is monitored with a pulse counter. Upward movement is capped when the counter reaches 28 (seconds) and downward movement can never go below zero, preventing negative values entirely."
+    },
+    {
+      "comment_id": 428386115573518,
+      "user_name": "BX2b8c8m3d",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you, [user_name]! That's exactly what I needed. Since this isn't for industrial automation, precise positioning isn't required—it's only for visual feedback. Your approach works well, and I've incorporated it into my application. I'll observe over a few days to verify consistent position display, but it seems to be working fine. I hadn't thought about calculating position using one-second pulses. Thank you again. Best regards and have a great day, [user_name]"
+    },
+    {
+      "comment_id": 575189138462353,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], Glad I could help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are discussing how to display the position of home shutters using [company_name] automation products, exclusively based on timing rather than physical encoders. The central issue is inaccurate or out-of-range position values due to timer drift when no limit switches or encoders are present. A better solution involves using a pulse counter with value boundaries (locked between 0 and 28 seconds), which stabilizes output for simple visualization needs, noting that exact accuracy is not essential for this home setup.",
+    "user_expectations": "Users seek a dependable way to visually represent shutter position, restricted to values between 0 and 28, derived solely from open/close durations. The solution should avoid displaying negative or out-of-bounds results, working without precise motion sensors or encoders, and support clear visualization.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "visualization",
+      "position accuracy",
+      "simplicity",
+      "value constraint"
+    ],
+    "pain_keywords": [
+      "inaccurate times",
+      "lack of position feedback",
+      "out-of-bound values"
+    ],
+    "feature_keywords": [
+      "pulse counter",
+      "position visualization",
+      "timer logic",
+      "value bounding"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

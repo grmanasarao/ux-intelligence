@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "8300300577",
+    "thread_id": "1723880927",
+    "publication_year": 2009,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 462895394740566,
+      "user_name": "J5TWcUdm9I",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I'm working on a small project and need to validate one signal using another. I'm trying to use an AND function, connecting the output from my validation block to one of the AND gate's inputs. However, the programming software doesn't allow this connection and displays a warning (refer to the attached snapshot). If I add an intermediary element between the blocks, it works correctly... Can anyone explain why? Thank you."
+    },
+    {
+      "comment_id": 675661260668525,
+      "user_name": "fRNv7WOddw",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 9,
+      "comment_body": "Hello, This is a feature of [product_name] programming that prevents direct recursive connections (connecting an output back to an input earlier in the path) unless you use a Flag (M bit) or a hardware output. You can check page 63 of the [product_name] manual for guidance on 'The four Golden rules for operating [product_name]'; notably, Rule 2 states: Rule 2: Outputs and inputs - Always build your circuit from output to input. You can connect one output to multiple inputs, but not one input to multiple outputs. You cannot connect an output upstream to an input in the same program path; for such internal loops, use flags or outputs. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 766955159465406,
+      "user_name": "J5TWcUdm9I",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 9,
+      "comment_body": "Thank you [user_name] for the prompt response. Your explanation makes it very clear. Best regards."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user ran into an issue trying to connect a validation block’s output directly to an AND logic input in the programming software. Responses clarified that the software restricts linking outputs to upstream inputs within the same logic path unless an intermediary like a flag or output is used. This shows a need for clearer instructions on proper connection methods within the software to avoid confusion about logic flow.",
+    "user_expectations": "The user expected to be able to directly link logical blocks without needing extra components, and wanted a clear explanation for why such connections are restricted by the software.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "program logic",
+      "straightforward block linking",
+      "validation"
+    ],
+    "pain_keywords": [
+      "connection restriction",
+      "unclear warning",
+      "unexpected linking behavior"
+    ],
+    "feature_keywords": [
+      "block linking",
+      "warning messages",
+      "logical validation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "3": "User Guidance"
+  }
+}

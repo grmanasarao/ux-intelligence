@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "1905248698",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 978710147819789,
+      "user_name": "muyuNrlVKL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm seeking assistance with a Windmeter that provides RS 485 data; my goal is to retrieve this data and transfer it into my [product_name] PLC. My steps so far: 1. I installed a Modbus TCP / Modbus RTU gateway. 2. Using CASModbus scanner, I can successfully obtain wind speed from the RS485 device. Next, I need to set up a Modbus connection from the Modbus TCP gateway to my [product_name] PLC from [company_name]. 3. Through [product_name] programming software, I created a circuit and added both a server and Modbus connection. A yellow plug indicates the connection. 4. The data transfer configuration is where I'm facing issues. On the client side, I selected device address (123), data type (Word), and the register type as IR (Input Register). The arrow shows data is pulled into my device. However, on the server side ([product_name]), I'm unsure where the data should be mapped: VW, AI, AQ, AM? Additionally, does the query frequency require configuration, and is the polling interval fixed or configurable? Attached is a screenshot of my setup. Any advice is appreciated. Thank you."
+    },
+    {
+      "comment_id": 648887284793427,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Why is the Modbus device configured as the client? It's usually preferable for the [product_name] to act as the client."
+    },
+    {
+      "comment_id": 129006033329794,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "The Modbus RTU gateway typically operates as a server, reading from the device and storing the data at specified addresses within the Modbus server. The [product_name] can then access this stored data by reading the correct address. Sensor data is commonly read in word format."
+    },
+    {
+      "comment_id": 872327012152466,
+      "user_name": "muyuNrlVKL",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Apologies for the delayed reply. Yes, the Modbus gateway should be set up as the server while the [product_name] PLC acts as the client making data requests. With this configuration, the setup works seamlessly and the PLC collects data at set intervals. Thank you for your feedback."
+    },
+    {
+      "comment_id": 740288776329230,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "That's why I questioned 'Why is the Modbus device acting as the client?'..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers around configuring data acquisition from a Modbus TCP gateway to a [product_name] PLC using its programming software. Users encountered challenges properly mapping Modbus register values to the PLC’s memory and understanding the correct server/client relationship between the gateway and PLC. Once clarified, data was successfully polled at regular intervals.",
+    "user_expectations": "The user anticipated an easy procedure for assigning Modbus register data to [product_name] PLC memory areas, as well as clear steps for setting up and adjusting the polling frequency.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "transparent Modbus data mapping",
+      "reliable data polling",
+      "clarity in server/client configuration"
+    ],
+    "pain_keywords": [
+      "confusing memory area assignment",
+      "unclear client-server roles",
+      "lack of guidance on polling frequency"
+    ],
+    "feature_keywords": [
+      "Modbus client/server settings",
+      "data mapping options",
+      "polling frequency configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

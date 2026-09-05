@@ -1,0 +1,237 @@
+{
+  "metadata": {
+    "branch_id": "8738537544",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 293024481924432,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm currently working with SMS write/read functionalities using [product_name] module. Writing to both outputs on the [product_name] module works easily. Reading from the module and the Basis Module also functions as expected. The issue comes when attempting to write to the Basis Module. According to the [document], only the first 128 bytes of the Basis Module's variable memory are accessible for reading and writing. The default VM addresses for flags and outputs are above 800, so they're outside the accessible range. My question: How can I change the default VM addresses to enable writing to the Basis Module? I've already used Tools > Parameter VM Mapping, but it only allows setting VM addresses for amplifiers, thresholders, and counters. Flags and I/O seem to have pre-assigned addresses (referenced in Help > Contents > Parameter VM Mapping). Thanks for your assistance."
+    },
+    {
+      "comment_id": 776007736394177,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hello, When using a network input, you can specify a V address. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 513097766254027,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Thanks for your reply. I've now created a network input at VM0,0 and a network output at VM1,0. When texting, I write \"[product_name]=VM1.0,1,BYTE\". However, the response is \"[product_name]=VM1.0,1,BYTE: No Success\". The same happens with VM0,0. It appears that reading or writing to the VM from [product_name] isn't working. Could it be that network I/O marked as \"local\" cannot be accessed by [product_name]? Is it necessary for the VM to be configured in the Parameter VM Mapping? Thanks again for your help."
+    },
+    {
+      "comment_id": 387717759539186,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Which firmware version does your [product_name] module use?"
+    },
+    {
+      "comment_id": 389025443175756,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hello, You've configured a network input at VM0,0, so you can write to VB0 (a byte, meaning 8 booleans like VM0.0 to VM0.7). You've configured a network output at VM1,0, so you can read VB1 (also 8 booleans from VM1.0 to VM1.7). You might want to try this method. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 711332521184788,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "The correct syntax for sending via BYTE datatype is: - Password;[product_name]=VM0,1,BYTE for 1-signal - Password;[product_name]=VM0,0,BYTE for 0-signal This example sets the VM bit V0.0 high or low."
+    },
+    {
+      "comment_id": 817694059669321,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Thank you for your response. I'm getting the same result: When I write \"[product_name]=VM1,1,BYTE\", I receive \"[product_name]=VM1,1,BYTE: No Success\". Firmware version for [product_name] is V2.1.5. Firmware for [product_name] with article number [article_no] is 1.82.01."
+    },
+    {
+      "comment_id": 774952329713566,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I don't see the password included in your syntax..."
+    },
+    {
+      "comment_id": 226043267898232,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Maybe this will help: Refer to \"Monitoring and Control with the [product_name] Communication Module\"."
+    },
+    {
+      "comment_id": 456497376586037,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "That's because I didn't enable the SMS password."
+    },
+    {
+      "comment_id": 669453388615891,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "If you haven't set a custom password, then \"[product_name]\" is typically the default. Please try including the password."
+    },
+    {
+      "comment_id": 785194407547499,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I'm accessing the module's webpage via its IP address. It's possible to change the password under WAN > SMS > \"Password for writing commands\". I previously unchecked \"Enable SMS password\", thinking it wasn't needed. Now I've enabled it and set the password to 123, but the result is the same. I'm sending \"123;[product_name]=VM15,1,BYTE\" and the answer is \"[product_name]=VM15,1BYTE: No Success\". This VM corresponds to a network output in my program; I've only set up the address without additional configuration. Could the issue be that it's a local VM address? How should I configure a VM as an output in the Basis Module? Could firmware be affecting this?"
+    },
+    {
+      "comment_id": 971522510309018,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "You can't write from the communication module to a network output—only to a network input. Network outputs are read-only for [product_name]."
+    },
+    {
+      "comment_id": 241562282098508,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I'm still getting the same response. I've attached a picture showing the address configuration. It seems like the connection is established since the error \"no success\" (as per the [document]) indicates values could not be set or read, not connection issues. Maybe the VM isn't configured correctly? Thanks for your help."
+    },
+    {
+      "comment_id": 563076075922202,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hello, Are you writing to address VB10? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 725258518068825,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Screenshot of messages from mobile: The first example successfully writes to [product_name] module's output. The second attempt to the Basis Module fails."
+    },
+    {
+      "comment_id": 123498042007535,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I'd recommend checking the relevant FAQ from [company_name]. You can download a PDF—have you read chapter 4.2?"
+    },
+    {
+      "comment_id": 219674172785206,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Yes, I've reviewed chapter 4.2 and more. It seems very similar to the [product_name] manual. From what I understand, manual actions, events, or assignments aren't required for writing to a VM (only for read/SMS/alarms). The images I attached earlier show how the VM is addressed and the write attempts. EDIT: You were absolutely correct—previously, I thought I didn't need to, but I actually did. Thanks for clarifying and supporting me!"
+    },
+    {
+      "comment_id": 690320168907144,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Is your issue now resolved?"
+    },
+    {
+      "comment_id": 202076672309640,
+      "user_name": "KlyPyxLP51",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Yes, it's sorted out now. I initially thought writing the VM address in Monitoring > Signals was only needed for reading, not for writing. Now I've learned otherwise—apparently, I need to pay closer attention to the manuals! Hope you have a great day."
+    },
+    {
+      "comment_id": 562597008199662,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Regarding data types and range of values for reading/writing: To set specific bits, use the appropriate data types. Both the [product_name] Communication Module and Basis Module interpret all BYTE, WORD, and DWORD values as signed numbers. Keep this in mind when transferring values via SMS. With your firmware version, you can use the BIT datatype. This means you don't need to use a whole byte for a single signal."
+    },
+    {
+      "comment_id": 178818405743531,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "For the BIT datatype, the syntax is: V0.0 High = <Password>;[product_name]=VM0.0,1,BIT V0.0 Low = <Password>;[product_name]=VM0.0,0,BIT V7.5 High = <Password>;[product_name]=VM7.5,1,BIT V7.5 Low = <Password>;[product_name]=VM7.5,0,BIT"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter challenges when trying to write to the Basis Module through the Communication Module due to address range limitations and unclear mapping of variable memory. Only a limited memory area is writable, making it hard to use default VM addresses for flags and outputs. Attempts to remap addresses for SMS control aren't straightforward, with system feedback like 'No Success' indicating operational but unsuccessful write transactions.",
+    "user_expectations": "Users want to be able to remap variable addresses for the Basis Module so remote write commands from the Communication Module via SMS are successful. Clear setup instructions and transparent error feedback are expected during the configuration process for effective control of outputs and flags.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote output control",
+      "variable mapping",
+      "SMS integration"
+    ],
+    "pain_keywords": [
+      "VM mapping limitation",
+      "failed write operations",
+      "unclear instructions",
+      "address range restrictions"
+    ],
+    "feature_keywords": [
+      "variable memory mapping",
+      "SMS write/read",
+      "network input/output",
+      "parameter VM mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "22": "Usability Improvement Suggestions"
+  }
+}

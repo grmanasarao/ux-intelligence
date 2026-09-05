@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "1384951755",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 567025967058203,
+      "user_name": "t2Clh27paD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hello! Is it acceptable to apply voltage directly to outputs in order to force certain devices to start? For example, if you install a manual switch in the control cabinet to turn on a machine independently from the controller’s permission, connecting the switch in parallel with the transistor output and then to the load. Will doing this potentially damage the output? The idea is to use the same 24V source powering both the controller and outputs, so no foreign voltage would be involved. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 294943724533980,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "In your situation, I would place a diode in the forward direction between the output of the [product_name] and the load. This way, when the button or switch applies voltage to the load, the diode blocks any reverse voltage from reaching the output."
+    },
+    {
+      "comment_id": 287984831755720,
+      "user_name": "udO0a0woU9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Alternatively, you can use the [product_name] system as intended: Send the 24V signal to a 24V input on the [product_name], and then configure the user program to set or reset the appropriate output."
+    },
+    {
+      "comment_id": 134574008785986,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "However, this approach requires: - an available input, and - modifying the program."
+    },
+    {
+      "comment_id": 601246219235878,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Additionally, if the controller is non-functional as described by [user_name], another reliable solution involves using decoupling diodes, or if you have access to a changeover contact (1 normally open + 1 normally closed), wiring the break contact to the output, the make contact to +24V, and the common contact to the load. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are evaluating safe methods to manually operate a load typically controlled by a transistor output on a controller, especially during controller failures. The discussion centers on whether externally applying voltage could harm the output hardware. The primary recommendations involve circuit modifications like diodes to prevent voltage feedback, pointing out the absence of simple, integrated manual override options in such scenarios.",
+    "user_expectations": "The user wants a safe way to manually control the load, bypassing the output in emergencies, without risking damage to the controller module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "emergency operation",
+      "manual override",
+      "safe hardware use"
+    ],
+    "pain_keywords": [
+      "potential hardware damage",
+      "no built-in manual override",
+      "safety risk"
+    ],
+    "feature_keywords": [
+      "transistor output",
+      "manual switch integration",
+      "emergency start capability"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "17": "Circuit Protection Guidance",
+    "9": "Feature Requests"
+  }
+}

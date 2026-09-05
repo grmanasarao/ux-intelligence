@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "2430276094",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 421172498074873,
+      "user_name": "uYOemEhCfE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm working on a temperature control setup using [product_name] and external impulse relays. I have a 0-10 V signal input, which is converted to a temperature range of 0-32 degrees. My goal is to send a pulse to the relay controlling a 2500-watt heater when the temperature rises above 25 degrees, and send another pulse to turn it off when it drops below 24.8 degrees. I'm seeking guidance on creating the logic to generate these pulses based on temperature changes, rather than maintaining a constant on/off state. Thanks for any assistance."
+    },
+    {
+      "comment_id": 940198024929778,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "If your hysteresis range is so narrow, the impulse relay might frequently switch on and off. Also, I don't quite understand: Do you mean you want to turn the heating on above 25°C and off below 24.8°C? Could you please confirm?"
+    },
+    {
+      "comment_id": 411024239893318,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "Here is a solution you could try."
+    },
+    {
+      "comment_id": 250738625550592,
+      "user_name": "uYOemEhCfE",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "You're right; I made a mistake. The correct sequence is: turn ON at 24.8°C, turn OFF at 25°C."
+    },
+    {
+      "comment_id": 227555976284920,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "In that case, swap the ON and OFF values in your analog threshold switch, as shown in my screenshot."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user aims to set up temperature-driven control using a [product_name] module and external impulse relays, to manage a heater through analog input readings. Responses reveal possible issues with tight hysteresis, raising concerns about the relay repeatedly toggling. Dialogue between participants clarifies the desired logic and corrects initial misconceptions about threshold settings.",
+    "user_expectations": "The user expects to configure [product_name] to generate accurate control pulses for relays based on temperature thresholds, ensuring it avoids excessive relay switching and maintains reliable heater performance.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise control",
+      "safe heater operation",
+      "correct temperature logic"
+    ],
+    "pain_keywords": [
+      "hysteresis configuration",
+      "relay chattering risk",
+      "threshold logic confusion"
+    ],
+    "feature_keywords": [
+      "pulse output",
+      "analog threshold switch",
+      "hysteresis"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

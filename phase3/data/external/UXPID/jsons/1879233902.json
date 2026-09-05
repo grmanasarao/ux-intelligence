@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "branch_id": "1879233902",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 349827230307381,
+      "user_name": "JMuv4NZNdZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm trying to send an analog signal from [product_name] to [product_name]. The connection is set up, but the signal isn't correct. I've attached images showing my setup. Could someone advise what I'm doing wrong? Signal transfer to and from [product_name] and the counter are working, but the analog value isn't transmitting properly. Thanks."
+    },
+    {
+      "comment_id": 406046691871287,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "In your first screenshot, I see your analog values have been mapped to the VM area, which is used for communication between [product_name] and another device. That part seems fine. However, the other screenshots are difficult to read. Please upload clearer screenshots. If you're using Windows, you can press the \"Print (Druck)\" key to take a screenshot and paste it into Paint."
+    },
+    {
+      "comment_id": 810914767374956,
+      "user_name": "JMuv4NZNdZ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello, I've uploaded higher-quality images."
+    },
+    {
+      "comment_id": 566291142544826,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "To set up the connection between [product_name] and [product_name], make sure you enter the parameters as shown in the attachment. I'm not familiar with [product_name] right now, so I can't confirm whether it needs to be a client or server, or if the TSAP you entered is correct."
+    },
+    {
+      "comment_id": 439673026446714,
+      "user_name": "JMuv4NZNdZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I've tried that, but I'm still not getting the correct value. Refer to the photo."
+    },
+    {
+      "comment_id": 617210627598849,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "The value you wish to send to [product_name] is 16-bit (an integer), occupying 2 bytes. With the VM mapping, you copy this value to VW4. In the connection setup, you transfer 2 bytes from VB4 (which corresponds to VW4), meaning VB4 and VB5 contain this value. In [product_name], you're only displaying byte 5, so you see 244 instead of 500 (see attached image for how it appears in [product_name]). Instead, you should display Word 4 on [product_name]. Also, for your counter, use DWord0 (VD0 in [product_name])."
+    },
+    {
+      "comment_id": 531283318493783,
+      "user_name": "JMuv4NZNdZ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thanks, it's working now!"
+    },
+    {
+      "comment_id": 830568239915719,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], you're welcome."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users addressed difficulties transmitting an analog signal between two [product_name] devices. The core issue was misinterpreting single bytes instead of the correct two-byte word format for analog values. Through discussion, the users clarified parameter mapping and which memory areas to use, improving effective communication between the devices. Clear screenshots were emphasized for easier troubleshooting.",
+    "user_expectations": "The user expects analog signal values to be transferred accurately from [product_name] to [product_name], resulting in a correct display of values on the recipient device, just as with other signal types.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct analog value transfer",
+      "reliable signal communication",
+      "proper data mapping"
+    ],
+    "pain_keywords": [
+      "mismatched value display",
+      "data mapping confusion",
+      "troubleshooting complexity"
+    ],
+    "feature_keywords": [
+      "analog signal handling",
+      "VM mapping",
+      "byte/word selection",
+      "connection list"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

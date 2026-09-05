@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "9229469952",
+    "thread_id": "1723880927",
+    "publication_year": 2009,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 824659227183380,
+      "user_name": "Q87wPJ8BOk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm working on my first project with [product_name] and thought my program was finished since it worked well during simulation. But when I tried to transfer it to the device, it failed and showed this message: \"Blocks without connection to an output: B003 [Analog Amplifier], B004 [Message texts], B005 [Message texts], Download PC --> [product_name] failed\". I'm unsure what I'm missing and can't figure out what I should be doing. I'm attaching a screenshot to illustrate. I'm using [product_name] Soft Comfort [version_no]."
+    },
+    {
+      "comment_id": 355692350543981,
+      "user_name": "ypQCUOknKU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Hi, this is my first reply on this forum and I hope it's helpful. Try creating three open contacts for those problem blocks and link them to an available output (e.g., X1, X2, etc.). After that, attempt downloading to the device again. Hopefully this resolves the issue. Regards."
+    },
+    {
+      "comment_id": 326274356036326,
+      "user_name": "Q87wPJ8BOk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Thanks for your suggestion! Although I didn't understand at first why these open contacts or outputs are needed, I tried it and now everything works perfectly. Much appreciated."
+    },
+    {
+      "comment_id": 843755334511083,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "Hi everyone, I haven't posted in a while, so I'm a bit out of practice! I've finally figured out the reason for needing open connectors: every [product_name] function block has a single output, and the system expects every output to be connected. It's easy to forget to 'terminate' a message block if the signal isn't passed through. Using open connectors in the ladder editor is a bit more challenging—try designing in the FBD editor first, then convert to ladder to see how it's handled. If you run out of open connectors, you can use an OR gate or cascade them to connect multiple functions that need termination. For analog markers, a threshold trigger can convert an analog value to a digital output, which you then connect to the open connector/OR gate setup. Keep this code separate and hide its links to keep your program tidy. Note that this error only occurs when transferring to hardware, not in simulation, which often confuses users. Hope this helps!"
+    },
+    {
+      "comment_id": 529448998071709,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 11,
+      "comment_body": "Hello, I've made corrections in the screenshots."
+    },
+    {
+      "comment_id": 614514815305207,
+      "user_name": "E7kJHR31CH",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "It works now, thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered an issue transferring a program from [product_name] Soft Comfort to a hardware device due to unconnected function blocks, even though the simulation ran without problems. The required connections for outputs caused confusion, revealing a difference between simulation and hardware operations. Other users helped clarify the need to link all blocks to outputs, pointing out that these requirements can be frustrating for newcomers.",
+    "user_expectations": "Users expect programs that run successfully in simulation mode to be directly transferable and functional on hardware, without needing additional clarifications or modifications.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful program download",
+      "hardware deployment",
+      "error-free workflow"
+    ],
+    "pain_keywords": [
+      "download failure",
+      "error message",
+      "output connection requirement",
+      "simulation-hardware inconsistency"
+    ],
+    "feature_keywords": [
+      "block connection",
+      "output termination",
+      "simulation mode",
+      "download to hardware"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "3": "User Guidance"
+  }
+}

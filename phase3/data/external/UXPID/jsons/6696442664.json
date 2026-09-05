@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "branch_id": "6696442664",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 196582812644825,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I set up the Windows 7 NTP server following instructions from [url]. However, my [product_name] with [version_no] isn't able to sync. Whenever I click sync, it briefly shows 'synchronizing', then 'not synchronized'. The setup is [product_name] as client with IP 192.168.11.153, Windows machine as NTP server at 192.168.11.150. I also tried connecting two [product_name] devices ([product_name] at 192.168.11.153 as client, [product_name] at 192.168.11.152 as server). Neither configuration works."
+    },
+    {
+      "comment_id": 598109390440354,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "You should enter the IP address of an external NTP server (such as NIST Internet Time Servers), not your Windows computer's IP. See attached screen recording from my [product_name] ([version_no]) where synchronization works. Which firmware version are you using? Is it [version_no], [version_no], or [version_no]? If you have an older version, consider updating to a newer one. Check the [document] for information on updating firmware for [product_name]."
+    },
+    {
+      "comment_id": 961176961678514,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Both of my PLCs have firmware version [version_no]. My Windows setup uses [product_name] IP 192.168.11.153 as client and server IP 192.168.11.150. When another [product_name] acts as server, the client IP is 192.168.11.153 and server IP 192.168.11.152. This is how I configured it. I’ll try again and update you tomorrow."
+    },
+    {
+      "comment_id": 575232977312289,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "But you see, the method I described works for me."
+    },
+    {
+      "comment_id": 296264296275256,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you! It's finally working, though I’m not sure why. I ended up using the IP addresses of some database servers at my workplace. Still not sure why synchronization wouldn’t work with my Windows 7 machine—need to investigate further."
+    },
+    {
+      "comment_id": 134267335285197,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Maybe this FAQ from [company_name] will be useful. For Windows 7, pay extra attention, especially to firewall settings—port 123 needs to be open. See [document] on configuring your PC as an NTP server. If the FAQ doesn’t resolve your issue, you can submit a support request."
+    },
+    {
+      "comment_id": 929809011454767,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I figured it out—the main issue was the firewall blocking port 123. Here’s how to open UDP port 123 in Windows Firewall: On Start, run 'WF.msc'. In Windows Firewall with Advanced Security, right-click Inbound Rules, then select New Rule. Choose Port, click Next. In protocol and ports, select UDP, specify port 123, and click Next. Choose Allow the connection, click Next. Select profiles as needed, click Next. Finally, name the rule and finish."
+    },
+    {
+      "comment_id": 133800223599522,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Just to confirm—has your issue been resolved? Glad to hear it’s working."
+    },
+    {
+      "comment_id": 324433839041564,
+      "user_name": "MHSJPTnESg",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Yes, it’s working fine now!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users had difficulty synchronizing a [product_name] device with a Windows 7 PC serving as an NTP server. The main insight is that network and firewall configuration steps, particularly the need to open port 123, are not easily visible and can cause confusion. Users expressed uncertainty over why using different IP configurations worked, highlighting unclear troubleshooting guidance.",
+    "user_expectations": "User expects NTP synchronization between their [product_name] and a Windows-basd NTP server to be straightforward, with clear network and firewall instructions to minimize troubleshooting.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "NTP time sync",
+      "network integration",
+      "ease of setup"
+    ],
+    "pain_keywords": [
+      "firewall blockage",
+      "unclear troubleshooting",
+      "sync failure"
+    ],
+    "feature_keywords": [
+      "NTP synchronization",
+      "network configuration",
+      "firewall settings"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": [
+        "7"
+      ]
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

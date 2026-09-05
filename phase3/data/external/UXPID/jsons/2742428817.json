@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "2742428817",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 709651834167148,
+      "user_name": "jjW6mfNyrz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "I'm facing an issue with displaying the temperature. The operator device shows -50°C. Sensor type is RTD - PT100 3-wire. The code appears correct, using [product_name] [version_no]. Not sure what the mistake is. I've attached the code. Any ideas why? Thanks."
+    },
+    {
+      "comment_id": 901896875564097,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Which [product_name] and [version_no] are you using exactly? Are you using an [product_name] AM2 RTD module or an external RTD converter?"
+    },
+    {
+      "comment_id": 532736317038993,
+      "user_name": "jjW6mfNyrz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Yes."
+    },
+    {
+      "comment_id": 111882213178224,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "You posted the image in the wrong topic. I think the issue is that you're using the wrong analog input address in your program. In the file properties of your project, the first two analog input addresses (AI1 and AI2) are reserved for the base module by default. You have two options: change the default setting from 2 analog inputs to 0 enabled for the base module, or update your program so that the AI addresses are corrected—from AI1 to AI3 and AI2 to AI4."
+    },
+    {
+      "comment_id": 746896001433887,
+      "user_name": "jjW6mfNyrz",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Using AM2 RTD."
+    },
+    {
+      "comment_id": 271742125763562,
+      "user_name": "jjW6mfNyrz",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Thank you, that solved the issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user encounters a problem where the temperature reading from a PT100 RTD sensor consistently shows -50°C on the operator device. The issue is identified as an incorrect analog input address assignment, caused by default settings that reserve certain addresses for the base module. Once the input addresses are adjusted, the temperature displays correctly. This highlights the importance of clear address assignment and configuration procedures for users when integrating hardware modules.",
+    "user_expectations": "User expects the PT100 sensor to provide accurate temperature readings on the display with a simple and clear setup, without needing specialized knowledge for input assignments or configuration.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "accurate temperature display",
+      "reliable sensor integration",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "incorrect temperature reading",
+      "confusing input configuration",
+      "default setting pitfalls"
+    ],
+    "feature_keywords": [
+      "analog input assignment",
+      "AI address configuration",
+      "temperature display"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

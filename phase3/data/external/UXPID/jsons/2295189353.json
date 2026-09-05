@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "2295189353",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 565315124162027,
+      "user_name": "e0MEMF3260",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Hello, I have a [product_name] module connected to a [product_name] operator panel. I'm looking for a way for the controller to detect when the Ethernet link to the panel has failed and automatically stop the currently running process. I tried using a network input from the panel to set an internal flag, which then served as a stop condition in a test program. However, the flag only changes state when modified by the panel, and the controller doesn't seem to notice further state changes unless the panel itself updates the tag. Ideally, the controller would detect loss of communication from this input and halt the timer. Does anyone have suggestions? It seems like it should be straightforward, but I'm struggling."
+    },
+    {
+      "comment_id": 460445785801147,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Why are you asking this twice? [url]"
+    },
+    {
+      "comment_id": 286772761774182,
+      "user_name": "e0MEMF3260",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Hi, I'm approaching this issue from two angles because I'm unsure if the solution lies on the panel side or the controller side. I think the controller should handle this since, once the connection is lost, the panel can't send a stop signal to the controller anymore. I've attempted multiple approaches but haven't succeeded. Relying solely on a physical emergency stop when an operator uses a panel with a broken connection feels unsafe. My goal was to limit the need for physical inputs to the controller. If duplicate posts are not acceptable here, I apologize and will delete one."
+    },
+    {
+      "comment_id": 621301834754577,
+      "user_name": "e0MEMF3260",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Hello again, I've been reviewing the [product_name] software help documentation and wondering if the \"diagnostic Ethernet link error\" option for a network input would achieve my goal. I won't be able to test this on hardware for a few days, but do you think it's a viable solution?"
+    },
+    {
+      "comment_id": 541795200871103,
+      "user_name": "mt8nLGWH5e",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "You could have the panel read a memory variable from the controller that is updated periodically, then write it back to the controller. The controller can compare the two variables, and if they don't match within a set time, it can trigger an action."
+    },
+    {
+      "comment_id": 237630036812882,
+      "user_name": "e0MEMF3260",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "That's what I believed, and it's why I'm confused. If I physically disconnect the Ethernet cable from the panel, I expect the controller should lose access to the data and indicate a fault. But it seems the controller keeps the last value since the panel controls those tags directly."
+    },
+    {
+      "comment_id": 657159854348712,
+      "user_name": "ifsCJR1888",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Nice idea!"
+    },
+    {
+      "comment_id": 186155613077856,
+      "user_name": "mt8nLGWH5e",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "When you connect the controller and panel via a switch/router/hub, the controller's response to disconnecting the cable differs depending on whether the cable is disconnected at the panel or the controller end. With a direct cable between the two devices, the behavior is consistent regardless of which end is disconnected."
+    },
+    {
+      "comment_id": 368090516343971,
+      "user_name": "e0MEMF3260",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "I understand the issue now. I'm currently connecting them through a small network switch, which explains why the controller isn't detecting the state change as expected. Next chance I get, I'll try a direct connection to see if it resolves this. Thanks [user_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is facing a situation where a [product_name] controller connected to a [product_name] operator panel via Ethernet fails to detect loss of connection; the controller keeps running the active process since memory tags retain their previous state. The user attempted to use network input and internal flags to solve this but found the controller only responds when the panel updates a value, not when communication is interrupted. Network setup (switch/router vs. direct wiring) also influences detection of link loss.",
+    "user_expectations": "The user expects the [product_name] controller to automatically recognize when Ethernet communication with the operator panel is lost and to stop the current process, without needing additional physical inputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic program stop",
+      "network-based safety",
+      "communication loss detection"
+    ],
+    "pain_keywords": [
+      "no loss detection",
+      "manual intervention required",
+      "network topology complexity"
+    ],
+    "feature_keywords": [
+      "Ethernet link monitoring",
+      "internal flag logic",
+      "diagnostic Ethernet link error",
+      "VM tags"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "12": "Network Configuration Challenges"
+  }
+}

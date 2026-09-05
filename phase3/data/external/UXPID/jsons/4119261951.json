@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "4119261951",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 483975278545764,
+      "user_name": "dDNCFLBe9k",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I'm looking to route Input byte 1 to an analog output on the [product_name] so I can hardwire it to another PLC. Please let me know if my approach below is correct: Example: In a [product_name] PLC, you could map IB0 to MB0. For a similar setup in [product_name], mapping input byte IB0 (B001) to AM1, then sending AM1 (B002) to AQ1. ------------------------------------------------------------------------------------------ Split from [company_name] [product_name] [article_no] - VM Mapping."
+    },
+    {
+      "comment_id": 530654811514488,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "I'm unsure why you would want to copy a full input byte to an analog output. It's possible, but what is your objective? You would need to interpret the analog signal bitwise on the receiving PLC. Could you elaborate on your goals?"
+    },
+    {
+      "comment_id": 315213656471419,
+      "user_name": "dDNCFLBe9k",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "There's another PLC involved, and software-based data exchange isn't available. The other device isn't from [company_name], so it doesn't support S7 protocols. I'd appreciate advice or ideas for hardwired data transfer, as that's the only solution for me. How can I break down the mapping from input byte to analog output?"
+    },
+    {
+      "comment_id": 555648190950337,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Direct transfer from IBx to AQx isn't possible, and you won't find a block for MBx either. In [product_name] software, you cannot read a full input byte (IBx), just separate bits (Ix). That's why the VM area comes into play. Note: AQx has an input range of up to 1000 units, which converts the module's AM2 AQ output to 0-10V or 0/4-20mA."
+    },
+    {
+      "comment_id": 834146842463786,
+      "user_name": "dDNCFLBe9k",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Thank you for your assistance."
+    },
+    {
+      "comment_id": 109998947868836,
+      "user_name": "dDNCFLBe9k",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], I tried mapping bits using your sample program but encountered the following issue: When sharing data via hardwired connection between the [product_name]'s analog output and the other PLC's analog input (set for 4-20 mA), bitwise mapping using your approach led to inconsistent results. Some values changed unexpectedly, and when two bits were simultaneously true, different values appeared. Also, the receiving PLC sometimes displayed negative values when all bits were true, though the [product_name] analog output remained positive. It seems I'm unable to accurately represent each bit from the [product_name]'s analog output to the other PLC's analog input. I tested all 16 bits and attempted byte swapping, but nothing resolved the issue. However, if I send a standard analog value from the [product_name] analog output, the receiving PLC displays the correct value after scaling. Could you provide further support?"
+    },
+    {
+      "comment_id": 562676922930966,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Just to clarify, a digital input byte only reaches the value 255 when all bits are high. Please upload your [product_name] program as a ZIP file."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is attempting to transfer a digital input byte from a [product_name] to another PLC via hardwired analog output, due to lack of standard data exchange protocols. Problems arise with accurate bitwise mapping: values are inconsistent, especially when multiple bits are set, and negative values sometimes appear at the receiving PLC. The analog output works well for transmitting standard analog values, but fails to reliably convey bit-level information.",
+    "user_expectations": "The user expects precise bitwise transfer between PLCs through hardwired analog output from the [product_name], aiming for reliable hardwired data exchange and consistent value representation without errors.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable hardwired data transfer",
+      "accurate bitwise mapping",
+      "seamless PLC interoperability"
+    ],
+    "pain_keywords": [
+      "data mismatch",
+      "unexpected value changes",
+      "interoperability limitations"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "bit mapping",
+      "hardwire data sharing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns",
+    "13": "Integration Limitations"
+  }
+}

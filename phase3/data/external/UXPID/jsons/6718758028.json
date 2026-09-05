@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "6718758028",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 994137938048434,
+      "user_name": "lkQ7cdPxsn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Good afternoon everyone, I'm working on a project where it would be helpful to network a [product_name] with a Sick Flexisoft safety controller using a GMOD Modbus TCP communications module to exchange I/O data. Has anyone tried this setup, and is it possible to achieve this connection? Thank you in advance for any advice or suggestions!"
+    },
+    {
+      "comment_id": 544457347022885,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Do you have specific information about the safety controller and Modbus device, such as links to instruction manuals or details about the types of controllers and devices involved? Regards, [user_name]"
+    },
+    {
+      "comment_id": 495873673969797,
+      "user_name": "lkQ7cdPxsn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Thank you, [user_name]. The safety controller belongs to the Sick Flexisoft family. Here is a link to the product page: [url]. The system has a CPU0 main module ([url]), two I/O modules, and a Modbus TCP compatible communications module ([url]). Implementation details are provided on page 34 of this document: [url]. I hope this information helps, and I appreciate your response."
+    },
+    {
+      "comment_id": 918897689446288,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Sorry, but that's a bit much for me at the moment. There isn't a ready-made Modbus register table for reading statuses or sending commands, and the Sick controller appears to be fully programmable, so communication via Modbus requires some setup. Decide which information you want to transfer. If you can provide a complete data table, I can assist in establishing communication with the [product_name]. Also, determine whether the [product_name] acts as Master/Client and Sick controller as Slave/Server, or vice versa. Keep in mind, the [product_name] isn't a safety device, so only transfer non-safety-related information. Regards, [user_name]"
+    },
+    {
+      "comment_id": 561074307444491,
+      "user_name": "lkQ7cdPxsn",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], no worries and thanks for your helpful feedback. All signals involved are for status only, not safety-related. I've tried different master/slave settings. Managed to connect with [product_name] as master set up for a server connection and Flexisoft as slave, but Flexisoft reports an input error for instruction or data format. Although I have experience with control systems, I'm not very familiar with Modbus. It seems logical that setting up the [product_name] as the master/client connection should allow mapping of the I/O, with Flexisoft as slave, but I haven't succeeded in making it work. Maybe the Modbus data formats between [product_name] and Flexisoft are incompatible, causing these errors—perhaps this combination just doesn't work? Thanks again for your time, much appreciated."
+    },
+    {
+      "comment_id": 599569524240399,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "From what I've seen, the Sick controller uses Modbus packages with a specific length. You can work with an area of VM (variable memory) and a fixed-length block of registers for this communication. Do you have any [product_name] example program from your attempts to connect with the Sick controller? If so, please upload it as a ZIP file. On the Sick controller side, you'll need to investigate the Modbus capabilities, identifying package types and transferable information yourself. On the [product_name] side, the package can be configured in various ways depending on whether you have word or bit data. Regards, [user_name]"
+    },
+    {
+      "comment_id": 484808111176415,
+      "user_name": "lkQ7cdPxsn",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Thank you, [user_name], I'll start by looking deeper into the Sick system to see what information I can find. No specific application software written so far—just some basic test lines. I'll update as I learn more. Thanks again, much appreciated."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are attempting to integrate a [product_name] module with a Sick Flexisoft controller using Modbus TCP. The main obstacle is uncertainty regarding compatibility of Modbus data formats, manifesting as connection errors. There are no pre-made Modbus register tables available, so users must manually research and configure data mapping on both devices.",
+    "user_expectations": "Users are looking for straightforward and compatible Modbus TCP communications between [product_name] and Sick Flexisoft controller, allowing easy mapping of I/O data without requiring complex proprietary setup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless integration",
+      "data exchange",
+      "status monitoring",
+      "interoperability"
+    ],
+    "pain_keywords": [
+      "data format incompatibility",
+      "configuration complexity",
+      "missing documentation",
+      "communication error"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "master/slave configuration",
+      "I/O mapping",
+      "data format"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

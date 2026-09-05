@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "9356854399",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 459690780946084,
+      "user_name": "mahbDOYhV2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "I am currently using two [article_no] controllers (24 inputs, 20 outputs) set up in master/slave configuration. When I add NI and NQ to the diagram, I encounter a limitation of 32 data transfers, which prevents access to all inputs and outputs on the slave unit. In master/master configuration, it's possible to establish multiple connections between controllers and access all inputs and outputs. Is there any way to bypass the 32 data transfer limit per connection in master/slave mode?"
+    },
+    {
+      "comment_id": 237099479157131,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "No, I'm not aware of any method to overcome this limit with master/slave configuration. Is using master/slave necessary for your application? Switching to master/master offers more flexibility."
+    },
+    {
+      "comment_id": 696909449089472,
+      "user_name": "mahbDOYhV2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "I was curious why the device in slave mode only supports a single connection, while the master supports eight. I couldn't find details about this in the [document]. My intention was to run the program on just one device, which is why I opted for master/slave mode. From what I gather, it's also possible to use master/master mode."
+    },
+    {
+      "comment_id": 730613695678944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Why does the slave [product_name] support only one connection? You should reach out to [company_name] support for clarification. In master/master mode with two [product_name] devices, both need a user program."
+    },
+    {
+      "comment_id": 832728834860378,
+      "user_name": "udO0a0woU9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Typically, only a single connection between two [product_name] controllers is allowed. As you've experienced, the slave can only exchange a total of 32 bits (inputs plus outputs). In this setup, only the master device runs a user program. If you need more (e.g. 24 inputs plus 20 outputs equals 44 bits), you should configure the devices in master/master mode, meaning both controllers will need their own user programs."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users identified a technical constraint when connecting two [product_name] units in master/slave mode—a maximum of 32 data bits can be transferred per connection, restricting full access to the slave device's inputs and outputs. The relevant [document] did not clearly explain this, causing confusion about device functionality across modes. Experts confirmed the limitation and clarified the differences in connection options and programming requirements for master/slave and master/master configurations.",
+    "user_expectations": "Users expect to have unrestricted access to all inputs and outputs of the slave device in master/slave mode, without being limited by the 32 data transfer threshold per connection.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "full input/output access",
+      "seamless integration",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "data transfer limitation",
+      "insufficient documentation",
+      "incomplete access to I/O"
+    ],
+    "feature_keywords": [
+      "master/slave mode",
+      "master/master mode",
+      "data transfer capacity",
+      "connection count"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

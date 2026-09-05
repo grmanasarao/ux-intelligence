@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "5047104149",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 534425419273661,
+      "user_name": "zZtfiiamh0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hello all, I have a [product_name] [version_no] controller connected to a PC using Modbus TCP/IP. Communication for boolean data works fine; the PC can read and write these values without problems. However, I need to send word data for the status (0=Idle, 1=Moving, 2=Complete) from the controller to the PC. I believe a 'Network Analog Output' is necessary for word data, but I'm unsure how to transfer the word value to it. Most available tutorials use FBD programming, while my current project is in ladder logic. Can anyone advise on how to move word data in this context?"
+    },
+    {
+      "comment_id": 405300855247596,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "You can utilize digital network outputs to assign status bits and direct them to an analog network output. For instance, use VW100 as an available word. Map the inputs as follows: I1 for Idle, I2 for Moving, I3 for Complete."
+    },
+    {
+      "comment_id": 269855029567545,
+      "user_name": "zZtfiiamh0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Thank you for this suggestion! I hadn't considered it, likely because I was thinking in terms of the 'Move' instruction in [product_name] engineering software. I appreciate your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user successfully exchanged boolean data between a PC and [product_name] [version_no] controller over Modbus TCP/IP, but encountered difficulties sending word data in ladder logic due to limited resources and tutorials that focus on FBD programming. Suggestions to use digital network outputs mapped to an analog network output offered a practical solution, which helped the user resolve their issue.",
+    "user_expectations": "The user anticipated an easy approach to transfer word data through a network analog output using ladder logic, comparable to what is available in FBD programming or in [product_name] engineering software.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "word data transfer",
+      "status monitoring",
+      "ladder logic compatibility"
+    ],
+    "pain_keywords": [
+      "lack of ladder examples",
+      "difficulty moving word data",
+      "analog output confusion"
+    ],
+    "feature_keywords": [
+      "network analog output",
+      "ladder programming",
+      "Modbus TCP/IP",
+      "data move operation"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

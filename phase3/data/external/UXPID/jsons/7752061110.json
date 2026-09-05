@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "7752061110",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 223165606278580,
+      "user_name": "cy15qhODBL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello. I'm trying to read the temperature from a TCW210-th data logger using Modbus TCP/IP. My [product_name] has the IP address 192.168.1.20, and the TCW210 data logger is at 192.168.1.40. The [product_name] acts as the Modbus client, and the TCW210 is the server on port 502. I am sending commands to request the content of holding registers 19800, converting the float value to integer, but I am unable to read the temperature data. Any advice is appreciated. Best regards [user_name]"
+    },
+    {
+      "comment_id": 176310544719282,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Please upload your project as a ZIP file."
+    },
+    {
+      "comment_id": 752084139164758,
+      "user_name": "cy15qhODBL",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello. I've attached the PLC program and a file containing the table of Modbus commands and addresses. Thank you very much."
+    },
+    {
+      "comment_id": 916656163734332,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "The program you uploaded won't work on a physical [product_name] because you haven't closed the output for the message text block B002. Also, your manual doesn't show the register addresses. Please provide details about HR19800."
+    },
+    {
+      "comment_id": 726919431931725,
+      "user_name": "cy15qhODBL",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Good night. How can you send code (3 19800 2) and receive the temperature as a single floating result, for example 23.56°C? To read holding registers (FC=03) for the temperature: Request: This sends a command to get the contents of holding registers 19800. 03 4D58 0002 where 03 is the function code for reading holding registers, 4D58 (hex) is 19800, and 0002 means you're reading 2 registers (each 2 bytes, so 4 bytes total). Response: 03 04 41BD 0655: 03 is the function code, 04 is the number of bytes in the response (2 registers x 2 bytes = 4 bytes), and 41BD 0655 is the 4-byte value. All holding registers that store float values are returned in big-endian format. For example, a value of 23.628 would be encoded like this."
+    },
+    {
+      "comment_id": 605033740413209,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "That's not what I was asking for. Can you provide the register table?"
+    },
+    {
+      "comment_id": 186974074017248,
+      "user_name": "cy15qhODBL",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "The address table is on page 40."
+    },
+    {
+      "comment_id": 953919897273673,
+      "user_name": "cy15qhODBL",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Address table."
+    },
+    {
+      "comment_id": 516536745136330,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "You uploaded a PDF with 9 pages. How am I supposed to see page 40?"
+    },
+    {
+      "comment_id": 927927028433494,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "[product_name] cannot generate custom telegrams. You need to specify this through the Modbus connection table."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges reading temperature data from a TCW210-th data logger via Modbus TCP/IP when using [product_name]. The most significant issue is the limited ability of [product_name] to create custom Modbus telegrams, which prevents communication with external devices needing nonstandard register access. This restriction is not well documented and there is insufficient guidance for configuring Modbus connections for third-party devices.",
+    "user_expectations": "Users expect [product_name] to reliably communicate with the TCW210-th logger over Modbus TCP/IP, including the ability to make custom requests to nonstandard register addresses and handle complex data parsing. They also anticipate clear support and documentation to assist with external device configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "temperature monitoring",
+      "interoperability",
+      "Modbus integration"
+    ],
+    "pain_keywords": [
+      "custom telegram limitation",
+      "data reading failure",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "Modbus TCP client",
+      "custom telegrams",
+      "register access"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

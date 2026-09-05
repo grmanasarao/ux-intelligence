@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "4135124384",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 313521490450478,
+      "user_name": "zpjPSa5W3X",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Dear Sir, We have a [product_name] controller ([article_no]) and a [product_name] display ([article_no]) installed on equipment, and now we want to connect this system to [product_name] [version_no]. Our initial investigation suggests there is no spare Ethernet port on the controller to connect it to the [product_name] network. Could you advise on how to achieve this? PS. The display ([article_no]) has a spare port available—can this be used for networking with [product_name]? Best wishes, [user_name]"
+    },
+    {
+      "comment_id": 301792764526459,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "The [product_name] display (TDE) includes two Ethernet ports functioning as a switch. You can use the second, free port to connect to the [product_name] base module. [product_name] is a programming interface similar to [product_name], as far as I am aware. Could you specify which CPU model is being used?"
+    },
+    {
+      "comment_id": 676745340131529,
+      "user_name": "zpjPSa5W3X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Thank you for your response. We are using the [version_no] CPU for [product_name]. We plan to connect the display and controller through the network."
+    },
+    {
+      "comment_id": 774903657023190,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "You should know that the controller with order number [article_no] only supports Ethernet TCP/IP with the S7-Protocol (enabling direct communication with [version_no] controllers) or Modbus TCP/IP. It doesn't support Profibus, MPI, or Modbus RTU. For those protocols, you'd need the appropriate gateway modules."
+    },
+    {
+      "comment_id": 768856977333903,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "You cannot set up direct communication between two [product_name] displays. The display communicates only with a [product_name] base module."
+    },
+    {
+      "comment_id": 337178339789007,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "I haven't set up communication between a [product_name] and a [version_no] controller before. Perhaps this link will provide guidance: [url]"
+    },
+    {
+      "comment_id": 150100043133838,
+      "user_name": "zpjPSa5W3X",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Sorry, I need a bit more clarification—does this mean the display ([article_no]) can't communicate with [product_name] even if we connect it using its spare port? The display can only link to the [product_name] base module from either port. If we want to interface with [product_name] using the controller ([article_no]), we must attach a suitable interface or gateway module and configure it as shown in the link below. [url] Is there a compatible gateway module available for the controller?"
+    },
+    {
+      "comment_id": 730552650610238,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "To clarify: the display's two Ethernet ports act as a switch, but they only allow the display to communicate with a [product_name] base module of a specific series. There is no gateway for Profibus, Modbus RTU, or other protocols in that device series, except for KNX. I am not experienced with [version_no] controllers, but you would likely need a Communication Processor (CP), which provides ProfiNet (not ProfiNet IO) or Modbus TCP/IP capability. Again, that's outside my area of expertise; you may need to look into resources for [version_no] controllers."
+    },
+    {
+      "comment_id": 236660820922609,
+      "user_name": "cZQANX744b",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hi, As [user_name] mentioned, a [product_name] display can only communicate with a matching [product_name] module. For communication between [version_no] controllers and a [product_name] module, you typically don't require an interface module or CP unless Ethernet isn't already onboard on the controller. Depending on configuration (client/server), you might use XPut/XGet functions on the controller. Generally, the sample provided earlier should also work with [product_name]. If you encounter problems with direct S7 communication, Modbus TCP could be an alternative. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are attempting to connect a [product_name] base module and its display to a [product_name] system for networked data logging. Challenges arise due to unclear port availability and limitations of supported protocols. The discussion reveals confusion about the Ethernet and protocol capabilities of both the base module and display, and the need for possible gateway modules to enable specific types of connectivity.",
+    "user_expectations": "Users are hoping for a simple, direct Ethernet connection for data logging between their [product_name] module system and [product_name] system, preferably using the display's spare port, and wish for straightforward interoperability between these components.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "PCS7 integration",
+      "data logging",
+      "network connectivity"
+    ],
+    "pain_keywords": [
+      "insufficient Ethernet ports",
+      "protocol incompatibility",
+      "unclear network setup"
+    ],
+    "feature_keywords": [
+      "Ethernet port functionality",
+      "protocol support (S7, Modbus TCP/IP)",
+      "gateway compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges"
+  }
+}

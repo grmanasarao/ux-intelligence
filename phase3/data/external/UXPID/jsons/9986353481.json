@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "branch_id": "9986353481",
+    "thread_id": "3055273936",
+    "publication_year": 2008,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 627321704347459,
+      "user_name": "7FcCwTJFDF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 1,
+      "comment_body": "Hello, I'm having an issue with my [product_name]. When I program it, all output relays open. However, I'd like one output to always have voltage. I’m not sure if this can be handled through programming, so I wonder if adding a switch to manually route the phase to the output relay could work, without causing any damage. That way, I could activate the switch before stopping the program and always maintain voltage on the output, even while programming. Is this approach feasible, or is there a better method? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 485724272031042,
+      "user_name": "jfPzajvln6",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 1,
+      "comment_body": "Dear [user_name], I understand that you want one output to remain ON, even when the program isn’t running or the [product_name] isn’t powered. You’re considering hardware changes so you can manually energize the output relay using an external switch (let me know if I misunderstood). In my opinion, this isn't an ideal solution. Instead, I suggest using a switch with two contacts: one normally open and one normally closed, controlled manually or perhaps with a relay that governs the power to the [product_name]. I've attached a drawing showing this setup. The normally closed contact connects the [product_name]'s output to the controlled device, while the normally open contact connects the power source to the device. The switch toggles between \"always powered on\" and \"power controlled by [product_name]\". You can also automate this using a relay that follows the [product_name]'s power status, switching the device to always ON when the [product_name] turns off. Hope this helps. Regards, [user_name]"
+    },
+    {
+      "comment_id": 964498003955678,
+      "user_name": "7FcCwTJFDF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 1,
+      "comment_body": "Dear [user_name], No worries, I don't plan on modifying the hardware of my [product_name]. Your proposed solution is similar to what I had in mind, but my concern is that there will be a brief loss of voltage during switching. Ideally, I want uninterrupted voltage on the output, except when the [product_name] deliberately turns it off. My idea was to place a relay or contact between the phase and the Q1 output (as shown in my drawing), allowing me to turn the switch ON before stopping the [product_name]. I'm confident this works while running and Q1 is on, but I'm unsure what happens if the [product_name] tries to turn off the output while there's still voltage present. Will the relay in Q1 withstand this? Thanks for your helpful response. I look forward to hearing from you or others soon. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 657279783416156,
+      "user_name": "jfPzajvln6",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 1,
+      "comment_body": "Dear [user_name], I understand your concern. Could you clarify if your [product_name] uses relay or transistor outputs? Also, what is the code or firmware in use? The solution depends on these details. Regards, [user_name]"
+    },
+    {
+      "comment_id": 434615009401086,
+      "user_name": "7FcCwTJFDF",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 1,
+      "comment_body": "Dear [user_name], It is a 230RC model equipped with relays, not transistors. The device displays code [article_no]. I'm unsure if you're asking about the programmed code or the device's firmware version, but I assume it's the firmware. If so, I’ll need to provide that information later. You're very active in this forum and I really appreciate your help. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 212948750613979,
+      "user_name": "jfPzajvln6",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 1,
+      "comment_body": "Dear [user_name], I believe your approach is acceptable. Just ensure that when both paths (via contact and output relay) are supplying power, the resistance drops, leading to higher current through the device. Please check that this current won't exceed safe levels. Regards, [user_name]"
+    },
+    {
+      "comment_id": 455378996652993,
+      "user_name": "UpKrA4YFZy",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 2,
+      "comment_body": "I've faced a similar situation in the past. My requirement was that the output must remain as last set by the [product_name], even if it was disconnected from power. I solved this using a set/reset relay configuration, where the relays receive power independently from the [product_name]. Rather than having the [product_name] maintain output states, I used it to send a \"set\" pulse on one output and a \"reset\" pulse on another, controlling the relays. While not the most advanced solution, it's been reliable for about a year. Hope this provides useful insight or ideas. Regards, [user_name] (I've attached a quick sketch, which should illustrate the relay setup.)"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are discussing how to ensure continuous voltage output from a [product_name] relay module, even when the device is off or the program isn't running. The main concern is achieving this without hardware modifications or causing glitches or potential relay issues if external voltage remains on the output. Suggestions focus on combining manual switching hardware with programmed outputs, and alternate solutions include set/reset relay circuits to keep the output state during power outages.",
+    "user_expectations": "The user wants an uninterrupted, reliable voltage on a [product_name] output, unaffected by its program or power status, and expects a seamless, safe solution without causing hardware damage or glitches.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "continuous output",
+      "reliable output state",
+      "hardware reliability",
+      "seamless operation"
+    ],
+    "pain_keywords": [
+      "interrupted output",
+      "glitches",
+      "hardware modification risks",
+      "relay survival",
+      "output loss on power down"
+    ],
+    "feature_keywords": [
+      "output relay behavior",
+      "constant voltage output",
+      "manual override",
+      "set/reset relay logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "17": "Circuit Protection Guidance",
+    "22": "Usability Improvement Suggestions"
+  }
+}

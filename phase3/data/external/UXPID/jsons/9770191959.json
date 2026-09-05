@@ -1,0 +1,274 @@
+{
+  "metadata": {
+    "branch_id": "9770191959",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 189980023322744,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "In our company, we use 24 [product_name] modules to manage and monitor device operations. The modules are excellent when used together with [product_name] displays, offering a broad range of functions. However, trying to integrate beyond the basic setup consistently introduces troublesome issues, which can be exhausting. My current challenge involves connecting a [product_name] with an external system that includes SCADA software and a PC monitor; the devices don't communicate despite being on the same subnet. Configuration for two [product_name] modules plus [product_name] display in master mode works well. I've tried to set up a client-server connection using TSAP 20.00, which runs without problems. Now, I'm attempting to connect one module to an external system using a marked S7 connection and TSAP 02.00—server is set to accept all connections, but I'm unsure if TSAP is correct on the server side. Is my approach right? Additionally, I've added a protocol suite using my computer's WLAN, set a TCP/IP connection to the targeted module's IP, but am getting connection errors 4110 and 410E. What am I missing, and how do I properly link up [product_name] with the SCADA software?"
+    },
+    {
+      "comment_id": 320056444900115,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "To my knowledge, connecting a [product_name] module to classic SCADA software isn't supported. What I do know is: [product_name] modules work with SCADA starting from V11.x and are compatible with other SCADA variants."
+    },
+    {
+      "comment_id": 390021170516935,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "My previous comment was brief, but I've also tried connecting [product_name] with SCADA Flexible; there's no protocol suite for S7. Are you certain this combination is possible? How would you set it up?"
+    },
+    {
+      "comment_id": 124784674174206,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I can't confirm if communication works using the S7 protocol suite, but a standard TCP/IP connection does allow communication—I’ve used this myself."
+    },
+    {
+      "comment_id": 342151613385334,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Thanks for your suggestion. I’ll try a regular TCP/IP connection since you confirm it works. As a follow-up: I also attempted to connect the module from SCADA 7.2 via Modbus. There were no connection errors, but I was unsure about compatibility with the driver."
+    },
+    {
+      "comment_id": 442045893056556,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I don’t have experience with that setup. For an official answer, submitting a support ticket to [company_name] might help."
+    },
+    {
+      "comment_id": 922630863112865,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I’ve attached a simple example demonstrating communication between a specific [product_name] module and SCADA Flexible 2008 SP5 runtime."
+    },
+    {
+      "comment_id": 670363274811974,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Did you use SCADA Flexible or standard SCADA for your setup?"
+    },
+    {
+      "comment_id": 598869277316772,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I’ve used both SCADA Flexible and SCADA TIA as mentioned."
+    },
+    {
+      "comment_id": 759080352358042,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I haven’t used TIA. As I said in my first post: \"Whenever I try to go beyond basic features, persistent problems arise, which gets tiring.\" Thanks a lot for your help—I'll try starting with SCADA Flexible again. When attempting to open your project, I encountered database version issues, but I’m used to such ongoing complications."
+    },
+    {
+      "comment_id": 375398432729539,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "What connection type did you use in your SCADA Flexible project?"
+    },
+    {
+      "comment_id": 164869486481001,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "S7 200 protocol."
+    },
+    {
+      "comment_id": 758902868729357,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Found it now. My final question: what TSAP should be set in the module? Is TSAP 02.00 for both the local and remote side correct?"
+    },
+    {
+      "comment_id": 742902716613266,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Yes, the TSAP settings are right. Also, set the module as server and the remote device as client."
+    },
+    {
+      "comment_id": 392346424672395,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "[user_name]—still not working; communication fails. - Firewall is disabled - Ping from my SCADA computer to module is 120ms, so network seems fine - Module’s connection config unchanged (no 'add data transfer info') - [product_name] mapping with values (interested in the first: sensor values, word type at address 0) - SCADA Flexible connection: S7 200 driver, HMI device (local IP) set as computer, PLC Device as module IP - Tag settings: data type 'Word', address 0 - SCADA display gauge set to corresponding signal Result: nothing happens when running SCADA runtime; still no connection. What might be missing?"
+    },
+    {
+      "comment_id": 981765096695926,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Data type should be Integer, not Word (0-65535). [product_name] modules only support Integer (-32,768 to 32,767)."
+    },
+    {
+      "comment_id": 452618531662757,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "But in the module’s VM mapping, 'Word' is set by default and can’t be changed. Regardless, I switched data types in SCADA Flexible tags to 'Int', with no improvement—still no successful result."
+    },
+    {
+      "comment_id": 845108346181682,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "In the module’s VM mapping, 'Word' defines the data format (16-bit), not the data type."
+    },
+    {
+      "comment_id": 542302732429719,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I’ve attached screenshots showing: - Analog tag - Connection settings - Tag table And a video from the online test."
+    },
+    {
+      "comment_id": 611296155762878,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Spent two days working on S7 protocols—no luck. Thanks for your help, [user_name], but even similar settings didn’t work. Today, I tried Modbus again and my first configuration worked: I connected [product_name] to SCADA 7.2 via Modbus. For reference, these are my settings: - [product_name] (OBA8 / FS4): MASTER, SERVER, port 504 to remote CLIENT (set to accept all connections server-side). Port assigned automatically; SCADA defaults to port 502 but may need changing. VM mapping is unchanged from previous posts. - SCADA 7.2: Tag Manager > Add New Driver > Modbus TCP/IP; CPU Type: Premium Micro, Port: 504, Remote slave address: 255 This setup works with 'FloatToSignedWord' values (not supported by SCADA Flexible). Includes photos for connection, runtime, and module display for comparison. Thanks again for your help, and best regards."
+    },
+    {
+      "comment_id": 444196114018057,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Appreciate the feedback!"
+    },
+    {
+      "comment_id": 979871560397110,
+      "user_name": "8RYb477Ela",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Module Modbus port numbers: See attachment for details about the relationship between Modbus port numbers and network connections on the module. Port 502 is used for the first connection, 509 for the last; they increment for each Modbus server connection. Multiple clients may use port 502 since the servers have unique IPs. Regards, [user_name]"
+    },
+    {
+      "comment_id": 384801153605323,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Indeed. When you create a new Modbus connection in the configuration software, ports are assigned incrementally. Port assignment also factors in existing TCP connections. Just remember to set the matching port in SCADA. [user_name]—Port 502 is assigned only if there aren’t other connections like TCP S7."
+    },
+    {
+      "comment_id": 257050329389010,
+      "user_name": "8RYb477Ela",
+      "comment_position": 23,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "The module provides one dynamic network connector and eight static ones. The first static connector will always use port 502, unless the initial static connector is TCP S7, in which case the numbering shifts. Ultimately, check your module’s configuration first, then set the right port number on the SCADA side. Regards, [user_name]"
+    },
+    {
+      "comment_id": 787192807831639,
+      "user_name": "cZQANX744b",
+      "comment_position": 24,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hi, Since you have a [product_name] 8 FS:04, consider updating the firmware to FS:06. See [document] for update info. The table shows SCADA simulation improvements. No guarantee this will fix your particular SCADA issue. FYI: SCADA normally lacks a [product_name]/S7-200 driver. Did you configure the PG/PC interface for the ethernet card used for SCADA to S7-Online? Hope this helps."
+    },
+    {
+      "comment_id": 511760869670060,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 25,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hi [user_name], I updated my module firmware last month. No, I haven’t configured the PG/PC interface—this could be the reason communication is missing between [product_name] and SCADA! I’ll try this in future test projects, but for now I’ll stick with Modbus since it works reliably for me. Thanks for your suggestion!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main usability concern is integrating [product_name] modules with external SCADA systems and PC monitors for expanded control. While using [product_name] modules with proprietary displays works smoothly, attempting to connect with third-party software results in persistent communication and compatibility issues. Troubles relate to protocol configuration, port assignment, and software version mismatches, leading to error codes, failed links, and frustration, undermining trust in successful system integration.",
+    "user_expectations": "Users expect simple, reliable configuration enabling direct communication between [product_name] modules and external software like SCADA 7.2, allowing seamless management and monitoring beyond the proprietary module and display ecosystem.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless integration",
+      "enhanced system control",
+      "broader monitoring",
+      "user-friendly connectivity"
+    ],
+    "pain_keywords": [
+      "connection errors",
+      "compatibility issues",
+      "configuration complexity",
+      "integration frustration"
+    ],
+    "feature_keywords": [
+      "TCP/IP connection",
+      "TSAP configuration",
+      "Modbus connectivity",
+      "operator panel communication"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

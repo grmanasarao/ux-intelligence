@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "branch_id": "1231068718",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 720483358578521,
+      "user_name": "GpnbzEPCQn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Thank you for your help! I'm sharing a zip file with my project, created using [product_name] and downloaded on my Android device. I connected two [product_name] modules in a networked setup, but within the app's control page, I cannot configure a button to change, for example, input 1 on the main module. I'm unsure how to set up the Target Tag and what VB or VW options to use. I also want to add a slider for analog input control but lack clarity on app settings or if changes are needed in my programs. Any ideas on how to achieve basic remote control? Note: The file 'Kraj.isc' is for the main module and 'krajclient.isc' for the networked client module."
+    },
+    {
+      "comment_id": 901479206234012,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Are you familiar with this manual? [url]"
+    },
+    {
+      "comment_id": 586384142729589,
+      "user_name": "GpnbzEPCQn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "I have a few questions and would appreciate any answers. When configuring a networked main/main(client) setup: 1. What is the X (open connector) and its purpose? I've read about it but am still unsure. 2. When setting the client connection, I use VB and IB—what do these represent? 3. What is the difference between local and remote addresses? 4. When creating a network input, I use VM—what does that refer to? 5. Why do I need to use VM 0.0 when connecting a digital input to X1?"
+    },
+    {
+      "comment_id": 803310378841858,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Regarding question 1: Any block or constant with an output port must be terminated, whether it's digital or analog, except for flags and output blocks. Digital connections can be terminated by linking the output connector to another digital block or constant, flag, output block, or an open terminal. Analog outputs connect similarly—either to another analog block, flag, or output block. For question 2: VB is a byte (8 bits) in the VM area, with VB0 containing bits V0.0 to V0.7. IB is a byte (8 bits) from the input range; IB0 covers I1 to I8. For question 3: The local address is the device being set up; the remote address is the device it's connecting to. For question 4: The VM area is a data memory section used for communication with other devices. For example, setting a bit in the VM area (like V0.0) with a button in the app lets you use that address as a network address in your [product_name] program. For question 5: I'm unclear on the question."
+    },
+    {
+      "comment_id": 491972887973280,
+      "user_name": "GpnbzEPCQn",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "I'm still slightly confused, but things are clearer. For example: 1. If I link I1 to X4, how is it reflected in the VM area? Is it V0.1 or V0.4, and why? 2. Is VM a shared memory for all bits coming from X (open connector)? 3. By 'open terminal' do you mean 'open connector'? 4. Is it only when connecting a digital input to an X connector that the bit can be mapped to VM? 5. Does VB refer to a byte from digital inputs and VW from analog? Are these stored as V0.0 in VM? 6. If sending one digital input bit as VB1.0, does it become V1.0 in VM? 7. What happens in VM if I send a signal from I3 to X1? 8. You mentioned IB0 includes inputs 1-7: If I press I1, does that mean IB 0.0, requiring a connection to X1 for V0.0, or can I link I1 to X3 for V0.2? 9. Is X essentially for transmitting bits to VM?"
+    },
+    {
+      "comment_id": 778254348611181,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "The X constant only terminates open outputs of digital blocks and is not related to the VM memory. The term 'open connector' is defined by [company_name]. To share an input state with another device, you use the VM area, not the X constant. State transfer can be done with an input byte (IB) or network output instead of X. In this hardware version, network outputs only send to a client device. For example, sending IB0 transmits the status of inputs I1 to I8 together. VB is a byte in VM, usable for both digital and analog data. Typically, VW (a 16-bit word) transfers numerical values, but it can also send digital info. I did not claim IB0 or VB0 contain I1 to I7; there is only IB0, IB1, and IB2: IB0 = I1 to I8, IB1 = I9 to I16, IB2 = I17 to I24."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users struggle with configuring the [product_name] app and hardware for digital and analog input control. Areas of confusion include understanding VM, VB, VW, IB, network addresses, and the purpose of the X connector, particularly in network communication scenarios. Available manuals and documentation are not sufficient for practical, step-by-step guidance, leaving users unsure how to implement specific control tasks.",
+    "user_expectations": "Users expect straightforward instructions for mapping and remotely controlling digital and analog inputs on their hardware via the app. They seek detailed, actionable advice for using memory areas and connectors, along with clear explanations for configuring networked devices and setting up app-based controls, suitable for both digital and analog applications.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote hardware control",
+      "app-based configuration",
+      "clear setup instructions",
+      "effective monitoring"
+    ],
+    "pain_keywords": [
+      "configuration confusion",
+      "unclear memory mapping",
+      "uncertain connector purpose",
+      "complex network setup"
+    ],
+    "feature_keywords": [
+      "VM area",
+      "VB/VW data mapping",
+      "digital/analog input control",
+      "network addressing"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {
+      "Android": []
+    }
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

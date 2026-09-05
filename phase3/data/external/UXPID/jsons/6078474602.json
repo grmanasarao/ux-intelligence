@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "6078474602",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 624621789357464,
+      "user_name": "Q6GobLKKEr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hi, I would like to learn how to program a [product_name] so that an output switches only when the input is 100 ohms or less, but if the resistance is higher than 100 ohms, the output should remain off. The ohm value is just for illustration—the main idea is to trigger the output when a person touches two separate metal bars, using human resistance. Thanks."
+    },
+    {
+      "comment_id": 918611950551980,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "[product_name] devices cannot directly measure resistance; they only recognize voltage (0-10V), current (0/4-20mA), or specific sensor signals like PT100/1000. Modules such as [product_name] analog or RTD expansion options are designed for these inputs. Some basic modules do support 0-10V analog inputs, but only with 24 VDC power. For your scenario, placing a 100 ohm resistor in parallel with an analog input means input impedance won't affect readings significantly. You could use a voltage divider: connect +24 VDC to a 240 ohm resistor in series, then to the analog input. Attach one end of the 100 ohm resistor to the analog input and the other to ground. This creates a voltage drop between roughly 0 V and 7 V for resistance values in the 0-100 ohm range. At zero ohms, all 24 VDC goes through the 240 ohm resistor, resulting in a 0.1 A current and a 2.4 W load—so use a resistor rated at 240 ohms, 5 watts."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users want to use a [product_name] module for direct resistance-based switching, as with detecting human touch between two conductors. However, the module only handles voltage and current inputs, not resistance measurements directly, causing confusion about hardware limitations. Clear technical advice is needed for users seeking to interface resistance-based sensors.",
+    "user_expectations": "Users expect the [product_name] to monitor resistance values directly for switching outputs using human contact, preferably without additional complex external circuits.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "direct resistance switching",
+      "touch-based control",
+      "ease of integration"
+    ],
+    "pain_keywords": [
+      "no direct resistance input",
+      "complex wiring",
+      "lack of clear documentation"
+    ],
+    "feature_keywords": [
+      "resistance sensing",
+      "analog input",
+      "safety two-hand control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "branch_id": "1856778208",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 587573130937785,
+      "user_name": "ZCIugzN076",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "No, the system only maintains continuous operation when power is stable. The blocks work this way: the negative edge follows the positive edge to prevent the counter from resetting when storing values, while the MIN / MAX block helps preserve values during power failure. The analog amplifier is needed because the MIN / MAX block always displays a decimal in the message, so the value is shown with the amplifier. Four years later, the diagram you shared works well and displays the correct value. I am trying to create a counter that accumulates indefinitely, similar to a car’s odometer, without resetting. Can I initialize my counter when the program starts by assigning a value? Here’s my issue: On the third day, the counter does not accumulate as I expect. For example: DAY#1 = 10, YESTERDAY = 0 DAY#2 = 5, YESTERDAY = 10 DAY#3 = 20, YESTERDAY = 5 (should be 15) I'd like the counter to accumulate all totals (e.g., TOTAL = 15 + 20 = 35). Is this possible? I am using [product_name] [version_no]. -- Split from Keep Last Counter?"
+    },
+    {
+      "comment_id": 735137956778043,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], Welcome to the forum! Yes, that is possible, but only up to 32,767. This is a limitation, as [product_name] only handles integer operations in mathematical functions. Alternatively, you could use a parallel forward/reverse counter. See the attachment for details."
+    },
+    {
+      "comment_id": 119572412811201,
+      "user_name": "ZCIugzN076",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Thank you. At the moment, I am logging how many times a machine rotates, and the counter is useful for this. After learning about the 32,000 count limit, I realize I'll need to process the information periodically (since I store values from [product_name] in a database every 30 seconds). With these records, I can analyze the machine RPM or detect if the machine has stopped by comparing minute-to-minute rotation counts."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion focuses on the counting limitations of [product_name] [version_no], specifically its ability to handle integer values only up to 32,767. This limitation restricts its use as an infinite or persistent counter device for long-term or frequent logging, such as odometer-style accumulation. Users are looking for solutions to enable persistent and cumulative counting across restarts or overflow events, aiming for accurate storage and real-time updates.",
+    "user_expectations": "Users expect the counter in [product_name] to continuously accumulate counts without reset, similar to an odometer. They want persistent storage and for values to remain accurate and reliably updated even after restarts or when the counter exceeds its limit.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate total counting",
+      "persistent accumulation",
+      "long-term monitoring",
+      "analysis of machine rotation"
+    ],
+    "pain_keywords": [
+      "integer limit",
+      "counter reset",
+      "infinite counting not supported",
+      "manual data processing"
+    ],
+    "feature_keywords": [
+      "counter",
+      "odometer mode",
+      "persistent data storage",
+      "analog amplifier",
+      "MIN/MAX logic blocks"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "30": "Data Persistence Confusion"
+  }
+}

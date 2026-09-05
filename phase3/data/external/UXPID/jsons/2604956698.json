@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "2604956698",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 608172982802894,
+      "user_name": "2yCDcclJQ3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hello. I'm relatively new to working with PLCs. I currently have a program running with five on-delay timers, each set to 25 minutes, which operates as expected. However, I'd appreciate a way to change all the on-delays by modifying a single parameter directly from the control panel. Is this feasible? I noticed that the T parameter can be set from a different function, but these are variables rather than constant values. Additionally, the timers are nested within a user-defined function (UDF), and I don't think it's possible to access these parameters from the control panel. Thank you."
+    },
+    {
+      "comment_id": 540440771445047,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "[IMAGE]"
+    },
+    {
+      "comment_id": 153093983279766,
+      "user_name": "2yCDcclJQ3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Thanks for the help. I managed to get it working in a demo, but I'm unable to make parameter P1 of the analog multiplexer show up as an adjustable option in the device menu. I'm also unsure how to place the analog multiplexer in the main logic and pass its value to the child UDF. Actually, I just realized I didn't declare the parameter in the UDF settings, so that might explain its absence in the device's menu. I'll try adjusting this tomorrow. Appreciate it."
+    },
+    {
+      "comment_id": 102420530286383,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I'm not familiar with your UDF, but in my example, I didn't use an analog multiplexer."
+    },
+    {
+      "comment_id": 263062807190704,
+      "user_name": "2yCDcclJQ3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "My apologies – you used a mathematical instruction, while I used a multiplexer in my demo. Is it possible to place a mathematical instruction in the main logic and then feed its analogue output into a UDF? My timers are inside two separate UDFs, and ideally I’d want the mathematical instruction in the parent pane to send values into those UDFs for the timers’ T parameter. Unlike digital inputs, I can't seem to link UDF inputs directly to the timers."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main concern is finding a way to centrally modify timer parameters from the control panel by adjusting a single variable. The user notes that parameters within user-defined functions are not easily accessible or adjustable via the device menu, making management inefficient. There’s uncertainty about how to expose UDF parameters for easier adjustment and how to route analogue outputs from functions like mathematical instructions into UDFs for use in timers.",
+    "user_expectations": "The user hopes to adjust one parameter from the control panel that would update all timers simultaneously, and to have a straightforward method for exposing and mapping parent logic parameters into UDFs for convenient centralized control.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "centralized timer adjustment",
+      "parameter visibility",
+      "easy control panel configuration"
+    ],
+    "pain_keywords": [
+      "parameter visibility",
+      "difficulty linking analogue values",
+      "limited UDF parameter access"
+    ],
+    "feature_keywords": [
+      "UDF parameter exposure",
+      "timer on-delay settings",
+      "analogue/mathematical instruction routing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

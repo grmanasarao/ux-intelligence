@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "3045102506",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 262189056186313,
+      "user_name": "ihEQoTsaT6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, is it possible to link the function keys on the basic HMI panel with the function keys of [product_name] [version_no]? A short tutorial would be appreciated, thanks."
+    },
+    {
+      "comment_id": 442206737813979,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, you can assign an action to the function key event on the HMI panel, such as setting a variable or tag related to [product_name]. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 793636825137208,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, maybe this resource will be useful: [url] Best regards, [user_name]"
+    },
+    {
+      "comment_id": 309720929683751,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], when you connect the function key to a flag in your program, you can configure this flag—such as M1—in the tag table of your engineering environment with its relevant address (M0.0). This allows access to the signal of the function key. There is also an example project about connecting [product_name] to an HMI panel with sample code: [url] I have not directly mapped function keys between HMI and [product_name] before, so I can’t confirm if it’s feasible. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 863084067351298,
+      "user_name": "ihEQoTsaT6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Unfortunately, that's not exactly what I'm looking for. For example, I want to map function key F1 (on the HMI screen) to the [product_name] TD function key. Is this possible? I’ve tried multiple approaches with no success."
+    },
+    {
+      "comment_id": 785485465932163,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], I believe direct mapping between the [product_name] function key and HMI panel key isn’t possible. In the sample application above, you can see how linking is managed through a flag variable within the project. Pressing the function key on the HMI sets the flag. You can then connect this flag and the [product_name] function key logically (e.g. with an OR function), enabling control with both the TD and HMI panel flag. Check the sample code for details. If you have further questions, feel free to ask. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 815281101690725,
+      "user_name": "ihEQoTsaT6",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "So, should I create a flag in the engineering environment and link it to the function key in [product_name], or create a flag in [product_name] and connect it to my function key (such as F1-M1-Q1)? How do I find out the flag addresses like M1, M2, etc.? Or is it possible to create a virtual input and link it with the panel?"
+    },
+    {
+      "comment_id": 955430382251522,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], you should create a flag (e.g. M1) in the [product_name] engineering software and connect it to your HMI’s function key F1. In the engineering environment, add a tag (like \"LOGOflag\") in the tag table that uses the flag’s address, such as M1->M0.0. The addressing of flags follows a sequence; for example, M7 uses M0.6 and M9 uses M1.0. In the properties of the F1 key, set an event so that pressing F1 triggers the tag \"LOGOflag\". Once the HMI panel is connected to the [product_name] device, M1 is set accordingly. The example described above shows this implementation in code. You can also connect network inputs in a similar way by creating a tag in the engineering tool and setting the address for linking to the network input. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 245543518895888,
+      "user_name": "ihEQoTsaT6",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Thank you, [user_name]. I finally succeeded and now everything works perfectly."
+    },
+    {
+      "comment_id": 181564044059331,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 1,
+      "comment_body": "A new question about retentive variables in TIA 13 has been moved to a separate thread. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed ways to link function keys on a basic HMI panel with [product_name], aiming for direct mapping between hardware and HMI controls. They encountered limitations with direct linking and instead achieved success through configuring intermediate flags or tags. The conversation highlighted confusion around addressing and linking methods but resulted in successful implementation via indirect linking techniques.",
+    "user_expectations": "The user wishes to directly connect function keys between the HMI panel and [product_name] for streamlined control, along with clear step-by-step instructions or a tutorial for achieving this functionality.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "direct control",
+      "efficient linking",
+      "function key mapping"
+    ],
+    "pain_keywords": [
+      "configuration complexity",
+      "addressing confusion",
+      "lack of direct method"
+    ],
+    "feature_keywords": [
+      "function keys",
+      "tag linking",
+      "flag addressing"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

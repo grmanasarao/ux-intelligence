@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "6558769264",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 603232253034922,
+      "user_name": "anmxc890PH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm attempting to connect to my device over the internet using the latest app. I've configured NAT settings and rules on my firewall, forwarding port 8080. The app shows a green status, and I can view VM, IO status, web server, etc., but the Control Page displays a yellow status for items and does not function. Locally (on the LAN), everything operates correctly. Packet tracing reveals the app communicates with the device over port 8080, and no requests appear to be blocked. Someone mentioned forwarding port 10001, which I also tried, but didn't observe any traffic on these ports. Has anyone managed to get this working? Thanks."
+    },
+    {
+      "comment_id": 232659096715164,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Have you enabled access for smartphone control under your access control settings?"
+    },
+    {
+      "comment_id": 443079544950862,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "You can find the manual for the app here: [url]"
+    },
+    {
+      "comment_id": 603891528066032,
+      "user_name": "anmxc890PH",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Yes, I've completed those steps. Also, since I can connect and control all functions from the LAN, I doubt it's a permissions issue. It's likely something related to the network configuration or firewall not forwarding all necessary traffic. Oddly, I can reach the device and access everything except the controls on the control page."
+    },
+    {
+      "comment_id": 164103279832786,
+      "user_name": "anmxc890PH",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Hi, I've resolved the issue. Initially, I set up and tested using the device's internal IP. After updating my firewall and routes, I switched the app to the public IP but did not recreate the controls—those controls failed to work. When I deleted my original connection, recreated it with the public IP, and then made new controls from scratch, everything worked. Thanks."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced difficulties controlling the [company_name] device remotely via the app. Viewing status indicators worked, but control features did not, even after adjusting the network and firewall settings. The underlying issue was that after changing to a public IP, existing app connections and control settings required manual deletion and recreation to function remotely, as some configurations do not update dynamically.",
+    "user_expectations": "Users expect to be able to manage their [company_name] product remotely via the app without needing to manually recreate connections or controls after making network changes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "seamless access",
+      "operational reliability"
+    ],
+    "pain_keywords": [
+      "remote control failure",
+      "need to recreate controls",
+      "configuration frustration"
+    ],
+    "feature_keywords": [
+      "remote access",
+      "control page",
+      "network configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "iOS": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

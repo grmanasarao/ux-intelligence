@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "9966733182",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 582098452475784,
+      "user_name": "rDmgqPKEys",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm looking to connect [product_name] with a Fronius inverter and would appreciate any advice on how to get started, as I'm unsure of where to begin. Best regards! Split from Modbus TCP between [product_name] & Fronius."
+    },
+    {
+      "comment_id": 499297373242474,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "The user [user_name] will not be able to provide an answer, as they are no longer a member of this forum."
+    },
+    {
+      "comment_id": 928300684974516,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "You might find relevant information in the German-speaking section of the forum, such as the topic about reading data from Fronius GEN 24 with [product_name] [version_no]."
+    },
+    {
+      "comment_id": 851391185149618,
+      "user_name": "rDmgqPKEys",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "Thank you, this was helpful. I have further details to add: 1) I am reading from a public IP, not a local network. 2) I tested with QModMaster and received correct values, such as 6000 from register 40085, indicating a frequency of 60Hz. 3) The Fronius register map shows values as int16. 4) After using a float/int converter, I received -32768 as the line-to-line voltage from register 40078, and 32767 as the real power from register 40087. I am not sure what the issue is."
+    },
+    {
+      "comment_id": 763990859124881,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "It looks like you have overlapping in your VM addresses. Could you share the Modbus register table for the inverter?"
+    },
+    {
+      "comment_id": 765267171561219,
+      "user_name": "rDmgqPKEys",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "I suspect the problem is with the format. I'm attempting to read as uint16, but I'm unsure how to configure this in [product_name]."
+    },
+    {
+      "comment_id": 138222023251044,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 5,
+      "comment_body": "Your main issue is with overlapping addresses in VM memory. The addressing is based on bytes, not words—a word consists of two bytes. The address of the word is determined by the left byte. For example: VW0 = VB0 + VB1, VW1 = VB1 + VB2, VW2 = VB2 + VB3. As you can see, VW0 and VW1 both use VB1, VW1 and VW2 both use VB2. To avoid overlap, set the addresses of VWs at intervals of two bytes, like VW0, VW2, VW4, etc. The standard analog network input (NAI) is designed for INT16 values (range -32,768 to 32,767), not for UINT16 (range 0 to 65,535). If the value exceeds 32,767, [product_name] interprets it as a negative number."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users struggled to connect [product_name] with a Fronius inverter via Modbus TCP, mainly due to misunderstandings regarding memory addressing and integer data format. The overlap issue in VM memory and handling INT16 versus UINT16 resulted in incorrect value interpretations from the inverter registers.",
+    "user_expectations": "Users expect [product_name] to accurately read unsigned 16-bit register values from the inverter, without misinterpreting values or encountering memory address overlap problems.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct data acquisition",
+      "easy device integration",
+      "reliable Modbus communication"
+    ],
+    "pain_keywords": [
+      "VM memory overlap",
+      "wrong data type interpretation",
+      "difficult configuration"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "memory addressing",
+      "INT16/UINT16 handling",
+      "analog network input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

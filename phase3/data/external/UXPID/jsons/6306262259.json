@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "branch_id": "6306262259",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 946806472647896,
+      "user_name": "YF9X2xNrRs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello, Is it possible for a [product_name] with [article_no] and another with [article_no] to share their variable memory? Is it just about making two connections in [product_name] and assigning a variable mapping to each direction (client to server & server to client)? Both are set up as master devices."
+    },
+    {
+      "comment_id": 516572912229724,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Can you clarify what you mean by sharing the variable memory? The VM area refers to variable storage. If you wish to exchange data between two [product_name] devices ([article_no]), use each device's VM area. Set up a connection for master-to-master communication, designating one as server (slave) and the other as client (master). Specify read or write direction in the connection. If you need more details, I could provide an example."
+    },
+    {
+      "comment_id": 236309619720516,
+      "user_name": "YF9X2xNrRs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I would like both devices to have identical memory areas, so writing a bit or byte to either doesn't matter. Here's more context: Three years ago, I began with one [product_name] ([article_no]) and two I/O expansions for my first floor. I used negative edge detection on digital inputs to control outputs. Later, after discovering an app to control the device, I added a network input to each input. When I renovated the ground floor, I purchased a new [product_name] ([article_no]), more I/O expansions, a communication module to interact with my automation system and dimmers. On the new floor, I added network inputs to digital inputs, starting variable indexing from where the first module ended. I changed my programming logic so each digital input sets a variable, which links to an output, making it easier for a home server to communicate, since it only reads/writes variables and not outputs directly. With shared variable memory, I wouldn't need to specify which device to update, and common actions (like panic or day/night) are universal across both devices."
+    },
+    {
+      "comment_id": 477544284605317,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Sorry, I still don't quite understand. Each [product_name] has its own variable memory area, with its own addresses like V0.0 or VB1. That's why I'm confused about what you mean by sharing."
+    },
+    {
+      "comment_id": 701424901797435,
+      "user_name": "YF9X2xNrRs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thanks for the response. I'll try to clarify further. I'm open to taking a completely different approach if that suits my situation better—I don't consider myself an expert in automation systems. I realize every device has its own VM area, but I want both to have identical VM data, so any change made in device #1 is automatically transferred to device #2 and vice versa. Perhaps I'm looking for some sort of variable mapping where addresses VB0 to VB100 on device #1 correspond to VB0 to VB100 on device #2 in both directions. For example, VB0.0 might represent a light in the living room controlled by device #1, while VB0.6 is the master bedroom light controlled by device #2. No overlap exists in their usage, so variables always represent the same function no matter which device is accessed."
+    },
+    {
+      "comment_id": 428407173926826,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "It's possible to copy values from one device to another. Synchronizing values, however, is complex since you need to track which values are most recent. It's recommended to maintain \"remote\" and \"local\" sets and use logic to determine which is newest. Alternatively, assign one device as the master keeper of values, and have all networked devices use its data. When a value changes on the slave, the master should distribute it to all. Consider these options to see which may best fit your needs."
+    },
+    {
+      "comment_id": 492807704987666,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "That solution won't work. You can't write to the same variable memory address from multiple sources (devices and apps) simultaneously."
+    },
+    {
+      "comment_id": 284691542052538,
+      "user_name": "YF9X2xNrRs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thank you for your input. Based on the advice given, it might be best to use a master-slave setup—one device handles input and output, and the other (connected to the communication module) is the master, storing all logic and variable data. Is this correct? I have no experience with master-slave configurations, but I'll investigate further. As a side note, I've already ordered a new [product_name] ([article_no]) to replace the older module, which will be relocated to the garage for exterior and garage light controls."
+    },
+    {
+      "comment_id": 327733797337991,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Be aware that master-slave communication has limitations. The slave device simply acts as a hardware extension with no autonomous program. If the master fails, everything stops. In contrast, master-to-master communication allows each device to operate independently."
+    },
+    {
+      "comment_id": 905245105262088,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Just to clarify, what I mentioned about \"master-slave\" concerns central value keeping and value usage, not actual master-slave protocol. A single device can act as both keeper and user. For now, focus on how you want information to flow between devices (and other interfaces, like phones), create a diagram, and then identify what information is available. A flow diagram may help clarify your approach, as relying solely on text can lead to misunderstandings."
+    },
+    {
+      "comment_id": 413439059793158,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Dear [user_name], Based on my understanding, [user_name] is trying to create a network of collaborating devices. For best results, identical requests and configurations should be available to all network units. I've outlined general approaches, but you have the expertise for implementation. I welcome your strategies for building such a cooperative device network."
+    },
+    {
+      "comment_id": 563016435698282,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "[user_name], this can't be identical for both devices, especially since the communication module can't connect with the older device. The user wants the VM area to behave the same on both devices. For example, if a bit is set in the newer module, the same bit should also be set in the older one by parallel writing—and vice versa. This would require sending all variables from one device to another in matching addresses, in both directions, but that's not possible."
+    },
+    {
+      "comment_id": 489023888936241,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "[user_name]: Please check the attached proposal."
+    },
+    {
+      "comment_id": 207657541782936,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "[user_name]: Attempting to synchronize two numerical values is unnecessarily complicated—a demonstration is attached."
+    },
+    {
+      "comment_id": 843424058611269,
+      "user_name": "YF9X2xNrRs",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thank you for searching for solutions! As I don't fully grasp the easiest solution yet, I plan to stick with this configuration:• Both devices are set as masters.• Each device has its own logic.• I keep my variable list distributed across the two devices (no overlap).• If I want to read/write a variable, I specify which device to access.• For functions shared by both devices, I use separate variables—one local and one remote—and swap them between devices as needed. This isn't simple to describe, but I believe it works (see attachment).• If one device fails, the other continues to operate independently.• One device is the communication hub, handling automation system integration; to transfer data to the other device, I use extra network outputs."
+    },
+    {
+      "comment_id": 933838956850409,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "In your initial post, you stated you're using two different modules ([article_no]). In your new example, you describe two units of the newer type. In that case, your approach works as programmed. However, with different models, the older unit can't use network outputs to communicate with a master; it can only send to a slave device. If you need the older module to update data for a master, you'll need a different solution."
+    },
+    {
+      "comment_id": 423478137345091,
+      "user_name": "YF9X2xNrRs",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "You're correct. As noted earlier, I've ordered a new unit to replace the older device, which should simplify things. I can't test this until the new device arrives."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are investigating ways to synchronize or share variable memory between multiple [product_name] modules. The goal is for changes on one device to be instantly reflected on another. There is uncertainty over whether true real-time mirroring can be achieved with [product_name] programming tools, and users are seeking seamless variable sharing across their network. Responses clarify that each device maintains its own variable storage; while data synchronization is theoretically possible, it is challenging to implement due to potential write conflicts when addressing the same variable from multiple sources.",
+    "user_expectations": "Users expect to be able to synchronize variable memory between networked devices so that changes made from any interface are reflected throughout the system, regardless of which module is addressed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless control",
+      "central data access",
+      "automation flexibility"
+    ],
+    "pain_keywords": [
+      "no VM synchronization",
+      "manual mapping required",
+      "risk of data conflict",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "VM synchronization",
+      "network variable mapping",
+      "multi-device integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

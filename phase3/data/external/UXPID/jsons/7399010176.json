@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "branch_id": "7399010176",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 534712000126096,
+      "user_name": "gZ11QkUkcA",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "I'm attempting to have my [product_name] poll temperature data from another PLC. I've confirmed the other PLC is accessible using MODSCAN. I've configured [product_name] both as a client and as a server, as shown in the attachment. Please review and let me know where I may have gone wrong, as I expected the process to be less complex."
+    },
+    {
+      "comment_id": 179846230592571,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "Unfortunately, the provided details are insufficient. You are simultaneously attempting to retrieve values into [product_name] using three conflicting methods. For example, you assign Modbus as a holding register (HR) and also as an input register (IR). This suggests a lack of foundational understanding. At one point, you attempt to read a value containing two consecutive holding registers via a custom-configured connection but do not access this value directly in the [product_name] program; instead, you try to access a remote value through an NAI designated as an input register. In summary: your approach appears inconsistent. Without accurate information about the Modbus device, it is difficult to assist you. The best solution is to upload the manual for the Modbus device (including the register table) or specify what device it is (manufacturer and model)."
+    },
+    {
+      "comment_id": 579298177448955,
+      "user_name": "gZ11QkUkcA",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "Thank you for your response. I am polling an Automation Direct DL06 using its ECOM interface, and I've attached a screenshot of the Modscan poll. I essentially used the sample provided on the forum where the original poster connected to a Kinco HMI. This is my first experience working with [company_name] products, and I appreciate the help from the community."
+    },
+    {
+      "comment_id": 958611746732106,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "Since version [version_no], [product_name] supports Modbus only over TCP/IP—not Modbus RTU or Modbus ASCII."
+    },
+    {
+      "comment_id": 433658115793886,
+      "user_name": "gZ11QkUkcA",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "Yes, I am aware that [product_name] supports TCP only. As indicated in the polled device, the DL06 receives LAN traffic via its ECOM card, polling the specified address as the NIA in my program. Thank you for the community’s support in resolving this!"
+    },
+    {
+      "comment_id": 449532000883402,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "It seems like you assume everyone is familiar with the DL06 and ECOM interfaces. Please provide the device manuals with their Modbus register tables or links to them. Also, indicate which specific registers you intend to read. Is the DL06 acting as a client or server? How is it configured?"
+    },
+    {
+      "comment_id": 415678633163923,
+      "user_name": "gZ11QkUkcA",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "I've now managed to get the polling working correctly! My mistake was having [product_name] poll Holding Register (HR) 40508 instead of register 508; after correcting this, everything works as expected. Regarding the Automation Direct DL06, it's another PLC quite common in North America, and it uses hexadecimal notation for enumeration. As a system integrator, I frequently have to learn new systems quickly, often on-site. I have numerous process machines ready to transition to the [company_name] platform and am thankful for the assistance offered by this forum during my learning process."
+    },
+    {
+      "comment_id": 845931257088987,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 8,
+      "comment_body": "Glad to hear you solved the issue. However, due to missing or inaccurate details, offering assistance was challenging."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user struggled initially with integration between [product_name] and a third-party PLC via Modbus, specifically when polling temperature data. Confusion was due to incorrect register type and address assignment in [product_name]. Although the user utilized Modbus TCP/IP correctly, proper register addressing needed adjustment. The problem was resolved by correcting the register number, emphasizing the necessity for clearer instructions and thorough documentation when dealing with device interoperability and register mapping.",
+    "user_expectations": "The user seeks simple and reliable Modbus polling between [product_name] and other platforms, straightforward configuration guidance, and improved support when working with non-[company_name] devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "interoperability",
+      "successful integration",
+      "efficient configuration",
+      "learning platform"
+    ],
+    "pain_keywords": [
+      "register mapping confusion",
+      "unclear documentation",
+      "Modbus protocol confusion",
+      "lack of cross-device guidance"
+    ],
+    "feature_keywords": [
+      "Modbus TCP/IP",
+      "register configuration",
+      "polling",
+      "client/server mode"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "branch_id": "9736931183",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 509109132111122,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Power meter is the first solution I thought of. The schedule is kept simple. The energy meter uses 18,000 pulses per 1000 Wh. Pulses enter through I3 in [product_name] [article_no], followed by two Up/Down counters that function correctly. The Threshold trigger [product_name] also receives these pulses. I suspect there are mistakes in my approach. What values should I use for the mathematical instruction in [product_name]? Please provide values up to three decimal places. The setup is used to control other devices at a specific power."
+    },
+    {
+      "comment_id": 696697554889147,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hi, [user_name]. It's difficult to determine the exact value for the math operation, but in your configuration, both NAQs output to the same address: VW0. I suggest using different addresses, such as VW0 and VW2, spaced by two steps."
+    },
+    {
+      "comment_id": 585543001287412,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Don't focus too much on those NAQs. It's just an example. Within the network, this output is transmitted to three different [product_name] units."
+    },
+    {
+      "comment_id": 580572952651771,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "My solar inverter is a 3-phase 5 kVA unit. It starts with a TIP Sinus 85 S0 meter (3-phase 230/400 V), which produces 18,000 pulses per kWh. Pulses arrive at I3. The attached diagram is only part of the whole setup. I'm okay with seeing only even numbers. However, I now have doubts about the accuracy of the [product_name]. The solar panel dashboard displays different values. Am I making a programming or configuration error?"
+    },
+    {
+      "comment_id": 437249943837868,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "You haven't mentioned how quickly the pulses arrive. Counting isn't dependent on the cycle, but resetting the counter is. If the pulses arrive quickly, the counter should be reset only when the count exceeds 18,000."
+    },
+    {
+      "comment_id": 413559140090257,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Regarding pulse speed: it depends on weather conditions. If it's dark, there are no pulses—makes sense. A positive pulse is 3 ms wide. 18,000 pulses equal 5 Hz, corresponding to 1 kWh. At 5 kW, that's 90,000 pulses, so around 15 Hz. Is that correct? If not, please let me know. My concern is about the accuracy of the displayed information."
+    },
+    {
+      "comment_id": 545447168977092,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Which [product_name] module are you using? Please provide the complete order number."
+    },
+    {
+      "comment_id": 932049194111696,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Sorry for not keeping up with this daily. It's working for now. I'm using [product_name] [article_no], 12/24V, with a 24V power supply. Hope this information helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having trouble setting up accurate pulse counting for a solar inverter system using [company_name] control modules. The main issue is that measured energy readings differ from the solar panel dashboard, possibly due to incorrect counting and programming. There is uncertainty around proper mathematical configurations and a lack of confidence in the results shown by the system.",
+    "user_expectations": "Users expect the [product_name] solution to count S0 pulses reliably and display energy values that closely match those shown on the solar inverter dashboard. They want the system to process varying pulse rates accurately and deliver highly precise readings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "energy metering",
+      "precision",
+      "real-time monitoring",
+      "reliable device control"
+    ],
+    "pain_keywords": [
+      "data inconsistency",
+      "accuracy issues",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "pulse counting",
+      "math instruction configuration",
+      "threshold trigger",
+      "display accuracy",
+      "multi-device output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "10": "Performance Predictability",
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "branch_id": "4148407142",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 365183692030493,
+      "user_name": "jBt6MvCIin",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "I'm deploying a web application using AWS. Analog readings work correctly, but when I use switches, my digital outputs don't respond as expected."
+    },
+    {
+      "comment_id": 987518485084937,
+      "user_name": "jBt6MvCIin",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 261907500012764,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "It seems you're using a push button instead of a switch to control the output with your logic. A push button typically triggers either a short pulse or sets the variable to 1 only while pressed. However, I can't tell the exact details since your screenshots don't clearly show the setup. Please upload your [product_name] program and the [product_name] Web Editor project as a ZIP file and specify what functionality you’re aiming for."
+    },
+    {
+      "comment_id": 996368462995420,
+      "user_name": "jBt6MvCIin",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "They are switches. Here is the folder."
+    },
+    {
+      "comment_id": 745087635437140,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "The left button operates correctly, switching the state On/Off. The middle button isn't functioning because its associated output is logically connected on the left side. Digital outputs can only be switched directly if they're free of such logic connections."
+    },
+    {
+      "comment_id": 121005571171702,
+      "user_name": "jBt6MvCIin",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "I've made the suggested changes but I'm still unable to get it working."
+    },
+    {
+      "comment_id": 450809277211212,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "I can provide information regarding the connection between [product_name] Web Editor and [product_name]. However, I don't have experience with AWS and can't assist with that part."
+    },
+    {
+      "comment_id": 610447908075967,
+      "user_name": "cZQANX744b",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hello, what cloud data table configuration are you using for the switch? If the signal is set to update only every minute, you'll see delays until about that frequency. You can log into your AWS account and open your IoT device's shadow. When you press the button, verify the change in the AWS IoT shadow; updates there should appear more quickly than on the dashboard because several delays can occur: 1) AWS data table configuration (update on change or at a set frequency), 2) data transfer from the IoT device to AWS shadow, 3) movement from AWS shadow to another AWS service, 4) then to the dashboard. Always remember: an AWS dashboard may react more slowly than an HMI connected directly to [product_name]. Hope this clarifies things."
+    },
+    {
+      "comment_id": 426434599997771,
+      "user_name": "jBt6MvCIin",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "Hi, when I click the switch, the shadow monitor adds the desired value along with Q2. Still, nothing changes on the PLC. The switches are set with the 'on change' option."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encounters problems with activating digital outputs on a [company_name] controller using web-based switches while deploying through AWS. While analog inputs respond as expected, digital outputs fail to activate, leaving the user confused by the lack of response. Community feedback points towards potential issues with configuration, button types, or logical wiring in the project, and highlights that AWS data table settings and inherent cloud delays can significantly affect update times—unlike the immediate response of local HMIs.",
+    "user_expectations": "The user expects that digital switches in the web application will immediately trigger the corresponding digital outputs on the controller, mirroring the instant feedback received from local HMI devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "instant feedback",
+      "cloud integration",
+      "digital output activation"
+    ],
+    "pain_keywords": [
+      "cloud delay",
+      "no output activation",
+      "inefficient diagnosis",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "digital switch",
+      "cloud data table",
+      "AWS IoT shadow",
+      "on change update",
+      "analog input"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "12": "Network Configuration Challenges"
+  }
+}

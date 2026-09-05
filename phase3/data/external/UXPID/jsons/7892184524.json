@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "7892184524",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 527528754306860,
+      "user_name": "vISplQQeV7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I'm having trouble setting up multiple [product_name] modules to work with a single master for centralized start/stop control across all devices. In my trial project, I managed to connect three slaves before all network connections were used up. My setup involves an 80G ozone generator with the main module acting as the host. Using Q1, I activate both the air compressor and solenoid valve to push ozone gas out. The i1 input serves as the start/stop for both the host and all slave modules. I want to install several slave modules in different locations like rooms and pools—around six or more. The manual suggests support for up to 16 devices, but I can't figure out the configuration. Each slave, when activated by i1, should operate its local solenoid valve and also send the start/stop signal to the host, triggering the main compressor and valve. Is there a way to accomplish this using a single channel or marker that all devices send to the host? Any suggestions or examples would be appreciated."
+    },
+    {
+      "comment_id": 644783637512299,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "I'm not entirely clear on your network setup between these modules. When creating your connections, you're using all 8 static connections for just 4 devices. Why do you have two connections between a master and a slave? Also, the concept of master/slave doesn't apply here as you've only added master modules in your network layout."
+    },
+    {
+      "comment_id": 507959738132716,
+      "user_name": "vISplQQeV7",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "The main application works well with the ozone generator, and I have a demo video at [url]. In my test project, I didn't set up any network connections initially, but after adding Network Input/Output and configuring the IP, [product_name] software automatically creates two network connections per device. This quickly uses up all available connections. I even tried adding one slave to the project, but couldn't proceed with the schematic. My question is: what's the best way to use six or more modules, each with its own program, but ensure every unit can send start/stop commands to the main host? Could you provide a simple example project?"
+    },
+    {
+      "comment_id": 537266647471825,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "To clarify the basics of the master/slave configuration for these devices, no program can be stored on a slave unit—the slave only extends its hardware functionality to the master. Essentially, the slave acts as an expansion module for the master over Ethernet."
+    },
+    {
+      "comment_id": 788986636402686,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Here's an example: When using drag-and-drop to connect one diagram to another, always start with the same initial diagram. If you connect from device 1 to device 2, device 1 is the client and device 2 is the server, creating a client connection on device 1. Connecting back from device 2 to device 1 makes device 1 a server and device 2 a client, which adds another connection for both. This quickly uses up the available 8 static connections if you add several slaves."
+    },
+    {
+      "comment_id": 169645889345972,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "I've attached your revised network project."
+    },
+    {
+      "comment_id": 915076445590310,
+      "user_name": "vISplQQeV7",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "This was my goal, but I had a mistake in my network configuration. Connecting up to eight remote modules for control works perfectly and is sufficient for my needs. Thanks so much for your assistance!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced challenges in setting up multiple [product_name] modules as distributed remote start/stop controls linked with a master device. Issues surfaced due to network connection limits in [product_name] configuration software and misunderstood master/slave roles. After guidance and corrections to the project setup, the user resolved the connection issues and successfully coordinated remote modules as intended.",
+    "user_expectations": "The user wants simple configuration of numerous [product_name] modules in a centralized setup, using a shared start/stop signal across all devices, and efficient handling of network connections to allow scalable deployment.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simple distributed control",
+      "expandable network",
+      "centralized start/stop"
+    ],
+    "pain_keywords": [
+      "network configuration confusion",
+      "connection limitation",
+      "lack of guidance for master/slave setup"
+    ],
+    "feature_keywords": [
+      "network connection limit",
+      "master/slave configuration",
+      "remote start/stop control"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

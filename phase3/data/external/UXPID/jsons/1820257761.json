@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "branch_id": "1820257761",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 922182744927120,
+      "user_name": "ZkvkMuLy2f",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Hello, I am working on a project where I log run time, cycles, and pressure using an IoT gateway that reads from [product_name] with Modbus TCP. I am receiving the run time and cycles values in my cloud system, but when I try to read the analog input (pressure sensor, range 0-100), I only get a value of 1 or 0. My JSON configuration file is set to read input register 1, as referenced in the [product_name] documentation. Can someone assist?"
+    },
+    {
+      "comment_id": 335058520441312,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "It's difficult to make an accurate assessment without seeing the specific program details. Could you upload your project as a ZIP file?"
+    },
+    {
+      "comment_id": 438203953765616,
+      "user_name": "ZkvkMuLy2f",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "I've attached the project. I assumed that the analog input is a 16-bit integer. Is that assumption correct?"
+    },
+    {
+      "comment_id": 735644471876523,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "[product_name] reads analog inputs and converts them to 0-1000 units, using a 16-bit signed integer value. In your project, did you set [product_name] as a Modbus server? I can't see what your JSON configuration looks like. Note that [product_name] Modbus addresses have an offset of +1; try reading IR0 rather than IR1."
+    },
+    {
+      "comment_id": 281358082970863,
+      "user_name": "ZkvkMuLy2f",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Thank you very much, I was stuck on this but your suggestion resolved it. Changing the JSON file to use ir0 fixed my issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced difficulty reading correct analog input values from [product_name] via Modbus TCP using an IoT gateway connected to a cloud system. Instead of getting the expected pressure sensor range, only binary values were returned due to an incorrect register configuration in the JSON file. Adjusting the register offset in the configuration resolved the issue and enabled proper analog value logging.",
+    "user_expectations": "The user expects reliable and accurate logging of both analog and digital input values from [product_name] hardware to their cloud-based data system via Modbus TCP, following official documentation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate data logging",
+      "cloud integration",
+      "analog sensor monitoring"
+    ],
+    "pain_keywords": [
+      "incorrect analog value",
+      "register addressing confusion"
+    ],
+    "feature_keywords": [
+      "Modbus TCP communication",
+      "analog input readout",
+      "register configuration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

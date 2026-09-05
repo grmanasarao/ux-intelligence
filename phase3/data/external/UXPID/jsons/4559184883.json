@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "4559184883",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 366121625545029,
+      "user_name": "VfLgGiO0ze",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I have a question. How many [product_name] devices can be linked to the [product_name] Web Editor? My project involves connecting around 140 [product_name] units. Is this feasible?"
+    },
+    {
+      "comment_id": 831020469183234,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Each web server can communicate directly only with its own [product_name]. To retrieve data from other [product_name] units, you need to exchange data among them. With a small number, this is possible, but connecting 140 [product_name] units to a single web server seems unmanageable."
+    },
+    {
+      "comment_id": 617471684869773,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "If you set up multiple data collectors, it's possible to transfer data from 140 devices into one [product_name], but only a small amount of data from each will work reliably. Theoretically, if every [product_name] sends the same amount: 850*8 = 6800 bits / 140 = roughly 4.85 bits per device, so 4 bits per [product_name]. I would recommend connecting an IPC like an IoT gateway as a head station to aggregate all data and serve as the web server. You would still need data collectors since handling 140 connections might exceed the IoT device’s capacity. Alternatively, consider using a SCADA solution like WinCC and Modbus TCP/IP for the 140 connections. Hope this helps."
+    },
+    {
+      "comment_id": 411061392485106,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The user VM area is specified as VB0 - VB850, totaling 851 Bytes. 851 Bytes * 8 = 6808 bits, which divided among 140 [product_name] devices results in 48.63 bits, so approximately 48 bits per unit."
+    },
+    {
+      "comment_id": 933770335172268,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The first calculation was incorrect, but the second also doesn’t seem practical. Data transfer of this scale would result in high network traffic and latency. To suggest viable alternatives, we need more project background. Is simultaneous connectivity for all devices required? One option could be a controller with greater connection capability and a more robust web server."
+    },
+    {
+      "comment_id": 539784960991799,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I only clarified the calculation and didn't intend to suggest the approach makes sense. As mentioned initially, I already expressed my views on its feasibility."
+    },
+    {
+      "comment_id": 731285954983552,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "My comments are meant for the original poster, not directed at previous replies. Your calculation of 48.63 bits is correct."
+    },
+    {
+      "comment_id": 608080510411525,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Just to clarify, my replies are additional remarks for the original creator, not for previous posters. The 48.63 bits calculation is accurate, as noted."
+    },
+    {
+      "comment_id": 659319057053302,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "In my next life, I plan to start a play school."
+    },
+    {
+      "comment_id": 645080886844613,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "That's a good idea. I can imagine how you would interact with children…"
+    },
+    {
+      "comment_id": 381920846402522,
+      "user_name": "VfLgGiO0ze",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I wasn’t aware that the latest versions of [product_name] have integrated modbus servers. Using WinCC for communication with them seems like an interesting idea. Thanks to everyone!"
+    },
+    {
+      "comment_id": 818680155211608,
+      "user_name": "cZQANX744b",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hi, I admit I made a mistake. Next time, I’ll be more careful with my calculations."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants explored the use of [product_name] Web Editor for linking around 140 [product_name] devices. The discussion revealed significant limitations with direct connectivity and data exchange, as the web server and network infrastructure can't manage this scale efficiently. Users suggested alternative solutions such as using intermediary data collectors, IPCs, or SCADA systems like WinCC. Ultimately, the product does not natively support extensive direct connectivity, highlighting issues with scalability and system performance for high-volume setups.",
+    "user_expectations": "The user hopes the [product_name] Web Editor can provide seamless direct connections to a large network of [product_name] devices, simplifying data gathering and visualization for many units at once.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "centralized monitoring",
+      "network scalability",
+      "ease of integration"
+    ],
+    "pain_keywords": [
+      "scalability limitation",
+      "single connection restriction",
+      "latency",
+      "data throughput bottleneck"
+    ],
+    "feature_keywords": [
+      "multi-device connectivity",
+      "web server support",
+      "data aggregation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "10": "Performance Predictability"
+  }
+}

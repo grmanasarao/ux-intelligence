@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "branch_id": "1952996130",
+    "thread_id": "4479534060",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 372213258611548,
+      "user_name": "vISplQQeV7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Hello, I have a project request to automate a hotel with 22 rooms per floor over 10 floors, totaling 220 [product_name] modules to install. Each [product_name] will control 2 temperature sensors (room and bathroom), 2 digital inputs for adjusting the room setpoint +/- 5°C, 2 digital switches for SOS and room status, and 4 relay outputs for solenoid valve and ventilation on/off. Each [product_name] should operate independently, without module-to-module communication. My question: Can a KTP700 touch panel read the status of all 220 [product_name] modules, each with a unique IP address? The [company_name] manual states a maximum configuration of 16 [product_name] modules plus HMI display and PC, but I think this refers to direct module-to-module networking. Can someone confirm if this setup is possible so I can proceed with ordering and software development for 220 [product_name] modules plus the HMI panel? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 766101725454810,
+      "user_name": "vISplQQeV7",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Can someone help answer this? Is it possible to network up to 220 [product_name] modules?"
+    },
+    {
+      "comment_id": 431956455984864,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "You can scale your network as required, but each [product_name] module can only communicate with a maximum of 7 other [product_name] modules. For the HMI screen, check the manual for the KTP700 to find the max units it can handle. The KTP600 panel, for example, supports connections to only 7 devices."
+    },
+    {
+      "comment_id": 136759641164385,
+      "user_name": "gqOqRrDhHW",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "[product_name] module may not be the best choice for hotel room control due to its complexity. There are Ethernet-connected room thermostats with touchscreens available, which can be managed centrally from a PC."
+    },
+    {
+      "comment_id": 207445050103129,
+      "user_name": "vISplQQeV7",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Thanks for your response. I know other network controllers exist, but the client wants to manage windows, door status, main power, three temperature sensors, three solenoid valves, and other features, so I thought [product_name] might be suitable (maybe I’m mistaken). I'll check the 7\" touch panel, but I expect that with unique IP addresses, status-only reading should work. I do not need module-to-module communication."
+    },
+    {
+      "comment_id": 588838661878959,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "The HMI cannot establish 220 direct connections. The maximum varies by panel type. If you use [product_name] modules, you’ll need to group them into network sections based on the number of simultaneous connections the HMI supports."
+    },
+    {
+      "comment_id": 528395363239230,
+      "user_name": "vISplQQeV7",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "So, is it possible to create multiple network sections over the same LAN cable, each supporting up to 16 [product_name] devices? I haven’t bought the KTP700 yet, so I’m unsure how many sections it supports. Does anyone have experience with this and know how many [product_name] modules per section can be addressed? Thanks."
+    },
+    {
+      "comment_id": 209221418830448,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Also, note that each [product_name] module only has one Ethernet port. This means you’ll need a large number of network switches. Whether [product_name] is the best choice for your application is up for debate."
+    },
+    {
+      "comment_id": 551701518221707,
+      "user_name": "vISplQQeV7",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Yes, I am aware each [product_name] module has only one network port, but that’s fine. We’ll use a TP-Link AV500 powerline network through the 220V supply. Each device can have its IP address set and connect to each [product_name] module; tests have shown this works well. Powerline adapters are inexpensive and eliminate the need for RJ45 cabling."
+    },
+    {
+      "comment_id": 575563257241265,
+      "user_name": "vISplQQeV7",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], I’ve finished the programming for the hotel rooms using [product_name] modules and it seems to work well. In [product_name] configuration software V8, it's possible to add multiple devices to a project: one HMI panel and up to 31 slave devices, all connected to the HMI input (max 32 devices). I’ve loaded the same program across devices, tested with up to 31 or 124 modules. In WinCC, I tried adding more network connections, which appears unlimited, but when compiling, an error shows a max of 4 supported connections. For each, I set a different IP address (.101, .102, .103, ...), but perhaps this setup is incorrect. My questions: 1) For each HMI panel, how many slave [product_name] modules can connect—31 as shown in the software? 2) How do I set up IP addresses for these 31 slave units under one connection in WinCC? 3) If WinCC/HMI supports only 4 connections, does that mean 31 modules per connection for a total of 124 slave devices? 4) I don't need online module-to-module communication; I only need to read the status from each independently. Is it possible for the HMI panel to read/write data one-on-one with up to 124 slave modules? I need to know if the HMI 700 panel can communicate with up to 124 modules; this limitation is manageable. I’d like to be sure before developing all WinCC pages. Thanks for your help."
+    },
+    {
+      "comment_id": 808679164760687,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "If your HMI panel only supports a maximum of 4 connections, you have a basic panel. This means you can communicate with up to 4 [product_name] modules. In a [product_name] module network project, you can integrate up to 32 devices. So for your scenario with 128 devices, that's the limit. A comfort panel can handle 8 connections, allowing for up to 256 devices. That’s the theory, but whether actual data traffic is reliable is uncertain. I don’t think anyone here can guarantee this. You may want to contact [company_name] directly for an official answer."
+    },
+    {
+      "comment_id": 958463719617179,
+      "user_name": "vISplQQeV7",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I see your point now. I don’t own the 7\" panel yet, but checked with a reseller ([url]). I noticed it’s a basic KTP700 panel, but the 128 device limit should be fine for now. In my WinCC v13 Basic, I noticed only basic panels can be loaded—not comfort panels. I need to figure out how to configure all 4 available connections to communicate with 31 [product_name] modules connected per channel. Thanks again for the assistance."
+    },
+    {
+      "comment_id": 265492947757878,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Your WinCC version is just Basic. To configure comfort panels, you’ll need WinCC Comfort, Advanced, or Professional."
+    },
+    {
+      "comment_id": 788985265707522,
+      "user_name": "vISplQQeV7",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Hi, one last clarification please. In [product_name] configuration software V8.0, I can set up one HMI panel + 31 [product_name] modules (the limit). See the attached test project. As mentioned, WinCC Basic supports only 4 connections, which allows assigning IPs to 4 [product_name] modules. You stated that a network project can integrate up to 32 devices: so 32 modules x 4 connections = 128, correct? Theoretically, a single WinCC connection should be able to manage 32 modules, but I couldn't figure out the setup for 32 modules on one WinCC port. Can someone share a WinCC project example for connecting 31 modules on a single connection port? Thanks."
+    },
+    {
+      "comment_id": 538127789489031,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I’ve only tested with [product_name] modules, so 32 in total. Correct: a network project allows for 32 devices—one HMI and 31 modules. Sorry, I can't help further with WinCC configuration as I haven’t worked with it."
+    },
+    {
+      "comment_id": 770763232767997,
+      "user_name": "vISplQQeV7",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Thanks again. Where can I post this issue to get WinCC support?"
+    },
+    {
+      "comment_id": 578759242263834,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "You can open a new topic for WinCC (TIA Portal) support here: [url]. Be sure to describe the exact panel and software version you plan to use (Basic or other)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Community discussions show that scaling up to 220 [product_name] modules in a hotel automation project presents major challenges, primarily due to hardware and software connection limits. There is confusion about the difference between how many modules can be networked versus how many an HMI panel and configuration software can address at the same time. Maximum supported simultaneous connections in both panel hardware and [product_name] software restrict growth and make centralized monitoring difficult. Users struggle to find clear documentation and examples for scaling up, leading to uncertainty in both planning and implementation.",
+    "user_expectations": "Users want a central HMI panel to read and monitor up to 220 individual [product_name] controllers, believing that unique IP addresses and network configuration will allow easy status checking. They expect a straightforward, centralized system for room monitoring, free from hardware and software limitations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "centralized monitoring",
+      "IP-based status reading",
+      "scalable networked control"
+    ],
+    "pain_keywords": [
+      "scalability limits",
+      "network connection restrictions",
+      "lack of configuration clarity",
+      "compilation errors"
+    ],
+    "feature_keywords": [
+      "max device connections per HMI",
+      "Ethernet communication",
+      "slave/master modes",
+      "WinCC connectivity"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "29": "Scalability Limitations"
+  }
+}

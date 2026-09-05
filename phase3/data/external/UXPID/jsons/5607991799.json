@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "5607991799",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 930975190867992,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello all. I'm attempting to set up an S7 connection with [product_name] as the server to retrieve sensor data. The [product_name] module displays the sensor reading correctly, showing 18.7°C. However, when accessing this data via the S7 protocol, I encounter issues: using a NAQ block to store the data and reading from the client at the address \"DB1,INT1406\" results in a value of only 8, while the subsequent address (\"DB1,INT1407\") displays 2048 instead of the expected value. I suspect the issue relates to the data type, but I'm not certain. Is my assumption correct? How can I determine the variable type stored in [product_name]?"
+    },
+    {
+      "comment_id": 621818761541133,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "What is the client device you are using?"
+    },
+    {
+      "comment_id": 420579282992539,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "The client is a Raspberry Pi running Node-Red, utilizing the 'node-red-contrib-s7' node."
+    },
+    {
+      "comment_id": 638778122718255,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Are you sure the syntax \"DB1,INT1406\" is correct? I believe it should be \"DB1, DBW1406.\""
+    },
+    {
+      "comment_id": 491846132321641,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "I'm not certain. Previously, I used the same syntax to read an AM block in [product_name], but I'll test your suggestion as soon as I can and update you. Thank you for your support!"
+    },
+    {
+      "comment_id": 835603326806707,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "In the [product_name] program, you should assign the NAQ block an address in the VM area, for example VW0. Then you can read it as DB1, WORD0. You may want to review the relevant website, especially the section titled \"Notes on [product_name] 8.\""
+    },
+    {
+      "comment_id": 130820527297425,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "I checked that website before posting, but I missed that particular section. Thanks again for your help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faces issues with inconsistent sensor data when communicating via S7 protocol between a Raspberry Pi running Node-Red and a [product_name] module. The data accessed does not match the expected sensor readings due to possible address syntax mistakes and uncertainty about variable types and mapping within [product_name]. Suggestions from the community focus on proper memory area assignment and correct address notation specific to [product_name] when integrating third-party clients.",
+    "user_expectations": "The user expects reliable sensor readings accessible over S7 protocol from external Node-Red clients, and seeks clarity on how to accurately address and map variables in the [product_name] module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable data access",
+      "interoperability",
+      "clarity of variable addressing"
+    ],
+    "pain_keywords": [
+      "incorrect data",
+      "addressing confusion",
+      "protocol compatibility"
+    ],
+    "feature_keywords": [
+      "S7 protocol",
+      "variable addressing",
+      "NAQ memory mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "24": "Data Integrity Concerns"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "branch_id": "4021952801",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 722726230683732,
+      "user_name": "dISrOIhb0c",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Attempting variable mapping on an analog amplifier block to display values using a [company_name] HMI device. The controller is a [product_name] programmed via [product_name] [version_no]. The HMI model is KTP700 Basic. If the analog amplifier range is set to 0–2000, mapping works as expected and readings on the HMI match the analog input of the controller. However, setting the amplifier range to -250–2000 leads to erratic HMI indications. For example, with 0V at the 0–10V analog input, the HMI displays 65286. This suggests issues when negative values are part of the analog range. What settings should be adjusted for the HMI to correctly read a range of -250–2000 from the analog input?"
+    },
+    {
+      "comment_id": 401649340155457,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello! Hope you’re well. In the properties for the I/O Field, set Format -> Format Pattern to 's9999' so it recognizes signed variables. Please try this and share results."
+    },
+    {
+      "comment_id": 334590890644316,
+      "user_name": "dISrOIhb0c",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thank you for your response. When trying to change the Format Pattern from 99999 to s9999, that option does not exist. I can only select patterns from a single digit up to 99999, but there’s no letter option for s9999. This adjustment is only applicable to the IO Field; other display elements like Bargraph (also showing incorrect values) don’t offer such a pattern change. I set the IO Field pattern to 9999, but after loading the program, the HMI displays '####'."
+    },
+    {
+      "comment_id": 860094570395220,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "For the variable 'DG1 LOAD' in the tag table, which data type did you select? If you set it as 'Word', it’s incorrect. It should be 'Int'."
+    },
+    {
+      "comment_id": 357276820169627,
+      "user_name": "dISrOIhb0c",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "That resolved the issue! I changed the tag data type from 'Word' to 'Int', and the setup now works correctly. I thought matching the 'Word' setting in the [product_name] VM mapping with the HMI tags was necessary, but that was not the case. Thanks for the help!"
+    },
+    {
+      "comment_id": 893399552177607,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "In the parameter VM mapping table, 'Word' refers to the data width rather than the actual datatype. Bit = Vx.y, Byte = VBx (8 bits), Word = VW (16 bits or 2 bytes), Double Word = DWord (32 bits or 4 bytes or 2 words)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users reported problems showing analog input values with negative ranges on a [company_name] HMI device connected to a [product_name] controller using VM mapping. The underlying issue was an incorrect datatype setup—the analog value tag was configured as 'Word' instead of 'Int', leading to errors especially for negative inputs. Adjusting the datatype and understanding how display fields and data widths function resolved the problem.",
+    "user_expectations": "Users expect the [company_name] HMI to reliably present analog values from the [product_name] controller, regardless of whether the range includes negative values. Consistency in display output is anticipated regardless of the configuration of the analog amplifier range.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog value display",
+      "correct negative range support"
+    ],
+    "pain_keywords": [
+      "incorrect display of negative values",
+      "datatype confusion",
+      "error reads on HMI"
+    ],
+    "feature_keywords": [
+      "variable mapping",
+      "data type configuration",
+      "analog amplifier range"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

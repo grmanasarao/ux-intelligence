@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "5245063515",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 620787137474410,
+      "user_name": "SijMs2yqOo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello, What happens when there is no current at the analog 4-20 mA input? For example, if the sensor wire is cut or not connected. What value does the analog input show in such cases? I'm working on a project where we're currently monitoring the offset value. Why isn't zero displayed?"
+    },
+    {
+      "comment_id": 775347368534254,
+      "user_name": "hMiHsvUxZS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Approximately -32767 will be displayed if the analog input is active, but you disconnect the transmitter or there is a wire break. This value indicates an open loop, disconnected state, or wire break in the input."
+    },
+    {
+      "comment_id": 741882629249584,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hi [user_name], Before electrical current signals became standard in control systems, pneumatic networks were widely used for input signals. Pneumatic signals typically operated in the 3-15 psi range for analog measurements. The 3-15 psi range meant that a tube break causing the system to drop to atmospheric pressure (0 psi) would trigger an alarm, rather than producing a zero signal. This idea carried over to 4-20 mA electrical loops: a wire break creates a 0 mA signal, which can be used for alarms. More information is available in online resources like this article: [url] Hope this helps, [user_name]"
+    },
+    {
+      "comment_id": 908440517597930,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], Welcome to the forum. You've posted in the [product_name] hardware section. Are you sure that's correct? If so, here’s what you should know: The A/D converter for an analog input translates the signal (regardless if 0-10V, 0/4-20mA, or PT100) into a range of 0–1000 units. With a sensor using 4-20 mA output, only units 200–1000 are valid. The first 200 units correspond to 0–4 mA. For a scale like 0 (min) to 1000 (max) in an analog amplifier, gain is set to 1.25 and offset to -250."
+    },
+    {
+      "comment_id": 871952217173194,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "The offset referenced by [user_name] reflects this behavior. If gain = 1 and offset = 0, a reading of 200–1000 is shown with a sensor connected, and 0 appears for an open input. Generally, the physical value starts at zero, so you need to subtract an amount based on gain. For example, with gain = 2, set offset to -400 to make zero the physical start value; if the input is open, you’ll read -400. Regards, [user_name]"
+    },
+    {
+      "comment_id": 336688253251457,
+      "user_name": "hMiHsvUxZS",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I missed the topic title, as I'm not very familiar with the [product_name] system. Thanks for pointing out this detail—it helped me learn something new."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are examining how [company_name]'s [product_name] system processes analog current inputs (4-20 mA) when there is no signal due to sensor disconnection or wire break. Community members explain that the system displays a specific value (such as -32767 or 0, based on configuration) to distinguish normal operation from open inputs, aligning with industry standards. There is some debate about how offset and gain settings affect what values are displayed in these fault situations.",
+    "user_expectations": "Users want the system to clearly signal faults such as open circuits or disconnected sensors using distinctive values or alarms, while seeking clarification on why zero is not shown for these cases.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "fault detection",
+      "clear indication",
+      "accurate analog input reading",
+      "proper offset/gain configuration"
+    ],
+    "pain_keywords": [
+      "uncertainty on open signal behavior",
+      "confusing offset/gain effects"
+    ],
+    "feature_keywords": [
+      "analog input value display",
+      "fault detection logic",
+      "offset and gain adjustment"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

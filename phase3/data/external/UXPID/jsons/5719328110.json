@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "5719328110",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 416532950757388,
+      "user_name": "jh7Y9Qm9Ou",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello, I need some help reading a Modbus TCP signal on my [product_name]. I can view the data in registers 1 and 2 when using a third-party Modbus TCP Client, but I am unable to see the data on the [product_name]. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 139969315223726,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Could you clarify the data format for these two registers? Do you have a table of the registers that you can share? What is the Modbus offset—does it start at 0 or +1? What is the slave address of the Modbus device? Is there a manual or a link for this Modbus device?"
+    },
+    {
+      "comment_id": 972404134058532,
+      "user_name": "jh7Y9Qm9Ou",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hi, Thank you for your response. The registers are 16-bit integers and use Big Endian format. I expect to use around 10 values. I am not sure about the offset, but I believe the first register uses Function 04 - 40001. In the third-party Modbus program, I apply a 40000 offset (see the attached video). The Modbus device is a prototype CAN2 Bus to Modbus TCP Converter using ESP32, assembled for me. The IP address is 192.168.0.120. I will attach a Wireshark file in my next message."
+    },
+    {
+      "comment_id": 695685934359281,
+      "user_name": "jh7Y9Qm9Ou",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hi, Attached is the Wireshark file showing a connection to the Modbus TCP device and a request for Function 4 Data – Registers 1 to 10. Hope this helps."
+    },
+    {
+      "comment_id": 524586981257692,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "That information is not sufficient. Please indicate from which device you are reading the data and provide a register table."
+    },
+    {
+      "comment_id": 592379264785309,
+      "user_name": "jh7Y9Qm9Ou",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hi, Thank you for your reply. In the Start Address (Remote Box), there are options for HR or IR. I had selected HR, which stands for Holding Registers, instead of IR, which refers to Input Registers. From the Wireshark Modbus/TCP response, I noticed that the function code is for Read Input Registers (4). After switching from HR to IR, everything worked fine. Thanks again."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced difficulty reading Modbus TCP signals with the [product_name]. Although data appeared correctly in a third-party Modbus TCP client, it was not visible on the [product_name]. The problem was due to using Holding Registers (HR) instead of Input Registers (IR) in the configuration. Changing to the correct register type (IR) resolved the issue, highlighting that the main challenge was the unclear mapping between Modbus register types and the configuration options on the [product_name]'s interface.",
+    "user_expectations": "Users expect a straightforward and error-free process for configuring Modbus TCP data registers in the [product_name], with clear mapping of registers and immediate data visibility.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data integration",
+      "reliable communication",
+      "quick resolution",
+      "setup clarity"
+    ],
+    "pain_keywords": [
+      "register configuration confusion",
+      "data not visible",
+      "unclear mapping"
+    ],
+    "feature_keywords": [
+      "Modbus TCP client",
+      "Modbus register type selection",
+      "register mapping",
+      "Input/Register separation"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

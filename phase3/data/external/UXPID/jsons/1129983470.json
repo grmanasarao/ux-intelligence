@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "branch_id": "1129983470",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 520261146380034,
+      "user_name": "3ripxXTLhr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Hello! I've had trouble using Modbus server features. I tried setting up a network project, with a server on one connector (port 502) and a client on another. I couldn't retrieve any data from the server on port 502. When I set up a server on a third connector using port 504 (which isn't standard for Modbus), I was able to get data on holding register 0. Why does port 502 fail to work? I also experimented with the data transfer table while in server mode, but it seems ineffective—what the settings and Modbus address space say is what matters. So why does the data transfer table even exist in server mode? Another odd thing: data from the client is polled to VW0, then I pass it through a network analog input block and output it via a network analog output block to VW1. Both VW0 and VW1 display the same value in the data table, but when polled via Modbus, they are slightly different. The values are very close, but VW1 is just a bit off. I've attached a screenshot."
+    },
+    {
+      "comment_id": 228749614720837,
+      "user_name": "3ripxXTLhr",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Project file attached."
+    },
+    {
+      "comment_id": 877915604266751,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "It's hard to say exactly what's wrong with your connections. I suggest connecting to a Modbus device, like shown in the attachment. When using VW0 and VW1, be aware that the registers overlap. VW0 includes bytes VB0 and VB1, while VW1 includes bytes VB1 and VB2—both registers use VB1, so they affect one another and produce different values. Also, you don't need a HIGH block for the message text—negating the input connector is enough to enable it. My attachment includes a sample program and video to show how this overlap changes the values."
+    },
+    {
+      "comment_id": 473551536960663,
+      "user_name": "3ripxXTLhr",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Hi! Sorry it took a while, but I'm still unable to get communication working on port 502. Is this possibly a firmware bug? Has anyone managed to get standard Modbus port 502 working in server mode, or is it just this specific unit that's affected? Thanks for explaining how the VW registers work. I tried to find more details in the help, like how they are addressed, but couldn't locate the info—now I know only every other register should be used! I usually see this happen with 32-bit registers on systems that are 16-bit by default."
+    },
+    {
+      "comment_id": 683940400944400,
+      "user_name": "3ripxXTLhr",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "I started a new project in diagram mode (where only one server is allowed), and it worked. Then I switched to network mode and added a server to the first port—it worked there too! Seems the issue with my earlier project couldn't be fixed just by changing connections. Anyway, it's working now."
+    },
+    {
+      "comment_id": 347816277018472,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "Thanks for sharing your update. It might assist other users facing similar problems."
+    },
+    {
+      "comment_id": 561125899221323,
+      "user_name": "3ripxXTLhr",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 6,
+      "comment_body": "One more thing: when you add a Modbus device in network mode and drag a connection from it to an open port, pay attention to its IP address. The system seems to restrict requests to that specific IP. If you instead right-click a port and directly add a server connection, it's open to requests from any IP. This appears to be a security feature allowing you to restrict which IPs are accepted. Also, the direction of the connection matters—dragging device to system makes it a server, from system to device makes it a client. These details are unfortunately not covered in the documentation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced difficulties with Modbus server setup, particularly with communication failures on port 502, while port 504 (non-standard) worked as expected. Confusion arose over the ineffectiveness of the data transfer table in server mode, as well as differences in register values due to overlapping memory bytes (VW0 and VW1 both utilize part of the same byte). The process of configuring server/client roles, port assignments, and IP restrictions lacks adequate documentation, resulting in unpredictable connection and access control behavior.",
+    "user_expectations": "Users expect reliable Modbus server communication on standard port 502, meaningful functionality from the data transfer table in server mode, clear documentation to prevent register overlap issues, and a straightforward, well-explained setup process, including server/client roles, port selection, and IP-based access restrictions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable standard Modbus server function",
+      "clear documentation",
+      "intuitive configuration"
+    ],
+    "pain_keywords": [
+      "port 502 failure",
+      "register overlap confusion",
+      "insufficient documentation",
+      "unintuitive network configuration"
+    ],
+    "feature_keywords": [
+      "Modbus server",
+      "network connectors",
+      "VW register management",
+      "data transfer table",
+      "server/client setup",
+      "IP acceptance control"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "8": "Documentation Clarity",
+    "24": "Data Integrity Concerns"
+  }
+}

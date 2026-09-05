@@ -1,0 +1,248 @@
+{
+  "metadata": {
+    "branch_id": "7491228078",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 996705011020152,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "I'm feeling very frustrated. Everything is working as you've described, but I've run into a new challenge with scaling the analog input. I searched the forum and only found one similar issue, but it didn't have a clear solution. My sensor has a specific range, like 0 to 100 or -30 to 70. The -30 to +70 range works fine with min, max, gain, and offset settings. But with 0 to 100, the values turn red and require me to enter something like 1 to 104 or 105. For 0 to 1000, it works, so I think dividing by 10 might be necessary—though that didn't help either. Are there any good videos or documents that clearly explain how to do this? The provided help isn't helpful. Should I use two amplifiers in sequence?"
+    },
+    {
+      "comment_id": 992171861292961,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "It depends on the type of sensor and its measurement range. I need more details to assist you further."
+    },
+    {
+      "comment_id": 471290108351839,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "I believe I understand what you're referring to."
+    },
+    {
+      "comment_id": 413809227015427,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Thanks! It seems I was heading in the right direction when I asked about using two amplifiers in sequence. I'll try that. For my tests, I'm currently using two current generator circuits and also a humidity sensor from [company_name], along with the datasheet at [url]. As I understand it, the humidity sensor operates at 4–20 mA with a 0–100 range, and the temperature sensor is 4–20 mA with a range of -30 to +70."
+    },
+    {
+      "comment_id": 804592874927772,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Sorry, there's an error in the screenshot I posted earlier. The gain for the second amplifier should be 0.1, not 1.0."
+    },
+    {
+      "comment_id": 124258034066833,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Another method is using a single analog amplifier with a mathematical operation."
+    },
+    {
+      "comment_id": 507433159518604,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Yes, dividing the initial value by 10 does the trick. I've got it working on the [product_name] now. I just need to adjust the ranges on the [product_name] and do further testing."
+    },
+    {
+      "comment_id": 890779370465426,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Using a mathematical instruction might be a better approach. Somehow, I can't get the range to be 0–100; it's only 20–100 when I use an amplifier with a gain of 0.1, leading to incorrect values. Is this how it should be set up?"
+    },
+    {
+      "comment_id": 676569983043681,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "deleted"
+    },
+    {
+      "comment_id": 843379915759886,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Rather than posting a screenshot, please upload the program as a zipped file."
+    },
+    {
+      "comment_id": 620480155765453,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "In B006, you aren't dividing the value from the analog amplifier by 10; you're adding 10."
+    },
+    {
+      "comment_id": 957800930015027,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "I'm confused! I thought you take the result from B002 and divide by 10 to get the proper value. When it's 1000, that should be 100 (/10). But it's not working; dividing by 10 makes the value 32767. Adding 10, the 0% gives 10, and the 100% gives 1010."
+    },
+    {
+      "comment_id": 111109610111330,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "It seems you may not know the basics of handling analog values with [product_name]. Typically, an analog input signal—no matter if the sensor is set for 0–10V, 0/4–20mA, or PT100/100—is converted to 0–1000 units. For a 4–20 mA sensor type: 0 mA input equals 0 units post A/D conversion, which equals -250 units after amplification; 4 mA input equals 200 units post A/D, 0 units after amplification; 8 mA input equals 400 units post A/D, 250 units after amplification; 12 mA input equals 600 A/D, 500 amplification; 16 mA input equals 800 A/D, 750 amplification; 20 mA input equals 1000 A/D, 1000 amplification. That's why you set Gain to 1.25 and Offset to -250."
+    },
+    {
+      "comment_id": 578555812277805,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "With the correct settings, you'll achieve the right results."
+    },
+    {
+      "comment_id": 964344088344069,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Please kick me—I made a rookie mistake. As you mentioned, I was adding 10. I misunderstood how the system works; the +, -, /, * under the value apply to the line below, not above. Simple math! It's working now. Here is the file."
+    },
+    {
+      "comment_id": 473250028919620,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Ah, you posted your file at the same time as my response. Thanks so much for your help. Have a great evening."
+    },
+    {
+      "comment_id": 642356587121315,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "What do I get if I kick you? Nothing... But it's best to learn from your own mistakes. I wish you a pleasant evening as well."
+    },
+    {
+      "comment_id": 947341103095166,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Probably a broken foot! [url]"
+    },
+    {
+      "comment_id": 987444955853412,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Is your workspace always this messy? That explains a lot. And about the broken foot — you really are a joker."
+    },
+    {
+      "comment_id": 306556896765699,
+      "user_name": "FJXDyuPxm5",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Actually, 'workspace' isn't accurate. It's just a temporary test setup on plywood, and it will be relocated later. [url]"
+    },
+    {
+      "comment_id": 359895802457096,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 20,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Even for a temporary test installation, the area looks quite chaotic."
+    },
+    {
+      "comment_id": 127127877653290,
+      "user_name": "Z2Is9OjtR4",
+      "comment_position": 21,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Yep, that's me. Have a great weekend."
+    },
+    {
+      "comment_id": 559784547506578,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 22,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "You too—enjoy your weekend."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The core problem discussed concerns difficulties with scaling analog sensor input values, especially for non-standard measurement ranges. Users had trouble achieving correct scaling for ranges such as 0–100 and faced confusing software behavior with unexpected restrictions or errors. Help documentation was seen as insufficient, prompting users to experiment and seek practical advice from peers.",
+    "user_expectations": "Users expect the platform to allow straightforward sensor range scaling, provide clear documentation or sample configurations for common analog value processing tasks, and deliver user-friendly guidance when input data doesn't fit expected parameters.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct scaling",
+      "easy configuration",
+      "working value mapping",
+      "clear guidance"
+    ],
+    "pain_keywords": [
+      "scaling confusion",
+      "documentation unclear",
+      "error feedback lacking",
+      "frustration"
+    ],
+    "feature_keywords": [
+      "scaling",
+      "analog input",
+      "gain and offset",
+      "amplifier blocks",
+      "mathematical instruction"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "branch_id": "1469809301",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 758333089356570,
+      "user_name": "CjD2VFnISk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "There have been several discussions about [company_name] devices, but none really provided detailed step-by-step guidance for retrieving data. Through testing with multiple Modbus client applications on Windows and iOS, I found that [company_name] requires entering the correct Unit ID for Modbus TCP; it's Modbus RTU encapsulated in TCP/IP. Changing the Unit ID on the device means it must also be updated in your Modbus client. Reading registers with Unit ID 0 or 255 does not work. Regarding controller setup: My Modbus settings seem correct but I’m still not getting any data in my project, possibly due to the wrong function block. With a network input I can select Variable Memory (VW0 for instance), but this only gives 1 byte whereas I need to get 4 bytes (as 32 bit data is stored in VW0,1,2,3). How do I read these 4 bytes (from two combined Modbus registers) as a whole value without needing Float/Integer conversion?"
+    },
+    {
+      "comment_id": 299419700399184,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The Unit ID corresponds to the address of a modbus slave device. Standard analog network inputs cannot be used to read 32-bit values, as those can only access integer values in the range -32,768 to 32,767. Can you clarify the register value formats? U32 means Unsigned Double Integer, S32 is Signed Double Integer. Your screenshot shows register 30772 with a value of 32,216, probably representing voltage as 322.16 V. In your program, use analog network input to read address VW2 rather than VW0. Add an analog amplifier after this input and select two decimal places for display."
+    },
+    {
+      "comment_id": 296263189783852,
+      "user_name": "CjD2VFnISk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Based on further testing, the register used for the actual value shifts depending on the reading format—it's either register 30771 or 30772. In binary, only the lower 16 bits (LSB) are utilized and the upper bits (MSB) are all 0. More advanced 'bit-sorting' options offer various representations. Apparently, the controller only supports Signed or Unsigned. If you select \"Big-endian\" format, the value appears in register 30771. However, I’m not sure which formats are supported by the controller."
+    },
+    {
+      "comment_id": 802767887299762,
+      "user_name": "CjD2VFnISk",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "[user_name], thanks! I will test that. Yes, it's DC voltage with two decimals."
+    },
+    {
+      "comment_id": 804471540323765,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Do you have a link to the manual or could you upload it?"
+    },
+    {
+      "comment_id": 906703395830389,
+      "user_name": "CjD2VFnISk",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Attached is the [company_name] Modbus manual. I configured the NI to read VW2. A few notes: The 16-bit range of +/-32767 (signed16) suggests that only up to 327.67 Volts can be read. Is it possible to use U16 for a 0-65535 range, allowing readings up to 655.35 Volts? I still get no data, even when trying to read from register 30777 which reports values always below 1,000 (Watts per phase), so no risk of exceeding the signed 16-bit value. Still, no data is returned. Is there any alternative method to check if variable memory is actually receiving data? It’s possible the Modbus connection isn’t bringing in data, and the challenge may be with the function blocks."
+    },
+    {
+      "comment_id": 768228028128490,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The analog values are known as S16 values."
+    },
+    {
+      "comment_id": 953206177120624,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "You should be reading register 30778, not 30777."
+    },
+    {
+      "comment_id": 145187221873129,
+      "user_name": "CjD2VFnISk",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Yes—finally! Thank you, sincerely. It was confusing, since other tools require addressing 30777, and then [company_name] returns two registers: 30777 and 30778. Directly requesting 30778 didn’t yield the correct data, as shown in the attached screenshot of various options. Apparently, the controller behaves a bit differently."
+    },
+    {
+      "comment_id": 758190514710543,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "No, the controller operates according to its programming. 32-bit registers consist of two 16-bit words. To read a double register using Modbus software, you must address the starting point of the double register—in this case, 30777. If you begin at 30778, you get one word from 30777 (the right word) and one word from 30779 (the left word)."
+    },
+    {
+      "comment_id": 553146072658062,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "If Modbus registers include floating point numbers, integrating them into the controller is easy with the F/I Converter, including scaling factors like 0.001, 0.01, 0.1, 1, 10, 100, and 1000. If you only have UINT32 (unsigned 32-bit integer), use the provided converter. Note that if values exceed 32767, you will lose the last 1–3 digits depending on your maximum values. Creating a converter for SINT32 (signed 32-bit integer) may be possible, though usually not necessary."
+    },
+    {
+      "comment_id": 229745227739778,
+      "user_name": "c0bKRs1oHG",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Could you resend the file? When I unzip and try to open it with the [product_name] app [version_no], I get an error. See attached image."
+    },
+    {
+      "comment_id": 906840672899661,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Here’s a project version for [product_name] [version_no]."
+    },
+    {
+      "comment_id": 748192929323971,
+      "user_name": "hRj91emEFp",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 6,
+      "comment_body": "Thanks for help regarding reading Modbus double registers. Here is a working example: it reads grid voltage L1 and grid ms total W from a [company_name] solar inverter. Registers 30783 and 30775 are S32 format."
+    },
+    {
+      "comment_id": 753281293080692,
+      "user_name": "z9RNcQi1G6",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "24/April/2025 Many thanks to [user_name]. That was also very helpful for me. I use it to transfer registers from a Fluvius digital meter, together with a P1 Modbus Pro dongle from Smartstuff (a Dutch company). [BINARY_DATA_REMOVED]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced difficulties retrieving 32-bit Modbus register values from an external device using a controller. The standard network inputs only support 16-bit signed integers, making it challenging to access full 32-bit data. Issues included register address selection, data format (signed/unsigned, endianness), and function block configuration. Ultimately, with adjustments to address selection and function blocks, users successfully read the correct values.",
+    "user_expectations": "Users expect the controller to reliably capture and display 32-bit values using Modbus from devices such as solar inverters, with clear mapping between external registers and controller memory, supporting both signed/unsigned formats and correct decimal scaling, avoided complex configuration steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct data retrieval",
+      "seamless Modbus integration",
+      "real-time voltage/power monitoring"
+    ],
+    "pain_keywords": [
+      "register mapping confusion",
+      "format compatibility",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "network input block",
+      "32-bit register reading",
+      "signed/unsigned selection"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {
+      "Windows": [],
+      "iOS": []
+    }
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

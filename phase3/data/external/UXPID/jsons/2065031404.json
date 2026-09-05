@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "branch_id": "2065031404",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 629668196049129,
+      "user_name": "VsGQ64hTxI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm exploring options to control my [product_name] controller not only with physical buttons, but also digital inputs and outputs via my SCADA system. I can successfully operate outputs not assigned in the ladder logic, but I am unable to manipulate outputs that are configured inside the program. Does anyone know of a method to allow remote control of outputs that are part of the logic? Thanks in advance."
+    },
+    {
+      "comment_id": 570958987639232,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Physical digital inputs on the controller can only be read remotely, not written. Physical digital outputs can be remotely controlled only if they're not included in the program logic. Once outputs are linked to logic, direct remote control is no longer possible. However, you may add network inputs into your logic for remote control on the input side. You didn't specify which SCADA system is being used, so further details can't be provided at the moment."
+    },
+    {
+      "comment_id": 569562028858381,
+      "user_name": "VsGQ64hTxI",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Thanks, your explanation was a lot clearer than mine. My SCADA platform is called MyScada. It's relatively straightforward but suits my needs. I've been told that controlling outputs through a memory flag is possible, though I'm unclear how to implement it. Ideally, I'd like to enable inputs both physically and from the SCADA system."
+    },
+    {
+      "comment_id": 739490629426593,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "I'm unfamiliar with 'MyScada' and can't speak to its available features. You also haven't clarified whether the connection will use Ethernet TCP/IP with the S7 protocol or Modbus TCP/IP."
+    },
+    {
+      "comment_id": 964002188141174,
+      "user_name": "VsGQ64hTxI",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello, the connection method is S7 protocol."
+    },
+    {
+      "comment_id": 509107839931798,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "The [product_name] controller offers a special memory area to exchange data with external devices such as other [product_name], HMI panels, other controllers, or apps. This is referred to as Variable Memory (VM), which can be accessed remotely as S7-DB, specifically DB1. It's unclear whether 'MyScada' communicates directly with VM variables or DB1."
+    },
+    {
+      "comment_id": 377430367442206,
+      "user_name": "VsGQ64hTxI",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Thank you for your assistance. I believe MyScada can write to the DB according to the documentation: [url]"
+    },
+    {
+      "comment_id": 464401166307958,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "The VM area ranges up to 851 bytes, from VB0 to VB850, freely available for user-defined purposes. For example: Bit addresses map as V0.0 = DB1.DBX0.0, V0.1 = DB1.DBX0.1, and so forth up to V850.7 = DB1.DBX850.7. Byte mappings: VB0 = DB1.DBB0, VB1 = DB1.DBB1, etc. Word: VW0 = DB1.DBW0 up to VW849 = DB1.DBW849. Double Word: VD0 = DB1.DBD0 up to VD847 = DB1.DBD847."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are attempting to control digital inputs and outputs on their [product_name] controller using a SCADA system, focusing on outputs already used in the ladder logic. They encounter limitations as the program restricts direct remote control, creating a need for alternative methods through memory areas like VM that are accessible remotely. The key usability challenge lies in unclear documentation and guidance on integrating local and remote controls, particularly for outputs managed by logic.",
+    "user_expectations": "Users wish to have both remote and physical control over outputs, even when these are managed within the ladder program, with flexible options for physical and SCADA-based inputs. They expect direct, well-documented technical solutions within both hardware and software for these integrations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control via SCADA",
+      "combined input modes",
+      "integration with ladder logic"
+    ],
+    "pain_keywords": [
+      "unable to control ladder logic outputs",
+      "limited remote write access",
+      "unclear integration process"
+    ],
+    "feature_keywords": [
+      "remote output control",
+      "input multiplexing",
+      "memory mapping (VM/DB1)",
+      "S7 protocol communication"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

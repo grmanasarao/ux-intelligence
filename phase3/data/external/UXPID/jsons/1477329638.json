@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "1477329638",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 720675043350333,
+      "user_name": "GdgGK3gwBR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello, I am using the web server on a [product_name] (set up with [product_name]). One of the sites is accessed with a tablet to open the HMI. There are two analog inputs: one for automatic setpoint and another for manual PI-regulator output. Strangely, the HMI consistently detects input only on one analog field when trying to enter a new setpoint. For the analog input not detecting an entry, it seems the HMI registers a 'TAB' instead of 'Enter.' I have tried various keyboard settings on the tablet and even a physical keyboard, but the issue persists. Connecting to the HMI from a Windows computer or laptop works perfectly, detecting input correctly for both analog fields when pressing 'Enter.' Could this be a compatibility issue with the tablet?"
+    },
+    {
+      "comment_id": 424396367226268,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "It might be a compatibility issue, but it's not certain. Are you using the same browser on the PC and the tablet, or are they different?"
+    },
+    {
+      "comment_id": 788673848184238,
+      "user_name": "GdgGK3gwBR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "I attempted both Chrome and Edge—both work flawlessly on the PC, but on the tablet, the issue appears on each browser. Additionally, I swapped the order of the analog inputs in the HMI: placing the manual at the top and automatic at the top, and the problem did not follow a specific input. Now, the field which previously worked no longer responds to the Enter key, while the other input now does. To test further, I added an extra dummy analog input field to the HMI. Now the HMI only recognizes Enter key input on the dummy field—the original inputs read the Enter key as Tab. I'm still puzzled."
+    },
+    {
+      "comment_id": 387893036850886,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "It seems the issue lies with the tablet itself. What operating system is installed on it?"
+    },
+    {
+      "comment_id": 743710786916398,
+      "user_name": "GdgGK3gwBR",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "I believe it's Android."
+    },
+    {
+      "comment_id": 324137580886160,
+      "user_name": "GdgGK3gwBR",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "A quick search suggests this is a known issue: [url] It seems there's no way to adjust this when working with the standard [product_name] tool and not coding the web server directly in HTML."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter inconsistent analog input responses on the HMI when accessed from a tablet, where pressing 'Enter' is interpreted as 'Tab' for certain fields, disrupting data entry. The issue does not arise on Windows computers, indicating a compatibility problem between the auto-generated web interface and the tablet's Android operating system or soft keyboard. Reordering input fields and switching browsers did not resolve the problem, suggesting a limitation of the web server tool with Android devices.",
+    "user_expectations": "Users expect the HMI to reliably process analog inputs and 'Enter' key presses on both tablets and PCs, using any browser. They anticipate consistent behavior for input fields across all platforms, regardless of device or operating system.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "cross-device reliability",
+      "consistent input handling",
+      "tablet compatibility"
+    ],
+    "pain_keywords": [
+      "inconsistent input behavior",
+      "compatibility issue",
+      "analog input error"
+    ],
+    "feature_keywords": [
+      "web HMI",
+      "analog input fields",
+      "cross-platform support"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {
+      "Windows": [],
+      "Android": []
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

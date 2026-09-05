@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "9547119184",
+    "thread_id": "3055273936",
+    "publication_year": 2009,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 732999714729281,
+      "user_name": "qugjl5q3tq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 8,
+      "comment_body": "I am working with a 2-wire PT100 sensor, connecting it to a [product_name] [article_no] model that runs on 12/24V. What is the correct way to wire it to the controller? The AM 2 PT100 module allows direct connection, but when I connect the PT100 directly to the [product_name] at L+ and I7 or I8—and configure the program sensor to PT100—A1/A2 displays 1000. The closest I have come to a successful setup uses a resistor network as a voltage divider: a 560 ohm resistor from M to I7 and the PT100 from I7 to L+. With this, I read 177 at room temperature. My aim is to operate a solar water heater pump. I found and downloaded a program in another thread, so I’m set on the programming side."
+    },
+    {
+      "comment_id": 697189233079977,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], a caution for your setup! 1) The PT100 sensor is a resistor with a value of 100 ohms at about 0°C, and its resistance changes in a fairly linear way over the temperature range -50...+200°C (exact values can be found online). 2) The AM2 PT100 module from [company_name] uses a bridge circuit with the PT100 as one leg, so resistance changes have a significant impact on the measured value. 3) This is why PT100 modules allow both 2-wire (less precise) and 3-wire (more precise) connections—the 3-wire option makes it possible to compensate for resistance in the wiring by passing known currents and measuring wire resistance, which then gets subtracted. It's been a long time since I last described this process, so my explanation might be a bit fuzzy. 4) If you connect the PT100 sensor as you described, directly to a 0..10 V analog input on a [product_name] [article_no], together with a resistor voltage divider, you need to be careful when choosing the resistor values, their tolerance (temperature stability), and their power rating (in Watts). 5) Standard 1/2 or 1/4 W carbon resistors typically have a tolerance of 5-10%, meaning their value can shift by 5-10% due to temperature changes. So a 560 ohm resistor might vary by up to ±56 ohms, which could mask the PT100's resistance change that represents the process temperature. It's better to use high-quality resistors (see attached) chosen for their stability. Suppliers like RS-Components carry such items. 6) You can always adjust for value ranges in the [product_name] program; using an excel sheet created by Betel makes it easier to calculate gain and offset, and to design amplifier stages for precise range. 7) One calibration approach is to place the PT100 in an ice slush (close to 0°C), keep all resistors constant, and check the value in [product_name] Soft Comfort. Use this 'zero' point to improve calibration. Hope this helps! Cheers [user_name]"
+    },
+    {
+      "comment_id": 799055614462898,
+      "user_name": "qugjl5q3tq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 8,
+      "comment_body": "I ran a test and calibration using a heating pad, with two PT100 sensors and resistor networks. Placed them with a digital temperature probe under a blanket, gradually raised the temperature using a variable power supply, and recorded both temperature and A1/A2 readings. I added an amplifier to detect the difference. I don’t need precise temperature readings—just the difference between the two sensors. Installed the system for the last couple of days and so far, it seems to work. Thanks for your advice."
+    },
+    {
+      "comment_id": 155551024763596,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 8,
+      "comment_body": "Hi [user_name]! Great to hear it’s working. If measuring only the difference and all components are exposed to the same conditions, the process is much more straightforward. The previous details were focused on accuracy. Goodbye! [user_name]"
+    },
+    {
+      "comment_id": 182027581939060,
+      "user_name": "mcYMGHSoNk",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 8,
+      "comment_body": "A new question from [user_name] has been moved to a separate thread titled 'PT100 question - connect it with [product_name] [article_no] 12/24 dc direct.' Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to connect a 2-wire PT100 sensor to a [product_name] controller and face issues with wiring, calibration, and accuracy without a specialized PT100 module. The responses highlight the importance of carefully selecting resistors, maintaining stability, and calibrating the system to get reliable readings. While differential measurements for basic applications are achievable with some calibration, high-precision measurements remain challenging due to hardware and resistor limitations.",
+    "user_expectations": "Users expect the [product_name] controller to read PT100 sensors reliably for their application, ideally without using a dedicated expansion module, and want to achieve usable differential temperature measurements with straightforward calibration steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "differential measurement",
+      "solar water heater control",
+      "DIY calibration",
+      "analog input use"
+    ],
+    "pain_keywords": [
+      "resistor tolerance",
+      "accuracy issues",
+      "sensor connection complexity"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "sensor calibration",
+      "temperature measurement",
+      "differential input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability"
+  }
+}

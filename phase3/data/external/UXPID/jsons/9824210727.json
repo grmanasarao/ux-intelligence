@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "branch_id": "9824210727",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 559232293720147,
+      "user_name": "ttGJuXahRv",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "I'm using a set of [product_name] modules but can't get the analog output (AQ) to function as expected. The voltage isn't changing as it should. The display shows AQ 1 output as 001000, but my measurements only read 1.2V. Swapping to another [product_name] analog output module didn't help; the issue persists. Has anyone encountered similar problems or have any suggestions? Could there be corruption in the module or a programming issue? The program looks fine in [product_name] software, and there are no errors during transfer. // [user_name]"
+    },
+    {
+      "comment_id": 328043526153173,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Did you measure at the right terminals (U1 + and M1)? Does the voltage stay at 1.2V even when there's no load on the output? Is the supply voltage connected for the module? Is the RUN/STOP LED showing green?"
+    },
+    {
+      "comment_id": 854961414385483,
+      "user_name": "ttGJuXahRv",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Yes, my measurements are correct between U1 and M1, and it stays at 1.12V consistently, even under load. Indicators are green. // [user_name]"
+    },
+    {
+      "comment_id": 690773411790505,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "So, the voltage is the same with or without a load connected?"
+    },
+    {
+      "comment_id": 670543187287070,
+      "user_name": "ttGJuXahRv",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Actually, I made a mistake :). The voltage ranges from 0 up to 1.2V. When program output goes above 12%, it remains at 1.2V. // [user_name]"
+    },
+    {
+      "comment_id": 719946753125254,
+      "user_name": "ttGJuXahRv",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "The issue wasn't with the [product_name] module. It turned out the inverter had incorrect settings. The inverter was configured for 0-20mA instead of 0-10V. // [user_name]"
+    },
+    {
+      "comment_id": 945493690001430,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "It's often preferable to use a 4-20mA configuration. There's no extra cost and these signals are much less prone to interference."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced low voltage output from an analog module on a [product_name] setup, even after trying a replacement module. The programmed values appeared correct in the configuration software, but real-world measurements remained low. Investigation and feedback led to the discovery that the attached inverter was improperly configured for a current input instead of voltage. Adjusting the inverter settings resolved the issue.",
+    "user_expectations": "The user expects the analog output module to provide accurate voltage based on programmed values, ensuring proper operation with connected devices such as inverters.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable analog output",
+      "correct hardware interaction"
+    ],
+    "pain_keywords": [
+      "incorrect output signal",
+      "unclear source of signal error"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "module compatibility",
+      "signal configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

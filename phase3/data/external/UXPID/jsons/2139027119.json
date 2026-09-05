@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "2139027119",
+    "thread_id": "1723880927",
+    "publication_year": 2007,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 481599409390127,
+      "user_name": "66kgnjGo1m",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I'm facing a seemingly simple issue but don't know how to solve it. I can show the frequency of a high-speed input in a message text, but I'm unsure how to convert that value to gallons per minute. For example: 0 Hz = gpm, 1 kHz = 20 gpm, 2 kHz = 40 gpm. Any suggestions?"
+    },
+    {
+      "comment_id": 868666962571663,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Please share your program so we can help you work on it. [user_name] Sorry for clicking twice."
+    },
+    {
+      "comment_id": 464851077336011,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Please share your program so we can help you work on it."
+    },
+    {
+      "comment_id": 366258898791207,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], This type of problem is often encountered: counting pulses over a time interval and converting the result to a physical value. I previously shared solutions on the German forum. Here's a summary: One way is to use the \"threshold trigger\" function connected to an input pin. If you set the time interval (gate time) parameter, you get the input signal's frequency. You can adjust the gate time to convert pulses into desired units, for example, by applying a translation factor. However, the manual specifies limitations on the minimum gate time, and you can only display the value, not use it further within other [product_name] functions. Another option is to add a frequency divider before the threshold trigger. Using blocks like counter and digital flag, you can set parameters so the trigger function receives the input frequency divided by a factor. This allows you to adjust the gate time and scaling accordingly, but again, you can only display the value. To overcome these restrictions, I programmed a modified threshold trigger. Check the attached example (comments are in German). In summary: replace certain simulation blocks with an input signal, set an impulse generator to define the gate time, and use a counter to count pulses within each measurement interval. The result is held in a memory block and then amplified to convert to the correct units, adjusting for decimals as needed. Advantages of this approach: 1) You can reference the scaled result in other logical blocks, 2) You can adjust display precision, and 3) You can synchronize multiple triggers. Hope this explanation helps you solve your issue. Best regards [user_name]"
+    },
+    {
+      "comment_id": 117577053138474,
+      "user_name": "66kgnjGo1m",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "That's great, thank you! I considered sampling the rate using a time gate but wasn't sure how to capture the updated value—using the multiplexer was the missing piece. I appreciate your guidance. Also, thanks to everyone in the forum—I’ve learned a lot from reading the posts and hope to contribute myself in the future."
+    },
+    {
+      "comment_id": 221339781854376,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Thanks for your encouraging feedback! Many new members don’t look for existing answers, even though many questions are already addressed in forum posts. Perhaps you didn’t check the German area. Without knowing your exact application details and gate times, I’ll mention that my design has a limitation similar to the original block: with long gate times, the display doesn't update during measurement. That's why I shared a modified circuit in the German forum under \"Average over 8 hours\" — you can download the attachment named \"Demo_gleitender_Mittelwertzähler.zip\". In this approach, the measurement period is divided into eight sub-periods using counters, with a ninth counter for display memory. For example, if the gate time counts pulses over 8×n seconds (n is set by the impulse generator), each counter updates and stores results cyclically for improved periodic updates. The comments are in German, so if you have any questions, feel free to ask here. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discuss scaling high-speed input frequencies to meaningful units, like gallons per minute, using [company_name] hardware and its configurable functions. They share workarounds and modified designs due to hardware limitations, such as restrictions on further use of result values and challenges updating displays during long measurements. Knowledge sharing is highly valued, and custom circuit designs are important for achieving desired results.",
+    "user_expectations": "The user seeks a straightforward way to convert high-speed frequency inputs to a scaled gallons per minute value and wants to use this scaled value for further logic and operations.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "scaled output",
+      "readability",
+      "real-world measurement display"
+    ],
+    "pain_keywords": [
+      "limited internal data use",
+      "display update limitations",
+      "scaling constraints"
+    ],
+    "feature_keywords": [
+      "threshold trigger",
+      "gate time",
+      "frequency counter",
+      "analog multiplexer",
+      "programmable scaling"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

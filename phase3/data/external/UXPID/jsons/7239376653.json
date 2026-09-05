@@ -1,0 +1,183 @@
+{
+  "metadata": {
+    "branch_id": "7239376653",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 701047235331200,
+      "user_name": "mlJc9yQmtS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello everyone. I am working with a [product_name] controller, RTD module, and a 6-inch HMI panel. I use the network analog input to compare an entered temperature value with a PT100 sensor to activate a motor, and the setup is functioning correctly. However, I am concerned about power outages—it's important that the parameters are not lost, so they need to be stored in a way that, after a power failure, the system resumes with the last values entered in the IOField. What's the recommended method to achieve this? Should it be handled through ladder logic, a DataLog block, or configured in the HMI? Thank you for your suggestions."
+    },
+    {
+      "comment_id": 964978833351870,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "If you assign the setpoint through a network analog input, the value cannot be saved since it uses VM memory, which is not retentive. To make values persistent, map the setpoint as a parameter within a mathematical instruction using VM parameter mapping. Directly written parameters in a mathematical instruction are stored in the controller's flash memory, ensuring they remain after power failure."
+    },
+    {
+      "comment_id": 796080295503518,
+      "user_name": "mlJc9yQmtS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], thanks for the clarification regarding VM memory. Could you please provide a simple example showing how to assign the setpoint using a mathematical instruction? I have attempted this before after reading about it in the forum, but without success."
+    },
+    {
+      "comment_id": 508252535803439,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Where should the setpoint be assigned—as a parameter for an analog threshold switch, for example? Which visualization software and exact version are you using? Refer to the FAQ from [company_name] about configuring references between blocks in [product_name] 8 for guidance. If this does not resolve your question, please provide more details about your setup."
+    },
+    {
+      "comment_id": 843200266717475,
+      "user_name": "mlJc9yQmtS",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], I am using [product_name] Soft Comfort [version_no] and TIA Portal [version_no]. I read the PT100 sensor value from the RTD module and display it on the HMI panel in VM0. The IOField is used for setting a temperature setpoint that triggers the motor (e.g., at 10 degrees, the motor turns on). The setpoint is sent to the controller through VM2 using a network analog input, which is set from the HMI. The system works, but I want to ensure that, after a power loss, the setpoint holds and does not reset to zero. I'm unsure how to make the last setpoint value stored persistently on the controller. Should I write it back to VM2? What's the best way to do this to avoid disrupting my program logic? Also, I am programming in ladder language."
+    },
+    {
+      "comment_id": 439648030097997,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you, this information is helpful. I will prepare an example later today."
+    },
+    {
+      "comment_id": 313803788349373,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "You may also upload your controller project and the TIA configuration as a ZIP file for review, so changes can be made directly within your programs."
+    },
+    {
+      "comment_id": 295902298835988,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Are you certain that your HMI panel TP177 can be edited with TIA Portal [version_no]?"
+    },
+    {
+      "comment_id": 635659367315682,
+      "user_name": "mlJc9yQmtS",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Yes, I am using TIA Portal [version_no]. At the moment, I can only access the forum by mobile and cannot upload my project right now. An example would be greatly appreciated."
+    },
+    {
+      "comment_id": 198728299873471,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Sorry, I can only provide an example for the controller. In my TIA version, TP177 is not listed, nor in later versions. For example, values from the TP panel are written to VW0, and you can use VM parameter mapping to link the setpoint within the controller program to parameter V1."
+    },
+    {
+      "comment_id": 703566828953801,
+      "user_name": "mlJc9yQmtS",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you, [user_name]. Once I get to the office, I'll check the example and report back."
+    },
+    {
+      "comment_id": 143313134587960,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I'll be waiting for your update."
+    },
+    {
+      "comment_id": 776166076813661,
+      "user_name": "mlJc9yQmtS",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], unfortunately it did not work. I'm sure I made a mistake. Could you please review my setup?"
+    },
+    {
+      "comment_id": 764088882022547,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Yes, something was done incorrectly. Please see the attached file; the comments should help clarify how to set it up properly."
+    },
+    {
+      "comment_id": 159000549222444,
+      "user_name": "mlJc9yQmtS",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Perfect! It works as intended now. Thank you very much for your assistance, [user_name]."
+    },
+    {
+      "comment_id": 217332041636492,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], happy to help! Your results sound promising."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members aim to ensure the parameters set via HMI are retained following a power loss when using a [product_name] controller and associated modules. The default VM memory is non-retentive, leading to data loss and process interruption after reboot. Users are seeking reliable methods to make setpoints persistent, including the use of retentive flash memory, ladder logic, and parameter mapping, and are clarifying proper configuration in the [product_name] environment.",
+    "user_expectations": "Users expect setpoints entered via the HMI to remain stored and available in the controller after a power interruption, so the system can resume normal operation with the last configured values, eliminating the need for manual re-entry.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter retention",
+      "automatic restart",
+      "data integrity"
+    ],
+    "pain_keywords": [
+      "parameter loss",
+      "non-retentive memory",
+      "power failure",
+      "unclear process"
+    ],
+    "feature_keywords": [
+      "retentive memory",
+      "VM memory",
+      "parameter mapping",
+      "HMI integration",
+      "analog network input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

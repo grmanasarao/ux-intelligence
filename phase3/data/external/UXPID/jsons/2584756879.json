@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "2584756879",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 580507178143544,
+      "user_name": "9isc9KdYSm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I'm working on programming a timer and want to allow the setpoint to be modified via the HMI. The required value should be entered in hours, with a maximum of 8 hours. The maximum input is already being checked by counters and that part works. However, when I link a variable to the timer, I can only select minute and second units. Is it not possible to use variables with hours as the unit? I tried multiplying the variable by 60 to convert to minutes, but then I couldn't connect it to the timer. Is there a way to input the value in hours, or otherwise use the HMI value directly while still being able to monitor and limit the maximum input (8 hours)? [user_name]"
+    },
+    {
+      "comment_id": 548981892676329,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "The unit selection determines the time base. Internally, [product_name] does not use the h:m format; this is only available for display or when creating the program. The highest available time base is minutes, and the allowed value goes up to 5999, which equals 99 hours and 59 minutes."
+    },
+    {
+      "comment_id": 914120002315720,
+      "user_name": "9isc9KdYSm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Refer to the attached example program."
+    },
+    {
+      "comment_id": 428906875889896,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "When you double-click and set the time base to minutes, the unit will show as hours on the display. For example, if your setpoint is 365 and the base is minutes, the time value corresponds to 6 hours and 5 minutes."
+    },
+    {
+      "comment_id": 269177257743688,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "That's how it's displayed in a text message."
+    },
+    {
+      "comment_id": 753723286765218,
+      "user_name": "9isc9KdYSm",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Alright, I understand now! Thanks for the clarification. I tested it, and if I enter 480 in the counter, the display shows 8 hours, as needed. That approach works well. Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The initial challenge was configuring a timer to accept hours as a variable input since only minutes and seconds are supported directly for variables, while the requirement was to set a maximum of 8 hours. The discussion helped clarify these limitations and showed how to achieve hour-based entry by using minutes and enforcing the maximum constraint via the HMI. The user resolved their issue by using the timer value in minutes.",
+    "user_expectations": "The user wants the timer to accept setpoint values directly entered in hours and to enforce an 8-hour maximum when using values from the HMI.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "hour-based timer input",
+      "HMI variable control",
+      "input validation"
+    ],
+    "pain_keywords": [
+      "unit mismatch",
+      "variable linkage limitation",
+      "timer input units"
+    ],
+    "feature_keywords": [
+      "timer setpoint unit",
+      "HMI variable input",
+      "maximum timer value"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

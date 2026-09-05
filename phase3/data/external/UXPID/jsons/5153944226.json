@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "5153944226",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 819786928020158,
+      "user_name": "4hz9PmUd4P",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello, I have a project involving a [product_name] controller and an HMI panel, where I transfer a value from the HMI to an analog amplifier in the [product_name]. This value functions as a setpoint. Is there a method for the controller or HMI to retain the value or reset it to a default after a power cycle? Thank you"
+    },
+    {
+      "comment_id": 694312610731730,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "I'm not certain whether the HMI panel can store input values, but it seems unlikely. My suggestion is as follows: Add an input field for the setpoint in the HMI and communicate the setpoint to the controller via the VM area. In the controller, the value can be validated and, if greater than zero, stored in non-volatile memory. The stored value can then be sent back to the HMI and displayed in an output field."
+    },
+    {
+      "comment_id": 279187903243343,
+      "user_name": "jMpNQq47BR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "It is possible to retain values with a simple workaround. Instead of storing it on the HMI, save it directly in the [product_name] controller. This involves writing to a virtual database. I'll share more details about the address ranges later. Pick an unused address within the valid range. As long as the controller has continuous power, this will work, and the HMI can be restarted without losing the data. Regards [user_name] EDIT: Attached [document] with address range. This is quite similar to the previous suggestion, but in this case, no custom programming is required. Program the IO field on the HMI and assign a tag (e.g., VW50), ensuring the controller does not already use it."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are discussing approaches to preserve a setpoint value transferred from an HMI to a [product_name] controller across power cycles. There appears to be no straightforward method for persistent value storage on the HMI itself, so users are using dedicated memory locations within the controller hardware to maintain or restore setpoints. Sharing of practical workarounds indicates this is a frequent challenge with these devices.",
+    "user_expectations": "The user expects either the controller or the HMI panel to automatically retain the last entered setpoint or revert to a default value following a power cycle.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "retain setpoint",
+      "automatic reset",
+      "fall-back operation",
+      "persistent value"
+    ],
+    "pain_keywords": [
+      "loss of value after power cycle",
+      "no built-in retention",
+      "unclear feature support"
+    ],
+    "feature_keywords": [
+      "persistent storage",
+      "setpoint value",
+      "power cycle behavior",
+      "VM area",
+      "IO-field"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

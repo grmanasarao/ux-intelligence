@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "branch_id": "7107706105",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 894758433188800,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello, Is there a way to schedule a pulse or task to occur at specific time intervals? I can create a pulse every 5 minutes, but I’d like the schedule to match the actual clock time. For example: 12:00, 12:05, 12:10, 12:15, and so on. Currently, the timer starts when the [product_name] module is powered up, so unless it boots exactly at one of these times, the intervals will be offset (e.g., 12:03, 12:08, etc.). Manually adding a large number of weekly timer blocks for each 5-minute interval isn’t practical."
+    },
+    {
+      "comment_id": 407727155425939,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "You can trigger a pulse generator at 12:00 using the weekly timer. Set the pulse duration to 1/100s, with a 5-minute pause between pulses."
+    },
+    {
+      "comment_id": 668887307535311,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I'm not convinced this works as intended. Without an off timer and if it's set to run every day, each period activates. I tested this in simulation (see attached), and it ends up starting the 5-minute cycles when the [product_name] module powers up, rather than aligning exactly with the 5-minute clock intervals. If you add an off timer and latch, it will only trigger at the next scheduled time, like 12pm, which becomes a problem if the device is powered off and on at unpredictable times. If there's a built-in function for this, great—but as an alternative, maybe use a few timers set at specific intervals to reset the 5-minute pulse so that it re-syncs with the real clock (e.g., turn off at 11:59am and back on at 12pm, and repeat at 3pm, 6pm, 9pm, etc.), so it aligns every few hours at least. Does anyone have a better solution?"
+    },
+    {
+      "comment_id": 666782221545944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "There is a way, but it involves using a significant number of weekly timers—specifically, you'd need 96 for full coverage, or about 8 for hourly synchronization."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to schedule pulse/task intervals to match exact clock times using the [product_name] controller, but the current setup only allows timers to start from the moment the device powers up, causing a misalignment with real time after resets. Workarounds to synchronize with clock intervals involve creating many timer blocks, which users find too complex and frustrating, highlighting the lack of a straightforward scheduling option.",
+    "user_expectations": "Users expect the [product_name] controller to be able to schedule actions at fixed, clock-based intervals without needing numerous separate timers or complicated setups, regardless of when the device is powered on.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "schedule alignment",
+      "time synchronization",
+      "reliable periodic task"
+    ],
+    "pain_keywords": [
+      "complex setup",
+      "lack of time-based synchronization",
+      "manual timer reset",
+      "not practical with many timers"
+    ],
+    "feature_keywords": [
+      "time-based task scheduling",
+      "synchronization with clock",
+      "pulse generation",
+      "weekly timer",
+      "off timer"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

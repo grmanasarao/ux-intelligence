@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "8746137515",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 657818901936154,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, this is my first post here and I’m pleased to join the forum. I’m facing an issue: I want to control a motor to run LEFT or RIGHT, depending on two inputs and a scheduled time. For instance, if I1 is OFF, I2 is ON, and the time is after 6pm, the motor should move RIGHT; if it’s before or at 6pm, it should move LEFT. There are more scenarios, but an example based on the above would help. Thanks in advance!"
+    },
+    {
+      "comment_id": 334767859375829,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Your example has logical issues. If it’s exactly 6pm, both outputs would activate at the same time as per your description. Also, with your current logic, both outputs can potentially be controlled at times other than 6pm, so clarification is needed."
+    },
+    {
+      "comment_id": 139701723309677,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thanks for responding. The I1 and I2 signals come from terminal switches, each with both NO and NC contacts. There are situations where both I1 and I2 could be ON, for example during a power fault. My main concern is not finding a Greater Than or Less Than function in my [product_name] [version_no]. If anyone knows about GTE or LTE functions, I’d appreciate the information."
+    },
+    {
+      "comment_id": 292309830727054,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Sorry, I’m from Germany. Can you clarify what you mean by \"GTE or LTE functions\"?"
+    },
+    {
+      "comment_id": 113521316489377,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "GTE stands for Greater Than or Equal, LTE for Less Than or Equal. I couldn't find these types of comparison functions in [product_name] [version_no] that I have."
+    },
+    {
+      "comment_id": 733291919669301,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I assumed as much, but wanted clarification. Regarding your logic, you are also considering equality—so at exactly 6pm, both outputs would switch on. Also, comparisons like less than or greater than may not behave as expected over multiple days. Consider defining a clear interval: for example, between 6am and 6pm, the motor runs one way, otherwise it goes the opposite."
+    },
+    {
+      "comment_id": 386913576709912,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "To clarify: as a user, you cannot directly access the date or time within a [product_name] program. The only available method is to implement comparison logic using the weekly timer."
+    },
+    {
+      "comment_id": 157676197377113,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "That’s exactly what I’m aiming for—a straightforward comparison between the time’s first digit and the target time. I previously achieved this with Arduino code by extracting the time in HH:MM:SS format and using a variable for comparison, then controlling the motor direction accordingly. I’m hoping to replicate this with [product_name]."
+    },
+    {
+      "comment_id": 406751707675877,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I think there is a misunderstanding. In [product_name], you cannot directly access the current date or time. Only the weekly timer can be used for such logic."
+    },
+    {
+      "comment_id": 409394481324474,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I ended up using the weekly timer to achieve the desired operation. Thank you all for your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user initially tried to implement time-based control logic using [product_name] [version_no], but struggled to find direct comparison functions for time values. It became clear that the system doesn't support direct access to real-time or simple comparator functions, so users have to rely on the weekly timer block for time-based operations. This exchange highlights the difference between expected direct time comparisons and the actual features provided by the system.",
+    "user_expectations": "Users expect to be able to access and compare the current date and time directly within the [product_name] program, utilizing greater than or less than comparison operators similar to commonly available features in microcontroller environments.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "time-based control",
+      "motor direction",
+      "ease of programming",
+      "logic comparison"
+    ],
+    "pain_keywords": [
+      "limited time functions",
+      "no direct access to real time",
+      "restricted logic options"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "time comparison",
+      "logic blocks",
+      "direct time access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

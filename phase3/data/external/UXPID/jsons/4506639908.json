@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "4506639908",
+    "thread_id": "4479534060",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 734412475739591,
+      "user_name": "ZMZG2thADp",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "Hello, I’m looking to transfer an analog input from a [product_name] [article_no] module to a [product_name] PLC. I want to keep the [product_name] program unchanged, so I prefer not to use the Analog Amplifier block or any other function block. I managed to send a digital input byte via the Ethernet Connection menu, using a Write instruction from IB0 to a datablock byte in the PLC. I’d like a similar solution for AI0 or AI1. According to online help, the analog inputs appear to be mapped at VB926, but I’m unsure how to utilize this since in the Ethernet Connection menu, VB can only be addressed from 0 up to 849. Can anyone offer assistance? Thanks"
+    },
+    {
+      "comment_id": 860956114065607,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "Does the [product_name] program need to remain unchanged? If so, why pose this question here? You could create a minimal program: 1. Connect an analog input directly to an analog output; 2. Connect a networked analog input directly to an analog output; 3. Alternatively, connect the analog input or network input to an analog flag. In many cases, you can use the 0-10V analog output from your sensor in parallel. Sometimes, but not always, an analog output 0(4)-20mA from your sensor can be used in series—provided at least one of the analog inputs isn’t grounded or tied to -24VDC. Otherwise, a signal converter/amplifier is required."
+    },
+    {
+      "comment_id": 624864501188802,
+      "user_name": "ZMZG2thADp",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "Please keep the discussion relevant to the topic."
+    },
+    {
+      "comment_id": 683043997265821,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 7,
+      "comment_body": "Hi, The data format for analog values differs between [product_name] and [product_name]. This prevents direct reading or writing of analog values. You must use an analog amplifier or similar function to move the value into the VM-mapping table. Without this step, you cannot transfer the analog value to [product_name]. Hope this clarifies things."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants to transfer analog input data from one [product_name] module to a [product_name] PLC through Ethernet without editing the original [product_name] program to add function blocks. Responses highlight that this approach runs into technical limitations: [product_name]’s analog value memory mapping and different data formats between devices prevent a ‘clean’ transfer. Practical workarounds, such as using function blocks or external converters/amplifiers, are required.",
+    "user_expectations": "The user expects to send analog input values from the [product_name] [article_no] module to a [product_name] PLC via Ethernet, all without changing or adding blocks to the existing [product_name] program.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless data transfer",
+      "minimal configuration",
+      "cross-device compatibility"
+    ],
+    "pain_keywords": [
+      "memory mapping limits",
+      "data format incompatibility",
+      "mandatory program modification"
+    ],
+    "feature_keywords": [
+      "analog input transfer",
+      "Ethernet communication",
+      "VM mapping",
+      "cross-device integration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

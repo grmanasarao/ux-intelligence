@@ -1,0 +1,222 @@
+{
+  "metadata": {
+    "branch_id": "8213111159",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 534662346232635,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I'm new to wiring programmable logic controllers and have reviewed some wiring diagrams, but want to confirm here to avoid making mistakes with my newly purchased [product_name]. I bought a sensor (see [url]) and am unsure how to connect its three wires when using an NPN sensor. I thought of connecting black to an input, blue to M (minus) of the controller, and brown to 24+ (L+) and also to GND (FE) of the controller. Is this roughly correct? I'm using a [company_name] 230/24V power supply for the 24V needed by the controller, connected via 3-wire 230VAC. I connected the GND (PE) from the 230VAC cord into the FE GND of the controller for safety reasons. Before powering up, I'd appreciate guidance on how this sensor should be wired."
+    },
+    {
+      "comment_id": 538420429342959,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "The link you posted is not working."
+    },
+    {
+      "comment_id": 372237613133453,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I noticed the link requires manual copy-pasting into a new browser tab. [url]"
+    },
+    {
+      "comment_id": 350098440062397,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "FE (functional earth) and PE (protective earth) serve different purposes. The FE connection on the [product_name] base module grounds the Ethernet shielding for interference protection. Your wire interpretations are correct: Brown = +24VDC, Blue = 0VDC (or M), Black = switching output connected to a digital input on [product_name]."
+    },
+    {
+      "comment_id": 991770451136766,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I thought it would be more complicated due to the NPN sensor. The sentence about connecting the common point of the controller (M or FE?) and brown wire to the 24VDC supply made me think, but you're saying it can be wired as usual? I read that resistors are sometimes required with NPN wiring. Can the power supply output be used for the sensors, or should a separate power supply be used?"
+    },
+    {
+      "comment_id": 233563995585061,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "There's a chance the NPN type sensor may not function directly with [product_name]; typically, a PNP type (such as LJC18A3-B-Z/BY) is used. Depending on the sensor's output, you might use a pull-up resistor (e.g., 4.7kOhm to 24VDC) so it can operate with [product_name]. PNP sensors are preferred as they need no extra components. Standard wire colors: brown=DC24V, blue=0V, black=output for normally open, white=output for normally closed. Refer to the sensor's documentation to see if an NPN sensor is usable with a pull-up resistor or only with PNP. Try a resistor between 1kOhm and 10kOhm connected as shown in your NPN load diagram, with pin 4 connected to the desired [product_name] input."
+    },
+    {
+      "comment_id": 959846801111224,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "That's what I was concerned about. Do you mean a 4.7k ohm resistor on the brown wire to 24VDC? Here are the specs—any advice?"
+    },
+    {
+      "comment_id": 991171815833733,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Check the attached document for details."
+    },
+    {
+      "comment_id": 868308309211469,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Thanks, that explains the confusion. The wiring diagram indicates that a 2.2k resistor should go from the black wire (input) to 24VDC."
+    },
+    {
+      "comment_id": 222264143070532,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "That's correct. You can test with a resistor from 1k to 10k ohm as [user_name] suggested, but in most cases, 2.2k works well."
+    },
+    {
+      "comment_id": 123777358144429,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "So, everyone agrees? Will [product_name] be safe with this connection?"
+    },
+    {
+      "comment_id": 751337265363853,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Yes, that setup is fine. When the sensor is not triggered, its output is open and the 2.2k resistor pulls input I1 to 24VDC, making I1 HIGH. When the sensor is triggered, the output closes and input I1 goes to 0V (M), making I1 LOW."
+    },
+    {
+      "comment_id": 749654037472803,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "You have flexibility in resistor values and can calculate for the following: 1) Low level = NO contact closed; resistor should not exceed the maximum sensor output current (U/I=R, so 24V/0.3A=80 Ohm). 2) High level = NO contact open; the external resistor is in series with the controller's input resistor (~70kOhm), and sufficient voltage is needed for input HIGH. Values between 1kOhm and 10kOhm provide a good margin for both, so nothing will be damaged. Check operation instructions for required low and high levels of the inputs. With a 10kOhm resistor in series with ~70kOhm input, you get about 21V at the input. Regards, [user_name]"
+    },
+    {
+      "comment_id": 206455809872409,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Great explanation, thank you. I can't find the mentioned 70k Ohm value in the specs; I only see 80k Ohm impedance on analog inputs (see attached image)."
+    },
+    {
+      "comment_id": 649891305172693,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Manuals for different [product_name] versions specify input resistances: [product_name] 8.0 12/24RCE = 72 kΩ, [product_name] 8.1 12/24RCE = 72 kΩ, [product_name] 8.2 12/24RCE = 72 kΩ, [product_name] 8.3 12/24RCE = 80 kΩ. It looks like hardware has changed in version 8.3."
+    },
+    {
+      "comment_id": 155104382543438,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I wired it using a 10k Ohm resistor. I believe it works; see my test video ([document])."
+    },
+    {
+      "comment_id": 997285048921272,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "The video confirms that the sensor's LED works, but does not show the input function on [product_name]."
+    },
+    {
+      "comment_id": 273841263589097,
+      "user_name": "8RYb477Ela",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "For calculations, an input resistor between 50kOhm and 100kOhm provides ample margin, so both low and high levels are covered. If you need the exact input resistance, you can measure it yourself—apply any resistor between +24V and input, then measure voltage drop at the resistor and between input and 0V. The voltage ratios match the resistance values, so you can calculate accordingly. Regards, [user_name]"
+    },
+    {
+      "comment_id": 369469922158290,
+      "user_name": "eWgGXXuACk",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Thank you for the helpful advice! I successfully programmed I1 using the capacitive sensor to trigger an inverted Q1 output with a LED. Programming is enjoyable! ([document])"
+    },
+    {
+      "comment_id": 319479980953075,
+      "user_name": "8RYb477Ela",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Thanks for updating; you managed to use this NPN sensor. If you plan to use more sensors, choosing PNP types allows direct connection without resistors. Good luck, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main issue was properly wiring a 3-wire NPN capacitive sensor to a [product_name] module, resulting in confusion regarding connection scheme, use of pull-up resistors, and integrating the sensor with the controller's supply. Responses clarified the difference between functional and protective earth, confirmed resistor values required for proper sensing, and noted hardware differences among controller models. Documentation was inconsistent, and users often had to consult external resources or experiment to confirm compatibility for non-native sensors.",
+    "user_expectations": "The user hoped for detailed, step-by-step instructions on connecting an NPN sensor to a [product_name] module, guidance on whether external resistors are needed, and confirmation that the existing power supply arrangement is suitable.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "correct wiring",
+      "safe installation",
+      "compatible sensor connection",
+      "reliable operation"
+    ],
+    "pain_keywords": [
+      "wiring confusion",
+      "compatibility uncertainty",
+      "unclear documentation",
+      "sensor type mismatch",
+      "resistor requirement"
+    ],
+    "feature_keywords": [
+      "digital input wiring",
+      "earth/ground connections",
+      "NPN/PNP sensor compatibility",
+      "power supply integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

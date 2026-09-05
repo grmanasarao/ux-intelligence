@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "branch_id": "6444022456",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 485878959369192,
+      "user_name": "0YjcpSCPWD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "When I add mathematical instructions to my ladder diagram, only one input (enable) is shown, and outputs are missing. The simulation works correctly, but the software doesn't allow uploading the program to [product_name] because the mathematical instructions aren't assigned any output. I tried different hardware options, but no success. How can I upload my program without converting my 15-page LAD to FBD? Any suggestions?"
+    },
+    {
+      "comment_id": 623971372816901,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], you need to use an analog contact and an analog output."
+    },
+    {
+      "comment_id": 454532555189641,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "This issue is why we suggest using FBD mode instead of LAD. FBD makes it easier to understand and analyze errors during simulation or online tests."
+    },
+    {
+      "comment_id": 575490135784572,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "If you forget the analog flag or output in FBD, you'll encounter the same problem. I've used LAD programs for 20 years without issues because contacts can be reused and the ladder diagram remains clear. FBD would require many cross reference lines for the same program. It's probably a matter of habit—I use FBD for [version_no] too. Logo logic in FBD would be clearer if inputs, outputs, or flags could be reused without extra cross reference lines. Regards, [user_name]"
+    },
+    {
+      "comment_id": 968458767604448,
+      "user_name": "0YjcpSCPWD",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I don't have the code right now, but I use about 10 math instructions to approximate a complex function for controlling rewind tension based on roll diameter, dividing the function into sections approximated with straight lines. I'm able to get the output very close to the desired value without needing advanced math functions. Counters are used in the first 7 instructions, then they're added, and finally subtracted from 1000 to get the desired output. I plan to try adding extra analog contacts throughout the code—though this requirement isn't highlighted clearly in the manual. I appreciate the advice and will share an update after testing the fix."
+    },
+    {
+      "comment_id": 837796461995529,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "In my view, the downside is that simulation works even if the block isn't completed. The error message only appears when you try uploading to [product_name], or when pressing F2 in the editor before transfer—then the error is displayed in a pop-up window."
+    },
+    {
+      "comment_id": 694054666873042,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "+1"
+    },
+    {
+      "comment_id": 294916255957761,
+      "user_name": "0YjcpSCPWD",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I'd argue that the block is complete—it has an enable input, and each math instruction's value is referenced elsewhere in the code, so none are unused. Although I'll add unnecessary code to meet the requirement, from my perspective the output is what's stored inside the instruction and all are being used. The simulation runs perfectly, but Soft Comfort simply will not upload the program. Hopefully, adding a new page full of these placeholder instructions will allow uploading to proceed."
+    },
+    {
+      "comment_id": 682816396854274,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "The issue is that [product_name] FBD isn't truly FBD, but rather combines FBD with CFC. For example, on the left of the diagram is FBD—the math output must connect to an analog output (AM or AQ) or another block’s analog input. On the right is LAD, converted from the FBD version."
+    },
+    {
+      "comment_id": 861654816599318,
+      "user_name": "0YjcpSCPWD",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "[user_name]'s answer helped solve the issue. I added an entire page of unused lines at the end, where analog contacts from math instructions led to analog macro values never used again—this enabled the program to upload and work as it should (even without those extra lines). It's frustrating this requirement wasn't highlighted in the manual, which would've saved a lot of time and effort. Thanks to everyone who offered help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users become confused when mathematical instructions in ladder logic with [product_name] Soft Comfort only show an enable input and lack explicit outputs, making it impossible to upload to hardware despite working in simulation. The absence of clear documentation about assigning analog contacts or outputs leads to significant frustration. Simulation doesn't flag errors, compounding the issue.",
+    "user_expectations": "Users want consistent behavior between simulation and program upload, with clear requirements and error messages for mathematical instructions in ladder logic. Documentation should transparently cover all constraints.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful program upload",
+      "accurate calculations",
+      "clear documentation",
+      "predictable software behavior",
+      "efficient workflow"
+    ],
+    "pain_keywords": [
+      "hidden output requirements",
+      "simulation/upload mismatch",
+      "lack of documentation clarity",
+      "frustrating troubleshooting",
+      "unclear error feedback"
+    ],
+    "feature_keywords": [
+      "mathematic instruction blocks",
+      "analog output assignment",
+      "ladder logic support",
+      "simulation vs upload consistency",
+      "software documentation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

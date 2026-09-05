@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "branch_id": "9284851714",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 109092694308362,
+      "user_name": "CkiwVBaw43",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I'm new to this forum and looking for advice. I have a [product_name] base module ([article_no]) and want to display a fluid level measured by a variable resistance probe (range: 33 ohm to 240 ohm). I also have the [product_name] RTD module for temperature readings and the standard analog module for voltage/current measurements. High precision isn't essential. Which connection method would you recommend? If I use the PLC's 24VDC, I'd need to add a 350 ohm series resistor, resulting in a voltage reading between 2V and 10V and a maximum current of 62mA, consuming about 1.5W continuously. Is this current too much for the PLC? Alternatively, powering the probe with 5VDC and a 220 ohm series resistor would bring consumption down to 0.1W, or even lower if using a 1.2V battery and a 27 ohm resistor (0.025W). Any suggestions? Thank you."
+    },
+    {
+      "comment_id": 469120973320912,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Welcome to the forum. The best approach is to use a probe with a standard 0-10V or 0/4-20mA output. Other methods with your current probe are more of a workaround and less reliable."
+    },
+    {
+      "comment_id": 477420223377712,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You can generally use your proposed method, but the current going to the PLC may not be as you calculated. Most of the current will pass through the external resistors; the analog input of the base module has a high impedance (~70kOhm). With 24V maximum, current would be roughly 0.34mA. Regarding the resistors: the 350 ohm is on +24V, the 33-240 ohm is on 0V, and the junction between them goes to the analog input (ignore the 70kOhm impedance for calculations). Maximum current is 24/(350+33)=62.7mA, minimum is 24/(350+240)=40.7mA. For power calculations: P=I²xR. 0.0627²x33=0.13W, 0.0407²x240=0.4W. For Umax=10V, you need 0.4W. Check your variable resistor specs for suitability. Also confirm power ratings for the fixed resistor. Remember, resistor values can vary with temperature. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 305941788048533,
+      "user_name": "CkiwVBaw43",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you for your input, [user_name]. I'm glad our calculations match. The power you calculated is what dissipates in the probe itself. If you also include the 350 ohm series resistor, the total power is roughly 1.5W. How would you suggest connecting this setup to the [product_name]? Also, what are your thoughts on using a 5VDC supply (instead of the PLC's 24V), or even a 1.2V battery, and linking everything to the 4-20mA analog input? Best regards and stay safe."
+    },
+    {
+      "comment_id": 978695696114102,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "As previously described, connect the resistors in series from +24V to 0V: first the 350 ohm, then the 33-240 ohm as a voltage divider, with the junction wired to the analog input (for example I7(AI1)). Reducing voltage does decrease power consumption, but may impact resolution. If probe resistor temperature is an issue, increasing the 350 ohm resistor can help, though it will reduce full measurement resolution. Is the relationship between resistance and fluid level linear or not? Nonlinearity could complicate measurements, and using a spreadsheet to visualize this may help. The [product_name] system only supports basic arithmetic; complex approximations require polynomial functions. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 278337653601180,
+      "user_name": "CkiwVBaw43",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you, [user_name]. I understand the wiring and the trade-off between reduced power and resolution loss by increasing the resistance. I'll consider this topic resolved. Regards to you."
+    },
+    {
+      "comment_id": 308731040366546,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "It's recommended to use a dedicated measurement interface and probe designed for liquid level detection. 1. Using DC current may lead to electrical corrosion of the probe. 2. Make sure to install input protection for the PLC to prevent damage from voltage spikes."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main discussion revolves around connecting a variable resistor probe to a [product_name] controller for fluid level measurement. Various circuit options are considered to balance power consumption and accurate analog input readings. Community members point out the limitations and risks associated with the user’s hardware setup, especially long-term risks like probe corrosion and potential input damage. The consensus is to recommend using a dedicated measurement interface or probe with standard analog output for better reliability and simplicity.",
+    "user_expectations": "The user hopes to connect a variable resistor-based probe to a [product_name] controller in a way that yields clear and efficient fluid level readings, with low power usage, simple wiring, and dependable signal processing. Minimal configuration and straightforward operation are preferred.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy connection",
+      "low power consumption",
+      "accurate level reading",
+      "display fluid level"
+    ],
+    "pain_keywords": [
+      "power consumption",
+      "hardware protection",
+      "signal conversion",
+      "non-linearity",
+      "corrosion risk"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "screen display",
+      "signal conditioning",
+      "input protection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "9": "Feature Requests",
+    "4": "Hardware Reliability"
+  }
+}

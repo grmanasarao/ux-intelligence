@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "7793407965",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 177769519950566,
+      "user_name": "ge8INvtUEW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm experiencing an issue with the analog threshold trigger during temperature regulation. When I set a shutdown temperature, such as 28°C, the relay doesn't switch off immediately as the temperature nears 28°C. Instead, it starts clicking as if the temperature is fluctuating. This only happens when the temperature slowly rises or falls. If the temperature changes rapidly, there's no problem. I'm using a generic RTD 0-10V converter, with the analog input and measurement range set to -50°C to 100°C, and the analog amplifier configured similarly. When I test with a different converter, the issue doesn't occur and everything works as expected. Is there a way to fix this without having to replace all four converters? I appreciate any responses."
+    },
+    {
+      "comment_id": 557029096312895,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Have you considered setting a hysteresis between the ON and OFF values for the threshold trigger? Please provide your settings so we can take a look."
+    },
+    {
+      "comment_id": 109235491121039,
+      "user_name": "ge8INvtUEW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Hello, thank you for your fast response. I've attached the program and an image showing my setup. The idea is for the electric heating element to warm the water and turn off automatically once the water reaches the target temperature."
+    },
+    {
+      "comment_id": 825979208084756,
+      "user_name": "ge8INvtUEW",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 203612565941051,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "If I understand correctly, you want the output Q1 to be ON when the temperature is below 25°C, and OFF when it's above 25°C, right? Here's what I suggest: Set your analog amplifier with Gain: 1.5, Offset: -500, and Decimal places: 1. This gives you a temperature range of -50.0°C to 100.0°C, making temperature control easier. For the threshold trigger, set ON at 250, OFF at 240, with Decimal places: 1. Add a NOT block between the threshold trigger and output Q1. This setup provides a hysteresis of 1.0°C. If the temperature drops below 24.0°C, Q1 switches ON. When it rises above 25.0°C, Q1 switches OFF. If it falls below 24.0°C again, Q1 will turn back ON."
+    },
+    {
+      "comment_id": 260703505816487,
+      "user_name": "ge8INvtUEW",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "That's exactly what I needed. Now everything works as intended. Thank you for helping to resolve the issue quickly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user reported unstable relay switching when using an analog threshold trigger for temperature control, particularly when temperature changes slowly. The problem was traced to a missing hysteresis setting. After following configuration advice to introduce hysteresis, the system performed reliably, illustrating the necessity of proper analog input and threshold settings for stable operation.",
+    "user_expectations": "The user expects the relay to actuate precisely at the set temperature threshold, with reliable and clean transitions, avoiding repeated toggling or unstable behavior regardless of the rate of temperature change.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable relay control",
+      "reliable temperature regulation",
+      "precision"
+    ],
+    "pain_keywords": [
+      "relay chattering",
+      "unstable threshold triggering",
+      "integration with third-party converters"
+    ],
+    "feature_keywords": [
+      "analog threshold trigger",
+      "hysteresis setting",
+      "analog input calibration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "3": "User Guidance"
+  }
+}

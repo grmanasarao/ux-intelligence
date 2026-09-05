@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "branch_id": "2469072661",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 711058951733955,
+      "user_name": "mG0yKqCKWa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hello, Is there an example showing how to activate or deactivate flags based on certain days within a program's execution? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 460903049321471,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Since users can't directly access the actual date or time, you should use the weekly timer and/or yearly timer blocks only."
+    },
+    {
+      "comment_id": 261590059207550,
+      "user_name": "mG0yKqCKWa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "The weekly timer lets you schedule actions on specific days, like turning something off on Wednesday from 00:00 to 23:59. But if your program starts on Tuesday at 16:14, the flag wouldn't stay on for a full 24 hours. I'm experimenting with the hours counter, but connecting it to a specific day is challenging. For example, I want to \"turn on the water pump for the first 24 hours\" or \"the first 48 hours,\" or \"only between 24 and 48 hours\"—regardless of which weekday or clock time. The goal is to base decisions on runtime cycles of 24 hours."
+    },
+    {
+      "comment_id": 662787039702055,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Your initial question was quite general, but then you mentioned a specific scenario. It’s best to clearly describe your special case from the start. The more detailed the question, the more helpful the responses you’ll receive."
+    },
+    {
+      "comment_id": 204092797336453,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "If you set the switch-on time to 16:14 on Tuesday and the switch-off time to 16:13, the weekly timer will activate on Tuesday at 16:14 and deactivate on Wednesday at 16:13. For cases like this, configure the weekly timer to pulse output, specifying only the switch-on time and day. You can then use the pulse from the weekly timer to control a secondary timer. Also, if you want a timer to start only once after the programmable controller restarts, there’s a special flag (e.g., M8) that triggers for a single program cycle when the controller launches."
+    },
+    {
+      "comment_id": 836805157220393,
+      "user_name": "mG0yKqCKWa",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "I realize my initial question was too generic; I just wanted an example application. After receiving feedback, I understood I needed to share more specifics to get suitable answers. I should have asked in more detail from the beginning, which was my oversight. Regarding the main question: The 16:13 example was meant to show that the program could start at any time on any day, and I need a flag to stay ON for the first 24 or 48 hours, or between 24 and 48 hours. I don't want my configuration to rely on the weekly timer, as that could create unwanted restrictions. Ideally, users should be able to say “I want this ON during the first and second day,” or “I only want it ON during the second day.” I’ll try adapting the “Operating Hours Counter with Prewarning” example to achieve this."
+    },
+    {
+      "comment_id": 430006798631001,
+      "user_name": "jMpNQq47BR",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], Maybe this is what you were looking for? Regards."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants a straightforward solution to activate or deactivate flags in a programmable logic controller based on elapsed runtime (such as the first 24 or 48 hours after startup), independent of specific dates or clock times. The discussion highlights limitations with the built-in timer blocks, as these are designed around calendar scheduling, not runtime durations. As a result, users are forced to search for alternative methods, like using operating hour counters, but available examples for such solutions are limited, leading to trial and error and some confusion.",
+    "user_expectations": "The user expects to be able to set flags that activate for specific periods after program startup—such as the first 24 or 48 hours—using common configuration blocks or functions, and would appreciate clear example solutions that demonstrate this capability.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "time-based automation",
+      "duration control",
+      "configurable activation period",
+      "user flexibility"
+    ],
+    "pain_keywords": [
+      "inflexible timer configuration",
+      "lack of duration-based flag activation",
+      "need for practical examples",
+      "unintuitive solutions"
+    ],
+    "feature_keywords": [
+      "duration-based timer",
+      "flag control",
+      "operating hours counter",
+      "weekly timer",
+      "special flag M8"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "9": "Feature Requests"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "branch_id": "1257324536",
+    "thread_id": "4479534060",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 680161503086007,
+      "user_name": "Ny1CMnxjTe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm working on an application that communicates with two [product_name] devices to read input states and perform several functions. I use a [product_name] OPC server and have set up a single data group for both devices. When both are connected, everything runs well, but problems arise if one device disconnects. For brief disconnections, the server continues to read from the connected device and returns quality=0 for the other. However, if a device remains offline for several hours, data reading stops even for the connected device. Upon investigation, I found an application error in COMM200L8Host.exe in the Windows registry. I have attached the error details. My system runs Windows 7 Professional, 64 bit, with [product_name] v1.0.6 sp6. Does anyone know the cause of this error or how to prevent it? Thank you. [user_name]"
+    },
+    {
+      "comment_id": 283478902061052,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "I wouldn't recommend disconnecting from the network. Why are you doing this? I believe [product_name] attempts to reconnect for a while, but if unsuccessful, it eventually stops communicating."
+    },
+    {
+      "comment_id": 292134493278952,
+      "user_name": "Ny1CMnxjTe",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "In the final application, network disconnections may occur due to panel maintenance or other network issues, so I want the system to resume normal operation when all devices are back online. That's why I'm interested in understanding how the OPC server handles network interruptions. From what I've seen, the server doesn't always stop communicating after several unsuccessful attempts, since starting the server with one device offline doesn't trigger the issue. It appears the problem only happens after a device goes offline following a period of successful connection. Does anyone have any suggestions? Thanks. [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user observes issues with communication reliability in a multi-device setup involving [product_name] devices and an OPC server. Extended disconnection of a device causes the system to halt communication with all devices, requiring manual intervention to restore functionality. This is a concern because brief or planned outages are expected during regular maintenance or network incidents.",
+    "user_expectations": "The user expects the OPC server and application to continue communicating with available devices during long disconnections and to automatically resume normal operation when all devices reconnect.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic recovery",
+      "robust communication",
+      "network resilience"
+    ],
+    "pain_keywords": [
+      "communication loss",
+      "system not recovering",
+      "manual intervention required"
+    ],
+    "feature_keywords": [
+      "error recovery",
+      "multi-device communication",
+      "network disconnect handling"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {
+      "Windows": [
+        "7 professional",
+        "64 bit"
+      ]
+    }
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "branch_id": "2876975522",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 809222279775651,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hi everyone, I'm working on reading inputs from [product_name] using Node-RED and [company_name] (IOT 2020) over Modbus TCP. I managed to establish communication and receive some data, but it's not the data I expected. The mapping for [product_name] is in the attachment. Which function codes correspond to these address types? When I try function code 2 (input status), all values are \"false.\" However, when I activate an input via a button, nothing changes."
+    },
+    {
+      "comment_id": 587653374947036,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "For the IOT2000, don't use Modbus for communication. Instead, use Ethernet TCP/IP and check discussions in the IOT2000 community; there are examples available."
+    },
+    {
+      "comment_id": 826667400976235,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Refer to the attached table for correct Modbus register addresses. If the starting address is 0, reduce the numbers by 1. Regards, [user_name]"
+    },
+    {
+      "comment_id": 303688571626602,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hi [user_name], Based on your table, is it correct to complete the I/O table in this manner? (see attachment)"
+    },
+    {
+      "comment_id": 879682937559682,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], If you're using [product_name] IOT2020/2040, consider looking at the IOT2000 community as previously mentioned. It's a simpler approach."
+    },
+    {
+      "comment_id": 732444861083890,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "As [user_name] stated, using the S7 protocol is preferable to Modbus for IOT2020/2040. Modbus is still an option if required, but avoid creating a VM mapping. Start with a new diagram; a network project isn't needed. Go to Tools -> Ethernet connections and set up a Modbus server, allowing all or specific IP connections. If multiple Modbus connections are needed, you can change the default port 502 to 503, 504, etc. Regards, [user_name]"
+    },
+    {
+      "comment_id": 702135784536730,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "[user_name], I understand your suggestion. I have an IOT2020 and chose Modbus because I couldn't install node-red-contrib-s7, despite several attempts."
+    },
+    {
+      "comment_id": 569351243180129,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "In the IOT2000 community, there are two knowledgeable members, \"bergmanu\" and \"Fe_lipe,\" who could assist."
+    },
+    {
+      "comment_id": 366770804575335,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Okay [user_name], I followed your instructions and am now trying to read digital inputs. Is it function code 02 in Node-RED? Possibly the unit ID is missing—how can I find it from [product_name] software?"
+    },
+    {
+      "comment_id": 152542949549081,
+      "user_name": "8RYb477Ela",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I'm not sure how to set up IOT2020 in Node-RED since I haven't used it before. Try values like 0 and 255 for the unit ID and see what happens. If neither works, ask in the IOT2000 forum. You can also verify the [product_name] device itself using a PC Modbus client; there are many free Modbus clients available online. Regards, [user_name] P.S. Try reading another element, such as M1. Connect a pulse generator output to M1 for this test."
+    },
+    {
+      "comment_id": 804938568705174,
+      "user_name": "X9NcPLBSQt",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I'm new to [product_name] and am unsure about setting up a pulse generator. In my project file, I did the following: 1) Wired a physical push-button to I1; 2) Set up a Modbus server. That's all so far (see attachment). Is this sufficient for a Modbus client to detect inputs? If not, what should be my next step?"
+    },
+    {
+      "comment_id": 639724811739914,
+      "user_name": "8RYb477Ela",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I'm not certain if communication is possible without a program, but I believe it may be enough. With a simple test program, you can try different Modbus functions—see the attached test program for register comments and function codes, as referenced in my table. I've enabled both Modbus and S7 servers; you can remove one, but for testing, having both doesn't matter. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is setting up Modbus TCP on [product_name] hardware with Node-RED and [product_name] IOT2020. While communication has been established, the main issue is incorrect or missing input data. There's confusion about register and function code mappings, and whether Modbus or S7 communication is best suited. Difficulty installing certain Node-RED extensions adds complexity to the process.",
+    "user_expectations": "The user expects to reliably and accurately read input states from [product_name] devices in Node-RED via Modbus TCP, without excessive configuration steps. They anticipate straightforward documentation about function codes, register addressing, and clear compatibility guidance for Node-RED extensions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote IO reading",
+      "easy configuration",
+      "reliable Node-RED integration"
+    ],
+    "pain_keywords": [
+      "register mapping confusion",
+      "function code mismatch",
+      "Node-RED integration difficulty",
+      "protocol documentation"
+    ],
+    "feature_keywords": [
+      "Modbus TCP server",
+      "digital input states",
+      "Node-RED connectivity",
+      "unit ID assignment",
+      "register mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

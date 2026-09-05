@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "branch_id": "2050340486",
+    "thread_id": "4479534060",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 373289479678635,
+      "user_name": "fGJtHvWOkb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm working to set up communication between a PLC CPU and another [product_name] module, but I am running into issues. On the display under diagnostic and error info, I see a network error message. My setup connects the PLC, [product_name], HMI, and my PC using an Ethernet switch ([article_no]). The devices have the following IP addresses: PLC: 192.168.0.1, HMI: 192.168.0.2, [product_name]: 192.168.0.11, PC: 192.168.0.25. I am able to ping and program all devices via the PC, but the [product_name] does not read the digital input signal I send. I followed instructions from the manual at [url] and attached a picture for reference. Additional details: Engineering portal uses [product_name] Basic, [product_name] Basic Panel, [product_name]Soft Comfort [version_no]. Any suggestions for what the issue might be?"
+    },
+    {
+      "comment_id": 122127824661718,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Hello, writing to the inputs of [product_name] will not work as intended. If nothing is physically connected, the input reads as '0'; otherwise, it's '1'. The [product_name] always overwrites this state. Instead, use Vx.y addresses instead of Ix, and in [product_name]Soft Comfort, utilize digital Network Inputs to pass information to your [product_name]. Hope this helps."
+    },
+    {
+      "comment_id": 301325875202488,
+      "user_name": "fGJtHvWOkb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Thank you for the response. I understand that LSC refers to [product_name]Soft Comfort, but as a first-time user, I'm unsure what you mean by 'use Vx.y instead of Ix and in LSC use digital Network Input'. In my program, I've used a Network Input at address VB0.0 rather than a digital input, and configured an Ethernet link to read from the PLC's DB3.DBB0 and send to local address VB0. You can see the setup in my attached picture. Is there a way to get more information about the network error message appearing on the [product_name] display?"
+    },
+    {
+      "comment_id": 880517407196459,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Your setup seems correct. Mapping DB3.DBB0 to VB0 means controlling a bit in the PLC at DB3.DBB0 directly influences VB0 in the [product_name] module. Setting bit 0 in the PLC should be reflected at V0.0 in the [product_name] network input. You can test connectivity by running 'ping 192.168.0.11' and 'ping 192.168.0.1' in your PC's command prompt; all four data packets should respond fine. Hope this helps."
+    },
+    {
+      "comment_id": 198101906451705,
+      "user_name": "fGJtHvWOkb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 4,
+      "comment_body": "Thanks for your help. After verifying the connections between the PLC and [product_name] using ping for the IPs, the communication works fine, but the issue persisted. Ultimately, I tried changing the device under configuration, re-uploaded the same PLC configuration, and it started working unexpectedly."
+    },
+    {
+      "comment_id": 446177300710025,
+      "user_name": "jZOfgJkn38",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 6,
+      "comment_body": "Splitting into a new question about communication between [version_no] and [product_name]. With best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on troubleshooting a network error during attempts to connect a PLC and a separate [product_name] module. While ping tests confirm network connectivity, input signals are not being accepted by [product_name], causing confusion with setup and error messaging. The main issue appears to be unclear configuration guidance for digital inputs within [product_name]Soft Comfort, compounded by vague diagnostic feedback and a workaround needed to change the device settings unexpectedly.",
+    "user_expectations": "Users anticipate straightforward device communication, clear error diagnostics from the [product_name], and reliable setup instructions that consistently enable communication between devices. Improved clarity and transparency for configuration steps and error feedback are desired.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable communication",
+      "easy configuration",
+      "effective diagnostics"
+    ],
+    "pain_keywords": [
+      "unclear error message",
+      "unexpected configuration requirement",
+      "lack of documentation clarity"
+    ],
+    "feature_keywords": [
+      "digital network input",
+      "device configuration",
+      "error messaging"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

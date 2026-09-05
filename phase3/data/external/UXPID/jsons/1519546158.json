@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "1519546158",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 658920178872892,
+      "user_name": "oLq5ygigkT",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I'm working with the [product_name] operator device, [product_name] base module [article_no], and [product_name] engineering software [version_no]. I regularly need to adjust certain program parameters, but prefer to avoid making these changes directly in the engineering software, and I want to prevent operators from accidentally altering them as well. After reviewing the manual, I managed to configure admin/operator mode passwords and can switch modes on both the base module and operator device. However, the issue is that access to the parameters menu remains available whenever the system is in RUN mode, even if it's set to ADMIN or OP mode. The menu restriction only applies in STOP mode, which seems unreasonable. I've tried several approaches and couldn't find a solution. Apologies for my language skills."
+    },
+    {
+      "comment_id": 519145683732225,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "One possible solution would be to use a password-protected message text. You can enter the parameters you want to change within this message. Here's an example: If you trigger input I1, a message text appears prompting for a password. In this case, the password is set to 6128724, but it's changeable. The password is the value stored in the ON parameter of the counter, while the OFF parameter holds the value plus one (for example, 618724 + 1 = 618725). The second message text only appears if the correct password is entered, allowing you to modify the desired parameters. Protection is enabled via the counter, preventing visibility of counter parameters in the system menu when operator mode is active. Protection must also be activated for parameters included in the second message text."
+    },
+    {
+      "comment_id": 490879376432606,
+      "user_name": "oLq5ygigkT",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "That's a good solution, thank you. Hopefully, [company_name] will improve the parameter protection feature in future versions of [product_name], as stronger protection is highly needed for many applications."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users highlight that the parameter protection mechanism in current [product_name] systems is inadequate, as parameters remain accessible through the operator device in RUN mode despite password settings. The restriction only works in STOP mode, which is seen as impractical and insecure in real-world scenarios. A workaround using password-protected message texts is proposed and accepted, but users emphasize the need for a built-in, reliable parameter protection method in future software updates.",
+    "user_expectations": "Users expect reliable and secure parameter protection directly within the system, effective regardless of whether the system is in RUN or STOP mode, and not reliant on workaround strategies.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe parameter change",
+      "operational security",
+      "accidental modification prevention"
+    ],
+    "pain_keywords": [
+      "insufficient protection",
+      "inconsistent security",
+      "parameter access in RUN mode"
+    ],
+    "feature_keywords": [
+      "parameter protection",
+      "menu restriction",
+      "password protection",
+      "admin/op mode"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "6": "Security Concerns",
+    "9": "Feature Requests"
+  }
+}

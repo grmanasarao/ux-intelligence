@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "3245325505",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 616920024678030,
+      "user_name": "JEsbq3jb93",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Hello everyone. I would appreciate some assistance with my temperature control project. I'm receiving signals from two analog instruments (4a20mA), and my process variable (PV) is calculated as the average of these two readings. I also need to display both PV and setpoint (SP) on the [product_name] HMI device. The challenge is that I have to normalize the signals from the instruments, which measure 0 to 200°C (mapped to a controller range of 0 to 1000), so the PV, SP, and output are shown correctly and in human-readable values on the HMI. The issue is that the PI controller block only operates in the controller's integer range (0 to 1000), which does not allow for direct use of values normalized to 0 to 200°C. I've attempted normalization and denormalization with other blocks but haven't succeeded. Any guidance would be appreciated. Here’s the logic I have implemented so far."
+    },
+    {
+      "comment_id": 916619663049384,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I think your program has some issues. To clarify: [product_name] hardware works only with integer values, not with floating point numbers. Using the I/F converter block here is incorrect, as it's intended for creating floating point numbers from integer inputs, mainly for Modbus communication. The I/F and F/I converter blocks were added specifically for Modbus integration."
+    },
+    {
+      "comment_id": 290476190002101,
+      "user_name": "JEsbq3jb93",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Understood. However, even without the I/F block, I encountered problems because the PI controller only works with the internal range of the PLC (0 to 1000). I couldn't get it to read variables standardized for 0 to 200°C, but that's necessary so operators can adjust the setpoint and controller parameters using actual engineering units."
+    },
+    {
+      "comment_id": 585238950100998,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I don't agree with that. The circuit I uploaded as a screenshot works correctly. I also verified its functionality in simulation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges representing and normalizing analog input data for temperature control on [product_name] hardware, due to the PI controller block only supporting an integer range of 0-1000. This limitation makes it hard for users to display understandable, normalized temperature values (0-200°C) on HMI devices. There is confusion regarding the correct use of conversion blocks to bridge controller range with real-world values, highlighting some usability and documentation concerns.",
+    "user_expectations": "Users expect to easily convert and show averaged analog readings from instruments in engineering units (0-200°C) on the HMI and to use the PI controller's parameters based on values that are normalized and human-readable.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "readable HMI display",
+      "normalized values",
+      "PI control"
+    ],
+    "pain_keywords": [
+      "range mismatch",
+      "normalization difficulty",
+      "block constraints"
+    ],
+    "feature_keywords": [
+      "PI controller",
+      "normalization",
+      "input averaging",
+      "HMI display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

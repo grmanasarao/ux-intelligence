@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "9651063115",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 181749263391751,
+      "user_name": "ZkvkMuLy2f",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello, I’m working on a project that’s almost complete. Right now, I’m using a [company_name] [product_name] to read pressure, temperature, and inverter data, then show this information on a [product_name] web page. This setup is functioning well. My next goal is data logging. I currently collect data in .csv files with time stamps, but I’d prefer to start and stop data logging through my [product_name] web page, rather than keeping Excel open. The [product_name] web page uses HTML, so I’m considering adding HTML code to control data logging directly and integrate it into the [product_name] code. Before diving too deep, is this even achievable? Best regards [user_name]"
+    },
+    {
+      "comment_id": 129354167499220,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "I’m not certain if that’s doable; I personally doubt it. You’d essentially need to build a database using the [product_name] web platform. If you aren’t highly skilled in HTML5, I recommend not pursuing this further."
+    },
+    {
+      "comment_id": 707991036577097,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "If your goal is simply to start or stop data logging from your [product_name] web page, this is possible. The DataLog function block has an En input. As the manual explains, logging starts with a positive edge (when En goes from 0 to 1). You can use an AND gate and a Network Input with a VM address bit. For the other input on the AND gate, use your usual data logging signal (maybe from a timer or similar logic you currently use). Now, you can tie a [product_name] web page switch button (or a pulse relay function block) to enable start/stop logging. However, the [product_name] web page does not support displaying the DataLog content."
+    },
+    {
+      "comment_id": 781196114085908,
+      "user_name": "ZkvkMuLy2f",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Hi, Thanks for the feedback. I see that starting data logging to the SD card via the [product_name] program is possible as described, but I haven’t found a way to start external data logging to a PC from the [product_name] web page. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users can easily collect data in .csv format with time stamps and manage basic data logging from the HTML-based [product_name] web page. However, a major usability issue is that users cannot directly control external data logging to their PC from within the web page and must rely on other applications like Excel. There’s discussion of potential HTML or logic-based solutions, but one user expresses doubt about their feasibility, while another points out partial workarounds through function block logic, acknowledging key limitations.",
+    "user_expectations": "Users expect to start and stop data logging directly from the [product_name] web page, including initiating external data collection to a PC, without relying on Excel or separate software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "direct web-based data logging control",
+      "PC log initiation",
+      "process simplification"
+    ],
+    "pain_keywords": [
+      "no PC log control via LWE",
+      "requires external application (Excel)",
+      "incomplete integration"
+    ],
+    "feature_keywords": [
+      "data logging",
+      "web-based control",
+      "external logging to PC",
+      "function block logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations"
+  }
+}

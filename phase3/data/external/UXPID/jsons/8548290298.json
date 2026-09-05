@@ -1,0 +1,205 @@
+{
+  "metadata": {
+    "branch_id": "8548290298",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 448625217270623,
+      "user_name": "JuTRuJuklL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I want to control some home devices using [product_name] over ethernet. I have two Android apps I can use (including [company_name] app). However, I'm having trouble: the apps let me set a network input or flag (not the [company_name] app), but I have to reset the input manually because there are no momentary buttons. My question: how do I reset the flag or network input in FBD within [product_name] programming software [version_no]? My program works like this: network input activates Q output for 2 seconds, then I want to reset the input or flag. Which FBD instruction should I use?"
+    },
+    {
+      "comment_id": 401437097237188,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I've attached an example. The addresses of the network input and output must be the same."
+    },
+    {
+      "comment_id": 768102067318431,
+      "user_name": "JuTRuJuklL",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "It works, thanks a lot."
+    },
+    {
+      "comment_id": 706651824521275,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "You're welcome."
+    },
+    {
+      "comment_id": 364474072972828,
+      "user_name": "MYRxgo38Gg",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm experiencing the same issue. I use [product_name] plus additional digital outputs to control lighting at home. All the lights use momentary switches and basic programming blocks like timers. It would be nice to control the lights via the app, but the switches in the app aren't momentary. I can turn outputs on or off, but discovered that the app isn't synchronized with hardware inputs (like physical switches). I read about using the same address for network inputs and outputs, but it leads to odd loop behavior in simulation. What am I doing wrong?"
+    },
+    {
+      "comment_id": 768358721257600,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Converting a static network input to a pulse doesn't work in simulation, only with the real device. I've added a screen video: it shows the program online and, instead of the app, I use the web server. Multiple network inputs or physical buttons connected to digital inputs can be switched in parallel. It's important that network outputs use the same address as the inputs."
+    },
+    {
+      "comment_id": 920782932360241,
+      "user_name": "MYRxgo38Gg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Thanks for the video and diagram; I'm almost there! A couple of questions: when using the web server, does 'modify' act like a momentary switch? I wanted to use the app, but it doesn't offer momentary switches. If programmed like physical switches, pressing 'on' in the app doesn't let the hardware input know its state. What is the function of the low (0) state in the diagram? Thanks again—I'm new to this."
+    },
+    {
+      "comment_id": 471994461855749,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "The web server behaves the same as the [product_name] app. If a bit is set in the V-section to 1, it stays 1 on both the server and the app, until specifically reset to 0. This is a static switch behavior. Writing a constant LOW to a network output with the same address as the input resets the bit to 0. The process only takes one cycle, so you won't see the '1' state in the server. This works with the app too, you're not alone in facing this issue."
+    },
+    {
+      "comment_id": 849346894093288,
+      "user_name": "MYRxgo38Gg",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "Thanks for the explanation! I'll give this a try."
+    },
+    {
+      "comment_id": 831586914954493,
+      "user_name": "MYRxgo38Gg",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "I tried the demo you provided. Thanks—I learned a lot. I programmed two buttons in the app: left button off, right button on. Hitting the right button toggles the Q output, like a momentary switch. It would be ideal to have each button set a unique state (left = off, right = on). Or even better, have just one button in the app. It's unfortunate that [company_name] didn't add this feature."
+    },
+    {
+      "comment_id": 865056184698169,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "You only need one app bit to toggle. Link this bit to the TRG input of a pulse relay (see attachment). The attachment was originally posted by [user_name] on the German forum—many thanks to them."
+    },
+    {
+      "comment_id": 478409511381237,
+      "user_name": "MYRxgo38Gg",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "That's a useful example! I tried it, but there's a minor issue: the 'on' button works as a momentary switch, toggling the output each time it's pressed. The 'off' button doesn't function. Maybe that's intentional?"
+    },
+    {
+      "comment_id": 249514440179193,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "This example demonstrates: how to convert a continuous signal to a pulse, how to use the same signal to turn on and off, and how to display output state in the app button."
+    },
+    {
+      "comment_id": 327542589459958,
+      "user_name": "MYRxgo38Gg",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 3,
+      "comment_body": "I know! I'm really pleased with this example. Thanks!"
+    },
+    {
+      "comment_id": 842531504479129,
+      "user_name": "uilXywuFBE",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I used this exact approach in an older application and now, using newer [product_name] hardware and software, it seems invalid. Any ideas on how to apply this principle with current versions?"
+    },
+    {
+      "comment_id": 968625705460570,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I've tested it with the latest [product_name] firmware and programming software [version_no]. It still works, but after some time, I found a simpler solution using fewer blocks."
+    },
+    {
+      "comment_id": 204711436866896,
+      "user_name": "uilXywuFBE",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Alright, I'll try again."
+    },
+    {
+      "comment_id": 581857445292178,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "If you run into trouble, please describe your issue in detail."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report challenges with resetting network inputs or flags in [product_name] systems when interfacing via Android apps due to a lack of momentary switch functionality. This limitation causes control inputs to remain active until manually reset, resulting in synchronization issues between app-based and physical controls. Users desire more flexible and intuitive app features, such as true momentary switches and easier state management.",
+    "user_expectations": "Users want to efficiently reset network inputs or flags after an output cycle, ideally using momentary controls within their application. They expect improved synchronization between app controls and physical hardware and consistent, intuitive simulation and user interface behavior.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "momentary switch control",
+      "easy network input reset",
+      "sync app and hardware",
+      "intuitive controls"
+    ],
+    "pain_keywords": [
+      "no momentary button",
+      "sync issue",
+      "app limitation",
+      "confusing simulation",
+      "manual reset required"
+    ],
+    "feature_keywords": [
+      "network input reset",
+      "momentary switch",
+      "app interface",
+      "FBD instruction"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Android": []
+    }
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

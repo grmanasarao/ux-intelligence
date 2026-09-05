@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "branch_id": "7663320708",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 162084537588936,
+      "user_name": "XUanS5Lhar",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I need some help. I'm trying to switch outputs on and off in a sequence, so only one is active at any time. My idea was to trigger each timer in order, starting the next timer only after the previous one completes. Most relays begin timing from the start of the trigger, but I need the timing to start from the end of the trigger. I've managed this using an on-relay, but is there a way to achieve it with an off-relay so I can reset the timer if needed? Thanks!"
+    },
+    {
+      "comment_id": 414351280106311,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Welcome to the forum. I'm not fully clear about your requirement. Could you provide a specific step-by-step example? For instance: 1) Q1 on 2) Q1 off, Q2 on 3) Q2 off, Q3 on and so forth."
+    },
+    {
+      "comment_id": 699010640862135,
+      "user_name": "XUanS5Lhar",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Essentially, it's similar to a traffic light sequence. When Q1 turns on, it then powers off as Q2 turns on, and this continues in a loop. So the cycle would be Q1-on, Q1-off/Q2-on, Q2-off/Q3-on, etc. I found a solution using an on-relay, but I'd prefer to use an off-delay relay to allow resetting the timers and restarting the sequence with all outputs at default (such as all red). That aspect is sorted. My issue arises because the off-relays activate immediately when triggered and the on-relay doesn't have a reset option."
+    },
+    {
+      "comment_id": 953202535808779,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "You may want to try implementing the following circuit: [IMAGE]"
+    },
+    {
+      "comment_id": 252510681924249,
+      "user_name": "XUanS5Lhar",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thanks, this setup works, but it automatically resets at the end. I'd like to manually reset while the cycle continues to loop. Also, I realize I didn't fully explain all details earlier, apologies for that. The sequence should be: 1) Q1 on 2) Q1 off, Q2 on ... x) Qn off, Q1 on It works fine with an on-relay, but without a reset input, I can't restart without shutting the system down. The off-relay has an R input which allows me to reset the cycle instantly, returning to Q1-on and all others off, without needing to power off and on. Thanks!"
+    },
+    {
+      "comment_id": 607518914884756,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "This is a common issue: The original post isn't always clear enough, making it difficult to understand the exact requirement."
+    },
+    {
+      "comment_id": 740429075922756,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Consider trying this approach... [IMAGE]"
+    },
+    {
+      "comment_id": 540648829721568,
+      "user_name": "XUanS5Lhar",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I still need to work out some details in my program, but your assistance has been incredibly helpful. It's late now, so I'll try again in the morning when I can think more clearly. I'll respond tomorrow after testing it properly. Thanks a lot!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is working to configure timer relays so that only one output channel is active at a time, with a looped, step-by-step sequence (such as in traffic light control). The user is challenged by the off-relay's immediate activation and the absence of a reset input on the on-relay timer. There is a strong need for an easy reset mechanism that doesn't require shutting down the entire system.",
+    "user_expectations": "The user wants a simple solution for looping output sequences with a quick, manual reset feature, so the system can be restarted instantly without needing to power cycle.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "instant reset",
+      "looped operation",
+      "easy configuration",
+      "single active output"
+    ],
+    "pain_keywords": [
+      "no reset input",
+      "immediate activation on off-relay",
+      "lack of intuitive sequence control"
+    ],
+    "feature_keywords": [
+      "reset input",
+      "timer block",
+      "on-relay",
+      "off-relay",
+      "cyclic sequence"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

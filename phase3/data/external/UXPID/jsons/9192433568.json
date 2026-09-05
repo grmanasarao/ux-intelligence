@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "branch_id": "9192433568",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 598791833728342,
+      "user_name": "kHppKYgjhP",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm new to this area and as a programmer, I'm having trouble adapting to Function Block thinking. I've created a User Defined Function (UDF) circuit which works as a Function Block Diagram (FBD) circuit, but it's flagged as invalid when set up as a UDF. Can anyone help me understand what's wrong with my UDF circuit? As far as I can tell, I'm not violating any UDF limitations. Thank you."
+    },
+    {
+      "comment_id": 853304359318254,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "The outputs of the blocks B001, B002, B003, and B016 are not properly connected. You'll need to link them to: - analog flags - analog inputs of other analog blocks - an output of the UDF, similar to what you did with B004."
+    },
+    {
+      "comment_id": 233824395266478,
+      "user_name": "kHppKYgjhP",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Thank you for your advice. As someone new to this, I'm still a bit confused and would appreciate more explanation. The same circuit works with FBD — does it actually need modification to work as a UDF? I attempted a similar version with 8 values, and it seems the problem is too many parameters when using five analog multiplexers (the help mentions an 8 parameter limit for UDFs). I've read the manuals about flags but am unsure how to use them. I understand the startup flag stays true for one cycle after starting, but how would that help here? The main goal with this UDF is to use four selector bits to choose between 16 analog values for the output. My plan is for the outputs of the multiplexers to go into a final 4-to-1 multiplexer. Is my approach incorrect, or can this be optimized? Thanks in advance for your help."
+    },
+    {
+      "comment_id": 472288925973679,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "A UDF is limited to 8 inputs, 4 outputs, and 8 parameters. If you need to handle 16 values, you'll need two UDFs and then link them together. I'm unclear if you're trying to select one value out of 16 or two values from 8?"
+    },
+    {
+      "comment_id": 278087793882704,
+      "user_name": "kHppKYgjhP",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "In the end, my goal is to select one out of 16 values. Since I'm restricted to only 8 inputs, I've grouped the values into sets of 8. So, in the final circuit, I'd need two 8-input UDFs combined to get a single output from the 16 options. However, this is challenging because the analog multiplexer only has parameter references for connections, not direct analog inputs, making it hard to link multiple multiplexer outputs to another multiplexer for final selection. Is there a better method to achieve a 16:1 analog selection, or is this approach sound? Thanks again."
+    },
+    {
+      "comment_id": 407095684313105,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Although I'm still not entirely sure how you plan to set and select the 16 values, I've put together a sample from what I have. Maybe this helps. Sometimes an example program says more than words. Wishing you a Happy New Year."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face challenges switching from traditional programming approaches to constructing User Defined Functions (UDFs), especially when converting Function Block Diagrams into UDFs within [product_name] software. The main issues are the strict limits on UDF structure, uncertainty over differences in circuit requirements between FBD and UDF, and confusion about connecting analog inputs, flags, and multiple UDFs. There is noticeable confusion regarding the user interface, UDF restrictions, and ambiguity in documentation related to building advanced analog selection logic using UDFs.",
+    "user_expectations": "Users expect to transition their circuit logic into UDFs without major adjustments and hope that FBD designs can be moved over directly. They seek clear explanations about UDF limits, straightforward methods for combining multiple UDFs, and practical examples showing how to use flags and connections when assembling UDF-based circuits.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful UDF creation",
+      "complex analog selection",
+      "intuitive programming",
+      "circuit flexibility"
+    ],
+    "pain_keywords": [
+      "UDF structural limitations",
+      "input and parameter constraints",
+      "unclear documentation",
+      "transition confusion"
+    ],
+    "feature_keywords": [
+      "UDF inputs/outputs limit",
+      "analog multiplexer",
+      "flags",
+      "parameter usage"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

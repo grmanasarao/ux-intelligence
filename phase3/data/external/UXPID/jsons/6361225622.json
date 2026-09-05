@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "branch_id": "6361225622",
+    "thread_id": "4479534060",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 129193579831672,
+      "user_name": "cqa6LAhrPL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I work for a non-profit museum where we have several expensive models, each managed by an individual [article_no] device. I have the chance to network them, aiming to receive error messages at a remote location within my internal network using a [product_name] Operator Device. Before investing in these modules, I need clarification. I don't see in [product_name] Soft Comfort how to set the IP address for the Operator Device so messages are sent to it. I understand checking the destination in the message block, but how is the actual IP specified? Is it done in the Network Project, and does the application automatically inform the Basic [article_no] of the right address? Also, can I link 8 or 16 [article_no] devices to one Operator Device as described in section 2.1.1 of the manual? Lastly, does the Operator Device need to be on the same IP subnet as the [article_no] devices, or is network presence sufficient? Thank you for your support."
+    },
+    {
+      "comment_id": 774511459469116,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "One [product_name] Operator Device can communicate with only one [product_name] controller at a time. If there are multiple controllers on the network, you must set the correct IP address on the Operator Device to communicate with a specific controller (let's call it controller_1). The Operator Device only shows messages from the chosen controller. To display messages from other controllers, those signals must be sent to controller_1, where you then create the message texts. If you need, I can provide an example."
+    },
+    {
+      "comment_id": 132210551407703,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Here's a simple example: to show messages on the display, set the IP address of Controller_1 on the Operator Device to ensure communication matches the real scenario."
+    },
+    {
+      "comment_id": 176564778561179,
+      "user_name": "cqa6LAhrPL",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Thank you for the response and sample program. So, referencing your example, Controller_2 and Controller_3 cannot communicate with the Operator Device—only Controller_1 can? If so, then the Operator Device isn't suitable for my needs. All 30 of my [article_no] devices operate independently and I wanted them to send errors to the Operator Device. Thanks again."
+    },
+    {
+      "comment_id": 234093940354565,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "To clarify, the Operator Device can only communicate with one controller at a time—not several at once. You must manually select which controller to connect to by specifying its IP address. Automatic switching isn't supported; only a manual change allows communication with another controller."
+    },
+    {
+      "comment_id": 121111547394540,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Just so you're aware, it's challenging to find an HMI that supports such a large number of connections. Generally, the more connections an HMI offers, the higher the cost. The most affordable solution is to consolidate the needed data in one or a few [product_name] controllers and display it, ideally using a single [product_name] Operator Device for best value. I noticed you initially planned to use one Operator Device for multiple controllers, but then clarified these controllers don't communicate with one another. Can you clarify how this setup would work?"
+    },
+    {
+      "comment_id": 389600598926093,
+      "user_name": "cqa6LAhrPL",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Sorry for any confusion regarding my requirements. Currently, we have around 30 [article_no] devices, each managing a distinct model in the museum, controlling multiple motors and performing checks such as motor movement, button operation, sensor circuits, and other error detection. Each [article_no] controller can identify up to 12 error events that trigger text messages on its individual display. All devices are on our internal network but operate independently. Their network access allows me to review them via browser for errors. The issue is I must check each daily for errors. Ideally, I want one or two Operator Devices that receive error messages from any controller and show them on their screens, eliminating the need to individually check each controller. Based on your feedback, am I correct that only one controller can connect with one Operator Device—multiple controllers can't send messages directly, even if it's sequentially? If so, I would need a 'master' controller to collect error messages from all others, then have the master communicate with the Operator Device. Thanks again."
+    },
+    {
+      "comment_id": 564884444364639,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Have you reviewed the manual for [article_no]? It details how many controllers can connect: only 8 in fixed communications. I can't guarantee my solution since simulations can't support so many controllers—you'll need to test it yourself. One approach is grouping controllers by 8, with one in each group aggregating data from 7 others. Then, have another main controller collect the group data. An example illustrating this concept is attached."
+    },
+    {
+      "comment_id": 535134500039646,
+      "user_name": "cqa6LAhrPL",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Great, I'll give this method a try. Thanks for your time and effort."
+    },
+    {
+      "comment_id": 805345344835158,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "You're welcome."
+    },
+    {
+      "comment_id": 397729629319824,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Just to mention another limitation within [product_name]: You need a 'master' controller to collect errors from 30 others, but that's not possible. One controller supports up to 16 connections (8 static and 8 dynamic). So the challenge remains: either exchange errors among all 30 controllers and use one as master—requiring complex communication layers—or find an HMI capable of 30 connections to display errors. Hope this clarifies things."
+    },
+    {
+      "comment_id": 595443229662058,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "My suggestion isn't for one 'master' controller to connect simultaneously to 30 others, but to only 4 controllers. Each of those would then communicate with up to 7 other controllers."
+    },
+    {
+      "comment_id": 125671893597748,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Please find attached my proposed solution. The setup is simply the project structure for this type of network, without data routing—only the connections between controllers are defined."
+    },
+    {
+      "comment_id": 402028548003967,
+      "user_name": "cqa6LAhrPL",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Thank you again for your help. I wonder if enabling text messages from any controller to the Operator Device directly would be a good enhancement for the next Firmware release."
+    },
+    {
+      "comment_id": 960311083150656,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "A new question from [user_name] has been moved to a separate thread titled 'Connect 13 controllers'. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 522177575971993,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 7,
+      "comment_body": "A new question from [user_name] has been split to a separate thread titled 'Controller [article_no] communication to Operator Device display'. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user seeks a centralized way to monitor errors across about 30 controllers using one or two Operator Devices. Current limitations allow each Operator Device to link with only one controller at a time, and switching sources must be manual. This restriction increases monitoring effort and user frustration, as centralized error aggregation isn't natively supported.",
+    "user_expectations": "The user expects multiple controllers to connect to a single Operator Device, allowing automatic reception and display of error messages with no manual setup. They want easy, centralized alert handling across all devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "centralized error reporting",
+      "automated monitoring",
+      "reduced manual checks"
+    ],
+    "pain_keywords": [
+      "manual monitoring burden",
+      "scalability limitations",
+      "lack of automatic aggregation"
+    ],
+    "feature_keywords": [
+      "multi-device communication",
+      "automatic message aggregation",
+      "error/event display",
+      "network configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

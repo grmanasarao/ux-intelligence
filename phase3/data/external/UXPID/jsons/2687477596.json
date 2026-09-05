@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "2687477596",
+    "thread_id": "4479534060",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 870953746325454,
+      "user_name": "pYILig6YGT",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Correction from previous post. Hi, I had the idea of building a service device to measure compressed air quality. For this, I planned to use two unused elements: [product_name] and [product_name] panel. The controller has four analog inputs, and I set up the Ethernet connection with these settings: IP 172.16.202.14, subnet 255.255.255.0, gateway 172.16.202.8. The connection is set as a server with local properties TSAP 02.00, connect with operator panel, and accept all connections. Remote properties are set to 23.00. Parameters are set for 4 analog amplifiers and 1 network input. Read parameters include AX, amplifier, word type, and input type DWord. The panel was configured in TIA Portal, and an S7-200 driver was used with panel IP 172.16.202.10, subnet 255.255.255.0, gateway 172.16.202.8. I configured tags for measurements sequentially from vW0 to VW6 and for entry V4.0. The issue is that the panel displays a connection message at startup and then an interruption. Changing the driver and connection didn't resolve the issue. Has anyone seen a similar problem? For additional info, I use a [product_name] network switch between the panel and controller, but the issue persists."
+    },
+    {
+      "comment_id": 226009877396001,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hello, I’m not sure if this will help, but: AX of amplifier should be WORD and not DWORD. V4.0 is a bit within VW4. Are you actually using V4.0 as part of VW4? Is the panel communicating with the controller, or is communication failing?"
+    },
+    {
+      "comment_id": 798488909335168,
+      "user_name": "pYILig6YGT",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Hi, I checked and the VM mapping is correct. AX amplifier is set as word type and the input type as DWORD. After starting the panel, it announces that the connection is established for a few seconds, but then disconnects. I have set NI1 to read local memory VB 4 bit 0."
+    },
+    {
+      "comment_id": 692493493324905,
+      "user_name": "pYILig6YGT",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "I have attached several images."
+    },
+    {
+      "comment_id": 929749369646920,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "On the HMI screen, you can directly access inputs, outputs, and markers in the controller without additional programming. The addresses can be found in the controller help documentation. For example, Ai1 is at address 1032 (Ai1 = VW1032), and the analog input uses the word data type (2 bytes). Ai2 is at VW1034. You can set this up in TIA Portal’s virtual tag screen, and verify if Ai is functioning independently of the program in the controller. You can also adjust the value reading speed in TIA Portal. The acquisition cycle tab allows you to set this, e.g., every second the HMI screen communicates with the controller for real-time values."
+    },
+    {
+      "comment_id": 885476213987204,
+      "user_name": "pYILig6YGT",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 6,
+      "comment_body": "Thanks for your assistance. I resolved all the issues, and now the application works smoothly. I appreciate your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced difficulties in establishing reliable communication between a [product_name] controller and an operator panel for a compressed air measurement setup. Challenges included correct configuration of data types, addresses, and network parameters, leading to connection dropouts during initial attempts. Reference to documentation and step-by-step troubleshooting proved essential for solving the communication issues.",
+    "user_expectations": "Users expect robust communication between the controller and panel, proper mapping and display of analog input data, and consistent operation without disconnection problems.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable communication",
+      "stable measurement display",
+      "efficient configuration"
+    ],
+    "pain_keywords": [
+      "connection interruptions",
+      "data type mapping confusion",
+      "configuration issues"
+    ],
+    "feature_keywords": [
+      "analog input mapping",
+      "HMI data acquisition",
+      "Ethernet connectivity"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

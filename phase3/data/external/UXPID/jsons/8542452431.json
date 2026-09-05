@@ -1,0 +1,199 @@
+{
+  "metadata": {
+    "branch_id": "8542452431",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 252020409881544,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "I'm managing lighting using [product_name] [version_no]. Currently, I can control the lights through the buttons in the [product_name] app, but I would also like to get feedback from the output being switched by the button. In the 'edit button' section, you can set 'show output field' and assign a current tag, but I'm unable to create tags for outputs or markers. I made a tag linked to a network output associated with the actual output, but the app only reads network inputs and doesn't seem to recognize it. Is there a workaround for this? I'm quite new to [product_name]."
+    },
+    {
+      "comment_id": 537923980547090,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "The status of digital outputs is shown in the VM area. For example: Q1 = V1064.0, Q2 = V1064.1, Q3 = V1064.2, Q4 = V1064.3, Q5 = V1064.4, Q6 = V1064.5, Q7 = V1064.6, Q8 = V1064.7, Q9 = V1065.0, and so forth. Try using the VM addresses to check the state."
+    },
+    {
+      "comment_id": 863146753827297,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Thank you for your reply. I tried as you suggested, but in the 'add tag' option in the app, I cannot set a 'VM address.' All other address types (vb, vw, vd, etc.) only go up to address 850. Is this what you meant?"
+    },
+    {
+      "comment_id": 316510519708559,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "I’m not familiar with the [product_name] app myself, as I don’t use it. It looks like both the app and [product_name] software restrict VM addresses. Other visualization apps (not from [company_name]) can access these VM addresses, as that's their purpose. Have you tried creating a TAG to display the output state? For example, TAG name = Light on, address = Q1, format = binary?"
+    },
+    {
+      "comment_id": 920755986423899,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "I tried creating a tag in the [company_name] app as described, but I can only select V addresses up to 850 and can’t choose Q. It’s surprising that something so basic isn’t possible with this app. Could you recommend another app I could use?"
+    },
+    {
+      "comment_id": 343493336767246,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Sorry, I don’t use apps myself, so I’m not the best person to suggest which app to try. Maybe someone else can help you here."
+    },
+    {
+      "comment_id": 759565502975094,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Alright, thanks for trying to assist."
+    },
+    {
+      "comment_id": 988280375646018,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "You could try adding a FLAG after the output and read from this FLAG. I’ve used this approach to solve other issues in the past."
+    },
+    {
+      "comment_id": 402573808371991,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "If reading digital outputs isn’t possible, maybe it works with flags?"
+    },
+    {
+      "comment_id": 673110546201475,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "What 'V' address would flags have?"
+    },
+    {
+      "comment_id": 895575480175975,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "They’re above 850. For instance: M1 = V1104.0, M2 = V1104.1, and so on. You can read flags the same way as digital outputs. I'm unsure why you can't select the Q (digital output); that's new to me. Alternatively, link a digital network output to a digital output, assign it a free address like V800.0, and reference V800.0 in the app."
+    },
+    {
+      "comment_id": 394851690927696,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "That actually works! I previously tried with V2.0 and it didn’t work, but now with V800.0, it works perfectly. Thanks!"
+    },
+    {
+      "comment_id": 859361541275305,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Any unused V-bit address under V851.0 should also function for this setup."
+    },
+    {
+      "comment_id": 151367194019423,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Correct! I just tested with V2.1 and it works too. I must have made a mistake earlier. Apologies for the confusion – I guess it wasn’t really a problem after all."
+    },
+    {
+      "comment_id": 366963956102923,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "No need to apologize, it happens. Remember that bit addresses are part of byte, word, and double word addresses. For example, VB0 includes V bits V0.0 to V0.7. VW0 contains VB0 and VB1, covering V bits 0.0 to 1.7. VD0 covers VB0 through VB3 and VWs 0 through 2, including V bits 0.0 to 3.7. If you use VW2, you can’t use VBs 2 and 3 or V bits 2.0 to 3.7 elsewhere."
+    },
+    {
+      "comment_id": 977620282896713,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "I understand, but I might make a mistake one day because of it. Is there a list in [product_name] software showing which bits are used and unused?"
+    },
+    {
+      "comment_id": 155434098669438,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "No, unfortunately there isn’t. That’s a problem unless you’re careful. Personally, I've always maintained an Excel spreadsheet for this."
+    },
+    {
+      "comment_id": 514375531926989,
+      "user_name": "0RFhoTnm83",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "It would be very helpful if [product_name] software could provide such a summary. I plan to also create an Excel spreadsheet for each new project."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is unable to see real-time feedback on the output status when controlling lighting via [product_name] [version_no] using the [product_name] app. Attempts to create tags for outputs or markers are unsuccessful since the app restricts selectable address ranges and does not support output or marker tags. This limits the app’s usefulness, as users cannot confirm the state of their controlled devices, leading to frustration during operation.",
+    "user_expectations": "The user expects the [product_name] app to offer instant feedback by allowing output or marker selection when tagging, so the actual state of outputs or markers can be displayed within the app.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "lighting control",
+      "real-time feedback",
+      "visual confirmation"
+    ],
+    "pain_keywords": [
+      "unable to see output feedback",
+      "limited tag addressing",
+      "app limitation"
+    ],
+    "feature_keywords": [
+      "tagging outputs",
+      "feedback in app",
+      "output status monitoring"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

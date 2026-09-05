@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "branch_id": "2916502228",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 910767673693634,
+      "user_name": "2zLG0JZJsS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Hello, I have an issue. I need to connect a sensor (4-20 mA) to the [product_name] with [product_name] analog module. What parameters should be set to make 4 mA correspond to 0% and 20 mA to 100%?"
+    },
+    {
+      "comment_id": 928626494067547,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Please review the attached file."
+    },
+    {
+      "comment_id": 649953414669298,
+      "user_name": "2zLG0JZJsS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "I tested it. At 4 mA, I get 0%. But at 6 mA, I'm already at 100%."
+    },
+    {
+      "comment_id": 670868213083460,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Please share which parameters you have configured in the analog block. Upload your program so we can identify the issue."
+    },
+    {
+      "comment_id": 488222569982096,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Let me clarify some basics: The analog converter of [product_name] converts input signals into units ranging from 0-1000, regardless of whether it is 0-10V or 0/4-20mA. For a 4-20 mA signal, the initial 0-4 mA is outside the usable range, leaving you with 800 units (since 20 mA - 4 mA = 16mA). Here's the breakdown: 0 mA = 0 units, 4 mA = 200 units, 6 mA = 300 units, ... up to 20 mA = 1000 units. To set up the analog amplifier, you would use: Gain: 1.25 for a total of 1250 units. Offset: -250 so 1250 -250 = 1000 units. Min: 0 (offset correction), Max: 1000 (offset correction included). For example, at 6 mA the number after A/D conversion is 300. 300 * 1.25 (Gain) = 375, then 375 - 250 (Offset) = 125. The final, processed value is 125, which at one decimal is 12.5."
+    },
+    {
+      "comment_id": 309025010730204,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Here’s a sample file for reference."
+    },
+    {
+      "comment_id": 698654503720941,
+      "user_name": "UEQxyeuUrY",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Is 100% value reached when you input 6 mA as the maximum?"
+    },
+    {
+      "comment_id": 162038764009519,
+      "user_name": "2zLG0JZJsS",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Thank you, your example was very helpful. I now understand how to do this and will update my water tank program today."
+    },
+    {
+      "comment_id": 701953006768330,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Here is some additional information."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users talked about configuring an automation system to correctly process a 4-20 mA sensor input, mapping 4 mA to 0% and 20 mA to 100%. The main challenge was how to set gain and offset in the analog module for accurate scaling. Clear technical instructions and example files helped resolve confusion about parameter settings.",
+    "user_expectations": "Users expect to adjust the automation system so the analog sensor readings scale easily from 0-100%, meaning 4 mA gives 0% and 20 mA gives 100%, in line with typical sensor output ranges.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate scaling",
+      "easy configuration",
+      "correct sensor integration"
+    ],
+    "pain_keywords": [
+      "incorrect scaling",
+      "confusing parameter setup"
+    ],
+    "feature_keywords": [
+      "scaling parameters",
+      "gain setting",
+      "offset setting",
+      "analog input block"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "7467973482",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 899551161847700,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hello, I want to use 12 analog inputs in my project, but each [product_name] module can read only 8 analog inputs. So, I am using two [product_name] modules (8 analog inputs, 8 outputs each), one [product_name] expansion module (4 analog inputs, 8 outputs), and an HMI panel to read the values of 12 analog input sensors and 12 digital outputs in the HMI. The HMI provides reset and start buttons. I tested the setup with one [product_name] module, a sensor, and the HMI, and it works fine now (thanks to [user_name]'s help). My goal: I need the HMI’s reset and start buttons to control both [product_name] modules simultaneously. The program runs independently; the HMI initiates or resets the program and reads values. I have configured the first [product_name] as master (IP address ending .003) and the second as slave (IP address ending .004), both set via software and physically. The HMI and both modules are connected through a switch. 1. Do I only need to update the program in the master module, or do I also need to update something on the slave module? 2. In the engineering software, I created \"Connection 1\" to link the master module to the HMI. Should I also create a \"Connection 2\" to link the slave to the HMI to read its signals? For example, I want to access AI1 from the slave module, but that address conflicts with AI1 from the master. How should I map and access these inputs? Thanks."
+    },
+    {
+      "comment_id": 297027229557244,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I’m unsure what you mean by master and slave configuration for [product_name] modules. Have you set up master/slave communication between them, or configured one as a slave? If so, that wouldn’t require a separate program. Could you clarify why you mention master and slave?"
+    },
+    {
+      "comment_id": 812229903536290,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "The issue is resolved now, thank you for your assistance. I set both [product_name] modules as master devices, and the engineering software lets me set and reset multiple variables simultaneously, which achieves what I needed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user’s goal was to use an HMI panel to control and monitor 12 analog and 12 digital signals by integrating several [product_name] modules. There was uncertainty about program deployment and connection setup within the engineering software, specifically regarding communication and mapping between multiple modules and a single HMI. The key insight is that the engineering platform supports controlling and mapping inputs/outputs across multiple modules simultaneously, which resolved the user’s confusion.",
+    "user_expectations": "User expects a straightforward process for configuring the engineering software to enable a single HMI to manage and read signals from multiple [product_name] modules, including easy mapping and scalable input/output expansion across the system.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "multi-device control",
+      "simplified mapping",
+      "centralized HMI operation"
+    ],
+    "pain_keywords": [
+      "mapping complexity",
+      "multi-device configuration",
+      "input/output assignment confusion"
+    ],
+    "feature_keywords": [
+      "multi-controller mapping",
+      "HMI variable management",
+      "simultaneous bit control"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance",
+    "2": "Product Compatibility"
+  }
+}

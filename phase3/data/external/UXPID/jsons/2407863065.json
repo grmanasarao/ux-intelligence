@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "2407863065",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 729207889048270,
+      "user_name": "AVzAKvtfpk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 6,
+      "comment_body": "In [product_name] [article_no], there's an SD card feature. When users remove it to read data and then reinsert it, data logging stops functioning. Is there any way to resolve this issue?"
+    },
+    {
+      "comment_id": 229785048510208,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 6,
+      "comment_body": "Hello, To initiate new logging, switch [product_name] to Stop mode and then back to Run. Regards, [user_name]"
+    },
+    {
+      "comment_id": 766134767826296,
+      "user_name": "AVzAKvtfpk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 6,
+      "comment_body": "Turning the PLC off and on again does not solve the problem. I have to disconnect the power and reconnect it to generate a new log file. However, once the program runs again, no additional data gets logged. Only performing a complete download creates a new log file that captures data, but this is not a satisfactory solution. My application is attached, and the data log appears on the very last line."
+    },
+    {
+      "comment_id": 922489988389741,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 6,
+      "comment_body": "Hello, The recommended procedure is to retrieve the datalog using [product_name] programming software and then perform a stop/start cycle with the device. All other methods may result in the problems you're encountering. It might also work if you delete the old log file first. Unfortunately, I don't have the device available to test this right now. Regards, [user_name]"
+    },
+    {
+      "comment_id": 386929524586706,
+      "user_name": "AVzAKvtfpk",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], I have tested extensively and found a practical solution. It's crucial to avoid removing the SD card before stopping the program via the key panel. Follow these steps: 1. Stop the program with the keys, 2. Remove the SD card, 3. Copy the log file to your PC, 4. Insert the SD card back into the PLC, 5. Start the program with the keys. A new log file is generated only if there are no existing files on the SD card. Creation of the new log file is triggered when the program mode changes from Stop to Start using the key panel."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing issues with data logging on [product_name] [article_no] after removing and reinserting the SD card. Logging does not automatically resume; instead, it requires a full power cycle and sometimes a complete program re-download, leading to frustration and inefficiency, especially during maintenance or data analysis activities.",
+    "user_expectations": "Users expect that data logging will seamlessly resume when the SD card is removed, accessed for data, and then reinserted, without requiring complicated restart steps or re-downloading procedures.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless logging",
+      "automatic recovery",
+      "minimal disruption"
+    ],
+    "pain_keywords": [
+      "logging failure",
+      "manual intervention",
+      "unintuitive process"
+    ],
+    "feature_keywords": [
+      "logging",
+      "SD card handling",
+      "start/stop via key panel"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "24": "Data Integrity Concerns"
+  }
+}

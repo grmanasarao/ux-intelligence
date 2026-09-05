@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "9467483275",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 252113648697852,
+      "user_name": "gpVA3my5oe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hello, I plan to use a [product_name] standard module for my project, which requires 2 PI controllers. Is it possible to run 2 PI controllers at the same time on the hardware? My simulation works with 2 PI controllers, but I'm unsure if the physical device will also support this. Where can I find the restrictions for the standard module? My project isn't very complex, so I don't expect REM to be an issue. It involves 2 PI controllers, 3 analog gain functions, 2 analog math operations, and some digital functions. Thanks."
+    },
+    {
+      "comment_id": 887955122715053,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hello, Running 2 PI controllers is definitely possible; you can even add more if needed. By pressing F2, the information window shows the number of blocks currently in use. You can also find an overview in Tools -> Select hardware."
+    },
+    {
+      "comment_id": 302538171698068,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], Yes, running 2 PI controllers with your [product_name] module should work fine. You can use up to 200 PI blocks, but keep in mind that memory limits may apply, since PI blocks consume more memory than basic logic blocks. If you use too many (over 30 or 40), you might hit a memory constraint. The main limitation is usually the number of physical inputs and outputs. For analog output control, you are limited to 2 PI controllers because only one expansion module for analog outputs can be connected, providing 2 outputs. If you're controlling with PWM-switched digital outputs, you could theoretically use up to 8 PI controllers since the module has 8 analog inputs and each PI controller would use one. You can also route analog inputs to more than one PI controller and mix-and-match with expansion and digital outputs for more complex scenarios. Digital events, counters, and analog values generated within your program can serve as PI controller inputs as well. So, for your described project, hardware limitations are not a concern. Thanks for your interesting question—it prompted some creative thinking. (If you found this helpful, feel free to rate or thank the post!)"
+    },
+    {
+      "comment_id": 469627335232545,
+      "user_name": "JMywOwHns4",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 6,
+      "comment_body": "If your simulation works, it's likely that the hardware will support it too. Try using the tools > determine module feature and check the info window for resource usage. The only issue I found, where simulation differed from hardware, was when using two cursor keys at once—on hardware, they act more like radio buttons, unlike the simulation. Edit: This post coincided with others from [user_name] and [user_name]!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Community members agree that two PI controllers on the [product_name] module are feasible, with primary limitations related to device memory and physical inputs/outputs. Simulation typically mirrors real hardware limits for PI controller logic, though analog outputs and total memory could restrict more complex setups. Users provided clear advice on checking current resource usage through configuration tools and expressed confidence that standard projects are well within hardware capabilities.",
+    "user_expectations": "The user expects that functions working in simulation with [product_name] software should also be supported in physical hardware, provided there are no hardware limitations. The user seeks easy access to information about device capacity and wants assurance that using two PI controllers will work as intended.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "confirmation",
+      "hardware support",
+      "multiple PI controllers",
+      "resource clarity"
+    ],
+    "pain_keywords": [
+      "hardware limits",
+      "resource uncertainty"
+    ],
+    "feature_keywords": [
+      "PI controller block",
+      "analog output",
+      "memory resource indicators"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability",
+    "3": "User Guidance"
+  }
+}

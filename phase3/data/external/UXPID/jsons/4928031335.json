@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "branch_id": "4928031335",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 690257224712026,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Hello, I'm developing a project that allows users to change certain values from a customized website connected to the controller. Everything functions as expected, but I want the values to remain stored even after a power cycle. I've read that using a Min/Max block with retentivity enabled and mode set to 3 resolves this. In simulation, the save button on the webpage triggers the En pin on the Min/Max block, and the analog input register gets updated, which works flawlessly. However, when I test online, the value doesn't transfer into the Min/Max block as it did before. Is there an issue with my hardware? I have a [product_name] [article_no]."
+    },
+    {
+      "comment_id": 203555555654047,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "The Min/Max block will store a value when the EN input transitions from high to low (mode 3 with retentivity enabled). While the EN input is high, the block outputs the current analog input signal. When EN goes from high to low, the analog input's value is saved and becomes available at the block's output. Could you clarify which specific signal you want to save? If a power interruption occurs, the block cannot trigger the save process by itself."
+    },
+    {
+      "comment_id": 304832912968401,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "I'm trying to keep the analog value from NetworkAnalogInput1. The goal is that someone inputs a percentage (0-100) in the VW0 register, then presses a button (here, I1) that activates the En on the Min/Max block, causing the 0-100 value to be retained, even after losing power. In simulation, I write to VW0, enable I1, and the value appears correctly on the Min/Max block's output port. But in online testing, triggering the En pin doesn't allow the analog value to reach the Min/Max block output. Is it possible my hardware interprets the Min/Max block differently?"
+    },
+    {
+      "comment_id": 488444302712929,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Could you clarify the source of the value? Are you receiving it from an HMI, the web server, or another interface?"
+    },
+    {
+      "comment_id": 105742925792644,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Currently, this value comes from the web server, though I plan to add an HMI later. Would that affect the behavior?"
+    },
+    {
+      "comment_id": 241435904434752,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "If the value originates from an HMI or web server, it's straightforward to write directly to an Analog MUX or through a mathematical block using parameter VM mapping. Which [product_name] do you have? Which web server are you using -- basic or extended? I noticed your details above."
+    },
+    {
+      "comment_id": 987636966533030,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "I've created a simple example using the [product_name] [version_no] and the extended web server."
+    },
+    {
+      "comment_id": 699526955918984,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "I'll give that a try, thanks for your assistance! Let me know if you intended to attach the example, as I can't find it in the previous message."
+    },
+    {
+      "comment_id": 699670177359424,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Here's the example. If you write directly to an Analog MUX parameter or use a mathematical block, the value is stored in flash memory and becomes retentive. Please test and let us know the outcome."
+    },
+    {
+      "comment_id": 382968663744085,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "I'm unable to open the sample project; my application shows an \"Upgrade the application to open the project\" error. I'm currently on LWE [version_no], and updates don't seem available in Tools -> Update. I'll attempt to recreate the project manually following your instructions to replicate the functions described. Thank you for your help and quick responses!"
+    },
+    {
+      "comment_id": 772076092868132,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "You are not using the latest LWE release. The current version is [version_no], included in the recent LSC [version_no] upgrade. You can obtain the update from [url]: Firmware update for [product_name] devices and service pack [version_no] for [product_name] [version_no]."
+    },
+    {
+      "comment_id": 793128856288151,
+      "user_name": "JKmAl2HLzO",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "That solution worked! I completely overlooked VM mapping. Thanks again [user_name]!"
+    },
+    {
+      "comment_id": 605595375460003,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Glad to hear it's working for you..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience discrepancies between simulation and actual hardware when using retentive Min/Max blocks on [product_name] devices. Simulation preserves analog values after a power cycle, but physical devices fail to do so reliably. The process for retaining analog inputs via a web server or HMI is insufficiently documented, and project file compatibility issues further complicate troubleshooting.",
+    "user_expectations": "Users expect analog value retention via Min/Max blocks to function consistently both in simulation and hardware, particularly for values set by web clients. They also want example projects to be easy to access and compatible with their current software versions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data retention",
+      "hardware/software consistency",
+      "web control",
+      "project compatibility"
+    ],
+    "pain_keywords": [
+      "retentivity mismatch",
+      "hardware/software inconsistency",
+      "project upgrade barrier",
+      "unreliable value storage"
+    ],
+    "feature_keywords": [
+      "Min/Max block",
+      "retentivity",
+      "web server integration",
+      "analog input",
+      "parameter VM Mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity",
+    "23": "File Accessibility Barriers"
+  }
+}

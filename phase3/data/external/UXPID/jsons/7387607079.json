@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "7387607079",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 507084860137659,
+      "user_name": "UbLrtV0CZ1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Hello, I am trying to set up the following logic: Using a digital input, I want to write an analog value of 280 to a network analog output. Specifically, when a PIR movement sensor does not detect movement, I want to send a preset setpoint to the air conditioning controller through Modbus. So far, everything I've tested sends the value 280 as expected, but when the input switches off, a value of 0 is sent instead. The value 280 (equivalent to 28 degrees) should remain constant and does not need to be changed."
+    },
+    {
+      "comment_id": 365930896013738,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I'm not sure I fully understand your intended setup. You mentioned sending an analog value of 280 triggered by a digital input and sent to an analog output over the network. What should happen when the digital input returns to 0?"
+    },
+    {
+      "comment_id": 193761655358328,
+      "user_name": "UbLrtV0CZ1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Thank you for highlighting that. When movement is detected again, I need to send a value of 25 degrees. I managed to achieve this using an analog multiplexer. I don't want to constantly broadcast the setpoint when movement is detected, so I'll try different logic to handle that. Thanks for your assistance."
+    },
+    {
+      "comment_id": 238176589136805,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I still don't fully understand your requirements, so I'm unable to assist further. Using the analog multiplexer is a good approach, but keep in mind that a value will always be sent, whether it's 250 or 280."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking to configure logic that sends preset analog values to a Modbus register based on a sensor’s digital state. Confusion arises from unclear requirements on how to send setpoints only on state transitions versus broadcasting them continuously. The main challenge is configuring the logic for single updates tied to state changes rather than ongoing transmission.",
+    "user_expectations": "The user wants to set up logic where an analog value is sent based on transitions in a digital input, updating the Modbus setpoint only on input changes instead of continuously sending values.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "state-dependent setpoint",
+      "efficient configuration",
+      "avoid continuous update"
+    ],
+    "pain_keywords": [
+      "unexpected 0 reset",
+      "continuous broadcasting",
+      "unclear behavior"
+    ],
+    "feature_keywords": [
+      "digital input",
+      "analog output",
+      "preset value",
+      "Modbus register"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

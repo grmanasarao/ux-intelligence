@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "branch_id": "4456193555",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 741311340256514,
+      "user_name": "lJ8EF47pHm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "Is it possible to change the digital input of a [product_name] [version_no] using [product_name] [version_no] and an SMS command, or is it only possible to modify the digital transistor input/output of the [product_name] [version_no]? We connected the [product_name] to the [product_name] for monitoring outputs, and currently control the output via the [product_name] [version_no]."
+    },
+    {
+      "comment_id": 215109226252944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "You can control both digital outputs of the [product_name] [version_no] via SMS and then connect up to two digital inputs of the [product_name]. Alternatively, sending an SMS can toggle a bit in the VM area, which can be used as a network input in the [product_name], allowing for more flexibility beyond just two inputs."
+    },
+    {
+      "comment_id": 185739238109534,
+      "user_name": "lJ8EF47pHm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "Currently, we use the first method, but we want the output of the [product_name] to automatically switch to 0 after two seconds. So, we intend to use the [product_name] instead of a relay as we currently do. What kind of SMS commands can set the network inputs of the [product_name] to 0 or 1? We now monitor the outputs of the [product_name] via SMS. Is the process similar for network inputs, only reversed?"
+    },
+    {
+      "comment_id": 964536175331260,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "If you want to switch a network input in the [product_name] via SMS, note that the [product_name] will set the input statically. This generally requires sending two SMS messages: one to turn on, and another to turn off. For example, 'Password; [product_name]=VM100,1,BYTE' to switch on, and 'Password; [product_name]=VM100,0,BYTE' to switch off. These commands toggle the VM bit V100.0. You can select other VM addresses depending on your setup. Dynamically switching network inputs (for a timed action) in the [product_name] requires an additional step in your program. I've attached a small example program to demonstrate both approaches."
+    },
+    {
+      "comment_id": 900990251205606,
+      "user_name": "lJ8EF47pHm",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "Understood. Thank you very much; your explanation was much clearer than anything I found in the manual. This will help us move forward."
+    },
+    {
+      "comment_id": 814554278784285,
+      "user_name": "lJ8EF47pHm",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "We programmed the [product_name], but each time we try to set the network input to 1, we get the message: '[product_name]=VM50,1,BYTE:No Success'. Any idea what might be causing this issue?"
+    },
+    {
+      "comment_id": 572278750079205,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "Have you declared the variable in the [product_name] [version_no]?"
+    },
+    {
+      "comment_id": 486996595628828,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "Please check [url]. It describes how to set up everything needed to perform an action with an SMS in the [product_name], including communication between two [product_name] Controllers via [product_name] [version_no] and SMS."
+    },
+    {
+      "comment_id": 116748788494833,
+      "user_name": "lJ8EF47pHm",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 5,
+      "comment_body": "Everything is working perfectly now as intended. Thanks for the help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users requested guidance on how to remotely control network inputs of a [product_name] module using SMS via [product_name] communication modules. There was initial confusion regarding how static and dynamic input switching works through SMS, the need for multiple messages to toggle inputs, and a lack of clear documentation. Through forum advice, the users received explicit command formatting guidance and learned about necessary variable declarations, successfully resolving their problem.",
+    "user_expectations": "Users seek a simple and reliable way to remotely and dynamically operate network inputs of [product_name] modules with SMS, ideally with just one message, and expect clear, comprehensive documentation outlining the steps needed.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote automation",
+      "dynamic control",
+      "simplicity",
+      "documentation clarity"
+    ],
+    "pain_keywords": [
+      "documentation gaps",
+      "SMS command complexity",
+      "static input toggling",
+      "manual relay dependency"
+    ],
+    "feature_keywords": [
+      "SMS network input switching",
+      "output monitoring",
+      "variable declaration",
+      "command format"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

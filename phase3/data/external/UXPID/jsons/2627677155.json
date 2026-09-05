@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "branch_id": "2627677155",
+    "thread_id": "3055273936",
+    "publication_year": 2007,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 463068658752297,
+      "user_name": "KX7MePvy6T",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "I'm using two proximity sensors as inputs to a [product_name] to detect the position of a large sprocket, with an additional third sensor serving as the home reference. My goal is to count pulses to determine which quadrant of rotation the sprocket is in, starting from the home position. The counter has both a count and direction input, but I'm unsure how to code the direction logic. Direction depends on whether proximity sensor 1 leads or lags sensor 2, similar to an encoder. Has anyone implemented this before?"
+    },
+    {
+      "comment_id": 160096456843880,
+      "user_name": "vdCrxgdPyU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "I assume the process begins from the home position. Is it possible to position the sensors so that the one triggered first indicates the direction of rotation?"
+    },
+    {
+      "comment_id": 955185102557856,
+      "user_name": "KX7MePvy6T",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "Yes, the sensors are offset so that after leaving home, rotating left triggers sensor A before sensor B, and rotating right triggers B before A. Actually, it's only one sensor made by Kubler called an Encoder prox, which when triggered by the sprocket produces an output similar to a typical encoder."
+    },
+    {
+      "comment_id": 114535749964343,
+      "user_name": "vdCrxgdPyU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "You can use whichever input is triggered first after the home position to set a flag for left or right rotation, and use this to determine whether to count up or down. Make sure only one flag can be set at a time—the first one disables the other. Then use the home input to reset both flags and your counter every revolution."
+    },
+    {
+      "comment_id": 911736931524263,
+      "user_name": "KX7MePvy6T",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "That alone isn't sufficient. This setup is for a fire truck ladder where the operator controls the direction from the ladder end. Once the rotation moves from home (say, 150 pulses clockwise), the operator doesn't necessarily complete a full turn back to home—they might rotate 150 pulses clockwise and then return 20 pulses. So, direction monitoring needs to be continuous, not only after leaving home."
+    },
+    {
+      "comment_id": 579465044638216,
+      "user_name": "vdCrxgdPyU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "I see. Is the turntable driven by a motor with contactors? If so, could you obtain a forward or reverse signal from the auxiliary contacts to help determine direction?"
+    },
+    {
+      "comment_id": 778636420307929,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "When moving clockwise, the sensor A positive edge will occur with sensor B OFF; moving counterclockwise, sensor A's positive edge will occur with sensor B ON. You can set up a counter using sensor A as the count input and sensor B as the direction input, or use two counters to keep track of your position and rotation direction. Hope this helps!"
+    },
+    {
+      "comment_id": 659189331422970,
+      "user_name": "KX7MePvy6T",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "That solution was straightforward—thank you, it worked well! Now, another issue: the counter can't handle negative values, so moving counterclockwise from home would normally result in negatives. Is there a way to start the counter with a preset value, like 1000, so I can increment up or down from there? My workaround was to have a counter pulsing the position counter at startup and using an OR function to combine the outputs, but this seems cumbersome."
+    },
+    {
+      "comment_id": 812640543001265,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 6,
+      "comment_body": "I'm attempting to attach a program that may help. There are two counters: one tracks clockwise movement and how many pulses you are from home, and the other does the same for counterclockwise direction."
+    },
+    {
+      "comment_id": 689870235554413,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], please check my related article in German: 'Wie ist eine Auswertung der Signale \"A\" und \"B\" von Drehgebern möglich?' Best regards [user_name]"
+    },
+    {
+      "comment_id": 925616901787548,
+      "user_name": "IbRnLyzXkX",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 6,
+      "comment_body": "Is there an English version of the article available?"
+    },
+    {
+      "comment_id": 607182007180291,
+      "user_name": "ZgqPLzDXRV",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "How can this be implemented without using the home input DI3? Is it possible to start counting from zero in one direction and return to zero when rotating in the opposite direction, avoiding negative results?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants explored ways to create a direction-sensitive pulse counter using proximity sensor signals for tracking rotation angles of a fire truck ladder through a [product_name]. Initial uncertainty around direction logic was resolved by leveraging two counters and sensor states. However, a limitation was identified—the built-in counter cannot process negative values and lacks a preset or signed starting value, making flexible position tracking difficult when the direction changes mid-operation.",
+    "user_expectations": "Users expect the [product_name]'s counter function to automatically detect counting direction by input sequence and to support negative numbers or configurable preset values for more flexible position tracking, regardless of rotation direction.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate rotary position tracking",
+      "direction detection",
+      "presettable counter",
+      "quadrant monitoring"
+    ],
+    "pain_keywords": [
+      "no negative values in counter",
+      "cannot preset counter",
+      "complex workarounds",
+      "manual logic required",
+      "direction tracking limitation"
+    ],
+    "feature_keywords": [
+      "directional counting",
+      "preset/start value for counter",
+      "increment/decrement support",
+      "encoder input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

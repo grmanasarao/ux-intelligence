@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "branch_id": "3719014181",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 261424636819041,
+      "user_name": "zsPdY5Y9pF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hi all, I've programmed a [product_name] and everything works fine locally. However, I'm running into issues integrating the [product_name] logic with Modbus TCP/IP in my SCADA system. Just to clarify, if I connect a memory bit (M1) directly to its coil, all works as expected—setting M1 via Modbus updates its state online. The problem starts when I add more contacts in series with coil M1; then the program fails to set M1 from 0 to 1. Photos 1 and 2 illustrate this: the first setup allows M1 to be set to 1 or back to 0, while in the second, adding an RS contact prevents M1 from being set. Interestingly, coil M1 works even unconnected, and if I cross-connect memory bits (e.g., M1 to M2 and vice versa), changing state results in both blinking. Any advice on using these memory bits correctly? I'm using a ladder-to-FBD converter to import into my network project."
+    },
+    {
+      "comment_id": 913714895616668,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "That's a downside of ladder diagrams in [product_name]; they're prone to errors. The operation M1 = M1 in ladder isn't allowed in FBD. My strong recommendation is to use only FBD for programming. In FBD, a flag can only be set HIGH or LOW if it isn't linked to logic elements at the input side."
+    },
+    {
+      "comment_id": 234132816244901,
+      "user_name": "zsPdY5Y9pF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Thanks. Is there a way to reset an M flag in the program if nothing can be connected to its left (since it's set externally via Modbus)? If not, should I switch to network I/O or another block type? Also, about retentivity—is it only possible with certain blocks like pulse relay or latch in [product_name]? For example, I set M4 to 1, so Q4 turns on, then power off and back on, but Q4 isn't set again, so retentivity doesn't work as I expected. Is there any way to make an M flag or other element directly retentive?"
+    },
+    {
+      "comment_id": 218520026952057,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "No, that's not possible. Why do you want to do this?"
+    },
+    {
+      "comment_id": 947163525672920,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "In your circuit, you reset the RS block with M4 low. On startup, M4 is low since it doesn't retain its value."
+    },
+    {
+      "comment_id": 887791764172256,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Can you explain why you want to reset the flag? Without context, it's difficult to provide help."
+    },
+    {
+      "comment_id": 731199906643200,
+      "user_name": "zsPdY5Y9pF",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I enable the remote fault output Q1 using M1 when remote control is active (input I5)—that's shown in photo line 1. I want Q1 reset when I acknowledge a fault locally (photo line 2). After that, I need to reset M1; otherwise, line 1 will always be active when remote is enabled."
+    },
+    {
+      "comment_id": 706969589296423,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "This approach isn’t feasible in FBD. If M1 is set by the remote source, only the remote source can reset it. What type of signal is your remote source—dynamic or static?"
+    },
+    {
+      "comment_id": 825659895832577,
+      "user_name": "zsPdY5Y9pF",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I control M1 via Modbus TCP/IP, writing the bit to a coil, so it's a static signal."
+    },
+    {
+      "comment_id": 181686888260320,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "If you write to a VM memory bit, this can work as shown in the attachment. Use a network input with a free address, like V0.0. Network order matters—the last action should be setting V0.0 low, which creates a pulse cycle for V0.0."
+    },
+    {
+      "comment_id": 782829782275548,
+      "user_name": "zsPdY5Y9pF",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "That's promising, but when I tested in FBD it didn't work. I need this to function in FBD for my network project using Modbus."
+    },
+    {
+      "comment_id": 468388509715896,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "It does work, otherwise I wouldn’t have recommended it. You mentioned converting from LAD to FBD. Even in FBD, the important rule is: the final action must be writing LOW to the network output!"
+    },
+    {
+      "comment_id": 870047262439146,
+      "user_name": "zsPdY5Y9pF",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Perfect, it works now. Regarding retentivity: I want V0.1 to turn Q4 on and off and maintain the state through power cycles. I tried as before, but after resetting, V0.1 defaults to 0 and Q4 resets in my code."
+    },
+    {
+      "comment_id": 272861174179792,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "The screenshot you shared doesn’t make sense. I’m not clear about your issue."
+    },
+    {
+      "comment_id": 433408274693906,
+      "user_name": "zsPdY5Y9pF",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I'm setting V0.1 remotely; its contact should simply turn Q4 on/off and be retentive—that is, Q4 remembers its state after power loss. For that, I need to use a latch or pulse relay because V0.1 can’t retain state itself. Now, I’d like to read Q4’s current state via Modbus after a power cycle to know how to respond. I managed to make retentive control as shown in the image, but I don’t know how to check Q4’s state—writing Q4’s state to V0.2 (address 3) is unclear, and Modbus keeps showing 0 at address 8196, which corresponds to Q4."
+    },
+    {
+      "comment_id": 363789739019029,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "The Modbus address for Q4 in [product_name] is coil 8196, that’s correct. V0.2 uses coil 3. I can't give more details. What Modbus device are you using?"
+    },
+    {
+      "comment_id": 966292146030004,
+      "user_name": "cZQANX744b",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hi, Retentivity is available in FBs such as RS or latching relays. If you use [product_name] version [version_no], you can also try the new VRx-Memory. Hope that helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main challenges are with managing memory bits on [product_name] when integrating with Modbus TCP/IP and SCADA. Users observe issues when memory bits are included in larger logic networks (like using RS blocks), disrupting control via external systems. There’s also confusion around state retention, as some outputs (like relay Q4) don’t persist after power cycles. Users find ladder programming error-prone on [product_name] and consider FBD safer but more limited, especially regarding resetting or controlling memory bits.",
+    "user_expectations": "Users expect to fully control and reset memory bits both from within the program and via Modbus TCP/IP commands. They also want outputs, such as relays, to conserve their state after a power cycle. Seamless integration between external Modbus control and internal logic, along with clear documentation and solutions for these limitations, is anticipated.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "reliable memory bits",
+      "state retention",
+      "integration with SCADA"
+    ],
+    "pain_keywords": [
+      "memory bits not resettable",
+      "unexpected loss of state",
+      "confusing logic restrictions",
+      "limited retentivity"
+    ],
+    "feature_keywords": [
+      "memory bits (M flags)",
+      "retentivity",
+      "integration with Modbus TCP/IP",
+      "LAD/FBD programming modes"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "30": "Data Persistence Confusion"
+  }
+}

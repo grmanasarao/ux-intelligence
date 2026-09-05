@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "branch_id": "4175084884",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 736145296994563,
+      "user_name": "g7vsDPIHF4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I've created an automation setup where the inputs (I1, I2, I3, etc.) are linked to physical push buttons. I used the digital component in [product_name] Web Editor to build the graphical interface, uploaded it to the device, but can't control the automation by clicking on the inputs from the editor. While pressing the real buttons shows state changes in the editor, I want to toggle the inputs using the graphical interface as well. I saw in a YouTube tutorial that maybe inputs cannot be set as \"writable\" in the editor properties. Any advice on how to control inputs (ON/OFF) from the web editor or alternative solutions?"
+    },
+    {
+      "comment_id": 234352674559375,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "It's not possible to switch physical digital inputs remotely via the device's web server interface. You’d need to use a different method, like network inputs or internal flags."
+    },
+    {
+      "comment_id": 564312732673740,
+      "user_name": "g7vsDPIHF4",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Thanks for the quick reply. Could you provide an example? Since the physical setup uses real push buttons, how do I modify my program for graphical control using the editor? Specifically, how can I configure or set a network input or flag to act as a \"push button\" in function block diagram mode?"
+    },
+    {
+      "comment_id": 283626292406086,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "To assist properly, I’d need to see your main program file as well as your web editor project. Please upload both files in a ZIP archive."
+    },
+    {
+      "comment_id": 743128357508023,
+      "user_name": "g7vsDPIHF4",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Here's the main program file. I think it's clear. There are four input buttons: Push Button (I1) single click — toggles load 1 ON/OFF (Q1); Push Button (I1) double click — toggles load 2 ON/OFF (Q2); Repeat for buttons 2 and 3. Push Button 4 (I4): one click turns all loads ON, hold for 30ms — turns all loads OFF. I've deleted the web editor file (it was not working), but its concept was the same: four digital (switch) buttons (I1–I4) and six digital outputs (Q1–Q6). Thank you."
+    },
+    {
+      "comment_id": 484667696164024,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I've created an example for you showing how to switch outputs via the web server. Note, you’ll need [product_name] Web Editor [version_no]. The way your circuit is built, double click isn't recognized—only the first output can be toggled, due to timing delays caused by the network. With the 'All on or off' button, you can only assign one function (either impulse or signal as long as the button is held); combining both functions in a single button won't work."
+    },
+    {
+      "comment_id": 303557865690157,
+      "user_name": "g7vsDPIHF4",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Thank you, but where can I download [product_name] Web Editor [version_no]? The site is hard to navigate. Can you share a link? I'll give it a try and update you. I understand network delays are an issue, but how can this work in a graphical/mobile environment? Physical buttons work well in [product_name], but for software, is it possible or do I need to shift to another platform like KNX? I've seen this feature in other graphical environments but don't know the underlying software. The operator wants one button for two functions: single click for one action, holding for another, as described before. From your explanation, it seems this isn't possible with the current editor version due to limitations. Is there another approach or platform? Thank you."
+    },
+    {
+      "comment_id": 514233937290892,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "I can't comment on platforms such as KNX. [product_name] Web Editor [version_no] comes with the upgrade package for [product_name] Comfort [version_no]. You can find download and installation instructions in the upgrade section for [document]."
+    },
+    {
+      "comment_id": 561073223186155,
+      "user_name": "g7vsDPIHF4",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Thank you. I downloaded [product_name] Web Editor [version_no] and updated my main program file based on your example using network inputs (flags weren’t effective for me). Everything is functioning well—physical push buttons work perfectly for single and double clicks, and hold actions. Controlling via the graphical editor was changed because features like double click and others aren’t available, but since it’s just a graphical layer, I created two buttons for each function. For reference and anyone working on a similar project, I’m uploading both the main program and editor files (graphics need some improvement). You’ll notice the additional network inputs marked in red. Thanks again for all your assistance. [user_name] P.S.: It’s a bit odd that a finished program must be further adjusted with network inputs and logic blocks just for web compatibility. Maybe developers should look into this."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users found that controlling physical inputs directly from a graphical web interface in [product_name] Web Editor is not supported. While it’s possible to monitor input states remotely, toggling or writing inputs is prevented by the device’s hardware/software design. The workaround is to add network inputs or flags, which adds programming complexity and requires modifications to already finished projects. Platform limitations also affect available interactive features, such as single/double-click and hold actions.",
+    "user_expectations": "Users expect to control physical inputs from the graphical web interface, allowing advanced push-button interactions (single click, double click, hold time) similar to physical usage, and prefer not to modify underlying code or logic to achieve this.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "graphical environment",
+      "seamless integration"
+    ],
+    "pain_keywords": [
+      "input control limitations",
+      "required project restructuring",
+      "incomplete web support for button actions"
+    ],
+    "feature_keywords": [
+      "network inputs",
+      "flags",
+      "digital input state control",
+      "multi-state button (click, double click, hold)",
+      "LWE digital components"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "28": "Installation Flexibility"
+  }
+}

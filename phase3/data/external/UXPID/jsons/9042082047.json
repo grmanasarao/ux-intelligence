@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "9042082047",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 520159853027430,
+      "user_name": "BYyuJJVmZn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Hello, Can anyone provide an example for creating signal, event, action, and assignment definitions in the [product_name] CMR module? I want to change the CMR outputs Q1 and Q2, for instance from 0 to 1 using SMS with the command 'password;output=o1,1'. However, nothing changes after sending the SMS. I've tried multiple signal, event, action, and assignment configurations, both with and without password protections. My current firmware is [version_no]. Regards"
+    },
+    {
+      "comment_id": 102076925396108,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Syntax details: To set a digital output on the CMR module: Password;OUTPUT=O1,1 (for output 1) To reset the digital output: Password;OUTPUT=O1,0 (for output 1)"
+    },
+    {
+      "comment_id": 889836802498793,
+      "user_name": "BYyuJJVmZn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Hello, Could I get more detailed guidance? I still can't change the output O1 on my CMR to 1. I entered the command 'output=O1,1' but nothing happens. I have updated my firmware to [version_no] and SMS password protection is disabled. Are additional rules needed, maybe in WAN or Monitoring settings? Is it necessary to define an event and action before sending the 'output=O1,1' command?"
+    },
+    {
+      "comment_id": 219155774251100,
+      "user_name": "xTmc5XWiGf",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Hi, I encountered a similar issue. When I sent the SMS 'Password;OUTPUT=O1,1' from my Android device, nothing happened. After testing, I realized the Android operating system automatically adds a space character after each comma—so the command looked like 'Password;OUTPUT=O1, 1', but this is hard to notice. Once I removed the extra space, the command worked. The CMR module does not process spaces in the SMS command correctly. It would be easy to have the module ignore spaces since they're not allowed, but unfortunately this is a [company_name] product. Hope this helps!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users have difficulty controlling outputs on the [product_name] CMR module via SMS commands due to strict syntax requirements. Formatting issues, such as unwanted spaces added by devices like Android smartphones, cause commands to fail without notification. The module does not tolerate minor formatting errors, leading to user frustration.",
+    "user_expectations": "Users expect the remote control of CMR outputs via SMS to be user-friendly and reliable, even if minor formatting inconsistencies such as automatic spaces are present in commands sent from various mobile devices.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote output control",
+      "easy SMS configuration"
+    ],
+    "pain_keywords": [
+      "SMS command not working",
+      "sensitivity to formatting",
+      "lack of error feedback"
+    ],
+    "feature_keywords": [
+      "SMS parsing",
+      "output command syntax",
+      "event/action assignment"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Android": []
+    }
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "metadata": {
+    "branch_id": "7729281766",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 868351783740735,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Hello, I have a question. Why are there two different values shown for a sensor on the analog input? One appears to be the sensor's value and the other is a multiplied figure. How could I simulate a sensor capable of capturing up to 3000 rpm?"
+    },
+    {
+      "comment_id": 555304518046379,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "It's difficult to help without further details about your sensors. Could you provide more specific information?"
+    },
+    {
+      "comment_id": 946558516390160,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "For AI2, the reference is a PT100 sensor, and AI1 is MX5050. Though I don't believe this is relevant to my question, thank you for your help. I forgot to mention this earlier."
+    },
+    {
+      "comment_id": 794199322201662,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "The MX5050 isn't an analog speed sensor; it's a proximity switch that outputs a digital signal."
+    },
+    {
+      "comment_id": 270774030482794,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "For the proximity switch, you can use fast inputs (I3 to I6) on [product_name]. Not all [product_name] devices have fast input capability. The 24CE and 12/24 RCE models support this feature."
+    },
+    {
+      "comment_id": 893017297683224,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "My apologies, I thought it was an analog output. May I resend my question with this reference and the other one: IM30-10BUS-ZU0?"
+    },
+    {
+      "comment_id": 617743194723977,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "The purpose of the quoted text isn't clear. The part number you mentioned refers to a proximity (digital on/off) sensor. Are you counting rotations or simulating this in the software? Are you wanting feedback on whether the solution works? Note that the fastest sensor pulse rate [product_name] supports is 5000 pulses per second, but there are certain requirements. If language is a barrier, it's fine to post in your home language."
+    },
+    {
+      "comment_id": 811826248185462,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Yes, I want to use this sensor for a rotating mechanism with one pulse per rotation (that's my intention). I've already written most of my program, but I have two issues I'm unsure about: which is the raw value of the sensor among the two displayed, and another issue that I won't address here as I think I can solve it. I don't believe translation is causing confusion."
+    },
+    {
+      "comment_id": 350200198305735,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "I'm not sure I fully understand. Also, I'm puzzled why you are using analog AI1 in your program when the sensor is digital for pulse counting. Are you using AI1 as a speed pulse simulation? Some pins on [product_name] can be configured for analog or digital inputs, depending on your setup. High-speed inputs are assigned to different pins. Please specify which [product_name] model you are using."
+    },
+    {
+      "comment_id": 425992610224127,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Thank you for your reply. I checked, and I believe the sensor I mentioned actually has an analog output, unless I'm mistaken."
+    },
+    {
+      "comment_id": 206765652249576,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Both of your provided links refer only to proximity switches, which have digital outputs."
+    },
+    {
+      "comment_id": 619411411647924,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "A digital sensor is what you need for this application. Each rotation triggers an ON pulse. For 3000 rpm, that's 50 pulses per second, meaning your counter updates every 20 ms. However, your program may require a numeric value, so you’d need to count pulses within a set time to derive that figure."
+    },
+    {
+      "comment_id": 716709473010222,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "See my post from the first page of this topic."
+    },
+    {
+      "comment_id": 932450828356422,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "I believe I will look for speed sensors that have analog output."
+    },
+    {
+      "comment_id": 297876182494469,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Okay, but if the sensor only outputs 0 or 1, won't it just remain ON due to constant proximity? Thanks."
+    },
+    {
+      "comment_id": 249932725961758,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Are you unfamiliar with how a proximity sensor works?"
+    },
+    {
+      "comment_id": 900043912941093,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "I think I understand. A proximity sensor detects if an object is present or not, so it may not function well in front of a rotating mechanism. Am I confused?"
+    },
+    {
+      "comment_id": 985212152685159,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Yes, your explanation about object presence is accurate. For rotation measurement, a setup is required where an object appears only once per turn."
+    },
+    {
+      "comment_id": 185399396496528,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "Thanks, I will try out the program you shared and see if it meets my requirements."
+    },
+    {
+      "comment_id": 820862435323340,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 19,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 4,
+      "comment_body": "I've implemented the solution as suggested and understand your explanation, but I'm still unsure how a proximity sensor can effectively measure rotational speed in equipment like a motor."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having difficulty distinguishing between analog and digital sensor outputs when connecting sensors to analog inputs on [product_name] hardware. Unclear sensor output readings and confusion regarding simulation of rotational speeds point to issues with understanding input configurations and software feedback for sensor values. These uncertainties, along with ambiguity about which inputs support high-speed functionality and proper mapping of sensor types to inputs, reduce the effectiveness and reliability of solutions for simulating or measuring rotation.",
+    "user_expectations": "The user expects to receive clear and consistent sensor readings from [product_name] device inputs, with guidance on how to simulate high-speed rotational measurements. They also seek straightforward advice on how to differentiate handling of analog and digital sensor inputs in [product_name] software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sensor readings",
+      "sensor simulation",
+      "rotational speed measurement"
+    ],
+    "pain_keywords": [
+      "sensor type confusion",
+      "input configuration uncertainty",
+      "inconsistent values",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "digital (fast) input",
+      "sensor simulation",
+      "input configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

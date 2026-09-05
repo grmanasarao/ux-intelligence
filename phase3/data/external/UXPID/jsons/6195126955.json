@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "branch_id": "6195126955",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 413441850655066,
+      "user_name": "gRJlc0SMFb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I'm experiencing trouble loading a program to my [product_name] over the network. Please refer to the attached program I've created. If I remove blocks B007 and B011, the transfer works without issue. If anyone has insights on the cause or advice, I'd appreciate your feedback. Thank you."
+    },
+    {
+      "comment_id": 151880477040926,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hi [user_name], welcome to the forum. The issue relates to the counter block. Its digital output is currently unconnected, which causes a transfer error. To resolve this, connect the digital output to an available connector. In the simulation this connection is not required, so it works, but transferring to the [product_name] hardware will result in an error unless corrected."
+    },
+    {
+      "comment_id": 743462270352386,
+      "user_name": "gRJlc0SMFb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thank you for clarifying the error, I missed the message initially. Is there a more efficient way to multiply the counter value and convert it to an analog signal? In my program, I use a pulse generator to set the runtime, but it feels a bit complicated. I'm just getting started with PLCs today and don't have prior experience. Thanks!"
+    },
+    {
+      "comment_id": 748321960042777,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "It would be helpful if you could upload the program as a zip file rather than providing a screenshot."
+    },
+    {
+      "comment_id": 625197598873450,
+      "user_name": "gRJlc0SMFb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thank you for your assistance. The file is attached."
+    },
+    {
+      "comment_id": 565006911314599,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Apologies, but from your program and description, I’m unable to determine your intended function. Could you explain more specifically what you want the program to achieve?"
+    },
+    {
+      "comment_id": 568906129053097,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Are you trying to use a single input to set a desired value, then starting a motor with that value serving as the runtime? And does the input come over the network?"
+    },
+    {
+      "comment_id": 465044452528414,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "If you wish to simplify your program, please refer to the attachment. It contains two examples—the first offers the same functionality as your original program, but uses only six blocks, including a straightforward method for detecting a short keypress. The second example simulates a dimmer: the counter counts up to 60, then down to 0, repeating the cycle. Pay attention to the variable mapping in the second example. The counter value is assigned to VD0 (VB0, VB1, VB2, VB3), with VB0 as the most significant byte. Read VW2 (VB2, VB3) for the lower bytes. This approach only works if the counter value is between 0 and 32767. In both examples, the reference from the counter value output to the timer input is also effective only within the 0–32767 range. This limitation also applies when transferring the value to an arithmetic operation. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face an error when transferring a program with specific logic blocks to [product_name] across a network. This error is connected to an unconnected digital output from a counter block, which is not flagged during simulation but occurs during hardware upload. Discussions also cover methods for efficiently manipulating counter values and converting them to analog signals, and users share approaches to streamline program logic with fewer blocks while addressing variable mapping.",
+    "user_expectations": "Users expect the system to notify them of connection or configuration errors before uploading to hardware. They are looking for an easier, more streamlined solution to convert and manipulate counter values for analog outputs, and would prefer a clear and elegant approach for output timing control.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "error-free upload",
+      "logic simplicity",
+      "easy analog conversion"
+    ],
+    "pain_keywords": [
+      "error on transfer",
+      "complicated block logic",
+      "unclear error source"
+    ],
+    "feature_keywords": [
+      "counter",
+      "pulse generator",
+      "analog output",
+      "network programming",
+      "VM mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "22": "Usability Improvement Suggestions"
+  }
+}

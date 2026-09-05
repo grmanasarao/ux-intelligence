@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "branch_id": "1382706193",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 811067899599410,
+      "user_name": "xoOrrb5FCC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, I am connecting a solar inverter to [product_name] via Modbus to read actual system parameters. The registers use 16-bit unsigned integers, and I can read most values by mapping addresses in the Modbus settings. Today I encountered a problem: the Output power value, due to its high value, is split across two registers and needs to be combined. - Output power (high) – 0.1W - Output power (low) – 0.1W Is it possible to merge these into a single integer to correctly read the Output power?"
+    },
+    {
+      "comment_id": 476975762045348,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "What data format does the value stored in the double register use? Is it a 32-bit signed integer, 32-bit unsigned integer, or a 32-bit float? Could you provide an example value?"
+    },
+    {
+      "comment_id": 409830722871689,
+      "user_name": "xoOrrb5FCC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Currently, I am unable to provide an example value because I'm working offline with only the documentation. At present, I have two registers as 16-bit unsigned integers. After merging, I need a 32-bit unsigned integer. In mathematical operations, it is possible to divide by 1000 to adjust the units and convert back to a 16-bit integer, but first, I need an appropriate method to merge the values. I only have an example of how someone accomplished this on Arduino."
+    },
+    {
+      "comment_id": 403509052233020,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "The Arduino example doesn't solve the issue. The challenge is that [product_name] restricts mathematical functions to 16-bit signed integers, which means the merged value can't exceed 32,767. For Modbus, there is functionality for reading 32- or 64-bit float values, but not for 32-bit integer values—regardless if signed or unsigned. You can read and display a value up to 999,999 using an up/down counter (without the decimal point), but you cannot perform calculations with this value."
+    },
+    {
+      "comment_id": 540860226364227,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "How exactly? Regarding spelling mistakes, that's understandable. Initially, I wondered if there might be a creative or undocumented solution... I previously attempted to break a floating point number into an integer using registers and logic blocks (the F/I block can't detect overflow for values above 32,768). It quickly became too complex to manage."
+    },
+    {
+      "comment_id": 173192106042314,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thank you for pointing out the spelling mistake."
+    },
+    {
+      "comment_id": 550817646648270,
+      "user_name": "xoOrrb5FCC",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thank you. So it's not possible to merge these two integers? Could you explain the approach using counters? Would it be feasible to join the values using a counter?"
+    },
+    {
+      "comment_id": 107976245918010,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Those are not two separate integers; the Modbus value is a 32-bit unsigned value. For example: Transfer the value from HR35 and HR36 to VW0 and VW2. Using Parameter VM Mapping, write the VD0 value into the \"Counter\" parameter. Further details can be found in the following screenshot."
+    },
+    {
+      "comment_id": 815369895521830,
+      "user_name": "xoOrrb5FCC",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thank you! I will give this method a try to see if it works in this situation. Perhaps it will be sufficient."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced a key challenge when trying to merge two 16-bit Modbus registers into a single 32-bit unsigned integer for reading output power values from a solar inverter into [product_name]. The system permits only 16-bit signed integer computations, preventing direct merging or calculations on larger values. This makes it difficult to process high-value measurements from third-party devices. Workarounds, like using counters, allow partial reading and displaying of large numbers, but these do not support complete numerical calculations or full value processing.",
+    "user_expectations": "Users expect to easily merge two 16-bit registers into a 32-bit unsigned integer within [product_name], enabling them to accurately read and process large measurements without running into overflow or loss.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate value reading",
+      "register merging",
+      "system integration",
+      "high-value measurement processing"
+    ],
+    "pain_keywords": [
+      "register size limitation",
+      "lack of 32-bit support",
+      "calculation restrictions",
+      "data overflow",
+      "incomplete feature"
+    ],
+    "feature_keywords": [
+      "modbus register mapping",
+      "math operation limits",
+      "unsigned integer support",
+      "counter workaround"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "1723758304",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 802804955881388,
+      "user_name": "KcMXyd7ZxY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I deployed four [product_name] modules with similar logic for Cloud Data Transfer. However, one of them is acting up by sending data much too frequently—almost once per second! I attempted a factory reset, reprogrammed it, and registered the device again in AWS, but it's still flooding the cloud with data. To control this, I had to use a Lambda function to filter out incoming messages if they arrive less than 15 minutes apart, preventing unnecessary inserts into the DynamoDB database. The data transfer configuration is set properly, and its firmware is at [version_no]. The other three devices function perfectly. Has anyone encountered a similar situation or have advice on a solution?"
+    },
+    {
+      "comment_id": 694992478412436,
+      "user_name": "KcMXyd7ZxY",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Here's a detail that might help: while checking logs in AWS IoT Core, I noticed an error consistently repeated for this device. After that, the module disconnects and reconnects using different ports each time (like 64616, 64617, and so on). It's possible the IT department is blocking certain ports, preventing required responses from reaching the device. Is there any way to configure [product_name] for Cloud Transfer to always use the same port? This would make it easier to coordinate with IT to open the appropriate traffic."
+    },
+    {
+      "comment_id": 254347409435383,
+      "user_name": "MzmvLvOR1E",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Any updates on this? I'm also investigating why my [product_name] modules are sending one message per second to the MQTT topic \"/get/accepted\"—is this normal behavior?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are experiencing an issue where [product_name] modules, designed for Cloud Data Transfer, are sending data to the cloud at much higher frequencies than intended, leading to downstream complications for systems expecting wider intervals. This inconsistency is not present in all devices, and efforts such as factory resets and reconfiguration have not fixed the problem. Some users had to implement workaround solutions outside the device system, and controlling network port usage remains a challenge, making IT firewall rules more complicated.",
+    "user_expectations": "Users expect the [product_name] modules to honor the configured cloud data transfer intervals and work reliably across all units. They also desire the ability to set specific network ports, simplifying integration with IT infrastructure.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct data interval",
+      "predictable data transfer",
+      "easy IT integration",
+      "reliable operation"
+    ],
+    "pain_keywords": [
+      "unexpected frequent data transfer",
+      "network port unpredictability",
+      "configuration inconsistency",
+      "firewall complications"
+    ],
+    "feature_keywords": [
+      "Cloud Data Transfer",
+      "network port configuration",
+      "firmware version"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "8173711511",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 907054385644408,
+      "user_name": "XxDgjTB1Af",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Hello, I connected an HMI Exor to the [product_name] [version_no]. How can I ensure digital and analog network input function values (VM) are stored persistently when the controller restarts?"
+    },
+    {
+      "comment_id": 244024650924032,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "The VM memory in [product_name] is not persistent. The HMI sends signals to the VM memory only once, at the moment values are accepted. After a [product_name] restart, the VM memory is cleared. For digital values, it is best to use pulse signals (similar to button presses, not switches) and latch or pulse relays in [product_name]. For analog values, I have attached some examples. They rely on acceptance of value changes in VW memory only if the value is greater than 0. In one example, you can manually reset the value to 0 when necessary."
+    },
+    {
+      "comment_id": 814535062206356,
+      "user_name": "XxDgjTB1Af",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Within the [product_name] programming environment, under Tools tab/parameter VM mapping, you can assign VM memory to function parameters. Once memory is allocated, it becomes persistent. This was tested and confirmed. In another test, I added a weekly timer to the program. The days-of-week byte in the mapping memory was assigned to one byte (VM0), and by using network input addresses, I enabled outputs Q1 and Q2 through the HMI. After restarting both [product_name] and HMI, digital output values stayed active. I am asking if this approach is sound."
+    },
+    {
+      "comment_id": 146114406321732,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "It's difficult to give a definite answer without seeing your actual program. In any case, VM memory in [product_name] is not persistent."
+    },
+    {
+      "comment_id": 515568841166507,
+      "user_name": "XxDgjTB1Af",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "This program."
+    },
+    {
+      "comment_id": 739041883814536,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Ha, ha, ha... that's a good joke. You've misunderstood something. In VM byte 0 (VB0), which you use for the weekday parameterization of the weekly timer, bits V0.0 to V0.7 correspond (V0.0 - V0.7). If you activate Sunday and Monday via HMI, [product_name] will store these bits in the parameter. The weekly timer parameters are persistent and must be; otherwise, the device would lose its settings after a power loss. When you read bits V0.0 and V0.1 via network input in your [product_name] program, they show a high signal if Sunday and Monday were activated, but this is because of parameter retention, not because VM memory is persistent."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users analyzed persistent memory behavior for digital and analog inputs in [product_name]. There was uncertainty about which data remains stored after restarting the device. One user found weekly timer parameters to be retained, but others explained this was due to functional parameter settings, not actual persistence of VM memory. The discussion revealed confusion about the retention characteristics of different memory types, which may cause implementation errors.",
+    "user_expectations": "The user hopes that assigning VM memory within the [product_name] programming environment will allow digital and analog values to be saved and restored after device restarts.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "persistent values",
+      "memory retention",
+      "reliable parameter storage"
+    ],
+    "pain_keywords": [
+      "memory not retentive",
+      "confusing retention behavior",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "VM memory",
+      "weekly timer",
+      "parameter VM mapping",
+      "digital/analog network input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "2928130926",
+    "thread_id": "1723880927",
+    "publication_year": 2011,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 393671794244766,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm encountering a new issue where my software is unable to connect to the [product_name] module from the PC. When I attempt to connect, I receive this error: \"An unexpected error occurred. Your data may be inconsistent and subsequent errors may occur. java.lang.UnsatisfiedLinkError: <install-dir>/bin/librxtxSerial.so: wrong ELF class EFLCLASS32: possible cause: architecture word width mismatch.\" For reference, I'm working on a 64-bit system. A second issue occurs when I go to Tools/options/interface and try to set up my serial port for communication: \"Error while loading panel data java.lang.NoClassDefFoundError: could not initialize class gnu.io.CommPortIdentifier\" Thank you for your assistance so far!"
+    },
+    {
+      "comment_id": 260986135214854,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 5,
+      "comment_body": "I resolved the second issue using the following method (for Debian systems): Run: apt-get install librxtx-java Create a symbolic link at <install-directory>/bin/librxtxSerial.so pointing to /usr/lib/jni/librxtxSerial.so That fixed the problem! This workaround is only necessary for 64-bit operating systems, not for 32-bit ones. If you are using another 64-bit Linux distribution, the steps should be similar."
+    },
+    {
+      "comment_id": 616538555872769,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, Here are some discussions about Linux available on a forum: [url]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user experienced technical issues connecting to a [product_name] module with [product_name] software on a 64-bit Linux system. Errors were related to incompatible library architecture and Java class initialization failures, stemming from mismatches between 32-bit and 64-bit libraries. The user resolved one problem by installing the correct Java libraries and linking them appropriately, pointing to a need for better support and documentation for 64-bit Linux environments.",
+    "user_expectations": "Users anticipate seamless installation and reliable operation of [product_name] software on 64-bit Linux systems, with straightforward connectivity to hardware modules and minimal manual troubleshooting or configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable connection",
+      "64-bit Linux support",
+      "ease of setup"
+    ],
+    "pain_keywords": [
+      "compatibility issues",
+      "library mismatch",
+      "manual troubleshooting"
+    ],
+    "feature_keywords": [
+      "64-bit support",
+      "communication interface setup"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Linux": [
+        "Debian"
+      ]
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

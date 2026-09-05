@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "8690920484",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 409344884785521,
+      "user_name": "1UHPq1KE5s",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Good morning, I'm new to using [product_name] [article_no]. The program is mostly working, but I have one issue: I want to show on the display the duration for which an analog threshold trigger is active. The trigger monitors pressure, and I want to measure how long it takes to go from 1.5 Bar to 9 Bar, and display that time. The threshold trigger switches correctly, but I can't figure out how to show: \"how many milliseconds is the output at 1?\" I've been searching for a solution since last night without success. Can anyone help? Thank you in advance and greetings from France."
+    },
+    {
+      "comment_id": 961758343080664,
+      "user_name": "JMywOwHns4",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "A simple approach is to activate a timer (for example, an on-delay timer) using the output of the threshold trigger. Set the timer to measure in 1/100 second intervals, with a maximum delay of 99 seconds, and display the timer's current value on the screen. As long as the output signal stays on for less than 99 seconds, the timer will show the elapsed time while the output is active."
+    },
+    {
+      "comment_id": 470991517087078,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "There is a challenge here: [product_name] does not have a built-in stopwatch feature. You can start and stop a timer (like an on-delay) with a threshold, but stopping the timer resets its value to zero, so you only see time while it’s running. What you likely need is a custom stopwatch. There was a solution shared on the German forum (thanks to [user_name]). Please check the attached [document]. You just need to adjust the minimum and maximum values for the analog threshold triggers B016 and B018, and consider when to reset the timer (input I3)—perhaps when pressure drops below 1.5 bar. To use the stopwatch without an analog value, I kept inputs I1 and I2."
+    },
+    {
+      "comment_id": 958401717359048,
+      "user_name": "1UHPq1KE5s",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Now I better understand why I couldn't find the answer before. Thank you very much for your help—this is exactly what I needed! Wishing you a great day."
+    },
+    {
+      "comment_id": 855154430561206,
+      "user_name": "1UHPq1KE5s",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Do I need to do anything to indicate that my question has been answered and that this topic is closed?"
+    },
+    {
+      "comment_id": 933689247314877,
+      "user_name": "G0aNMWz6eP",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], no action is required. It's always appreciated to let others know that your issue is resolved and maybe share how you fixed it. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 384607409674769,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "I agree. Sadly, not everyone provides feedback like you did."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience functional gaps when trying to measure and accumulate activation duration for analog threshold triggers in [product_name]. While basic timers are available, stopping them resets elapsed time, complicating the display of accumulated duration. This leads users to seek creative or community-driven solutions as workarounds.",
+    "user_expectations": "Users expect a straightforward solution to display and accumulate analog threshold activation time, ideally with a built-in stopwatch feature that retains value after stopping and updates on the display.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "activation time display",
+      "elapsed time measurement",
+      "pressure monitoring"
+    ],
+    "pain_keywords": [
+      "missing stopwatch function",
+      "timer resets on stop",
+      "cannot accumulate elapsed time"
+    ],
+    "feature_keywords": [
+      "timer",
+      "analog threshold trigger",
+      "screen display",
+      "elapsed time tracking"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests"
+  }
+}

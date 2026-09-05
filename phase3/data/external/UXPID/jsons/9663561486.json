@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "9663561486",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 365603818165803,
+      "user_name": "lQhhMPzcsD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "I've connected the A-channel of an incremental encoder from [company_name] Type [product_name] with 360 pulses per revolution to input I4 of a [product_name] [article_no]. The I4 input is linked to a counter block to verify pulse detection. When I turn the encoder shaft slowly, it appears to work correctly; however, at higher speeds, the input seems unable to keep up. The encoder should operate around 100 rpm, which results in 36000 pulses per minute, or 600 pulses per second at the controller input. Is this rate too fast for the [product_name] to reliably capture? Specs encoder: [url] Grts"
+    },
+    {
+      "comment_id": 716958482278237,
+      "user_name": "R40RVeEty3",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Grts Hello, Please check the following first: 1. Which version of the controller module do you have? Is it 230RC or 24RC? If it is the 230RC, the maximum input speed is 4Hz. 2. The counter block supports values up to 999999, so ensure your count does not exceed this. Hope this helps."
+    },
+    {
+      "comment_id": 894861110723475,
+      "user_name": "lQhhMPzcsD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hi, Thanks for your reply. I’m using the 24RC version. From what I’ve read, fast inputs can handle up to 2kHz. Is it possible that the counter block cannot process signals at these speeds? Grts"
+    },
+    {
+      "comment_id": 690154574082493,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "The [product_name] 24RC does not have high-speed inputs. The maximum input frequency is 2Hz. Please consult the manual. You could use the [product_name] 12/24 RC, which has four high-speed inputs (I3, I4, I5, and I6), but it only operates on DC power."
+    },
+    {
+      "comment_id": 202481663873616,
+      "user_name": "lQhhMPzcsD",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Dear [user_name], The 2Hz figure applies to relay outputs, and 10Hz for transistor outputs, but my question concerns the inputs. As you mentioned in another discussion, the maximum input frequency is about 5kHz ([url]). With the counter receiving 600 pulses per second, the process cycle time would be 1/600s or approximately 1.66ms, and the controller’s cycle time is less than 1ms. Still, it doesn’t function reliably, not even with 300 pulses per second. Anyone have insights? grz"
+    },
+    {
+      "comment_id": 360786591866756,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hello, As mentioned previously, the 24RC version does not have fast inputs. See attachment. Regards,"
+    },
+    {
+      "comment_id": 541264108501401,
+      "user_name": "lQhhMPzcsD",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hi [user_name], Is there a controller in the [product_name] line capable of handling input signals at 600Hz, as required by my resolver? Ultimately, I need to accurately track the shaft revolutions using a [product_name] display module. Kind regards"
+    },
+    {
+      "comment_id": 496562376535770,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hello, The 24/24C and 12/24 RC models feature inputs supporting up to 5kHz. Regards,"
+    },
+    {
+      "comment_id": 743133567325371,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hi, Next time, please search the forum for existing solutions. Check out posts about motor control and review my previous answers. Keep in mind, input frequencies that exceed the controller’s cycle frequency might be counted correctly, but the counter value can only be checked and processed by the controller at its cycle frequency. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing issues with connecting an incremental encoder to a control module, specifically the inability of the [product_name] 24RC to reliably detect high-frequency input pulses at elevated encoder speeds. The conversation reveals that the controller's input hardware limitations and possibly unclear product documentation are causing confusion about its capacity to capture and count rapid pulses, particularly above 600Hz.",
+    "user_expectations": "The user expects the [product_name] 24RC module to accurately detect and count high-frequency signals from the encoder, enabling precise measurement of shaft rotations, even at rates reaching or exceeding 600Hz.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate pulse counting",
+      "compatibility with encoder",
+      "handle high pulse frequency"
+    ],
+    "pain_keywords": [
+      "missed pulses",
+      "input speed limitation",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "high-speed input capability",
+      "pulse counter block",
+      "input frequency specification"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "10": "Performance Predictability"
+  }
+}

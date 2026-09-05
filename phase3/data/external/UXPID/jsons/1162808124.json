@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "branch_id": "1162808124",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 211619260296301,
+      "user_name": "dem0WGjUrf",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hi, I am looking for a way to extract live or recent data logs that are stored in a [company_name] PLC or its SD card. I'm also interested in connecting the PLC to a Raspberry Pi, and ideally, being able to pull data directly onto the PLC would be helpful. Is there any recommended method for achieving this? Thanks and regards, [user_name]."
+    },
+    {
+      "comment_id": 159042841382898,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Direct access to the SD card is not available, as [company_name] does not provide an official protocol for this purpose. You can create your own logs with a Raspberry Pi if you are able to implement communication using S7 protocol or Modbus TCP. Regards, [user_name]."
+    },
+    {
+      "comment_id": 452816178852792,
+      "user_name": "dem0WGjUrf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I'm not very experienced, but I'm willing to learn. Just to clarify, can this be done over the Ethernet port, or will I need additional hardware for communication? As an update, I discovered Snap7 and it seems to suit my requirements well."
+    },
+    {
+      "comment_id": 287414942068867,
+      "user_name": "dem0WGjUrf",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "A quick question: How do I activate S7 protocol on my [company_name] PLC with [version_no]?"
+    },
+    {
+      "comment_id": 133461072360116,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "To enable access, navigate to tools menu, then Ethernet connections, and add an S7 server connection. This will allow you to access all inputs, outputs, and flags—refer to Snap7 documentation for operand details. For accessing internal analog signals from arithmetic, timers, or counters, map your required value in the VM mapping. You may also refer to operating instructions and online help. If your device is acting as the server, Snap7 should be used as the client. Regards, [user_name]."
+    },
+    {
+      "comment_id": 640921990627158,
+      "user_name": "dem0WGjUrf",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thank you, [user_name]. This solution appears to work well. One last question: Instead of using the S7 protocol, can I use the Modbus protocol with PyModbus ([url])? Would that resolve the issues I am facing? As an update, I have [article_no]. I've read that this module might not support Modbus. Is that correct? If so, can I still use the S7 Protocol?"
+    },
+    {
+      "comment_id": 514877051024771,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "It depends on which [product_name] [article_no] you have. All devices with order number [article_no] and firmware version [version_no], as well as those with order number [article_no] and firmware version [version_no], support Modbus. However, devices with order number [article_no] and firmware version [version_no] do not support Modbus."
+    },
+    {
+      "comment_id": 864784316729798,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Yes, you can use Modbus TCP if you have a compatible Modbus client or server on your Raspberry Pi. If you programmed it as [product_name], Modbus TCP is available. If you used [product_name] Standard, you need to use the S7 protocol. If both protocols are available, [company_name] recommends using S7 protocol. Regards, [user_name]."
+    },
+    {
+      "comment_id": 452271567409569,
+      "user_name": "dem0WGjUrf",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "That's good news—my PLC does support Modbus. Is there any specific step to enable it, and should the PLC operate as a server or client? Are there documents I can consult for more details? Thank you, [user_name]. I've configured the device as [product_name] but I'm unsure how to enable Modbus. Is there documentation I can review? I don't mind using S7 protocol, but currently I'm having trouble compiling Snap7 on my Raspberry Pi. If I resolve this, I'll happily use S7."
+    },
+    {
+      "comment_id": 489412451341210,
+      "user_name": "8RYb477Ela",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The procedure is similar to setting up the S7 protocol, only this time select Modbus server instead. Refer to the addressing attachment as [company_name]'s information isn't fully documented. Configure your Raspberry Pi as a Modbus client. For data logs, it's logical to have the PLC serve the data while the Raspberry Pi acts as the client to retrieve it. Depending on the first address of your client for coils or registers, choose 0 or 1 in the provided excel sheet to set the starting address appropriately. Regards, [user_name]."
+    },
+    {
+      "comment_id": 124776260331843,
+      "user_name": "dem0WGjUrf",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], sorry for the delay in replying. Eventually, I used the Modbus protocol and successfully extracted the data to the Raspberry Pi using the PyModbus library. Thanks for your support, [user_name], and everyone else."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users seek practical solutions for obtaining live data or logs from [company_name] [product_name] PLCs with [version_no] onto external hardware such as Raspberry Pi. They face limitations due to the absence of a direct read protocol for SD card data, leading them to rely on industrial protocols like S7 and Modbus TCP. There is confusion regarding firmware compatibility with Modbus, as well as setup and role assignment between client/server protocols.",
+    "user_expectations": "Users expect straightforward methods to transfer PLC data and logs to devices like Raspberry Pi or PC, ideally via Ethernet. They look for clear guides on enabling and configuring necessary communication protocols, and anticipate compatibility with commonly used industrial standards or convenient alternatives.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "data extraction",
+      "PLC connectivity",
+      "protocol support",
+      "Raspberry Pi integration"
+    ],
+    "pain_keywords": [
+      "no SD card protocol",
+      "firmware compatibility confusion",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "S7 protocol",
+      "Modbus TCP",
+      "Ethernet data access",
+      "server/client mode"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

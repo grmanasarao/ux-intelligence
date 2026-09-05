@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "4500620658",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 777618125517539,
+      "user_name": "3Y4o34xeZj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Hello, I have a question about flags in User Defined Functions (UDFs): In a regular FBD program, you manually assign flag numbers, which works since you can view all flags and avoid duplicates. However, for UDFs, if used only once, manual assignment seems manageable with good documentation. But if multiple instances of the same UDF appear in your program, does each instance reuse the same flag number, or does the software automatically assign separate numbers for each UDF instance? This is an important detail, as it can dramatically affect program behavior. I couldn’t find any relevant info in the [product_name] system manual. Any hints would be appreciated. Thanks in advance."
+    },
+    {
+      "comment_id": 389648587690257,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "For every instance of a UDF, the software automatically assigns the next available marker address for flags inside the UDF. In [product_name] version V8.0, addresses of special flags were included as well. From [product_name] version V8.1 or V8.1.1 onward, these special flag addresses are no longer used."
+    },
+    {
+      "comment_id": 372353745997820,
+      "user_name": "3Y4o34xeZj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thanks for your response. Is there any official documentation such as changelogs, manuals, or announcements about this topic? If it exists, could you share a link or reference for future use? That would be helpful. Also, does this behavior apply across different UDFs? For example, if MyUDF1 and MyUDF2 both use M1, and we create two instances of each (MyUDF1a, MyUDF1b, MyUDF2a, MyUDF2b), how will the marker numbers be assigned? Will they be distinct for each instance (e.g. M1 and M2 for MyUDF1 instances, M3 and M4 for MyUDF2 instances) or will the numbers repeat across different UDFs? In short, do I need to worry about flag numbering across UDFs, or does [product_name] handle everything automatically? Clear documentation about automated flag assignment would be greatly appreciated. Thank you for your help."
+    },
+    {
+      "comment_id": 839029229281955,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "No official statement from [company_name] exists on this topic. They tend to avoid addressing such details publicly, and users often discover these behaviors incidentally. For illustration: If MyUDF1 and MyUDF2 both contain M1, and no markers have been used yet in the program, then adding MyUDF1 first assigns it M1, and adding MyUDF2 next assigns it M2. If marker M1 is already used, then inserting MyUDF1 assigns M2, while MyUDF2 is assigned M3. The software automatically manages marker addressing."
+    },
+    {
+      "comment_id": 642251950098485,
+      "user_name": "3Y4o34xeZj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "It’s disappointing, given that [company_name] generally seems committed to comprehensive documentation, considering their extensive library. Perhaps submitting a support ticket could prompt them to add this important information. Thanks for your assistance."
+    },
+    {
+      "comment_id": 835924194763248,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Users have previously expressed frustration that [company_name] struggles to publish bug fixes promptly. It's unlikely that this situation will change soon."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are uncertain about how flag assignment works in UDFs within [product_name]. A lack of official documentation on automatic flag numbering for multiple UDFs or instances leads to confusion about potential marker conflicts and impacts user confidence. The absence of clear information makes designing complex programs more challenging.",
+    "user_expectations": "Users want clear and official documentation explaining how automatic flag assignment operates, ensuring predictable behavior and reducing the need for manual conflict management when deploying multiple UDFs and instances.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "predictable flag assignment",
+      "no marker conflict between UDFs",
+      "official documentation"
+    ],
+    "pain_keywords": [
+      "lack of documentation",
+      "uncertainty",
+      "manual conflict management"
+    ],
+    "feature_keywords": [
+      "automatic flag assignment",
+      "UDF marker management",
+      "documentation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "24": "Data Integrity Concerns"
+  }
+}

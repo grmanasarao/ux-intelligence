@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "3259520140",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 798876340670016,
+      "user_name": "pnxNoFMFfM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I'm trying to connect an analog signal (4-20 mA or 0-10 V) to both a [product_name] controller and a Microcom DataLogger. Is parallel connection possible, or do I need an additional module? Thank you"
+    },
+    {
+      "comment_id": 834562184999953,
+      "user_name": "6yg29V044Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Have you considered using a software-based data logger offered by AUTEM (PLC ANALYZER)?"
+    },
+    {
+      "comment_id": 824490101692994,
+      "user_name": "pnxNoFMFfM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "I'm not familiar with that software, but I need the DataLogger to send SMS via GPRS."
+    },
+    {
+      "comment_id": 121489613760836,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name]! For 0-10 V or 0/4-20 mA analog signals, you generally cannot measure them with two different devices (analog inputs) connected in parallel. The internal resistor networks within the devices convert current signals to voltage signals before analog-to-digital conversion, which can cause interference when connected in parallel. Instead, with your [product_name] controller, it makes sense to use the signal as an input, and then, via the program, branch that input directly to an output (or possibly through an analog amplifier with a gain of 1). By adding an analog output module, you can send the untouched signal to the second measuring device or analog input. This is my best suggestion — since you already have the [product_name] controller, it's more straightforward to add an analog output module than to seek a special signal splitter. This gives you a secondary output for other purposes, and you can handle all signal manipulation inside the [product_name] programming software, which is quite user-friendly."
+    },
+    {
+      "comment_id": 765493990825005,
+      "user_name": "pnxNoFMFfM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 9,
+      "comment_body": "Thank you [user_name], that's very helpful. I suspected it wouldn't be possible to do this directly. Is the analog module [article_no] the correct one?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users want to connect a single analog signal to both a [product_name] controller and a third-party DataLogger but aren't sure if parallel connection is possible or if it needs extra modules. The conversation clarifies that direct parallel connection isn't viable because of analog input design, and proposes using a [product_name] analog output module as an intermediary solution.",
+    "user_expectations": "The user expects to connect one analog sensor to two devices at the same time, ideally without needing additional modules or complex solutions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parallel sensor input",
+      "signal sharing",
+      "SMS alerting",
+      "data logging"
+    ],
+    "pain_keywords": [
+      "cannot connect in parallel",
+      "hardware limitation",
+      "need signal splitting"
+    ],
+    "feature_keywords": [
+      "analog input/output",
+      "SMS via GPRS",
+      "data logging",
+      "analog module"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

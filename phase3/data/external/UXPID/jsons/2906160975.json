@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "branch_id": "2906160975",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 308154525750725,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello, I have a question about my final exam project using [product_name] software [version_no]. I built a circuit with an amplifier and PT100 sensor (see attached figure) that outputs 0–10 V corresponding to 0°C–300°C. I want to display this value on a PLC and add timers and other components. My board has 2 outputs, and I'm unsure how to connect them to the analog inputs of the PLC. Measuring voltage requires two wires, but I can't find a suitable solution for my setup. Temperature changes due to the RTD sensor resistance, but I'm unable to represent this properly on the PLC due to the two board outputs. Any advice would be appreciated. Thank you."
+    },
+    {
+      "comment_id": 377839061735881,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Which version of [product_name] PLC are you using? Please provide the complete [article_no]."
+    },
+    {
+      "comment_id": 378041288030767,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "[product_name] 12/24 RC [article_no]"
+    },
+    {
+      "comment_id": 772579942741194,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Connect the GND of your circuit to the M terminal of the power supply. Attach the first output from your board to I7 (AI1) and the second output to I8 (AI2)."
+    },
+    {
+      "comment_id": 687847862643281,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Thank you."
+    },
+    {
+      "comment_id": 525630193561707,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "I tested it today—it measures temperature, but the readings are inconsistent. Sometimes it shows the correct value (~110°C), but then both values suddenly jump to 150°C, then drop to 0°C, and begin rising back to the actual temperature. This cycle repeats. Any suggestions for getting accurate, continuous temperature readings?"
+    },
+    {
+      "comment_id": 146618557018817,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Are you certain that the issue isn't with your measurement circuit?"
+    },
+    {
+      "comment_id": 711947110655554,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "When I connect the output to a multimeter, it shows a voltage from 0–10 V (0–300°C) as I heat it, so I doubt the circuit is causing the problem."
+    },
+    {
+      "comment_id": 821242239528543,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Is the wiring correct? Are the wires under the terminals without insulation? Are the terminal screws tightly secured? It's hard to be sure without seeing it firsthand."
+    },
+    {
+      "comment_id": 968523020642470,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "The wires are properly placed under the terminals without insulation, and the screws are tightened."
+    },
+    {
+      "comment_id": 165987245306362,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 422554021235876,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 710218502262442,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "What should I be looking for in this small image?"
+    },
+    {
+      "comment_id": 423129772407878,
+      "user_name": "k9yDV7pi6a",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "It's a regular image, but it appears small due to the webpage formatting. I think I will proceed without the PLC, as I don't see another solution. Thank you for your time."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing unreliable temperature measurements when connecting an external amplifier and PT100 sensor to analog inputs of a [product_name] PLC. Although guidance on wiring is given, the central issue occurs during operation: the displayed temperature readings fluctuate unpredictably on the PLC, despite stable sensor output confirmed by a multimeter. This leads to uncertainty as to whether the problem lies with wiring, the external circuit, or the PLC's analog input, making the measurement appear unstable and the device performance questionable.",
+    "user_expectations": "The user wants the [product_name] PLC's analog inputs to provide consistent and precise temperature readings matching the measured voltages observed via multimeter. They are looking for clear instructions for correct wiring and continuous, accurate data acquisition with the PLC.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate measurement",
+      "real-time monitoring",
+      "easy sensor integration"
+    ],
+    "pain_keywords": [
+      "fluctuating readings",
+      "unreliable display",
+      "difficult troubleshooting"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "temperature measurement",
+      "input stability"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

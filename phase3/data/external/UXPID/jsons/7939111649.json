@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "branch_id": "7939111649",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 504438278826502,
+      "user_name": "1HmbRaOUpo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "Hello [company_name] Support Team, I am working on integrating a [company_name] [product_name] (version [version_no]) with an MQTT cloud service. The PLC correctly receives values or commands sent from MQTTX when I declare a variable named \"edge_command_k\" that accepts 0 or 1 as inputs, provided the JSON format includes { \"payload\": [ { \"state\": { \"edge_command_k\": { \"value\": [1] } } } ], \"command_name\": \"TurnOnLight\", \"correlation_id\": \"abc123\" }. In this structure, the inclusion of the \"state\" key appears necessary for the PLC to recognize and process the command. However, if I send the message in the format { \"payload\": [ { \"edge_command_k\": { \"value\": [1] } } ], \"command_name\": \"TurnOnLight\", \"correlation_id\": \"abc123\" }—which omits the \"state\" keyword—the PLC does not parse or accept the value. Is there a way to configure the PLC to read inputs without requiring the \"state\" keyword, or are there alternative solutions? Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered a limitation when connecting a [product_name] PLC to an MQTT cloud service. The PLC only processes variable values in JSON payloads if the structure includes a 'state' key; omitting it causes the message to be ignored. This impacts how flexibly messages can be crafted for cloud integration.",
+    "user_expectations": "The user expects the [product_name] PLC to parse and accept input values from MQTT messages regardless of whether the JSON payload includes the 'state' keyword, aiming for more flexibility in their integration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "JSON flexibility",
+      "easy cloud integration",
+      "automation command"
+    ],
+    "pain_keywords": [
+      "strict JSON requirements",
+      "input not accepted",
+      "integration limitation"
+    ],
+    "feature_keywords": [
+      "JSON parsing",
+      "MQTT integration",
+      "input mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

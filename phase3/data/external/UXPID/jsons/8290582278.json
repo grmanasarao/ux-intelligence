@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "8290582278",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 263536774930811,
+      "user_name": "mA4JBzpkTV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Hello, I set up a [product_name] webserver, and it works reliably until there's a power cut. Whenever the power goes out, all values entered through the webserver are erased and have to be entered again. I want these values to be stored persistently. In the attached image, you can see where I enter the values in the block marked in red. Another image shows my [product_name] program and how I'm using that value."
+    },
+    {
+      "comment_id": 943032864399019,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], welcome to the forum. The VM memory in the [product_name] isn't protected against power loss. Setpoints should be stored in a parameter of an arithmetic function, rather than as a network input. If values from a remote device (like the webserver) are written to this parameter, the [product_name] saves them in flash memory. To make this work, transfer the value to this parameter using parameter-VM-mapping: go to Tools > Parameter-VM-Mapping."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have noticed that the [product_name] webserver removes all user-entered values after a power interruption, which leads to inconvenience and extra manual effort. There's a lack of clarity about which types of data are automatically retained by the system and which require extra configuration for persistence. Confusion stems from unclear processes for ensuring data retention.",
+    "user_expectations": "Users expect that all values they input or change using the [product_name] webserver will be automatically saved and preserved after power outages, with no need for repeated manual entry.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic value retention",
+      "persistent configuration",
+      "remote control stability"
+    ],
+    "pain_keywords": [
+      "value loss after power failure",
+      "manual re-entry required",
+      "lack of persistence"
+    ],
+    "feature_keywords": [
+      "memory retention",
+      "parameter storage",
+      "webserver input mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "4224879193",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 606949092194449,
+      "user_name": "1ybaouBjq2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I have a [product_name] [article_no], and I'm using [product_name] [version_no]. I want to update parameters such as TL/TH of the asynchronous pulse generator dynamically via Python code, using a PC connected through Ethernet. I've tried sending data with the Python snap7 library. My connection looks like: plc.connect(\"192.168.0.5\", 0x0300, 0x0200). If plc.get_connected() is true, it logs as connected. For example, plc.write('V1104.0', 1) writes a value to the first digital mark, and plc.write('VW1118', 32767) writes an integer to the first analog mark. These work, but don't correspond to the parameter memory locations I used. I've assigned direction=0 to the TH parameter and direction=2 to the TL parameter in the Variable Mapping table, but I need to know how to determine the memory position for addresses 0-849 in the Variable Mapping assigned to TL/TH, or how to update the parameters dynamically via Python and Ethernet. Thanks a lot."
+    },
+    {
+      "comment_id": 360509543183803,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Hi, With V0.0 you start the pulse generator. V0.0 is also included in VW0 according to your variable mapping table. You could change your mapping to VW2 and VW4, or use V5.0 instead of V0.0 for instance. Hope this helps."
+    },
+    {
+      "comment_id": 908448389092762,
+      "user_name": "1ybaouBjq2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Yes, I get that, but in Python, which memory addresses do I use related to the 0-849 range? For example, plc.write('V1104.0', 1) writes to the first digital mark, and plc.write('VW1118', 32767) writes an integer to the first analog mark. These use 1104 for digital marks and 1118 for analog marks, as shown in the attached table. But what about using the 0-849 addresses from the mapping table? I want to write into these positions (memory addresses, not marks) to update parameters dynamically. Thanks a lot."
+    },
+    {
+      "comment_id": 290905897471643,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "[product_name] provides 850 bytes of VM-mapping memory, equivalent to 425 words or 6800 bits. Could you clarify what you mean by \"write one of the 0-849 positions\"? If you're trying to send a value from Python to [product_name], write it to the appropriate address, depending on data format. For bits, the valid range is V0.0 to V849.7; for bytes, VB0 to VB849; for integers, VW0 to VW848. Be cautious about overlapping addresses. For instance, writing 100 to VB0 and setting V0.0 to \"1\" will affect the value in VB0, since V0.0-V0.7 are part of VB0. Here's an explanation from the software help. Hope this helps."
+    },
+    {
+      "comment_id": 173852201878412,
+      "user_name": "1ybaouBjq2",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Dear [user_name], Initially I tried writing to V0 and similar addresses but encountered errors, mostly due to a combination of issues. For this to work, several things had to align: Python code, timing of the connection, network settings, uploading the latest model version to [product_name], and finally testing live instead of in simulation. Following [user_name]'s advice confirmed my approach to writing within V0 to V849 for variable mapping, and completing the previous steps methodically made it work. As a beginner, I've learned a valuable lesson after working with the system for just a week. Thanks, [user_name] and the support community."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants explored how to dynamically change [product_name] PLC parameters (such as TL/TH of a pulse generator) using Python over Ethernet. The primary challenge was understanding the variable mapping table, especially the correct memory addresses in the 0-849 range, which were complicated by overlapping bit, byte, and word organizations. The solution required both technical clarification and adjustments in code, network configuration, and testing procedures, resulting in successful parameter modification.",
+    "user_expectations": "Users want straightforward access to [product_name] memory addresses from Python to control PLC parameters dynamically and reliably via Ethernet. They look for clear documentation and a simple mapping between variable addresses and hardware parameters to prevent confusion or mistakes during implementation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dynamic PLC parameter control",
+      "real-time Python integration",
+      "reliable Ethernet connection"
+    ],
+    "pain_keywords": [
+      "memory address confusion",
+      "documentation gaps",
+      "network/configuration alignment"
+    ],
+    "feature_keywords": [
+      "variable mapping",
+      "Ethernet communication",
+      "Python integration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

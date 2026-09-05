@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "branch_id": "8350343413",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 881321425361915,
+      "user_name": "9ciG9Lv3g3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello, I need assistance with data transfer from [product_name] via MODBUS TCP/IP to a PC. I've managed to place both the PLC and PC on the same network and identified the correct MODBUS address for the [product_name], but I'm unsure how to verify if my MODBUS requests to the PLC are accurate. Could someone help me create a test program for the PLC and explain how it stores incoming analog or discrete data? This is a training project for me. I've read the documentation, but couldn't find an answer and hope someone here can clarify."
+    },
+    {
+      "comment_id": 424452288275992,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I've performed a test using [product_name] and a generic MODBUS client from another company. In this setup, [product_name] acts as the server, while the generic client tool operates as the client."
+    },
+    {
+      "comment_id": 627799566453187,
+      "user_name": "9ciG9Lv3g3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thank you for your response! Unfortunately, I'm unable to open your program."
+    },
+    {
+      "comment_id": 193148105948569,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Your screenshot doesn't provide enough information. Which version of [product_name_software] are you using?"
+    },
+    {
+      "comment_id": 983616113583343,
+      "user_name": "9ciG9Lv3g3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 266996442580855,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello, I checked my [product_name_software] file, and you're correct—there's nothing displayed in the diagram. Sorry about that. I’ve created a new diagram and updated the attachment in my previous post."
+    },
+    {
+      "comment_id": 746456142417565,
+      "user_name": "9ciG9Lv3g3",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thank you so much for your help! I now have your program. Could you help further by explaining the address handling in [product_name]? Am I correct in thinking that the Variable Memory Configuration table is used to store incoming values? Is it also used for reading data from [product_name]'s memory, and how does this differ from the MODBUS table? Also, if [product_name] receives a signal from a sensor, to which registers can I access this data using MODBUS functions—specifically, those matching the I input?"
+    },
+    {
+      "comment_id": 146310544943255,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "The VM memory allows data exchange between [product_name] and other devices, such as MODBUS devices, HMIs, and apps. In other PLC environments, VM memory is similar to a data block, but for [product_name], it's not retained after a power loss. VM addresses in your program correspond to specific MODBUS registers, as does the I/O of [product_name]."
+    },
+    {
+      "comment_id": 635791398966004,
+      "user_name": "9ciG9Lv3g3",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "My device is a PC. Am I right that, to read the Q value in your example, I should use MODBUS function code 0x01 to request data from register 8193? This register address is listed in the [product_name] MODBUS configuration."
+    },
+    {
+      "comment_id": 776065625373084,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Yes, that's correct. In the German-speaking [company_name] forum, a user has kindly uploaded an Excel sheet that details the correspondence between [product_name] addresses and MODBUS registers."
+    },
+    {
+      "comment_id": 204487624562382,
+      "user_name": "9ciG9Lv3g3",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "When receiving data, I'm confused by the results: - Using MODBUS function 0x01 on register 8193 gives me a 'false' value, - The same function on register 1 gives me 'true' when Q = off and 'false' when Q = on, - When Q = on, register 2 reports 'true'. Is this correct behavior?"
+    },
+    {
+      "comment_id": 970645007318454,
+      "user_name": "8RYb477Ela",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Depending on whether your MODBUS client starts at address 0 or 1, you should use 8192 or 8193 for output Q1. Registers 0(1), 1(2), 2(3), etc. correspond to virtual memory areas V0.0, V0.1, V0.2, and so on. Based on your virtual mapping, the bits you get may vary and could also be part of an integer value. Regards, [user_name]"
+    },
+    {
+      "comment_id": 907497872498953,
+      "user_name": "9ciG9Lv3g3",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Thank you for your reply. The more I investigate, the more questions arise. Is it correct that I can only reference the virtual memory area, and only after saving the I or Q value there via the [product_name_software] program? My goal is to collect data from [product_name] on a PC for analysis and storage. As someone experienced with software development but new to working with PLC hardware, could anyone guide me on the best way to achieve this? Would using the snap7 protocol be a better solution?"
+    },
+    {
+      "comment_id": 579395199298516,
+      "user_name": "8RYb477Ela",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "You can read data from [product_name] using either the snap7 S7 protocol or a MODBUS client/server setup. The MODBUS table lists all addresses and function numbers you’ll need to retrieve status information. After configuring [product_name] as a server, your PC client can directly access Ix, Qx, Mx, AIx, AQx, and AMx using the correct table reference. Depending on whether your MODBUS client starts at 0 or 1, use 8192 or 8193 for Q1. The virtual memory (VM area) is a general-purpose user memory block. It’s used to map networked inputs/outputs and analog signals, especially when multiple [product_name] units are connected. Analog values, timers, and counters can also be mapped here for access from another [product_name] or PC. You must manage mapping carefully to avoid overlap of bits, bytes, or words in the VM area. For more information, search this and the German forums for “Modbus.” Regards, [user_name]"
+    },
+    {
+      "comment_id": 767349467219159,
+      "user_name": "mDcut1Oit1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], which PHP library are you using to communicate with [product_name]?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing difficulties testing MODBUS TCP/IP communication between [product_name] and a PC, particularly in understanding memory/register mapping and the distinction between variable memory and MODBUS tables. The available documentation did not provide enough practical detail. The main challenge is in interpreting data flow and memory structure when using MODBUS, with a lack of hands-on resources or examples to validate correct data exchange.",
+    "user_expectations": "The user is looking for clear instructions on how [product_name] handles and presents data over MODBUS, practical tools or example programs to confirm correct data exchange, and easy-to-understand resources explaining register mapping for both analog and discrete data.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "verify data transfer",
+      "understand memory mapping",
+      "successful MODBUS communication"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "confusing register mapping",
+      "inability to test"
+    ],
+    "feature_keywords": [
+      "Variable Memory Configuration",
+      "MODBUS TCP table",
+      "I/O register access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

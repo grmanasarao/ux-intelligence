@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "7242730249",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 723784589645192,
+      "user_name": "JMywOwHns4",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 10,
+      "comment_body": "Hello! I am wondering if the AM2 PT100 module has issues at a 50 meter distance. Knowing a solar element is being used gives me some confidence. I do not understand why the maximum cable length depends on [product_name], as it should be determined by the cable's environment. How does [product_name] affect the max cable length? Split from pt100 cable length discussion."
+    },
+    {
+      "comment_id": 874216901343765,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 11,
+      "comment_body": "Hi, [product_name] only supports Pt100 sensors in a 3-wire configuration. To eliminate wire resistance more effectively, a 4-wire connection is preferable. Extending cable length will impact measurement values. You can try increasing the length and observe the changes."
+    },
+    {
+      "comment_id": 439061046258151,
+      "user_name": "JMywOwHns4",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 11,
+      "comment_body": "Hello! Isn't the cable resistance compensation in a 3-wire setup sufficient? You can also eliminate the cable resistance effect by programming an offset to correct it."
+    },
+    {
+      "comment_id": 740342155024753,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name]! Typically, a 3-wire Pt100 connection is adequate for minimizing lead resistance, although there are practical limitations. Within the AM2 PT100 or RTD modules, a Wheatstone Bridge configuration is used along with a microcontroller to handle calculations and compensation per sensor channel. The sensor acts as a resistor forming part of this bridge, and the controller adjusts for resistance changes to maintain balance. The resulting small signals are then passed to [product_name]. If your wiring runs through harsh conditions with substantial temperature changes, the lead resistance may exceed what the internal controller can compensate for and you may get incorrect readings. Since lead resistance is influenced by temperature, conductor size, and length, consider using thicker wires for longer runs, as you cannot control the temperature gradients along the cable. As another user said, it is worth testing with your specific setup to determine what result you get."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are examining how cable length impacts temperature readings when using a [product_name] analog module for PT100 sensors. The main issue is the stated dependence of maximum cable length on the [product_name] system instead of just environmental conditions. Users explain that internal technical constraints, such as the required 3-wire configuration and inbuilt compensation mechanisms, play a significant role in defining cable length limitations beyond just external factors.",
+    "user_expectations": "The user expects that cable length restrictions should be based primarily on environmental conditions, not dictated by product-specific technical constraints. There is an assumption that 3-wire compensation should suffice, and the user questions why internal technical limitations matter.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate temperature measurement",
+      "flexible installation",
+      "clear technical guidelines"
+    ],
+    "pain_keywords": [
+      "cable length limitations",
+      "signal inaccuracy",
+      "compensation limitations"
+    ],
+    "feature_keywords": [
+      "cable resistance compensation",
+      "3-wire configuration",
+      "internal microcontroller compensation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

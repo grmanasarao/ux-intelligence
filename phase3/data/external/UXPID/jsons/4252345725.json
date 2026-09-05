@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "branch_id": "4252345725",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 798012092367680,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "[user_name], could you assist me? I need a setpoint for controlling interior temperature. This setpoint is dual channel with KNX, and I require an initial value after startup from [product_name], as well as the ability to adjust it via KNX. My setup follows the attached scheme. I've tried using a mathematical function and mapping VW0 to parameter V1, but I can't assign VW0 directly because V1 feeds into VW0 and not the reverse. Where is my mistake? Is there a recommended approach?"
+    },
+    {
+      "comment_id": 397283086065830,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "You cannot use VW0 as both a network input and output simultaneously. This is not supported. Try using an analog multiplexer instead. See the attachment for guidance."
+    },
+    {
+      "comment_id": 511275462929908,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "It works now—after the first cycle, VW0 gets its initial value from B021 and I can read it via KNX (and MODBUS as well). Thank you! Do you think my overall setup is correct?"
+    },
+    {
+      "comment_id": 300011475174119,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Without specific details about what your program needs to accomplish, I can’t give a definite answer. I focused on solving the particular issue you raised in your initial question."
+    },
+    {
+      "comment_id": 564136946817254,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "My goal is heat control for indoor temperature using a setpoint that can be adjusted via KNX or other systems. The temperature reading comes from an analog input, there’s a 1°C hysteresis, and a nighttime shift increases the setpoint by 4°C. The initial setpoint value comes from [product_name]."
+    },
+    {
+      "comment_id": 668865096771674,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I solved the issue. It turns out that mapping VM as a parameter for the mathematical instruction does not behave correctly during simulation, and changing VM does not update the corresponding parameter (such as V1). However, it works as intended on physical hardware."
+    },
+    {
+      "comment_id": 478185052524438,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "In simulation, you can set VM values using a data table. See the attachment for instructions."
+    },
+    {
+      "comment_id": 512618804133249,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I tried that—after setting my value, it reverted to the parameter’s value. But on actual [product_name], it works as expected."
+    },
+    {
+      "comment_id": 778995498111734,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "When I run your program in simulation, I am able to modify the VM value without issues."
+    },
+    {
+      "comment_id": 540116959527684,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Oh! Could you try with my setup? I’m having trouble finding what’s wrong."
+    },
+    {
+      "comment_id": 330627708551876,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "If you specify the error you’re experiencing, I might be able to help you identify the problem."
+    },
+    {
+      "comment_id": 420027333762203,
+      "user_name": "VDyvVz2mzc",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "The issue persists—I still cannot set the VW0 value."
+    },
+    {
+      "comment_id": 760068138743471,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I see what you mean now. You have linked parameter V1 of the mathematical function to VW0, which prevents writing to VW0 via the data table during simulation—it only allows reading. In this situation, VW0 can be written only remotely, or through a [product_name] display. That’s why it works on real hardware but not in the simulation environment."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "This discussion centers on configuring an interior temperature setpoint using KNX and a [product_name] controller. Users encountered differences in behavior between simulation and actual hardware, especially with parameter mapping for mathematical instructions and VM variable control. There is confusion about network input/output handling and how simulation software fails to mimic real hardware responses, impacting reliable pre-deployment testing.",
+    "user_expectations": "Users expect that parameter mapping and mathematical instructions for setpoints will behave identically in simulation and on real hardware, allowing seamless testing and adjustment from KNX or similar systems prior to deployment.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable simulation",
+      "remote setpoint adjustment",
+      "initial value setting"
+    ],
+    "pain_keywords": [
+      "simulation inconsistency",
+      "parameter mapping confusion",
+      "network input/output conflict"
+    ],
+    "feature_keywords": [
+      "setpoint control",
+      "KNX communication",
+      "simulation of VM mapping",
+      "dual channel input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "12": "Network Configuration Challenges"
+  }
+}

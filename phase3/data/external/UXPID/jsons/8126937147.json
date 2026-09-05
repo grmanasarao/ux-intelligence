@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "branch_id": "8126937147",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 968912123963219,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], I'm trying to access the m13 and m15 bits shown in the attached image via Modbus Poll, but I'm unable to retrieve this data. Could you clarify which address I should use to read this information?"
+    },
+    {
+      "comment_id": 654404113566687,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "You have [product_name] acting as the server, and the Modbus device as the client. Instead of reading, you should write from coil 13 to M13 and from coil 15 to M15. Pay attention to the direction indicated by the arrows in the Direction field."
+    },
+    {
+      "comment_id": 470787106600249,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], I've made some updates. Now, I need to control M variables in the program using the Modbus device. Is it preferable to use network input rather than M variables? I can read and write other variables without issues."
+    },
+    {
+      "comment_id": 741691503792606,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Here's how the program is structured. Which approach would be best for receiving 1-bit signals via Modbus? I used M variables previously at my previous workplace and found it straightforward."
+    },
+    {
+      "comment_id": 689808358764992,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "In my view, it's better to use addresses from the V range, and then read these as network inputs in local memory."
+    },
+    {
+      "comment_id": 571212841643016,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Good morning [user_name], Thank you for your suggestions. I've applied network input as advised. Do you think this will work? Why is local variable memory recommended? Is it necessary to configure as a remote device? I'm receiving this data from another network device via Modbus protocol."
+    },
+    {
+      "comment_id": 340412963422000,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "No, it's not required to be a remote device—just use local variable memory (VM). Refer to the example for DI30 on the Modbus device."
+    },
+    {
+      "comment_id": 531662300235838,
+      "user_name": "cZQANX744b",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hi, I also agree with the method [user_name] described. A quick question: If this doesn't work, why set up such a large data table and program? For testing, using a single coil and a smaller program is simpler. I am unsure if you need an offset when transferring bits, so it's worth checking. Consider reducing the data table to two lines, for example: Test if the first line for coil 13 is correct, or if an offset like coil 14 is necessary. Also review your Modbus device settings and confirm if single bit transfers are supported; if not, send a byte or word and use the appropriate bit in your [product_name] program. Hope this helps."
+    },
+    {
+      "comment_id": 115871142196218,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thanks to you both. This is a large project: a fertilizing machine applies different quantities to various field sections, coordinated between a tablet and PC. The program manages speed, area, quantity, actuator positions, open/close statuses, working width and time, remaining fertilizer, actuator commands, and GPS sensor data. As a result, the program is complex. All my data transfers work except for the on/off signals. I'll run another test and believe it will work. Thanks again."
+    },
+    {
+      "comment_id": 891505801537001,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I've dedicated a lot of time to this task. I can read all data from variable memory, using an increment of 1 for word data and 2 for dword data. The process is smooth, but I'm still unable to read or write network inputs (NIs). Could you provide a simple example? I need to be able to write/read NI or M variables. Is it possible without setting up the Modbus protocol? While reading and writing word and dword data works, getting stuck with NI and M data is frustrating."
+    },
+    {
+      "comment_id": 861074580001664,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "There is an example above illustrating how to read a bit from the V range using network input."
+    },
+    {
+      "comment_id": 234911612214423,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "What I needed to know was that the M field spans addresses 8257–8320. This allows modification without configuring Modbus. However, I'm unsure if this is always applicable."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is struggling to access single-bit M and network input (NI) variables over Modbus using [product_name]. While word and dword variables are readable via variable memory, accessing and modifying single bits like M13 and M15 is problematic. Advice suggests using local variable memory (VM) and network inputs (V range) for reliability. The user desires a straightforward solution for single-bit access and experiences confusion about data addressing, direction of coils, and bit offsets in Modbus setups. The technical challenge is in correctly mapping and configuring single-bit Modbus data for [product_name].",
+    "user_expectations": "The user expects to easily read from and write to single-bit variables (M, NI) via Modbus, as they can with word and dword variables. They seek clear Modbus address mapping guidance for bits and a simple configuration process that reflects their previous successful attempts. Prioritizing clarity and simplicity in operation is key for the user's needs.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "bit-level data reliability",
+      "clear Modbus addressing",
+      "easy variable mapping",
+      "operational automation"
+    ],
+    "pain_keywords": [
+      "unclear bit access",
+      "frustrating configuration",
+      "addressing offset confusion",
+      "incomplete documentation"
+    ],
+    "feature_keywords": [
+      "Modbus bit mapping",
+      "network input handling",
+      "single-bit read/write",
+      "local variable memory"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

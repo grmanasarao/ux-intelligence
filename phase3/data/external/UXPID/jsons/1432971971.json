@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "1432971971",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 180835365039696,
+      "user_name": "t2Clh27paD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm updating block parameters remotely using Modbus. If I enable this communication, I’m unable to initiate online testing—possibly because the blocks no longer match the project's default settings. If I disable the remote communication device, online test works immediately after transferring the project to the [product_name]. Afterwards, re-enabling communication shows that the values update correctly. It seems to be a bug that the software compares block parameter values to the project defaults when starting an online test. I believe only the circuit logic should be checked during this verification process. Software version [version_no], firmware [version_no]. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 514796739229870,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "If you feel this behavior is incorrect, you should contact [company_name] directly. Simply posting here in the user forum isn’t likely to resolve it. Submit a Support Request and communicate with [company_name] about this issue."
+    },
+    {
+      "comment_id": 215842336366621,
+      "user_name": "udO0a0woU9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "For online testing, the user diagram in both the [product_name] hardware and [product_name] programming software must be exactly the same. Otherwise, the software can’t technically reference the correct block values. However, exchanging data using Modbus TCP or S7 Communication is supported during online testing. With Modbus, you can exchange hold registers for analog values or I/O values."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user deals with a limitation in [product_name] programming software ([version_no]) where online testing requires the hardware's block parameters to match the project's default settings. This is seen as overly restrictive, since the verification checks parameter values instead of just circuit logic, impeding usability when parameters are changed remotely through Modbus.",
+    "user_expectations": "The user expects online test mode to work as long as the circuit configuration matches, even if parameter values have been updated remotely. They want online verification to permit access regardless of real-time parameter changes sent by Modbus.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless online test",
+      "parameter flexibility",
+      "remote parameter modification"
+    ],
+    "pain_keywords": [
+      "online test restriction",
+      "parameter comparison",
+      "manual workaround required"
+    ],
+    "feature_keywords": [
+      "online test",
+      "block parameters",
+      "Modbus remote update"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

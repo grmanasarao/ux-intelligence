@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "5248970908",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 658947980426367,
+      "user_name": "mQESSDMSv2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hello, I have a similar issue, so I'd like to describe my situation here. I'm using a [product_name] with [article_no] and an operator panel with [article_no]. The [product_name] is connected to a 4-20mA input from an ultrasonic sensor, powered by its own supply, to control motor speed based on product position. The operator panel allows selection of regulation mode. During bench testing, both the hardware and program worked without any issues. After installing in the production cabinet, the network input connecting the operator panel and [product_name] changes status randomly whenever the ultrasonic sensor is triggered, even with no external interference. We checked for EM interference but found nothing unusual. It’s confusing because grounding wasn’t used during bench testing, but all requirements have been met for production. Any advice or suggestions would be appreciated."
+    },
+    {
+      "comment_id": 820176962086185,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Is it possible that there's overlap in the VM memory area? Could you share the [product_name] program as a ZIP archive?"
+    },
+    {
+      "comment_id": 575811699393881,
+      "user_name": "mQESSDMSv2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Hi, Sorry for the long delay. Please see the attached program. Thank you. Regards, [user_name]"
+    },
+    {
+      "comment_id": 608910513552268,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "There seems to be an issue with overlapping addresses in the VM memory area. You assigned VW0 to the analog amplifier via VM mapping, but VW0 includes bytes VB0 and VB1. VB1 itself contains bits V1.0 to V1.7, so you can’t use V1.0 and V1.1 for digital network inputs in your program. Instead, assign V-bits V2.0 and V2.1."
+    },
+    {
+      "comment_id": 954045845467072,
+      "user_name": "mQESSDMSv2",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you."
+    },
+    {
+      "comment_id": 375004629038720,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "You're welcome. There is more information attached."
+    },
+    {
+      "comment_id": 671625978764358,
+      "user_name": "zMjuY8xKyz",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Thank you very much, [user_name]. This information was extremely helpful and solved my issue with overlapping VM memory area."
+    },
+    {
+      "comment_id": 494800239090644,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], welcome to the forum. Please note this is an English language forum; kindly write your future posts in English. Thank you, and I’m glad my advice helped."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user reported unpredictable network input behavior between an operator panel and a [product_name], noting that the issue only appeared after installing in production and not during bench testing. Investigation revealed a technical misconfiguration: overlapping memory allocation in the VM area of the [product_name] program. When explained, the user was able to resolve the problem by addressing the memory conflict.",
+    "user_expectations": "User expects stable and predictable network input status between the operator panel and [product_name] in production, consistent with results from bench testing. The user anticipates that following installation best practices should not create new technical problems.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable HMI-PLC communication",
+      "stable production behavior",
+      "predictable motor regulation"
+    ],
+    "pain_keywords": [
+      "random status changes",
+      "VM memory overlap",
+      "unexpected production issue",
+      "unreliable communication"
+    ],
+    "feature_keywords": [
+      "VM memory mapping",
+      "network inputs",
+      "analog input processing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

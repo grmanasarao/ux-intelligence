@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "branch_id": "8315616392",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 275995248204666,
+      "user_name": "1btG1HFGML",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello. I'm programming a lighting control system with both web-based and physical buttons. I need advice on enabling control from both sources. Attached is a single button scheme. Currently, only the physical or only the web button works, not both together. How can I make both web and physical control work simultaneously? Why does the NQ1 block prevent web control?"
+    },
+    {
+      "comment_id": 638820110020901,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "What is the intended meaning of this information?"
+    },
+    {
+      "comment_id": 653733636687388,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I noticed you updated your post. Using only a static signal from a web server along with a physical switch will not resolve your issue. You require dynamic signals, and the physical control should be a button. In [product_name] Web Editor, you can't generate dynamic signals directly; you must convert the static web signal into a dynamic signal within the [product_name] program. Would you like a sample configuration?"
+    },
+    {
+      "comment_id": 767348923466676,
+      "user_name": "1btG1HFGML",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you for the prompt reply. Yes, I would appreciate an example."
+    },
+    {
+      "comment_id": 548316732523337,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I've attached an example. To create a dynamic signal from a static web server signal, you need a network output with the same address and maintain it at 0 signal using a LOW block."
+    },
+    {
+      "comment_id": 411281192028590,
+      "user_name": "1btG1HFGML",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you. It works, but I want control from just one web button, not two. How can I achieve that?"
+    },
+    {
+      "comment_id": 329991235761501,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "There is only one web button. The second digital value is just to display the state of Q1."
+    },
+    {
+      "comment_id": 497710444105495,
+      "user_name": "1btG1HFGML",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Is it possible to use a single web button for control and also display its state?"
+    },
+    {
+      "comment_id": 768810985936404,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "No, that's not possible."
+    },
+    {
+      "comment_id": 475444251653112,
+      "user_name": "1btG1HFGML",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "That's unfortunate, but thank you for your assistance."
+    },
+    {
+      "comment_id": 983870537138529,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "I've found a workaround, but it still needs two digital values. The button (V1.0) is displayed using transparent images without text and positioned precisely over the display of Q1, in the foreground."
+    },
+    {
+      "comment_id": 399169805497155,
+      "user_name": "1btG1HFGML",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you for your help; I have also implemented a similar visual solution."
+    },
+    {
+      "comment_id": 804972982977208,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "This question might not be current, but my solution could help others. I used graphical layers, overlaying images so that the DigitalValue input is on top (writable), and beneath it is a DigitalValue lamp (non-writable). The input uses transparent images for its on/off states, while the lamp uses green and red images for indication."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are working to set up a lighting control solution that functions through both web and physical buttons, using [company_name] hardware/software. The main challenge is achieving simultaneous control—web signals are static, whereas physical buttons provide dynamic input. The system does not support a single web button for both control and state display in its current form.",
+    "user_expectations": "Users expect an integrated control system where one web button can both toggle the light and display its status, with seamless combined web and physical input functionality.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless control",
+      "synchronized input",
+      "single web button",
+      "state feedback"
+    ],
+    "pain_keywords": [
+      "web/physical button conflict",
+      "cannot combine control & state",
+      "signal limitation",
+      "static signal handling"
+    ],
+    "feature_keywords": [
+      "web button",
+      "digital value/state display",
+      "physical button input",
+      "dynamic signal"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

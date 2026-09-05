@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "branch_id": "3403293589",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 167776281081658,
+      "user_name": "UDVTNcyaIY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello, My company has purchased a [company_name] [product_name]: [article_no]. Using [product_name] [version_no], I am unable to transfer the program to the PLC over Ethernet. The computer IP is 192.168.0.2 and the PLC is 192.168.0.3. The error message states: 'IP address of the PC and [product_name] cannot be on the same subnetwork.' I cannot identify the issue. I can download the program to the PLC, but cannot upload the same program back. The goal is to deliver the program via Ethernet instead of using the SD card procedure. Transferring the program via SD card always works. Thank you for your support."
+    },
+    {
+      "comment_id": 412053324622109,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Welcome to the forum. Just to clarify, transferring a program from [product_name] to PC works, but not from PC to [product_name]? This problem and error message are new to me. Are both the PC and [product_name] using the same subnet mask (255.255.255.0)? Do you connect the PC and [product_name] directly, or via a router? Could either device’s IP address be assigned to something else in the network?"
+    },
+    {
+      "comment_id": 359598179323165,
+      "user_name": "UDVTNcyaIY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hello, I use a [product_name] program at a guard post to control barrier lifting. I connect directly to the PLC, and both devices have addresses on the same network. Laptop: 192.168.0.254, subnet mask 255.255.255.0, default gateway assigned. PLC: 192.168.0.2, subnet mask 255.255.255.0, gateway: 0.0.0.0. [product_name] shows errors like 'transmission failure' and 'no program in [product_name]'. I've set the PLC as [product_name] [version_no] in the network project and it connects to the PC successfully. I removed the default gateway in the properties. My computer runs Windows XP SP3, version 2002. I have files of other programs in progress (lsc format); bin files cannot be transferred in diagram mode."
+    },
+    {
+      "comment_id": 997010056935939,
+      "user_name": "yF7LjtgvEf",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 11,
+      "comment_body": "Hi, it seems your gateway is not configured correctly. The laptop's gateway is set to default, while the PLC gateway is 0.0.0.0. Since your network uses 192.168.0.x addresses, the PLC should have its gateway in that range. Try setting the PLC gateway to 192.168.0.0 and reboot to see if it resolves the issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face challenges sending programs from a PC to a [product_name] PLC over Ethernet, receiving confusing network error messages. Program transfer using an SD card works reliably, but Ethernet transfer fails despite confirming device configuration and network settings. Discussions highlight potential issues with IP addressing and gateway configuration, but system feedback remains unclear.",
+    "user_expectations": "Users expect straightforward, dependable Ethernet-based program upload/download between PC and [product_name] PLC, with clear guidance on network setup and meaningful error messages.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable Ethernet transfer",
+      "clear error diagnosis",
+      "smooth workflow"
+    ],
+    "pain_keywords": [
+      "network configuration error",
+      "unclear error message",
+      "Ethernet transfer failure"
+    ],
+    "feature_keywords": [
+      "Ethernet program transfer",
+      "network configuration",
+      "error messaging"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": [
+        "XP pack 3 version 2002"
+      ]
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

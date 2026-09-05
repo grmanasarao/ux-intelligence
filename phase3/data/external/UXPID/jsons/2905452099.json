@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "branch_id": "2905452099",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 889814131545953,
+      "user_name": "UEQxyeuUrY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "I am trying to create a simulation with [company_name] [product_name]. I wrote a program to increment and decrement data using timer and counter instructions. How can I store data in the 'cnt/counter'? I have attached a screenshot. Thanks to everyone."
+    },
+    {
+      "comment_id": 326569711570533,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Hello, perhaps this approach may help address your issue."
+    },
+    {
+      "comment_id": 227673155647584,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Move your mouse over the counter block, right-click, then go to Block Properties. At the bottom, check the 'Retentivity' box. That should solve it. Good luck."
+    },
+    {
+      "comment_id": 407756928530977,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name], the original poster has enabled the 'Retentivity' option at the bottom part of the window (as shown in the screenshot, with Rem = on)."
+    },
+    {
+      "comment_id": 260513615954077,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "A new question regarding [company_name] [product_name] PLC, specifically about password recovery, has been split into a separate discussion thread. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 653250555754020,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "To preserve counter values during power loss, activate the counter's retentivity feature. Note that if a new program is loaded onto the [product_name], counter values will reset to zero after restarting."
+    },
+    {
+      "comment_id": 710028783058893,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "I replicated your program and found no issues in the simulation ([product_name] V8.1). However, the program will not load to the device unless the output of the count block is connected to an X, M, or Q output. Bye. - [user_name]"
+    },
+    {
+      "comment_id": 236364597415076,
+      "user_name": "UEQxyeuUrY",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "I've enabled 'retentivity' on this block, but what I want is to save and send the value to the HMI. The HMI only displays an address for the image I marked. For sensor data (AI, AM), I can handle it, but I haven't figured out how to send the counter value from [company_name] [product_name] to the HMI. I've attached the related file."
+    },
+    {
+      "comment_id": 461143432583582,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Dear [user_name], it's important to clarify your question for better understanding. You asked about saving the counter value, but the intention wasn't clear. The value of a counter uses 4 bytes (32 bits) in DWord format. To transfer it to the HMI, move the counter value to the VM area, and then access it as VD (DWord in the VM area) on the HMI. Please see the attached example."
+    },
+    {
+      "comment_id": 888749199496831,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Hi, I've revised my diagram to show output routing to the analog output, flag, and output network. You can reference the counter value in other block parameters (as in my example with a mathematical calculation block). For the HMI panel to always display the value, ensure the mathematical block remains active."
+    },
+    {
+      "comment_id": 802840149522327,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Your example isn’t optimal. The counter value is a double integer (DInt) with DWord format (32 bits). Mathematical and analog output instructions can only process integer values. If the counter surpasses 32767, the mathematical block remains capped at 32767. Therefore, use the VM Mapping Parameter."
+    },
+    {
+      "comment_id": 500382768717000,
+      "user_name": "UEQxyeuUrY",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 4,
+      "comment_body": "Thank you, I’ll try again."
+    },
+    {
+      "comment_id": 959496106860498,
+      "user_name": "UEQxyeuUrY",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "@[user_name], I created a similar program to yours. In simulation, it works, but transferring it to [product_name] fails."
+    },
+    {
+      "comment_id": 204361775796857,
+      "user_name": "UEQxyeuUrY",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "@[user_name], I’ll try your program again. Thanks!"
+    },
+    {
+      "comment_id": 679208123870667,
+      "user_name": "UEQxyeuUrY",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "@[user_name], I developed a program inspired by yours, though not exactly the same. Thanks everyone, I’ve successfully explored the up/down counter instructions. The counter output only gives an 'open connector.' I'm now exploring [company_name] HMI to enhance the graphical display."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users working with [company_name] [product_name] often encounter difficulties saving and displaying counter values on HMI panels. While the retentivity option handles power outages well, changing or downloading new programs resets counter values, causing frustration over potential data loss. The process of linking the counter value to an HMI for real-time display is not straightforward and lacks clear documentation, making integration with HMI panels challenging for users.",
+    "user_expectations": "Users expect a straightforward, reliable method to save current counter values during power failures and transmit these values seamlessly to HMI panels for real-time visualization, as is possible with sensor data.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent value retention",
+      "real-time HMI display",
+      "easy data mapping"
+    ],
+    "pain_keywords": [
+      "unclear HMI integration",
+      "retentivity limitations",
+      "incomplete documentation"
+    ],
+    "feature_keywords": [
+      "counter value retention",
+      "HMI display mapping",
+      "VM area data transfer"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "22": "Usability Improvement Suggestions"
+  }
+}

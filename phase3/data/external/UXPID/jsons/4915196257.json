@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "4915196257",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 131337770460161,
+      "user_name": "s0a5w9A4Qh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "I'm trying to use an [product_name] with a PT100 sensor, but consistently reading -50 degrees. The simulation works correctly. The unused input also reads -50 degrees. My PT100 sensor seems fine when measured. I followed example procedures for connecting PT100."
+    },
+    {
+      "comment_id": 956071685583534,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "Hello, Ensure that the interlock slider is fully to the left. Connect the PT100 sensor as shown in the provided diagram. Which module do you have? If your system has onboard analog inputs, double-check that you are using the correct channels. It's recommended to bridge unused inputs with a resistor. Please check these points and update us if the issue persists. Regards, [user_name]"
+    },
+    {
+      "comment_id": 677956110786441,
+      "user_name": "s0a5w9A4Qh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "Regarding the interlock slider: I've confirmed it's fully left several times. For connecting the PT100: I used a 3-wire connection as advised. About the module version: I'm using a 12/24 [version_no], DM8 [version_no], and an [product_name] (oriented as described). Thank you for suggesting to check the onboard analog inputs; selecting AI5 and AI6 solved the issue. I had already bridged the unused input with a resistor. Thanks for your help. [user_name]"
+    },
+    {
+      "comment_id": 385578770510319,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "Hi, Please verify: + The slider on the expansion module should be set to the leftmost position. + The [product_name] needs to be powered. On the display, check the status of the analog inputs. Depending on your configuration, the PT100 sensor channel might differ from what you expect. If your main module is at the default position and the [product_name] is the first analog expansion, the sensor should be connected to AI3 or AI4. If it's configured for 4 onboard analog inputs, then use AI5 and AI6. If the [product_name] is not the primary expansion, check on the display or through manual inspection for the correct channel number. Consult the manual for more details on input channel mapping and module expansion. Hope this helps."
+    },
+    {
+      "comment_id": 627606459595100,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "@[user_name] Is the system working now? What was the issue? Please share your result."
+    },
+    {
+      "comment_id": 107119676867798,
+      "user_name": "s0a5w9A4Qh",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 9,
+      "comment_body": "The problem was resolved after changing to AI5 and AI6."
+    },
+    {
+      "comment_id": 934538968547404,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": ""
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered a situation where the [product_name] was consistently displaying -50 degrees for the PT100 sensor, while simulation mode worked as expected. The root cause was confusion about which analog input channels on the main module and the expansion module should be used, leading to incorrect channel selection and unexpected readings. Proper module setup, powering, and careful handling of unused inputs were also key factors for successful operation.",
+    "user_expectations": "Users expect the system to reliably read and show real-time temperature data from the PT100 sensor and want input channel configuration to be straightforward and clearly documented.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct temperature reading",
+      "sensor accuracy",
+      "hardware-software clarity"
+    ],
+    "pain_keywords": [
+      "incorrect input assignment",
+      "ambiguous channel configuration",
+      "unexpected sensor value"
+    ],
+    "feature_keywords": [
+      "analog input channel assignment",
+      "PT100 support",
+      "module configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

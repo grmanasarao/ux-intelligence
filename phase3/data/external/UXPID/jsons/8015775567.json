@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "branch_id": "8015775567",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 850064192963485,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Hello. We are working on a project using a [product_name] module, and some theoretical questions have arisen. I've experimented with User Defined Function (UDF) blocks and would like to share my observations. It appears that UDF blocks do not offer noticeable improvements in memory or processing efficiency, unlike code blocks used in standard PLCs. I invite feedback or alternative opinions. I created two test programs to compare results: [1] With two UDF blocks: - memory used: 96 / 8,500 - function blocks used: 8 / 400 - layout memory: 626 / 30,000 - UDF types: 1 / 16 - UDF instances: 2 / 64 [2] With equivalent function blocks but no UDFs: - memory used: 96 / 8,500 - function blocks used: 8 / 400 - layout memory: 1328 / 30,000 - UDF types: 0 / 16 - UDF instances: 0 / 64 In typical PLCs, defining and calling code blocks consumes resources, but reusing blocks is generally more efficient. This [product_name] module doesn't seem to follow that pattern. I conclude the benefit of UDF blocks is primarily for program structuring, aiding the designer but not impacting device resource use. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 696166376200506,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 2,
+      "comment_body": "Hello, You are correct—a UDF doesn't provide memory savings. UDF blocks: + help make your program structure clearer + allow commonly used functions to be reused rather than programmed repeatedly + can be password-protected so others can't access the code However, memory usage is not reduced. For example, if a UDF contains 10 function blocks and is used twice, 20 function blocks will be taken from [product_name] memory. Hope this clarifies things. Best wishes, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants noted that using User Defined Functions (UDFs) in the [product_name] module does not improve memory or processing efficiency as expected from typical code blocks in standard PLCs. UDFs consume memory equivalent to direct code duplication; their main advantages are related to program structure, code reuse, and protection rather than system resource optimization. Both users agree that the primary value of UDFs lies in organizational benefits rather than resource savings.",
+    "user_expectations": "The user initially expected that applying UDFs in the [product_name] module would offer similar memory or processing benefits as code blocks (FC/FB/subroutines) do in standard PLCs.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "code reusability",
+      "program structure",
+      "overview",
+      "password protection"
+    ],
+    "pain_keywords": [
+      "no memory advantage",
+      "no processing advantage",
+      "expectation mismatch"
+    ],
+    "feature_keywords": [
+      "User Defined Functions",
+      "function blocks",
+      "memory usage",
+      "program structure",
+      "code protection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

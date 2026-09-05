@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "branch_id": "5897361184",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 174244086383015,
+      "user_name": "GrH56bFu5k",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello, I'm trying to read a counter value from a [company_name] [product_name] PLC and send it to the dashboard using Node-Red. I've enabled communication through TSAP and set up absolute addressing correctly, as confirmed by online I/O status (see attachment). Controlling PLC inputs works fine. My question: where is the counter block’s value stored in the PLC and how do I access it? Should I connect it directly to the message payload or use a function node to format the message for Node-Red, so the dashboard can show the current counter value?"
+    },
+    {
+      "comment_id": 659901402214233,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "You should use VM mapping and assign the actual counter value to VD0, so you can retrieve the value via DBD1.DBD0. Refer to the attachment."
+    },
+    {
+      "comment_id": 649343313219704,
+      "user_name": "GrH56bFu5k",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I’ve already set up VM mapping and confirmed the connection is online in Node-Red, so the absolute address is verified. Now, I want to extract and send the counter value to the dashboard, but after connecting the S7 node to msg.payload, I only get zero, even though the counter has incremented. Is it correct to connect directly to msg.payload, or do I need a Function node for further processing? Please see the attachment."
+    },
+    {
+      "comment_id": 148414646529344,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I don’t think Node-Red uses a single variable for this. The value is a Double Word formatted as a Double Integer."
+    },
+    {
+      "comment_id": 377812857602943,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Sorry, I’m not familiar with Node-Red. Do you have other variables or inputs/outputs that are working or displaying correctly? Bits, bytes, words, or double words should display in a similar manner, only differing in length, such as DB1.X0.0, DB1.DBB0, DB1.DBW0, or DB1.DBD0. The actual counter value should be an unsigned double integer (32 bit) from 0 to 999999. Regards, [user_name]"
+    },
+    {
+      "comment_id": 297294609571577,
+      "user_name": "GrH56bFu5k",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "My input values work, and I can increment the counter from Node-Red, which confirms my addressing is correct. I think the issue is how Node-Red reads the counter value from the PLC—the payload always returns zero. It seems to be a Node-Red issue. Thank you for your help."
+    },
+    {
+      "comment_id": 400155686298442,
+      "user_name": "GrH56bFu5k",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I’ve tried both methods and got the same result."
+    },
+    {
+      "comment_id": 873372545957168,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "To resolve your issue, consider starting a topic in the '[product_name] IOT2000' forum and link it here."
+    },
+    {
+      "comment_id": 703816435993609,
+      "user_name": "yXCpVcmDVX",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 8,
+      "comment_body": "If you haven’t found it yet, note that the counter is stored as a DWORD, so the variable will be DB1.DINTxx, not DB1.INTxx (WORD). Here, xx corresponds to the address of the VM-mapped block."
+    },
+    {
+      "comment_id": 682115862158367,
+      "user_name": "tuLbKYc7ij",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Fill in as many relevant addresses as possible for Node-Red to access the [product_name]. The file in the archive is a .CSV type and can be imported into Node-Red. Hope this helps."
+    },
+    {
+      "comment_id": 779822837030679,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], The forum language is English. Please write your posts in English. Thank you."
+    },
+    {
+      "comment_id": 936574410306128,
+      "user_name": "tuLbKYc7ij",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "Simply use your browser’s translator."
+    },
+    {
+      "comment_id": 396945104892199,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 11,
+      "comment_body": "You have changed your username. Previously, I mentioned: Please write your posts in English—it's a matter of politeness. Otherwise, it might be considered rude."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are trying to connect a [product_name] PLC’s counter values to a Node-Red dashboard. While general I/O control and VM mapping address assignment appear correct, they are unable to capture and display the live counter value, usually due to data type or mapping mistakes. There is confusion over correct addressing (DWORD/Double Integer format) and consistent payload extraction, with values only reading as zero despite confirmed mappings.",
+    "user_expectations": "Users expect to seamlessly extract the live counter value from a [product_name] PLC and display it in Node-Red, using proper address mapping, without needing intricate error handling.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "live counter value",
+      "dashboard visualization",
+      "seamless integration"
+    ],
+    "pain_keywords": [
+      "counter value always zero",
+      "data type confusion",
+      "integration difficulty"
+    ],
+    "feature_keywords": [
+      "counter value extraction",
+      "VM mapping",
+      "DWORD handling",
+      "data type mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

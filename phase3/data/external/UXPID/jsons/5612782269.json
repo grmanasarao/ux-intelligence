@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "5612782269",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 815240373697961,
+      "user_name": "uM1FysbJ1m",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I observed that the default Modbus mapping on [product_name] allows a Modbus master to directly write to any I/O of the base module. Is there a way to restrict this? I want to prevent end users from directly controlling the module's I/O."
+    },
+    {
+      "comment_id": 685216253605039,
+      "user_name": "xDdPOoK441",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Is your [product_name] set as a slave? If so, isn't this standard behavior? Or is it in master mode? From my understanding, when in master mode you can't change any outputs modified by your program or simulate input changes; you can only read the current I/O status and modify the VM."
+    },
+    {
+      "comment_id": 420630790398954,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello, if someone is familiar with [product_name] and Modbus, they can set it up accordingly. If you want to stop others from editing the program on [product_name], make use of the password protection features. By default, Modbus isn't active on a new module—you have to configure the connection and specifically define which data (DI, coils, or registers) should be exchanged. Hope this helps."
+    },
+    {
+      "comment_id": 337942323652536,
+      "user_name": "uM1FysbJ1m",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "My aim is to prevent accidental or unauthorized changes to the circuit connected via Modbus. I want to block access to any registers that I haven't intentionally enabled, because otherwise an external device could directly change the I/O, which is a problem."
+    },
+    {
+      "comment_id": 374556699357798,
+      "user_name": "xDdPOoK441",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "As I mentioned before, in my tests, outputs shown in the program diagram are set as read-only by [product_name], and similarly any parameters tied to VM addresses become read-only. You might want to confirm whether outputs can be changed from your side. Inputs are mapped to Input Status (not Coils), making them read-only by design."
+    },
+    {
+      "comment_id": 287974609981561,
+      "user_name": "uM1FysbJ1m",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I ran experiments and noticed that when a digital output is tied to a program block, external writes from a Modbus master don't alter it. It seems that [product_name] gives priority to its internal logic over external commands. Earlier, I hadn't used these I/O points in my program and thought that an external Modbus write could change them. Thanks for the clarification!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members are focused on protecting the security and functionality of their [product_name] base modules when integrating Modbus communication. There's a concern that default Modbus settings might permit outside devices to directly modify I/O registers. The discussion clarifies some misunderstandings about Modbus permissions and highlights that proper programming and configuration can limit external control over critical I/O functions.",
+    "user_expectations": "Users want an easy and safe method to restrict Modbus master write access exclusively to chosen and pre-configured registers, making sure unauthorized devices cannot manipulate vital I/O elements.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "prevention of unauthorized access",
+      "secure configuration",
+      "control integrity"
+    ],
+    "pain_keywords": [
+      "security concern",
+      "unintended I/O manipulation",
+      "lack of explicit access restriction"
+    ],
+    "feature_keywords": [
+      "Modbus write access control",
+      "I/O assignment",
+      "program block protection",
+      "password protection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "6": "Security Concerns",
+    "24": "Data Integrity Concerns"
+  }
+}

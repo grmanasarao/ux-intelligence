@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "7602474923",
+    "thread_id": "4479534060",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 289523122170694,
+      "user_name": "yvxZG2YBAT",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hello, I have set up three [product_name] modules connected via Ethernet. One acts as the master, and the others as slaves to expand the available IOs. The complete program is on the master, and everything works as expected. I am now trying to add more digital and analog points on a slave. Although I'm well below the hardware limit for inputs and outputs on one slave (24 inputs, 16 outputs), I encounter an error in [product_name] programming software: \"Your configuration requires one additional data transfer to 192.168.0.21, but the maximum number of data transfer (32) has been reached.\" This happens when I configure the 32nd point on the slave, even though I expected a maximum of 40 (16+24). Has anyone experienced this or knows a solution? Thanks and greetings, [user_name]"
+    },
+    {
+      "comment_id": 985730056727292,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Hi, The maximum number of digital points you can configure is 64, but only 32 from one slave can be used. Hope this clarifies things."
+    },
+    {
+      "comment_id": 265479576168596,
+      "user_name": "yvxZG2YBAT",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 8,
+      "comment_body": "Thank you, [user_name]. I confirmed this limit through additional testing. One slave can only transfer the status of 32 combined inputs/outputs to the master. Is there any official documentation about this? Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discover that when configuring a master/slave Ethernet network using [product_name] modules and [product_name] software, there is a strict limit of 32 data transfers per slave—even if the hardware allows for more inputs and outputs. This software-imposed limit causes confusion and prevents users from utilizing all available IOs. The absence of clear documentation about this restriction leads to user frustration.",
+    "user_expectations": "Users expect to use the full hardware capacity per slave module and would like transparent documentation explaining any software or protocol-imposed limits.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "expand IO capacity",
+      "seamless scaling",
+      "clear operational limits"
+    ],
+    "pain_keywords": [
+      "unexpected IO transfer limit",
+      "lack of documentation",
+      "configuration blockage"
+    ],
+    "feature_keywords": [
+      "Ethernet master/slave setup",
+      "maximum IO data transfer",
+      "configuration error handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

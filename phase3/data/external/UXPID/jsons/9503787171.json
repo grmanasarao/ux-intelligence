@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "9503787171",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 393151540238720,
+      "user_name": "CEvTlstgZJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I've created a program using [product_name] [article_no]. I set up an alarm text to display when errors occur. When an alarm triggers, an alarm message appears. However, pressing the 'down' button causes the date and time window to pop up. Is there a way to prevent this window from appearing? Thank you,"
+    },
+    {
+      "comment_id": 637268166918864,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], Go to File > Properties in [product_name] [product_name]. Click on Parameter. You can find more detailed instructions regarding this issue in the user manual."
+    },
+    {
+      "comment_id": 721732871063577,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], The date and time display stays available in the background, even when other messages are shown. When displaying an alarm or other message, consider these steps: 1) Assign a higher priority number to your message (larger numbers mean higher importance). 2) In your message text function block parameters, set it to require acknowledgment before the message disappears, regardless of cursor keys pressed. 3) To keep a high-priority message continuously displayed, ensure the enable signal remains active. This can be managed by using a 'high' connector or by double-clicking the En input to invert it. Alternatively, you could design an RS latch to hold the En input until cleared by another action. If you just display the message without these configurations, pressing any arrow key will cycle through other active messages (by priority and status). If no additional messages are active, the next screen shown is the date and time. Using left/right buttons from this screen shows input, output, and analog states, eventually leading to the cursor input menu. Hope this clarifies things! All the best!"
+    },
+    {
+      "comment_id": 700849589421255,
+      "user_name": "CEvTlstgZJ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Thank you! [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges managing the behavior of the date/time window when alarm messages are shown with [product_name]. The system automatically transitions to the date/time screen if the down button is pressed after an alarm, reducing user control over message priorities and persistence. Solutions exist through configuration in [product_name], but this highlights the difference between user expectations and the standard screen navigation hierarchy.",
+    "user_expectations": "Users expect alarm messages to stay visible and not be replaced by the date/time window when pressing the down button. They prefer clear and simple options to keep critical message visibility until they are acknowledged.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent alarm display",
+      "message priority control",
+      "customizable UI behavior"
+    ],
+    "pain_keywords": [
+      "automatic date/time window",
+      "losing alarm message visibility",
+      "inflexible display switching"
+    ],
+    "feature_keywords": [
+      "alarm message persistence",
+      "message priority setting",
+      "acknowledgement requirement",
+      "screen navigation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

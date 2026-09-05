@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "5433392180",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 199548566314891,
+      "user_name": "jyIUKKNzky",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Hello, I'm experiencing an issue. I'm using a [product_name] [article_no] in a single project and it has been working fine. However, recently, without any project changes, I'm having trouble with output Q1. Roughly 1 out of 10 times when Q1 switches, it remains closed. Even if I turn off the 24V supply, Q1 stays closed. I suspect the relay could be damaged inside the [product_name]. If the contacts were stuck due to overload, I'd expect the problem to be permanent, but here, Q1 works again the next day and the issue recurs intermittently. The output controls a 20W LED lamp. Any suggestions? Thanks"
+    },
+    {
+      "comment_id": 284623184905936,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Consider checking out this [url]. It may offer some helpful information about how capacitive loads can be demanding for relay contacts."
+    },
+    {
+      "comment_id": 577322839751062,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "I'd recommend using a Solid State Relay (SSR) that switches at zero crossing to control the LED. The SSR could then be switched via the [product_name]."
+    },
+    {
+      "comment_id": 109501296812604,
+      "user_name": "SWseeItON6",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Can you clarify what is powering the LED? Is it AC or a constant current DC supply? Zero crossing detectors aren't effective if it's DC powered, as is often the case with LEDs. Could you provide more details?"
+    },
+    {
+      "comment_id": 524376574768265,
+      "user_name": "jyIUKKNzky",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "I suspect the issue lies elsewhere. Each [product_name] output is protected by a 6A fuse in series with the load, and all fuses are intact."
+    },
+    {
+      "comment_id": 880668654618929,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Could you specify the type and voltage of the LED? Is it 230VAC, 24VDC, or something else?"
+    },
+    {
+      "comment_id": 176800843365349,
+      "user_name": "jyIUKKNzky",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "I've attached a picture of the LED light and its driver. The output from the [product_name] switches 230V AC for two LED drivers (two lights) connected in parallel."
+    },
+    {
+      "comment_id": 286509677452003,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "LED lamps are particularly challenging for relay outputs because their inrush current can be dramatically high—a capacitive load. This can quickly deteriorate ordinary relay contacts. Search for \"Power-on surge limiter\" devices and consider adding one to your circuit. A relay output on a [product_name] has, according to its manual, a maximum surge current of 30A. Considering LED lamps can have inrush current many times higher, this poses a significant risk for relay outputs. I hope this helps."
+    },
+    {
+      "comment_id": 714958929927093,
+      "user_name": "jyIUKKNzky",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Are you certain the issue is the output relay failing due to overload? What are your options—should you replace the relay, or is there an alternative way to fix it? Thanks"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users discuss an intermittent problem where a relay output on a [product_name] remains stuck in the closed position, even after the power is shut off, though it resets by the next day. This occurs while switching LED loads without modifications to the project. Community responses suggest capacitive loads like LED lamps, which can create high inrush currents, may quickly wear out relay contacts, but it remains unclear if the root cause is hardware failure, incompatibility with the load, or circuit design issues.",
+    "user_expectations": "The user expects reliable switching of LED loads, with relay contacts operating correctly despite repeated use and current load setup, without sticking or malfunctioning.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable switching",
+      "consistent operation",
+      "hardware durability"
+    ],
+    "pain_keywords": [
+      "relay contacts sticking",
+      "inconsistent output",
+      "hardware degradation",
+      "inrush current"
+    ],
+    "feature_keywords": [
+      "relay output",
+      "inrush current handling",
+      "capacitive load compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "2": "Product Compatibility"
+  }
+}

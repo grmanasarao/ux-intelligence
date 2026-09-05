@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "branch_id": "2850707619",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 195949077954322,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Good afternoon, I have my computer, a [product_name] and a [product_name] operator device connected to a switch via Profinet, and I'm attempting to read analog values from a PFMB7501-F04-E flowrate sensor wired to [product_name] and display them on the HMI (programmed with [product_name] engineering software), but so far without success. The reset and start buttons on the HMI work, activating lights, actuators, and an alarm through [product_name]. The flowrate sensor functions correctly, and [product_name] engineering software can detect flowrate changes. The process operates as intended, but the flowrate shown on the HMI always appears as zero, which is impossible because the sensor operates between 5 to 500 L/min and outputs 1 to 5V, connected to [product_name]'s input I7 (AI1). In the menu Tools > Parameter VM Mapping, I selected the analog comparator linked to the analog input AI1, chose the parameter Ax, amplified, and used address 2. I then created the HMI tags in [product_name] engineering software, linked the analog sensor to [product_name], and set its data address as IW2. I placed an I/O field on the HMI, expecting to see analog values after downloading and running, but nothing appears, value always shows as zero (on HMI, not the sensor itself). How should I proceed to resolve this? Thank you in advance."
+    },
+    {
+      "comment_id": 161317163478581,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Use VW2 instead of IW2."
+    },
+    {
+      "comment_id": 559773129486830,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Thank you, it worked eventually. However, now both [product_name] and the HMI display a processed value ranging from 0 to 1000, set in [product_name]'s analog comparator. For example, if the flowrate is 13 L/s, the HMI reads 109. How can I convert this back to the actual value (13) on the HMI?"
+    },
+    {
+      "comment_id": 477296852326046,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I can't advise further without seeing the [product_name] program. If your operator panel is from [company_name] configured with [product_name] engineering software, the project file for the HMI would be needed too."
+    },
+    {
+      "comment_id": 625209893407516,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Here are the [product_name] and HMI files. If you have the chance to review them, I appreciate it. The analog input and comparator are located at the end of the [product_name] file. Aside from that, I'm unsure how to convert the represented value from 0-1000 back to a voltage and flowrate for the HMI display."
+    },
+    {
+      "comment_id": 467641000716291,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "The ap.15 file alone doesn't suffice; I need the full TIA project folder. The best approach is to create an archive using the TIA Archive function to generate a zip file."
+    },
+    {
+      "comment_id": 747603540778257,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Your first post indicated AI1 as a flowrate channel: 1–5 Volt equates to 5–500 L/min. But you didn't scale the value in SF014. Without scaling, it only displays units between 100 and 500 (representing 1–5 Volt inputs)."
+    },
+    {
+      "comment_id": 146919792942053,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I've researched and confirmed that scaling is necessary, but I'm uncertain about which function to apply. Could you guide me on how to properly scale? Attached are the HMI and [product_name] files. Thank you so far for your assistance."
+    },
+    {
+      "comment_id": 514242089376225,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Alright, I will help you scale the value."
+    },
+    {
+      "comment_id": 453334290645886,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I've calculated both Gain and Offset: Gain = (500-5)/(5-1) = 123.75 [L/min]/V; Offset = flowrate - Gain*Voltage = 5 - 123.75*1 = -118.75 L/min. However, [product_name] restricts Gain below 10. I converted the voltage range into a 0–1000 unit interval: Gain = 1.2375 (~1.24), Offset = -118.75 (~-119). This lets me compute the flowrate threshold (converted to bits), but the correct flowrate still doesn't appear on the HMI. What's the additional step needed?"
+    },
+    {
+      "comment_id": 365392954793169,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Your gain formula has an error. Gain = (500-5)/(5-1) = 123.75 [L/min]/V. But in your [product_name] program, 5V corresponds to 500 units, and 1V to 100 units. So the actual Gain is (500-5)/(500-100) = 1.2375."
+    },
+    {
+      "comment_id": 231022655917057,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "That's the Gain I'm using in [product_name], but when testing online with the sensor active, I get a processed value between 0 and 1000, not direct L/min. How do I turn this '0–1000 value' into L/min for the HMI display? Currently, the HMI shows 128 instead of 40 L/min. 40 L corresponds to 128 in [product_name]. Which function should I use for conversion?"
+    },
+    {
+      "comment_id": 546667525421986,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "If you use an analog amplifier with appropriate settings, minimum and maximum values are calculated automatically. At 1V input, you get 5 L/min; at 5V input, about 500 L/min after amplification."
+    },
+    {
+      "comment_id": 446591107346654,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I'm unable to connect anything after the amplifier in the LAD configuration. I've reviewed an earlier post of yours regarding the amplifier, but can't understand the necessary steps to follow your advice. Can you please show me how? I've already applied the configuration shown in the image."
+    },
+    {
+      "comment_id": 423814379241963,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I've attached your file with the correct settings. For higher accuracy, I included an arithmetic instruction where a gain of 1.2375 is applicable. Edit: I'm awaiting your HMI project file, which is why I haven't uploaded the revised program yet."
+    },
+    {
+      "comment_id": 589365794124428,
+      "user_name": "V6W1SKgBiq",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I believed I'd already sent the compressed HMI project. My apologies if not. Here it is again, and thank you for fixing up the [product_name] settings! I tried the math operation, but wasn't sure which output to use. Thank you for clarifying – this has been very helpful!"
+    },
+    {
+      "comment_id": 240739638671593,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], appreciate the kind words. I tested your program using the correct settings with both real [product_name] hardware and a simulated HMI, and the system behaves as intended."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced challenges with displaying and properly scaling analog flowrate sensor readings from a [product_name] basis module to a [product_name] operator device via [product_name] engineering software. Initial configuration errors meant the analog value didn't display, and scaling the data for real-world units led to confusion and manual calculations. The scaling mechanism in the [product_name] program was unclear, which produced non-intuitive outputs and required alternative solutions.",
+    "user_expectations": "The user wants accurate, real-world flowrate values (in L/min) from the analog sensor to appear on the operator device, hoping for straightforward mapping and configuration in [product_name] engineering software and [product_name] engineering software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time flowrate monitoring",
+      "intuitive configuration",
+      "accurate analog display",
+      "seamless HMI integration"
+    ],
+    "pain_keywords": [
+      "value scaling confusion",
+      "inaccurate HMI display",
+      "configuration complexity",
+      "limited scaling function"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "address mapping",
+      "I/O field configuration",
+      "HMI data representation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

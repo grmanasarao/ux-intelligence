@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "branch_id": "4110258855",
+    "thread_id": "3055273936",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 769249211392280,
+      "user_name": "mC3hc4BFkO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 2,
+      "comment_body": "Is anyone able to assist with a strange issue? I've started commissioning a system using a [product_name] module with a [product_name] operator device. My messages are set to display both on the module's built-in LCD and on the operator device. While the module shows messages correctly, on the operator device some message text is missing or corrupted. This affects text created dynamically using the ON/OFF function in the message configuration. Photos attached show both displays, and there's a printout from [product_name] software with the message coding. Messages 1/9 and 2/9 work on both screens, but 3/9 and 4/9 only show the fixed text on the operator device, not the dynamic parts. Both use similar coding with M flags, yet results are inconsistent. Messages 5/9 through 8/9 show random characters or nothing, despite identical coding. Message 9/9 also shows odd characters, referencing M flags as before. Could the operator device be faulty, or is this a firmware error? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 991281154564858,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 2,
+      "comment_body": "Hello, When the [product_name] operator device is powered on, its firmware version is briefly shown. What are the firmware versions of your [product_name] module and operator device? I also notice character display issues in your messages. Try duplicating your program, and in the copy switch the character set to GBK. While GBK is designed for Chinese text, you can add your own. This allows 16 characters per line, compared to 12, although the text will be a bit smaller. Here's a thought: use GBK and position your status text so it doesn't start at the first position or end at the last character of each line, which may help. Hope this assists."
+    },
+    {
+      "comment_id": 515413720573832,
+      "user_name": "mC3hc4BFkO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 2,
+      "comment_body": "Hi [user_name], thanks for your suggestion. I tested the GBK character set, but the problems with missing and corrupted text persist. The [product_name] module firmware is V01.03.32, and the operator device firmware is V1.07.26. Do you have any other ideas? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 459532141442912,
+      "user_name": "cggXrQ3b0y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], I experienced the same issue previously. In the [product_name] module, the I/O status limit is 40 (with an 8-message text limit), while the operator device only displays up to 20 (and only correctly shows 4 messages in the text area). I received a newer operator device from [company_name], though it wasn't the latest version. I'm hopeful [company_name] will address this bug in a future release."
+    },
+    {
+      "comment_id": 575366801559696,
+      "user_name": "mC3hc4BFkO",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 2,
+      "comment_body": "Thanks [user_name]. Firmware problems with the operator device seem to be the cause. Ultimately, I rewrote all message texts as simple static messages to replace the dynamic content. This needs urgent attention from [company_name]; the operator device should match the capabilities of the module’s display. Due to these issues, I’m hesitant to use this operator device again."
+    },
+    {
+      "comment_id": 754673183092615,
+      "user_name": "y5KmqcTBaH",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Hello, I also had issues with the operator device and the module. It worked well for several months, but now I get an 'BM not respond' error. Is this a hardware or programming issue? What has been your experience? Thanks in advance."
+    },
+    {
+      "comment_id": 855632596935748,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "That message means the operator device isn't communicating with the module."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users noticed that dynamically generated message content displays incorrectly and inconsistently on the [product_name] operator device, whereas the [product_name] module's display functions properly. The problems, associated with the ON/OFF function, result in missing, corrupted, or strange characters on the operator device. Some users suspect a firmware bug or product limitation. Workarounds include replacing dynamic text with static messages. Communication errors between the devices were also reported, with questions about whether the issue is hardware-related or due to programming.",
+    "user_expectations": "Users expect the operator device to handle dynamic messages as reliably as the [product_name] module’s built-in display. They seek consistent, accurate message rendering, regardless of whether the content is dynamic or static.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable display",
+      "dynamic message support",
+      "equal capability",
+      "consistent behavior"
+    ],
+    "pain_keywords": [
+      "missing text",
+      "corrupted display",
+      "firmware limitation",
+      "reduced HMI functionality",
+      "communication error"
+    ],
+    "feature_keywords": [
+      "dynamic message display",
+      "message configurator",
+      "firmware versioning",
+      "character set support",
+      "static/dynamic text parity"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "10": "Performance Predictability"
+  }
+}

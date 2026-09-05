@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "8182649048",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 388930259837730,
+      "user_name": "UF0eWIXiiQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Hello Experts! I'm attempting to simulate a circuit for a [product_name] with a high-speed pulse train input. The counter's input is wired to high-speed input I5, and I've set I5's simulation mode to frequency. Despite waiting and changing the frequency settings, the counter value remains at zero and does not increment. Can anyone advise on what I might be missing?"
+    },
+    {
+      "comment_id": 363160079700333,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Hello, In simulation mode, setting a frequency at an input won't work if it's linked to a UP/Down-Counter. Frequency simulation only functions with the threshold trigger option. In [product_name], it works with both threshold trigger and the Up/Down-counter. Try using the threshold trigger instead when working with [product_name]. Hope this clarifies things."
+    },
+    {
+      "comment_id": 933638396920896,
+      "user_name": "UF0eWIXiiQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 7,
+      "comment_body": "Thank you, [user_name]. That suggestion worked. I'll adjust my design for now and change it back when I'm ready for deployment."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discovered that in simulation mode, frequency input set to counter inputs does not increment the counter as it would in actual hardware. This limitation in simulation can cause confusion, as users expect virtual testing to match real-world device behavior for high-speed pulse inputs.",
+    "user_expectations": "Users anticipate that simulation mode should accurately reflect real hardware behavior, especially when using frequency inputs with counters, allowing for reliable design validation prior to hardware implementation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable simulation",
+      "design validation",
+      "hardware-equivalent test"
+    ],
+    "pain_keywords": [
+      "simulation mismatch",
+      "feature limitation",
+      "unresponsive counter"
+    ],
+    "feature_keywords": [
+      "simulation mode",
+      "counter input",
+      "frequency simulation",
+      "Threshold trigger"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "4748868637",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 972120386270383,
+      "user_name": "DQHJMu8W5C",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Hello. We need to control [product_name] via Ethernet network using our own SCADA system. As far as I know, [product_name] controllers do not natively support Modbus TCP. What communication protocol is used by [product_name] controller? Is it possible to develop a custom software driver for our SCADA system to remotely control the controller over Ethernet? In other words, is the protocol for [product_name] accessible?"
+    },
+    {
+      "comment_id": 919420936153795,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Welcome to the forum. The first generation of [product_name] only supports Ethernet TCP/IP. Starting from the second generation, Modbus TCP/IP compatibility was introduced. The latest 3rd generation models also support both Ethernet TCP/IP and Modbus TCP/IP."
+    },
+    {
+      "comment_id": 199258342202546,
+      "user_name": "DQHJMu8W5C",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thank you for your quick response! Just to confirm: 1) We can upgrade our controllers to the modern version; 2) After that, Modbus TCP via Ethernet can be used to read on/off states; 3) Remote control is possible over Ethernet using Modbus TCP, so switching mains or modes like automatic/manual are supported. Is this correct? If so, where can we find documentation detailing the Modbus address mapping? Also, how do we identify the generation of our controller? Our newest device is attached."
+    },
+    {
+      "comment_id": 326275209281211,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "The model and part number are located under the OK key; yours is [article_no], which identifies it as the current version with Modbus TCP/IP support. For older ones, look for [article_no] in the ID. Regarding point 2, could you clarify what you mean by \"on/off\"? The device allows data exchange with other Modbus PLCs. Modbus addresses for [product_name] can be found in the attached documentation."
+    },
+    {
+      "comment_id": 965501285478418,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Older controllers with order number [article_no] and firmware version FS04 or newer also have Modbus TCP/IP support."
+    },
+    {
+      "comment_id": 163708231897877,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "1) New [product_name] controllers need to be purchased; old ones cannot be updated. 2) Through Modbus TCP/IP, you can read the status of several operands like Ix, Qx, Mx, AIx, AQx, AMx, Vx,y, VBx, VWx, VDx. 3) System functions such as start, stop, upload, or download aren’t available via Modbus—you can only write to Mx, AMx, Vx.y, VBx, VWx, VDx. Reading statuses allows the display of program actions, and writing to those operands lets you select actions inside user programs, depending on status. For instance, a flag like M1 can set or reset a mode (manual if off, automatic if on). More details on Modbus tables are in the attached documentation. If you’re familiar with programming in C++, C#, or Visual Basic, consider searching for libraries like Libnodave or Snap7, which enable communication with S7 controllers and will work for this product as well. Other libraries are also available online."
+    },
+    {
+      "comment_id": 712618998520844,
+      "user_name": "DQHJMu8W5C",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thanks for the helpful responses! Our customer needs to remotely switch automatic load transfer using a SCADA system. Their systems rely on [product_name] controllers, with some being older models and others newer. Using controllers with [version_no] and firmware FS04 or above should resolve their requirements."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users seek information about integrating [product_name] controllers with custom SCADA systems, focusing on Modbus TCP/IP compatibility. Initial questions involve which versions and firmware support Modbus TCP/IP, as well as how to leverage this for reading statuses and remote operation. Respondents clarify that only newer controllers and firmware support these functions, while noting limitations such as the inability to perform complete system controls via Modbus. Documentation (especially Modbus address tables) and proper identification of controller versions are important for successful integration.",
+    "user_expectations": "Users expect [product_name] controllers to offer Modbus TCP/IP support, enabling status monitoring and full remote operation from their SCADA system. They require clear documentation of Modbus addresses and guidance on identifying firmware and hardware compatibility. Compatibility across different product generations is a key concern.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "SCADA integration",
+      "status monitoring",
+      "mode switching"
+    ],
+    "pain_keywords": [
+      "protocol compatibility",
+      "partial functionality",
+      "documentation gaps"
+    ],
+    "feature_keywords": [
+      "Ethernet TCP/IP",
+      "Modbus TCP/IP",
+      "read/write operands",
+      "address mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

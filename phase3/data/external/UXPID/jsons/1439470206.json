@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "1439470206",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 446701356577070,
+      "user_name": "kWBq4glWBb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Device: [article_no] Using [product_name] I have two up counters connected to an input with a 200 Hz rectangular signal. Counter 'A' counts reliably and matches an external event counter. Counter 'B' is reset based on certain on/off conditions to trigger a third counter via a flag from output to reset input. After approximately 700,000 counts, counter 'B' is behind counter 'A' by 7 counts, and this discrepancy increases with higher input frequencies. Is there a way to improve the counting accuracy? Thanks in advance!"
+    },
+    {
+      "comment_id": 228154817185432,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Please upload your program as a ZIP file."
+    },
+    {
+      "comment_id": 980460672030782,
+      "user_name": "kWBq4glWBb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Thank you for your response. Counter 'A' is labeled as B001 at the bottom of the display, while counter 'B' is B009 shown vertically with B041 and B047. My goal is to have a 3-stage counter system that activates a relay based on a set count."
+    },
+    {
+      "comment_id": 344979328648753,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "It appears that the program you uploaded is incomplete and only includes part of your logic. I believe the issue lies in the cascading of counters B009, B041, and B047, with resets triggered by flags M2 and M3 that persist into the next cycle. The counting between counters B001 and B010 is not functioning correctly; the carry occurs at 999,998 instead of the intended 1,000,000."
+    },
+    {
+      "comment_id": 198968833822870,
+      "user_name": "kWBq4glWBb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "I excluded unrelated circuitry, displays, and some communication blocks. Could you advise on appropriate on/off values to achieve a full 1 million count, i.e., resetting at 1E6 instead of hanging at 999999? Testing the partial circuit on the device shows identical behavior to the complete setup. The counts are accurate up to around 27,000, but at 30,000, counter 'B' trails counter 'A' by 3 counts with a 1 kHz input, and the mismatch increases at higher frequencies. This indicates missed counts likely due to internal timing limitations. Do you have recommendations for a more timing-safe multi-stage counter? At 2 kHz input frequency, the discrepancy becomes substantial, losing hundreds of counts before reaching 30,000, highlighting a major issue when resetting fast counters mid-count. I added a cycle time measurement (as per the manual), showing 0.40 ms for this circuit, compared to 0.57 ms for the complete version. Thus, at 1 kHz input (1 ms period) and above, count losses occur, approaching the cycle time limit. Cycle time is not consistent, potentially leading to random errors even at lower frequencies. At 100 Hz, there are no errors up to 70,000 counts."
+    },
+    {
+      "comment_id": 283949162895627,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "The cycle time is highly dependent on the program's complexity, the number and type of blocks used, communication with remote devices, and the specific [product_name] in use. Accurate high-speed pulse counting up to 5 kHz is feasible only while the counter is operating. Evaluation of the digital counter output depends on the cycle. Unfortunately, I cannot provide a definitive solution to your issue."
+    },
+    {
+      "comment_id": 404460168459645,
+      "user_name": "kWBq4glWBb",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Thank you for the 1E6 counter circuit!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced count discrepancies using multi-stage up counters configured with [product_name] and [software_name], especially as input frequency increases. Counter B falls behind A, with greater loss at higher speeds, and users suspect the problem is linked to internal cycle timing. When resets occur at frequencies near or above the cycle time, counts are lost. Furthermore, cycle time varies with program size and circuit complexity, causing variable and unreliable counting at higher speeds.",
+    "user_expectations": "Users are looking for precise, reliable high-frequency pulse counting without lost counts, consistent performance regardless of program complexity, and a robust solution for multi-stage counting that maintains accuracy even at increased speeds.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate counting",
+      "high-speed reliability",
+      "cycle-time stability",
+      "robust multi-stage counting"
+    ],
+    "pain_keywords": [
+      "lost counts",
+      "cycle time limitations",
+      "timing errors",
+      "unreliable performance",
+      "input frequency sensitivity"
+    ],
+    "feature_keywords": [
+      "multi-stage counter",
+      "reset behavior",
+      "cycle time",
+      "high-frequency input"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

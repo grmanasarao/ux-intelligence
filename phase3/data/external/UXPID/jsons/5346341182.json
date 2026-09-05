@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "5346341182",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 479412366943065,
+      "user_name": "0XH6JH9ctG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm looking to control a motor's speed using a slider on my operator display. Currently, I can start and stop the motor and show its speed onscreen, but I'm unsure how to send a speed command from the operator display to the controller. How do I tag the slider and access its value in the engineering software?"
+    },
+    {
+      "comment_id": 152654448401974,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Should the motor provide speed feedback to the controller?"
+    },
+    {
+      "comment_id": 687685120625531,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "You can create a counter on your operator display—for example, ranging from 0 to 100. This value can be sent as a variable memory value to the controller. Inside the controller, you can use this value as a reference for mathematical functions, such as scaling 0-100 to 0-1000 (which might correspond to 0-10V for your output device)."
+    },
+    {
+      "comment_id": 891363540188303,
+      "user_name": "0XH6JH9ctG",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Thanks for your suggestion. That's my goal, but I'm unsure how to transmit the value as a variable memory value to the controller. I know how to send values from the controller to the operator display using the parameter mapping tool in the engineering software, but not the other direction. How should I assign the value in the automation platform and read it in the engineering software for the controller?"
+    },
+    {
+      "comment_id": 276401090234947,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Actually, it's not just send or receive—it's read and write. You need to create a variable in the engineering software for the controller, for example as a counter (a word, 16 bits). Suppose VW0 is the variable address. In your visualization software, also define VW0 as a variable. All devices on the network that have access can read or write values to this word. So, with your operator display, you can write new values to VW0, and the controller will automatically receive those values—typically every second, though you can adjust this interval in the visualization software. You can then use VW0 in your control logic for whatever purpose you need."
+    },
+    {
+      "comment_id": 415097115702198,
+      "user_name": "0XH6JH9ctG",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "In my engineering software for the controller, I made a counter variable and set its address as dw20 in the variable memory configuration. In the visualization software's tag list, I named it 'counter' and used dword type with address vd20. I added an I/O field to the screen and set its properties to use the 'counter' tag, address vd20, and input/output mode. After downloading, I can display the starting value and change it in the controller, and it updates onscreen. However, when I touch the field to enter a new value, a pop-up appears but any value I input doesn't change what's in the controller, and the pop-up closes almost immediately. What am I missing?"
+    },
+    {
+      "comment_id": 746786519833781,
+      "user_name": "yHxE8A56Wc",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello, Try a different approach as suggested in the attachment. In the automation platform, set the data type to 'integer', select the whole line on the left, then drag and drop it onto your desired screen location. If your operator display-to-controller connection is functional and you can manage digital I/O, you should be able to configure this successfully. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing challenges configuring two-way data transfer and variable mapping between an operator display and a controller for motor speed control. Main issues stem from unclear setup for read/write variables and tag synchronization between the engineering software and visualization platform, making it difficult to send data from the operator display to the controller. Users are unsure about mapping variables in both environments for reliable data exchange.",
+    "user_expectations": "Users expect straightforward bi-directional data communication between the operator display and the controller, enabling real-time user input and reaction. They want intuitive configuration for tag and address mapping across both the controller's engineering software and the visualization tool.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time HMI input",
+      "motor speed control",
+      "seamless variable mapping"
+    ],
+    "pain_keywords": [
+      "unclear variable mapping",
+      "bidirectional data issues",
+      "unexpected HMI behavior"
+    ],
+    "feature_keywords": [
+      "HMI sliding bar",
+      "variable mapping",
+      "input/output configuration",
+      "counter variable",
+      "VM value"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "12": "Network Configuration Challenges"
+  }
+}

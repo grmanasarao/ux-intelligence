@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "8984587234",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 259392427605651,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Good evening, this is very interesting. At this point, I would like to know which Modbus TCP/IP registers [product_name] can read. I have listed below what is recommended by [company_name]: uint16, uint32, string, float32, int16, bitfield16, enum16, string, count, I appreciate any advice and thank you in advance for your support. [user_name]"
+    },
+    {
+      "comment_id": 601236148398018,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], Welcome to the forum. You are posting in the English-speaking section, so please write your future posts in English. Thank you."
+    },
+    {
+      "comment_id": 579515451720290,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "&nbsp;Firstly: [product_name] is designed for 16-bit integer values. Certain functions, such as counters, work with 32 values, limited to 999,999. For reading Float32 or Float64 data, there is a dedicated block (floating-point/integer converter). [product_name] cannot read strings. Mathematical operations are limited to the INT range (-32,768 to 32,767). UInt16 or UInt32 values from 0 to 32,767 can be received through standard network analog input; values from 32,768 up to 999,999 are only possible by writing into the counter value. Bitfield16 is a set of 16 digital bits, and you can access individual bits using digital network inputs. Enum and count do not have meaning to me in this context."
+    },
+    {
+      "comment_id": 130777287434145,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Thank you very much! Sorry for posting in a different language. To summarize (as I am new to this): via Modbus TCP/IP, [product_name] can read: • FLOAT32/64 using the floating-point converter block • UInt16 or UInt32 values from 0–32,767 with a normal analog input • Bitfield16 using digital network inputs Could you please confirm if this is accurate? Thank you for your support. [user_name]"
+    },
+    {
+      "comment_id": 954388430385595,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "2. UInt16 or UInt32 can be read in the range 0–32,767 with standard analog network inputs, and values up to 999,999 can be written via the counter value. 3. Bitfield16 can be accessed with digital network inputs, but only as separate bits."
+    },
+    {
+      "comment_id": 843954245930773,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Thank you! Can you also confirm that FLOAT32/64 via the floating-point converter block is supported? [user_name]"
+    },
+    {
+      "comment_id": 677574777011814,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Yes, this is supported. If it were not, I would state differently."
+    },
+    {
+      "comment_id": 578785843958307,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "What would you say if it wasn't supported? Thanks."
+    },
+    {
+      "comment_id": 551848745733048,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Have you noticed that I have specified details about float already?"
+    },
+    {
+      "comment_id": 398919023100940,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Sorry, I did not understand. You cannot write arbitrary data into [product_name]; only the available blocks can be used. Thank you."
+    },
+    {
+      "comment_id": 646979271630857,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Then it seems you have not fully understood my previous messages. [product_name] is designed mainly for Int16 data. For some special functions, [company_name] has added specific blocks. That is all."
+    },
+    {
+      "comment_id": 363884684198274,
+      "user_name": "HWZ6NZSRrs",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "Understood now, I just misinterpreted. Thank you for your help and kindness."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Discussion clarified which Modbus TCP/IP register types [product_name] can access. Users debated supported numeric types, floating-point compatibility, and limitations, including lack of string and enum support. Special blocks exist for converting certain values, and understanding these boundaries helped address uncertainties, especially for users unfamiliar with the device.",
+    "user_expectations": "User hopes [product_name] can read a variety of register types over Modbus TCP/IP, ideally supporting all types provided by external devices, including uint16, uint32, float32, string, bitfield, and enum types.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "modbus compatibility",
+      "data interoperability",
+      "register support clarity"
+    ],
+    "pain_keywords": [
+      "limited data type support",
+      "unclear register compatibility",
+      "no string/enum support"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "register types",
+      "F/I converter block",
+      "input handling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

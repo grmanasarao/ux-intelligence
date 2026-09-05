@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8138332494",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 103329277161600,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, I'm seeking clarification regarding data logging on [product_name] hardware without using an SD card. The manual states: \"If no micro SD card is inserted, the internal buffer can only hold up to 512 bytes of data log, and any additional data log is discarded.\" 1. Does this mean that only 512 bytes of data are stored, and any new events after that are not recorded? 2. How can the full memory be refreshed to allow new data to be written? Is it possible to upload the currently stored data to [product_name] software?"
+    },
+    {
+      "comment_id": 604181014270883,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Hi, I've attached a sample Data Log created without an SD card. When internal memory is full, it automatically deletes the oldest entry to make space for a new one—the memory operates on a FIFO (First In, First Out) basis. Logging started at 6:33:00, but the oldest entry available is from 6:38:28. This indicates that older entries are erased as new data is recorded. A new Data Log isn't created until the current log is uploaded from the device. Uploading can only be done through [product_name] software. To read the Data Log, you must switch the device to STOP mode."
+    },
+    {
+      "comment_id": 499679723031060,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], Sorry if my questions seem basic; I currently don't have access to [product_name] hardware, so I can't test it directly. I want to confirm: \"If internal memory is full, it deletes the oldest entry to free space for a new one.\" \"A new Data Log isn't created until the current log is manually uploaded.\" So, you uploaded the data starting from 6:33:00 to open up memory space for new data beginning at 6:38:28. Is this correct?"
+    },
+    {
+      "comment_id": 963980780388709,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "No, that's not quite right. Data logging started at 6:33:00, and I uploaded the Data Log at 06:41:18 to my PC. However, only the entry from 06:38:28 onwards was available—that means entries from 06:33:00 to 06:38:27 were overwritten. If I had uploaded the Data Log even later (at 06:51:18), then only entries from 06:48:28 onwards would have remained. This illustrates how FIFO memory works: the oldest data is removed first as new data is added."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how data logging operates on [product_name] hardware without an SD card. The internal 512-byte storage acts as a FIFO buffer, deleting older records to store new ones once full. There are questions about what triggers deletion, how the log can be cleared, and the proper way to retrieve and manage logs using [product_name] software.",
+    "user_expectations": "Users want reliable data logging without losing important information and seek the ability to manually manage log files using [product_name] software.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "prevent data loss",
+      "understand log memory",
+      "manual log management"
+    ],
+    "pain_keywords": [
+      "uncertainty about log overwrite",
+      "unclear FIFO operation",
+      "memory management confusion"
+    ],
+    "feature_keywords": [
+      "FIFO data log",
+      "internal buffer",
+      "SD card expansion",
+      "log upload"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

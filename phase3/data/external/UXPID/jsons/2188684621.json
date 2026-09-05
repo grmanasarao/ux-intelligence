@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "2188684621",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 214599372811888,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "This is great! The comments are very helpful. Do you know if there is some software available to simulate Modbus signals so I can test CR6 together with [product_name]? Thank you! Split from thread: Communication between [product_name] [article_no] and CR6 Datalogger of [company_name]."
+    },
+    {
+      "comment_id": 963501781383865,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "There are several software options if you search for \"Modbus TCP\". Previously, I've used a master (client) application on PC for tests, but in your case you need a slave (server), or you could modify your [product_name] program for testing. See link: QMod [url]. On the same page, there's a slave (server) program which is suitable, though I haven't personally used it. See link: pyModSlave [url]. Regards, [user_name]"
+    },
+    {
+      "comment_id": 213343791107227,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Hi [user_name]! Yes, I found a software called Modbus Slave. Initially, it didn't work because it only returned Rx, and nothing appeared in [product_name], but after changing the Connection Setup and checking 'Ignore Unit ID', it started providing both Rx and Tx and wrote them into the [product_name] Holding Register. Now that it's working with simulation, I need to program CR6 to send the data and also set up the [product_name] Web Server so the data can be displayed. Thank you!"
+    },
+    {
+      "comment_id": 596044511444030,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Screen attachment"
+    },
+    {
+      "comment_id": 725840999730472,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Now you have a foundation for your next step with CR6. I can't provide detailed help for that device, but can assist with Modbus in general. If you encounter Unit ID issues, adjust the relevant settings in your Modbus client software for [product_name]; default value is 255. Make sure the same Unit ID parameter is set on both CR6 and [product_name] to ensure proper communication (for example, use 1). The holding register numbers 1 and 5 in my test program are just examples—you can use any number, as long as those registers exist in CR6. If registers are consecutive, you can simplify client settings by just using the starting register and increasing the block length as needed (2, 3, 4...). Remember, Modbus registers are 16-bit, while [product_name] variables may be 8-bit. Reading 4 registers starting from VW10 leads to the next ones at VW12, VW14, and VW16. The word VW10 covers bytes VB10 and VB11, so the following available number would be 12. With 4 registers in VW10 to VW16, you shouldn't use bytes VB10 to VB17 or bits V10.0 to V17.7 to avoid overlapping memory values. Good luck with your project, [user_name]"
+    },
+    {
+      "comment_id": 657527411048900,
+      "user_name": "sSCvYCSqKr",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 4,
+      "comment_body": "Thank you! I'll update here on how things go, in case others need similar help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users worked on simulating Modbus signals for integration with [product_name] devices. Main discussion points were about finding suitable Modbus simulation software, configuring communication with [product_name], and handling differences in register addressing and data lengths. A solution was identified that involved software settings and addressing adjustments.",
+    "user_expectations": "Users expect to efficiently locate and set up software for Modbus signal simulation, interact with [product_name] holding registers without connectivity issues, and quickly configure necessary parameters such as Unit ID and register length.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "successful simulation",
+      "Modbus interaction",
+      "data display"
+    ],
+    "pain_keywords": [
+      "communication setup",
+      "register addressing",
+      "data width mismatch"
+    ],
+    "feature_keywords": [
+      "Modbus client configuration",
+      "holding register mapping",
+      "Unit ID configuration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "12": "Network Configuration Challenges"
+  }
+}

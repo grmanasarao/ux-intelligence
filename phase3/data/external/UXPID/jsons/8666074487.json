@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "8666074487",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 354971219373128,
+      "user_name": "aRGTjQijyK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I'm having trouble understanding why the display backlight on my [product_name] doesn't turn on as expected. I have a [product_name] base module with relay output, but no text display unit. I'm using the C3 cursor button to start a timer that activates a marker for 20 seconds. The simulator works perfectly, but when I run it on the actual module, the backlight remains off. It does turn on at power-up, but switches off once the program starts running, and I can't figure out why. Any advice would be appreciated."
+    },
+    {
+      "comment_id": 161360807533572,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "If you're using the backlight flag in your logic, the backlight won't automatically activate when you press a key."
+    },
+    {
+      "comment_id": 425353936793607,
+      "user_name": "aRGTjQijyK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Thank you! Is there a way to control the backlight during runtime without adding a separate input button? I want the backlight to turn on when I press any of the six buttons, or maybe when two are pressed together. The installation area has no ambient light, so this would really help."
+    },
+    {
+      "comment_id": 512354993501104,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "I'm not sure of the full context for the flag usage. To trigger an action in your program with a cursor key, you need to press ESC along with the cursor button. Try assigning all cursor keys in your logic to the backlight flag. Alternatively, you could use a pulse encoder, for example: backlight on for 10 seconds, then off for 10 seconds."
+    },
+    {
+      "comment_id": 732496117770085,
+      "user_name": "aRGTjQijyK",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Thanks! The ESC plus cursor key combination solved the problem. I wasn't aware ESC was needed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experienced confusion over how to activate the display backlight on a [product_name] module, especially with respect to required key combinations and program flags. While the simulator appeared to work correctly, hardware behavior differed, causing misunderstandings. Important input combinations such as ESC plus cursor keys were not clearly documented, prompting users to rely on community advice and trial-and-error.",
+    "user_expectations": "Users expect the display backlight to activate conveniently and reliably upon button presses while in operational mode, ideally without needing additional hardware or complex key sequences.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic backlight activation",
+      "improved button usability",
+      "clear operational feedback"
+    ],
+    "pain_keywords": [
+      "unclear input requirements",
+      "unexpected device behavior",
+      "simulation mismatch"
+    ],
+    "feature_keywords": [
+      "display backlight",
+      "button input",
+      "ESC and cursor key combination"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

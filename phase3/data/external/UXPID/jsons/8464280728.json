@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "8464280728",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 514697116483747,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "I am using [product_name] [version_no] [article_no] and have successfully assigned a new IP: 10.22.36.210, subnet 255.255.255.0, and gateway 10.22.36.1. I can connect with the new IP, but after power cycling the relay, the device resets to its default IP: 192.168.0.3 with gateway 192.168.0.0, and I am unable to connect on the 10.22.36.x network. What step am I missing to ensure the IP address is retained after a power cycle? I need to perform all steps without using the display screen, as my project involves deploying several devices of the [version_no] variant, which do not have screens."
+    },
+    {
+      "comment_id": 895069658693502,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Typically, IP information (IP address, subnet mask, gateway) is retained through power cycles since it is written to the device's flash memory. I have not encountered the behavior you described before. One possible cause could be that an SD card is inserted, and if the program stored on it contains the old IP data, the device reloads this program with outdated settings upon each restart."
+    },
+    {
+      "comment_id": 751244245152072,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "Hi, do you have an MSD card inserted into your [product_name] [version_no] with different IP configurations? If so, try downloading your program with the required IP settings, then copy the updated program to the MSD card in your device. Power cycle, then check the IP settings. Make sure the correct IP is set in your program configuration. Hope this helps."
+    },
+    {
+      "comment_id": 339952409032050,
+      "user_name": "gKUOHfEUSM",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 2,
+      "comment_body": "RESOLVED: To fix this, I downloaded the settings with the new IP to the relay using the software, which then prompted for confirmation to change the IP; I agreed. I was disconnected and prompted to reconnect, and upon reconnection, the new settings including the IP were active. When I power cycled, however, the settings remained but the IP reverted to default. I discovered that after initially downloading the settings and reconnecting, if I immediately downloaded the same settings again (this time without changing the IP), I could power cycle and the new IP would remain set. I've tested this multiple times and confirmed that this sequence works. Thank you to everyone who responded. I appreciate the support."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report unreliable retention of IP address settings on the [product_name] module without a display. Updating the IP address does not persist through power cycles unless a specific sequence of downloading and confirming is performed. Use of external memory like microSD cards with outdated programs can also revert IP settings, creating confusion for headless deployments.",
+    "user_expectations": "Users expect the device to maintain the new IP address after power cycling and aim to complete configuration without a display for efficient rollout of multiple modules.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent configuration",
+      "remote deployment",
+      "efficient setup"
+    ],
+    "pain_keywords": [
+      "IP settings loss",
+      "power cycle reset",
+      "configuration inconsistency",
+      "lack of feedback"
+    ],
+    "feature_keywords": [
+      "IP address retention",
+      "flash memory write",
+      "microSD card program storage"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

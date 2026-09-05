@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "8439267399",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 678275236612161,
+      "user_name": "W851QNUDLx",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hello, I am experimenting with a sample FBD logic to mimic a machine start/stop for testing an IIoT gateway using [product_name] [version_no]. Please refer to the attached file. The application involves a start button that activates a machine using a timer, which can be reset by a stop switch, triggering a stop timer. The job number is managed by a counter and resets when the machine is switched off. To simulate input actions, I use the on-device buttons instead of physical wiring. I am now looking to add an emergency flag that can reset current relay latches via a Modbus signal from the IIoT gateway. Is it possible to achieve this within FBD? My background is primarily in software development, so additional guidance on PLC logic and FBD syntax would be highly appreciated."
+    },
+    {
+      "comment_id": 682366645055829,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Why do you have multiple links to Bufferstack? Is it for promotion?"
+    },
+    {
+      "comment_id": 219824002643504,
+      "user_name": "W851QNUDLx",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "There was no intention to advertise; I copied and pasted by mistake and have now removed it. Could you assist with my query?"
+    },
+    {
+      "comment_id": 564710018044667,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Please upload your [product_name] Soft Comfort program as a ZIP file instead of a PDF; that would be more useful."
+    },
+    {
+      "comment_id": 827208942671433,
+      "user_name": "W851QNUDLx",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Understood. I will provide the ZIP file as requested."
+    },
+    {
+      "comment_id": 909487827913688,
+      "user_name": "W851QNUDLx",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Please see the attached LSC file. I noticed the relay latches B008 and B010 appear redundant and likely unnecessary. I am looking to add a master reset to the logic. Could you suggest a solution?"
+    },
+    {
+      "comment_id": 999041542866930,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I am not familiar with Bufferstack.IO gateway syntax. However, I read that it can communicate with [version_no] devices. The new M3 element in the updated program is by [version_no] M0.2. Please ensure not to overlap the VM area of [product_name]. In your I/F converters, you used VD0 (VM0) and VD1 (VM1), which results in overlapping memory areas (VB1, VB2, VB3). To avoid this, I set the address of the second I/F converter to VD4 (VM4)."
+    },
+    {
+      "comment_id": 634310472770968,
+      "user_name": "W851QNUDLx",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Thank you for providing the correct configuration. I will verify whether M3 can be set or reset using the Modbus server on the [product_name] PLC."
+    },
+    {
+      "comment_id": 782331861708007,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Check under Tools > Ethernet connection. I included a Modbus server connection. You should also update the file properties with your [product_name]'s correct IP address."
+    },
+    {
+      "comment_id": 647194270572416,
+      "user_name": "W851QNUDLx",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I've completed the steps and the emergency flag triggered from the gateway operates correctly using standard Modbus addresses for [product_name]. Thank you again for your help using FBD logic."
+    },
+    {
+      "comment_id": 188356001071626,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "While this software solution works, it is not the proper approach to implement an emergency stop in a real environment."
+    },
+    {
+      "comment_id": 638908811409158,
+      "user_name": "W851QNUDLx",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I agree with you. This was purely a controlled test for gateway and PLC connectivity, not for actual emergency stop functionality. For real-world use, physical reset or kill switches combined with proper logic should be implemented for safety."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants collaborated to integrate an emergency master reset function for relay latches in a [product_name] [version_no] PLC program, triggered via Modbus signals from an IIoT gateway using FBD logic. Early confusion over file formats was resolved, leading to helpful clarification of memory addressing and Modbus integration within [product_name]. The discussion resulted in successful implementation of a remote emergency flag and enhanced understanding of address mapping and FBD logic setup for the PLC.",
+    "user_expectations": "The user seeks a straightforward and reliable method to reset all latched relays through an emergency flag activated by Modbus in FBD logic. Guidance is also expected on Modbus integration, proper address handling, and foundational best practices for developing FBD logic on [product_name] PLCs.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "emergency relay reset",
+      "remote modbus control",
+      "FBD logic clarity"
+    ],
+    "pain_keywords": [
+      "address overlap confusion",
+      "difficulty with FBD for PLC",
+      "challenge integrating IIoT triggers"
+    ],
+    "feature_keywords": [
+      "Modbus emergency flag",
+      "relay latching",
+      "FBD master reset",
+      "memory address mapping"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "23": "File Accessibility Barriers"
+  }
+}

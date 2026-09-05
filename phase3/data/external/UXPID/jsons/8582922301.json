@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "8582922301",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 972319662572862,
+      "user_name": "YvJ8xWjmMG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hello, I'm having difficulty publishing the processed (amplified) data from my analog sensor setup. My signal flow is: \"AI1\" -> \"Analog Threshold Trigger\" -> \"Q1\". So far, I've only managed to publish data from \"AI1\" and \"Q1\". Can anyone advise how to publish the amplified value that appears in the Message Text as \"Ax, Amplified\"? Thanks!"
+    },
+    {
+      "comment_id": 853378979659910,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hi, 1. Use VM-Mapping via the Tools/VM-mapping menu for your \"Analog Threshold Trigger\". If you haven't changed the VM address, then you'll find the amplified data in VW0 of the [product_name] VM-Memory. You can verify this in the data table during simulation or online mode. 2. In your cloud data table, set VW0 to be forwarded via MQTT. Hope that helps!"
+    },
+    {
+      "comment_id": 687773818178987,
+      "user_name": "YvJ8xWjmMG",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Thank you for explaining this method. I set up the VM-Memory, and now this information is being published. Is my approach correct?"
+    },
+    {
+      "comment_id": 423999019812208,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Hi, Your setup isn't correct. The memory within [product_name] is organized by bytes. Your configuration is: VW1 consists of VB1 & VB2, and VW2 consists of VB2 & VB3, which causes overlapping of memory addresses. The [product_name] memory space ranges from address VB0 to VB850. So for VM-Mapping, use VW0, VW2, and VW4, and match these addresses in your cloud data configuration table. Also, you can't write to your current data configuration. You can spot this by looking at the marking in the VM-mapping table. If you want write access, the 'Parameter' column marking should show a paper and pen symbol, not a circle. Please refer to the screenshot. A description of [product_name] memory can be found in the LSC help under \"VM\". Hope that clarifies things!"
+    },
+    {
+      "comment_id": 630219187294789,
+      "user_name": "YvJ8xWjmMG",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "Thanks for the explanation. Now it's working perfectly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users had difficulty publishing processed analog sensor values via MQTT from a [product_name] device. While direct analog and digital values could be published, locating and mapping the processed (amplified) data for publication was unclear. Guidance on VM-Memory mapping and proper address selection made the workflow much smoother, indicating that memory mapping for data publication is not straightforward and can lead to confusion about address usage and byte mapping.",
+    "user_expectations": "Users expect to be able to identify and publish amplified data from the Analog Threshold Trigger easily through MQTT, just like with other sensor signals, without any confusion regarding memory address mapping or data overlap.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "publish processed sensor data",
+      "MQTT integration",
+      "correct memory mapping"
+    ],
+    "pain_keywords": [
+      "memory configuration confusion",
+      "data mapping",
+      "overlapping addresses"
+    ],
+    "feature_keywords": [
+      "VM-mapping",
+      "cloud data table",
+      "MQTT publishing",
+      "address management"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

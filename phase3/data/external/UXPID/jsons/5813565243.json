@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "5813565243",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 134509193160331,
+      "user_name": "A6LsrpN24h",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Hello, Is there a straightforward way to add a deadband function to the PI controller? I couldn't find an integrated option. Thanks."
+    },
+    {
+      "comment_id": 456272151825246,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "From my experience, there doesn't seem to be an option for this. Could you clarify what you are aiming to control with the PI controller?"
+    },
+    {
+      "comment_id": 893772001843561,
+      "user_name": "A6LsrpN24h",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Thanks for the reply. I'm managing a ventilation system designed to keep constant pressure, using a PI approach. The static pressure is measured in a low-velocity area close to the fan. The tuning was successful and the control loop is stable overall. However, even minor fluctuations in pressure (from wind or minor air flow adjustments) are causing small, unnecessary changes in the manipulated output. If deadband were available, these minor changes wouldn't cause constant fan speed adjustments. This isn't a process issue since pressure variation of +/- 10Pa is fine, but nearly continuous small fan adjustments may cause excessive wear over time. I've added filtering with two analog filter blocks in series, set to high sample counts, and it helps a bit. Filtering the PI output is another option, but it's surprising that deadband isn't available as a standard feature. I found deadband easily accessible in the PID blocks of [company_name]'s PLCs, so I'm used to having it."
+    },
+    {
+      "comment_id": 796262450073556,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "The [product_name] doesn’t offer as many features as those PLCs. The PI controller here is basic PI only, not PID, so its functionality is minimal by design."
+    },
+    {
+      "comment_id": 988027976490338,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "I tested a possible solution that might help you. By using a MAX/MIN block as a memory, controlled via a pulse generator, I can save the latest value when the block is switched off."
+    },
+    {
+      "comment_id": 279820105780234,
+      "user_name": "A6LsrpN24h",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "Thank you! I also tried to create a deadband by switching the PI controller to manual mode within the deadband, and using the previous output as the manual value. Implementing this was tricky due to circular references, and the behavior wasn't as expected. Using the max/min block as a memory may simplify manual control. Thanks again—I'll update with results."
+    },
+    {
+      "comment_id": 402578813388024,
+      "user_name": "A6LsrpN24h",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 11,
+      "comment_body": "The solution with the max/min block functioning as a memory works well now. In my attached setup, Input I1 starts the PI controller. The block B003 provides the setpoint, which is sent to both the PI controller and the comparators. If the process variable is within the deadband (+/-5), the max/min block stores the value and sends it to the PI controller’s manual input. After a short delay, the PI controller goes to manual mode until the process variable leaves the deadband."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users note that the absence of an integrated deadband feature in the PI controller leads to unnecessary minor adjustments, potentially increasing wear on mechanical parts like fans. Compared to other PLC controllers with built-in PID and deadband functions, these workarounds—such as adding filters or using logic blocks to replicate deadband—are more complex and frustrate users who expect more intuitive solutions.",
+    "user_expectations": "Users desire the PI controller to include a built-in deadband feature, similar to what is available in other [company_name] controllers, to prevent trivial control changes and reduce hardware wear.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "prevent unnecessary actuator wear",
+      "simplify control logic",
+      "reduce maintenance"
+    ],
+    "pain_keywords": [
+      "no deadband feature",
+      "excessive actuator movement",
+      "workaround complexity"
+    ],
+    "feature_keywords": [
+      "PI controller block",
+      "deadband",
+      "manual control",
+      "MAX/MIN block",
+      "filtering"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests"
+  }
+}

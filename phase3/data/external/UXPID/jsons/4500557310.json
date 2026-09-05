@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "4500557310",
+    "thread_id": "1723880927",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 273327833682032,
+      "user_name": "7Iz8Bhongw",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm working on a ladder logic application and want to set an internal variable and use it to control outputs depending on its value, as a basic form of multiplexing to reduce the need for multiple timers. The sequence should increment the internal variable from 0 to 1 then 2 with each cycle, before resetting back to 0. Based on its value, Q1 should activate at 0, Q2 at 1, and Q3 at 2. I tried using an analog math block for the increment, but the analog comparator seems to only accept physical analog inputs rather than internal variables. Am I missing something, or is this type of operation only possible in full PLC programming?"
+    },
+    {
+      "comment_id": 384116930649071,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 3,
+      "comment_body": "Hi [user_name], have you considered using a shift register for this application?"
+    },
+    {
+      "comment_id": 711243005886317,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], you could try using three Up-Down counters: set the first for 0 = on, 1 = off; the second for 1 = on, 2 = off; the third for 2 = on, 3 = off, then use their outputs to reset each other. I don’t have an example ready, but this setup is simple, effective, and I’ve seen it work before."
+    },
+    {
+      "comment_id": 858035722691515,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 3,
+      "comment_body": "You may want to check the examples available on the [company_name] site at [url]. Good luck."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to implement multiplexing in ladder logic using internal variables, aiming to compare the variable directly to fixed values to control outputs. They encounter a restriction as the comparator block seems designed for physical analog inputs, not internal variables. Suggestions involve using alternative logic such as shift registers and counters, and referencing documentation for possible solutions. This indicates that while workarounds exist, the feature isn’t as straightforward or directly supported as hoped.",
+    "user_expectations": "The user expects a native function to compare internal variables to fixed values in ladder logic, to control multiple outputs without relying on physical hardware inputs or complex workarounds.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy variable comparison",
+      "output selection",
+      "simplicity"
+    ],
+    "pain_keywords": [
+      "function limitation",
+      "comparison constraint",
+      "unclear workflow"
+    ],
+    "feature_keywords": [
+      "internal tag comparison",
+      "analog comparator",
+      "ladder logic",
+      "up-down counter",
+      "shift register"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

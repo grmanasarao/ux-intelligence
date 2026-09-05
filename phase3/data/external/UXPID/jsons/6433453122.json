@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "6433453122",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 974959342357354,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Hello, If I use a 0-10V DC temperature sensor on my [product_name] input -7, which corresponds to AI-1, I would like to configure the same temperature reading to an analog output as a 4-20mA signal. Can anyone explain how to do this?"
+    },
+    {
+      "comment_id": 570501868968971,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "What is the temperature range for your setup? 0V corresponds to how many °C? 10V corresponds to how many °C?"
+    },
+    {
+      "comment_id": 949351452556211,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "For a 0-10V analog input, you receive values from 0 to 1000. For a 0-20mA output, you need values from 0 to 1000 at the analog output, and for a 4-20mA output, you require values from 200 to 1000. The output range covers 800 units, while the input covers 1000 units. Therefore, you would need an amplifier with a gain of 0.8 and an offset of 200. That's all."
+    },
+    {
+      "comment_id": 218453822067839,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Are you certain about that? As far as I know, the [product_name] performs this conversion automatically. You can select the I/O options, either 0-20mA or 0-10V (which represents 0-1000 units) or 4-20mA (conversion of 1000 units to 0-800 units with an offset of 200, resulting in 200-1000 units). So there may be no need for manual adjustments."
+    },
+    {
+      "comment_id": 685754521760393,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Therefore, [user_name] has two choices: using an amplifier with a gain of 0.8 and offset of 200 with factory settings, or a direct connection from input to output with the 4-20mA configuration. However, why would you require temperature values for a 1:1 signal transfer?"
+    },
+    {
+      "comment_id": 848476165087523,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "So the first option would be to leave the output settings at 0-20mA, correct? I’m asking about the temperature range because I like to clarify boundary conditions when providing examples. Is there anything unclear or problematic about that?"
+    },
+    {
+      "comment_id": 208823074274651,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "0V equals -10°C 10V equals 40°C"
+    },
+    {
+      "comment_id": 380592638134485,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Thanks for the reply. The temperature signal is connected to the [product_name] controller, and the same readings are needed as a 4-20mA output for their central monitoring system."
+    },
+    {
+      "comment_id": 659816147111881,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "You can directly connect the analog input to the analog output. In the properties for the analog output, you can select the 4-20mA output option."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to transfer temperature readings from an analog voltage input (0-10V) to an analog current output (4-20mA) using [product_name] hardware, mainly focusing on how to map sensor input to output for central monitoring. The conversation covers proper scaling of values and clarifies that [product_name] offers options for direct mapping and automatic conversion, pointing out some uncertainty about setup requirements and configuration features.",
+    "user_expectations": "The user is looking for a simple way to map a temperature value from a 0-10V sensor to a 4-20mA output using [product_name] hardware, hoping for a solution that avoids manual calculations or complicated settings.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "simple signal mapping",
+      "reliable conversion",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "confusing scaling",
+      "ambiguity in settings",
+      "manual calculation uncertainty"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "analog output",
+      "output scaling",
+      "output type selection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "8": "Documentation Clarity"
+  }
+}

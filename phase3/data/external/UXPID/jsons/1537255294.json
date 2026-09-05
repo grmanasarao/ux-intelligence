@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "branch_id": "1537255294",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 171462576306853,
+      "user_name": "KX9n2oPoRn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Hello, I have a question about measuring current with the [product_name] AM2 module. My battery operates at 48V, typically ranging from 39V when discharged to 56V when fully charged. I plan to measure voltage indirectly using a resistor that limits current between 4-20mA. For instance, with a 3k Ohm resistor, 18mA flows at 56V, and 13mA at 39V. Is it unsafe to apply 56V directly to the AM2 module terminals?"
+    },
+    {
+      "comment_id": 977116600136519,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Honestly, I don't think your approach is recommended. Using such high voltages, even with a resistor, isn't safe for the AM2 module. You likely need an amplifier or another device to bring the voltage down to a safer level. Just my opinion—maybe someone with more experience can weigh in."
+    },
+    {
+      "comment_id": 806820410095290,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Could you provide a drawing of your circuit and indicate where the load or charger connects? Also, consider searching online for '48V battery voltage indicator circuit' for reference."
+    },
+    {
+      "comment_id": 307888719092746,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "It might be a better solution to measure the voltage directly using a divider. With just two resistors, you can easily stay within the 0–10V input range."
+    },
+    {
+      "comment_id": 987827824169481,
+      "user_name": "KX9n2oPoRn",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "I've attached a drawing showing my setup, but this example uses 24V from the power supply instead of battery voltage."
+    },
+    {
+      "comment_id": 416800357113870,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Using just a resistor on a current loop input for the AM2 module is not advisable. Instead, use two resistors to lower the voltage (maximum 10V), then measure with the 0–10V input on the AM2 module. For example, connect a 5.6k Ohm and a 1k Ohm resistor in series and measure across the 1k resistor; you'll get roughly one-sixth of the input voltage—56V would result in about 8.5V at the input. If you have the correct [product_name] base module (the full DC variant), you might be able to use its analog inputs directly and skip the AM2 module."
+    },
+    {
+      "comment_id": 203907001608999,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "You could consider a current transformer that's available in suitable ratios, then use a resistor for finer adjustment. Connect the output to an interface board that converts current to voltage. These boards are inexpensive online and allow you to tweak zero and span, so you could connect the analog input on the [product_name] base module without needing the AM2 module."
+    },
+    {
+      "comment_id": 759557077235380,
+      "user_name": "RV5IfLBcbf",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 1,
+      "comment_body": "Are current transformer modules available for DC measurements?"
+    },
+    {
+      "comment_id": 166037577543295,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Yes, DC current sensing modules are available. Some output 5V, and there may be 10V models too—contact the seller for confirmation. See example products on [url]."
+    },
+    {
+      "comment_id": 949742697030872,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Here's another example of a DC current transducer module: [url]"
+    },
+    {
+      "comment_id": 794544892396062,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Why convert voltage to current, then back using a current transducer, and let the [product_name] input module convert it again using its internal resistor? Just use two resistors as described, and connect directly to the analog input on the base module."
+    },
+    {
+      "comment_id": 879973265623802,
+      "user_name": "yF7LjtgvEf",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I agree—using only resistors is best, with 5.6k and 1k values recommended. At 56V, you'll reach about 10.1V, but if your charger supports equalizing it could go up to 60V. Keep it simple; with 1W resistors the current remains safe around 7mA."
+    },
+    {
+      "comment_id": 774259640869807,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Choose resistor values as needed, but remember the analog input's internal resistance introduces a load resistor in your voltage divider design. You can adjust scaling in the [product_name] to account for resistor tolerances and the internal resistance."
+    },
+    {
+      "comment_id": 330980798070599,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "In a two-resistor setup, be sure to connect the battery's negative terminal to the correct point on the [product_name] power supply. Resistor calculations should also factor in tolerance and the internal resistance of the module. Calibration within the [product_name] software can help refine your measurement."
+    },
+    {
+      "comment_id": 421587214845493,
+      "user_name": "8RYb477Ela",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I've updated my original drawing to correct a small error regarding potential. The [product_name] pin M must connect to potential M—otherwise, the common ground has no purpose."
+    },
+    {
+      "comment_id": 793306821164484,
+      "user_name": "KX9n2oPoRn",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I prefer current measurement because it protects against overvoltage. If a resistor is bypassed by accident, it could put 24V straight onto the 0-10V ADC input."
+    },
+    {
+      "comment_id": 859545249100848,
+      "user_name": "8RYb477Ela",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Analog inputs on the base module can also serve as digital inputs with DC24V (max DC28.8V), so up to this voltage there’s no risk. Alternatively, you can use a Zener diode parallel to the resistor to limit voltage, for example, to DC12V."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are cautious about applying high DC voltages to the AM2 analog expansion module, highlighting the potential for hardware damage. There's a clear desire for safer voltage measurement methods, with suggestions for voltage dividers and signal conditioning alternatives. The discussion reflects uncertainty and calls for clearer guidelines in handling high-voltage measurements with such modules.",
+    "user_expectations": "The user hopes the AM2 analog module can safely handle measuring currents derived from high DC voltages, and seeks expert confirmation to avoid damaging the hardware with this approach.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "safe current measurement",
+      "battery voltage monitoring",
+      "hardware compatibility"
+    ],
+    "pain_keywords": [
+      "risk of hardware damage",
+      "unclear voltage limits",
+      "need for safer measurement methods"
+    ],
+    "feature_keywords": [
+      "analog input voltage range",
+      "current loop input",
+      "direct voltage measurement"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "17": "Circuit Protection Guidance",
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "branch_id": "6128695961",
+    "thread_id": "3055273936",
+    "publication_year": 2009,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 486303798825349,
+      "user_name": "N68tGf0vlW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm unsure how to wire a 2-wire sensor to the AM2 analogue module. The documentation in the [product_name] manual and this forum suggest connecting the sensor ground to the M1 terminal, but the schematic shows the M wire connected to the M terminal and leaves out the ground. The page [url] even suggests linking PE and M, which works in practice but isn't clearly recommended. The schematic connects the shield to PE, but it's unclear where the sensor ground should go. Following the current instructions, the ground and M end up linked, and the sensor itself isn't grounded. Appreciate any feedback on this."
+    },
+    {
+      "comment_id": 376838028520978,
+      "user_name": "JMywOwHns4",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "You should connect the PE conductor from your electrical installation to the PE terminal of the AM2. If you’re using shielded cable to connect the sensor, connect the cable shield to the PE terminal as well."
+    },
+    {
+      "comment_id": 465489502443309,
+      "user_name": "njqBwMQOG2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "On the link you provided, I see a schematic indicating PE joined to the cable shield, and a sensor outputting current to the current input. M terminals are at 0V DC or GND and need to share the same potential, so they are interconnected. It’s true that sensor connection diagrams often create confusion."
+    },
+    {
+      "comment_id": 808230434143619,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "The link describes a 2-wire 0/4..20 mA sensor – a loop-powered sensor that must form a power loop: the sensor’s positive wire goes to the positive supply, and the negative wire to the current input of the expansion module, completing the circuit. For 4-wire sensors, two wires would connect to power supply and two to current input and ground on the module. Connecting PE and shielding as described is correct; PE protects the system and should connect to the metal enclosure and any touchable metal parts. Shielding the cable reduces electrical noise entering the sensor input – connecting it to PE makes a 'Faraday Cage' to minimize interference. Mixing PE and signal/sensor grounds is discouraged; it may result in unwanted signals or spikes on your sensor inputs, especially if there are faults elsewhere. Keep PE together for protection and signal/sensor grounds together for signal integrity."
+    },
+    {
+      "comment_id": 687146505364124,
+      "user_name": "N68tGf0vlW",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Your explanation is clear, though I'm unsure about the ground connected to the Min terminal. Is it best to connect the sensor ground to the M input of the AM module alongside the M from the power supply, instead of connecting it directly to the system's ground or PE? Is connecting the ground to the negative safe, considering it's often linked to the sensor's case? Could that affect signal quality or safety?"
+    },
+    {
+      "comment_id": 322400911606120,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Thank you for your follow-up. Good engineering practice keeps electrical protection (PE and shields) separate from supply and signal wires (power supply minus, and sensor grounds/negatives). Schematics often use different symbols to indicate these grounds. Linking PE and signal/sensor grounds can create ground loops, causing devices using the same PE (like large drives) to leak current that can interfere with sensor readouts due to potential differences between PE and M. Keeping them separate helps avoid these issues."
+    },
+    {
+      "comment_id": 817231880760672,
+      "user_name": "N68tGf0vlW",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Thanks again for your response. Still wondering: why not connect the sensor ground directly to the system ground/PE instead of M?"
+    },
+    {
+      "comment_id": 547431327249265,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "You can connect the sensor ground to the system’s PE – it will function, but it's not considered best engineering practice. Doing so tries to route the sensor loop via the power supply. [company_name] [product_name] power supplies are isolated, enclosed in plastic, and don't need a PE; just L1 & N bring you 24V DC L+ and M. If using such a supply and connecting a sensor to the AM2 module, with the sensor signal to I1 or V1 and the negative/ground to PE, the PE has to link to M somewhere for the sensor signal to register. Connecting PE, M on the AM2, and M on the power supply creates one ground potential and works, but risks more ground loops. Keeping PE and M separate ensures all devices operate at the same reference potential, so input values remain consistent. Mixing PE and M references across the installation can lead to unreliable sensor readings. I’ll try to clarify further with a diagram."
+    },
+    {
+      "comment_id": 334326596763461,
+      "user_name": "1WJnLn03ov",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Refer to the manual’s relevant sections for further clarification."
+    },
+    {
+      "comment_id": 640021745552519,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Thanks [user_name]! I feel silly for making a detailed diagram that was basically already in the manual. Reviewing the manual diagrams, you’ll notice the small stripes beside the sensor wires indicate shielding connected to PE (similar to my dotted green lines). Also, the final notes about shielding for Pt100 sensors and the guidance on using/not using isolated power supplies seem a bit contradictory – I’d like to look into that more. The confusion brought up earlier is clearly justified. If anyone can clarify sensor, signal, ground, earth, and PE connections further, please share!"
+    },
+    {
+      "comment_id": 986330681152234,
+      "user_name": "N68tGf0vlW",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 6,
+      "comment_body": "Thank you all – this diagram makes things much clearer. Before posting here, I checked the manual and support page but still found the topic confusing, which prompted my question. Basically, there are 2-wire and 4-wire sensors, and some 2-wire sensors with an extra ground wire (effectively 3-wire). My E&H sensor is a 2-wire type but includes a third ground connection. If you connect this ground to the cable shield, it makes sense, or use a third wire in a 3-core cable, which is what I did. To summarize: DC 24V to sensor input, sensor output to AM2 analog input, sensor ground (or shield) to PE, and M connected to M input of the AM module. M and PE should remain unconnected (though possible), given the discussed issues."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users report ongoing confusion over proper sensor wiring to the AM2 analogue module – especially regarding connections for ground, M terminals, and PE. Documentation and diagrams are considered ambiguous or inconsistent, with unclear differentiation between signal and protective grounds, leading to risks like ground loops or signal interference. The conversation highlights a need for clearer, practical guidance for proper sensor grounding and wiring practices to improve reliability and safety.",
+    "user_expectations": "Users are seeking straightforward, clear diagrams and instructions for sensor and signal wire grounding with the AM2 analogue module, designed to guarantee both signal reliability and safety. There is an expectation that following the official documentation will avoid ground loops and signal problems, making installations dependable.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "clear grounding instructions",
+      "safe installation",
+      "signal quality",
+      "avoid ground loops",
+      "reliable sensor readings"
+    ],
+    "pain_keywords": [
+      "grounding confusion",
+      "ambiguous documentation",
+      "unclear diagrams",
+      "risk of ground loops",
+      "signal interference risk"
+    ],
+    "feature_keywords": [
+      "M terminal",
+      "PE terminal",
+      "sensor signal wiring",
+      "shielded cable connection"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "17": "Circuit Protection Guidance"
+  }
+}

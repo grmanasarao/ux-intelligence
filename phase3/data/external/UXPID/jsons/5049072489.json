@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "5049072489",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 705188819655158,
+      "user_name": "NYcuyEcGBD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hello, does anyone have a mathematical function for this? I'm unsure how to calculate with powers of ten. I have a [product_name] inverter with Modbus TCP on port 502 (older version), and I can access all data, but need help calculating the scale factors."
+    },
+    {
+      "comment_id": 766351214020190,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "SF stands for scale factor, meaning the actual value should be multiplied by the scale factor. Examples: 10^2 = 100, 10^1 = 10, 10^0 = 1, 10^-1 = 0.1, 10^-2 = 0.01. If Value = 23055 and SF = 10^-2, then you get: 23055 * 10^-2 = 230.55."
+    },
+    {
+      "comment_id": 564519465763667,
+      "user_name": "NYcuyEcGBD",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "I understand it's a decimal adjustment. Should AC power just be multiplied by the scale factor, or do I need to include 10^x in the function? I'm not sure how to add powers of ten in code. Could someone share a sample program here? Thank you. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 794871425421707,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 481703722984586,
+      "user_name": "NYcuyEcGBD",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Hi, here's a straightforward approach. The scale factor at Modbus address 85 (referenced as 40085 in [company_name] documentation) ranges from -2 to 0. For power less than 300W, the factor is -2; for less than 3000W, it's -1; and for more than 3000W, it's 0 (approximately). I use [product_name] for home automation together with a heat pump from a well-known brand and a [company_name] inverter, with a 6kW export limit. An 800-liter water tank stores energy, and I heat the water to 55°C when exports exceed 3000W. During night hours, the system switches to sleep mode for quiet operation. The setup aims for efficient energy use in a well-insulated 140m² house with floor heating."
+    },
+    {
+      "comment_id": 115598587588749,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "If the scaling factor is restricted to -2, -1, or 0, this method seems preferable. There's no need to compare the value to zero."
+    },
+    {
+      "comment_id": 740585742205148,
+      "user_name": "NYcuyEcGBD",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 11,
+      "comment_body": "Thank you for assisting me. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread discusses converting values using scale factors from a Modbus TCP energy inverter to support smart home integration. One user seeks help with the mathematical conversion involving powers of ten, while another explains the calculation and provides practical examples. A simple approach based on limited scaling factors is offered, instilling confidence to advance with the home automation project.",
+    "user_expectations": "Users expect precise instructions for applying scale factors, including clear mathematical formulas or code samples. They are seeking to clarify the calculation process and make implementation more straightforward.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate scaling",
+      "integrated automation",
+      "energy management"
+    ],
+    "pain_keywords": [
+      "scale factor confusion",
+      "lack of examples",
+      "unclear documentation"
+    ],
+    "feature_keywords": [
+      "scale factor calculation",
+      "modbus data interpretation",
+      "automation control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

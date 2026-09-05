@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "7983143830",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 879412166187593,
+      "user_name": "dancRwUyWR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello, I'd like to know if the procedure described is also valid with the latest [product_name] devices running Fw [version_no]? Unfortunately, we're finding that with this new firmware, it's no longer possible to access and configure new devices using port forwarding. Is anyone else experiencing this? Is there any solution to this problem? Thank you."
+    },
+    {
+      "comment_id": 490724252907089,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Please write your posts in English, as English is preferred in this forum. Thank you."
+    },
+    {
+      "comment_id": 354243299711112,
+      "user_name": "dancRwUyWR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I'm connected through my organization's VPN and even after opening ports such as 8080, 102, and 502, I'm unable to reach the [product_name] device with firmware [version_no]. Thank you."
+    },
+    {
+      "comment_id": 537947152238699,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Which [product_name] software version are you using? Also, Port 502 is reserved for Modbus TCP/IP communication."
+    },
+    {
+      "comment_id": 772411285824345,
+      "user_name": "dancRwUyWR",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I'm using [product_name] version [version_no]; ports 502 and 510 are used for Modbus communication with SCADA. The issue is not related to Modbus but rather involves programming the [product_name] device with firmware [version_no] from [product_name] software, as shown in the screenshot."
+    },
+    {
+      "comment_id": 365158212660652,
+      "user_name": "uilXywuFBE",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Are you able to PING the [product_name] device? Let's start with the basics. What type of VPN is it—split tunnel or full tunnel? Do you have access to the subnet where the [product_name] device resides? Where is the device located—within your organization or elsewhere? Thanks [user_name]"
+    },
+    {
+      "comment_id": 917462932906708,
+      "user_name": "uilXywuFBE",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Also, your public IP (100.64.65.1) is actually a Carrier Grade NAT IP and not a true public IP. That's likely why port forwarding isn't working for you."
+    },
+    {
+      "comment_id": 990986719398406,
+      "user_name": "dancRwUyWR",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "For clarity, I'm attaching a diagram that highlights the issue—which appears only with [product_name] software version [version_no] and [product_name] devices with Fw [version_no]—when the PLC's IP differs from the OpenVPN range and port forwarding is needed on port 8080. To remotely reach the PLC via [product_name] software, you need to dynamically enter the router's address followed by port 8080 where forwarding has been set (e.g., 100.64.10.x:8080). Up to [product_name] version [version_no], all devices (about 300 [product_name] devices) remained accessible and configurable. The issue only appeared with the [product_name] software release [version_no]. Has the required port changed from 8080? Something seems different now! THANK YOU"
+    },
+    {
+      "comment_id": 662974872876429,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Please refer to the attached excerpt from the [document]."
+    },
+    {
+      "comment_id": 869614076273011,
+      "user_name": "dancRwUyWR",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "The issue is resolved. The port that needed opening was 8443. Excellent, and thank you for your help and the information provided."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users became unable to reach and configure [product_name] devices with firmware [version_no] using [product_name] software version [version_no] remotely via VPN and port forwarding. Earlier versions of both software and firmware did not present this issue, leading to confusion over port requirements and device access after an update. Users determined that the default access port had changed (from 8080 to 8443), and updating configurations accordingly resolved connectivity problems.",
+    "user_expectations": "Users expect to be able to access, configure, and program [product_name] devices remotely via VPN after updating firmware and [product_name] software, using established port forwarding settings as they did in previous versions.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote configuration",
+      "reliable connectivity",
+      "smooth upgrading",
+      "remote troubleshooting"
+    ],
+    "pain_keywords": [
+      "connectivity loss",
+      "port forwarding failure",
+      "confusing port change",
+      "firmware compatibility issue"
+    ],
+    "feature_keywords": [
+      "remote access",
+      "VPN configuration",
+      "port management",
+      "firmware upgrade"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

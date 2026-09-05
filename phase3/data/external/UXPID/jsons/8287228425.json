@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "branch_id": "8287228425",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 833874289021073,
+      "user_name": "uJu2xAWOB0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I have a [company_name] [product_name] base module, and I've attached the analog input and output expansion modules. Both have active green LEDs and the output module generates a 4-20mA signal. However, the input module isn't registering signals from a two-wire 4-20mA transducer, and nothing appears on the display. I disabled all analog inputs on the base module, programmed AI1 and AI2 for 4-20mA input, and wired up a continuous liquid level transducer with a 24V DC supply in series. Changing gain hasn’t helped; the expansion module still doesn’t detect the signal, even though the bar graph remains at zero no matter the float position. Any advice on what I'm missing?"
+    },
+    {
+      "comment_id": 883630679399549,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Connect +24 VDC to the positive terminal of the converter. Link the negative terminal of the converter to the I contact of the analog module. Connect the M2 contact of the output module to the 0 VDC of the power supply."
+    },
+    {
+      "comment_id": 543673005060706,
+      "user_name": "uJu2xAWOB0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "That matches my setup, but I still see no result. Both the transducer and input module are brand new."
+    },
+    {
+      "comment_id": 360800068992395,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Do you have the sensor’s data sheet or specifications?"
+    },
+    {
+      "comment_id": 242382664542037,
+      "user_name": "uJu2xAWOB0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Yes, it’s a continuous level sensor—float type, Model [article_no] from Madison Company, with two-wire 4-20 mA output. The documentation says the sensor’s positive lead should go to the power supply’s positive terminal, and the black negative lead connects to the ammeter input, then the other terminal to the power supply’s negative. I double-checked both the wiring and programming but still get no readings."
+    },
+    {
+      "comment_id": 181381025468830,
+      "user_name": "uJu2xAWOB0",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "I confirmed the float works by testing it with a 24VDC supply set to 500mA and a digital multimeter set for mA range. The full 4-20mA range shows as the float moves. On the [company_name] module, the AI feeds directly to an analog amplifier, which I try to monitor through the display. Should any particular settings be applied? Both the base module, expansions, and HMI run off the same 24VDC supply limited to 500mA. Could the current limit be too low?"
+    },
+    {
+      "comment_id": 803831165851635,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "What does your multimeter show when it's connected in series between the sensor and input module?"
+    },
+    {
+      "comment_id": 305452155397764,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "The primary analog input on your extension module is likely AI3 in [product_name] software—possibly AI5 depending on configuration."
+    },
+    {
+      "comment_id": 615906132986948,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "@[user_name], please review the initial post for details."
+    },
+    {
+      "comment_id": 939303067889230,
+      "user_name": "uJu2xAWOB0",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "When I wire the sensor in series with the input module and multimeter, a few mA are displayed. Disconnecting M2 from the -Vdc and connecting the meters between I2 and -Vdc shows the full 4-20mA range. Not sure why the input module fails to read the signal."
+    },
+    {
+      "comment_id": 885766361130746,
+      "user_name": "uJu2xAWOB0",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Am I overlooking anything in the software? Does the input module need configuration? Will the analog amplifier block display a signal in the messages? Does gain or another amplifier setting require adjustment, and if so, to what value? The active green LED should indicate everything’s functioning, correct?"
+    },
+    {
+      "comment_id": 156188391660469,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Are your sensor’s power supply and the input module’s supply the same?"
+    },
+    {
+      "comment_id": 944464620700961,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "No configuration of the input module in [product_name] configuration tool is needed. Set the analog amplifier to the type 4-20 mA, and adjust Min and Max values to match the sensor’s actual measuring range. See the start menu of [product_name]; screen 3/9 shows post-A/D converter values for inputs 1-5. 4 mA maps to 200 and 20 mA to 1000. The green LED confirms communication between modules."
+    },
+    {
+      "comment_id": 382997012412246,
+      "user_name": "uJu2xAWOB0",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "In the base module status, it displays: EM Status: Number of EMs = 2, Inputs = 8, Outputs = 4, Analog Inputs = 4, Analog Outputs = 2. Modules seem functional. How do I access raw analog input values on the base module? Why does it list four analog inputs with only one expansion module attached? Can anyone share a simple example project for reading a two-wire 4-20mA level sensor? The module should show some value. Any suggestions?"
+    },
+    {
+      "comment_id": 950441360202421,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Did you confirm all base module analog inputs are deactivated? Have you checked screen 3/9 in the start menu?"
+    },
+    {
+      "comment_id": 687001839459091,
+      "user_name": "uJu2xAWOB0",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Here’s what I found: I accessed the base module and displayed the analog input values. For some reason, AI3 and AI4 are active, and, when moving the float, the AI4 value changes. [user_name] writes: On [product_name], press Cursor UP until the date and time appear. Then press RIGHT until AI1-4 appear on the display—these are raw values. Select an AI channel, note the value, rewire the sensor to the expansion module, then press RIGHT again to see AI5-8 and compare sensor values. That’s the way to check analog inputs in [product_name]."
+    },
+    {
+      "comment_id": 544977824053714,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "That’s why I attached manual page 355 in my previous post."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user cannot get the analog input expansion module to detect signals from a functional 4-20mA liquid level sensor, despite confirming proper sensor operation, wiring, and software setup. The main issue is the analog input display remains unchanged, even when the sensor operates normally elsewhere, causing frustration and uncertainty about potential misconfiguration, power supply limits, or module setup.",
+    "user_expectations": "The user expects that the analog expansion module should straightforwardly read and display a 4-20mA signal from an industry-standard sensor with minimal configuration and obvious troubleshooting steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable 4-20mA signal input",
+      "real-time analog value display",
+      "easy configuration"
+    ],
+    "pain_keywords": [
+      "no analog input recognition",
+      "configuration ambiguity",
+      "lack of diagnostic feedback",
+      "possible channel mapping confusion"
+    ],
+    "feature_keywords": [
+      "4-20mA analog input",
+      "channel mapping",
+      "bar graph display",
+      "analog amplifier",
+      "green run LED"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

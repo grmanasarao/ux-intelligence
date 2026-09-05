@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "8761956684",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 592995487400973,
+      "user_name": "fQilC5uYY5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I'm working on a changeover control system using [product_name] and aim to manage three power supply lines (main utility, generator1, generator3), each providing three-phase 380V, 50Hz. I plan to sample from each line (L1m, L1g1, L1g2) and feed those inputs (I1, I2, I3) into [product_name] software. My question is: the manual mentions that for a single input group, the same phase should be used. What happens if different phases are connected as inputs for one group (all lines share a common neutral)? I'd appreciate any thoughts or ideas. Thank you [company_name]."
+    },
+    {
+      "comment_id": 207148912694364,
+      "user_name": "JMywOwHns4",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 12,
+      "comment_body": "Hi! I'm not sure what happens if you use different phases on one input group, but I'm interested to know. Are you planning to use a backup power supply (UPS) for your [product_name]? If so, you could use a relay for each source. Each relay would close a normally open contact when its power source is active. Then, you connect the input to the UPS voltage (230V) using these contacts."
+    },
+    {
+      "comment_id": 806788973226953,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 12,
+      "comment_body": "Hello, if you connect different phases to one input group, [product_name] will briefly operate (milliseconds) before being damaged. It's strongly advised not to connect different phases to the same input group!"
+    },
+    {
+      "comment_id": 346942094680527,
+      "user_name": "fQilC5uYY5",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 12,
+      "comment_body": "Hello all, I appreciate your input—it's been very helpful. Thank you [company_name]."
+    },
+    {
+      "comment_id": 710274257080410,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 1,
+      "comment_body": "Hello everyone! Not sure if you've found a solution, but here are my suggestions: 1) [product_name] is the only logic module available that can handle inputs from different phases. 2) However, inputs from different phases must be routed to separate input groups. 3) Input group 1 (I1 to I4) should be on the same phase as the supply (L N) on a [product_name] 230RC. 4) One input from the supply phase can be connected to any input in I1..I4. 5) Inputs from another phase should be connected to the next input group (I5..I8). 6) You'll see a gap between group 1 and group 2 on the [product_name] 230RC, which provides potential isolation between the phases (380V). 7) Inputs from a third phase should be connected to an input on an expansion module for proper 380V isolation, with the DM8 230R acting as the third input group. While this configuration may seem inefficient, it's necessary to protect the device and ensure isolation between phases. Hope this helps!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are focused on electrical safety and correct configurations when connecting inputs from multiple phases to [product_name]. Manuals are referenced and there is some confusion about safe wiring practices, with differing opinions on hardware capability. Clear guidelines from documentation regarding phase grouping are crucial for safe operation.",
+    "user_expectations": "The user is looking for confirmation on safely wiring samples from separate phases into [product_name] input groups and wants detailed instructions for this configuration based on the manual.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "safe operation",
+      "phase sampling",
+      "correct wiring",
+      "input group functionality"
+    ],
+    "pain_keywords": [
+      "hardware damage risk",
+      "phase wiring confusion",
+      "isolation requirements"
+    ],
+    "feature_keywords": [
+      "input group isolation",
+      "multi-phase input capability",
+      "wiring safety",
+      "manual clarity"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "27": "Safety Compliance Concerns",
+    "8": "Documentation Clarity"
+  }
+}

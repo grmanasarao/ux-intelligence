@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "branch_id": "9230163877",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 699850320474073,
+      "user_name": "6h88wmG0O3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I'm trying to adjust the 'connection time' for a weekly timer through a webserver created with [product_name], but it's not working. Adjustments for other timers are straightforward, but the weekly timer is problematic. When I try to set the 'connection time', it appears as a 4-digit hexadecimal value. Assigning this value to a variable causes it to display in decimal, and when read from the webserver, it's interpreted as minutes using the decimal value. How can I input a value for the 'connection time' of the weekly timer via a webserver set up in [product_name]?"
+    },
+    {
+      "comment_id": 996883199444803,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "The switching times for the weekly timer are encoded in BCD format. If you transfer the switch-on time as a word to memory, hours are stored in the left byte and minutes in the right byte. For instance, if the switch-on time is at address VW0, the bits V0.4 to V0.7 represent tens of hours, V0.0 to V0.3 represent ones of hours, V1.4 to V1.7 are tens of minutes, and V1.0 to V1.3 are ones of minutes. Therefore, you need to use the hexadecimal format in [product_name]. Create two separate input/output fields for each byte: one for hours and another for minutes. See the attached file for an example compatible with an earlier version of [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are struggling to modify the weekly timer's 'connection time' through [product_name]'s webserver due to its use of BCD encoding. While other timers are easier to configure, the weekly timer's format requires knowledge of memory mapping and hexadecimal/Binary Coded Decimal representation. The recommended solution is to set up separate input fields for hours and minutes, but clear documentation and direct editing support are lacking.",
+    "user_expectations": "Users want a simple way to change the weekly timer's connection time from the webserver interface, without needing to understand or handle encoded data formats.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "easy remote timer adjustment",
+      "consistent user interaction",
+      "intuitive parameter editing"
+    ],
+    "pain_keywords": [
+      "ambiguous data format",
+      "lack of UI support",
+      "hexadecimal/BCD confusion",
+      "weekly timer limitation"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "webserver parameter edit",
+      "time data format",
+      "UI input field"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

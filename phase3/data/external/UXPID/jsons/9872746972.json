@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "branch_id": "9872746972",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 887429445938282,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello, I am setting up a system to monitor AC current of a 3-phase motor using a current transducer (LEM AT5B). The transducer provides a 0-5V signal output for 0-5A current, which will connect to the [product_name] controller. Since the transducer is self-powered, it doesn’t require an external supply and simply has a ring for the wire and a 0-5V output terminal. My concern is that, due to being self-powered, the output voltage may be too weak unless the analog input of the PLC has a very high impedance; otherwise, the signal might be suppressed. Am I correct in my assumption? The transducer manufacturer specifies a load resistance RL ≥ 1 MΩ, which is quite high."
+    },
+    {
+      "comment_id": 974810700529493,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The analog inputs (0-10V) of the [product_name] controller have input impedance in the range of 72 kΩ to 80 kΩ."
+    },
+    {
+      "comment_id": 832579332672014,
+      "user_name": "irdmkTgewS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Keep in mind that the sample rate of the analog input isn’t very high. If the sensor is just a core and coil, you might not get reliable readings as-is. For better results, the signal should be rectified and smoothed to DC before connecting it to the analog input of the [product_name] controller. Best, [user_name]"
+    },
+    {
+      "comment_id": 152974057790271,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Consider using an AT5B420L model with a 4-20mA output. You can connect it to a [product_name] base module as follows: connect DC24V to one + terminal, the - terminal to a 500 Ohm resistor, which goes to ground. The voltage across the resistor will be between 2 and 10V depending on the current (0-5A). Alternatively, you could use an analog amplifier with a high impedance input, but getting a new sensor may be more cost-effective. Regards, [user_name]"
+    },
+    {
+      "comment_id": 320792233084106,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "That’s what I was thinking as well—if the DC output is pulsating, measurement accuracy would suffer. I hope these transducers have built-in circuitry to make the output usable for basic PLCs, given their price."
+    },
+    {
+      "comment_id": 628365200542722,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "[user_name], how do you decide which connection method to use for the 4-20mA output, since there seem to be two ways?"
+    },
+    {
+      "comment_id": 302956857787854,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 380074480770367,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The final wiring diagram is the correct version for the AT5B420L. The sensor requires a load resistor up to 600 Ohm, so 500 Ohm works. Supply voltage should be 20..30V DC, thus DC24V is suitable. I’d recommend this connection for analog inputs on the base module. If you use an AM2 expansion module, the required resistor is already built-in, so you can use the current output directly. Make sure your base module actually includes analog inputs—there are extra labels on the case if they’re present. For scaling, use an analog amplifier, pick a 4-20mA sensor type, and configure the left side for area definition (e.g. 0..5000 with three decimal places for 0.000 to 5.000A, or no decimal places for 0..5000mA). Regards, [user_name]"
+    },
+    {
+      "comment_id": 659040157065730,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Additional info: Under normal operation the voltage across the resistor shouldn’t exceed 10V, so the power loss will be P = U²/R = 0.2W. In worst case, at 24V, it’s about 1.15W. I often use a 499 Ohm resistor rated for 0.6W with 4-20mA sensors, and haven’t had issues over 20 years. Select your resistor based on your risk assessment. Regards, [user_name]"
+    },
+    {
+      "comment_id": 453455011528412,
+      "user_name": "irdmkTgewS",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Reviewing the data again, it shows you're getting a DC-RMS signal. The step response time (90% Ipn) is 300ms. So, it’s likely to work with the analog input of the [product_name] controller."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users evaluated connecting a self-powered AC current transducer to a [product_name] controller, focusing on whether the analog input’s impedance would allow accurate readings. Challenges were identified with impedance matching and the need for signal conditioning due to the controller’s sample rate. Alternatives like a 4-20mA output variant or analog amplifier were suggested to help ensure reliable operation.",
+    "user_expectations": "The user is seeking smooth integration of the self-powered transducer with the [product_name] controller, hoping for dependable AC current measurements without needing additional signal conversion. They expect the analog input of the controller to work directly with the transducer’s output voltage.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate current measurement",
+      "easy sensor integration",
+      "compatibility"
+    ],
+    "pain_keywords": [
+      "impedance mismatch",
+      "inaccurate readings",
+      "setup complexity"
+    ],
+    "feature_keywords": [
+      "analog input impedance",
+      "current input compatibility",
+      "signal conditioning"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

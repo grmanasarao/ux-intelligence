@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "9449789837",
+    "thread_id": "3055273936",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 880419683459259,
+      "user_name": "8HZN4B4Teh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello, I need support for a new project. I want to measure oven temperature with a PT100 sensor, with a setpoint range of 30 to 250°C. In this range, I also need to control a servo valve using a 4-20mA output: 20mA at 30°C, 4mA at 250°C, proportionally adjusting the fuel flow as the temperature setpoint is reached. The system should minimize fluctuations and also manage a burner via digital output. Thanks in advance for your help."
+    },
+    {
+      "comment_id": 285853223394914,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Can you let us know which PLC you plan to use?"
+    },
+    {
+      "comment_id": 422561068072179,
+      "user_name": "8HZN4B4Teh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Good morning, I apologize for omitting an important detail: I am using a [product_name] with its RTD modules for PT100 and a 4-20mA analog output module."
+    },
+    {
+      "comment_id": 611702011393769,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "The AM2 RTD module for PT100/1000 has a fixed temperature measurement range from -50°C to 200°C. For measurements up to 250°C or above, you need an external PT converter with a 0-10V or 0/4-20mA output and an AM2 analog input module."
+    },
+    {
+      "comment_id": 633687135933963,
+      "user_name": "8HZN4B4Teh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Understood. With the AM2 module connected to the PT100, I would appreciate advice on how to perform proportional regulation as described earlier."
+    },
+    {
+      "comment_id": 860993638045518,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "So you'd use the AM2 and an external PT converter with a 0-10V or 0/4-20mA signal to match your required temperature scale?"
+    },
+    {
+      "comment_id": 989542281021555,
+      "user_name": "8HZN4B4Teh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "That's right. With the external PT, I will connect it to the AM2 RTD module to obtain the process temperature, and simultaneously control the valve opening proportionally via 4-20mA using the AM2 AQ output module."
+    },
+    {
+      "comment_id": 459917224033531,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Let me clarify again: If you use AM2 RTD, you'll only be able to read temperatures from -50°C to 200°C, as this is a fixed range for the module. For temperature readings above 200°C, you need an external PT converter with either 0-10V or 0/4-20mA output, and switch to the analog AM2 input module instead of AM2 RTD."
+    },
+    {
+      "comment_id": 289513737642840,
+      "user_name": "8HZN4B4Teh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thanks, I see that with the AM2 RTD modules, I can record up to 200°C, and with the 0-10V/4-20mA analog input module, I can take measurements above 200°C. Could you provide a reference program for this setup?"
+    },
+    {
+      "comment_id": 364574565582268,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Give this a try."
+    },
+    {
+      "comment_id": 968556449995147,
+      "user_name": "8HZN4B4Teh",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thanks a lot. I tested the simulation and it works well. I'll do further testing with the actual hardware and will update you on the results. I appreciate your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is working on oven temperature regulation using [product_name], RTD, and analog I/O modules, but faces confusion over hardware limits for temperature readings above 200°C. Repeated clarifications focus on the fixed range limitation of the RTD module and required configurations for PT100 sensors and proportional analog control above 200°C.",
+    "user_expectations": "User wants to reliably measure and control temperatures from 30 to 250°C with [product_name] modules, and requests clear guidance regarding suitable hardware and example programming to achieve proportional analog output.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "proportional fuel valve control",
+      "accurate oven temperature measurement",
+      "minimal temperature fluctuations",
+      "extended temperature range"
+    ],
+    "pain_keywords": [
+      "hardware limitations",
+      "unclear temperature range documentation",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "temperature measurement >200°C",
+      "analog output (4-20mA)",
+      "reference program",
+      "proportional control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "2": "Product Compatibility"
+  }
+}

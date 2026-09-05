@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "9925949659",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 688966025193190,
+      "user_name": "tivWD1dAPJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Can you explain how you write to your PLC in my setup? Trying to send True to, for example, output Q1 does not seem to work."
+    },
+    {
+      "comment_id": 640095108242171,
+      "user_name": "BwmmO6mYev",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Can you share how your node is configured? Select the node, export it (from the menu in the top right corner), and paste the configuration text here."
+    },
+    {
+      "comment_id": 940867162351774,
+      "user_name": "uGSojdRUzC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello, To toggle the PLC output ON or OFF, use the internal memory mapping. For example: V0.0 corresponds to Q1, V0.1 to Q2, V0.2 to Q3, and V0.3 to Q4. Assign DB1, BYTE 0 in your IoT system to set the desired output; the value determines which output is activated: DB1, BYTE 0 = 1 enables Q1, 2 for Q2, 4 for Q3, and 8 for Q4. Use your PLC's IP address and set Rack/Slot to 0/1."
+    },
+    {
+      "comment_id": 618008847595999,
+      "user_name": "uVzWwX0l2F",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 8,
+      "comment_body": "Hi, Could you share a screenshot showing your variable configuration in Node-RED? I'm also finding it difficult to send data from Node-RED to the PLC outputs."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having trouble executing write operations to [product_name] modules using Node-RED. Sending a boolean value directly to a digital output doesn't work as expected, creating uncertainty about required memory mapping and configuration. There's a clear need for concrete configuration examples and guidance on using internal memory addresses and DB/Byte value combinations for output control. Difficulty integrating [company_name] modules with non-[company_name] platforms like Node-RED has led to multiple requests for practical examples.",
+    "user_expectations": "Users are seeking a simple, well-documented process for writing to outputs such as Q1 on [product_name] modules via Node-RED, with clear steps for variable mappings and configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "successful write operation",
+      "integration with IoT"
+    ],
+    "pain_keywords": [
+      "unclear memory mapping",
+      "configuration confusion",
+      "write operation failure"
+    ],
+    "feature_keywords": [
+      "digital outputs",
+      "variable mapping",
+      "external IoT platform integration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

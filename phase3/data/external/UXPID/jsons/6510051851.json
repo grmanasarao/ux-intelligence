@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "6510051851",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 131112322640801,
+      "user_name": "49cIVF8M8R",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "Hello, I am working on an application that involves using [product_name]. I want to connect approximately 70 of these devices, each accepting three commands via the network. Each command should close contacts Q1, Q2, or Q3 on each device. Is it possible to achieve this using Modbus communication?"
+    },
+    {
+      "comment_id": 745797396612190,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "It is possible for one [product_name] to communicate with up to 16 other devices of the same type. To manage 70 units, you would need five 'boss' devices to collect or forward data from 16 others, with these five communicating with a central device where the main program runs that controls all others. While this is the theoretical approach, I can't confirm its practical effectiveness as I haven't encountered a project of this scale before."
+    },
+    {
+      "comment_id": 900626560824452,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 9,
+      "comment_body": "I'm not sure what you are using as the master controller—whether it's a PC or another PLC generating commands. Note that Modbus TCP does not support broadcasting, unlike Modbus RTU, so you likely cannot trigger outputs on all devices simultaneously. If you have a central controller (not a [product_name]) and not all devices need to act at the same time, one solution is to configure the 70 devices as Modbus TCP servers, each with a unique IP address, and each only communicating with the central controller. Alternatively, as previously suggested, interlinked devices may pass commands among themselves, but you should carefully consider the network setup to avoid concentrating all traffic on a single central network. You might also want to consider using a dedicated Modbus TCP field I/O device for this purpose."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed technical constraints on connecting many [product_name] devices, noting a 16-device communication limit per module. There was uncertainty about scalable network architecture and use of Modbus TCP for distributing commands to 70 units, with concerns about feasibility and protocol limitations for large networks.",
+    "user_expectations": "The user hopes to connect and control up to 70 [product_name] devices over a network using Modbus TCP, expecting all devices to reliably receive and act on control instructions as needed.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote multi-device control",
+      "network command distribution",
+      "scalability"
+    ],
+    "pain_keywords": [
+      "network limitations",
+      "scalability challenge",
+      "unclear architecture"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "peer connectivity",
+      "output control",
+      "network topology"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "29": "Scalability Limitations"
+  }
+}

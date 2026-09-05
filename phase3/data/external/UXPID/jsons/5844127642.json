@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "branch_id": "5844127642",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 216723098052195,
+      "user_name": "occta9imAK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Resolved my own issue by adjusting gain and offset values, since these were already set up earlier in the process. Thanks for the help. My follow-up question is about reducing output sensitivity: for heating, I want to reach a maximum temperature (e.g., 50°C), and allow it to drop by 4°C before reheating. Is this considered hysteresis? Any advice appreciated."
+    },
+    {
+      "comment_id": 577544672355656,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "See attachment. With these settings (ON = 500, OFF = 460), if the temperature rises from 0°C up to 50°C, the output turns on; then it switches off at 50°C. If the temperature drops to 46°C, the output turns on again until reaching 50°C."
+    },
+    {
+      "comment_id": 211802523983815,
+      "user_name": "occta9imAK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "That's straightforward! Really appreciate your help."
+    },
+    {
+      "comment_id": 153390529667380,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "You’re welcome. Once you understand the setup, it feels simple."
+    },
+    {
+      "comment_id": 974895045474507,
+      "user_name": "occta9imAK",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I'm encountering unexpected behavior from the analog threshold trigger during simulation. I set it to turn on at 550 and off at 450, but entering a value of 300 doesn’t activate it. With the behavior you described, maybe it can’t properly simulate a gradual input rise from zero. Ideally, output should stay on until 550, and only turn on again after dropping to 450. Am I missing something?"
+    },
+    {
+      "comment_id": 410066377094625,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Upload your program so others can review your setup."
+    },
+    {
+      "comment_id": 828096783773712,
+      "user_name": "occta9imAK",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I have another analog threshold trigger for frost protection: output should turn on below 50 and switch off once input reaches 80, but it's not functioning as expected. I'm struggling to understand how these edge triggers operate, and reversing the on/off values hasn’t helped. Any suggestions are welcome. Thanks."
+    },
+    {
+      "comment_id": 702081780116623,
+      "user_name": "occta9imAK",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Here’s my program, with comments added for clarity. It’s a domestic heating and hot water controller aiming for improved efficiency. It averages cylinder top and bottom sensors to estimate mid-cylinder temperature, uses a sensor on the boiler circuit to utilize residual heat for extra water heating, and has a loft tank sensor to identify potential freeze, triggering heating to warm the house if needed. Any feedback is appreciated."
+    },
+    {
+      "comment_id": 273140618499438,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "In your scenarios, you need to invert the outputs of the threshold triggers. As shown in my earlier screenshot, I used a NOT block because the output block's input (Q) can’t be directly inverted. In your program, I inverted the input for the relevant blocks."
+    },
+    {
+      "comment_id": 352631258675552,
+      "user_name": "occta9imAK",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thanks a lot — I’ve reviewed your changes but I’m confused by the screenshot. There’s an OR block with a high output, even though neither input is high. Did you add a NOT somewhere that isn’t visible?"
+    },
+    {
+      "comment_id": 701873343864038,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The red marker indicates negation. In this case, a NOT block isn’t needed."
+    },
+    {
+      "comment_id": 746619237218283,
+      "user_name": "occta9imAK",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Just realized you can invert an output without needing a separate NOT function! That’s a new discovery for me. Thanks for all your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience difficulties setting up analog threshold triggers for temperature control applications, specifically around custom on/off logic for heating and frost protection. There is confusion about the difference between this and hysteresis, and uncertainty arises when comparing simulation results versus expected real-world functionality. Output negation and interpreting logical diagrams also challenge users, who often require assistance with proper configuration and troubleshooting.",
+    "user_expectations": "Users expect analog threshold triggers to behave consistently and intuitively in both simulation and actual programming, enabling clear implementation and visualization of custom logic such as output desensitization and trigger output inversion.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise temperature control",
+      "customizable on/off logic",
+      "correct simulation behavior",
+      "ease of programming"
+    ],
+    "pain_keywords": [
+      "simulation inconsistency",
+      "trigger configuration confusion",
+      "negation logic unclear",
+      "poor visual feedback"
+    ],
+    "feature_keywords": [
+      "analog threshold trigger",
+      "output negation",
+      "logic block visualization",
+      "commenting",
+      "simulator"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

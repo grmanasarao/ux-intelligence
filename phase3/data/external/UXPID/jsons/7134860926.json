@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "branch_id": "7134860926",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 798118425541180,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello. The documentation states: \"The output always shows the previous program cycle's signal. This value remains unchanged during the current cycle.\" Is this applicable only for digital flags, or does it include analog flags as well? I need to trigger different actions when the value increases versus when it decreases. How can I implement the condition where the difference between the current and previous value is greater than zero?"
+    },
+    {
+      "comment_id": 518506289601834,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Please clarify your goal using clear statements. Are you looking to compare the current analog value to its value from the previous cycle, or from a different point in time? If so, you'll need to store the previous value for comparison."
+    },
+    {
+      "comment_id": 313791137245484,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Yes, I need to calculate the difference between the value in the current cycle and the value from the previous cycle."
+    },
+    {
+      "comment_id": 663080937784423,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello. The attached example illustrates the concept you're asking about. While it is not a complete solution, it shows how the analog input interacts with the analog flag, which always lags by one scan cycle. If you need more detailed guidance, please describe your application further."
+    },
+    {
+      "comment_id": 463966165593228,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Thank you. This answers my original question – it looks like the analog flag does introduce a one-cycle delay, similar to the digital flag. I attempted your approach, but in my simulation, the output signalling an increase flickers. I suspect this happens because the signal rises too slowly, given the cycle time is just 1-2ms. In my case, I probably need a delay line around 100ms instead of simply using the analog flag."
+    },
+    {
+      "comment_id": 289795459235084,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Simulations and actual hardware behavior may differ – and the differences might be even more significant than what you see currently. Keep in mind that the analog-to-digital conversion on the base module takes about 300ms, while the related extension card updates every 50ms. The demo circuit provides a way to check for when the analog value is stable, thanks to its built-in settling time. You could use a settling timer for your design, ensuring it fits the analog input’s update rate. Building a clock-pulse-based circuit is an option, but it might be unnecessarily complex at this stage since your requirements are not fully specified. Good luck."
+    },
+    {
+      "comment_id": 183311061458005,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I’m surprised the analog-to-digital conversion takes 300ms or 50ms. Is this based on your own measurements or from a datasheet? I created a block to delay the analog signal, but the output holds its value too long after the input drops, so I ended up designing a faster circuit. See the attached file for results – maybe someone else will find it useful."
+    },
+    {
+      "comment_id": 299243285492600,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Those figures come from a technical manual. See the attachment and search for the relevant manual to confirm."
+    },
+    {
+      "comment_id": 360982405721990,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Why complicate things? A TOF timer set slightly higher than the analog input’s update rate should suffice. See the attached animation. Is there a specific reason you’re opting for a complex circuit?"
+    },
+    {
+      "comment_id": 561197807797288,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I often tend to make solutions more complex than needed. Thank you for your straightforward approach! In this case, the simplicity makes sense since I’m trying to find a general method for determining the rate of change in a value."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to compare analog values between cycles using [company_name] hardware and software. The main challenges are unclear documentation about analog flag behavior, timing issues caused by the analog-to-digital conversion update rate, and discrepancies between simulation and hardware performance. Users also face difficulties in reliably detecting changes in fast or noisy analog signals.",
+    "user_expectations": "Users want a straightforward and dependable way to compare current and previous analog values within each cycle on [company_name] systems, with behavior in simulation matching that of real-world operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "cycle-based signal comparison",
+      "detect rate of change",
+      "accurate timing",
+      "reliable analog signal processing"
+    ],
+    "pain_keywords": [
+      "timing delays",
+      "insufficient documentation",
+      "simulation-reality mismatch",
+      "complexity of logic design"
+    ],
+    "feature_keywords": [
+      "analog flag",
+      "analog input update rate",
+      "TOF timer",
+      "cycle delay",
+      "signal comparison"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

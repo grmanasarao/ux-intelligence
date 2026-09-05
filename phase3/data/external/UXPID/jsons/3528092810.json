@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "branch_id": "3528092810",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 896922278433257,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I recently received a new [company_name] [product_name] ([article_no]). After installing the cellular module, antennas, and SIM card, all status lights appear normal. However, I’m unable to connect to the [product_name] web interface via Ethernet. I tried Windows 10, Windows 8.1 Pro, and Windows Vista, but without success—the network shows 'Unidentified Network' and 'No network access.' My browser can’t reach https://192.168.0.80/ and ping tests report the host is unreachable. I’ve followed troubleshooting steps I found online about IP configuration issues, and also worked through the hardware check, proxy settings, and LAN guidance in the [product_name] manual. I tried setting a static IP. The module powers up with green lights for Diag, P1, and mPLCe; now the mPLCe LED blinks green, and P1 briefly flashes yellow when I access via browser. Connecting the same Ethernet cable to another [product_name] device works fine with [product_name] software. Manual reset hasn’t helped. I am out of ideas—please provide detailed advice as I have limited networking experience."
+    },
+    {
+      "comment_id": 673758883377736,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "With the limited information provided, it’s difficult to assist. The issue is likely with your network configuration. Please share the network settings—IP address, subnet, gateway—for your [product_name], [product_name] module, PC, and router here for review."
+    },
+    {
+      "comment_id": 223218318483783,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "You seem to have two network adapters: LAN and WiFi. Your ping goes from IP 192.168.1.87 to 192.168.0.80—these are not in the same subnet. Please specify the IP address set on your [product_name]. Also, how are you connecting from the configuration software to the [product_name]? Is it via LAN or WiFi?"
+    },
+    {
+      "comment_id": 491170628915766,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Currently, I’m only trying to activate the [product_name] module. My other [product_name] device is being used only to verify Ethernet connectivity. I will link them after the module is up. The router is only for internet access; Wi-Fi connects to the router. When the [product_name] is directly connected, the configuration software shows: IP Address: 192.168.1.88, Subnet Mask: 255.255.255.0, Gateway: 192.168.1.1, MAC Address: , Device Type: BM, Status: Yes, and connecting via browser works. For the module, connecting directly and using the browser with IP 192.168.0.80 also tried. I’ve attached Windows IP configuration details—hope this helps."
+    },
+    {
+      "comment_id": 149575270438473,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "All your network cards (including WiFi) are using the 192.168.1 subnet, but the module’s IP is set to 192.168.0.x. Your PC cannot find the module due to being on a different subnet."
+    },
+    {
+      "comment_id": 209837018402171,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 382047789320330,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I’m unsure how to resolve this. I tried manually setting an IPv4 address rather than using DHCP, but it didn’t help. I can change the IP on my [product_name] device, but I can’t access the [product_name] module to adjust its address."
+    },
+    {
+      "comment_id": 172985204526084,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "On my PC, I set a second IP address for the LAN network card, so my PC now handles two subnets."
+    },
+    {
+      "comment_id": 866187594209061,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Try these steps: 1) Set your PC’s LAN network card to IP address 192.168.0.1 (subnet 255.255.255.0). 2) Restart the PC and connect it directly to the module via cable. 3) Open the module interface in your browser. 4) Change the module’s IP address. 5) Restore your PC’s original network settings."
+    },
+    {
+      "comment_id": 684952375418080,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Both methods mentioned—setting a second IP on the LAN card and changing the PC network card to 192.168.0.1—are correct. Unfortunately, I didn’t know the correct procedure and couldn't get them to work on my Windows 10 PC. After extensive searching and attempting both methods, nothing succeeded. Finally, I switched to my Windows 8.1 PC and was able to log in to the [product_name] module within minutes, and changed its IP address. Both PCs can now connect to the module. There are new challenges, but at least I can access it now. Thank you all for your support."
+    },
+    {
+      "comment_id": 509350153769746,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Glad you resolved the connection to the module. I would have shown you how I set a second IP on my LAN card, but that wouldn't have helped since I don’t have Windows 10. Also, my system is in German, and screenshots wouldn’t have been useful."
+    },
+    {
+      "comment_id": 176186581784835,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I regret upgrading to Windows 10—this change caused me to lose access to applications like AutoCAD and Adobe Creative Suite, since their licenses couldn’t be reactivated. Windows 10 updates often disrupt functionality; for instance, my Serial-USB cable stopped working after an update. I tried to update the driver from [company_name], which didn’t work. Recently, the forum shared a new driver that works on Windows 10."
+    },
+    {
+      "comment_id": 906692621946086,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "That's why I still use Windows 7. Windows 8 wasn’t the answer; Microsoft keeps hiding familiar features and limits user controls. Eventually, I’ll have to switch since newer programs such as [product_name] engineering tools don’t run on Windows 7."
+    },
+    {
+      "comment_id": 987929340761051,
+      "user_name": "cZQANX744b",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "You can still disable automatic updates in Windows 10—search online for instructions. Just remember this will also prevent security updates. Hope this helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main problem was connecting to the [product_name] module web interface, caused by mismatched network subnets between the device and the user's PC. The user struggled with manual IP configuration and referenced device documentation, revealing difficulties for those with limited networking experience, especially when there are default network settings mismatches.",
+    "user_expectations": "The user expects an easy, intuitive process to connect and configure the [product_name] module web interface, preferably without requiring advanced networking knowledge or manual IP changes.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "ease of setup",
+      "quick configuration",
+      "web access",
+      "device connectivity"
+    ],
+    "pain_keywords": [
+      "network configuration complexity",
+      "manual IP address setup",
+      "lack of detailed guidance",
+      "subnet mismatch"
+    ],
+    "feature_keywords": [
+      "web interface access",
+      "Ethernet connection",
+      "network settings",
+      "subnet configuration",
+      "status indicators"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": [
+        "10",
+        "8.1",
+        "Vista"
+      ]
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

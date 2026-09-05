@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "3613583525",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 832828273921393,
+      "user_name": "7t7sgwRlLH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Hello, I have a setup where I need more than eight analog outputs—specifically ten. I considered using [product_name] controllers, but this means I would need to network two [product_name] units. My issue is that the Modbus addresses provide only eight analog output (AQ) addresses, and these mapped Modbus addresses (513-520) seem to be identical for both devices. How can I get more than eight distinct addresses, or how should I configure this in the HMI?"
+    },
+    {
+      "comment_id": 418623868276546,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "I'm unclear about the relationship you're seeing between the number of analog outputs and the Modbus port addresses. Could you explain your setup and objective more clearly? Also, please avoid posting the same question multiple times."
+    },
+    {
+      "comment_id": 626405640016700,
+      "user_name": "7t7sgwRlLH",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "My main concern is which addresses I should use in the HMI configuration after the eight AQ addresses (513 to 520) in the Modbus address space are assigned. Even if I connect a second [product_name] controller, it appears to use the same addresses (513 to 520). I apologize for the duplicate posts."
+    },
+    {
+      "comment_id": 877621148783024,
+      "user_name": "7t7sgwRlLH",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "I want to be able to control each analog output from the HMI individually, meaning I would allocate a separate address to each numeric field in the HMI. With ten analog outputs but only eight available addresses, I'm unclear on how to proceed."
+    },
+    {
+      "comment_id": 959227082740285,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "You can transfer analog values from the [product_name] controller to its VM memory. The VM memory can be accessed as Holding Registers (HR) through Modbus."
+    },
+    {
+      "comment_id": 826747184905327,
+      "user_name": "7t7sgwRlLH",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Thanks, how would I assign VW1 from the Holding Registers to AQ1 on the analog expansion module of the second [product_name] controller?"
+    },
+    {
+      "comment_id": 665168174358400,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "When addressing VM memory, remember that each word consists of two bytes. For example: VW0 = VB0 + VB1, VW1 = VB1 + VB2. Notice the overlap—both VW0 and VW1 use VB1. In the [product_name] controller, VW0 is mapped to HR1, VW2 to HR2, VW4 to HR3, and so on. Are you referring to the physical analog outputs of the [product_name]?"
+    },
+    {
+      "comment_id": 627796209517477,
+      "user_name": "7t7sgwRlLH",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Sorry, I was confusing myself; I just realized that I should be using AM addresses with the HMI, which provide up to 64 options—more than I need—for input from the numeric box in the HMI. Thank you for clarifying."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user aimed to control more than eight analog outputs via HMI with [product_name] controllers and encountered apparent address limitations due to misunderstanding the Modbus mapping. Initial confusion was due to not realizing there were sufficient AM addresses for HMI integration, which led to concerns over address conflicts and scalability. After some discussion, the user identified their mistake, suggesting minor discoverability issues in documentation or the interface, but ultimately resolved their problem with community support.",
+    "user_expectations": "The user expects to be able to individually address and control more than eight analog outputs from an HMI when using networked [product_name] controllers, and they anticipate straightforward guidance for mapping these additional addresses without overlap or conflict.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "scalable addressing",
+      "individual analog output control",
+      "HMI integration"
+    ],
+    "pain_keywords": [
+      "addressing confusion",
+      "address limits",
+      "documentation clarity"
+    ],
+    "feature_keywords": [
+      "Modbus address mapping",
+      "VM memory usage",
+      "AM addresses"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

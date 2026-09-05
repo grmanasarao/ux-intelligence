@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "6072771245",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 253421987162972,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello all. I understand that [product_name] allows a maximum of 32 analog network inputs, which can be restrictive for some applications. I thought about using a single analog network input block and transmitting both the value and an identifier (for example, 4 bits) through this block. This approach could let me handle more than 32 messages on the same input block. Based on my calculations, each of these blocks corresponds to a single word, suggesting I could use 12 bits for the value and 4 for the identifier. Is this correct? I haven't found similar approaches online—are there reasons it wouldn't work? What are the pros and cons of this method? Interested to hear your thoughts. Thanks!"
+    },
+    {
+      "comment_id": 708185863958591,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I'm not clear on your use of \"identifier\" (4 bits)—can you explain what you mean? Some time ago, I made two UDFs to pack 15 digital signals into a single word (since the 16th bit serves as a sign bit for analog values). This might be helpful for your situation. I did this because the [product_name] restricts network outputs to [product_name] slave devices. To move digital signals between devices, you have to employ alternative methods. With these UDFs, you can send 15 bits in one word. For example, the transmitted word might be VW20, and the program could map individual inputs to specific bits within VW20. Any digital input could be mapped in this way, offering flexibility in signal representation."
+    },
+    {
+      "comment_id": 104776365697124,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name]. Thanks for your example; I'll take a look. For instance, if I want to receive data from 16 temperature sensors, I would need 4 bits to distinguish among them (sensor 0 to 15). That’s why I suggested using 12 bits for the temperature value and 4 bits to identify which sensor the data is from. My question is: can I extract just those 4 bits and compare them to determine the source sensor? Regards."
+    },
+    {
+      "comment_id": 573617644631800,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I think I understand your approach now. However, how do you construct the word externally to include both the value and sensor ID as you described? Also, keep in mind only 15 bits are available for data—the last bit is reserved as a sign bit. Or are you planning to send only positive values? Dealing with encoding and especially decoding within [product_name] can require considerable effort."
+    },
+    {
+      "comment_id": 505491078182222,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Here's another suggestion: If you import values using analog network input, they need to fall within the VM parameter range. You could then use VM parameter mapping, such as referencing V1 within a mathematical function."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are considering how to bypass the 32 analog network input restriction in [product_name] by using bitwise multiplexing to encode multiple sensor readings and identifiers into a single input. They discuss limitations in available bit-length, the complexity of encoding and decoding, and specific technical hurdles like bit allocation and sign bit usage. The exchange reveals some confusion about implementation details and highlights that the solution would require careful planning regarding internal data structure handling.",
+    "user_expectations": "The user aims to consolidate several sensor inputs into one analog network input by embedding sensor readings and their identifiers within a single word, hoping this will efficiently get around the imposed input limit. They seek a straightforward, minimally complicated way to decode and identify each sensor within [product_name], without making the system too complex.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "expand analog inputs",
+      "multi-sensor support",
+      "efficient data transfer"
+    ],
+    "pain_keywords": [
+      "input limit",
+      "encoding complexity",
+      "bit constraints"
+    ],
+    "feature_keywords": [
+      "analog network input block",
+      "bitwise data packing",
+      "identifier-based sensor multiplexing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

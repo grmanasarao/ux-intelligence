@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "7161867807",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 641667766595810,
+      "user_name": "lemlbtSecs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hello, is there a way to use the current time? It's stored in bytes 984-990 of the VM area. I need to transfer this data to a MODBUS device, but no available block offers a parameter for this mapping to the VM area. Does anyone have ideas?"
+    },
+    {
+      "comment_id": 481210370989300,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "The real-time clock's current time is found in bytes 984-990 of the VM area, not blocks. It's not accessible from within a [product_name] program."
+    },
+    {
+      "comment_id": 922378406322542,
+      "user_name": "lemlbtSecs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hello, I realize now it's the VM area, not a block—my mistake. I was considering if any program block could make the current time available for mapping within VM memory."
+    },
+    {
+      "comment_id": 990313751247131,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "The current time exists within the VM area. Although I haven't worked with MODBUS, could it be possible to read these VM addresses from the MODBUS side?"
+    },
+    {
+      "comment_id": 230735636164239,
+      "user_name": "lemlbtSecs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hello, I need to write the time data via MODBUS—basically, to organize it into a block for mapping the time units and then forward the VM mapping to MODBUS."
+    },
+    {
+      "comment_id": 260202175912323,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "It's not possible to map these bytes, since parameter-based VM mapping does not provide access."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The conversation highlights the challenge of accessing and mapping current time data (bytes 984-990 in the VM area) to MODBUS using [product_name] devices. Users express concern over the lack of a direct method for sharing system time externally, exposing usability issues in how parameter mapping is currently configured.",
+    "user_expectations": "Users wish to directly access and map real-time clock data from the device's memory to blocks available for MODBUS communication, enabling the transfer of time data to external systems.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "modbus integration",
+      "real-time clock access",
+      "data mapping"
+    ],
+    "pain_keywords": [
+      "access restriction",
+      "mapping limitation",
+      "usability"
+    ],
+    "feature_keywords": [
+      "VM area",
+      "real-time clock",
+      "modbus mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

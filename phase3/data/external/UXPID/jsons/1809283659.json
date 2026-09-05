@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "1809283659",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 336129739083801,
+      "user_name": "dyttWi11Ra",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hello, I have an older [product_name] [article_no] module connected to KNX, and after installing solar panels last year, the installation company also included a digital meter (NZR WSD 32, see [url]). I am inexperienced with electronics, but I want to know if I can connect the S0-Pulse output DIN 43864 of the meter to the inputs of the [product_name] module and measure the energy produced. How should I proceed? I have a CAT6 UTP cable prepared between the [product_name] and the meter. I believe one pair would be enough to connect them, but which wires should be connected? Many thanks for the help."
+    },
+    {
+      "comment_id": 819111269514789,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "If you want to use the S0 interface of the NZR WSD 32, you will need fast counter capability. This is not available on the KNX module but is present on the [product_name] base module (inputs I5 and I6). You can process signals up to 1 kHz on those inputs. In your program, you can use a trigger threshold (see the application example on the [company_name] website) or count the pulses using an up/down counter. Here's an example: [url]"
+    },
+    {
+      "comment_id": 559391263190159,
+      "user_name": "dyttWi11Ra",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Thanks for your advice. How should I make the physical connection? Will the 27V from the WSD be too high for the [product_name] module?"
+    },
+    {
+      "comment_id": 602329267567064,
+      "user_name": "cZQANX744b",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hi, you can find this information in the [product_name] manual. A [product_name] 12/24 module accepts up to 28.8V as its power supply and at its inputs."
+    },
+    {
+      "comment_id": 478965203684010,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Connect + from your 24V power source to terminal 41 of the meter. Connect terminal 40 of the meter to a digital input of your [product_name] module. That should be sufficient! However, regular digital inputs might be too slow to count pulses; the impulse duration is 50 ms, and the minimum required is approximately 250 ms. Therefore, you need to use a high-speed input on the [product_name] module."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion focuses on connecting an NZR WSD 32 digital energy meter via S0 pulse output to a [product_name] module to measure solar panel production. Key challenges faced by users include understanding the necessary wiring, ensuring voltage compatibility, and using appropriate high-speed inputs for capturing pulses. Reference to documentation and expert guidance are needed, as non-technical users express uncertainty about the proper setup.",
+    "user_expectations": "Users are looking for straightforward instructions to link the energy meter with [product_name] hardware for monitoring solar output. They expect clear explanations for wiring and configuration, as well as confirmation about hardware compatibility and limitations through documentation.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "energy monitoring",
+      "solar production measurement",
+      "digital metering"
+    ],
+    "pain_keywords": [
+      "wiring confusion",
+      "input speed limitation",
+      "uncertain voltage compatibility"
+    ],
+    "feature_keywords": [
+      "high-speed digital input",
+      "pulse counting",
+      "KNX communication"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

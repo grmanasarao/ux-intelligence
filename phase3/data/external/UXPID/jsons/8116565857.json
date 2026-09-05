@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "8116565857",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 930638216562868,
+      "user_name": "N2Kszre9Gm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I am working on a project to measure temperature (range 20-100 Celsius) using a PT100 sensor connected to an [product_name] RTD expansion module. Additionally, an [product_name] AQ expansion module is installed, which provides the 1-10V control output based on the analog temperature input. The main goal is to send a 1-10V control signal to the analog control input AI1 of an inverter, allowing its built-in PID control to regulate cooling fans. The inverter's pinout for the 0-10V control input is shown in the attached image. I've made some connections but am unsure about their correctness. Any assistance or step-by-step guidelines would be appreciated to successfully complete this setup. Thanks."
+    },
+    {
+      "comment_id": 529965612559205,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Connect the M1 terminal of the [product_name] AQ module to the COM terminal of the inverter. Then connect the V1 terminal of the [product_name] AQ module to the AI1 terminal of the inverter."
+    },
+    {
+      "comment_id": 374102776391988,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "You may also use AI2 or AI3 on the inverter's analog inputs similarly to AI1, as described by [user_name], since AI1 is often dedicated for potentiometer-based speed control. Remember, the +10V signal is meant solely for powering potentiometers. Never use it to link analog inputs and outputs between controllers. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is seeking help to connect an [product_name] analog output module with an inverter’s analog input for temperature-based fan control. Replies outlined the correct wiring of terminals and warned against misusing the inverter’s +10V supply, but there is no confirmation that the connections work as expected. The user’s concern is avoiding miswiring and damage, and a need for clear wiring documentation or examples is evident.",
+    "user_expectations": "The user looks for detailed, easy-to-follow instructions to safely connect the [product_name] AQ module to the inverter’s analog input. They want assurance that the control loop will operate correctly and safely, without placing any equipment at risk.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct wiring",
+      "safe integration",
+      "reliable analog control"
+    ],
+    "pain_keywords": [
+      "uncertain wiring",
+      "risk of damage",
+      "lack of guidelines"
+    ],
+    "feature_keywords": [
+      "analog output 1-10V",
+      "temperature input",
+      "controller integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

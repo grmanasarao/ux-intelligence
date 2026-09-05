@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "branch_id": "7450281157",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 781641101155838,
+      "user_name": "RMZ0cyEWnK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "I'm working with a [product_name] [article_no] and a [product_name] HMI along with [product_name] [version_no] and [product_name] [version_no]. I'm having difficulty saving values chosen in a symbolic I/O field within the HMI. Is it possible to retain these with my current setup? Ideally, I'd like the chosen option in a dropdown to remain the default, even after a power outage. Thanks!"
+    },
+    {
+      "comment_id": 221267826961013,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], Are you trying to recover settings after a power outage? Should the values in the dropdown be pre-set options or remembered user selections? Regards,"
+    },
+    {
+      "comment_id": 410694506136341,
+      "user_name": "RMZ0cyEWnK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "Thanks for responding. The machine I'm controlling with the PLC and HMI has a motorized carriage moving between two limit switches. The number of cycles varies depending on the product in use, and this number can change for different products. I want to set this number on an admin screen in the HMI and not have to re-enter it each time the machine is powered off. I'd like to use a symbolic I/O field to select between 1 and 6 cycles for at least 3 different products (one field per product with 6 options each, 1-6). Hope this clarifies things. I'm assuming that means pre-set values, but I'm new to this."
+    },
+    {
+      "comment_id": 993775626043991,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 10,
+      "comment_body": "You'll need to save settings or values within the [product_name]. There are a few ways you can achieve this. For example, you can use a counter block to save your desired value, and ensure the Retentive setting is enabled on that block."
+    },
+    {
+      "comment_id": 145395293442258,
+      "user_name": "dfBzlTM5LO",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Here's something to consider. I'm not familiar with all features of the HMI, but there are eight on-screen function keys you might use. The program I referenced includes 2 and 4 cycles, but you can add more as needed. A few aspects to think about: 1. Interlock: Each new start should refresh counters and let you choose the cycle count. 2. Power loss: The carriage will be positioned between the two limit switches; automatic mode shouldn't cause issues. 3. Coil seals, thermal contacts, and related items. If you have more questions, feel free to ask. Regards."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users working with [company_name] PLCs and HMIs, using [product_name] and [product_name], are experiencing difficulties retaining configuration values set via the HMI after power loss. The main user experience issue is the lack of persistent (non-volatile) value storage for user-defined input when switching power off and back on, which causes workflow inefficiency and requires repetitive manual setup. Users are not fully aware of options within the [product_name] environment to enable value retention, affecting ease-of-use and overall experience.",
+    "user_expectations": "Users expect configuration values set through the HMI to be automatically stored and remain unchanged after a power loss, removing the need for manual re-entry on each power cycle.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "value retention",
+      "process efficiency",
+      "user convenience",
+      "persistent configuration"
+    ],
+    "pain_keywords": [
+      "loss of configuration",
+      "manual reset",
+      "non-persistent settings",
+      "learning curve"
+    ],
+    "feature_keywords": [
+      "retentive memory",
+      "counter block",
+      "symbolic I/O field",
+      "user input persistence"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "22": "Usability Improvement Suggestions"
+  }
+}

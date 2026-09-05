@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "7054307581",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 632122663565997,
+      "user_name": "m9l4mgl1XZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hi, I recently programmed a job for a client, but I'm running into some issues with the [product_name] web editor. First, I can't get the PT100 temperature input values to display correctly; they're showing as whole values instead of 00.0 format. I have the sensor going through an amplifier to an analog module. Second, for the setpoints: there are three setpoints, VM1, VM2, and VM3. However, adjusting setpoint 2 affects setpoint 1, and changing setpoint 3 affects both 2 and 1, despite there being no programmed link between them. Thanks in advance to anyone who can assist."
+    },
+    {
+      "comment_id": 818650910708628,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], welcome to the forum. It would help to review your [product_name] web editor project and control program to see what might be causing the issue. Based on your description, it sounds like the web editor doesn't show decimal places for temperature readings, which is a known limitation. [company_name] is aware of this problem but hasn't released a fix yet. Regarding your setpoints: if changing one setpoint affects others, it's likely because the addresses you're using are overlapping. The addressing works at the byte level, and an analog value uses two bytes. For example, if your addresses are VW0, VW1, and VW2, these overlap byte-wise: VW0 uses VB0 and VB1, VW1 uses VB1 and VB2, and VW2 uses VB2 and VB3. This means VB1 is part of both VW0 and VW1, and VB2 is part of both VW1 and VW2, causing the interference you observe. It's best to address words (VW) in steps of two, such as VW0, VW2, VW4, etc."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report two main functional issues: temperature values from PT100 sensors are displayed without decimal precision in the web interface, and adjusting setpoints leads to unintended changes due to overlapping addresses in memory. The decimal display limitation is acknowledged by [company_name] and remains unresolved. Overlapping byte-based addressing for setpoints causes confusion and undesired effects.",
+    "user_expectations": "The user expects temperature readings to include decimal places for higher accuracy, and setpoint adjustments to work independently without unintentional overlap or interference.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise temperature reading",
+      "independent setpoint control"
+    ],
+    "pain_keywords": [
+      "no decimal display",
+      "overlapping setpoint adjustment",
+      "lack of feedback"
+    ],
+    "feature_keywords": [
+      "temperature value display",
+      "decimal support",
+      "setpoint independent adjustment",
+      "addressing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "22": "Usability Improvement Suggestions"
+  }
+}

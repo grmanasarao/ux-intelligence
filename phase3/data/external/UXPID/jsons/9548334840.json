@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "branch_id": "9548334840",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 330702612392660,
+      "user_name": "9Qp4fRXp9u",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello, I've developed a project with a [product_name] ([article_no]) and a third-party Modbus device, where the [product_name] acts as a Modbus Client and reads values from the server as expected. I have set up an alarm for network link errors, but I also need similar functionality to detect if the [product_name] cannot read data from the remote server. Any guidance would be appreciated. Thanks"
+    },
+    {
+      "comment_id": 369663125587002,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], welcome to the forum. What kind of Modbus device are you using? Is it a PLC? Do you have the ability to both read and write data to the Modbus device?"
+    },
+    {
+      "comment_id": 199200606699750,
+      "user_name": "9Qp4fRXp9u",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thanks for your reply. It's a modem, and writing to it is possible."
+    },
+    {
+      "comment_id": 284751428838944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "A modem typically serves as a communication device. What specific data are you trying to read from it?"
+    },
+    {
+      "comment_id": 681417196406274,
+      "user_name": "9Qp4fRXp9u",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I'm retrieving the status of the digital input ('Digital input (DIN1) state'), which corresponds to register 135/136. Refer to: [url]"
+    },
+    {
+      "comment_id": 212695833231848,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Register 1 (system uptime) appears to be a counter where the value increases every second. You could monitor changes in this value, as the least significant bit of the seconds might serve as a connection status indicator. I wanted to share an example, but I'm currently unable to upload it. Essentially, transfer register 1 (2 words) to the [product_name] (e.g., VW0+VW2), then use a digital network input (such as V3.7, possibly the bit that changes each second). Use both positive and negative edge detections, link them with an OR block, and connect to the reset of a retentive on-delay timer. Trigger the timer with a high signal (or invert enable). Set the timer to 1.5s. If communication works, the timer resets every second; if communication fails, the timer output activates. Regards, [user_name]"
+    },
+    {
+      "comment_id": 479652942595963,
+      "user_name": "9Qp4fRXp9u",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Thank you for your help, and apologies for the delayed response. Any example would be very helpful."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user successfully set up Modbus TCP communication between a [product_name] controller and a third-party modem, with data being read as intended. There is, however, a gap: while network link errors can be detected and alarmed, there is no straightforward feature to identify failures to read data from the Modbus server due to reasons other than network issues. Forum responses suggest possible workarounds, indicating room for improved built-in diagnostics for Modbus data loss detection on the [product_name].",
+    "user_expectations": "The user expects the [product_name] controller to provide a simple solution to detect and alert when it cannot read data from a Modbus TCP server, beyond existing alarms for network link errors.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "Modbus communication monitoring",
+      "reliable alarm function",
+      "fault detection"
+    ],
+    "pain_keywords": [
+      "missing communication failure detection",
+      "diagnostic limitation"
+    ],
+    "feature_keywords": [
+      "Modbus TCP client",
+      "data read alarm",
+      "network link error alarm"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

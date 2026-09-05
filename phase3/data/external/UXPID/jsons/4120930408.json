@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "4120930408",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 860644144498423,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Good morning everyone, I'm facing a challenging issue. I've attached a program I've uploaded, and have noticed that when transferring it from my PC to the [product_name] device, some changes occur unexpectedly. I performed a factory reset on the module before uploading the program. Additionally, the temperature reading is stuck at -50°C; I've replaced the [product_name] analog module with an [product_name] RTD module and installed a new PT1000 sensor. Any assistance would be very helpful. Thank you in advance."
+    },
+    {
+      "comment_id": 591411343825650,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I've attached the program that I downloaded from the [product_name] device after uploading the original version. Thank you in advance."
+    },
+    {
+      "comment_id": 963726277290324,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Can you specify what differences you are referring to? Why do you think the module was reset to factory settings? As mentioned in your previous topic, the addresses AI1 and AI2 are reserved by default for the base module. This configuration appears in both programs you shared. The addresses AI3 and AI4 are then assigned to the [product_name] RTD module."
+    },
+    {
+      "comment_id": 339433282368230,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thanks for pointing that out. After adjusting the program to use AI3, the temperature and other readings have started working correctly. I'll review the program further and hope that resolves the main issues. Although, I anticipate more challenges once I introduce an operator display panel. Many thanks for all your assistance so far; your guidance has been invaluable."
+    },
+    {
+      "comment_id": 735534568546870,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "As a follow-up, I'm still encountering problems, likely due to something I'm doing wrong. Specifically, when I upload the program, the switch settings seem to change. I have taken screenshots, and if anyone can explain where I've made a mistake, I would appreciate it. Initially, the program works fine until it's uploaded."
+    },
+    {
+      "comment_id": 939633241275910,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Here is the program downloaded from the [product_name] device, and as you can see, the configuration of the switches has changed."
+    },
+    {
+      "comment_id": 893594485790866,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The 'switch' functionality can only be defined for simulation and is only saved within the program file. If you transfer a program to the [product_name] device, this setting is not included since it doesn't apply to real hardware operation. In actual use, signals perform accordingly—buttons and switches behave as defined. When you transfer the program from the device back to your PC, the simulation-specific settings are lost, and the defaults take effect."
+    },
+    {
+      "comment_id": 884107922999826,
+      "user_name": "QrQ26Qx3gb",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Apologies for any confusion. My understanding was that an input acts as a switch—on or off, such as I1, I2, etc. For instance, if I1 is linked to Q1 and Q5, powering I1 closes Q1 and Q5; when unpowered, they open. Furthermore, contacts like F1 and F2 would be momentary, so it's not possible to use inputs for latching or pulsing directly."
+    },
+    {
+      "comment_id": 462525466563743,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "If you connect a switch to terminal I1, then I1 behaves as a switch in the program. If you connect a button, I1 functions as a button. If the button or switch is normally open (NO), it acts as such in the program. The same applies if it's normally closed (NC). Simulation mode lets you select the desired function. To store the state of a button, you can use latching or pulse relay functions."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are experiencing difficulties when transferring control programs between their PCs and the [product_name] base module, notably with simulation-only settings such as switch configurations not being preserved. Problems with analog inputs, unexpected temperature readings, and hardware address assignment add complexity to the setup. Troubleshooting efforts highlight misunderstandings about how simulation and physical hardware configurations differ.",
+    "user_expectations": "Users expect the settings and behavior seen in PC-based simulations to remain intact when uploaded to the [product_name] hardware. They also want reliable temperature readings and straightforward analog module address assignment.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "hardware-software consistency",
+      "accurate sensor readings",
+      "seamless program upload"
+    ],
+    "pain_keywords": [
+      "simulation mismatch",
+      "incorrect temperature",
+      "input configuration confusion"
+    ],
+    "feature_keywords": [
+      "simulation mode",
+      "input mapping",
+      "analog module addressing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "2": "Product Compatibility"
+  }
+}

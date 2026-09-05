@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "1034114705",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 567196054128405,
+      "user_name": "haJf0smxyY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm facing trouble programming the [product_name] controller to read accurate temperature and humidity values from a 4-20mA sensor. I've reviewed forum discussions on analog scaling but still need help. My setup: - [product_name] controller, model [article_no] 12/24RCE - STEGO sensor CSS 014, model no. 01420.2-00 (4-20mA TEMP -40°C to +60°C / 0 to 100% RH) Both analog inputs are wired to terminals 7 for temperature (AI1) and 8 for humidity (AI2), each with a 220 Ohm resistor between input and power supply negative. Currently, the display shows AI1 as 317 and AI2 as 177. I'm unable to get practical values like 20°C or 20% humidity. I suspect an analog amplifier is needed, but I may not be setting the block correctly. Any advice is appreciated."
+    },
+    {
+      "comment_id": 370843987656676,
+      "user_name": "LXBtkzco91",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Regarding the 220 Ohm resistor setup: Could you share a [url] to the manual, especially referencing any pages that explain this specific resistor configuration?"
+    },
+    {
+      "comment_id": 337752761882458,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "You should observe something on your [product_name] controller's display. Please upload your program for review. Is your sensor definitely a 4-20mA type? In that case, a 500 Ohm resistor parallel to the analog input and ground (M) is needed. For scaling in [product_name] software: set up an analog amplifier block with 4-20 mA sensor, for temperature (min -40, max +60) and humidity (min 0, max 100). Using a 220 Ohm resistor results in a sensor span that is approximately 2.7 times higher than with 500 Ohm. With 220 Ohms, scale temp: min -40, max +233; for humidity: min 0, max 270 in [product_name] software."
+    },
+    {
+      "comment_id": 217925398753572,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "The use of 200 Ohm resistors is incorrect; you should use 500 Ohm instead. For proper scaling instructions, see attached [document]."
+    },
+    {
+      "comment_id": 624603646129849,
+      "user_name": "haJf0smxyY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "[user_name]: Thanks for your reply. Here's the data sheet for my sensor—not the I/O link type shown in the second image: [url]. Technical support sent a picture for connection assistance, and I'll attach it here. Although it's not high-quality, you can see the wiring if enlarged."
+    },
+    {
+      "comment_id": 302841989533952,
+      "user_name": "haJf0smxyY",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "[user_name], thanks for sharing your program—I’ll test it as soon as I receive my 500 Ohm resistors. I appreciate you taking time to respond and will follow up with feedback soon."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having trouble configuring analog scaling to obtain accurate temperature and humidity readings from a 4-20mA sensor using a [product_name] controller. Issues stem from misunderstanding the correct resistor values and appropriate settings in the programming software for analog input scaling. Forum members stress the importance of using 500 Ohm resistors for proper scaling and correct analog amplifier block configuration. Guidance focuses on both hardware wiring and software setup within [product_name] programming tools.",
+    "user_expectations": "The user expects a simple analog input configuration process, enabling straightforward mapping of sensor values to physical units using the [product_name] platform. Anticipated workflow includes easy scaling with supplied resistors and programming blocks, resulting in reliable, accurate, and user-friendly display of sensor readings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog readout",
+      "correct scaling",
+      "simple configuration"
+    ],
+    "pain_keywords": [
+      "incorrect resistor value",
+      "confusing scaling",
+      "complex setup"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "analog amplifier block",
+      "display calibration"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

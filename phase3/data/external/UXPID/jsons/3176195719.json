@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "3176195719",
+    "thread_id": "3055273936",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 370048949557726,
+      "user_name": "M6LJW1hjE2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello, I'm new to PLCs and [product_name], so apologies if I'm not using the correct terms. I'm trying to measure flowrate using a flow sensor from Omega, but after testing both high frequency and analog inputs, I couldn't detect the signal. Omega support said the output voltage is too low for [product_name] to read, and suggested using an amplifier to boost the signal. My main question is: what is the minimum voltage that [product_name] will detect? The sensor's peak signal is 30 mV. Previously, I thought pulse wave modulation could be used to convert the analog signal to pulses, but I couldn't get that function block to work. Thanks in advance for your help!"
+    },
+    {
+      "comment_id": 566829291623262,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "For [product_name] digital inputs to register a high state, the voltage required is over 8.5 VDC; for a low state, it must be below 5 VDC. With just 30 mV, [product_name] won't detect any signal."
+    },
+    {
+      "comment_id": 394943239059940,
+      "user_name": "M6LJW1hjE2",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "I searched for this information but couldn't find it documented anywhere. I've ordered the amplifier and hope that will enable the signal to be detected. Thanks!"
+    },
+    {
+      "comment_id": 654227255537950,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "An excerpt from the current manual is attached."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is trying to connect an Omega flow sensor with a low output signal (30 mV) to a [product_name] module, but neither high frequency nor analog inputs can detect it. The user is unsure about the required minimum input voltage, and could not find relevant documentation. The community clarified that [product_name] digital inputs need much higher voltages (at least 8.5 VDC for a high state), which the sensor cannot provide, indicating a hardware incompatibility.",
+    "user_expectations": "The user hopes [product_name] modules can detect low-voltage signals from industrial sensors and expects to find minimum voltage specifications in documentation or via community advice.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate signal detection",
+      "easy integration",
+      "clear documentation"
+    ],
+    "pain_keywords": [
+      "incompatible input voltage",
+      "lack of documentation",
+      "signal not detected"
+    ],
+    "feature_keywords": [
+      "input voltage threshold",
+      "analog input",
+      "high frequency input"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

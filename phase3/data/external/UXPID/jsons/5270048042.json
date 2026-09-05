@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "branch_id": "5270048042",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 685643240251982,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I built a pulse generator providing a square wave output at approximately 309Hz, with an output voltage ranging from 0 to about 4V. I connected this to input I6 on my [product_name] [article_no], configuring it in my logic program to directly trigger a threshold input. Another timer was set up to reset the threshold trigger every second, with the results displayed on screen. Initially, everything functioned well for 360 cycles until the input stopped recognizing the pulsed signal. When I moved the connection to I5, it worked similarly but failed after 3,860 cycles. On I4, it stopped after 365 cycles. When connecting to I3 and adding a 10k pullup resistor, the system lasted until cycle 4,227."
+    },
+    {
+      "comment_id": 376377863954965,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Not all [product_name] modules have high-speed input support. Which version of [product_name] are you using?"
+    },
+    {
+      "comment_id": 507232910472973,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I believe the issue lies with the voltage. The manual specifies that voltages below 5V are registered as '0' and those above 8.5V are detected as '1'. Your pulse generator may not be outputting a high enough voltage to ensure reliable counting."
+    },
+    {
+      "comment_id": 581089920769729,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "That's correct—it's interesting how it functioned reliably, then suddenly stopped and wouldn't restart. Initially, I suspected the battery was depleting, but moving to a new input resolved the issue each time. I plan to try with a higher pulsing voltage next. When I let the circuit run over the weekend, the 9V battery dropped to 6V. On a related note, I'm assessing a sensor with an output superimposed on the 24VDC sensor power lines. Is this a common setup, or is it new to me? It's one of several output options for an IR beam receiver. I haven’t found much info about it online."
+    },
+    {
+      "comment_id": 732701008725438,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "For fast counter inputs, a reliable signal at sufficient voltage is required for proper function. Could you share your program configuration?"
+    },
+    {
+      "comment_id": 722267017336540,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Hi, For [product_name] modules to count pulses properly, the input voltage must stay within the specified range. Otherwise, unpredictable results can occur. Regarding your question: When you switch the wiring to different inputs, does the input voltage increase briefly before falling to a range detectable by the module? Changing to another [product_name] might result in different performance due to component tolerances. If you power your application with a stable supply instead of a battery, does it work as expected? Regards [user_name]"
+    },
+    {
+      "comment_id": 936818303699237,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "If I have time, I'll try again. I'll need to use an opto-coupler or similar, as my pulse generator outputs from a 555 timer (TTL), producing square waves around 4V. I'm surprised the module detected such a low voltage, so I'll try switching to 24V. Thanks for the feedback—I’ve decided to stop pulse monitoring and switch to resistive monitoring using an analog threshold trigger."
+    },
+    {
+      "comment_id": 964064280765505,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I've got it running on a 12V battery now, and it's working well—inputting 6V pulses instead of 4V."
+    },
+    {
+      "comment_id": 860256499560220,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "It's now gone through over 12,000 cycles. Pretty certain the issue was low input voltage."
+    },
+    {
+      "comment_id": 795649413812604,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Just to note—the input voltage is still a bit low at 6 VDC."
+    },
+    {
+      "comment_id": 935352637651649,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], When do you expect [user_name] to revisit this issue? Will it happen again if the battery drops further? To reiterate: if the input signal to [product_name] falls outside documented specifications, reliable operation cannot be guaranteed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced intermittent pulse counting failures on a [product_name] [article_no] module when providing a square wave input around 4V. Initially, the module counted reliably, but after several hundred or thousand cycles inputs stopped responding. Changing input ports or raising the voltage addressed the issue temporarily. Community feedback identified the cause as insufficient input voltage—below the manufacturer's documented threshold. With a higher input voltage, reliable pulse detection resumed and continued for over 12,000 cycles.",
+    "user_expectations": "The user expects [product_name] modules to consistently detect and count input pulses, even at voltages below recommended specifications. They seek clarification on why low voltage initially worked and why inputs stopped responding after repeated cycles.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable input detection",
+      "pulse counting",
+      "stable operation"
+    ],
+    "pain_keywords": [
+      "input stops working",
+      "voltage threshold confusion",
+      "intermittent detection",
+      "lack of diagnostics"
+    ],
+    "feature_keywords": [
+      "high-speed input",
+      "input voltage threshold",
+      "pulse counting",
+      "threshold trigger"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

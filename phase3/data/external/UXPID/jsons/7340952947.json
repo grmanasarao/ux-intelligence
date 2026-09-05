@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "branch_id": "7340952947",
+    "thread_id": "3055273936",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 495774337434455,
+      "user_name": "IDvgdNDMke",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm experiencing an issue where the analog output value 'aq' is not visible in online monitoring mode, preventing further use of this value. In simulation mode, the value appears correctly and I can proceed normally. I'm attaching an example image. Thank you."
+    },
+    {
+      "comment_id": 165285499776555,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "In your screenshot, only block B063 includes an Aq output. Your understanding is incorrect. In online monitoring—unlike simulation—parameter fields under blocks are not updated. Only the output value of the analog block is shown during online testing, which you accessed by clicking the display icon on block B063. The value 897 was shown."
+    },
+    {
+      "comment_id": 765583030555502,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Hi, don't worry. You can use any onboard analog input as a digital input without changes. If your base module supports onboard analog, typically 2 out of 4 AI inputs are set up by default, but all can be used as digital inputs without modification. If you need to use 3 onboard analog inputs, you can assign the fourth as a standard digital input. Hope this helps."
+    },
+    {
+      "comment_id": 132319168044270,
+      "user_name": "IDvgdNDMke",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "HELLO, APOLOGIES FOR THE PREVIOUS SCREENSHOT. I'M SENDING A NEW ONE OFFLINE AS I'M NOT CONNECTED TO THE MACHINE AT THE MOMENT. BLOCK B063 'AQ' CONNECTED TO B062 'OFF'. FROM THE INITIAL SCREENSHOT, IT'S CLEAR THE VALUE 897 ISN'T WRITTEN TO BLOCK B062 'OFF'. THE BASE MODULE IS [version_no] 8.4."
+    },
+    {
+      "comment_id": 719698069104191,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "You uploaded a screenshot that's hard to interpret—all that's visible are connections. In your latest screenshot, the Aq output of B063 displays a value of 0. Therefore, in simulation, the OFF parameter on B062 would only show 0."
+    },
+    {
+      "comment_id": 108758359699977,
+      "user_name": "IDvgdNDMke",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Hello, I have another example. In simulation, AQ output values are shown correctly in the block parameters, but when running an online simulation on my PLC, the analog value doesn't transfer to other blocks, so I can't work with these parameters further. Thank you."
+    },
+    {
+      "comment_id": 431038115047922,
+      "user_name": "IDvgdNDMke",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 466129094530479,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "As I mentioned earlier:"
+    },
+    {
+      "comment_id": 528236335927225,
+      "user_name": "IDvgdNDMke",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "Hello, please review the new images: SIMULACE.PNG and MONITORINGx.png. From your response, I gather that extended parameter values aren't usable during actual operation. Thank you."
+    },
+    {
+      "comment_id": 813520203034747,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "You misunderstood. The values are actually passed on, but they are only visible in the parameter fields during simulation—not online monitoring. Consider the purpose of referencing these values only within simulation."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is confused by differences between simulation and online monitoring modes regarding analog output values. Simulation mode allows viewing and further processing of analog values, while online monitoring does not show these values in parameter fields, leading to concerns about data accessibility and actual system behavior.",
+    "user_expectations": "The user expects that analog values should be visible and usable in real time during online monitoring mode, similar to simulation mode, to support direct debugging and further processing.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time monitoring",
+      "analog value visibility",
+      "process transparency"
+    ],
+    "pain_keywords": [
+      "data display inconsistency",
+      "unclear monitoring",
+      "parameter field confusion"
+    ],
+    "feature_keywords": [
+      "analog value display",
+      "online monitoring mode",
+      "simulation mode"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "23": "File Accessibility Barriers"
+  }
+}

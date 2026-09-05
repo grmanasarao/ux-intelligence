@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "branch_id": "2075413763",
+    "thread_id": "1723880927",
+    "publication_year": 2013,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 189321641173262,
+      "user_name": "WwF6JPT9bR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "Hello, if I have a PI block where the process value is 110 and the set point is 100, is it possible for the analog output to be below zero (negative)? Thank you."
+    },
+    {
+      "comment_id": 933511417914272,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "No, the analog output operates within a range of 0 - 1000, which corresponds to 0 - 10 Volts. Negative values are not supported. In the PI block parameters, you can select either direct (+) or indirect (-) operation for the PI controller. Alternatively, you can use a mathematical instruction block to invert an analog value if needed."
+    },
+    {
+      "comment_id": 632900419727713,
+      "user_name": "0bXgoDhjrm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], please refer to the manual at [url]. Check the section on the PI Controller (page 256) where you will find information about gain, which can only be set to positive values. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed that the analog output is limited to a positive voltage range and cannot show negative values. The PI block and its settings were highlighted, along with documentation references and the option to use mathematical blocks for manipulation. There was some initial uncertainty about feature capability, but the main constraint is the output range itself.",
+    "user_expectations": "The user hoped that the analog output could reflect negative values depending on process requirements, or sought clarification regarding such functionality.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "output flexibility",
+      "signal customization"
+    ],
+    "pain_keywords": [
+      "output range limitation",
+      "feature restriction"
+    ],
+    "feature_keywords": [
+      "analog output",
+      "PI controller",
+      "output range"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

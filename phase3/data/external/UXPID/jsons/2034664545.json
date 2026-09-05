@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "branch_id": "2034664545",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 589718136800531,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I have a basic test setup with one [product_name] and two third-party Modbus TCP devices. The [product_name] acts as a client, so in the Network Project View there are three devices in total. The [product_name] has eight network connection points, and I manually added two connections to the Modbus devices to read their registers. On the diagram, I configured one Network Input (digital input on Modbus device #1) and one Network Output (digital output on Modbus device #2). As a result, four connection points are shown as used for the [product_name] in the Network View—four connections with two devices. Is this expected behavior, or am I missing something?"
+    },
+    {
+      "comment_id": 856429605171074,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Yes, this behavior is normal in your setup. Since you manually created two connections, those are already occupied. By connecting to two Modbus devices via drag and drop, the software creates additional connections—making four in total. You can check the maximum allowed connections in the manual, see the attachment."
+    },
+    {
+      "comment_id": 130404604568688,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you. Am I correct in thinking that I could optimize connection usage if my Digital Inputs and Outputs don't communicate directly with devices, but instead use Local Variable Memory instead of Remote Device? Would this allow me to keep using the original connections set up for register reading, and just add new mappings between Local VM bits and coils, inputs, etc.?"
+    },
+    {
+      "comment_id": 779079649932080,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Yes, manually created connections allow you to also map inputs and outputs through them."
+    },
+    {
+      "comment_id": 235005205246130,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Using VM bits, correct? Just want to make sure we're talking about the same thing."
+    },
+    {
+      "comment_id": 579775160100331,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Please see the attachment."
+    },
+    {
+      "comment_id": 227803595339658,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The user [user_name] created this Excel spreadsheet."
+    },
+    {
+      "comment_id": 573814310437755,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thanks. My understanding is that this table applies when [product_name] acts as a server and an external client reads/writes from/to it. I might be mistaken, though. I started with a blank diagram and added one input and one output, both linked to the same Modbus device previously added in Network View. Now there’s only one connection between [product_name] (client) and Modbus device (server), which is what I want. I’ll update my test setup and try this out. Thanks for your assistance."
+    },
+    {
+      "comment_id": 841376666676611,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "It doesn't matter whether [product_name] is a client or server—the Modbus addresses for digital and analog inputs, outputs, and flags are the same for both types of connections. Keep in mind that Modbus coils or registers might start with 0 or 1, depending on device. If you encounter issues, try offsetting by 1. Regards, [user_name]"
+    },
+    {
+      "comment_id": 334324413622860,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I might be missing something obvious… I'm using an example to read holding registers, convert float to integer, etc. In this example, a memory variable is used to supply data to the F/I function block. Now, I want to use the same connection to the same Modbus server for both Network Input and Output. Currently, I can use the same connection to read digital inputs and write coil data from [product_name], but when reading holding registers like in the example, I always get a separate connection. Please advise."
+    },
+    {
+      "comment_id": 252690165026534,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Personally, I’m not a fan of [company_name] examples and I prefer to avoid drag-and-drop network connections. I always use manual mapping for better throughput. On your referenced site, you’ll see HR130 mapped to VW12, which means two registers (HR130 and HR131) are mapped to VW12 and VW14 (or VB12, VB13, VB14 and VB15—equivalent). For the F/I converter, the parameter VM12 is used. Selecting Float means two registers = two words = four bytes (next free address is VM16). Selecting Double uses four registers = four words = eight bytes (next free is VM20), but you need to handle four registers. If you have more sequential registers, you can transfer them in bulk—just select the correct number. Watch out for numbering: registers HR1, HR2, HR13 may be mapped to VW10, VW12, VW14, since the [product_name] variables are byte-oriented. There’s a limit on the number of registers you can transfer at once, perhaps around 125 registers. Regards, [user_name] P.S. If you want to read a single register (integer from -32768 to +32767), use an analog network input and select an appropriate VW number created in your client/server connection."
+    },
+    {
+      "comment_id": 347530453512972,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I can read a holding register without issues. My challenge is using the same connection to read holding registers, digital inputs, and write coil data. I thought I might need to mimic the HR approach—read digital input bit from Modbus server, write it to VM, then have Network Input read from VM instead of the Modbus device directly; same for writing coils. Not sure if that’s correct."
+    },
+    {
+      "comment_id": 505510639643403,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "It would help to know specifically what you want to read or write. Generally, it’s possible to select coils, input registers, or holding registers in both directions—you just need the respective addresses and can choose the connection direction. Read a coil with Network Input, write with Network Output, read a holding register with Analog Network Input, write with Analog Network Output. Use Vx.y for coils, VWx for holding registers, VMx for floats. Regards, [user_name] P.S. If your problem isn’t clear, consider making a sample program with comments and upload as a ZIP."
+    },
+    {
+      "comment_id": 905029021824134,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Understood. The main limitation seems that only one word can be read from the holding register, but I need two (similar to the power meter example). This appears to be an alternative to the first scenario you described, where inputs and outputs talk directly to devices. Thanks for the explanation—I’m still not fully grasping the VM concept. The aim is to use just one connection between [product_name] and the Modbus device for all read/write operations, including float data from holding registers. Right now, it looks like the only method is to read all DI, IR, HR data into VM first, then configure Network Input to read from Local VM rather than the Remote device. Is that indeed the correct approach? I’ve attached a sample diagram and some screenshots. Project view shows two [product_name] connections occupied despite a single Modbus device being connected."
+    },
+    {
+      "comment_id": 941691092230098,
+      "user_name": "8RYb477Ela",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The issue is with the green blocks—these directly define the Modbus connection in the block itself. Use local mapping to VM memory instead; then you can organize the memory into areas for digital and analog signals. For sequences of eight digital signals with DI or coil, a compact design (see attachment) is better. For analog signals (holding registers in sequence), use another compact arrangement even if some values aren’t needed. Registers are 16 bit (one word, two bytes), so start VWx at an even number to avoid future issues. For floats (two registers, four bytes), begin VWx at a number divisible by four. For double (four registers, eight bytes), likewise. First, list all needed signals, then plan the VM memory to prevent overlaps and problems. Regards, [user_name]"
+    },
+    {
+      "comment_id": 136954274565645,
+      "user_name": "Y6Rt687BT6",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you for the thorough explanations. I’ll probably need to document all the mappings in a spreadsheet before proceeding. I was actually considering this approach yesterday:"
+    },
+    {
+      "comment_id": 854733529778277,
+      "user_name": "8RYb477Ela",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The spreadsheet is the foundation for network programming—partition areas for different signals, e.g. V0.0–V99.7 for digital signals, VW100–VW198 for analog signals. You can later expand with additional [product_name] units, starting at V200.0 or V400.0. Partition sizes depend on your requirements and preferences. Don't use hundreds of signals if you only need a few; excessive signals will increase latency. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are unclear about how network connections are counted and managed in [product_name] when configuring Modbus TCP communication as a client. It is particularly confusing to distinguish between manual and automatic connections, and how digital/analog inputs and outputs, as well as variable memory mappings, impact connection usage. There is also uncertainty over how memory variables (VM bits) play a role in minimizing connection count.",
+    "user_expectations": "Users want to minimize the number of network connections used for mapping inputs, outputs, and registers between the [product_name] and Modbus devices—ideally leveraging a single connection per device, no matter the types of signals involved.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "connection optimization",
+      "efficient configuration",
+      "reuse of network connections"
+    ],
+    "pain_keywords": [
+      "connection usage confusion",
+      "unclear mapping behavior",
+      "unexpected increase in connection count"
+    ],
+    "feature_keywords": [
+      "network connection allocation",
+      "variable memory mapping",
+      "input/output assignment",
+      "Modbus register mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

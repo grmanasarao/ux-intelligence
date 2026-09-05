@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "9493209128",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 109809427244492,
+      "user_name": "nvFGZWQvkN",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm using an edge-triggered delay functional block to control impulse switches, sending a 250ms \"on\" pulse each time a button is pressed, and another 250ms \"off\" pulse when pressed again. When leaving, I want to generate a general reset so all impulse switches turn off. Since I can't determine whether each impulse switch is on or off when I leave, I need to track the state every time the button is pushed, remembering if it was an \"on\" or \"off\" action. Is this achievable with [product_name]? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 314375520875801,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Which [product_name] version are you using, [article_no]? The [article_no] variant includes the option to set or reset the block with an additional input. Share your program so we can better understand your setup."
+    },
+    {
+      "comment_id": 911051521536471,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hi, Are your impulse relays connected to the [product_name] and do you want to retain knowledge of their external state? This is possible, but you need to manually put the relays into on or off and then inform the system of their current status. Once the system knows all relay states, your program can remember them and use the reset function to switch only the ones that are on. Please provide details about your hardware setup. Regards,"
+    },
+    {
+      "comment_id": 318729494792272,
+      "user_name": "nvFGZWQvkN",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hello, I forgot to mention which version: it's [product_name] [article_no]. Attached is my intended scheme, which is an example diagram showing: I1-I3 are inputs from pushbuttons triggering a pulse relay for 0.25 seconds to toggle an impulse relay to its opposite state (on to off, or off to on). I4-I5 trigger pulse relays controlling regular relays, requiring the relay to stay active until toggled again. I6 acts as a general off button, switching off any relays still in the on state by sending a reset signal. This helps when leaving a location to ensure all circuits that shouldn't be on are switched off. My aim is to use I6 for impulse relays too, but I'm unsure how to make the system remember the current state of each relay when I press I6. Simply combining impulses with OR gates risks unintentionally turning relays on. Let me know if you need more information. Thanks for your help! Best regards, [user_name]"
+    },
+    {
+      "comment_id": 156472639264747,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "This isn't possible in the way you described. You can use an RS block to maintain the state of relays, but there’s no synchronization. If the state is lost or incorrect, you can't automatically recover. You need to feedback the state of the relay by connecting, for example, to an input like I7. If I7 is active, send a reset with I6; if not, avoid sending a reset. Apply this approach to all outputs with bistable relays. Alternatively, use standard relays with an RS block so the internal logic remembers their state. If you need clarification, feel free to message me privately."
+    },
+    {
+      "comment_id": 554757959519892,
+      "user_name": "nvFGZWQvkN",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 12,
+      "comment_body": "Hi, I updated my scheme based on some suggestions from [user_name] (although I didn't include an input to track impulse relay state, since it's not feasible). Review the modified attached diagram: I revised the setup for input I1, testing if this solution is valid. It now works in combination with the general reset input I6 using the AND gate, but it feels somewhat inefficient in terms of function block usage. Is there a more streamlined approach? Note: a synchronization phase is still needed as [user_name] suggested. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are attempting to utilize a [product_name] ([article_no] version) to control impulse and regular relays, aiming to reliably store or recall the state of external impulse relays for dependable reset operations. The primary usability challenge is the system's inability to synchronize its internal logic with the real-world state of connected relays unless additional hardware feedback is provided. Workarounds and block logic methods have been discussed, but complete automatic synchronization is fundamentally unattainable without supplemental hardware for relay state detection.",
+    "user_expectations": "Users anticipate that the [company_name] [product_name] will be capable of tracking and remembering impulse switch states, enabling reliable global reset operations without inadvertently toggling relays back to the on state.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated reset",
+      "state tracking",
+      "system reliability"
+    ],
+    "pain_keywords": [
+      "no relay state feedback",
+      "risk of relay mis-synchronisation",
+      "manual synchronisation required"
+    ],
+    "feature_keywords": [
+      "state memory",
+      "general reset",
+      "external state tracking"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "13": "Integration Limitations"
+  }
+}

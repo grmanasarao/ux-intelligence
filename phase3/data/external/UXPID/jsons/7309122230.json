@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "7309122230",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 931232323914265,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello, I am attempting to replicate what is shown in the attached image, but I keep receiving the block number in the text message instead of the SP value. If I remove the connection between B001 and B003, the SP value appears correctly."
+    },
+    {
+      "comment_id": 624405039157797,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "In this scenario, the parameter \"SP\" refers to a value from counter B001. Therefore, the message text shows the block number of the reference source, not the value from B001."
+    },
+    {
+      "comment_id": 936527777508295,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hi, I assumed the message text would display the value given to the SP input on the PI controller. Is there something I am missing since this doesn't work? I have tried different Function Blocks and even sent the value to the VM parameter table, using a Network AI, but the Message Text still only shows the block number."
+    },
+    {
+      "comment_id": 367371404085882,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "No, you're not making a mistake. The system simply displays the reference source, and this behavior cannot be changed. To show the setpoint value, you should display the value from the reference source, which in your case is the counter value from B001."
+    },
+    {
+      "comment_id": 457177064087971,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Understood. When I connected the counter to the Mq input, the value displayed correctly. My intention was to display the SP value to show the correct number of decimals. Perhaps there is another method to accomplish this."
+    },
+    {
+      "comment_id": 680692249236973,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "So it is about the settings in the message text."
+    },
+    {
+      "comment_id": 162306858427892,
+      "user_name": "wn8zA4ADUC",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "You're right, that was my oversight. To resolve it, I used a mathematical instruction function and applied it within the message text. It works now! Thanks."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users were initially unsure why their software displayed block numbers instead of actual SP values in the message text. They expected real-time data representation, but the software consistently showed reference sources, which limited their ability to format values as desired, including numeric precision. Through testing different connections and functions, one user found that using a mathematical instruction allowed the correct value to be displayed.",
+    "user_expectations": "Users want the message text to show the actual SP value with appropriate number formatting and decimal places, rather than simply displaying block numbers or references.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "value visualization",
+      "decimal formatting",
+      "dynamic display"
+    ],
+    "pain_keywords": [
+      "wrong value shown",
+      "shows block number",
+      "no control over decimals"
+    ],
+    "feature_keywords": [
+      "message text",
+      "SP value display",
+      "numeric formatting"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

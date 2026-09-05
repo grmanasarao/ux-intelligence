@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "3326016489",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 251682640915607,
+      "user_name": "irUcgcFGoP",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "I'm having trouble starting my chiller system in cold weather. Although it's originally a water-cooled and condenserless liquid chiller with a water heating function, I'm operating it as an air cooled chiller, using an air condenser on the roof. When it's cold outside (like -5°C now), the system won't start. The threshold settings for my two sensors, DP and SP, can't be adjusted directly from the HMI control screen. To start the chiller, I use two 0-5Vdc signal generators to temporarily increase the readings. Raising the voltages lets me reach the required pressure and start the chiller, after which everything runs properly. However, when I shut down, the pressure drops below the set threshold within 3-4 hours and won't restart due to 'override' status. Details: Pressure sensor 1 SP (0-20 Bar, 0.5-4.5Vdc): measured at 1.80Vdc = 6.50 Bar, system enters override and won’t run. Threshold to start: 2.20Vdc = 8.50 Bar. Boosted value must not exceed 2.50Vdc or 10.0 Bar. Pressure sensor 2 DP (0-50 Bar, 0.5-4.5Vdc): measured at 1.00Vdc = 6.25 Bar, system enters override and won’t run. Threshold to start: 1.30Vdc = 10.0 Bar. Boosted value must not exceed 1.50Vdc or 12.5 Bar. What I’m looking for: A temporary way to mimic/boost both sensor values above the threshold so the system can start, then allow real sensor readings to take over once appropriate levels are reached. If pressure drops below the threshold again, I need the boost function to activate. Can this be achieved with [product_name] PLC? Any advice or suggestions are appreciated."
+    },
+    {
+      "comment_id": 728180368734871,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello, From your description, it seems you require alternate setpoints when the temperature is low. 1. To modify values using the HMI, try utilizing parameter mapping (VM-Mapping) to link SP and DP to VM-Memory. This way, those values can be adjusted via the HMI. 2. For automatic control: use an analog threshold trigger. If the temperature is too low, use an OR condition to start the chiller until the pressure reaches an appropriate level, then switch to normal operation. 3. If you use a PI loop: implement an analog threshold trigger to swap the PI loop to a fixed manual output. Once pressure and temperature are stable, you can revert to automatic mode. Hope this is helpful."
+    },
+    {
+      "comment_id": 277219500875850,
+      "user_name": "vreKZHEBnw",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "In this scenario, I would split the logic into two modes: one for startup and another for steady state after stabilization. The shift from mode 1 to mode 2 would be based on the system achieving specific pressure levels within a set time frame. Once the pressure is adequate, the system would switch to permanent operation. Note: If proper pressure is not achieved in time, the system should signal a fault. Good luck."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing difficulty starting their chiller setup during cold conditions because pressure sensor thresholds cannot be adjusted directly with the HMI. They seek to temporarily override sensor values to enable startup, then switch back to actual readings after stabilization. Replies suggest mapping parameters to the HMI for adjustments, deploying analog triggers, and using different modes for startup and regular operation, but no definitive solution is provided.",
+    "user_expectations": "The user wants to temporarily override or imitate pressure sensor signals with a [product_name] PLC during startup in low temperature, allowing the system to launch and then automatically revert to actual sensor inputs after reaching required threshold levels.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "automated startup",
+      "threshold management",
+      "seamless sensor override"
+    ],
+    "pain_keywords": [
+      "fixed thresholds",
+      "HMI limitations",
+      "manual intervention needed"
+    ],
+    "feature_keywords": [
+      "threshold mapping",
+      "manual/auto mode",
+      "analog input override"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

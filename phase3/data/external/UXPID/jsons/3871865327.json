@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "branch_id": "3871865327",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 518660507826595,
+      "user_name": "ZgfgTMDHDU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I recently encountered an unusual issue with a 24V 1.3A [product_name] power supply. It operated normally only when there was no load; once I closed the circuit by adding a fuse on the +24 line, the power supply output stopped and the status LED no longer showed green. After a few attempts, it started working again. Can anyone suggest what might have caused this? Currently, I have intentionally grounded my circuit to the negative terminal of the power supply. The maximum current draw is 0.5A, and this problem appears randomly during machine operation. I haven't observed any current spikes. I read that this model has electronic protection—how does this work and when does it trigger? Thank you."
+    },
+    {
+      "comment_id": 306217774071860,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "If you're confident there is no overload and safety diodes on your external relays are functioning properly, I can think of two possibilities: 1. Electromagnetic interference could be entering your 24V circuit through the protective conductor connection. 2. The power supply's smoothing capacitors might be faulty, which is often visible when they become deformed."
+    },
+    {
+      "comment_id": 667317612820788,
+      "user_name": "ZgfgTMDHDU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thank you for your response. I would rule out the second possibility, since this issue occurs sporadically across multiple machines with identical electrical setups. I have considered the interference option as well. Do you think I could measure this with a standard tester? Thank you."
+    },
+    {
+      "comment_id": 270136268756142,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Using an oscilloscope or frequency analyzer may help diagnose the issue. Alternatively, try using a higher capacity power supply."
+    },
+    {
+      "comment_id": 244453724606028,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "If inserting the fuse acted like closing a switch, your description suggests the presence of inrush current—a brief spike in power draw when a device is switched on, which isn't always well documented. Certain electronics may request more current than typical after being off for an extended period. Repeated power cycling charges internal capacitors enough for stable operation. [url] As mentioned earlier, consider upgrading to a power supply that can accommodate the greater inrush demand at startup."
+    },
+    {
+      "comment_id": 297308585845875,
+      "user_name": "ZgfgTMDHDU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I have a digital oscilloscope and attempted some measurements but didn't detect anything unusual. What specific readings should I focus on?"
+    },
+    {
+      "comment_id": 754165332317394,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "You should look at the sine wave of the AC voltage, residual ripple in the DC voltage, and the startup current curve. There should be no significant harmonics or signal spikes, especially when switching occurs."
+    },
+    {
+      "comment_id": 980912153584799,
+      "user_name": "ZgfgTMDHDU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I'll try your suggestions. I don't think sudden surges are the issue, as I've only connected a [product_name] logic module with its expansion, plus a 4G 24V modem. As mentioned, the highest current measured is 0.5A. Thank you for your support."
+    },
+    {
+      "comment_id": 141901610722876,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "You may find current measurement more revealing. If your oscilloscope supports it, use a 0.1 Ohm shunt resistor in series between the power supply and load. If the oscilloscope input isn't isolated, place the resistor on the negative side. Be careful if your oscilloscope's ground is earthed. Regards, [user_name]"
+    },
+    {
+      "comment_id": 742218058220573,
+      "user_name": "cZQANX744b",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Just a thought: 4G/LTE modems draw more current when transmitting. Have you checked whether transmission pushes the power supply past its 1.3A rating? Have you tried using a higher-capacity power supply? What other devices are connected to the [product_name] module and power supply? I also suspect the issue may be overloading—consider measuring the current with the oscilloscope and shunt."
+    },
+    {
+      "comment_id": 258719048961102,
+      "user_name": "ZgfgTMDHDU",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "After recalculating the load, accounting for possible peak currents on the +24 line, I see a maximum possible current of 1.685A. According to the datasheet, the internal limiter on this power supply is set at 1.6A. These occasional current peaks likely cause the random shutdowns, even though the normal idle current is just 0.5A. This outcome is unlikely but not impossible, as I've verified."
+    },
+    {
+      "comment_id": 920018159782371,
+      "user_name": "cZQANX744b",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hi, ultimately you should use a more powerful supply to prevent overload issues."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The forum users report an intermittent fault where a 24V 1.3A [product_name] power supply disconnects output unpredictably when load is applied, evidenced by a non-green status LED. This issue is observed on machines operating below the supply's nominal output and running a [product_name] logic module, expansion module, and 4G modem. Community members discuss inrush currents, overload risk, electronic protection, grounding practices, and transient surges. Diagnostics are complicated by the lack of visible inrush current using typical oscilloscopes.",
+    "user_expectations": "The user expects consistent and reliable performance from the power supply at currents below its rating, and hopes to understand the cause of protection circuit trips as well as avoid random downtimes. They want insight into predictable operation for their industrial setups and to prevent unexpected interruptions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "uninterrupted supply",
+      "stable operation",
+      "predictable protection behavior"
+    ],
+    "pain_keywords": [
+      "random shutdown",
+      "diagnosis difficulty",
+      "protection tripping"
+    ],
+    "feature_keywords": [
+      "electronic protection",
+      "status LED",
+      "current measurement",
+      "inrush current handling",
+      "overload detection"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "17": "Circuit Protection Guidance"
+  }
+}

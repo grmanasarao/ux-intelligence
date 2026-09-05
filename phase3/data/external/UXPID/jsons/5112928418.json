@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "branch_id": "5112928418",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 860022495617491,
+      "user_name": "99xKMTmSaR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello, is there any way to use the [product_name] module so that the voltage comes from the field (from an older DCS system), instead of the module supplying voltage to the DCS card? I don't want to change any configuration on the DCS cards. For reference, it's a [article_no] module. The DCS uses a 2-wire pressure sensor, and I need to simulate the signal for cleaning purposes—the DCS supplies power to the sensor. My concern is that the [product_name] module might send voltage into the DCS, which I'd like to avoid. Please refer to this as part one of the scenario: Analog in to analog out, then freeze the signal. Thanks!"
+    },
+    {
+      "comment_id": 115076785133781,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Could you clarify further what you're trying to achieve?"
+    },
+    {
+      "comment_id": 463580592802923,
+      "user_name": "99xKMTmSaR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Before installing the [product_name], I had two pressure sensors connected to the DCS via two wires each (+ and -); the DCS provided the power, and the sensors returned a 4–20 mA signal. Now, with the [product_name] in place, I have a module that both sensors connect to, and the output is sent to the DCS. The program is simple: signals entering the input module are relayed to the output module and into the DCS. The reason for this setup is to freeze the output signal to the DCS during cleaning, as water can cause erroneous readings. Now, my problem is that the output module supplies loop current on both channels, while the DCS already provides power to the sensors as they are 2-wire devices. I’m concerned about damaging any equipment. Is there a way to connect the output module so it works exactly like a 2-wire 4–20 mA pressure sensor?"
+    },
+    {
+      "comment_id": 689981680450768,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "What voltage does the DCS system use? Is it 24 VDC similar to the supply for the [product_name] module? In that case, you would just connect the ground (M or 0V) of both sources together."
+    },
+    {
+      "comment_id": 960514302146348,
+      "user_name": "99xKMTmSaR",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "From what I have seen, the DCS provides roughly 24 volts. The 2-wire sensor is usually powered from the DCS side, which is why I’m concerned—how will the [product_name] module behave in this scenario? I don't think I should mix the voltages from my 24V supply next to the controller with the DCS voltage. Maybe I should try powering the module using the DCS voltage on both L+ and M terminals?"
+    },
+    {
+      "comment_id": 462717374076168,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I still need more details to fully understand your goal. If you want to pass the current output from the transmitter through the controller, you'll need an analog input module. For a 2-wire transmitter, it must be supplied with the same voltage as the module's input. So: +24VDC from the input module's power supply to the transmitter's (+) terminal. Connect the (-) terminal of the transmitter to the appropriate I-terminal. For the output module: connect the I-terminal to the (+) input on the DCS analog input. Do NOT connect the DCS's +24VDC to the output module's I-terminal. Connect the module's M terminal to the (-) input of the DCS analog input."
+    },
+    {
+      "comment_id": 142881389528956,
+      "user_name": "99xKMTmSaR",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I am using an input module for the analog signals. That’s the setup I’ve come up with. See the attachment—the 24V power supply is on a DIN rail next to the controller. It works on a test bench, but the DCS input provides voltage for powering the sensor (when the PLC isn't present). What happens when the output module sends a 4–20 mA signal to the DCS?"
+    },
+    {
+      "comment_id": 230047095645438,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "If the DCS analog input is configured for voltage signals (0–10V), you cannot use the current output of the module. In that case, you should use the voltage output of the module."
+    },
+    {
+      "comment_id": 615934757249257,
+      "user_name": "99xKMTmSaR",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "The DCS is definitely set for 4–20mA. The sensor configuration is 4–20mA—I’ve confirmed this many times. The DCS supplies 24V over two wires to power the sensor and read the 4–20mA output. My question is: what would happen to the output module if 24V from the DCS came back into its output channel, which provides the 4–20mA signal? I admit I’m a bit confused."
+    },
+    {
+      "comment_id": 923661456616278,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "The current output from the module works like a 4-wire sensor, as the output module is active and needs 24VDC supply. Your drawing was a bit confusing because it showed the wrong output terminals. To clarify: connect I1 to the (+) terminal of the DCS analog input, and M1 to the (-) terminal."
+    },
+    {
+      "comment_id": 742742423792905,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "If you connect the two wires from the output module directly to the same DCS pins previously used for the sensor, it will not work. Look for a ground or GND pin on the DCS, or provide a wiring diagram. For example, which DCS pin was the sensor’s red wire connected to? You should avoid using this pin with the output module. Regards, [user_name]"
+    },
+    {
+      "comment_id": 331520784682775,
+      "user_name": "99xKMTmSaR",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Yes, you're right—thank you for pointing that out. Regarding the statement about the output module functioning as a 4-wire sensor: if the DCS provides power to the loop (since the sensor is powered up directly on two wires), what happens if I connect the output module to the DCS?"
+    },
+    {
+      "comment_id": 718247036999276,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "It appears you’re not considering my advice, so proceed as you prefer. 2-wire sensor inputs are typically designed so that one connection is internally connected to +24V, and the other to ground through a shunt resistor for the 4–20mA signal. That means one side is +24V, and the other side is the 4–20mA input, which could be from a sensor or from an output module. The M terminal of the output module should be connected to the DCS’s internal ground (M, 0V, or GND). For certainty, obtain a wiring diagram for your hardware. Good luck."
+    },
+    {
+      "comment_id": 385826340064119,
+      "user_name": "99xKMTmSaR",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello again, I found a solution and wanted to share. I used a 4–20mA signal isolator—simply plug it in and out. It’s a straightforward approach that avoids modifying the wiring since this is just a test setup for a sensor cleaning system. PHOENIX CONTACT | Repeater power supply - MINI MCR-SL-RPS-I-I - 2864422"
+    },
+    {
+      "comment_id": 222947160067531,
+      "user_name": "8RYb477Ela",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I’m stepping away from this topic, as it seems you either haven’t understood the advice or are unwilling to. Without precise information regarding your DCS signal setup, this problem can't be resolved—signal isolators alone won't help. Goodbye, [user_name] P.S. See the attachment for an example of how a 2-wire sensor input may be designed. In that design, pin 1 is suitable only for passive sensors, pin 3 only for active sensors, and pin 2 is used for measuring."
+    },
+    {
+      "comment_id": 573552821694498,
+      "user_name": "mDgita8zv1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "You saved the day. Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is trying to use a [product_name] output module to serve as a signal bridge between 2-wire current-loop sensors and a legacy DCS system. They are confused about how the module supplies loop current, and whether it can interface safely with a DCS input that also supplies power. There are concerns about damaging hardware and unclear documentation or guidance for connecting the output module in a field-powered scenario, leading to uncertainty around the wiring approach.",
+    "user_expectations": "The user wants the [product_name] output module to emulate a 2-wire 4–20mA sensor, being powered by the DCS—rather than supplying its own power—and to connect without altering the DCS configuration or risking equipment damage.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe integration",
+      "no equipment damage",
+      "signal freezing during cleaning",
+      "seamless interface"
+    ],
+    "pain_keywords": [
+      "current loop confusion",
+      "risk of backfeeding",
+      "lack of wiring clarity",
+      "potential equipment damage"
+    ],
+    "feature_keywords": [
+      "4-20 mA output",
+      "analog output module",
+      "loop power compatibility",
+      "freezing signal output"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

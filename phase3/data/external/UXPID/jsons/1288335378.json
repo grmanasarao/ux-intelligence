@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "1288335378",
+    "thread_id": "1723880927",
+    "publication_year": 2010,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 427679126980429,
+      "user_name": "sScZO7oMjw",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 11,
+      "comment_body": "Hello, How does [product_name] execute its program? How can we determine the sequence in which instruction blocks are processed?"
+    },
+    {
+      "comment_id": 238483342598658,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 11,
+      "comment_body": "[product_name] starts with Block 001, then Block 002, and continues in order. Can you share why you are interested in this? Personally, I just need a reliably functioning [product_name]."
+    },
+    {
+      "comment_id": 601471350624906,
+      "user_name": "sScZO7oMjw",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 11,
+      "comment_body": "No specific reason—I'm simply curious. The block numbers seem to get rearranged when you modify sections of the program, but apparently this doesn't impact execution."
+    },
+    {
+      "comment_id": 984849795591968,
+      "user_name": "6JQtg5zW7c",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "There isn't an official description of how [product_name] handles block execution, but based on my observations and tests, here are some patterns: 1. Blocks are reviewed from lowest to highest repeatedly until all complete. 2. A block won't run if its input-linked blocks haven't yet run, and each block only executes once per cycle. 3. Parameters update instantly when a block executes, but this doesn't change execution order. When you use parameters, you might notice things don't execute in your expected sequence."
+    },
+    {
+      "comment_id": 390250477116102,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "[product_name] operates similarly to larger PLCs. Step 1: Copies input states to the input register. Step 2: Runs the program using the input register values. Changes in input status during the cycle won't affect the program until the next cycle. While running the program, changing parameters update immediately (for instance, counter states, outputs, etc.). The program executes blocks from 001 onwards, but this isn’t documented and might not always be true. Step 3: Copies output statuses to the outputs. Step 4: Restarts from step 1. So, a change in physical input (or output) during the cycle only impacts the program in the following cycle. This explains the programming warning: 'Recursions of Input of xxxblock can only connect to output by a Marker or Output.'"
+    },
+    {
+      "comment_id": 441119302966101,
+      "user_name": "6JQtg5zW7c",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "[user_name], we seem to agree. When I mention block input from another block, I mean a link from one block’s output to another block’s input connection—not an input from the register. My rules fit well with your step 2. Here's an example using three blocks (numbered accordingly): - Block 001: Mathematical Instruction, V1 = 5 * Set OUTPUT: When En=\"0\", output is Last Value. Otherwise, it won’t function correctly. - Block 002: AND(EDGE) (Simulates one program cycle) - Block 003: Mathematical Instruction, V2 = 10 * Set OUTPUT: When En=\"0\", output is Last Value. Connections: - Input I1 links to Block 002's first input - EN input of Block 001 connects to Block 002's output - EN input of Block 003 connects to Block 002's output - Block 003's P1 parameter links to Block 001's Aq parameter - Block 001 output goes to AM1 - Block 003 output goes to AM2 Testing: 1. Reset all blocks to zero in the simulator. 2. Turn Input 1 on/off. AM1 reads 5, AM2 reads 10. Block 003: P1 = 5, P2 = 10, Aq = 10. Execution explanation: - Block 001 is reviewed first but waits as 002 hasn't executed. - Block 002 executes (linked only to input registers); its output goes HIGH. - Block 003 executes since 002 already did; Aq on Block 001 is still zero, so Block 003 adds 0 + 10 for 10. - Now, all blocks are executed, the cycle ends. Test another setup: - Create Block 004 (AND(EDGE)), remove Block 002 - Link I1 to Block 004's input - EN of Blocks 001 and 003 connect to Block 004's output Run the same test: AM1 reads 5, AM2 reads 15. Block 003: P1 = 5, P2 = 10, Aq = 15. Blocks 002 and 003 were skipped initially (since 004 hadn't executed). Block 004 ran after 003 was checked. On the second round, 002 and 003 executed because 004 was already done. This logic lets you predict block behavior. [product_name] might use a more advanced system internally, but this matches observable behavior."
+    },
+    {
+      "comment_id": 785681382133543,
+      "user_name": "6JQtg5zW7c",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Just to clarify: Mathematical Instruction Blocks need the setting 'OUTPUT When En=\"0\", output is: Last Value.' Otherwise, the earlier example won't work. I've updated my previous post with these instructions. Apologies if you tried it and encountered issues."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are trying to understand how [product_name] determines the execution order of program blocks, especially when the program is edited or blocks are rearranged. Discussion centers around whether block numbering affects logic execution, and users offer experimental insights and examples to clarify that logical dependencies, rather than block numbers, govern execution. There is mention of a lack of detailed official documentation, and several technical users share how block parameters and enable signals impact execution order and program outcomes.",
+    "user_expectations": "Users hope to clearly grasp how [product_name] determines instruction block execution order and expect this process to be consistent and well-documented, even when changes are made during program editing.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "understand block execution order",
+      "predictable program logic",
+      "clarity in editing impacts"
+    ],
+    "pain_keywords": [
+      "block number confusion",
+      "lack of documentation",
+      "unexpected block execution",
+      "parameter update uncertainty"
+    ],
+    "feature_keywords": [
+      "block execution order",
+      "logical dependencies",
+      "simulator",
+      "parameter settings"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

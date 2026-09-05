@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "9780187424",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 654799653494235,
+      "user_name": "dN6AAtgrEY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 5,
+      "comment_body": "Hello, A similar question was raised before, but I believe my issue is different. I have a new [article_no] device that I can't access. It’s connected to my router and should have a fixed IP of 192.168.1.4. Here's what I've tried: - Using a network scan tool, the [product_name] sometimes appears at the expected IP address, but then disappears. - Pinging the IP from the command prompt usually times out, though occasionally I get a response. - Attempting to open a socket connection in Java on port 102 doesn't work. - In [product_name] Soft Comfort under Tools > Options > Interface, I added the IP with subnet mask 255.255.255.0 and left the gateway blank. Status is 'No' when I press detect. - Transferring from PC to [product_name] using [product_name] Soft results in \"cannot access the IP address 192.168.1.4.\" Each time I try to connect, the lights near the RJ45 port on the [product_name] light up, so there is some activity. I haven't connected the ground cable next to the RJ45 on the [product_name], but I don't think that’s causing the IP issue. Any ideas why the [product_name] seems to keep losing its IP or why I can't connect?"
+    },
+    {
+      "comment_id": 336620706355410,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 5,
+      "comment_body": "Hi, 1. Try connecting to the [product_name] directly without using a router. If that works, the problem likely lies in the settings. 2. Note that the port used for connecting [product_name] Soft Comfort to the [product_name] is 10001, not 102 as with other [product_name] models. Hope this helps."
+    },
+    {
+      "comment_id": 476465479638562,
+      "user_name": "0bXgoDhjrm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], I had a similar issue recently. Open CMD on Windows and type IPCONFIG. If there is more than one IP in the results, let me know."
+    },
+    {
+      "comment_id": 550889601412598,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], When transferring a program to the [product_name], make sure the same IP address is set in [product_name] Soft Comfort under 'Tools > Options > Interface' (for example, 192.168.1.4) as well as 'Tools > Ethernet Connections'. The setting in 'Tools > Options > Interface' is important for transferring and detecting the device. If 'Tools > Ethernet Connections' has a different IP (for example, 192.168.1.6), after loading the program into the [product_name] device, [product_name] Soft Comfort will display \"Overwrite IP address setting in device\". Clicking OK will set the device to use the IP from 'Tools > Ethernet Connections', and you won’t be able to access the device through the other IP. This IP mismatch often causes problems accessing the [product_name] device. If you have further questions, feel free to ask. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 245334366172102,
+      "user_name": "dN6AAtgrEY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 5,
+      "comment_body": "Thanks for the suggestions. I managed to set up the IP for both the [product_name] and the PC and connected directly without the router. Now, I can connect, and I’m also able to use port 10001 to start, stop, and check IO status with Java. However, it's still unclear how to write to the [product_name]—the examples from the library don’t work. I uploaded a test program with a network input at address 100 bit 0, but reading or writing doesn't work. Does anyone have a working sample of a [product_name] Soft Comfort program and a corresponding library test that reliably functions?"
+    },
+    {
+      "comment_id": 490439388182808,
+      "user_name": "0bXgoDhjrm",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], Did you try pinging the [product_name] from your PC directly? What results do you get?"
+    },
+    {
+      "comment_id": 837109892704006,
+      "user_name": "dN6AAtgrEY",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 6,
+      "comment_body": "Figured it out—thanks for everyone’s help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main issue was unstable Ethernet connectivity and inconsistent IP address recognition between a PC and a [product_name] module ([article_no]). Users highlighted that mismatches between software settings for IP addresses are a common cause for problems. They also clarified the different ports used by various [product_name] products/software, and shared troubleshooting steps like connecting directly instead of via a router. Ultimately, setting matching IP configurations resolved the connectivity problem. Minor issues with programming interfaces were noted, emphasizing that network and device settings must be coordinated for reliable operation.",
+    "user_expectations": "Users expect stable and predictable Ethernet connection between their PC and the [product_name] module, simple setup for fixed IP addresses, and smoothly transferring and working with programs on the device, without needing advanced troubleshooting or detailed manual configuration.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "stable connection",
+      "program transfer",
+      "remote control",
+      "device communication"
+    ],
+    "pain_keywords": [
+      "IP mismatch",
+      "intermittent connectivity",
+      "software configuration confusion",
+      "configuration errors"
+    ],
+    "feature_keywords": [
+      "Ethernet communication",
+      "fixed IP setup",
+      "port configuration",
+      "program upload/download",
+      "Java interface"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": [
+        "Windows 7"
+      ]
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

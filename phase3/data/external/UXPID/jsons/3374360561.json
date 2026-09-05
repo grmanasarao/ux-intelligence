@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "3374360561",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 590789222740064,
+      "user_name": "sScZO7oMjw",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I have a question regarding my setup. An AM2Q module is connected to a [product_name] module. I've configured AQ1 and AQ2 for 4-20 mA output. When I measure the voltage between the Mx and Ix terminals, I get 13.49V. Is this expected behavior? If I connect the 4-20 mA output from the [product_name] module to a device that accepts a 4-20 mA input and also measure a voltage on this input, could this cause issues? I understand the input device might show voltage because a passive 4-20 mA sensor is powered that way. Should there be voltage present on the [product_name] analog output, or am I misunderstanding something? Thank you for your help."
+    },
+    {
+      "comment_id": 449214096437798,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "This is normal behavior. You're measuring current output but have your meter set to voltage. There’s a difference between measuring voltage versus current (for example, a 230V outlet—what if you set your meter to amperes?). With a current output, you only get accurate current readings if the total resistance is within a reasonable range (for example, 500 to 1000 Ohms). The measurement should be in current (mA), not voltage. If the [product_name] module is outputting 15 mA, what would the voltage be? Use Ohm’s Law: U = I x R. You know I; now consider R."
+    },
+    {
+      "comment_id": 536758888204248,
+      "user_name": "sScZO7oMjw",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Thank you for your response. When I connect a current meter in series with a 220 Ohm resistor between M1 and I1, I correctly measure the 4-20 mA range. At 20 mA, the voltage drop across M1/I1 is 4.4V. There must be a potential difference for current to flow. I’ve attached a clearer description of my question for this discussion. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 262432435985672,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "If the smartbox uses a standard signal input of 0/4-20 mA, there will be a low resistance (around 500 Ohms) between input + and input -. There’s no cycle or cross voltage or current. Higher voltages only occur with larger resistances, such as the 10 MOhm found in voltmeters. Regards, [user_name]. P.S. Share a link to your smartbox if you want us to check whether the input supports your requirements."
+    },
+    {
+      "comment_id": 417391998501200,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Just to note, the [product_name] AM2 module has an active 4-20 mA output. Do you have more details about your smartbox device?"
+    },
+    {
+      "comment_id": 841055830158006,
+      "user_name": "sScZO7oMjw",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello, Here is a link to the user manual for the smartbox device: [url]. It is in German; I couldn’t locate an English version. On page 6, the input connection for the sensor is described. It states that the smartbox provides 20V DC to power the 4-20 mA sensor. I have emailed smartbox support to ask about connecting to an active 4-20 mA sensor. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 921148887680202,
+      "user_name": "8RYb477Ela",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "In this situation, it might not be suitable to connect to the [product_name] AM2 AQ output. The sensors used are two-wire types, meaning + is DC 20V and - is the 0/4-20 mA input—internally linked to ground, though no ground terminals are provided. Reach out to the smartbox manufacturer for specific details about connecting via a current output, not just a two-wire sensor. Regards, [user_name]"
+    },
+    {
+      "comment_id": 929112389660664,
+      "user_name": "sScZO7oMjw",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I received a reply from smartbox support: \"The 4-20 mA input of SmartBox only supports passive signals and this cannot be modified. It will not work with an active 4-20 mA signal due to two supply voltages. Is there a way to configure the [product_name] module to provide a passive signal?\" Is it possible to adjust a setting in the [product_name] module to produce a passive 4-20 mA output? My idea was to use [product_name] to duplicate the current from a passive sensor. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 278059275701679,
+      "user_name": "8RYb477Ela",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "There are no settings to change on the [product_name] AM2 AQ for this scenario—the connection isn’t possible. You might need a different approach to duplicate sensor values. Check if the smartbox has a LAN connector with Modbus TCP/IP compatibility. If available, you can transmit data via LAN from the [product_name] module, which supports Modbus TCP/IP client or server modes. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed unexpected voltage readings on current output terminals of a 4-20 mA [product_name] module. The conversation identified confusion between voltage and current measurements, and clarified the distinction between active and passive 4-20 mA signals. It was determined that the [product_name] module provides active output, which cannot be directly connected to devices expecting passive input, like the referenced smartbox. There was agreement on the importance of clearer documentation for signal types and connection requirements.",
+    "user_expectations": "Users hope for a [product_name] module that can be configured to output either active or passive 4-20 mA current, ensuring easy compatibility with devices requiring passive input, without the need for additional hardware changes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "interoperability",
+      "configurability",
+      "compatibility"
+    ],
+    "pain_keywords": [
+      "signal incompatibility",
+      "lack of output configuration",
+      "connection limitations"
+    ],
+    "feature_keywords": [
+      "active/passive current output",
+      "4-20 mA analog output",
+      "module configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

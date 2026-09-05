@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "branch_id": "2328468971",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 677658729080160,
+      "user_name": "V1Sfsbydk2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm encountering an issue with the maximum number of output connectors for User Defined Functions (UDF). Is there any workaround to increase this? I need 5 outputs from a UDF. Thank you."
+    },
+    {
+      "comment_id": 932698785044814,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "No, currently the maximum is 8 inputs and 4 outputs for a UDF."
+    },
+    {
+      "comment_id": 805520151194483,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "While not perfect, you could use an analog output as a workaround. For example, figure 1 shows the basic concept of using a multiplexer inside a UDF. In general, if you're needing more than 4 outputs, the UDF may become more complex than originally intended. This is just my opinion without knowing your exact use case."
+    },
+    {
+      "comment_id": 457855301806077,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "It depends on the application—parameter I/O could work as well. I have a UDF for shifting analog values where I use 6 outputs."
+    },
+    {
+      "comment_id": 122600118659370,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Any solution that works is good; you could combine digital signals into a single byte using a multiplexer, pass this out of the UDF as an analog or parameter value, store it in memory, and then retrieve each one individually as needed in your network logic. [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 246824487126426,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "This solution has already been mentioned by other users. Check the previous posts above yours."
+    },
+    {
+      "comment_id": 738678632608785,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "It's not exactly the same, but it's a similar approach."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user encountered the limitation of only four output connectors for UDFs in [company_name]'s software. Community members confirmed this limitation, suggested alternatives such as analog multiplexing and parameter I/O adaptation, and discussed possible workarounds to address complex needs, emphasizing creative approaches when standard capabilities are insufficient.",
+    "user_expectations": "The user hopes for more flexible options in UDF output connectors—expecting either higher limits or practical solutions to overcome this restriction for advanced or custom function requirements.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "increase output connectors",
+      "enhanced flexibility",
+      "complex function design"
+    ],
+    "pain_keywords": [
+      "output connector limitation",
+      "restricted function complexity",
+      "complicated workarounds"
+    ],
+    "feature_keywords": [
+      "UDF output limitations",
+      "multiplexer usage",
+      "analog/parameter I/O outputs"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations"
+  }
+}

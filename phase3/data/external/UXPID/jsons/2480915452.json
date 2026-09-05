@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "branch_id": "2480915452",
+    "thread_id": "3055273936",
+    "publication_year": 2011,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 400128818222239,
+      "user_name": "g9LFxQrzyS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm facing an issue and could use some help. I'm using an [product_name] RTD module with a PT100 3-wire probe and a [article_no] controller to build a temperature control system for a large water tank heated by a gas burner. I'm replacing a PT1000-controlled thermostat, aiming for a single [product_name] to eventually manage up to four tanks and include a timer. For now, my setup relies on the [article_no]. My hardware is all set up, but I'm getting 2-3 degrees Celsius of noise on the analog input, which causes rapid ON/OFF switching near the set point. I tested the averaging function block in a newer [article_no] and found it useful, but I need to prove the task can be done with the [article_no] plus [product_name] TD. At present, the solution isn't functional without some form of damping or dead-band control for the output. I haven't found any application examples that show using an [product_name] RTD with additional signal conditioning. I'm looking to stabilize the process value and prevent this rapid switching. Is it feasible to use a small non-polarized capacitor across the PT100 terminals at the [product_name] RTD to dampen the temperature signal? If so, what value would be safe to try and not damage the hardware? Many thanks in advance,"
+    },
+    {
+      "comment_id": 785824244044456,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hello, Check out this resource: [url] It explains how to average values to help dampen unstable analog readings. Regards,"
+    },
+    {
+      "comment_id": 161547754611323,
+      "user_name": "g9LFxQrzyS",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hello again, [user_name]. I'll take a look at that now, thanks."
+    },
+    {
+      "comment_id": 979664997585153,
+      "user_name": "JMywOwHns4",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hi! Is the cable shield connecting Pt100 to the analog input properly grounded? Also, is the negative side of your power supply grounded?"
+    },
+    {
+      "comment_id": 209582907960427,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hello, That's a good approach—try to eliminate the source of noise first. Sometimes, even after following standard procedures, signal quality isn't ideal. In such cases, I prefer software solutions rather than hardware tricks like capacitors. Regards,"
+    },
+    {
+      "comment_id": 995234890108669,
+      "user_name": "JMywOwHns4",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Regardless, even with a stable signal, it's a good idea to use a differential for switching to avoid frequent toggling. For example, switch ON at 80°C and OFF at 85°C."
+    },
+    {
+      "comment_id": 688159860399313,
+      "user_name": "g9LFxQrzyS",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Thank you all! I saw the application example posted by [user_name]. It averages three samples; I initially missed that it was for a single analog input. Last night, I integrated that example and also a hysteresis circuit thanks to the suggestions here. I expect only minor issues now when I install the new controller later this week. This is my first temperature controller project—it manages a gas burner to heat a large water tank (~6m^3) to 60°C for one hour to control Legionella, then reduces the set point by around 8 degrees to save gas while avoiding foam."
+    },
+    {
+      "comment_id": 438750918083073,
+      "user_name": "g9LFxQrzyS",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Currently, my 24VDC ground isn't connected to protective earth—this is the [product_name] in its new setup. Let me know your thoughts; feedback is appreciated since I don't know anyone else interested in this!"
+    },
+    {
+      "comment_id": 855722968316855,
+      "user_name": "g9LFxQrzyS",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Here's the [article_no] setup with control for four burners, optional work scheduled for Friday or Saturday, and sequential timing for different fans, pumps, and a gas dryer:"
+    },
+    {
+      "comment_id": 458163018044173,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], Just a reminder: the averaging circuit provided by [company_name] support is not always ideal, and the newer function blocks 'Analog filter' and 'Average value' in the [article_no] do not synchronize directly with the frequency at which analog values are captured by the hardware. Try searching 'filter [product_name]'—you'll find some older circuits I've posted for signal filtering and averaging. On the German forum, I've compiled a summary on handling fluctuating analog signals (such as temperature measurements). You can test those circuits; a recommended one is the file 'DEMO_periodic_averaging_V4 ([article_no]).lsc' included in the attachment: DEMO_AnalogFiltering_[article_no]_0BA6.zip. This allows periodic averaging with up to 32 samples and customizable timing between measurements. If you have any questions, ask them here. Additionally, the new 'Analog filter' and 'Average value' blocks in the [article_no] don't operate in sync with the input sampling rates (50 ms for [product_name] modules, 300 ms for [product_name] basic modules): 1. The manual states for the 'Analog filter': '[product_name] samples an analog value every program cycle. The set sample number matches the program cycle count.' However, the cycle time is undefined and usually does not match 50 ms or 300 ms, risking inaccurate filtering of analog signals. 2. For the 'Average value': 'Minimum sampling time is 1 s', but the analog inputs are sampled at 50 ms or 300 ms, which can lead to wrong average values. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 469470573771664,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], Thanks for sharing this valuable information. Regards,"
+    },
+    {
+      "comment_id": 970689667710860,
+      "user_name": "g9LFxQrzyS",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], thank you—that's excellent feedback. I appreciate your insights regarding the new blocks in the [article_no]; I hadn't reviewed that material yet. My second project now has over 250 blocks, which led to switching from [product_name] to [article_no]. Looking forward to reviewing your resources, thank you. [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is dealing with significant instability and noise in temperature readings from a [product_name] controller and an [product_name] RTD module paired with a PT100 probe. This results in rapid output oscillation near the set point. Community responses suggest checking both hardware aspects (cable shielding, grounding) and, preferably, software solutions such as averaging, hysteresis circuits, and custom filtering routines. There are concerns that default averaging and filtering blocks in certain [product_name] versions may not synchronize with actual hardware sampling rates, causing less effective analog signal processing. The overall recommendation is to prioritize custom software-based solutions for reliable signal stabilization.",
+    "user_expectations": "The user is looking for stable, low-noise analog temperature readings that provide dependable switching near the set point. They seek actionable advice on achieving signal stability, either through proven software tools or clear application examples, and specifically want methods that ensure safety and effectiveness when implemented on their hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable temperature control",
+      "reduced output oscillation",
+      "analog signal conditioning",
+      "energy efficiency"
+    ],
+    "pain_keywords": [
+      "temperature noise",
+      "rapid ON/OFF switching",
+      "unstable analog input",
+      "lack of clear application examples"
+    ],
+    "feature_keywords": [
+      "analog input averaging",
+      "analog filter",
+      "hysteresis control",
+      "deadband setting",
+      "timed sampling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

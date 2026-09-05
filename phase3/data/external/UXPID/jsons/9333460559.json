@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "branch_id": "9333460559",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 135031447729099,
+      "user_name": "wMKiGgz0TY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I am not asking whether it's possible to reset all relays and stored shift register values to their default settings. From my understanding, the M8 flag is only activated during startup. How would you achieve this with a button press on the control panel?"
+    },
+    {
+      "comment_id": 412934782298819,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The special M8 flag becomes active only after restarting the [product_name] for one cycle at a HIGH state. A program can detect when the [product_name] restarts. After the initial cycle, this flag is available for any use. There is no built-in feature in [product_name] to reset all relays and shift registers at once—the programmer must implement this behavior manually. When the device restarts, all non-persistent blocks, values, and the VM area are reset to zero. Components such as operating hours counters retain their data and cannot be set to non-persistent. All retention remains active after a power loss or when the [product_name] is stopped. However, if a new program is transferred, previous retention is cleared and does not remain valid."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are searching for ways to reset all relays and shift register values in [product_name] hardware to a specific state via a control panel action, but find there is no built-in function for this purpose. Instead, users need to add custom programming for such a reset. The responses clarify how internal memory and flag retention work, providing details about persistent data and system resets.",
+    "user_expectations": "User anticipates an integrated or straightforward way to reset all relays and shift register values to their default state by pressing a control panel button, similar to the reset that occurs automatically upon startup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "programmatic reset",
+      "control panel action",
+      "system state consistency"
+    ],
+    "pain_keywords": [
+      "no built-in reset",
+      "manual programming required",
+      "remanence complexity"
+    ],
+    "feature_keywords": [
+      "relay reset",
+      "shift register reset",
+      "M8 flag",
+      "control panel interface",
+      "remanent memory"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "30": "Data Persistence Confusion"
+  }
+}

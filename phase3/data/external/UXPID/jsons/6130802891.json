@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "branch_id": "6130802891",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 278118304100055,
+      "user_name": "1BjRNfVdUG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Hi, Using a [article_no] device and a [product_name] panel, connected via Ethernet (ping works fine), I am able to access and configure the [product_name] panel. However, I am unable to connect to or transfer a program to the [article_no] device. I selected the correct hardware model ([product_name] [version_no]), and the communication test succeeds, but when downloading the program, I get the message: 'You must use a newer version of this program.' Despite installing the latest update ([version_no]), the message persists. I cannot provide the firmware version for the [article_no] device since I can't communicate with it other than ping, but the panel has firmware version [version_no] (both devices ordered recently). Any help would be greatly appreciated—I'm really stuck!"
+    },
+    {
+      "comment_id": 412999685743763,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "If you cannot communicate with the [product_name] device except for ping, consider if both the [product_name] and your PC are in the same IP subnet. Please provide their IP addresses and subnet masks. You can check the [product_name] device's firmware version visually—there should be a combination of a letter and two numbers (e.g., X | 2 | 3), where X | 2 | 3 indicates firmware [version_no], X | 3 | 4 indicates firmware [version_no], etc."
+    },
+    {
+      "comment_id": 130376101628626,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Given that order number, the firmware should be at least [version_no]. You might be opening the program by double-clicking, which could start an older version on your computer. Please run the latest version directly, check the version info, and then try to open and transfer the program. If it still doesn't work, use diagnostics to check the firmware version. Regards, [user_name]"
+    },
+    {
+      "comment_id": 594360117259521,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Please refer to the attached file for further details."
+    },
+    {
+      "comment_id": 695344416029346,
+      "user_name": "1BjRNfVdUG",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "The panel shows X34, indicating firmware version [version_no]. Software is confirmed as [version_no] (checked via the help/about box), but the same error message appears. When using Transfer/Diagnostic, I see: 'the target device does not match!' After clicking, the message 'Failed to load the panel' appears. My computer (192.168.0.10) connects to the [product_name] panel (192.168.0.3), and the panel to the [article_no] device (192.168.0.2). All have fixed IPs and subnet mask 255.255.255.0, with my other computer network (WiFi) at completely different addresses."
+    },
+    {
+      "comment_id": 264923533110007,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "You have the recent model with the latest firmware. Can you try reading out the firmware via the [product_name] software? Go to: Tools > Transfer > Show FS Version."
+    },
+    {
+      "comment_id": 458812441213589,
+      "user_name": "1BjRNfVdUG",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "No, I still get the same error message: 'the target device does not match.'"
+    },
+    {
+      "comment_id": 751454800389102,
+      "user_name": "1BjRNfVdUG",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "I think I figured it out... I was confused about the IP address displayed on the [product_name] panel. It's not the panel's own address but the address it targets, as I've now understood. Disconnecting the panel showed that the PLC was actually at 192.168.0.3, not 192.168.0.2 as I had believed. Everything seems to be working now. Thank you very much for your prompt help."
+    },
+    {
+      "comment_id": 753863025664427,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Is your issue resolved?"
+    },
+    {
+      "comment_id": 717589953825451,
+      "user_name": "1BjRNfVdUG",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Yes, I can begin working now. Thank you!"
+    },
+    {
+      "comment_id": 439179726775345,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "Was the issue that both the [product_name] device and the [product_name] panel were using the same IP address? (192.168.0.3?)"
+    },
+    {
+      "comment_id": 591813714191246,
+      "user_name": "1BjRNfVdUG",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "I'm not entirely sure. My first test was simply disconnecting the panel, so I suspect the addresses were inverted. I was pinging a device mistakenly, which explains why I was connecting to the wrong one. After a few changes, I ended up with both devices having the same address at one point (when pressing the blue arrow in hardware selection, online). Now, it's fine—the error messages weren't very helpful in diagnosing this."
+    },
+    {
+      "comment_id": 865640940860049,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 8,
+      "comment_body": "A tip: Always assign IP addresses via the system menus on your [product_name] devices and panels. At the very least, verify the IP addresses beforehand to avoid possible address conflicts from the start."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user experienced trouble connecting and transferring a program between [product_name] software and [product_name] hardware ([article_no]), receiving an outdated software error even with the latest update. Further problems arose due to confusion over IP address assignments between connected devices, causing communication failures and misleading error messages. The core issue was a misunderstanding of device IP addressing, rather than firmware or software compatibility.",
+    "user_expectations": "The user expects a simple connection and program transfer process between [product_name] software and hardware, along with clear, actionable error messages to aid troubleshooting.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful program transfer",
+      "seamless hardware-software communication",
+      "clarity in error messaging"
+    ],
+    "pain_keywords": [
+      "software-hardware mismatch",
+      "misleading error messages",
+      "network configuration confusion"
+    ],
+    "feature_keywords": [
+      "Ethernet communication",
+      "program transfer",
+      "device addressing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

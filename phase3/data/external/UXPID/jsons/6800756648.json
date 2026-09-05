@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "6800756648",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 920825189968033,
+      "user_name": "Ui7V3HVheA",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Every day at midnight, I want to save the previous day's count—over 50,000—into a memory chain bucket using the min/max function. The up/down counter value does not transfer directly into this function. Does anyone have a workaround for this? Is the min/max function suitable for chain storage?"
+    },
+    {
+      "comment_id": 785422559736120,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The MAX/MIN block is limited to 16-bit integer values, specifically from -32,768 to 32,767. It cannot process values above 50,000."
+    },
+    {
+      "comment_id": 649672242436334,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Are you looking to save multiple days' counts, or only the previous day's count?"
+    },
+    {
+      "comment_id": 823036687277423,
+      "user_name": "Ui7V3HVheA",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Only the previous day's count needs to be saved."
+    },
+    {
+      "comment_id": 774880980353178,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Attached is a solution for use with the extended web server. The stored counter value can be displayed on an extended web server, HMI panel, remote [product_name], or remote PLC. However, displaying the value within the same [product_name] is not supported. Note: this program will run only on actual hardware, not in simulation."
+    },
+    {
+      "comment_id": 371647797595526,
+      "user_name": "Ui7V3HVheA",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Thank you [user_name]. You are always very helpful and I appreciate your assistance."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face restrictions with storing daily counter values higher than 50,000 using the min/max function, as it supports only 16-bit integer ranges. The current capabilities of the device do not support handling larger numbers directly, leading to challenges for users needing to save higher values. Additionally, stored counter values cannot be shown within the same device and must be displayed externally, such as through an extended web server or remote interface.",
+    "user_expectations": "User expects to store and access previous daily counter values over 50,000 directly within the device, ideally using a built-in function like min/max, without the need for external methods.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "historical data storage",
+      "high value support",
+      "automation",
+      "daily value retention"
+    ],
+    "pain_keywords": [
+      "16-bit integer limit",
+      "inability to store large values internally",
+      "insufficient built-in functions"
+    ],
+    "feature_keywords": [
+      "min/max function",
+      "memory chain bucket",
+      "counter value storage",
+      "historical data"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "13": "Integration Limitations"
+  }
+}

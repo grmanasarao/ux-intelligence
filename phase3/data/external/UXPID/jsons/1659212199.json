@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "1659212199",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 471815209944470,
+      "user_name": "YiN7as5Rv9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I developed a program in FBD using [product_name] V8 with 318 function blocks and a layout memory of 79867 bytes. The simulation was successful. Afterwards, I installed [product_name] V8.2, opened the program, and once again simulated it without issues. However, when I attempted to upload this program from my PC to a [product_name] 8 device, FS 06, via [product_name] V8.2, I encountered an error shown in the info window: [product_name] 8.FS4 Download failed, and the program could not be uploaded to the device. I realize my layout memory exceeds 30000 bytes, which causes program lines to mix after upload, but I’m still unclear why the program can’t be downloaded onto the device."
+    },
+    {
+      "comment_id": 439106279640980,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Would you be able to upload your program file?"
+    },
+    {
+      "comment_id": 161274133391496,
+      "user_name": "YiN7as5Rv9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "As mentioned earlier, when I try to upload the program from the PC to the [product_name] device, the error occurs and the upload fails."
+    },
+    {
+      "comment_id": 505949287683230,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "I meant uploading it to the forum as a ZIP file, not to the [product_name] device."
+    },
+    {
+      "comment_id": 224394600567640,
+      "user_name": "YiN7as5Rv9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "Thank you for your attention."
+    },
+    {
+      "comment_id": 395375362550944,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 2,
+      "comment_body": "There seems to be an issue with the file. The information window in [product_name] does not provide specifics, only stating that the transmission failed, with no further details. In your situation, I would suggest submitting a support request to [company_name] for a detailed examination of the file."
+    },
+    {
+      "comment_id": 809796550021541,
+      "user_name": "mt8nLGWH5e",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Please remove the 'Asynchronous pulse generator' between M28 and Q12 and insert a new one."
+    },
+    {
+      "comment_id": 684822467107303,
+      "user_name": "YiN7as5Rv9",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Thank you very much—your suggestion was extremely helpful, and the program was successfully downloaded to the [product_name] device. Could you explain how you identified this error, especially since there was no error message in [product_name]? Did you use a specific tool or manually check the program line by line?"
+    },
+    {
+      "comment_id": 616632512811809,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 3,
+      "comment_body": "Here's one way to check: In the menu under Edit > Block Properties (All Blocks), you'll find a list of all blocks along with their properties. You can scroll through to spot any irregularities, such as a block missing a number. If you use the 'Select block from drawing' option, the chosen block will be directly displayed in the diagram."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced failure when attempting to transfer a large project created in [product_name] V8.2 to a [product_name] 8 FS 06 device. While simulation succeeded, the actual hardware transfer did not, with only a vague failure message and no detailed diagnostics. The underlying issue was a problematic 'asynchronous pulse generator' block, which needed to be deleted and replaced for the upload to succeed. This highlights the lack of specific error feedback in [product_name] and shows how faulty blocks can prevent successful downloads.",
+    "user_expectations": "Users expect reliable transfers of simulated programs from their PC to [product_name] hardware and desire precise diagnostic messages when problems occur.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful program upload",
+      "clear error messages",
+      "diagnostic feedback"
+    ],
+    "pain_keywords": [
+      "download failure",
+      "unclear error reporting",
+      "corrupt function block"
+    ],
+    "feature_keywords": [
+      "block properties",
+      "error reporting",
+      "program transfer"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "10": "Performance Predictability"
+  }
+}

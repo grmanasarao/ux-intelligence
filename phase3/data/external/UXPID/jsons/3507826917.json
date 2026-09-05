@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "3507826917",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 922154403289469,
+      "user_name": "573fbXjPKk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hello! I'm experiencing a similar issue—when reading a counter value from a [product_name] connected to a press, the counter sometimes exceeds 32767. Is there any way to obtain the correct value for counter numbers above 32767? Thank you!"
+    },
+    {
+      "comment_id": 979659545432744,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Your question is somewhat unclear. Could you provide a screenshot or give a more detailed explanation?"
+    },
+    {
+      "comment_id": 250149693082710,
+      "user_name": "573fbXjPKk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "I'm reading a counter through Modbus, but when the value surpasses 32767 it appears as a negative number. I was advised to use two 16-bit integers and merge them using bit shifting, but I'm not sure how to implement this approach."
+    },
+    {
+      "comment_id": 352821764330778,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "The main issue is that [product_name] is primarily designed for 16-bit integer values, ranging from -32,768 to 32,767, and its mathematical functions also use 16 bits. Some blocks do support unsigned 32-bit integers, such as up/down counters, but their range is limited to 999,999. You might be able to read and display a Modbus counter value this way, but only up to 999,999. Will this solution work for you?"
+    },
+    {
+      "comment_id": 599053036997927,
+      "user_name": "573fbXjPKk",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Yes, thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faces a numeric overflow issue when reading counter data from [product_name] via Modbus––values above 32767 are misrepresented due to the device's 16-bit integer limit. Some alternatives are suggested, but the hardware/software's inherent limitations significantly restrict usability for those who need to handle larger values.",
+    "user_expectations": "The user wants a reliable way to read and process counter values above 32767 using [product_name] and Modbus, without issues like value corruption or overflow. They are seeking clear solutions to access higher numeric ranges.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate high value counting",
+      "Modbus compatibility",
+      "data reliability"
+    ],
+    "pain_keywords": [
+      "integer overflow",
+      "value limitation",
+      "data inaccuracy"
+    ],
+    "feature_keywords": [
+      "Modbus counter read",
+      "16-bit integer",
+      "value overflow handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

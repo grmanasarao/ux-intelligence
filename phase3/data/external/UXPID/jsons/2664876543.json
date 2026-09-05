@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "2664876543",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 296111433292079,
+      "user_name": "jHJ14A2A7h",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Hello, I have previously worked on heating projects using [product_name] with PT100 sensors connected to [product_name] analog modules, limiting heaters to 200°C. For a new project requiring 350°C heating, I'm considering using a thermocouple with an external acquisition board and connecting it to [product_name] via MODBUS TCP/IP. Is it possible to perform PI control using [product_name] when reading temperature data from an external board?"
+    },
+    {
+      "comment_id": 509429966061289,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "If the temperature value is transferred using Modbus TCP/IP to [product_name] in a readable format, you can use it for PI control."
+    },
+    {
+      "comment_id": 336678756562780,
+      "user_name": "jHJ14A2A7h",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "Thanks for the feedback. I haven’t used Modbus TCP/IP before; since it’s not a real-time protocol, I’m concerned that PI control might be inaccurate. How do you see this?"
+    },
+    {
+      "comment_id": 201874147916138,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "It’s hard to say for sure. Do you expect such a significant delay that it would compromise regulation? In most cases, the thermal response of the system you’re controlling is slower than the Modbus signal transmission from the thermocouple."
+    },
+    {
+      "comment_id": 346439631560923,
+      "user_name": "cZQANX744b",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "According to the [product_name] manual, the PI loop typically has a 500ms cycle time (see page 233). When [product_name] operates as a Modbus TCP client, the fastest scan rate achievable is 80ms. So it should be sufficient for your needs. Hope this clarifies things."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discuss whether integrating an external thermocouple acquisition board with [product_name] via Modbus TCP/IP is suitable for temperature control above 200°C. Concerns are shared regarding the real-time capabilities of Modbus TCP/IP and its effect on PI control accuracy, with others reassuring that the protocol's response time is quick enough compared to process delays. Cycle times referenced from official documentation further support its feasibility.",
+    "user_expectations": "The user hopes to reliably read thermocouple temperature measurements through Modbus TCP/IP and achieve effective PI control with [product_name], expecting that communication delays will not significantly impact control accuracy or system responsiveness.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "higher temperature measurement",
+      "reliable PI regulation",
+      "successful Modbus TCP/IP integration"
+    ],
+    "pain_keywords": [
+      "accuracy concerns",
+      "protocol latency",
+      "integration uncertainty"
+    ],
+    "feature_keywords": [
+      "Modbus TCP/IP",
+      "PI regulation",
+      "external sensor integration",
+      "analog module support"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability"
+  }
+}

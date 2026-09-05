@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "branch_id": "7750678214",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 527044620332751,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Hello, I need to read values from a Moxa IOLogic E1260 using my [product_name] via ModBus. The values are from some resistors connected to the Moxa, so they aren't just digital. I've tried many approaches but nothing works. With QModMaster, I can see the values, and the device responds to pings from [product_name]. Can someone help me monitor these values in my [product_name]? Regards,"
+    },
+    {
+      "comment_id": 681993714740081,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Which registers in the Moxa IOLogic E1260 store the resistor readings? What data type are the values — integer, float, or another type? Is there any description or manual for the Moxa IOLogic E1260 available?"
+    },
+    {
+      "comment_id": 651411146730508,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Hello, Thanks for your response. It's not easy to find good information from Moxa. I've included my configuration and QModMaster screenshot for reference. The values I'm after relate to detection—wire presence, short circuit, NO/NC contact closed. That's all. I believe the values from Moxa are floats. Regards,"
+    },
+    {
+      "comment_id": 472345788308395,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "If you can't specify which registers hold the values and the data format, unfortunately I can't assist further. I'm not familiar with the Moxa device."
+    },
+    {
+      "comment_id": 986235569741303,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "I realize my information is limited. Attached, you'll find where RTD_scaledValue is what I need. Starting address is 1548, it's written in the Input Register, and it's 2 words long. Does this help?"
+    },
+    {
+      "comment_id": 232346500160861,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Check the attachment. Use IR (Input Register), not HR (Holding Register). The values are 4 bytes (2 words). In your [product_name] program, try the Float/Integer Converter instead of Analog Network Inputs. Analog Network Inputs only support 2 bytes."
+    },
+    {
+      "comment_id": 575119994576584,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Thanks for your help. I found the solution — in the Moxa configuration, I had to enable an SNMP trap for the desired channel. Now I can read values with an analog network input, although I'm still figuring out the Float/Integer Converter approach."
+    },
+    {
+      "comment_id": 979975998863400,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I can now read the value from the Moxa module using the Network Analog Input. But the output isn't exactly as needed. How do I set up the Float/Integer Converter? It worked earlier but stopped for some reason."
+    },
+    {
+      "comment_id": 773766296478282,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Could you upload your [product_name] program as a ZIP file?"
+    },
+    {
+      "comment_id": 611464038682725,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "It's still a basic project—I'm focusing on getting the right value first before moving on. The Network Analog Input section receives the value from Moxa, and I've tried filtering it to get a more accurate output, but I'm not satisfied yet. I need to read a stable resistor value, but in my program, it keeps fluctuating between two values."
+    },
+    {
+      "comment_id": 566000406116576,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "The challenge is we don't know what type of value is transmitted—is it a double, float, or with what resolution? You've tried accessing the value over two simultaneous connections, which can cause conflicts. That's why I removed the connection with Network Analog Input. There could also be a register offset. Try registers IR 1548 or IR 1549. Test both Double and Float formats. Use varying resolutions. Monitor the data table for readings in VW0 and VW2."
+    },
+    {
+      "comment_id": 333858772764026,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I can read some values, but they're not accurate. I suspect the issue is on the Moxa side of the setup. Thanks for your support."
+    },
+    {
+      "comment_id": 701891571900850,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Is it possible to contact Moxa—for example, by email or phone?"
+    },
+    {
+      "comment_id": 813956723807266,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I tried reaching out to them yesterday, hopefully I'll get a response soon. Meanwhile, I'll keep analyzing the results for a pattern."
+    },
+    {
+      "comment_id": 619433551794147,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I'd appreciate if you could share your findings with us. Also, it would be helpful to see your [product_name] program. Thank you."
+    },
+    {
+      "comment_id": 527485149933728,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I'll update everyone once this problem is resolved."
+    },
+    {
+      "comment_id": 438781456063909,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hello, I received a reply from the Moxa team, but it wasn't much help. Since I only have four possible value states, I used amplifiers to retrieve the ones I need. I've attached the current program, along with the custom UDF I made to make things more readable."
+    },
+    {
+      "comment_id": 631738120898955,
+      "user_name": "8RYb477Ela",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "I'm not sure about your plans for the temperature readings. As seen in the attached [product_name] example, the Modbus registers are utilized as follows: There are six input registers starting at 1537 in word format (unit 0.1), so I used a decimal point in the analog amplifiers. Each register has 16 bits—so mapping is VW0, VW2, VW4, VW6, VW8, and VW10 for up to six channels if the first register is VW0. If registers are unsigned integers, you might get negative values, but the actual reading should be positive since [product_name] uses signed integer arithmetic. Twelve input registers starting at 1549 are grouped in six sets of two registers, possibly representing a 4-byte float format. Each double register is 32 bits—mapped to VW100, VW104, VW108, VW112, VW116, and VW120 for six channels (with the first at VW100). If the result seems off, scale it inside the float/integer converter. Perhaps the example can clarify and simplify your program. Regards, [user_name]"
+    },
+    {
+      "comment_id": 683838437568742,
+      "user_name": "bIucDQ3BKG",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 5,
+      "comment_body": "Hi [user_name], Thanks for your input—I found the same solution. You're right, I was using the wrong input register. Switching to 1537 gives the exact value multiplied by 10, so a simple amplifier divides by 10 to yield the needed result. I've included the corrected program for anyone interested."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are struggling to retrieve accurate float readings from a Moxa IOLogic E1260 via ModBus on [product_name]. Communication works and values are visible in third-party software, but mapping the float values to usable analog data in [product_name] is inconsistent—conversion doesn't yield steady, correct values. Limited documentation and device data handling constraints lead to difficulty obtaining precise analog results for their application.",
+    "user_expectations": "Users expect reliable and precise float value reading from the external module into [product_name], allowing stable monitoring of resistor states without conversion errors or fluctuating outputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate value reading",
+      "stable data retrieval",
+      "reliable ModBus communication",
+      "float value support"
+    ],
+    "pain_keywords": [
+      "data inaccuracy",
+      "conversion inconsistency",
+      "poor documentation",
+      "unstable values"
+    ],
+    "feature_keywords": [
+      "Network Analog Input",
+      "Float/Integer Converter",
+      "ModBus communication",
+      "data format handling",
+      "SNMP trap"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

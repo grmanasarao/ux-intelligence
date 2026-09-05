@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "branch_id": "1287814151",
+    "thread_id": "4479534060",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 166926585262416,
+      "user_name": "eWqpNTaDbx",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I'm facing an issue with configuring an input from [product_name] in a visualization panel ([product_name]) to allow control from the panel itself. I would like to enter values on the panel and have those sent to the analog input of [product_name]. What is the shortname for referencing an analog input from [product_name] in the visualization? I've attached a picture showing my current status: I can view the analog input value, but I can't enter any value in that field. Thank you for your help! Regards, [user_name]"
+    },
+    {
+      "comment_id": 464792456534096,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Hi, It isn't possible to write values to analog or digital inputs, as these are always updated by the hardware in each cycle."
+    },
+    {
+      "comment_id": 239757807243782,
+      "user_name": "eWqpNTaDbx",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "That's correct. I also realized this recently and understood that I need to use flags. My question now is: How do I declare an analog flag in my visualization? What is the address for AF 1 in my variables table in [product_name] engineering software? For reference: M 1104 1117 (14 Bytes), AF 1118 1245 (128 Bytes). I'm using [article_no]. Regards, [user_name]"
+    },
+    {
+      "comment_id": 302201781615186,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Just curious, why are you posting your questions in both the German and English forums? Analog flag 1 corresponds to variable memory address VW1118, and you should use this address in your visualization."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing a system restriction when attempting to send values from a visualization panel to an analog input on [product_name]. Although reading analog input values on the panel is possible, writing values directly to these inputs isn't supported due to hardware behavior. The recommended solution is to utilize flags in the program logic, which can then be accessed or modified via the visualization panel.",
+    "user_expectations": "The user hopes to be able to enter values on the visualization panel that will be transmitted directly to the analog input on [product_name] for direct operational control.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "HMI input"
+    ],
+    "pain_keywords": [
+      "cannot write to analog input",
+      "limited HMI interaction"
+    ],
+    "feature_keywords": [
+      "analog input assignment",
+      "flag memory usage",
+      "HMI visualization"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

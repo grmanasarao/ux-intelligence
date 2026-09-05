@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "7306639233",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 275655370568778,
+      "user_name": "9kpwecjZx5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hello, I am attempting to retrieve registers from my converter into my [product_name]. While it works, I am unsure about the process. If I remove the first line VW0 and upload to [product_name], I am unable to receive any data. Can someone explain why? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 473000577666941,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], welcome to the forum. It is not possible to read double registers using a standard analog network input. Also, your screenshot does not provide sufficient information. Do you have a link to documentation for the modbus device with its register list? Preferably in English."
+    },
+    {
+      "comment_id": 277994724291858,
+      "user_name": "9kpwecjZx5",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hello, I am reading a value labeled as AM2. The number 307 matches what is shown in the modbus register list: 307 = ok."
+    },
+    {
+      "comment_id": 641503969914832,
+      "user_name": "9kpwecjZx5",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "That's unusual."
+    },
+    {
+      "comment_id": 356598776463231,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Could you clarify what you meant with your last two posts?"
+    },
+    {
+      "comment_id": 625067444235428,
+      "user_name": "9kpwecjZx5",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I would like to know precisely what the [product_name] is obtaining in AM2 with the value 307. Is this representing a portion of a register or a complete register? Also, why does removing the AM1 line result in the loss of value in AM2 as well? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 441093870297927,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "As mentioned earlier: The address HR 30201 refers to a double register, comprising two words (HR 30201). [product_name] reads this as an integer value (VWx), which ranges from -32,768 to 32,767. In your scenario, the value 307 is below 32,768, so the value 307 is present only in HR30202."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having trouble understanding how [company_name]'s [product_name] device handles Modbus register mapping when communicating with a converter. The main confusion centers around the interpretation of registers, especially regarding integer values and double register addresses. The user needs clarification on why certain configuration lines are mandatory for proper data reading, resulting in uncertainty about configuration accuracy and data reliability.",
+    "user_expectations": "The user expects clear guidance on how [company_name]'s [product_name] processes Modbus registers, including the effects of register lines and field assignments on data reading. They want to be able to simplify or adjust the register mapping without losing access to critical data and anticipate consistent and dependable acquisition of needed values.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "clarity on register mapping",
+      "successful data acquisition",
+      "simple configuration"
+    ],
+    "pain_keywords": [
+      "register mapping confusion",
+      "dependency uncertainty",
+      "data reading failure"
+    ],
+    "feature_keywords": [
+      "Modbus register mapping",
+      "analog value assignment",
+      "integer conversion"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "24": "Data Integrity Concerns"
+  }
+}

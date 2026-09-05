@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "5047101003",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 835713157655671,
+      "user_name": "BcyzZDMXNH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Hello, I am interested in how to handle Modbus registers that have a length greater than 1 when reading from a remote device. Reading a value with a length of 1 works, but I encounter issues when the length is more than 1. I attempted a Modbus connection data transfer by selecting 2 words, but this approach did not work, nor did reading a single word through that method. However, using the network analog input and selecting 'Read value from remote device' works fine for reading a single word."
+    },
+    {
+      "comment_id": 978772895645679,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "When using an analog network input, you can only read a 16-bit variable (1 register); reading 32-bit values (2 consecutive registers) is not supported."
+    },
+    {
+      "comment_id": 851541642405740,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Please specify exactly what you want to read, and share the register table of the remote device."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is having difficulty reading Modbus registers with a length greater than one word from a remote device. They report success with reading single 16-bit values, but not with longer registers. Others clarify that the current approach only supports reading 16-bit variables via the analog network input, indicating the product does not support multi-register reads in this context.",
+    "user_expectations": "The user expects to read values spanning multiple Modbus registers (beyond 16-bit) from a remote device using the same method as for single-register values.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "multi-register read",
+      "remote device data",
+      "flexible Modbus support"
+    ],
+    "pain_keywords": [
+      "cannot read multi-register",
+      "limited to 16-bit",
+      "Modbus data transfer fails"
+    ],
+    "feature_keywords": [
+      "Modbus connection",
+      "analog network input",
+      "multi-register read"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

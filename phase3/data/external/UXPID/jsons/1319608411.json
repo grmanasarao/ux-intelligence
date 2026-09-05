@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "1319608411",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 797801081525555,
+      "user_name": "mbbKBlwI3H",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "Hello, In the attached diagram, I'm entering the on threshold value from the web server via AM1 and use mathematical functions for the rest. My aim is to keep this value in vrw0 so it's set after a power loss. Everything works except for retentivity—after a power failure, the threshold resets to 0. What am I missing?"
+    },
+    {
+      "comment_id": 624477703703330,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "This approach is overly complex. Instead, write directly to an unused word in the VM memory in the HMI, for example VW100. You can then use a mathematical function and link VW100 to parameter V1 with VM Mapping. This way, VW100 remains intact after a power failure."
+    },
+    {
+      "comment_id": 387551303067018,
+      "user_name": "mbbKBlwI3H",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 5,
+      "comment_body": "Thank you very much [user_name], I'll test this tomorrow morning. I should have mentioned that I'm actually using an embedded web server on [product_name] instead of an HMI with a custom site. [date]Q I just did. You’re truly helpful..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering issues retaining parameter values following power failures while using a custom web server interface and mathematical operations. The core usability problem is a lack of persistent memory, leading to repeated user input after interruptions. Users are unclear on how to properly connect web interface entries to retentive memory, causing confusion.",
+    "user_expectations": "Users want the value entered via the web server to be reliably retained in device memory, even after a power outage, allowing smooth operation without needing them to re-enter data.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent value storage",
+      "seamless recovery",
+      "maintenance-free operation"
+    ],
+    "pain_keywords": [
+      "data loss",
+      "lack of retentivity",
+      "manual re-entry"
+    ],
+    "feature_keywords": [
+      "persistent variable",
+      "web server interface",
+      "memory mapping"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

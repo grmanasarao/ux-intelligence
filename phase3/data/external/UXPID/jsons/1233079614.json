@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "1233079614",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 302231965503950,
+      "user_name": "8VUcpGx60I",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I am using a [product_name] for controlling industrial lighting. For security reasons, I need the lights to turn on automatically if the power supply is interrupted, meaning the output relays should remain closed during a power loss. Is there a [version_no] or model that has outputs (relay or digital) that are normally closed when the power fails? I could not find such a version so far. Is there any model that provides normally closed relay outputs? Thank you for your support. [user_name]"
+    },
+    {
+      "comment_id": 944445922443937,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "No, such a version does not exist for [product_name]. All relay variants only have one contact (normally open). Switching is possible only with relays that include a changeover contact, which provides both NC (normally closed) and NO (normally open) contacts."
+    },
+    {
+      "comment_id": 828327561545451,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "For your scenario, you'll need to create a power circuit using contactors and similar hardware. It’s necessary to design your circuit with the awareness that your [product_name] only has NO outputs. I typically use external relays connected to [product_name] outputs, since external relays are more cost-effective to replace than the controller itself. With external relays, you can choose between NO and NC, depending on your needs. Be cautious! Your power circuit should prevent all lights from turning on simultaneously. Consider this in your design."
+    },
+    {
+      "comment_id": 298967048294654,
+      "user_name": "8VUcpGx60I",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Thanks for the response. I’ll opt for digital outputs and use external relays so I can customize the behavior. By the way, I don’t understand why it's important that all lights do not switch on simultaneously. Isn’t that what happens when the controller loses power?"
+    },
+    {
+      "comment_id": 258243651567731,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "The initial switching current is always higher than the running current. If all lights turn on at once, the power supply might experience excessive current and shut off for safety. The final result depends on the types of switching equipment, lighting, cabling, and other factors. In large facilities, switching is often sequenced using multiple contactors to distribute peak current and avoid overloads. Phase balancing is also taken into account by design. (smile) Ultimately, your design might differ—my advice is simply to be careful."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have determined that the current [product_name] does not support outputs that remain closed (NC) in the event of a power failure, which is a limitation for safety-related lighting applications. All available relay models provide only normally open (NO) contacts, so users are forced to use external relays to achieve NC operation. This adds design complexity and cost, requiring custom external circuits to implement automatic lighting during power loss.",
+    "user_expectations": "Users expect [product_name] to include outputs configurable as normally closed (NC), enabling lights to switch on automatically during a power outage. They are looking for a simpler and integrated solution suitable for critical safety applications.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "fail-safe lighting",
+      "automatic light activation on power loss",
+      "safety"
+    ],
+    "pain_keywords": [
+      "no NC output option",
+      "required external components",
+      "added complexity"
+    ],
+    "feature_keywords": [
+      "relay outputs",
+      "NO/NC configuration"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "13": "Integration Limitations"
+  }
+}

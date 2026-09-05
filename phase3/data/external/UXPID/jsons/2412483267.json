@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "2412483267",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 947748487486202,
+      "user_name": "iZVhzIjA0G",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Is there any way to send an email from my [product_name] controller over LAN? I want an email to be sent when specific variables in my program go high. I found that sending emails is possible using a [product_name] communication module, but, as far as I can tell, this only works over a wireless mobile network. This requires a SIM card and a data contract, which I would prefer to avoid due to poor cell reception at the installation site and additional monthly costs."
+    },
+    {
+      "comment_id": 872024697925213,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "No, sending emails directly with just a [product_name] controller is not possible. The Eaton easyE4 controller can handle up to 3 system emails and 32 user-defined emails. It triggers an email server to send messages, but compatibility is limited to certain email servers."
+    },
+    {
+      "comment_id": 661854485280260,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "I've implemented this using a [product_name] and a Mikrotik Routerboard. The latest RouterOS beta adds modbus support, and with scripting plus scheduling on RouterOS, you can poll modbus registers and act accordingly. RouterOS can send emails and SMS messages natively. The setup involves RouterOS continuously reading modbus holding registers from the [product_name] every second. If a value exceeds a set limit, the [product_name] sets an 'alarm bit.' RouterOS detects this 'alarm bit,' reads the current value via modbus, composes an email, and sends it over LAN/WAN/LTE/3G. To avoid repeated alerts while the alarm condition exists, RouterOS sends an 'ack bit' to the [product_name] or maintains acknowledgment states itself. While RouterOS can calculate threshold exceedances, it's easier to do this within the [product_name]. Boolean operations like setting or resetting bits are more challenging in RouterOS scripts but achievable with persistence using bit-shifting and masking."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users want to send email notifications directly from a [product_name] controller over LAN in response to program conditions. The main issue is the lack of built-in LAN email functionality in [product_name] controllers—current solutions require extra modules relying on mobile networks, adding cost and complexity. Users have developed creative workarounds using third-party devices and scripting, but these involve additional effort and technical barriers.",
+    "user_expectations": "Users expect straightforward support for LAN-based email notifications from [product_name] controllers without needing mobile networks, SIM cards, or complicated external hardware or setups.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated LAN email alerts",
+      "avoid extra costs",
+      "cellular network independence"
+    ],
+    "pain_keywords": [
+      "missing native LAN email support",
+      "need for extra components",
+      "complex setup"
+    ],
+    "feature_keywords": [
+      "LAN-based email notifications",
+      "Modbus integration",
+      "alarm condition monitoring"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "22": "Usability Improvement Suggestions"
+  }
+}

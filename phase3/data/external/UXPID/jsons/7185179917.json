@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "branch_id": "7185179917",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 936148117297081,
+      "user_name": "VpD1vX6pKW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I am currently using a [article_no] [product_name]. The attached program is in jpg format, and I can provide the lsc file if needed. The issue is that while all outputs function correctly during debugging (set for a standard [article_no]), Q2 and Q3 outputs do not operate when the program is downloaded to the [product_name]. Initially, I thought the issue might relate to missing 'stairwell' timer functions, but my research suggests [article_no] units should support this feature. Could anyone offer advice on what might be causing this? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 833386652149925,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello, With the settings shown in your screenshot, the program does not run successfully in simulation on my end. Are you sure you want the Off delay set to 00:05 and 00:01 minutes for B002 and B006? Could you clarify the intended purpose of your program and what goal you are trying to achieve? Kind regards,"
+    },
+    {
+      "comment_id": 328159562352273,
+      "user_name": "zIfY4PPeIb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Imported technical reply from [user_name]."
+    },
+    {
+      "comment_id": 418868478406973,
+      "user_name": "VpD1vX6pKW",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Thank you for the feedback. I have attached the compressed program file. This solution addresses a control system with limited I/O. Input I1 manages the mixer motor via Q1; another motor drives a carriage to a limit switch at I2. Q2 and Q3 provide three speed signals for the controller running Q1. A separate control system activates the mixer motor at I1, and after a short delay, the carriage reaches the upper limit—this triggers I2 and stops the drive motor. After this, another system starts a 15-second delay, then moves the carriage away from the top limit for a set distance. Three seconds later, B001 completes, triggering B002 and B006; Q2 and Q3 change state, switching Q1 to the second speed. After five seconds, B002 times out and turns off Q2, setting the third Q1 speed. During the next five seconds, while B006 runs, another controller deactivates I1 and Q1 gradually stops. B001 locks I2, and B003/B004 logic gates allow I1 to override Q2 and Q3. While perhaps not the most efficient programming, it works well within [product_name] software simulation. My main question is why doesn't the same logic work on the actual [product_name] hardware? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 464331517176101,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello, Outputs function correctly here (using [article_no] [product_name]) after modifying the off-delay settings in the stairway timers (B002 and B006) to 5 and 10 seconds. Originally, these were set to 0.05 minutes and 0:10 minutes. I'm not sure why it works in your simulation, but on my system it doesn't work with 0 minutes in simulation or on real hardware. Best regards,"
+    },
+    {
+      "comment_id": 106961177058468,
+      "user_name": "VpD1vX6pKW",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Thank you very much. That appears to have been the issue—possibly a bug in [product_name]. For some reason, a staircase timer set in mins/secs mode using only seconds (like 0:5) works in the debugger but not on the device. Switching to secs/msecs mode (like 5:0) as you suggested resolved the problem and the program operates correctly. Issue resolved. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 415193368379674,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello, Thank you for your response. This suggests the bug may be specific to your software version. I'm curious which [product_name] version you are using. Best regards,"
+    },
+    {
+      "comment_id": 450645897211760,
+      "user_name": "VpD1vX6pKW",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "I'm not sure a bug isolated to my version is likely, do you agree? 'About' shows: [version_no] ([date])"
+    },
+    {
+      "comment_id": 318545304711263,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Hello, I tested with [version_no] and in my case, the simulated behavior matches the hardware operation. For updates, you can visit [url]. Best regards,"
+    },
+    {
+      "comment_id": 378601988125366,
+      "user_name": "VpD1vX6pKW",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 1,
+      "comment_body": "Interesting update. As mentioned, based on your suggestion, I changed the B002 and B006 stairway timers to secs/msecs mode, and the device then performed correctly. I attributed the problem to a [product_name] software bug and made a note of it for future reference. After following your suggestion, I downloaded and installed the latest update. With [version_no] running, I reloaded the program and reset the stairway timers to mins:secs with values 0:5 and 0:10 as originally configured. I expected the simulation to prevent these timers from functioning like the hardware, yet both environments worked flawlessly. It seems there may still be a slight difference between my installation and yours. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants identified a critical issue with timer functions behaving differently in simulation software and actual hardware for [product_name]. Timers set using mins/secs mode with zero minutes worked in simulation but failed on hardware, suggesting a lack of cross-platform consistency. Adjusting the timer settings or updating the software helped resolve the issue, though some minor inconsistencies persisted across different software versions and setups.",
+    "user_expectations": "Users expect reliable, consistent behavior between the simulation software and hardware—especially in timer operations using mins/secs or secs/msecs modes. Users seek uniformity and clarity in the operation of both their programming tools and devices.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "consistent hardware/software behavior",
+      "reliable timer operation",
+      "accurate simulation"
+    ],
+    "pain_keywords": [
+      "timer inconsistency",
+      "software/hardware mismatch",
+      "bug",
+      "unexpected timer behavior"
+    ],
+    "feature_keywords": [
+      "stairwell timer",
+      "mins/secs mode",
+      "secs/msecs mode",
+      "output control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

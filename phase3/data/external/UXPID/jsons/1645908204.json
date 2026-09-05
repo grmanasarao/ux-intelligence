@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "1645908204",
+    "thread_id": "3055273936",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 121896078481966,
+      "user_name": "45WWsACupQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Hello, According to the manual, each transistor output of the [product_name] provides 24V and a ground connection. It can supply 0.3A to the load, but there is no information mentioned about its ability to sink current. My current setup uses pushbuttons and indicator LEDs with a common anode connected to 24V. To switch the LEDs on, I pull each separate cathode to 0V. I am wondering if I can connect the cathode of an LED directly to the Q1 transistor output of the [product_name]? When Q1 is active, it has 24V and the LED stays off. When Q1 is inactive, it reads 0V, so the LED should light up and Q1 would need to sink around 0.01A of current."
+    },
+    {
+      "comment_id": 194626715755250,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "If the Qx output is inactive, it does not present 0V as the supply's ground. The transistor is simply blocked, meaning this configuration will not work as intended."
+    },
+    {
+      "comment_id": 869311236008386,
+      "user_name": "45WWsACupQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "Thank you for the clarification. So, is it correct to say that the outputs are open-emitter and not internally pulled to ground? I could use a resistor between Q and ground as a pull-down, but that would require balancing LED brightness and power usage. It's unfortunate I'll have to add extra transistors to achieve proper control."
+    },
+    {
+      "comment_id": 473404625242242,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 10,
+      "comment_body": "From what I know, they are no longer strictly transistor outputs but utilize special integrated circuits. The outputs are short-circuit-protected and deliver a maximum 0.3A per channel. In any case, +24VDC from the supply is routed through to the terminal Qx connections."
+    },
+    {
+      "comment_id": 615360449009284,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "No, that configuration is not possible. Look up the Infineon ITS4140N and check its block diagram—this IC is used with the [product_name] transistor outputs."
+    },
+    {
+      "comment_id": 340881412498627,
+      "user_name": "45WWsACupQ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Good to know! I reviewed the datasheet for the ITS4140N, and it is essentially a FET with a protected open drain output. Thus, a carefully selected resistor could work, but I may opt for a more refined solution anyway. Thanks for the help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user was seeking clarification on whether the transistor outputs of the [product_name] module could sink current, as the documentation only specifies current sourcing capabilities. Community members explained the technical details and confirmed that direct sinking is unsupported due to output characteristics, while discussing the underlying hardware design. The conversation helped the user understand limitations and consider revising their design approach.",
+    "user_expectations": "The user anticipated that the [product_name] transistor outputs could sink current to allow LEDs to light when outputs are inactive. The user wanted a simple wiring method for LED control without needing additional hardware.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "simple LED activation",
+      "direct current sinking",
+      "minimal wiring"
+    ],
+    "pain_keywords": [
+      "cannot sink current",
+      "requires extra components",
+      "incomplete manual information"
+    ],
+    "feature_keywords": [
+      "transistor output",
+      "current sinking capability",
+      "short-circuit protection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "2": "Product Compatibility"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "7846389041",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 849756976106009,
+      "user_name": "DBxlJMkIBy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I'm facing a minor issue and can't seem to find the simple answer, although I feel it's right in front of me. I'm writing values to KC and TI parameters of a PI block via VM using an HMI input field. When I want to write a value of 1.00 to the PI block, I have to enter 100 into the HMI input field. Am I missing something obvious?"
+    },
+    {
+      "comment_id": 332240105330164,
+      "user_name": "88H5YsQICi",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "You should check and adjust the format pattern and decimal places settings in the HMI input field."
+    },
+    {
+      "comment_id": 978254774765977,
+      "user_name": "DBxlJMkIBy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I just realized after posting—you need to set the decimal point option in the HMI input field settings. Turns out it was a straightforward fix."
+    },
+    {
+      "comment_id": 548069208168261,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "[product_name] only processes integer values, meaning values without decimals. While you can enter parameters with decimal places in [product_name] programming tool, these decimals are artificial. When you set a block parameter in the tool, it shows two decimals, but that's not the actual value. So, inputting 100 represents 1.00 in the parameterization display. You didn’t mention which HMI panel you’re using, but for a [company_name] HMI, you need to configure two decimal places and use a display format like s99.99."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers around confusion when inputting numerical values in HMI panels for PI block parameters. The root cause was identified as incorrect decimal formatting in the HMI input settings. Contributors clarified how integer inputs and 'artificial' decimal places in [product_name] and its programming tool can complicate accurate value entry, leading to misunderstandings for users expecting direct input-to-parameter translation.",
+    "user_expectations": "The user wanted to enter a value with decimals (such as 1.00) in the HMI and have it directly reflect on the PI block parameter, without needing special formatting or manual adjustments.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate parameter entry",
+      "intuitive HMI configuration",
+      "ease of use"
+    ],
+    "pain_keywords": [
+      "decimal handling confusion",
+      "parameter input mismatch"
+    ],
+    "feature_keywords": [
+      "PI block",
+      "decimal places",
+      "input field formatting"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

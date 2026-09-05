@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "8864247524",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 738143656395124,
+      "user_name": "sFn4R9dwVQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Hello, how can I set up an area in variable memory to access a 4-byte (DWORD) value for reading and writing via modbus or S7? I only see options for bits, bytes, and words, but not for DWORDs. Any ideas? Thanks."
+    },
+    {
+      "comment_id": 833359898628852,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "You just need to address four bytes consecutively. The variable memory is byte-based. A DWORD begins at a chosen byte address and spans four bytes. For instance, a DWORD could use bytes 0 through 3. Note, however, that [product_name] doesn't handle double integers. For 32-bit floating-point numbers, you can use a float/integer converter."
+    },
+    {
+      "comment_id": 355799321362125,
+      "user_name": "sFn4R9dwVQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "So there's no option to configure a read/write DWORD type in the variable memory settings?"
+    },
+    {
+      "comment_id": 880457129763203,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Did you not understand my previous explanation? Is there something unclear?"
+    },
+    {
+      "comment_id": 962338549439675,
+      "user_name": "sFn4R9dwVQ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "What can I do to achieve a read/write DWORD here? I've managed to work with bits, bytes, and words. I know I could arrange 32 bits, four bytes, or two words, but I'm asking if there's a way to expose a DWORD directly. If I write a DWORD, I want [product_name] to save that value even after a restart, but when I store a word and try to include a DWORD, I lose the two least significant bytes upon power cycling."
+    },
+    {
+      "comment_id": 514465242443209,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Attached is a basic example illustrating how to transfer a DWORD (32-bit float) to variable memory. For example, if you want to read a 32-bit value from a modbus device, that value will reside in two consecutive 16-bit holding registers. You'll need to read both registers to reconstruct the DWORD."
+    },
+    {
+      "comment_id": 636529042080819,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "In the parameter-to-variable-memory mapping, you can only connect variables to block parameters. If a block parameter is defined as a bit, byte, or word, you cannot assign a DWORD."
+    },
+    {
+      "comment_id": 210969710702173,
+      "user_name": "sFn4R9dwVQ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "So, if I understand correctly, there isn't a block that uses 32 bits, meaning it's not possible to map a 32-bit memory block. Is this right?"
+    },
+    {
+      "comment_id": 672466460313729,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "Standard analog input channels only support integer values ranging from -32,768 to 32,767. You mention using DWORDs, but it's not clear what data type or format your DWORD has."
+    },
+    {
+      "comment_id": 871980061796410,
+      "user_name": "8RYb477Ela",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 3,
+      "comment_body": "You could use an up/down counter block for DWORD mapping. However, keep in mind counters only handle values between 0 and 999999, and negative values aren't accepted. Regards, [user_name]"
+    },
+    {
+      "comment_id": 712569053025871,
+      "user_name": "Lq60ebem5P",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "This might help users looking to convert a DWORD to a WORD with scaling to prevent overflow. The attached diagram explains how to scale a 32-bit signed value to a 16-bit signed value. You can adjust the scale for larger numbers, but this reduces precision."
+    },
+    {
+      "comment_id": 892316881728150,
+      "user_name": "cZQANX744b",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Hi, you need to map a function block that supports the DW format. Open the [product_name] programming help and look up VM settings. Within parameter VM-mapping you'll see which functions and parameters use which data formats. Only a few blocks, like up/down counters or clocks, support DW parameters. You can only use those function blocks with the appropriate parameters when mapping DW to variable memory. Please note that [product_name] only supports signed integers, so handling DW values is quite limited. If you're just passing a DW from, say, an energy meter to the cloud, then simply transfer the value to variable memory and forward it; [product_name] won't alter the data. Hope that helps."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are trying to configure a 4-byte (DWORD) area in [product_name] for external read/write using protocols such as Modbus or S7. The product supports bits, bytes, or words in variable memory mapping but lacks straightforward DWORD support for external access. While consecutive bytes can technically be accessed, there’s no dedicated mapping for a DWORD. This limitation also affects persistence, as not all DWORD data is retained when the device is restarted, leading to dissatisfaction about memory handling and mapping flexibility.",
+    "user_expectations": "Users expect the ability to directly set up a DWORD variable for external access, with all 32 bits reliably and persistently stored and available after device power cycles.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "external DWORD mapping",
+      "data persistence",
+      "full 32-bit access"
+    ],
+    "pain_keywords": [
+      "no direct DWORD support",
+      "loss of data after power cycle",
+      "limited variable mapping options"
+    ],
+    "feature_keywords": [
+      "DWORD variable mapping",
+      "variable memory persistence",
+      "VM block parameter types"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "30": "Data Persistence Confusion"
+  }
+}

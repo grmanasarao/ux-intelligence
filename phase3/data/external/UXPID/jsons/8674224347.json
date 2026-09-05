@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "8674224347",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 988307557007488,
+      "user_name": "ew23WKtXD5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 8,
+      "comment_body": "Hello, I have a question regarding analog inputs. As known, input I7 in [product_name] [article_no] can be used as an analog input (0-10V). What happens if more than 10V is supplied to that input? For example, if 24V is connected to I7, does [product_name] treat it as if 10V was supplied, or does it behave differently, mapping 0-24V to the internal value range 0-1000? I want to confirm that anything above 10V is interpreted as 10V, with the internal value capped at 0-1000. Also, can I use I7 and AI1 simultaneously in one program? How does [product_name] handle this scenario?"
+    },
+    {
+      "comment_id": 106979755697935,
+      "user_name": "YAA2TKY8oF",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 8,
+      "comment_body": "When using I7 as an analog input (0-10V), the maximum value is 10V, equating to an internal value of 1000. If you connect 24V DC, it's necessary to use resistors so that only 10V reaches the input, with any excess voltage dropped across the resistor. Voltages up to 12V DC are generally not problematic (12VDC would still correspond to a 1000 internal value)."
+    },
+    {
+      "comment_id": 797557543192429,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 8,
+      "comment_body": "Input terminals can function as either analog or digital, depending on your programming. If AI1 (I7) is set in the analog comparator and 24V DC is connected, the value becomes 1000. Both can be used at the same time—see attached example program. If the analog value passes the digital '1' threshold, the digital path activates; below 10V, the analog path works as expected up to 1000. The voltage level for digital '1' activation varies, but the manual provides a reference value. For [product_name] [version_no] units, digital '1' is typically recognized around ~6V DC. Please refer to the documentation for precise details."
+    },
+    {
+      "comment_id": 426829098512908,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 8,
+      "comment_body": "Greetings [user_name], [user_name], and [user_name]! The explanations above are correct. It’s possible to use both analog and digital inputs simultaneously in a program, but it's important to be cautious about their interaction. On a [product_name] [version_no], digital inputs are defined as: signal '0' for voltages below 5V, and signal '1' for voltages above 12V (since it's designed for 24V DC digital inputs). Therefore, an analog signal between 0-24V DC will be mapped internally between 0-1000 while the input remains within the 0-10V (possibly up to 12VDC) range. Around 12V DC, the digital input I7 switches to 'high', but this threshold is not exact—you may need to experiment. Note that analog-capable inputs (I1, I2, I7, and I8) have lower current sensitivity and higher impedance (72 kOhm) compared to other digital inputs. On [product_name] [version_no], digital '1' is recognized above 8.5V DC due to expected digital input ranges of 12-24V DC. The analog signal will be processed within 0-10V, corresponding to 0-1000 internally, and remains fixed at 1000 for signals above 10V DC. The digital input switches at about 12V DC on one model or 8.5V DC on another. This dual-use acts as an analog threshold trigger, with threshold values set at 999 or 849 based on your selected sensor type; see the documentation for details. If you connect an analog signal around 5.7V DC (internal value 571) and then change the input to 12V DC or 24V DC using a switch, the digital input will activate, and the analog value will jump to 1000, which may affect your program logic. Use caution!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking clarification on how [product_name] handles analog and digital signals, particularly when voltages supplied to analog inputs exceed the specified range. There is some confusion about the switching thresholds for digital versus analog signal processing and the risks when using higher voltages. The discussion highlights the importance of understanding how simultaneous analog/digital input usage can affect program behavior, especially with overvoltage conditions and threshold switching.",
+    "user_expectations": "Users expect inputs above the 10V analog range to be internally limited to the maximum value and not cause damage or unexpected behavior. They also anticipate the seamless use of the same input for both analog and digital functions, with clear and predictable operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe over-voltage handling",
+      "predictable input mapping",
+      "flexible input configuration"
+    ],
+    "pain_keywords": [
+      "analog/digital threshold ambiguity",
+      "risks with over-voltage",
+      "unclear simultaneous usage behavior"
+    ],
+    "feature_keywords": [
+      "analog input range",
+      "internal value scaling",
+      "digital/analog dual use",
+      "input thresholds"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "30": "Data Persistence Confusion"
+  }
+}

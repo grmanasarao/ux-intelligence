@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "1618405605",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 293368264343490,
+      "user_name": "V0VUuaj5D7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I'm working with a capacitive soil sensor (1.5V for 0% humidity, 0.8V for 100% humidity) and connecting it to my [company_name] [product_name]. I'm trying to configure the gain and offset of the analog amplifier so the readings match a 0-100% scale. I've tested several setups, but the results always show the minimum value. Could the voltage range below 1V be too narrow for the [product_name] analog module? Any advice would be greatly appreciated!"
+    },
+    {
+      "comment_id": 331705657227128,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Try this approach..."
+    },
+    {
+      "comment_id": 592968321011861,
+      "user_name": "V0VUuaj5D7",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "That's excellent! It worked perfectly. How did you determine the exact mathematical formula? I'd like to understand the logic in case I need to adapt it for other sensors with different voltage ranges. Thanks so much for the quick response, I hope to learn more from you!"
+    },
+    {
+      "comment_id": 376397668739540,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "The formula uses a linear equation. V1 is the sensor input value. V2 and V3 act as the gain factor, which is -1.4286. Because the [product_name] module doesn't support floating point numbers, you need to use a workaround: divide -14286 by 10000. Then, add the offset of 214 to the result."
+    },
+    {
+      "comment_id": 449082838156343,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Here’s a more in-depth explanation of the linear equation formula. In the program, the process is divided into separate logical blocks."
+    },
+    {
+      "comment_id": 388642049928936,
+      "user_name": "V0VUuaj5D7",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thank you for the helpful explanations! This has made a big difference for me."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users explored how to convert a capacitive soil sensor's voltage output into a 0-100% percentage scale using an analog amplifier connected to a [company_name] [product_name]. The primary challenge was that the sensor's low-voltage output was difficult for the module to process accurately. By applying a community-shared mathematical formula to set the gain and offset using a linear equation, the issue was resolved and reliable moisture readings were achieved.",
+    "user_expectations": "The user wants the [product_name] analog module to accurately transform low-voltage sensor signals into a clear 0-100% moisture reading. They also expect straightforward guidelines for adjusting the formula for other sensors with different voltage detection ranges.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sensor readings",
+      "flexible scaling",
+      "simple calibration"
+    ],
+    "pain_keywords": [
+      "scaling difficulty",
+      "low voltage input",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "gain/offset settings",
+      "linear conversion",
+      "integer math workaround"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

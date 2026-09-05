@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "branch_id": "5602675870",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 490627170649082,
+      "user_name": "FUzd8LtZ3q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "I'm working on a project and would like to use the real time clock from [product_name] to obtain a value, such as calculating the current time in minutes. However, I can't find any function that utilizes the actual time, other than the weekly timer, which is only usable for ON/OFF operations. Using a counter triggered by the weekly timer is possible, but after a power outage, the value is lost. Does anyone have suggestions?"
+    },
+    {
+      "comment_id": 211490908092451,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 11,
+      "comment_body": "There is no way within [product_name] to access the actual real time directly. The actual time is stored in a specific VM area (VB988-990), but users do not have access to this segment in the [product_name] program. In the program, access is only allowed up to the address V850.7."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users highlight a restriction in [product_name] regarding access to the internal real time clock for technical functions such as time calculations. Programmatic access to the actual time value is not available within the standard accessible memory range, and time-based logic is limited to straightforward weekly timers. Values stored in counters do not persist after power interruptions.",
+    "user_expectations": "Users want the ability to access and use the real time value from the real time clock within [product_name], perform calculations with it, and ensure persistence of counter values even after power failures.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real time value access",
+      "time-based calculations",
+      "power failure resilience"
+    ],
+    "pain_keywords": [
+      "clock access limitation",
+      "no data persistence",
+      "restricted memory access"
+    ],
+    "feature_keywords": [
+      "real time clock",
+      "weekly timer",
+      "user program memory",
+      "value persistence"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests",
+    "24": "Data Integrity Concerns"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "branch_id": "1279925964",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 578882368859253,
+      "user_name": "3ELJwwk15q",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "I have several [product_name] PLCs connected in a network, all running the same FBD project. I want to use [product_name] engineering software on Windows 10 to bring up the network and set a digital input high so that all selected PLCs respond. Is this doable with [product_name] software, or is there an alternative method with a third-party application or expansion module? Thanks,"
+    },
+    {
+      "comment_id": 195347053977671,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Can you clarify what you're trying to achieve? Are you looking to add a 'High' state to each program file?"
+    },
+    {
+      "comment_id": 846246975214324,
+      "user_name": "3ELJwwk15q",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Yes. For example, in the program, input I1 (which is a normally open momentary switch in hardware), I'd like to set I1 HIGH for all PLCs on the network. Is it feasible, and if so, how? I do not want to modify the programs directly or perform a batch download with I1 set to HIGH. My goal is to send a signal to all PLCs to set I1 HIGH while the programs are running, and later reset them all to LOW."
+    },
+    {
+      "comment_id": 212666232268528,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "No. You can't set a physical digital input high using the [product_name] software's online test. However, you could add a digital network input in parallel to the digital input within your program. This allows you to control the input via the web server, provided your [product_name] unit supports a web server."
+    },
+    {
+      "comment_id": 355187923656727,
+      "user_name": "3ELJwwk15q",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "Thanks. I've enabled the web server, but I'm unable to change the I1 variable because the ModValue field is disabled, as shown in the attached screenshot. Is there an additional step required to enable the ModValue fields?"
+    },
+    {
+      "comment_id": 521358348911471,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "It seems my previous explanation was unclear. You can't set physical digital inputs via the web server, only digital network inputs. You can use the web server to set and reset a digital network input such as V0.0."
+    },
+    {
+      "comment_id": 728641278054741,
+      "user_name": "3ELJwwk15q",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "I think I understand now. I'll update my FBD diagram with a parallel network input as you've described and test the setup. Thank you."
+    },
+    {
+      "comment_id": 513383661596050,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "It appears you still haven't grasped what I explained earlier. My screenshot wasn't included without reason. In the screenshot, you see the physical input I1 and, in parallel, the digital network input NI1 using address V0.0."
+    },
+    {
+      "comment_id": 751306989890808,
+      "user_name": "3ELJwwk15q",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "I see this forum tends to have people who respond quite brusquely, professing technical expertise. Please stop replying to my threads. I'd rather have no responses than interact with individuals like this. Sheesh."
+    },
+    {
+      "comment_id": 655228453278639,
+      "user_name": "Gg0uuJOmNn",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "AutoGen_9382931, you're actually the one being rude here. Goodbye."
+    },
+    {
+      "comment_id": 305543645341207,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 2,
+      "comment_body": "AutoGen_9382931, Factually, physical inputs cannot be set programmatically; they can only be monitored (see documentation). If you choose not to accept this and disregard suggestions, that isn't due to the manner of those offering guidance, but rather your own approach. Goodbye."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The original poster seeks to remotely set a digital input to high on all PLCs in their network using [product_name] engineering software, without changing the program or redownloading configurations. The thread clarifies that only network digital inputs can be set remotely, not physical inputs, through the web server. Achieving the desired functionality requires updating the program to include network inputs which can be controlled at runtime—something the user had not initially realized.",
+    "user_expectations": "The user expects to use [product_name] engineering software or the web server to remotely change the state of a physical input on multiple PLCs during runtime, without altering the actual program code or redeploying it.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "input simulation",
+      "multi-device synchronization"
+    ],
+    "pain_keywords": [
+      "cannot remotely set input",
+      "modvalue field disabled",
+      "unclear feature limitations",
+      "requires program change"
+    ],
+    "feature_keywords": [
+      "remote input setting",
+      "digital network input",
+      "web server",
+      "parallel FBD input",
+      "online test"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {
+      "Windows": [
+        "Win10"
+      ]
+    }
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

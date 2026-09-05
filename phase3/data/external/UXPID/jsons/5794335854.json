@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "5794335854",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 658959979743386,
+      "user_name": "U2HBngt9Xq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Hello, I'm looking to select the correct [product_name] PLC with suitable outputs for managing heating devices, such as 3-point mixing valves. From what I can tell, choosing a version with relay outputs may not be ideal since controlling a 3-point mixing valve involves many on-off cycles, which could cause the relays to fail relatively quickly (unless this period is actually longer). Should I opt for the transistor output version and connect coupling relays for better durability? Also, can I safely detect 220VAC inputs using the right protection for the PLC? Is it possible to use coupling relays with 220VAC coils, connect 24VDC to the output terminals, and feed that to the PLC input? --- Split from discussion on Transistor outputs vs. Relay outputs."
+    },
+    {
+      "comment_id": 151941368650970,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "It's generally not advisable to connect a mixing valve directly to a [product_name] with relay outputs. The relay contacts in the PLC aren't designed for this type of usage. Swapping out a downstream relay is much easier and safer than replacing the whole PLC. Whether you use a downstream relay with a PLC with transistor outputs or with relay outputs doesn't make a significant difference in practice."
+    },
+    {
+      "comment_id": 219973226044083,
+      "user_name": "U2HBngt9Xq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Thank you [user_name] for your response. I realize that using proportional valves controlled by analog outputs would be a better solution, but some setups already have 3-point mixing valves. I don't have much experience with relay selection, so I searched online and found these example relays: [url] and [url] Are these relays appropriate for connecting to [product_name]?"
+    },
+    {
+      "comment_id": 214249151170385,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "I believe the first relay type is suitable. It uses a 24VDC coil, so it can be connected to either the transistor output version or the relay output version of [product_name]. It also has a built-in flyback diode, which protects both transistor and relay outputs. This type comes recommended."
+    },
+    {
+      "comment_id": 487196904249780,
+      "user_name": "U2HBngt9Xq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "The second relay has a 220VAC coil. I have some 220VAC signals or sensors, and I need to provide input to the PLC. My idea is to connect the relay coil to 220VAC, then wire one of the relay contacts to +24VDC power and the other contact to a PLC input. Is this wiring approach correct? Or could voltage spikes from the 220VAC supply damage the PLC inputs?"
+    },
+    {
+      "comment_id": 520661681789066,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 2,
+      "comment_body": "Your method of bringing 220VAC signals through coupling relays to the PLC is correct. However, the 24VDC PLC inputs cannot tolerate 220VAC directly; applying high voltage may destroy them."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants want to clarify which PLC output type is best for heating system control, since frequent cycling may damage relay outputs in 3-point mixing valve applications. There's also concern about how to safely wire high-voltage AC signals to PLC inputs, particularly regarding voltage tolerance and the use of coupling relays for protection.",
+    "user_expectations": "The user expects advice on choosing a PLC output option that withstands frequent cycles, as well as guidance for safe wiring of high-voltage signals, using external relays for reliable and secure integration with both 24VDC actuators and 220VAC inputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable output switching",
+      "safe signal interfacing",
+      "compatibility with heating valves"
+    ],
+    "pain_keywords": [
+      "relay durability",
+      "risk of input damage",
+      "difficulty choosing proper relays"
+    ],
+    "feature_keywords": [
+      "relay outputs",
+      "transistor outputs",
+      "input voltage protection"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "4": "Hardware Reliability",
+    "17": "Circuit Protection Guidance"
+  }
+}

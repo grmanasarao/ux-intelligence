@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "7673807624",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 142943950747312,
+      "user_name": "iZcneMx1th",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Hello, I am experiencing the same issue. I have one [product_name] master 24V RCe [article_no], and one [product_name] slave 12/24 RCeO [article_no]. On the master, none of the analog inputs are functioning, even after adjusting the settings to use four analog inputs. On the slave, I can use analog inputs AI1 and AI2, but AI3 and AI4 are not working. How can I modify the settings on the slave? [user_name]"
+    },
+    {
+      "comment_id": 133850240480269,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Changing analog input settings on the master does not affect the slave; only the number of enabled analog inputs on the slave matters. Use an empty circuit diagram in diagram mode and enter the appropriate IP address, subnet mask, and gateway if needed. Enable four analog inputs in the I/O settings, then transfer the empty diagram to the slave [product_name] module. The software will notify you about differing I/O settings and prompt for confirmation. You will also need to temporarily switch the slave module to master mode to apply changes and then revert it back to slave mode before starting it. For further help, refer to the attached video."
+    },
+    {
+      "comment_id": 555990631158162,
+      "user_name": "iZcneMx1th",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "I have already attempted this approach, but the [product_name] did not apply the new settings. I tried loading the program a second time to verify, but I still did not receive a message indicating differences in analog input settings."
+    },
+    {
+      "comment_id": 900191690639995,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "The process shown in the video works as described. I performed the steps again this morning and can confirm that it is effective."
+    },
+    {
+      "comment_id": 497572391294911,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Another question: Why are you using a master/slave setup? If you use master/master mode, both [product_name] modules can run independent programs, providing more flexibility."
+    },
+    {
+      "comment_id": 126350896013663,
+      "user_name": "iZcneMx1th",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Hi, thank you for your response. It still does not work, but I found a workaround by adding another slave to the master. I needed more outputs in addition to analog inputs. The reason I do not use master/master mode is that master/slave seemed simpler, so I do not have to remember which part is associated with which device. Maybe I am mistaken, but I will explore master/master when I have more time. Thanks."
+    },
+    {
+      "comment_id": 462428924144753,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 4,
+      "comment_body": "Master/slave mode is easier since only one program runs on the slave, which can make setup more convenient."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter challenges enabling all analog inputs on [product_name] modules configured in master/slave mode, especially when trying to access AI3 and AI4 on the slave. There is confusion due to the difference between software configuration and actual hardware response, making the workflow feel unintuitive. Users are uncertain whether their configuration changes have been applied properly, which leads to frustration.",
+    "user_expectations": "Users expect a simple and reliable method for enabling all analog inputs on the slave device, with clear confirmation from the software when settings have been applied. They want the configuration process to be straightforward and transparent.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "increased I/O capacity",
+      "simple configuration",
+      "effective analog input access"
+    ],
+    "pain_keywords": [
+      "analog input not working",
+      "configuration inconsistency",
+      "unclear application of settings"
+    ],
+    "feature_keywords": [
+      "analog input enablement",
+      "slave I/O configuration",
+      "program upload",
+      "master/slave operation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

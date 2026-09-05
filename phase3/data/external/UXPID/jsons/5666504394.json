@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "branch_id": "5666504394",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 121330951272140,
+      "user_name": "9k3P70RbSH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "I'm working with a [product_name] module that has 24V digital inputs. This setup has worked for me before, but now I need to connect a sensor that outputs 24VAC when activated. I tried routing the AC signal directly to the digital input and hoped that filtering with a short off-delay would stabilize random spikes, but it hasn't provided the results I expected. Do you have alternative recommendations? I considered using a diode to send the negative part of the AC signal to ground so that the input receives only the positive voltage portion, but the signal would still fluctuate at 60Hz. Should I use a rectifier?"
+    },
+    {
+      "comment_id": 776429289021961,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "I suggest using a coupling relay with a 24VAC coil so that the AC voltage remains isolated from the [product_name] device."
+    },
+    {
+      "comment_id": 161074396840328,
+      "user_name": "9k3P70RbSH",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "That's an option, but I'm concerned the 24VAC might not supply enough current to operate a relay since the control current is likely only a few milliamps."
+    },
+    {
+      "comment_id": 849761256886649,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Have you tried using a diode along with a capacitor?"
+    },
+    {
+      "comment_id": 596727102697756,
+      "user_name": "9k3P70RbSH",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "That's the direction I was considering. Would the following setup work: AC24V -> Diode -> Capacitor -> Ground, with the digital input connected between the diode and capacitor? Based on the technical details, inputs 3-6 seem to require at least 1.5mA to activate, while inputs 1-2 or 7-8 need less, as they can trigger at 0.1mA. For currents of a few milliamps, a 10uF capacitor (with a voltage drop of roughly 2.5V during a half cycle at 60Hz and supplying 3mA) and a standard 1A diode with a minimum 75V reverse voltage rating should suffice. Is my reasoning correct?"
+    },
+    {
+      "comment_id": 335215735678811,
+      "user_name": "9k3P70RbSH",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "What is the highest voltage that a digital input on the [product_name] module can tolerate? With a larger capacitor and a strong 24VAC source, I might end up applying around 33V to the input."
+    },
+    {
+      "comment_id": 285635290979839,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "The continuous maximum permissible voltage for digital inputs is 28.8 VDC."
+    },
+    {
+      "comment_id": 880674308909555,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "It's essential to connect the - (minus) 24VDC to the neutral (N) of the 24VAC source; otherwise, it won't function. Have you tried connecting it in reverse? Some [product_name] modules can operate directly on 24VAC, with digital inputs working on 24VDC. Give it a try."
+    },
+    {
+      "comment_id": 853503886000025,
+      "user_name": "9k3P70RbSH",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Yes, I think I can arrange for the contractor to wire the 24VAC neutral back to the [product_name] unit. I'm a bit concerned about the 28.8V input limit; thanks for clarifying that value. Does anyone have details about the precise current drawn by the digital input near 24V? If someone knows what transistor is used behind the input, I could look up its current-voltage characteristics. Thanks!"
+    },
+    {
+      "comment_id": 967068672412294,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Which [product_name] module version are you using? [article_no] or another? The input current can vary slightly depending on the specific series: for a '0' input, about 1.0 to 1.2mA, and for a '1' input, about 2.5 to 2.6mA."
+    },
+    {
+      "comment_id": 902417327990490,
+      "user_name": "9k3P70RbSH",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Thanks for confirming. I'm using a [article_no] module, which should be close enough for comparison. I hadn't considered how much current the [product_name] would source while off. This means I'll need to add a shunt resistor across the capacitor. I'm starting to favor your relay suggestion."
+    },
+    {
+      "comment_id": 129900272944792,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Alternatively, have you considered using an optocoupler?"
+    },
+    {
+      "comment_id": 710159845875779,
+      "user_name": "9k3P70RbSH",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "To clarify, is it possible to avoid extra components and just connect the 24VAC directly to the digital input, then handle filtering in software, for example, using an off-delay? Can the [product_name] module safely tolerate 24VAC input, or is there a risk of damaging it? For reference, I have a [product_name] version [article_no]."
+    },
+    {
+      "comment_id": 444210668101141,
+      "user_name": "9k3P70RbSH",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Any further advice?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are struggling to integrate a 24VAC sensor with a digital input designed for 24VDC on a [product_name] module. There are questions about how to convert the signal type, necessary input currents, and input voltage limits, leading to concerns about compatibility and possible equipment damage.",
+    "user_expectations": "Users expect a simple and safe way to connect an AC-powered sensor to a [product_name] digital input without risking overvoltage or improper operation. They are looking for clear technical advice to ensure reliable integration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "signal compatibility",
+      "simple integration",
+      "safe operation"
+    ],
+    "pain_keywords": [
+      "voltage incompatibility",
+      "lack of technical info",
+      "risk of hardware damage",
+      "integration complexity"
+    ],
+    "feature_keywords": [
+      "digital input voltage limits",
+      "current draw at input",
+      "input tolerance",
+      "signal type compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

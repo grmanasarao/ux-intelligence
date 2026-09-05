@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "branch_id": "7330734943",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 855650942700772,
+      "user_name": "aG9K9YXorI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I programmed a [version_no] controller to mirror the input status on an operator panel (not from [company_name]). The software setup is straightforward: Input I1 --NOT-- M1, Input I2 --NOT-- M2, etc. I skipped the M8 bit as it is used as a start bit. After a few days, the controller stops communicating with the operator panel; initially I suspected a communication issue, but the actual problem seems to be with the controller itself. The controller appears to stop updating certain memory variables. To investigate, I created a web page within the controller showing the bit values and some preset timers based on a set of WORD registers. These values appear correctly in the software, but after a few days they show as zero on both the web server and operator panel, even though they remain correct internally and the associated icons behave as expected. Functionality within the software continues normally. Since the web server is integrated, and its communication with the controller is transparent and native, it’s concerning that updates are not being reflected in the external memory area. Re-downloading the software restores normal operation temporarily."
+    },
+    {
+      "comment_id": 880470713638073,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Which [product_name] model exactly are you using? Please read out the firmware version and provide it here. You can find this under Extras > Transfer > Show FW Version."
+    },
+    {
+      "comment_id": 344264498829512,
+      "user_name": "aG9K9YXorI",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello, the firmware version is 1.82.01, which is fairly recent, possibly the latest. The problem starts occurring 24-36 hours after downloading the software."
+    },
+    {
+      "comment_id": 482857974232475,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Both the web server and display need a network connection. Are you sure the connection is reliable? Is the setup a direct connection or routed through a router? If there is a router, ensure that the IP addresses of the controller and display are outside of the DHCP range to avoid conflicts. You can show memory or Merker values directly on the controller’s local display, rather than through the web server. If the local display updates correctly, check the network connection for faults. What type of display is connected?"
+    },
+    {
+      "comment_id": 796327636498448,
+      "user_name": "aG9K9YXorI",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hi, the Ethernet connection is working fine. I can access the PLC remotely via both the web server and the programming tool. When I use the web server, the values show as zero, while in the programming tool they are correct. Reloading the software fixes it for a few days, then the values on the web server and panel stop updating again."
+    },
+    {
+      "comment_id": 860457148248640,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "You haven't answered all the questions but remain sure the network is OK. Without more info, it's hard to assist. Check the local display’s memory values as described; if these update but remote display values don't, you likely have a network fault. I once had unexplained issues during machine startup traced to an IP conflict with a colleague using the same address. Now I use an IP scanner when needed and assigned dedicated IP ranges for all programmers at our company. Regards, [user_name]"
+    },
+    {
+      "comment_id": 161117466165392,
+      "user_name": "aG9K9YXorI",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "I did respond to your questions. The network is definitely OK, no IP conflicts, and only the PLC, operator panel, and router are present. Correct values appear on the local display, but the web server and panel show zeros after 16-18 hours from downloading software."
+    },
+    {
+      "comment_id": 811254174050347,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Maybe there's a misunderstanding due to language, but I still don't see specifics like display type or network setup for the controller and display. You mentioned using a router; have you tested a direct connection without it? If local values update and remote ones do not, where would you investigate first? The controller might be faulty, but first check these areas: 1) Network connection, including direct setup, 2) Network role of the controller (client or server), 3) Network role of the display (client or server). You said it’s not a [company_name] display; does it have advanced functions that might overflow counters? You have all the specifics: program, controller, display, router setups. Others on the forum lack these—providing the full details helps others to assist you. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 661055019496402,
+      "user_name": "udO0a0woU9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "If the controller is accessible via PC and its internal values are correct, this sporadic issue likely isn't caused by the controller but rather an Ethernet component. To pinpoint the issue, you might use a diagnostic tool like Wireshark to log Ethernet messages. The resulting data can be analyzed by advanced technical support, though this service isn’t free. You can reach out to technical support through their support request at [url]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members discuss a recurring problem where, after extended operation, a controller’s web server and an external, non-[company_name] panel display zeroed values for some memory areas. Internally, values remain correct and local display functions properly. Reloading the software resolves the issue temporarily, but it recurs after some hours or days. There is debate whether the cause lies in the controller itself or the network configuration.",
+    "user_expectations": "The user expects reliable, consistent synchronization of the controller’s memory values between its web server and an external operator panel, without needing to reinstall software periodically.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliability",
+      "continuous monitoring",
+      "remote visibility",
+      "data synchronization"
+    ],
+    "pain_keywords": [
+      "data loss",
+      "inconsistent remote display",
+      "network/update failure",
+      "periodic malfunction"
+    ],
+    "feature_keywords": [
+      "web server",
+      "memory synchronization",
+      "network communication",
+      "remote monitoring"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "10": "Performance Predictability"
+  }
+}

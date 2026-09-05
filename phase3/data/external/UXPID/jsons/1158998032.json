@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "1158998032",
+    "thread_id": "3055273936",
+    "publication_year": 2010,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 169613848643299,
+      "user_name": "w27fQsPjdj",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "I have a question about configuring the external text display module. I'm setting up a system to show gas line pressure using an external display. In the message text block editor, I see two screens—green for the main module and blue for the text display. I place analog blocks in the blue section and leave the green empty. When I select the message destination for the text display, during program simulation, only the green screen appears (empty, since nothing’s set) and the blue section is missing. I checked the file and message text settings but couldn't find any options for the external text display. What am I missing?"
+    },
+    {
+      "comment_id": 524162398008776,
+      "user_name": "rlqbIQ3X8X",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "This should help! When setting up the text display, the green and blue screens in the editor don't represent separate physical displays—they're just part of the same configuration. Both the onboard LCD and the external display can show messages up to 32 characters. In the message text properties (under FILE), you can select various character sets for different languages. For example, choose the Chinese character set to get 16 characters per line, versus the default 12. Adjust the ticker speed to 200ms as well. Make sure to enable your chosen character set at the top of the message text function block. Keep in mind that special characters (like degrees or umlauts) take up 2 spaces. For extra long messages, type up to 32 characters, spanning both green and blue sections. There are two ways to display long messages: set the ticker to 'line by line' or 'character by character' and tick the corresponding line number. To show the message on the LCD, set the destination to display, or pick the external text display, or both. When you activate the function block, the long message will be shown on either display, toggling or scrolling according to your settings. You can create multiple messages by enabling a second character set, which can be switched with a flag. All of this is using just one out of many message texts, so there's plenty of flexibility. Try experimenting with these features!"
+    },
+    {
+      "comment_id": 546689555060947,
+      "user_name": "w27fQsPjdj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2010,
+      "comment_month": 3,
+      "comment_body": "I tested your instructions and confirmed they work. I had assumed the blue screen was only for the external display, but it makes sense now. Thanks for clarifying!"
+    },
+    {
+      "comment_id": 672541202101400,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "A new question about adding special characters for larger text messages was split into a separate thread. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user misunderstood the software's interface for configuring message texts on the external text display, thinking the blue section was dedicated to the external hardware. Another user clarified that both onboard and external displays use the same message settings. After following step-by-step instructions, the initial user successfully used the display features. The main insight is that the interface can be confusing, as it does not make a clear distinction between configuring messages for the onboard and external displays, which may lead to misunderstandings about expected hardware output.",
+    "user_expectations": "Users want the configuration interface to clearly differentiate between assigning messages to the onboard display versus the external display, and expect to see accurate previews for each display during simulation.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "accurate message display",
+      "clearly assigned messages",
+      "effective simulation output"
+    ],
+    "pain_keywords": [
+      "confusing interface",
+      "unclear message assignment",
+      "misleading preview"
+    ],
+    "feature_keywords": [
+      "message text configuration",
+      "display assignment",
+      "simulation preview",
+      "character set selection",
+      "external display support"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

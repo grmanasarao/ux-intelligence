@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "branch_id": "6572436051",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 120511896385606,
+      "user_name": "bdE2zBRgFT",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I'm facing issues with the high-speed input counter on digital inputs I3 and I4. The counters seem to be active continuously and programming them doesn't help. When I disconnect the wire from the [company_name] device, I observe high or rapidly counted values (e.g., after reconnecting the wire I see values ranging from 50 to 150, which is expected behavior). However, when the wire stays connected, there are no counts registering. Does anyone have suggestions? This is a basic two-wire flow switch setup—one wire supplies voltage and the other carries the signal."
+    },
+    {
+      "comment_id": 721047052090195,
+      "user_name": "R40RVeEty3",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hi, The high-speed inputs are actually I5 and I6. If your input signal's pulse width is longer than the device scan time, you can use I3 and I4. How are you connecting the wires from your flow sensor? Avoid connecting both wires to I3 and I4. Supply voltage should go to the common input (either +24V or 230V depending on your [product_name] version), and the signal wire goes to I3 or I4. Usually, one input is for counting up/down and the other could be for reset, or one handles counting up and the other counts down. Can you specify your [product_name] version? What's the max pulse rate of your flow sensor, and how many pulses does it emit per unit volume?"
+    },
+    {
+      "comment_id": 923622931251292,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Which flow meter model are you using? Are your flow meter's output pulses distinguishing high and low voltage levels sufficiently? Check your device manual for these specifics. You might need to use a pull-up or pull-down resistor."
+    },
+    {
+      "comment_id": 741098787667978,
+      "user_name": "bdE2zBRgFT",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "I'm using a flow meter with part number [article_no] and a hall effect sensor part [article_no] from [company_name]. It seems the low signal isn't dropping enough voltage for the digital input to read as zero. The flow meter operates at 260 Hz, and 3500 pulses correspond to 1 liter of fluid. When there's no flow, I measure around 8.86 VDC, and during pulses, 24.02 VDC. It's a two-wire system—24 V from the same power supply as the input module to the sensor and return connected to I3. I tried all inputs from I3 to I6 but observed the same issue. What pull-down resistor value should I use so the input module detects a zero? Should it be placed between I3 and ground?"
+    },
+    {
+      "comment_id": 406826582224867,
+      "user_name": "R40RVeEty3",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hello, The high-speed counter can process up to 2 kHz on inputs I5 and I6, which should be suitable for your needs. According to the flow meter manual, it uses a 10K pull-up resistor on an open collector output, which explains the measured 8.86V. To reduce this voltage, insert a resistor in series between the flow switch wire and digital input I5/I6. To select an appropriate resistor, consider both the flow switch's current consumption and the input module's current requirements. Alternatively, you can use a 10K potentiometer in series, gradually adjust it until the voltage nearly reaches zero, then measure its value and replace it with a fixed resistor matching this measurement."
+    },
+    {
+      "comment_id": 464218013050145,
+      "user_name": "bdE2zBRgFT",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hi, When I reduced voltage with a 50K resistor, the zero value appeared but I lost the ability to detect a high signal. I suspect the Schmitt trigger threshold in the input circuitry is causing issues."
+    },
+    {
+      "comment_id": 269169341259794,
+      "user_name": "R40RVeEty3",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "A 50K resistor is excessive, which explains the lack of high signal detection. Assuming the digital input draws about 10mA and you wish to drop 8.86V, a 1K resistor should be more appropriate."
+    },
+    {
+      "comment_id": 892284548791135,
+      "user_name": "bdE2zBRgFT",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Okay, I attempted a 5K resistor with no change—the signal stayed continuously active on the controller with no counts on I5. With a 10K resistor, same results. Only when I tried a 50K and adjusted it did I notice I could get either a zero or one at around 11K to 15K, but it still didn't switch reliably. Notably, quickly reconnecting the wire makes the counter register. Why does rapidly toggling the connection work? This might help solve things. Also, when measuring, I find 8.86VDC present whether there's flow or not, with only minimal variation. Still struggling. Is the input module simply unsuitable for this task? Would a dedicated high-frequency counter better detect minor voltage changes?"
+    },
+    {
+      "comment_id": 237519180944960,
+      "user_name": "bdE2zBRgFT",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Just checking—I'm using the [product_name] 12/24 RC model. Will this work for my application?"
+    },
+    {
+      "comment_id": 677963847613079,
+      "user_name": "bdE2zBRgFT",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, Thanks for your assistance. I found an important note in the datasheet saying: \"Output low = 100mV max\". How can I deal with such a small voltage differentiation?"
+    },
+    {
+      "comment_id": 804541401586351,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "The [product_name] 12/24 RC supports high-speed inputs. See the manual. Max frequency is 5 kHz. The threshold for a logic zero is below 5 V and for a logic one above 8.5 V. Depending on your results, try using a pull-up resistor between the power supply and your digital input, or a pull-down resistor between the digital input and power supply ground—typically 1 to 5 kOhm."
+    },
+    {
+      "comment_id": 823056430066783,
+      "user_name": "R40RVeEty3",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 2,
+      "comment_body": "You've described a flow switch, but it actually outputs pulses with a rate proportional to flow, so you get 0 Hz at no flow. That's why you see 8.86V—using a regular voltmeter at high frequencies won't show clear differences because it averages the signal."
+    },
+    {
+      "comment_id": 694874574621039,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 12,
+      "comment_body": "A new question created by [user_name] has been moved to a separate thread with the topic 'Count pulse sensor.' Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to use a hall effect flow sensor with a digital input module, but the sensor’s low output voltage isn’t low enough for the module to consistently register pulses. The digital input fails to properly distinguish between logic high and low, and simple resistor solutions don't reliably fix this. There’s discussion about signal characteristics, input thresholds, and how pull-down resistors interact with the device circuitry.",
+    "user_expectations": "The user expects the input module to accurately and reliably count pulses from a standard hall effect flow sensor at up to 260 Hz, with clear distinction between logic high and low voltage levels as per the sensor’s output.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable pulse counting",
+      "compatibility with sensors",
+      "accurate flow measurement"
+    ],
+    "pain_keywords": [
+      "input threshold issue",
+      "voltage level mismatch",
+      "no pulse registration",
+      "cumbersome troubleshooting",
+      "lack of clear documentation"
+    ],
+    "feature_keywords": [
+      "high speed counter",
+      "digital input threshold",
+      "Schmitt trigger",
+      "sensor input compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

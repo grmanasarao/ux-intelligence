@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "3888081200",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 713305954751434,
+      "user_name": "K8cujNfG0X",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "Hello everyone, How can analog input scaling be done in [product_name]? Are there any available function blocks for this purpose?"
+    },
+    {
+      "comment_id": 588265219584655,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "You can use the analog amplifier block for this. It is available as a separate function block and is also integrated into certain other analog blocks, like the analog threshold switch. To learn more, insert the relevant analog block, right-click, and select Help from the menu. [url]"
+    },
+    {
+      "comment_id": 892592530867933,
+      "user_name": "K8cujNfG0X",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "I need to scale a 4-20 mA input, but I am unable to set the maximum engineering value to 27648."
+    },
+    {
+      "comment_id": 397807140233317,
+      "user_name": "ZHPQTQ5gyS",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "The value you mentioned (27648) applies to the [product_name] family of [company_name] PLCs, not to [product_name]. [product_name] is different and shouldn't be directly compared to [product_name] PLCs."
+    },
+    {
+      "comment_id": 628190169118312,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 4,
+      "comment_body": "[product_name] converts every analog signal to a 0-1000 scale, whether it is 0/4-20 mA, 0/2-10V, or a PT100/1000. The analog amplifier block allows you to adjust this 0-1000 scale to match your input requirements. For example, if you have a pressure sensor (0-10 bar, 4-20 mA): Sensor type: 4-20 mA; Minimum: 0; Maximum: 1000; Gain: 1.25; Offset: -250; Decimal places in the message text: 2. This results in a display range from 0.00 to 10.00 bar."
+    },
+    {
+      "comment_id": 610261695538964,
+      "user_name": "VLbDDXi3Tz",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 2,
+      "comment_body": "This approach is the best way to handle scaling as outlined in the previous message."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking clarification on analog input scaling methods for [product_name], especially in contrast to methods used in more advanced [company_name] controllers. There is significant confusion concerning engineering values and scaling ranges for those switching from [product_name] systems, and while documentation and help features are referenced, the practical process is not entirely clear for some participants.",
+    "user_expectations": "Users anticipate a straightforward block or method for analog input scaling in [product_name], ideally allowing for the specification of maximum engineering values similar to [product_name]. They expect clear, direct conversion of 4-20 mA analog signals into meaningful engineering units.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy analog scaling",
+      "clear value mapping",
+      "simple setup"
+    ],
+    "pain_keywords": [
+      "confusion over scaling",
+      "missing engineering value input",
+      "product differences"
+    ],
+    "feature_keywords": [
+      "analog amplifier block",
+      "input scaling",
+      "engineering value mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

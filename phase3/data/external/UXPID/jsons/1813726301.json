@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "1813726301",
+    "thread_id": "3055273936",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 764642570651333,
+      "user_name": "cdDMlodqBA",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm experiencing an issue with a [product_name] and [product_name] HMI panel setup. When I modify values for a yearly timer or counter (with retentivity) using the HMI, the program updates as confirmed via online monitoring. However, after turning off and then on the power supply, these changes are lost. Any idea what might cause this? For reference, the [product_name] uses an SD card for memory layout. Regards"
+    },
+    {
+      "comment_id": 570574808577270,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Could you upload your program to the forum? Also, which block numbers are you writing to?"
+    },
+    {
+      "comment_id": 321187262039678,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "The issue appears to relate to the SD card. [product_name] devices cannot save parameter changes directly to the SD card. To avoid program loss during power outages, ensure your program is kept in the default memory (FLASH) instead of saving on the SD card. Try running your setup without the SD card installed."
+    },
+    {
+      "comment_id": 203003978882060,
+      "user_name": "cdDMlodqBA",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Thank you for the suggestion. It looks like simply removing the SD card fixes the issue without needing to upload a new program to the [product_name]. It’s odd that something crucial is stored on the memory card. There’s a LOGO_U_P.bin file (98kB) present. Is that part of the program? Why does the program run without the SD card, and why do some blocks lose retentive memory when the card is present? I’m a bit confused."
+    },
+    {
+      "comment_id": 258233171841951,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "LOGO_U_P.bin is the entire program, saved as a binary file on the SD card so it can be run from there. As previously mentioned, [product_name] devices can't write changes of block parameters to the SD card; only FLASH memory can retain such changes. Upon restart, if the program on the SD card doesn’t match the one in FLASH, the SD card program is loaded. I’ve used the [product_name] for 2 years without saving the program to the SD card, and after many power failures, it’s worked flawlessly."
+    },
+    {
+      "comment_id": 692110399849079,
+      "user_name": "cdDMlodqBA",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "It’s still odd—copying the program to the SD card, then removing it actually improves performance. So, is the memory card intended mostly for static programs or for logging purposes?"
+    },
+    {
+      "comment_id": 612370061249642,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Alternatively, the SD card can be used to transfer the program between [product_name] devices without needing a PC."
+    },
+    {
+      "comment_id": 747738652877060,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Has your issue been resolved?"
+    },
+    {
+      "comment_id": 121692544104505,
+      "user_name": "cdDMlodqBA",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 9,
+      "comment_body": "Resolution: Remove the microSD card."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discovered that retentive program changes made via the HMI panel are lost after power cycling the main device if an SD card is inserted. This is due to the way memory is managed: changes are not saved to the SD card, and on reboot, the SD card program overwrites any changes made to the FLASH memory. Removing the SD card resolves the issue, but users are confused about the SD card’s purpose in retaining program changes.",
+    "user_expectations": "Users expect that retentive changes made to program values through the HMI should be preserved after a power cycle, regardless of whether an SD card is present.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "retentive memory",
+      "program persistence",
+      "ease of use"
+    ],
+    "pain_keywords": [
+      "unexpected data loss",
+      "unclear memory function",
+      "product confusion"
+    ],
+    "feature_keywords": [
+      "retentivity",
+      "SD card memory",
+      "FLASH memory",
+      "HMI program modification"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

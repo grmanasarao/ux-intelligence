@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "branch_id": "1399546384",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 270118721723112,
+      "user_name": "V9yOzs83zV",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "For most integrated circuits, it's common practice to connect unused inputs to either a high or low state to prevent unexpected behavior. In contrast, with a PLC, programs are processed virtually rather than through direct logical gates and electronic components, similar to how [product_name] simulates logic. Therefore, it seems acceptable to leave the Reset pin disconnected if resetting the counter is never needed in a particular application. While there's usually no harm in specifying a zero-state input and ensuring it's inactive, is there any potential risk to counter functionality if the pin is left unconnected? Is there any detailed documentation explaining this behavior?"
+    },
+    {
+      "comment_id": 802294012206456,
+      "user_name": "R40RVeEty3",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Hello, your question lacks some details. Could you clarify what you mean by 'if it goes unconnected'? What is the source of your reset input— is it a digital input? Typically, you can manage this through your program logic. Regards, [user_name]"
+    },
+    {
+      "comment_id": 247646199205442,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Hi [user_name], you don't need to connect every pin on each instruction block. An unused pin won't randomly change state. You're correct; instruction blocks in [product_name] don't function like discrete electronic ICs, and unconnected pins are internally managed to be at an appropriate logic level. While I don't have specific documentation, I rely on many years working with [product_name]. Pay attention to 'retentive' memory settings, as blocks will retain their state but may behave differently after power interruptions. Also, consider how some memory markers (like M8) initialize regardless of previous state. May I ask what prompted your question?"
+    },
+    {
+      "comment_id": 910697773756446,
+      "user_name": "V9yOzs83zV",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "@[user_name] I believe the question is straightforward: In any program without a reset input, are there direct consequences to leaving the Reset input unconnected if it's never used? That's my main query. @[user_name], Is there documentation I can cite for this? I'm trying to resolve a disagreement with my professor, so I need official material stating that unconnected pins are acceptable, or explaining how the PLC processes user programs. In any case, thank you for your response."
+    },
+    {
+      "comment_id": 196573413452932,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "That’s a challenging situation. Quoting me probably won't help— I’m not an authority. It might be best to follow the professor's advice, especially for exam points. I checked the system manual but couldn’t find clear documentation. For now, I suggest reviewing official [company_name] sample projects, such as the 'Intelligent foot switch', where not every pin is connected in the examples. Hopefully, a forum expert can provide published documents soon. Good luck! [user_name]"
+    },
+    {
+      "comment_id": 715239413229486,
+      "user_name": "V9yOzs83zV",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Thank you for your help! This is for claiming exam points, and several classmates are involved. I'll wait to see if an expert provides further clarification, but your provided examples are already quite helpful. Thanks again."
+    },
+    {
+      "comment_id": 108761227563314,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Hello, here's a straightforward rule: The left-hand inputs of a function block (FB) don't need to be connected unless your application requires it. For example, you can place a U/D-Counter and leave the left pins disconnected, then link the output to a [product_name] output. You can check the status with the appropriate shortcut. Why connect FB inputs? 1. To 'execute' the FB, most blocks require an enable signal. 2. Use as needed for activity. Generally, left-side FB inputs can remain unconnected, though that's theoretical. For more on [product_name] programming, you can consult the online training at [url]. Hope this clarifies things. Regards, [user_name]"
+    },
+    {
+      "comment_id": 560164627022555,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "[user_name], thank you for sharing this. The student aims to show their professor that connecting every pin isn’t required. I’ve attached an image showing both perspectives. Is there official documentation somewhere confirming the student’s approach? The student just wants fair grading, unless the question expects us to treat PLC blocks like real-life ICs."
+    },
+    {
+      "comment_id": 669661549564780,
+      "user_name": "CFVwIqQFqx",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Hello, unused logical inputs for special functions default to logical '0', so connecting them to zero again is unnecessary. More details, as well as default states for other functions, can be found in the [document] System Manual (Chapter 4 Functions). Regards, [user_name]"
+    },
+    {
+      "comment_id": 289134218549954,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "[user_name], thank you for that clarification. That quote answers my question— it’s exactly what I needed but overlooked. It’s worth noting that 'default to zero' applies only to 'special functions'; basic functions like 'AND' default to ON for unused inputs, as shown in the [document] System Manual Chapter 4.2.1. This should settle it for now. @[user_name]: Does this work for you?"
+    },
+    {
+      "comment_id": 202271377988544,
+      "user_name": "V9yOzs83zV",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Thanks for all your assistance! This should be enough to support my position, regardless of whether my professor accepts it. At least my argument isn't lacking in evidence now. I’ll update with the result. Thanks again!"
+    },
+    {
+      "comment_id": 808715110645170,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Any updates?"
+    },
+    {
+      "comment_id": 735692416544883,
+      "user_name": "V9yOzs83zV",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "It hasn't been resolved, unfortunately. I was hesitant to bring bad news, but my professor has refused to review the evidence— even as I present it directly— and has responded with dismissive comments during lectures. My classmates and I have considered filing a complaint, but given the risks mid-semester, we’re reluctant. At least, it feels like a moral win to have facts on my side. This situation led me to these forums, so perhaps it'll be helpful in the long run."
+    },
+    {
+      "comment_id": 540544669546151,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "I'm sorry to hear things turned out poorly; it's unfortunate for the educator as well. In future, approaching such individuals privately, framing questions as seeking clarification, may avoid confrontation. Clients sometimes react similarly— it’s wise to avoid opposing senior figures in public. Please feel free to share thoughts on your school's curriculum. Students and professionals alike benefit from exchanging knowledge, as technology keeps us learning and teaching in turn. Keep moving forward— you'll do well."
+    },
+    {
+      "comment_id": 260716240294953,
+      "user_name": "V9yOzs83zV",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "My teacher overlooks the value of input from those outside his credentials, even though technology isn’t strictly learned through formal channels. Still, his comments indirectly led me to seek support on these forums— he once asked for an expert’s opinion to back up my point. At the moment, our studies have shifted to other PLC brands besides [product_name], but it’s great to have access to these resources for future reference."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread explores how unused input pins behave in PLC programming with [product_name]. Users compare electronic circuit practices—where unused pins are connected to defined states—with virtual logic blocks used in [product_name]. Community members, drawing on experience and official documentation, agree that in [product_name], unused special function block inputs default to logical zero, while unused basic function block inputs default to logical one. This differs from standard IC behavior. The discussion highlights that many users seek clearer documentation for these features to resolve technical and academic debates.",
+    "user_expectations": "Users expect that leaving unused special function inputs unconnected is safe and do not require manual assignment. They seek confirmation of this behavior in official documentation, specifically for use in academic discussions and want comprehensive resources to validate their approach.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clear documentation",
+      "validation",
+      "safe and predictable logic behavior"
+    ],
+    "pain_keywords": [
+      "uncertainty",
+      "lack of documentation",
+      "academic dispute"
+    ],
+    "feature_keywords": [
+      "unused pin logic",
+      "default input state",
+      "function block programming"
+    ],
+    "overall_branch_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "8040800825",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 773235800906571,
+      "user_name": "jRC8xxCWeK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello everyone, I am planning to use [product_name] to manage relays via Modbus-TCP and I want to include a failsafe mechanism. Currently, the controller transmits either an on or off command every five seconds, regardless of state changes. However, my goal is for the relay connected to [product_name] to automatically turn off if, for example, an ON command hasn’t been received within 10 or 15 seconds. At present, my approach is to set a Modbus coil and use that to operate the relay, but this lacks a failsafe function. What would be the best way to implement this? Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 393644301999627,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello, [product_name] does not include built-in failsafe protocol support. If you use MODBUS TCP, it should work, but failsafe functionality will have to be developed separately."
+    },
+    {
+      "comment_id": 549158426466873,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "As a quick suggestion, consider trying a Modbus scan tool."
+    },
+    {
+      "comment_id": 332384927539552,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], For this setup, you will need to ensure that the relay statuses are accessible through Modbus-TCP. Regards, [user_name] (Translated with Google)"
+    },
+    {
+      "comment_id": 592232286569883,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "One approach is to send 'heartbeat' signals via Modbus by toggling an unused coil state every five seconds (coil ON, wait, coil OFF, wait, repeat). On the [product_name], link this heartbeat coil network input to a memory flag for monitoring and diagnostics. Then, configure a watchdog mechanism in [product_name] so that if heartbeat signals are absent for more than 20 seconds (the memory flag remains unchanged), the relay automatically switches OFF."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are looking for a dependable failsafe mechanism for relay control over MODBUS-TCP using [product_name]. Built-in failsafe features are absent, so users have developed custom heartbeat monitoring solutions to ensure relays shut off automatically when communication lapses. These manual methods offer a workaround but add complexity and may have reliability limitations.",
+    "user_expectations": "Users are hoping for [product_name] to provide an integrated or straightforward way to implement failsafe functionality with MODBUS relay controls, enabling relays to reliably switch off when communication fails.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "failsafe relay control",
+      "automatic switch-off",
+      "reliability"
+    ],
+    "pain_keywords": [
+      "no failsafe support",
+      "manual workaround required",
+      "potential relay failure risk"
+    ],
+    "feature_keywords": [
+      "failsafe function",
+      "MODBUS-TCP integration",
+      "heartbeat monitoring",
+      "relay output"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

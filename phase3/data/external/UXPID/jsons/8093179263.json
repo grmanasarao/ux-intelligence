@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "branch_id": "8093179263",
+    "thread_id": "3055273936",
+    "publication_year": 2009,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 679940771718100,
+      "user_name": "LtNd5vIXaE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "I have a [product_name] controller and an [product_name] analog module. Five switches will connect to digital inputs I1 to I5 on the controller. A 0-10V analog signal will connect to I7. Two PT100 sensors connect to the analog module. The manual says I7 is linked to AI1 and I8 to AI2. Will inputs 1 and 2 on the analog module automatically map to AI3 and AI4 in [product_name] software, or do I need to manually assign the correct input names? If I use more analog inputs on the controller, how are the inputs on the analog module numbered? How does the system handle this assignment? Do I need to configure in the software how many inputs should be analog? Hope my question makes sense."
+    },
+    {
+      "comment_id": 562768585991166,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Hello, if your controller has analog inputs, there are two scenarios: 1. For earlier versions (up to [article_no]), using only two onboard analog inputs, module analog inputs begin at AI3. 2. If you have version [article_no] and enable onboard analog inputs 3 and 4, then expansion module analog inputs start from AI5. Hope this clarifies things."
+    },
+    {
+      "comment_id": 859315459172114,
+      "user_name": "LtNd5vIXaE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Thank you for your prompt response. I think I get it! So in my situation, if my controller is set up for two onboard analog inputs, my analog module will start from AI3, regardless of connections to onboard analog inputs. If I later expand with another analog module for two 4-20mA sensors, will it take the next available input numbers (AI5 and AI6), or do modules get AI3 and AI4 and shift my PT100 module to AI5 and AI6?"
+    },
+    {
+      "comment_id": 536292893324912,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Yes, I7 and I8 are assigned as AI1 and AI2 automatically; this can't be changed, unlike I1 and I2. Check out the manual, specifically page 26, chapter 2.1.1, for further explanation. Also, keep in mind that the [product_name] controller does not have built-in analog inputs."
+    },
+    {
+      "comment_id": 471339328408976,
+      "user_name": "LtNd5vIXaE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2009,
+      "comment_month": 10,
+      "comment_body": "Thanks very much! I think things are clearer now. The analog inputs I referred to are the four digital inputs that can be configured for 0-10V signals. Appreciate the help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed how input addresses are assigned for analog and digital inputs when combining several analog modules and mixed input types on [company_name] controllers. The conversation highlighted confusion over how inputs are indexed and configured in [product_name] software, and revealed that documentation or device design may not sufficiently clarify expansion behavior.",
+    "user_expectations": "Users expect clear, consistent documentation and predictable automatic input assignment for analog and expansion modules in both controller hardware and software, allowing easy expansion and management as systems grow.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clear input assignment",
+      "modular expandability",
+      "predictable configuration"
+    ],
+    "pain_keywords": [
+      "input indexing ambiguity",
+      "expansion confusion",
+      "lack of clear input assignment process"
+    ],
+    "feature_keywords": [
+      "analog input assignment",
+      "expansion module detection"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

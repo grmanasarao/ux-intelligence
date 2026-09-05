@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "branch_id": "7603978731",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 308734344133969,
+      "user_name": "FDefJQpT8C",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 9,
+      "comment_body": "Hello, I'm working on a project using [product_name] [article_no] and an HMI panel. I'm struggling to find a way to send an alarm from [product_name] to the HMI so it displays in the Alarm View area. The Alarm View only browses Word type tags, and the next step is choosing which bit should trigger the alarm. Is this possible?"
+    },
+    {
+      "comment_id": 350240692809270,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], My first question: Have you already set up a connection between [product_name] and HMI, and your data isn’t showing on the HMI? Or do you need instructions for establishing a [product_name]-HMI connection? You can find helpful example guides and code in the following links: [url] [url] Don’t hesitate to ask if you have more questions. If you already have your program code, a screenshot of your tag table in [product_name] programming software, and settings and mapping tables in [product_name] configuration tools would also be helpful. Have a nice weekend. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 710952967573399,
+      "user_name": "FDefJQpT8C",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Thank you [user_name]. I have the connection between [product_name] and HMI working and have done similar projects before. My main challenge is configuring the alarm to show in the alarm view window. Can digital signals (bool types) in [product_name] trigger an alarm in the HMI’s alarm view? I understand it’s possible to connect a word-type tag from [product_name] to an alarm in the HMI and change its value, but that uses an analog value. I want to use a bool tag to activate the alarm. Sorry for my English if some things aren’t described clearly. I’m looking for a ready-made example if anyone has accomplished this."
+    },
+    {
+      "comment_id": 797756980933806,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], Yes, it’s possible to combine variables so you can use a bool variable in your [product_name] program. The key question is how you can use a bool type for the HMI alarm tag in Alarm View. For example, if you have a flag in [product_name], you can configure a bool tag in the HMI’s tag table and use it for your HMI project. However, HMI alarms require a word type tag, not a bool. To handle this, you can use a function block (like an Analog MUX) after your bool tag in [product_name] that outputs an analog value when the bool is activated. Then, in the HMI you can set a limit on the word-type tag value to trigger an alarm. I suggest you try this approach. Also, if you want more details about HMI alarm settings, a [document] for HMI configuration may help. I hope this information assists you. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 810620539001579,
+      "user_name": "FDefJQpT8C",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Hi [user_name], Thanks for your support. Everything is working, but the issue is that complex PLC programs and this method of making alarms use a lot of memory blocks, and many analog flags aren't available. Is there a way to create a word-type variable (for example, with an analog mux) that outputs different values depending on inputs—so the interface can use alarm tags to select the right bit and assign the corresponding alarm? I tried this, but I’m unsure what value should be set for the variable to identify the correct bit. For now, your solution is sufficient. I have another question: Is it possible to set a schedule in the HMI that switches a variable in [product_name] based on current date and time? What variables should be used for this function?"
+    },
+    {
+      "comment_id": 850760043690648,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 10,
+      "comment_body": "Yes, you can use two inputs of the Analog MUX, and depending on their combination, get four different analog values. Check the Analog MUX properties I shared earlier. To assist further, could you clarify what exactly you want to achieve with the time schedule in HMI? What variable type in [product_name] are you considering? Are you referring to the current date and time from the HMI or [product_name]?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are finding it challenging to display alarms from [product_name] to an HMI device. While moving analog (word type) data to trigger alarms is simple, mapping digital (bool) signals to the alarm view is complicated and forces cumbersome workarounds, creating significant resource limitations in the PLC and limiting usability. The root issue is that bool-type tags can’t be natively used for triggering HMI alarms, which is causing frustration.",
+    "user_expectations": "Users want a straightforward way to map digital (bool) signals from [product_name] to the HMI’s alarm view. They hope for a direct solution without complex configuration or high memory usage, and would appreciate clear instructions or an example they can implement easily.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "efficient alarm mapping",
+      "resource optimization",
+      "direct digital alarm trigger",
+      "ease of integration"
+    ],
+    "pain_keywords": [
+      "memory consumption",
+      "complex workaround",
+      "limited analog resources",
+      "absence of direct bool alarm mapping",
+      "uncertainty in variable configuration"
+    ],
+    "feature_keywords": [
+      "Alarm View",
+      "digital alarm tags",
+      "bool to alarm mapping",
+      "Analog MUX",
+      "time scheduling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "22": "Usability Improvement Suggestions"
+  }
+}

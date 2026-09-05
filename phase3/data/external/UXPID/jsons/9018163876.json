@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "branch_id": "9018163876",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 955663811100302,
+      "user_name": "0rDC44VjPv",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm new to [product_name]. I have a Modbus Ethernet-to-RS485 converter connected to an RS485 I/O module. The issue is that [product_name] keeps sending Modbus commands continuously, which overloads the I/O module. Sometimes the module reacts instantly, but occasionally there's up to a second delay. The red status LED indicates the I/O module is not ready. Is it possible to configure [product_name] so it sends the command only once, or waits for confirmation before sending again? Thank you."
+    },
+    {
+      "comment_id": 561689317639328,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "No, [product_name] offers limited Modbus functionality and cannot do this. If you change your setup to use data exchange over the VM area instead of remote, you can configure the data transfer interval."
+    },
+    {
+      "comment_id": 132609679468744,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Are you familiar with the \"enable customized interval\" option in the client settings? When disabled, [product_name] transmits data as frequently as possible. Enable this setting to specify a minimum time interval—such as 1 second, minute, or hour—to suit your needs. Regards, [user_name]"
+    },
+    {
+      "comment_id": 919656739306008,
+      "user_name": "0rDC44VjPv",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Thanks for your response. When [product_name] sends Modbus commands through the LAN-RS485 module, it intermittently freezes for about a second. To clarify, if I purchase two more [product_name] controllers and implement a master-master-slave setup over LAN ethernet, will this provide nearly instant communication? Thank you."
+    },
+    {
+      "comment_id": 974305716846714,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "I'm unable to confirm how a larger network with multiple [product_name] controllers would behave. [product_name] is designed as a logic relay, not a PLC. For stable, near real-time communication, consider using a [product_name] or [product_name] controller. Entry-level logic relays can't match the features of more advanced PLCs. Using Profinet would be preferable over Modbus TCP. You can experiment with several [product_name] controllers, but optimal performance isn't guaranteed. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find [product_name] has significant limitations in Modbus communication, especially in controlling how often commands are sent. The device repeatedly sends commands, which can overwhelm connected I/O modules and cause variable delays. There are few options for adjusting transfer intervals, leading users to seek more robust solutions for stable and real-time communication.",
+    "user_expectations": "Users hope [product_name] can be configured to send Modbus commands only once or wait for confirmation before resending, preventing command overload and ensuring reliable, nearly real-time data exchange.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable communication",
+      "custom command intervals",
+      "prevention of overload",
+      "real-time response"
+    ],
+    "pain_keywords": [
+      "command flooding",
+      "overloaded module",
+      "delays",
+      "lack of granular control"
+    ],
+    "feature_keywords": [
+      "Modbus interval control",
+      "confirmation-based sending",
+      "client settings",
+      "customized interval option"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "10": "Performance Predictability"
+  }
+}

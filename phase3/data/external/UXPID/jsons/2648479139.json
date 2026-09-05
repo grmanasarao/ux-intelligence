@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "branch_id": "2648479139",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 273738772473024,
+      "user_name": "xDdPOoK441",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Hello, In my application, I managed to recover the position of an engine using its encoder by edge counting and checking inputs for direction within the logic program. The encoder has channels A, A/, B, and B/. My issue is that when I determine direction by checking B's state during A's edges, the count becomes unreliable and slower compared to my original method. I tried multiple encoder channel connections, testing with a dedicated small control program. The encoder supports up to 1.54kHz (at the motor's maximum speed) and requires 24V HTL; I'm currently using a [product_name] device. Inputs 11 and 12 move the engine left/right; I3 and I4 are encoder inputs. I3 tracks edges, I4 the direction for counter block [article_no], while counter block [article_no] uses the original logic with I11. My display shows both count values—[article_no]'s count drops to about 2/3 of [article_no]'s, which suggests some edges are erroneously counted backward. Is this likely a hardware limitation? I have read in forums that the [product_name] has difficulty handling encoders with two channels for direction—does anyone know more details? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 183054742100117,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Hello, Could it be possible that the encoder signal is affected by flickering or electromagnetic interference? Please verify to rule out these issues. For reference, [product_name] can count signals up to 5kHz but the actual logic is calculated according to its cycle time. Keep this in mind when troubleshooting. Hope this assists."
+    },
+    {
+      "comment_id": 449646720973193,
+      "user_name": "xDdPOoK441",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 5,
+      "comment_body": "Hello, thank you for your response. I doubt flickering at 24rpm is possible, as this would be highly unusual. I'm not familiar with EMC/EMV effects, but are you referring to faulty electronics? Again, this seems unlikely. I tested the encoder at very slow speed by rotating manually—everything works perfectly. At maximum speed, the counts become highly unreliable (except basic edge counting, which remains accurate). The most probable reason seems to be, as you suggested, the cycle time of the [product_name] device interfering with pulse counting. If the calculation cycle is indeed 0.01s, that would explain the issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants note that pulse counting using two channels for direction input on the [product_name] device (version: [version_no]) leads to unreliable results at higher speeds but functions correctly at low speeds. The main takeaway is that the product's calculation cycle time limits its ability to respond to rapid input changes, resulting in missed or incorrect counts. The community is unsure if the problem is hardware-related, linked to signal interference, or due to programming logic; however, consensus leans toward the cycle time limitation as the root cause.",
+    "user_expectations": "Users anticipate accurate encoder pulse counting and correct direction tracking, even at the encoder's maximum operational speed, without missed or incorrect counts.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable encoder reading",
+      "accurate pulse count",
+      "correct direction detection",
+      "high-speed operation"
+    ],
+    "pain_keywords": [
+      "erratic counting",
+      "missed pulses",
+      "backward counting",
+      "cycle time limitation",
+      "incoherent results at high speed"
+    ],
+    "feature_keywords": [
+      "encoder input",
+      "multi-channel pulse counting",
+      "cycle time",
+      "counter blocks",
+      "direction detection"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

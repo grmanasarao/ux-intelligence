@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "branch_id": "9301664265",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 408317414110850,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I'm dealing with this setup: • Q1: Command Start pump 1 • Q2: Command Start pump 2 • I1: Level signal for pump 1 • I2: Level signal for pump 2 • I3: Fault for pump 1 • I4: Fault for pump 2 I'm aiming for this logic: • Pumps should activate alternately depending on level inputs I1 and I2 • If a pump faults, the other pump takes over • If both levels are ON, activate all available pumps, but when one level goes OFF, only the pump started by that level should turn off (I'm struggling here) Examples (ignoring faults): Example 1 - Only one level active at a time: • I1 = off & I2 = off: Q1 & Q2 = off • I1 = on: Q1 = on, Q2 = off • I1 = off: Q1 & Q2 = off • I1 = on: Q1 = off, Q2 = on • I2 = on: Q1 = on, Q2 = off • I2 = off: Q1 & Q2 = off • I2 = on: Q1 = off, Q2 = on • I2 = off: Q1 & Q2 = off Example 2 - Both levels active: • I1 = off & I2 = off: Q1 & Q2 = off • I1 = on: Q1 = on, Q2 = off • I2 = on: Q1 & Q2 = on • I2 = off: Q1 = on, Q2 = off Example 3 - Similar case with 2 levels: • I1 = off & I2 = off: Q1 & Q2 = off • I1 = on: Q1 = on, Q2 = off • I2 = on: Q1 & Q2 = on • I1 = off: Q1 = off, Q2 = on Any suggestions or sample solutions?"
+    },
+    {
+      "comment_id": 509910475626950,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Please try searching the forum; there are many pump control examples available."
+    },
+    {
+      "comment_id": 631030756141848,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Thank you for your reply! I've already looked through previous posts but haven't found any that specifically cover alternating pump control with two separate levels, which can also trigger both pumps simultaneously. The basic alternation and simultaneous pump command I've managed, but can't work out how to stop the right pump when switching from two active levels to one. I appreciate any suggestions."
+    },
+    {
+      "comment_id": 646406753076428,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Just to clarify, the examples may not provide an exact solution for your scenario. It seems you are seeking a ready-made program. Are you expecting someone else to create the solution for you while you receive compensation for it?"
+    },
+    {
+      "comment_id": 843179301086669,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Dear [user_name], I think it's best not to respond to you further... If you'd read my initial post closely, you'd have seen I was asking about a specific issue, not requesting a complete program (my software is mostly complete, except for correctly switching off the pump when one level input goes low). Anyway, don't worry about spending time on my question—luckily, I don't rely on your software. Thanks for responding."
+    },
+    {
+      "comment_id": 186764381631248,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I did read your initial post. It described your situation and what you want the program to achieve. You didn’t mention already having a program. If you do have one that isn’t working as desired, please upload it (zipped), so it can be reviewed and improved if necessary."
+    },
+    {
+      "comment_id": 694596823304198,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], thanks for clarifying—my first post may not have been clear. I've attached my developed and tested program. Notes: - I1 = Fault P1 - I2 = Fault P1 - I3 = Common fault - I4 = Level 1 - I5 = Level 2 - Q1 = Start P1 - Q2 = Start P1 Level 1 and level 2 can be activated in any order. The logic should work for alternation, switchover in fault cases, activation of all pumps when both levels are active, etc. Problems I'm still facing: PROBLEM 1 (shutdown sequence) First cycle: Level 1 on → P1 on; Level 2 on → P2 on; Level 1 off → P2 off (incorrect, should shut off P1) Second cycle: Level 1 on → P2 on; Level 2 on → P1 on; Level 2 off → P2 off (incorrect, should shut off P1) PROBLEM 2 When reducing from two active levels (both pumps on) to one, both pumps turn off for one cycle. This doesn’t happen in [version_no]. Appreciate any advice!"
+    },
+    {
+      "comment_id": 714572860655924,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Just to clarify: The same logic implemented in [version_no] does not show this issue. I can’t assess that specifically, as I don’t know the [product_name] program. But the programming languages are different, and you can't use LSC exactly like [product_name]. So it can't be identical programming."
+    },
+    {
+      "comment_id": 584276377256134,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hi [user_name], First, thanks for your reply—no worries about misunderstandings. Yes, controlling an [version_no] PLC differs from a [product_name], but with ladder logic using only basic gates, you can fairly easily translate logic between environments. I’ve also attached the TIA Portal project if that’s helpful. The main issue remains as described in my previous post; I believe the second problem isn’t significant on a real PLC since pumps shouldn’t have time to actually shut down. Thanks again."
+    },
+    {
+      "comment_id": 535502817501652,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I believe the problem is with marker M3. It gets a HIGH signal whenever both levels are high, and when one level turns off, both pumps switch off in the same cycle. The primary pump starts only in the next cycle since the output for the non-priority pump needs to show LOW first. This is a standard cycle issue. See attached video..."
+    },
+    {
+      "comment_id": 373061391162937,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I've attached my program proposal—maybe it will address your needs."
+    },
+    {
+      "comment_id": 312214791969141,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I agree; I also noticed the same behavior recently. Unlike with a conventional PLC, where block execution sequence is clear, in [product_name] (for example), the value for Q1 isn’t immediately reflected by certain blocks until the next cycle. With [version_no], all blocks are executed sequentially so Q1's change is visible right away. I made a small tweak to the program (see attachment): in block B008, instead of the negated Q2, I use the output from block B014. This fixes some issues, but the correct pump shutdown after transitioning from two levels to one remains unresolved. Note: now, with two levels active, P2 always turns off first, no matter which pump started first."
+    },
+    {
+      "comment_id": 114938342563426,
+      "user_name": "taUCLNZ5jo",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I just tested your program and observed these issues: • With Level 1 ON, one pump starts (say P1). If P1 faults, P2 comes on (correct), but after resetting the fault, P2 stops and P1 reactivates (not correct, as the restored pump should remain off until the next cycle). • With Level 1 ON and P1 running, turning Level 2 ON starts P2. If Level 1 goes OFF before Level 2, both pumps stay ON (incorrect—P1 should turn off since it was started by the input that went OFF). Colleagues with more experience in [product_name] say this is a difficult issue to solve. Thanks again for your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are trying to build advanced control logic for two pumps using independent level inputs and managing proper alternation and shutdown sequences. The main technical challenge is reliably switching off the correct pump as level signals change, especially when moving from dual activation to a single active level, which currently leads to the wrong pump turning off or both pumps shutting down for a brief cycle. Differences in cycle handling between [product_name] and [version_no] (STEP 7-type) environments are notable, particularly regarding real-time output updates in the control program.",
+    "user_expectations": "The user hopes [product_name] will match the alternation and switching performance previously achieved in a STEP 7 framework—specifically, that the correct pump always shuts down when its corresponding level goes low and no unnecessary pump shutdowns occur during transitions. They want smooth, reliable pump control even as input states change.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable alternation",
+      "seamless pump switching",
+      "fault tolerance"
+    ],
+    "pain_keywords": [
+      "incorrect pump shutdown",
+      "brief simultaneous pump off",
+      "logic cycle inconsistencies"
+    ],
+    "feature_keywords": [
+      "alternation control",
+      "fault handling",
+      "cycle management"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

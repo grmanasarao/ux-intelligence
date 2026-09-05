@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "branch_id": "8712094486",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 129217861343214,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "I am using [article_no] controller and configured channel 17 as my first analog input (4-20mA). My temperature sensor setup includes a PT100 RTD sensor with a 4-20mA converter, where 4mA represents 0°C and 20mA corresponds to 150°C. The connection between the sensor and controller is correct, and once powered, the sensor always displays 150°C. When checking resistance on the RTD sensor, I read around 109-110 ohms. My question: does the controller with [article_no] only support 0-10VDC analog inputs, or does it also handle 4-20mA? Please share any relevant information."
+    },
+    {
+      "comment_id": 375445637880167,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "To clarify: the analog inputs on these base modules accept only 0-10V signals. If you need to process a current signal like 0/4 to 20mA, you should use a 500 ohm resistor to convert it into a voltage signal of 0/2 to 10V."
+    },
+    {
+      "comment_id": 231891718999333,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Thank you for your explanation. The sensor already includes a built-in PT100 RTD to 4-20mA converter."
+    },
+    {
+      "comment_id": 845751992179518,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Could you specify your next question? As previously mentioned, you can achieve a voltage signal by incorporating a 500 ohm resistor with the current signal."
+    },
+    {
+      "comment_id": 194296598784792,
+      "user_name": "hoc1ylfWSZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "My question is whether the analog input can accept a direct 4-20mA signal."
+    },
+    {
+      "comment_id": 403397558735028,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "Did you have difficulty understanding the previous responses? The analog inputs are not compatible with direct 0/4 to 20mA signals."
+    },
+    {
+      "comment_id": 102708366499265,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "[article_no] only supports 0-10V for analog inputs (up to four analog channels). If you want to use 0-20mA, 4-20mA, or PT100 signals, you will need additional expansion modules. [url] There are also third-party converters (4-20mA to 0-10V) available."
+    },
+    {
+      "comment_id": 832437930782463,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "As mentioned before, using a 500 ohm resistor as a converter works as well."
+    },
+    {
+      "comment_id": 149919703782709,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 10,
+      "comment_body": "[url] Here is a practical example: If a 0-10Vdc input is used to measure a 4-20mA signal, Ohm's law applies: R=V/I, where V is voltage and I is current. For 10V and 20mA, the required resistance is 500 ohms. With 20mA through a 500 ohm resistor, there is a 10V drop; with 4mA, it drops 2V. So, a 4-20mA signal across a 500 ohm resistor yields 2-10V. The resistor's tolerance should be 1% or less, preferably 0.1%, to maintain accuracy. Any variation can affect measurement precision. After installing the resistor, check actual readings and adjust your software as necessary. For instance, a 500 ohm resistor might measure 497.5 ohms, resulting in a voltage range of about 1.99 to 9.95V instead of 2 to 10V. Connect the resistor across the voltage input terminals of your data acquisition device, and then connect your 4-20mA signal across the same terminals. As current flows, voltage is created and measured by the system. Ensure you properly ground the power supply if required."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users face issues with integrating a 4-20mA signal directly into the analog input of a [article_no] controller. The consensus is that the device only supports 0-10V analog signals. Contributors suggest using a 500 ohm resistor to convert current to voltage or recommend installing suitable expansion modules for proper signal compatibility.",
+    "user_expectations": "The user anticipates that the controller’s analog input could accept direct 4-20mA current signals for temperature measurement, and is seeking clear confirmation and guidance on suitable input methodologies.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "compatibility confirmation",
+      "accurate analog signal processing",
+      "seamless interface for sensors"
+    ],
+    "pain_keywords": [
+      "lack of direct current input support",
+      "incorrect readings",
+      "signal compatibility confusion"
+    ],
+    "feature_keywords": [
+      "analog input range",
+      "4-20mA support",
+      "voltage/current signal conversion"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

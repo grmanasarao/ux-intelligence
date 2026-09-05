@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "branch_id": "3057629778",
+    "thread_id": "1723880927",
+    "publication_year": 2012,
+    "branch_status": "Unsolved",
+    "branch_type": "feedback"
+  },
+  "content": [
+    {
+      "comment_id": 806022090588613,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, The [product_name]-[article_no] introduces several new function blocks. In this review, I'd like to discuss the \"analog filter\" block from an application-oriented perspective: The \"analog filter\" block computes a sliding average based on n previous values over time. Achieving this in hardware typically requires significant effort, so my previously published circuits were limited to n = 4, 8, or 10. The block's capability to handle up to 256 values, as noted in the documentation, is impressive. However, the permitted n values are restricted to a few predefined options (it would be far more useful if users could freely select any value between 1 and 256, with referencing and external triggering also supported). I have concerns about how the time interval between sampled values is specified—it is strictly linked to the (variable) cycle frequency of [product_name], which is essentially the program frequency. As per documentation: “[product_name] processes analog values every cycle. The number of cycles matches the configured sampling count.” Since the cycle frequency changes, this implementation only ensures the filter is suitable for analog values from blocks updated each cycle, not directly from analog inputs. Sampling intervals for analog input values should be defined by their own sampling rates, with user-adjustable update frequencies (typically every 50 ms or 300 ms, or a multiple thereof). Otherwise, incorrect results may occur depending on real signal characteristics. Summary: The \"analog filter\" block unfortunately cannot reliably filter analog input signals, because its operation is based on [product_name]’s cycle frequency, which diverges from the actual input sampling rates (e.g., 300 ms for basic modules, 50 ms for expansion modules). This can cause significant differences between the filtered outputs and true signal values. Since external triggering for sampling times isn’t available, the block generally falls short for accurate moving average calculations in most use cases. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user presents a thorough review of the \"analog filter\" block in [product_name]-[article_no], highlighting its advanced ability to compute sliding averages beyond typical hardware. However, notable limitations are identified: the block's sampling relies on a cycle frequency that doesn’t match actual analog input rates, leading to potential inaccuracies. The user underscores a need for more flexible configuration, especially around sampling parameters, to better support practical signal filtering.",
+    "user_expectations": "The user expects the analog filter block to provide user-defined settings for both value count and sample timing and frequency, allowing synchronization with the real analog input update rates.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog signal filtering",
+      "flexible sampling rates",
+      "customizable parameters"
+    ],
+    "pain_keywords": [
+      "lack of parameter flexibility",
+      "inaccurate filtering",
+      "cycle frequency dependency"
+    ],
+    "feature_keywords": [
+      "analog filter block",
+      "sampling rate setting",
+      "external triggering",
+      "number of values parameterization"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

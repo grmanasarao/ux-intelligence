@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "branch_id": "8322414774",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 265431111227660,
+      "user_name": "H9ZvPQBxpv",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello, I'm working with a sensor connected to a [product_name]. My program already converts the sensor's 0-10V signal into a range from 0 to 1000 (for example, 5V becomes 500). Now, I need to further convert this value so that it shows the actual pressure for display on the HMI. For reference, 500 (5V) should be 0 mbar, 400 (4V) should be -200 mbar, and 300 (3V) should be -400 mbar, etc. The bolded value must be visible on the HMI. Values above 0 mbar aren't needed, since the sensor only measures diastolic pressure. Any advice?"
+    },
+    {
+      "comment_id": 406276619441419,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], Please note that English or German are the forum's languages. (This is a translation via Google Translate.) Best regards, [user_name]"
+    },
+    {
+      "comment_id": 484431824720515,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Here's one possible approach."
+    },
+    {
+      "comment_id": 939844832860148,
+      "user_name": "H9ZvPQBxpv",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Sorry, I didn't quite get your program setup. Could you explain how you intend to link these values to an I/O field?"
+    },
+    {
+      "comment_id": 521520052087160,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "I'm also not clear on what you mean by the I/O field specifically ... could you elaborate?"
+    },
+    {
+      "comment_id": 540782917294041,
+      "user_name": "H9ZvPQBxpv",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "By I/O field I mean the display field in [product_name] engineering platform (version_no removed for privacy). I want to link these converted values to that display field, so the pressure can be visualized on the HMI screen instead of just on the [product_name] device itself."
+    },
+    {
+      "comment_id": 226417914865536,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "You'll need to use Parameter VM Mapping. Please refer to the attached video for guidance."
+    },
+    {
+      "comment_id": 759831462435416,
+      "user_name": "H9ZvPQBxpv",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello, How can I configure the I/O field to display negative values? I've read a few topics mentioning settings like S999.9, but I'm unsure about the location or if there are other steps required. Any suggestions?"
+    },
+    {
+      "comment_id": 262917236635453,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Which data type have you chosen for the I/O field? If it's set to Word, that's incorrect; it needs to be set as INT instead."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are discussing methods to convert and display analog signal values from a sensor as pressure readings using a [product_name] device. Challenges center around mapping voltage to pressure, handling negative values on the HMI, and configuring I/O fields correctly (including datatype selection and proper linkage in the software environment). The conversation highlights confusion about technical details like I/O field setup and data mapping.",
+    "user_expectations": "Users want to reliably convert sensor voltages into accurate pressure readings (with support for negative values) and make sure these readings are correctly displayed on the HMI, with proper software-hardware integration and display configuration.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate value visualization",
+      "pressure monitoring",
+      "negative value support"
+    ],
+    "pain_keywords": [
+      "datatype confusion",
+      "unable to display negative pressure",
+      "I/O mapping complexity"
+    ],
+    "feature_keywords": [
+      "I/O field mapping",
+      "negative value display",
+      "parameter VM mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

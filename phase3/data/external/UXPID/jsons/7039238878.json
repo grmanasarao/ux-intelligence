@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "branch_id": "7039238878",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 278073423936739,
+      "user_name": "5F8yVqpoJD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hello, I have a [product_name] running firmware [version_no] connected to AWS. My current setup is as follows: I've noticed that when the output is set as writable but not set to 'on change', the device does not report the updated state to match the value set via \"desired\" in AWS. My goal is straightforward: set an output to a particular state and ensure that state persists. Currently, when I set the output state, it changes at the first opportunity but is not retained. Following a stop and restart of the device, the output does not revert to the state I previously set. Flow observed: • ME: {\"desired\":{\"Q..1:2-1\": \"01\"}} -> AWS: {\"delta\":{\"Q..1:2-1\": \"01\"}} • [product_name]: {\"desired\":{\"Q..1:2-1\": null}} -> AWS: no delta • [product_name]: {\"reported\":{\"Q..1:2-1\": \"01\"}} -> AWS: no delta • [product_name] powered off and on • [product_name]: {\"reported\":{\"Q..1:2-1\": \"00\", ...}} -> AWS: no delta Expected flow: • ME: {\"desired\":{\"Q..1:2-1\": \"01\"}} -> AWS: {\"delta\":{\"Q..1:2-1\": \"01\"}} • [product_name]: {\"reported\":{\"Q..1:2-1\": \"01\"}} -> AWS: no delta • [product_name] powered off and on • [product_name]: {\"reported\":{\"Q..1:2-1\": \"00\", ...}} -> AWS: {\"delta\":{\"Q..1:2-1\": \"01\"}} • [product_name]: {\"reported\":{\"Q..1:2-1\": \"01\"}} -> AWS: no delta [url] Is it possible to configure [product_name] to achieve this behavior? Has this changed in the [version_no] firmware update? Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user notes that their [product_name] device does not persist output states after a power cycle when integrated with AWS IoT Device Shadow. There is uncertainty about the synchronization between AWS 'desired' state and the device output, particularly when writable is enabled but 'on change' is not. The output does not restore the state set via AWS after reboot, leading to mismatches with expected AWS IoT documentation behavior.",
+    "user_expectations": "The user expects the [product_name] to maintain and restore its output state in alignment with AWS IoT 'desired' values after restarts or power cycles. They also wish to know if a newer firmware or version introduces improvements to this behavior.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "state persistence",
+      "cloud synchronization",
+      "remote control reliability"
+    ],
+    "pain_keywords": [
+      "state not retained",
+      "unexpected output reset",
+      "cloud-device desynchronization"
+    ],
+    "feature_keywords": [
+      "state synchronization",
+      "power cycle behavior",
+      "AWS IoT integration",
+      "output persistence"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "24": "Data Integrity Concerns"
+  }
+}

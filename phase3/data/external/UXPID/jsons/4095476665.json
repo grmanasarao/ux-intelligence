@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "4095476665",
+    "thread_id": "4479534060",
+    "publication_year": 2006,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 595392546882503,
+      "user_name": "PGz1OcFrkK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2006,
+      "comment_month": 5,
+      "comment_body": "Hello, I need some assistance. I have a [product_name] unit measuring temperature with an LM35 sensor (which works well). The [product_name] is connected via ASi to a [product_name] controller ([version_no]). Can I view the actual temperature value from the [product_name] over ASi, or am I limited to only monitoring relay output operations? Thank you."
+    },
+    {
+      "comment_id": 760218317165574,
+      "user_name": "WFXRs0qoam",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 5,
+      "comment_body": "Hi, With the ASi Communication Module, only digital signals are transferable between the PLCs. According to the documentation for the ASi module, the interface offers four inputs and four outputs, but these are virtual and not physically implemented in hardware. Therefore, analog values cannot be sent directly, but you can monitor analog limits using boolean signals."
+    },
+    {
+      "comment_id": 253193132983027,
+      "user_name": "GODWCQCj3U",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 8,
+      "comment_body": "I encountered a similar issue when trying to transfer an analog value from a [product_name] to a [product_name] using the AS-i Communication Module. My solution was to convert the analog value into a pulse train with a number of pulses corresponding to the analog value. After the pulse train completes, there is a brief pause before repeating. The [product_name] counts the pulses and, during the pause, transfers the count and resets its counter. This method is somewhat slow—the pulse frequency should not exceed 6 Hz, or pulses may be missed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are trying to send analog temperature readings from a [product_name] device to a [product_name] controller via the AS-i Communication Module. The module only supports digital signals, making direct analog data transfer problematic. As a result, users are forced to use workarounds such as converting analog values to pulse trains. The main issue is the lack of support for continuous analog data monitoring over the current interface.",
+    "user_expectations": "The user wants to remotely monitor the actual analog temperature value from the [product_name] using the AS-i connection, rather than being limited to discrete output signals.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote monitoring",
+      "real-time analog data",
+      "temperature value"
+    ],
+    "pain_keywords": [
+      "no analog transfer",
+      "digital only signals",
+      "slow workaround"
+    ],
+    "feature_keywords": [
+      "analog value transfer",
+      "ASi Communication Module",
+      "pulse train workaround"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

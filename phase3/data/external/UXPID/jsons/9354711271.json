@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "9354711271",
+    "thread_id": "3055273936",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 318976209231442,
+      "user_name": "mS3r1E9yrk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "Hello, How should this sensor be wired to the [product_name] analog input? [url] If I connect it as described, what could go wrong? W7 Signal GND => M, W8 GND => M, W9 Analog Out => I7, W10 Vcc => L+"
+    },
+    {
+      "comment_id": 230118199869050,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "That wiring is correct. However, your sensor has a 0-5 Volt output, while the [product_name] expects 0-10 Volt. It isn't a big issue, but you need to take care with how you scale the analog input."
+    },
+    {
+      "comment_id": 783651584545801,
+      "user_name": "mS3r1E9yrk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "I double-checked my wiring and turned on the power, but I'm not getting readings on the [product_name]. Also, the sensor started heating up, so I quickly disconnected it. I checked the connections again and they seem fine, so maybe the sensor isn't the type I thought. There’s a similar model with a 4-20mA output instead. [url] Hopefully I didn't damage anything. On the bright side, my previous test with PT-100 temperature sensors still works."
+    },
+    {
+      "comment_id": 150016243590634,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 3,
+      "comment_body": "No component appears to be damaged. If your sensor uses a 4-20mA output, place a 500 Ohm resistor between the analog input and ground. For wiring: connect +24VDC to W10; connect W7 to the analog input (Ai7) of the [product_name]; and place a 500 Ohm resistor from Ai7 to -24VDC. This will convert the 4-20mA signal to a 2-10 Volt signal, but you will need to adjust the input scaling on the [product_name] accordingly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants discussed how to wire a capacitive humidity sensor to the analog input of the [product_name]. The main challenge was managing differences in signal voltage ranges and correctly scaling the analog input. Users encountered issues such as sensor heating and lack of readings, indicating confusion about wiring and sensor compatibility.",
+    "user_expectations": "Users are seeking easy sensor integration, reliable guidance, safe setup without damaging components, and accurate analog signal processing by the [product_name].",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable analog input",
+      "easy sensor integration",
+      "clear documentation"
+    ],
+    "pain_keywords": [
+      "wiring confusion",
+      "incompatible input ranges",
+      "lack of feedback"
+    ],
+    "feature_keywords": [
+      "analog input compatibility",
+      "input scaling",
+      "clear wiring guidance"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

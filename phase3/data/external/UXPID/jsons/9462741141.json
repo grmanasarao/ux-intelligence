@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "9462741141",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 134959621342597,
+      "user_name": "DwNusxdZHL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Hello, I've installed [product_name] version [version_no], added a slider component and want to link it to a Modbus-read variable. In the Variable > Block Type section, I see AI, AQ, AM, VB, VD, VW, but I need to reference data from a HOLDING REGISTER. I'm using [product_name] version [version_no], configured as Modbus master communicating with a remote slave. Any suggestions would be greatly appreciated."
+    },
+    {
+      "comment_id": 977108409853958,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Which [product_name] exactly do you have? Please provide the full [article_no] and firmware [version_no]. Also, what is the size of the Modbus register—1 or 2 registers? What is the data type: Integer, Double Integer, or Real?"
+    },
+    {
+      "comment_id": 734170124836940,
+      "user_name": "cZQANX744b",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Hello, A Modbus holding register typically contains integer values. Within [product_name], you need to use VW. The VW address should be set up in the Modbus data table for the holding register. Direct addressing isn't possible because [product_name] doesn't know your communication setup or the configured address range. Hope this clarifies things."
+    },
+    {
+      "comment_id": 560991547755810,
+      "user_name": "DwNusxdZHL",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Thanks for your responses. I don't have the device at the moment—just the simulator. The general steps should be: In [product_name] comfort: - Go to Tools > Ethernet > create Modbus client connection - Go to Tools > Parameter VM mapping In [product_name]: - Global config > Tag Table > set the VM previously defined"
+    },
+    {
+      "comment_id": 530002033288321,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "If you would like my support, please answer the questions I previously asked."
+    },
+    {
+      "comment_id": 207370934188350,
+      "user_name": "DwNusxdZHL",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Hi, apologies for the delay. The [product_name] is [product_name] with firmware [version_no]. It's acting as a Modbus TCP/IP server reading 2 holding registers as integers; one register serves as the set point, the other displays the actual value. I've added the addresses, but no data seems to be coming through. Is there a way to debug this? [IMAGE]"
+    },
+    {
+      "comment_id": 722424891641405,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "Can you specify which Modbus device you're using (manufacturer and type)? Do you have a table of register addresses? Are you certain that unit ID 255 is correct? With [product_name], register addresses start at 1 instead of 0. Does your Modbus device begin numbering at 0 or 1? If it starts at 0, you need to offset the addresses in [product_name]."
+    },
+    {
+      "comment_id": 213314913502758,
+      "user_name": "DwNusxdZHL",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 12,
+      "comment_body": "I've resolved the address issue, thank you. The mapping differs across clients—reading address 1 elsewhere corresponds to address 2 in [product_name]. However, if I include additional addresses that do not exist, all data views disappear, including correct data. How can I identify problematic addresses or check the connection status?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are attempting to integrate [product_name] with a [product_name] device using Modbus protocol for visualizing holding register data. They face challenges in aligning interface elements with accurate Modbus addressing in [product_name], and if an invalid address is configured, all data visualization disappears, making debugging more complex.",
+    "user_expectations": "Users desire straightforward mapping of Modbus holding registers in [product_name], robust error handling, and clear diagnostic feedback to identify incorrect addresses or communication issues easily.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable data display",
+      "easy Modbus register mapping",
+      "error transparency"
+    ],
+    "pain_keywords": [
+      "inaccessible register mapping",
+      "no feedback on errors",
+      "total data loss after mistake"
+    ],
+    "feature_keywords": [
+      "Modbus register mapping",
+      "diagnostic/status feedback",
+      "partial data resilience"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

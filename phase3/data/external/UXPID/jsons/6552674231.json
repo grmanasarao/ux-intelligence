@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "6552674231",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 504307900143082,
+      "user_name": "CAnHb3j9bR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Hi, I've created a small system using a [product_name] controller and an HMI panel. Everything works except for the alarm functionality on the HMI. I'm struggling to get this aspect working. Has anyone here done this before and can offer advice?"
+    },
+    {
+      "comment_id": 334658395894619,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Please share the configuration or program you've set up for both the [product_name] controller and the HMI panel, so we can review and provide guidance."
+    },
+    {
+      "comment_id": 372506233107918,
+      "user_name": "RRVbJEdyXy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "On the HMI, you need to use a Word tag (for example, VW10) as the trigger. Each individual bit in this Word can then be used to trigger a different alarm message. Take note: bit 0 from VB10 is the same as trigger bit 8 in VW10, and bit 0 from VB11 is trigger bit 0 from VW10. Assign these alarms to a specific alarm group. Create a display page featuring an alarm component to show the messages from that group. On the [product_name] controller, use output networks for the alarm tags—VB10 and VB11 are relevant in this example."
+    },
+    {
+      "comment_id": 109782504387880,
+      "user_name": "DBxlJMkIBy",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hello all, can someone give a more detailed explanation about the addressing? For example, why does bit 0 from VB10 map to trigger bit 8 in VW10? Thanks in advance."
+    },
+    {
+      "comment_id": 600887313406096,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Please refer to the attachment."
+    },
+    {
+      "comment_id": 593574771952719,
+      "user_name": "DBxlJMkIBy",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Thank you again [user_name], you've helped me before! I recall some of this from training. Another quick question: In the example only the first 4 bits of VB10 and the first 4 bits of VB11 are used. Why not just use one byte for 8 alarms? Or is it because I'm writing to a Word on the HMI and need two bytes for this addressing? Thanks once more."
+    },
+    {
+      "comment_id": 401386444665613,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "The example provided by [user_name] is meant to clarify how the bits from each byte appear in the word. You could actually send all 8 messages using a single byte."
+    },
+    {
+      "comment_id": 764458756141095,
+      "user_name": "DBxlJMkIBy",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Thank you."
+    },
+    {
+      "comment_id": 915546384090408,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hello [user_name], happy to help."
+    },
+    {
+      "comment_id": 890967915335079,
+      "user_name": "DBxlJMkIBy",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Sorry to ask again, but I've got one more question. In your attachment, VB10 and VB11 were combined as VW10. If I used VW11 instead, which bytes would that involve—VB12 and VB13? Similarly, if I started from VB0 and VB1, what would the corresponding VW be?"
+    },
+    {
+      "comment_id": 528588767655960,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "There isn't separate memory dedicated to bits, bytes, words, or double words in VM Memory. Addressing works by bytes, with the word address always corresponding to the first byte. For example: VW10 = VB10 + VB11; VW11 = VB11 + VB12; VW12 = VB12 + VB13. Typically, words are assigned addresses spaced by two, starting from zero (VW0, VW2, VW4, etc.). For double words, use addresses spaced by four, starting from zero (VD0, VD4, VD8, etc.)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are working to enable alarm signaling between a [product_name] PLC and an HMI panel. While basic functions are operational, the alarm setup—particularly tag assignment and addressing—proves complicated. There is confusion around byte and word addressing and how individual bits map between controller outputs and HMI triggers. The discussion revolves around clarifying tag mapping, bit and word arrangements, and memory addressing to achieve correct alarm display, with users sharing examples and asking for deeper technical explanations.",
+    "user_expectations": "Users expect a straightforward and well-explained procedure for setting up and displaying alarms between the [product_name] controller and the HMI, with clear communication and simple tag setup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "clear alarm configuration",
+      "successful HMI alarm display",
+      "correct data addressing"
+    ],
+    "pain_keywords": [
+      "confusing alarm tag setup",
+      "complex address mapping",
+      "lack of intuitive guidance"
+    ],
+    "feature_keywords": [
+      "alarm tags",
+      "byte/word addressing",
+      "alarm control screen"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "12": "Network Configuration Challenges"
+  }
+}

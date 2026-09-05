@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "branch_id": "1834624758",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 673466799264073,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "I am using a [product_name] module with [article_no]. I have 16 inputs wired to the EN, configured to record the state of inputs 1-16, outputs Q1-16, and some timer values. From what I understand, when any input changes from 0 to 1, it triggers a log of all selected signals and timer values at that moment. Recently, I received a data log from a customer and noticed cases where an input was activated, but the log doesn't show any activity. The info screen for the data log only specifies that logging begins with a 0 to 1 transition on the EN input of the block. Is there any additional documentation about this process? For example: Does a normally-on (1) signal need to be inverted for triggering? Once logging begins, how long does it last? Does a further EN input stop it? How long does it take to record a log? Also, I see lines of data separated by minutes with no change—how is that possible? Is there a way to identify the triggering input for each log entry? Additional information to help with diagnostics would be greatly appreciated."
+    },
+    {
+      "comment_id": 721074356673352,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Please refer to the attached file."
+    },
+    {
+      "comment_id": 132798181209236,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "When the EN input on the Data Log module detects a rising edge from 0 to 1, a new row is added. If EN stays high, further changes are not logged until the next qualifying edge. There must be a minimum gap of 500 ms between edge changes for subsequent data to be recorded."
+    },
+    {
+      "comment_id": 303764384361611,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Thanks for your reply! I have attached the file in question, highlighting the 'on' states and the columns representing persistent inputs (such as limit switches). I am uncertain why, if the EN signal remains ON and blocks further data log writes, there are multiple rows at different times. I will upload the relevant code for clarity—it's part of a larger program, but only this section is relevant."
+    },
+    {
+      "comment_id": 370151632569990,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Here is the code that produced the data log."
+    },
+    {
+      "comment_id": 946692890159852,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "How are you controlling the EN input in your code? It's possible that logging is not occurring properly. If events intended to trigger logging are switched in parallel, the required 500 ms interval between triggers may not be maintained."
+    },
+    {
+      "comment_id": 927416275909985,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "The inputs shown occur at different times unless a specific input is already active. This is for a gate system with inputs for up/down commands, limit switches, and safety signals. Some inputs might happen within 500ms, but not consistently. There should be multiple rows with I2 or I8 being high, but those entries are missing."
+    },
+    {
+      "comment_id": 465516670162611,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Therefore, it's uncertain whether: (a) the 500 ms pause between events is maintained, and (b) fewer than two inputs are active at the same time. If one input is already on and others arrive at overlapping times, those events are not logged."
+    },
+    {
+      "comment_id": 232608874886635,
+      "user_name": "SWBqGWfSI0",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "Thank you. I resolved this by assigning each input its own edge-triggered timer and triggering the data log block using a 0.2s timer output. This approach seems to work more reliably. Is it possible to increase the time resolution in the log? I would like the time field to include seconds, as many operations happen within a minute."
+    },
+    {
+      "comment_id": 884777500272437,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 10,
+      "comment_body": "No, increasing the time resolution in the Data Log is not possible. You can only select the operands to be logged; further adjustments are unavailable."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users found the data logging mechanism unclear, particularly around how events are triggered and logged, especially when multiple or rapid input changes occur. Required intervals and the event logging process were not well understood, which resulted in missing entries when inputs were believed to be active. The basic information provided in the interface and limited configuration options made diagnosing issues and auditing operations challenging.",
+    "user_expectations": "Users expect each relevant input activation to create a distinct log entry, with clear identification of the triggering event and tools to troubleshoot effectively. They also want higher time resolution and more informative feedback from the interface.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "diagnosis",
+      "traceability",
+      "event auditing",
+      "troubleshooting"
+    ],
+    "pain_keywords": [
+      "missing log entries",
+      "unclear event triggers",
+      "limited logging configuration",
+      "minimal documentation",
+      "time resolution limits"
+    ],
+    "feature_keywords": [
+      "data logging",
+      "EN input edge detection",
+      "timing intervals",
+      "timer values",
+      "event trigger identification",
+      "logging configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

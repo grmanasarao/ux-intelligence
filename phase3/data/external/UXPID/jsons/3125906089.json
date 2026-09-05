@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "branch_id": "3125906089",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 834615228698851,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Good morning, I'm attempting to read the current temperature on my [product_name] device using a PT1000 sensor. However, it consistently shows 200°C, regardless of changes. The sensor is connected to I7 and the program accesses AI1. I'm following one of the provided example programs for temperature reading. I used Google Translate for this post."
+    },
+    {
+      "comment_id": 994186426887760,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "The analog inputs on the base module are intended for 0-10V signals and cannot directly read a PT1000 sensor. To interface with PT1000 sensors, you need either the [product_name] analog expansion module (for RTD sensors) or an external transmitter that converts PT1000 output to a 0-10V or 0/4-20mA signal."
+    },
+    {
+      "comment_id": 462646946656741,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Hello again, Using the [product_name] RTD module works much better for temperature measurement—thanks for pointing that out! Next, I want to use a fan to maintain my wood stove temperature at 120°C. When the stove heats to 120°C, the fan activates; as the temperature increases, the fan runs stronger, and as the temperature falls, the fan reduces its speed. Once it drops to 80°C, the fan turns off. I've measured a maximum temperature of 300°C at times, but stepping operation might be suitable. To achieve this, I have a [product_name] AQ module connected to a Niko drive ([article_no]). I found a related discussion at [url], but currently, no current output comes from the [product_name] AQ module. Could someone assist me further?"
+    },
+    {
+      "comment_id": 559164062031184,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Be aware that the [product_name] RTD module only supports a fixed temperature range of -50°C to 200°C. This means it cannot measure temperatures above 200°C."
+    },
+    {
+      "comment_id": 804131010774176,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "The 300°C measurement was taken without the fan running. If the fan keeps the stove around 120°C, high readings shouldn't be a concern."
+    },
+    {
+      "comment_id": 110610568359265,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "If you need to maintain a set temperature, a PI controller is advisable. Set the target at 120°C and let the PI controller adjust its output depending on how far off the temperature is from the target. However, there's some confusion about running the fan down to 80°C, which seems inconsistent with keeping the stove at 120°C."
+    },
+    {
+      "comment_id": 640283009289683,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "When the temperature drops to 80°C, the air isn't warm enough to heat the room, so the fan isn't needed—thus the idea to switch the fan on above 120°C and off below 80°C. You could also implement stepped operation, for example: 120–140°C = 25% fan speed, 141–160°C = 50%, 161–180°C = 75%, and 181–200°C = 100%."
+    },
+    {
+      "comment_id": 685161792874017,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "If I understand correctly, you're aiming for at least 25% fan power as the minimum. What should the output be while cooling down (from 120°C down to 80°C)? Also, according to the datasheet, the Niko dimmer module ([article_no]) isn't suitable for use with inductive loads (like fans). [url]"
+    },
+    {
+      "comment_id": 846360161910925,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "That's accurate. You could set the On/Off point at 120°C and exclude the Off control at 80°C. Regarding hardware choice, I relied on my supplier, who was trained on [company_name] products. Does this mean my project won't work with this equipment?"
+    },
+    {
+      "comment_id": 349651889764732,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "From what I know, the Niko dimmer module isn't appropriate for use with inductive loads such as fans."
+    },
+    {
+      "comment_id": 457746941835044,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Still, this doesn't explain why the [product_name] AQ module doesn't output any signal. If I use the same temperature for On and Off, the fan may turn on and off rapidly, causing instability. Setting the Off temperature much lower can prevent this issue. I hope my explanation is clear. Thank you for your help, especially on a Sunday."
+    },
+    {
+      "comment_id": 120219457309466,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I can't provide feedback without seeing your program and wiring setup."
+    },
+    {
+      "comment_id": 161241402629549,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I've attached a simple version of my program."
+    },
+    {
+      "comment_id": 223890356741847,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "I still encounter the same issue using your program—AQ 1 shows the values 250/500/750/1000 correctly. My wiring is likely incorrect. I'm sharing a photo in case it helps. Your support may end here, as you've already done quite a lot. Thank you for your assistance."
+    },
+    {
+      "comment_id": 802341847902698,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "There are definite wiring errors. You've connected a brown wire to bridge U1+ and M1, causing a short circuit at the voltage output—remove this wire. The blue wire on the top row is for functional earth, but it should go to M1. Voltage output for the first channel is between U1+ and M1. For current output, connect between I1 and M1."
+    },
+    {
+      "comment_id": 946517081616103,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Additionally, the dimmer module lacks a 230VAC power supply—there's no connection to terminals N or L."
+    },
+    {
+      "comment_id": 326425231107553,
+      "user_name": "ANVj77p3kZ",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 10,
+      "comment_body": "Now I have a functioning output voltage! I'll consult my dealer about the issue with the variator. Thanks again for your help and your effective support."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Initially, the user struggled to get accurate temperature readings from a PT1000 sensor when connected directly to a [product_name] base module due to lack of RTD compatibility. Upgrading to an RTD-compatible expansion module resolved the measurement issue. The user then aimed to automate stove temperature control with a fan and analog output, encountering further challenges around hardware compatibility and no analog current output from the [product_name] AQ module. Other forum users clarified hardware limitations and suggested improved control strategies, but incompatibility between certain modules and third-party devices continues to be a challenge.",
+    "user_expectations": "The user expects [product_name] hardware to deliver reliable temperature measurements with PT1000 sensors and consistent analog output for controlling external devices, aiming for simple integration and configuration for home automation tasks.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate temperature reading",
+      "automated fan control",
+      "integration with third-party devices"
+    ],
+    "pain_keywords": [
+      "inaccurate sensor reading",
+      "hardware compatibility",
+      "unclear product limitations"
+    ],
+    "feature_keywords": [
+      "RTD sensor input",
+      "analog output",
+      "temperature control"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

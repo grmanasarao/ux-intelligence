@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "branch_id": "4783282817",
+    "thread_id": "1723880927",
+    "publication_year": 2007,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 915283655493322,
+      "user_name": "uCR5cwiPfH",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I'm facing an issue with a [product_name] module and would appreciate some help. I have a sensor that outputs between 0.5V and 4.5V. I want to map sensor values such that in the first case, 1.5V corresponds to 0 Tons, and in the second case, 3.5V maps to 30 Tons. Is it possible to store these two analog values in the memory of the [product_name] module so they can be accessed after restarting? How can I achieve this in my program? Thanks and best regards, [user_name]"
+    },
+    {
+      "comment_id": 746898443526418,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Hello, Have you checked this discussion: [url]? It might be helpful. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 243182723905835,
+      "user_name": "uCR5cwiPfH",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], Thank you very much for your assistance. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 893485239167460,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2007,
+      "comment_month": 11,
+      "comment_body": "Hello [user_name], I'm glad my spreadsheet calculation was useful to you. Since the [product_name] module can only process integer values and your output range (0 to 30) is much narrower than your input range (1.5V to 3.5V, represented as 150 to 350 in module units), the amplification quality suffers because the gain is quite low. For better accuracy, consider multiplying your desired output range by 10. For example, map 150 (1.5V) to 0 * 10 = 0, and 350 (3.5V) to 30 * 10 = 300. To show the correct output (i.e., 0.0 to 30.0), you should set the number of decimal places to 1, which is functionally equivalent to dividing by 10. If you compare the results, you'll notice differences caused by rounding to integer values by the amplifier. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing how to save analog sensor values in the memory of a [product_name] module for use after restarting. The primary challenge is that the module only handles integer values, which affects precision when converting analog ranges that require detailed scaling. Users need to use scaling techniques and work within the memory and data formatting limitations of the hardware.",
+    "user_expectations": "The user expects the [product_name] module to store analog values accurately for future use and would like advice on how best to achieve this given the hardware's constraints.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "memory persistence",
+      "analog value accuracy",
+      "program continuity after restart"
+    ],
+    "pain_keywords": [
+      "integer-only storage",
+      "analog value imprecision",
+      "scaling difficulties"
+    ],
+    "feature_keywords": [
+      "memory storage",
+      "analog value processing",
+      "value scaling",
+      "decimal display setting"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "29": "Scalability Limitations"
+  }
+}

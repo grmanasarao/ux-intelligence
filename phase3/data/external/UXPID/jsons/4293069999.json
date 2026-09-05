@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "branch_id": "4293069999",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 265784152679426,
+      "user_name": "MFHBgRdPp9",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "From what I understand, adding a WISE-4010/LAN to the [product_name] controller could allow for higher resolution on the analog input. My goal is to connect a 10 kg load cell and read 10,000 units (representing 10,000 grams). Will the [product_name] controller be able to read 10,000 units from the load cell via the WISE-4010/LAN? Also, do I need a separate load cell amplifier or can the load cell be connected directly to the WISE-4010/LAN? Thank you."
+    },
+    {
+      "comment_id": 202847052450379,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "The analog inputs of the WISE-4010/LAN offer 12-bit resolution, meaning 4096 units. When measuring 10,000g, each unit will represent approximately 2.44g (10,000g / 4096 units). The analog inputs work with 0/4-20 mA signals, but load cells typically output only millivolts. You’ll need a load cell amplifier that outputs 0-20 mA or 4-20 mA."
+    },
+    {
+      "comment_id": 687135831465425,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "If you’re using just a load cell, consider amplifiers with Modbus TCP capability. This often increases the resolution to 16 bits and enables two-way communication, so you can do more than just read the weight."
+    },
+    {
+      "comment_id": 393888850900035,
+      "user_name": "MFHBgRdPp9",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "You mentioned the ADAM-6717 I/O Module. I found a similar module, ADAM-6017, with a good price. It supports Modbus/TCP, provides 16-bit resolution, and includes 8 analog inputs. [url] Is this module compatible for transferring load cell data to the [product_name] controller at higher resolution? I’ve already obtained an amplifier. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 365320427430918,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "The ADAM-6717 module can handle small voltage signals and should be suitable for your application. However, you’ll still require a special load cell amplifier since load cells cannot be connected directly to standard analog inputs."
+    },
+    {
+      "comment_id": 296842108086762,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Regarding your note about having the amplifier: Do you now have load cells equipped with the appropriate amplifier? Please specify what kind of signal you’re getting depending on the weight. The ADAM-6017 can communicate with [product_name] controllers, but pay attention to the range of integer values supported. These controllers typically handle integer values from -32,768 to 32,767 (15 bits plus sign) for arithmetic or comparison blocks. Floating point (32 or 64 bit) is available for display, but conversion to 15-bit integer can lose accuracy. If the ADAM-6017 outputs 16 bits without sign (0 to 65,535), values above 32,767 are recognized as negative numbers by the controller. This can be addressed via software blocks, or you can ensure your values remain below 32,767, depending on your application. Regards, [user_name]"
+    },
+    {
+      "comment_id": 134512496215216,
+      "user_name": "MFHBgRdPp9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "I chose the PEPPERL+FUCHS KFD2-WAC2-1.D amplifier based on forum recommendations. I need 10,000 values, aiming for a 1 gram resolution on a 10 kg load cell. From what I’ve learned, the ADAM-6017 should be up to the task. Thanks for the detailed information. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 117525716198472,
+      "user_name": "8RYb477Ela",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "The setup should work: connect the load cell to the input of the KFD amplifier, then the amplifier’s analog output to the analog input of the ADAM-6017, and finally, use a patch cable to link the ADAM-6017 to the [product_name] controller. For best results, configure the KFD for 4–20 mA analog output and the ADAM-6017 for 4–20 mA input. The ADAM-6017 can output data as either 16-bit integer or 4-byte float, both readable by the [product_name] controller. With proper scaling, you can achieve a range of 0 to 10,000 for 0 to 10 kg. One point of consideration: investing over 400 euros in components to connect to a controller costing about 100 euros may not be cost-effective if you only need basic weight display; ready-made weight systems might be more economical. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are exploring how to integrate a 10 kg load cell into a [product_name] controller setup, aiming for high-resolution readings. The built-in analog input resolution is a limiting factor, so users suggest third-party modules and amplifiers to achieve finer measurements and proper signal conversion. Challenges discussed include ensuring technical compatibility, converting signals from millivolts to current, and scaling or interpreting data correctly across devices.",
+    "user_expectations": "The user is looking to connect a load cell to a [product_name] controller and measure weight in 1-gram increments, resulting in 10,000 units. They hope for a straightforward integration and precise value scaling between all system components.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "high-resolution measurement",
+      "precise weight display",
+      "system integration"
+    ],
+    "pain_keywords": [
+      "compatibility issues",
+      "resolution limitations",
+      "signal conversion complexity",
+      "data scaling"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "modbus TCP",
+      "bit resolution",
+      "signal amplification",
+      "value scaling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

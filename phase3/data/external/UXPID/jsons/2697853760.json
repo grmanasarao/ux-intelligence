@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "2697853760",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 331735826766047,
+      "user_name": "FCam2Q7ZHs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm facing an issue with a counter. The RESET input is connected to the inverse of its Output Q using a flag, which causes the counter to reset when the OFF value is reached. I want the counter to retain its value even after a power outage, and I've enabled the retentivity option. However, the value resets anyway after power is restored. I suspect the reset link becomes positive when power returns, which forces the counter to reset. Does anyone know a way to prevent this and keep the counter value after a power-down? I've attached an image showing the setup. Thank you in advance."
+    },
+    {
+      "comment_id": 592115652058587,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "I suggest removing the negation from the counter's reset input and using a direct positive signal to reset. Try setting both the ON and OFF parameters to the same value, such as 5 or 6."
+    },
+    {
+      "comment_id": 939216272017792,
+      "user_name": "FCam2Q7ZHs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you!"
+    },
+    {
+      "comment_id": 546145010269223,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello [user_name], You're welcome. Has this solution resolved your issue?"
+    },
+    {
+      "comment_id": 743848170254596,
+      "user_name": "FCam2Q7ZHs",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Completely resolved."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion highlights a situation where retentivity failed to maintain the counter value following a power loss, even though the option was enabled. The main issue stems from the configuration of the counter's reset input, which inadvertently causes a reset on power restoration. This thread clarifies that retentivity alone is insufficient if the reset logic is not properly managed.",
+    "user_expectations": "The user expects the counter to retain and automatically restore its value after a power failure when retentivity is set, regardless of changes in internal reset signals.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "retain counter value",
+      "survive power loss",
+      "predictable operation"
+    ],
+    "pain_keywords": [
+      "unexpected reset",
+      "retentivity ineffective",
+      "counter value lost"
+    ],
+    "feature_keywords": [
+      "counter",
+      "retentivity",
+      "reset logic"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "branch_id": "3381395514",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 414863694748191,
+      "user_name": "Izm3gauOcu",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I also wanted to ask if it’s possible to design a system that reaches a specific rpm within a set time frame. My goal is to create such a system and was wondering if decimal numbers can be used for the rpm value. I’m unsure about the approach—perhaps using a timer, but it’s not clear to me. Any guidance on this would be appreciated. Thank you."
+    },
+    {
+      "comment_id": 511944468180384,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "You can use the ramp function of the [product_name], or create your own ramp. One way is to use the arithmetic function to build a clocked adder, where each cycle adds this value: (final value - initial value) / (running time / cycle time). It’s important to use the same time units, otherwise you’ll need to convert between them. Set the running time according to your requirements and choose the cycle time once."
+    },
+    {
+      "comment_id": 567212251951911,
+      "user_name": "Izm3gauOcu",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Thank you, but my issue is that I need to control a motor’s speed down to the individual revolution. I’d like to use a frequency inverter for a 50 Hz motor. This means if I want to make adjustments down to the single revolution, the ramp function isn’t suitable since changes can only be made via the inverter. The calculation for rotation speed with one pair of motor poles is: (50 Hz * 60 s) = 3000 rpm. But if I change 50 to 49 Hz, it doesn’t adjust from 3000 to 2999 rpm directly. I can’t utilize a constant 60 rotations per second if the frequency varies. Is there a way to have the motor increase to a set number of rpm within a specified time to address this? For example, setting the motor to reach 30 rpm in 3 seconds and have it increase in steps of 10 rpm. Thank you once again."
+    },
+    {
+      "comment_id": 785672940213389,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "You haven’t specified how the [product_name] should update the setpoint. This is possible only if you establish communication with the inverter. Depending on the inverter in use, there are several ways to do this: - Digital communication ([product_name] outputs to digital inputs of the inverter) to select preset speeds. - Analog output from [product_name] using a suitable module, which sends a 0-10V or 0/4-20mA signal to the inverter’s analog input. - Directly sending frequency or speed values via a network. Without details from you, it’s hard to know exactly what you want to achieve."
+    },
+    {
+      "comment_id": 818886807082183,
+      "user_name": "Izm3gauOcu",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Sorry I didn’t reread my previous post—it came from another thread and I forgot to double-check. To clarify my aim: I want to control an AC motor with a frequency inverter. The goal is for [product_name] to communicate with the inverter and change the rpm of the motor. However, even with communication established, I’m finding that none of the three solutions suggested work for increasing or decreasing the speed one step at a time."
+    },
+    {
+      "comment_id": 932942433063850,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "If I understand you correctly, you want to be able to adjust the speed by ±1 rpm?"
+    },
+    {
+      "comment_id": 422589489949597,
+      "user_name": "Izm3gauOcu",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Yes, that’s exactly what I want."
+    },
+    {
+      "comment_id": 799835185668898,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I don’t think that is possible..."
+    },
+    {
+      "comment_id": 992088572030743,
+      "user_name": "Izm3gauOcu",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Do you have an idea of the smallest rpm increment achievable per second? Alternatively, can the motor be set to increase speed by a certain amount over time—for instance, ramping up 100 rpm in 10 seconds, which would mean a 10 rpm/s increment? Thank you."
+    },
+    {
+      "comment_id": 982405647606763,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I can’t say for sure. You still haven’t described how [product_name] and the VFD would communicate, nor specified which VFD you plan to use."
+    },
+    {
+      "comment_id": 413808259126682,
+      "user_name": "Izm3gauOcu",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I haven’t chosen the VFD yet—I’m trying to resolve my problem first. Thank you anyway. I’ll look for more information."
+    },
+    {
+      "comment_id": 219343177496023,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Closed because the question was posted twice. The second thread titled \"program makes doubt\" was published in the [product_name] - Software section. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is working to achieve fine-grained control of motor speed, aiming for single rpm adjustments, using [product_name] alongside a frequency inverter. The main difficulty is that [product_name] and the inverter do not support such high precision—neither through ramp functions nor typical analog/digital output methods. Furthermore, no clear communication method between the controller and the frequency inverter has been specified, leaving the technical solution unresolved.",
+    "user_expectations": "The user wishes to obtain exact control of a motor’s speed, adjusting it incrementally by one rpm with [product_name] communicating to a frequency inverter.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise rpm control",
+      "fine adjustment",
+      "automated speed programming"
+    ],
+    "pain_keywords": [
+      "lack of fine-grained speed control",
+      "communication uncertainty",
+      "insufficient resolution",
+      "functionality limits"
+    ],
+    "feature_keywords": [
+      "ramp function",
+      "analog output",
+      "digital output",
+      "setpoint adjustment",
+      "frequency inverter communication"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

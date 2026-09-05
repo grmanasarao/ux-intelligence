@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "1210104660",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 228990874995917,
+      "user_name": "erXY2Av7YG",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I have a basic operator panel connected to a [product_name] controller, which manages a mixing process. I've created four user-selectable programs where users can input four mixing parameters. Recipe management wasn’t an option since its interface is too complex for this panel and the end user wanted an easier method to change and edit parameters. My current setup loses all parameter values after a power cycle because the controller’s memory I’m using isn’t retentive. Currently, the parameters are assigned as follows: Parameter 1 – vw100 Parameter 2 – vw104 Parameter 3 – vw108 Parameter 4 – vw112 What’s the best way to make these addresses retain values in the controller’s memory, or are there specific memory locations I should use so the settings are preserved? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 137350927016149,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "It isn't possible to make the VM area retentive in this controller. Please upload your program to the forum, so others can help review and suggest alternative solutions."
+    },
+    {
+      "comment_id": 294267348995669,
+      "user_name": "ZgV73nmWKV",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Hello! I use Up/Down counters as set point storage and make them retentive by assigning them to dedicated memory space. You can access and modify their values via the controller menu or as VW addresses, and adjust them through the web application or services like AWS cloud. Note that storing negative values isn’t supported, but for my application, this method works reliably. Hope that helps!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users struggle with data persistence in [product_name] controller memory. Custom parameter values are lost after power cycles because the standard memory area lacks retentive functionality. While using retentive counters is suggested as an alternative, there are limitations such as storing only positive values. The complexity of built-in recipe management leads users to look for simpler and more persistent solutions for saving user settings.",
+    "user_expectations": "Users want the controller memory to enable specific addresses that retain parameter data after power cycles, seeking an easy-to-use and reliable method for managing and editing parameters without resorting to complicated recipe management systems.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent parameters",
+      "easy configuration",
+      "user customization"
+    ],
+    "pain_keywords": [
+      "data loss on power cycle",
+      "complex recipe interface",
+      "limited retentive address options"
+    ],
+    "feature_keywords": [
+      "retentive memory",
+      "parameter storage",
+      "simple editing"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "9": "Feature Requests"
+  }
+}

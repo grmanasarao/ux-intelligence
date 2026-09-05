@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "branch_id": "3231531200",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 183450112547308,
+      "user_name": "DdOoPbXjLm",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Hello, I've put a lot of effort into trying to solve this issue myself, but I'm stuck and would appreciate some support. I'm using a [product_name] controller ([version_no], [article_no]) on my home network, which is also where my Windows laptop is running a virtual machine with Home Assistant. Both devices are in the same IP range. Reading Modbus data (Flags/Coils and VW Holding Registers) from the [product_name] via Home Assistant works well. For example, I can read Flag values (Coils 8257-8230) and Holding Register data (HR 1-425). However, when attempting to write data from Home Assistant to Flags or Registers on the [product_name], the device doesn't seem to update with the new values. The [product_name] is set as Modbus slave. I've tried different slave unit values (0, 1, and 255) but writing doesn't work. If anyone can provide guidance, I'd really appreciate it. Thank you. [user_name] Here is the Modbus configuration in Home Assistant (Yaml): modbus: - type: tcp name: \"PowerManager\" host: 192.168.1.98 port: 505 delay: 0 message_wait_milliseconds: 30 timeout: 5 For reading Modbus from the [product_name], both slave values I've tried work. Note: coil numbering differs between Home Assistant (starts at 0) and [product_name] (starts at 1). To read Flag block (M17) / HR8272: switches: - name: M17 slave: 1 address: 8272 # M17 write_type: coil command_on: 1 command_off: 0 scan_interval: 1 verify: To read variable VW10 (HR address 5): sensors: - name: \"AC Load House\" address: 5 input_type: holding scan_interval: 2 unit_of_measurement: watts slave: 255 This is my Yaml code for writing to the M flag and Holding Register using a virtual switch in HA. Again, coil numbering differs as above (writing to 8276 in HA, trying to update 8277 in [product_name]). The code runs as expected in HA Automation.yaml, with no errors, but the changes do not appear on the [product_name]: - alias: WriteModbusTest trigger: platform: state entity_id: switch.virtual_switch to: \"on\" action: - service: modbus.write_coil data: hub: \"PowerManager\" unit: 255 address: 8276 # M21 value: true - service: modbus.write_coil data: hub: \"PowerManager\" unit: 255 address: 23 # VW46 value: 4321"
+    },
+    {
+      "comment_id": 466540194064267,
+      "user_name": "tuLbKYc7ij",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "After reviewing your diagram, I find it a bit unclear and hard to interpret. It appears that your understanding of the Modbus protocol could benefit from further study. Also, I've noticed some inconsistencies, such as using a network input for the address related to block M21 while simultaneously referencing block 21. When working with network inputs, you should use addresses 1 to 6808. In the arithmetic function block B116, it's not clear why you expect a non-zero output if there’s no input supplied. This message was originally translated from Spanish."
+    },
+    {
+      "comment_id": 857294893577627,
+      "user_name": "DdOoPbXjLm",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "[user_name], thanks for your feedback. You're right that I have limited knowledge of Modbus, which is why I’m seeking help. I've used ChatGPT to get as far as I have with reading Modbus from Home Assistant. Like many, I focus on learning what’s needed to achieve my goals rather than becoming an expert. The diagram I shared was mainly for testing if any of the values would display; I expected the M21 block to be incorrect, but it was part of my troubleshooting process. I chose to ask for advice after making substantial effort on my own, rather than simply requesting step-by-step instructions. Do you have any specific guidance on what I've done wrong and suggestions for achieving my intended result? Any advice would be appreciated. Thank you."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is able to read Modbus coil and holding register data from a [product_name] device using Home Assistant, but writing data to the device does not work. Automation code executes without errors, but the written values are not reflected in the [product_name] device. Feedback highlights limited documentation or support for write operations using Modbus protocol with [product_name] in a home automation scenario.",
+    "user_expectations": "The user expects reliable writing of values from Home Assistant to specific coils and holding registers on the [product_name] device, just as reading is working. They are looking for clear, practical advice to achieve successful two-way Modbus data exchange.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "home automation integration",
+      "write automation",
+      "remote control",
+      "Modbus write capability"
+    ],
+    "pain_keywords": [
+      "cannot write data",
+      "lack of documentation",
+      "instructional gap",
+      "address confusion"
+    ],
+    "feature_keywords": [
+      "Modbus write",
+      "coils (Flags)",
+      "holding registers",
+      "slave mode",
+      "address mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

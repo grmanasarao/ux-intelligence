@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "1908990420",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 461200097317519,
+      "user_name": "aPc3K12BJ8",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, After several days of experimentation, I managed to control [product_name] outputs from a remote .NET application. Here are the simplified steps I followed, which might be useful for others: • Set your [product_name] to act as a server, and the .NET application as a client. Create an Ethernet server connection in [product_name] configuration and assign the required parameters. Pay attention to TSAP values, as these are necessary for the client application (these are specified in HEX). For example, in this setup, [product_name]'s IP is 192.168.1.21 and the PC running the application is at 192.168.1.7. [IMAGE] • To control a digital output (e.g., Q1), add a Q1 and a NetworkInput on the logic board, then connect them. Open the settings for the NetworkInput and configure the parameters—here’s an important detail: choose 'VM' instead of 'Remote Device' and set the required variables. [IMAGE][IMAGE] • Upload the configuration to the device; this completes the first phase. The next step is to develop the .NET software. • Create a new C# project. Add snap7.net.cs to your project and include snap7.dll in the build directory. • Setting the correct connection parameters (as described in the Snap7 documentation) is critical, so use the same parameters as in step 1. • You can now write values to the PLC's VM memory as defined earlier. Note that [product_name] (and similar PLCs) use 1-based indexing. The documentation states that to control Q1, set LSB in the buffer. Here’s the line for writing data: logo.DBWrite(1, 1, 1, buf); If everything is set up correctly, you should hear the relay activating. The code is straightforward, and I used VS2019 Community Edition. I hope this approach saves others some time."
+    },
+    {
+      "comment_id": 574467756059425,
+      "user_name": "jym6MGV4i3",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 4,
+      "comment_body": "Have you tried achieving this with Python?"
+    },
+    {
+      "comment_id": 531493658855478,
+      "user_name": "omqADCeUSh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 12,
+      "comment_body": "I have attempted this using Python as well. My main question is: how do you read from an output such as NQ1? From your example, it seems you are writing to NI1 instead."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users share their experiences in controlling [product_name] outputs remotely via Snap7, focusing mainly on a C# approach. There is interest in replicating this functionality in Python, with some confusion around reading specific outputs rather than just writing. The discussions highlight a need for clear instructions on both writing and reading output states using third-party libraries across different programming languages.",
+    "user_expectations": "Users expect to programmatically control and read [product_name] outputs using external libraries such as Snap7, and prefer simple, cross-language solutions for manipulating and querying output states.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote control",
+      "automation",
+      "cross-language support"
+    ],
+    "pain_keywords": [
+      "insufficient documentation",
+      "difficulty reading outputs",
+      "multi-language implementation gaps"
+    ],
+    "feature_keywords": [
+      "Ethernet server",
+      "output control",
+      "VM memory access",
+      "remote API"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

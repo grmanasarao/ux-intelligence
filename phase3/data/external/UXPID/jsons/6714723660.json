@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "6714723660",
+    "thread_id": "3055273936",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 606535255006287,
+      "user_name": "GZz4au9kh1",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Hello experts. I have a question about connecting a three-wire pressure transducer (atlas copco [article_no]) with a 0.5-4.5V range to the [product_name] analog input (0-10V). The transducer has Signal, GND, and V+ wires. I've tried several wiring methods, but the analog value never increases along with the pressure shown on the manometer."
+    },
+    {
+      "comment_id": 523020587245726,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "You haven't specified the sensor's voltage supply value. If your supply is 24 VDC, you can use the [product_name]. Otherwise, you should connect the GND from the sensor supply to the GND (0V) of the [product_name] so both reference potentials are the same."
+    },
+    {
+      "comment_id": 618548005462373,
+      "user_name": "GZz4au9kh1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Thank you for your interest in my question. The sensor requires a 5VDC supply, so I believe I need an external power source. What is the best way to connect the sensor after that?"
+    },
+    {
+      "comment_id": 548493852477731,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "You will need an external power supply for the sensor. A simple voltage stabilizer IC (Type 7805, approx. 1 Euro) should work. Connect 5V+ from the supply to the sensor's V+, the sensor's signal output to the [product_name] analog input, and 5V- (GND) to the sensor's GND. Make sure to connect 5V GND to the minus (M) terminal of the [product_name] power. Note, you must have a DC version if you want to use analog input on the basic module. Since the input works from 0-10V and the sensor outputs 0.5-4.5V, the measurement resolution will be less than half the normal—typically, the resolution for 10V is 1000, so for 4V, it's about 400. Good luck."
+    },
+    {
+      "comment_id": 866302160319976,
+      "user_name": "GZz4au9kh1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Thank you very much. Could you please help me improve the program from this thread: [url] so I can use it with my 0.5-4.5V sensor? I'm new to [product_name] programming and find it difficult."
+    },
+    {
+      "comment_id": 550006733133022,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "What is the sensor's pressure range and which [product_name] module are you using?"
+    },
+    {
+      "comment_id": 212111133183139,
+      "user_name": "GZz4au9kh1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "The sensor range is 0-10 bar and the [product_name] I have is [article_no]."
+    },
+    {
+      "comment_id": 245867926021740,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "You need to perform some calculations. With a sensor output of 0.5V-4.5V (4V span) and the [product_name] working in the 0-10V range, consider: 0.5V to 4.5V equals 4V for 0-10 bar. If the input span were 10V, it would cover 25 bar (10/4 x 10). Since the sensor starts at 0.5V, not 0V, the offset is 1.25 bar (0.5V in a 25 bar range). So, sensor offset = -1.25 bar; end range = 23.75 bar. Set your analog amplifier block accordingly."
+    },
+    {
+      "comment_id": 175767172875179,
+      "user_name": "GZz4au9kh1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Thank you for your help."
+    },
+    {
+      "comment_id": 412643759515924,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Here's an alternative solution for consideration."
+    },
+    {
+      "comment_id": 739587727094934,
+      "user_name": "GZz4au9kh1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 8,
+      "comment_body": "Thank you, experts. This is my approach for this machine and likely applicable to most air compressors. Q1 and Q2 outputs control the start of the star-delta motor, Q4 operates the load/unload valve, and Q3 is the stop function. AI2 is assigned to the PT1000 temperature sensor. If anyone has suggestions to improve the setup, please share."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are working on integrating a three-wire pressure transducer (0.5-4.5V output) with a [product_name] analog input (0-10V range). The main challenges involve matching hardware compatibility, wiring, and calibrating voltage vs. pressure for accurate readings. Discussion highlights lack of clear guidance and programming support for non-[company_name] sensors, leading to difficulties in setup and configuration.",
+    "user_expectations": "Users are looking for simple and clear wiring and configuration instructions for connecting their sensor to the [product_name], expecting precise analog pressure readings and step-by-step programming help for handling a lower sensor voltage range.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful analog signal reading",
+      "hardware integration",
+      "program configuration"
+    ],
+    "pain_keywords": [
+      "compatibility confusion",
+      "signal range mismatch",
+      "lack of clear integration instructions"
+    ],
+    "feature_keywords": [
+      "analog input scaling",
+      "sensor wiring",
+      "program adaptation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

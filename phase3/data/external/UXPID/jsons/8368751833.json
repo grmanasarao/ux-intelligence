@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "8368751833",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 559129788514953,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello again, I'm facing a challenge with my setup: I've connected 10 [product_name] devices to an Ethernet switch, assigning unique IPs from 192.168.1.10 to 192.168.1.20. One unit serves as the central device, gathering inputs and communicating with the other nine. I've configured OR gates in the central device, each meant to get network inputs from the nine others. However, when trying to connect the third unit to an OR gate, I get the message: \"No more connection for the local device.\" I need to connect all 9 devices as network inputs. Is there a restriction on the number of devices I can link? How can I solve this?"
+    },
+    {
+      "comment_id": 569643137875773,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], That error message is new for me. Usually a screenshot can help explain the situation, but in your scenario, it isn’t sufficient. Please upload your project as a ZIP file so we can review it."
+    },
+    {
+      "comment_id": 472371895526336,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I have an idea. The [product_name] manual and online help don't specify exactly how many slave connections a [product_name] [article_no] supports. From my experience, a [product_name] [article_no] manages up to 8 static and 16 dynamic connections. I suspect it uses only static connections for slaves. For certainty, consider submitting a support request. Is the master/slave approach necessary for your application? Could the master/master method work better for you?"
+    },
+    {
+      "comment_id": 538650938556212,
+      "user_name": "X0K7w54T3K",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "[user_name], I believe you're correct—I've seen the same error message before. At work, I run simple networked projects with up to 4 units and never had this issue. But at home, with 7 units, I've encountered the \"no more connection for local device\" error. My workaround was to use two main devices, each with their own [product_name] HMI, to manage logic and limited communication between them. I stopped using the master/slave setup. That way, if the network fails, each unit continues operating its own program with some limitations (for example, without the network, the backup generator can't be started remotely, but the unit controlling it will still operate during power issues). Even though all units share the same network, the software sees them as two star networks with a link between them. This approach helped me get around the device limitation, and I hope it helps you as well."
+    },
+    {
+      "comment_id": 660002578078487,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I built a test project with 9 slave units. This confirmed my earlier thought—[product_name] forms static connections with slaves, and only 8 are available. So the maximum is 8 slave connections per unit."
+    },
+    {
+      "comment_id": 804833099780699,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Dear colleagues, thanks for your feedback. I managed to resolve the \"limit connections\" issue and wanted to share my solution. I split the devices to handle different network inputs: for instance, the central unit (device one) has an OR gate; device four also has an OR gate, receiving network outputs from devices one to four. Device five manages inputs from devices five to nine. This way, the central OR gate works like a multiplexer, drawing from master, device four, and device five. With this structure, I remain within the 8-connection limit for each unit, and the project compiles successfully. Hope this assists others facing similar issues."
+    },
+    {
+      "comment_id": 866252489475141,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Avoid uploading screenshots; they aren’t helpful here. Instead, please provide your [product_name] project file. I’m surprised you managed to link 9 slave devices to a master."
+    },
+    {
+      "comment_id": 220592520182823,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Sorry for the delay, but yes, I have done it. Here’s my network project with one central unit (\"master\") and 9 additional units. My goal was to trigger an alarm from any unit and send it to a general output on the central device. Hope this network project example helps anyone with a similar challenge."
+    },
+    {
+      "comment_id": 812191214398633,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I'm confused. You mention having 9 slave devices, but your setup seems more like master/master communication. You named 9 out of 10 devices as \"slave,\" but the principle remains: the [product_name] [article_no] supports only 8 static connections. If you want a ninth connection, you must use a dynamic connection or route the signal from the ninth unit through one of the first eight."
+    },
+    {
+      "comment_id": 986986818968033,
+      "user_name": "KGMG4XLC5j",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I may have misused the terms \"master\" and \"slave\" before. In my initial post, I mentioned connecting 10 [product_name] devices via an Ethernet switch, which is exactly what I did. I intended for the central device (\"master\") to receive an output (for a GSM alarm) from any of the other nine units on my network. Using the multiplexer method, I achieved this, so I'm satisfied. Thanks for your input!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered the error \"No more connection for the local device\" when networking several [product_name] units using different communication methods. Community members confirmed a technical restriction: [product_name] [article_no] supports only 8 static connections per device. This limit affects how many devices can communicate as 'slaves' to a single master. Several users shared workarounds—splitting network inputs among multiple devices and adopting master/master communication to stay within connection limits. These approaches help maintain network functionality despite technical constraints.",
+    "user_expectations": "Users expect to connect multiple devices to a central unit for smooth networked logic operations, without facing limitations due to maximum connection counts. They seek clear guidance on device and network limits to configure projects without errors or unexpected restrictions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "network communication",
+      "centralized logic",
+      "alarm management",
+      "scalability"
+    ],
+    "pain_keywords": [
+      "connection limit",
+      "configuration error",
+      "network constraint"
+    ],
+    "feature_keywords": [
+      "static connections",
+      "network inputs/outputs",
+      "multi-device networking",
+      "alarm triggering"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "29": "Scalability Limitations"
+  }
+}

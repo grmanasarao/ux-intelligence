@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "3733389690",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 858373261083784,
+      "user_name": "yNH8hSLHEJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, we are currently using [company_name] [product_name] - [article_no] with [product_name] [version_no] software for automating our tape laying machine. The machine has several parameters, such as movement, tape cutting, and pressure roller operation, each moving between two points or switching ON/OFF with reed sensors detecting positions. All logic and expansion modules are wired in the [company_name] system. My question is about controlling these parameters individually through the programmed [company_name] software while connected to the machine. In simulation mode, this is possible at any time. But when running with the actual machine in RUN MODE, we no longer have control over individual input buttons—everything can only be automated globally or switched ON/OFF as a whole, not per parameter like in simulation. The machine also lacks manual operation buttons or switches. Can anyone advise on controlling each parameter ON/OFF individually via software when connected to the machine? That would be greatly appreciated. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 719505583087687,
+      "user_name": "bDHvLmggaM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hi [user_name], this situation is expected: in simulation, you can manually toggle inputs using your mouse. For physical control, actual input hardware like buttons is required to activate those inputs on the real device. You might want to check the manual for usage of constants and connectors relevant to [product_name]."
+    },
+    {
+      "comment_id": 850669830641620,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "The description is a bit unclear. Do you mean you want to adjust setpoints individually for each parameter?"
+    },
+    {
+      "comment_id": 634475697276418,
+      "user_name": "xGLgCGo8Nc",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Hello, without external switches, individual ON/OFF switching can be achieved in two ways: add a softkey block in your program and make it accessible on the device screen, or use the device's cursor keys (the four arrow buttons) to toggle impulse relays—be sure to enable retentivity. This was translated from Estonian using Google Translate."
+    },
+    {
+      "comment_id": 719304652358753,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Are you utilizing cursor keys in your program? If so, note that for the actual [product_name] device, you need to press ESC and the programmed cursor key together—hold ESC first, then the cursor key."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users have noticed that hands-on control in simulation via [product_name] software does not match the hardware experience. Simulation allows for easy ON/OFF toggling of individual parameters, but with real hardware, such fine control is not possible unless physical input devices or programmed touch/soft key interfaces are used. This mismatch leads to confusion for users who expect seamless control between software simulation and hardware operation.",
+    "user_expectations": "Users expect to individually control (toggle ON/OFF) each parameter directly from the software while the hardware is running, mimicking the flexibility of simulation, and hope to achieve this without adding physical buttons.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "direct parameter control",
+      "manual override",
+      "simulation parity"
+    ],
+    "pain_keywords": [
+      "inability to control parameters individually",
+      "difference between simulation and real operation",
+      "lack of manual interaction methods"
+    ],
+    "feature_keywords": [
+      "parameter on/off control",
+      "simulation vs run mode",
+      "softkey block"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

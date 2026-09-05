@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "8242979770",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 649622878029651,
+      "user_name": "RD5L3bEhqe",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Hello! I recently purchased a [company_name] [product_name] for my IoT laboratory. I connected it to a ZLAN5143D TCP serial server and linked a XY-MD02 temperature and humidity sensor. The TCP server and sensor operate as expected with other software, but I am unable to get them to function correctly with [product_name]. I set up a network analog input and configured it to connect to my Modbus TCP server, entering the correct unit ID, defining IR as the Modbus type, and specifying the Modbus address. While it appears [product_name] is communicating with the TCP server (there is activity), the data viewed through the network analog input connected to an analog output always shows a value of 0. Can anyone advise? Model: [article_no]"
+    },
+    {
+      "comment_id": 617709394441284,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Based on your description, the cause of the problem is unclear. There is not enough detailed information to assist. Please upload screenshots of the configuration from both the [product_name] and the Modbus device. Specify the exact version of your [product_name] and write the full article number."
+    },
+    {
+      "comment_id": 625626442828284,
+      "user_name": "RD5L3bEhqe",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 479008227287781,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "[product_name] uses an offset of +1 for Modbus addressing. If you reference IR1 in the network analog input, it corresponds to IR0 on the Modbus side. Similarly, IR2 in the input block refers to IR1 in Modbus."
+    },
+    {
+      "comment_id": 927652929204784,
+      "user_name": "RD5L3bEhqe",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "I found the solution—I needed to add an Analog Amplifier block between the input and output. That was my oversight."
+    },
+    {
+      "comment_id": 975780092344071,
+      "user_name": "RD5L3bEhqe",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 11,
+      "comment_body": "Thanks for pointing that out. I realized I was off by one with the addressing."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced challenges integrating a third-party Modbus TCP server and sensor with a [product_name], where the configured network analog input always showed a zero value. The issue was mainly due to the Modbus address offset and the flow of analog data in the [product_name] configuration. It was resolved by adjusting the address mapping (+1 offset) and including an Analog Amplifier block between the input and output.",
+    "user_expectations": "The user expects the [product_name] to correctly receive and display sensor values via Modbus TCP using the specified configuration and settings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate sensor data",
+      "Modbus TCP integration",
+      "seamless configuration"
+    ],
+    "pain_keywords": [
+      "address offset confusion",
+      "configuration challenge",
+      "functionality unclear"
+    ],
+    "feature_keywords": [
+      "Modbus TCP",
+      "network analog input",
+      "analog output",
+      "address mapping",
+      "Analog Amplifier"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

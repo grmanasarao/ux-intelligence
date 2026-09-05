@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "3596622371",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 871545503814174,
+      "user_name": "hexcImvmRv",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hello all, I have a [product_name] base unit and an [product_name] expansion module configured to provide an analog 4-20mA signal for controlling a proportional pressure valve from [company_name]. When I use the [product_name] without the valve connected, I can accurately control the output within the 4-20mA range. However, once the valve is attached, the loop current doesn't go below 5.2mA. Above this level, the analog control works as expected (linearly). I have tested with two different valves and two different analog output modules. The issue remains the same. I've also spent a couple of days troubleshooting this with [company_name], but we didn't find a solution. Has anyone faced a similar issue? Regards"
+    },
+    {
+      "comment_id": 194326558723501,
+      "user_name": "sJM5db1Ilr",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Hi, we've experienced a similar issue and managed to solve it. Could you send your program (zipped file) so I can take a look? Regards, [user_name]"
+    },
+    {
+      "comment_id": 931928734498350,
+      "user_name": "hexcImvmRv",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Thanks [user_name], Please see the attached program."
+    },
+    {
+      "comment_id": 516909855166896,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "The issue isn't with the program, but with the fact that the [product_name] analog output module only supports standard interfaces (0-10V or 0/4-20mA). If these are potential-bound, you can experience voltage or current errors — for example, getting values like 4.8mA instead of 4mA, or even higher. A solution could be to use an isolation amplifier or to connect resistors in parallel with the load."
+    },
+    {
+      "comment_id": 634119052487511,
+      "user_name": "hexcImvmRv",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Thanks for your response [user_name]. What resistance value would you suggest I try in parallel? Around 470 Ohms? [user_name]"
+    },
+    {
+      "comment_id": 714532086552953,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "It's not possible to suggest a universal value, as it depends on how your device's interface is designed. I've seen someone use a 1.8k Ohm resistor, and another person used a 5k Ohm potentiometer and made adjustments with it. Can your valve also be controlled with an external potentiometer connected to the interface?"
+    },
+    {
+      "comment_id": 733466949712488,
+      "user_name": "hexcImvmRv",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "I've tried a couple of different resistor values: 1.8k Ohm – The valve doesn't operate; the pressure output is 0 psi. 5.6k Ohm – The loop \"off\" state is much lower (about 1.2 psi on the gauge, compared to 8 psi before), so although I haven't measured the current, it's clearly closer to 4mA. The performance has shifted with the resistor in parallel (as expected), and I'll need to check if my customer is okay with this solution. Thank you for your support."
+    },
+    {
+      "comment_id": 650087309955197,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "I would recommend using an isolation amplifier."
+    },
+    {
+      "comment_id": 803243571737279,
+      "user_name": "hexcImvmRv",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "Thanks, I've already suggested using an isolation amplifier as a possible solution."
+    },
+    {
+      "comment_id": 431419718762510,
+      "user_name": "sJM5db1Ilr",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 7,
+      "comment_body": "I've encountered the same issue and resolved it by installing an isolator. A device from PR electronics worked well for me."
+    },
+    {
+      "comment_id": 157514097687813,
+      "user_name": "eNvhx776f5",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "A [company_name] isolator model [product_name] is suitable for 4-20mA output; model [product_name] is for input signals. This can be a cost-effective solution."
+    },
+    {
+      "comment_id": 265434805214900,
+      "user_name": "eNvhx776f5",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Using the [company_name] [product_name] isolator resolved the issue for me."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered a consistent issue where the [product_name] analog output module could not reduce its 4-20mA signal below a certain level when connected to a proportional valve. The output worked normally without a connected load, suggesting a hardware interface limitation rather than a programming error. Solutions such as using isolation amplifiers or parallel resistors were discussed, but these workarounds do not fully address the compatibility limitation between the output module and specific valves.",
+    "user_expectations": "The user expects the analog output to function reliably within the complete 4-20mA range, regardless of the attached device. They seek straightforward compatibility between the module and standard current-loop valves.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate control",
+      "seamless integration",
+      "reliable analog signal"
+    ],
+    "pain_keywords": [
+      "incompatible analog output",
+      "minimum current too high",
+      "load-dependent error",
+      "requires external hardware"
+    ],
+    "feature_keywords": [
+      "4-20mA analog output",
+      "compatibility",
+      "current loop",
+      "isolation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

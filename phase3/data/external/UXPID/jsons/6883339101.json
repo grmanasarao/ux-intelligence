@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "branch_id": "6883339101",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 228420388749910,
+      "user_name": "uSaaRnyLgu",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello, good afternoon. I have a question regarding comparing two values: one from an arithmetic function block and another from a counter. I want to compare these values directly in the analog comparator block. However, it seems I need to pass the counter value through an arithmetic block before connecting it to the comparator. Is there a way to compare the counter value without using an arithmetic block?"
+    },
+    {
+      "comment_id": 606720573277886,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "If your goal is to compare the counter value with an analog value, why not use the counter's built-in comparator? Or is it already used for something else? Since the meter doesn't provide an analog output, you have three options: 1) Use the internal comparator; 2) Refer to the counter value via an analog block; 3) As shown in the attached example, transfer the counter value to VM memory using Parameter VM Mapping and feed it to the comparator as an analog network input."
+    },
+    {
+      "comment_id": 183312114455336,
+      "user_name": "uSaaRnyLgu",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I can't use the counter comparator because the reference value keeps changing. When it changes, the output doesn't turn off until the counter reaches a specific value, but I need it to turn off as soon as it's below my reference value, which can change dynamically."
+    },
+    {
+      "comment_id": 397398962971978,
+      "user_name": "uSaaRnyLgu",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "I tried using the comparator built into the counter, and it worked. I realized I was wrongly setting the ON and OFF values. Previously, I had ON at the desired trigger value and OFF at zero, but I needed to set both ON and OFF at the relevant thresholds so the output would switch correctly as the reference value changed."
+    },
+    {
+      "comment_id": 183908709767831,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "That's possible. You just need to reference the ON and OFF parameters appropriately from the math function block."
+    },
+    {
+      "comment_id": 789870370205557,
+      "user_name": "uSaaRnyLgu",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Exactly, that's how I solved it. Thank you so much, your advice was very helpful for my project."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user was initially unsure how to compare a counter value directly with an analog reference, assuming extra arithmetic steps were required. The discussion clarified that by setting the ON and OFF parameters of the counter's comparator correctly, it is possible to achieve the desired behavior without additional blocks, which resolved the user's issue regarding comparator thresholds.",
+    "user_expectations": "The user wanted to compare the counter value directly with a dynamic analog reference, ensuring reliable ON/OFF switching as the reference changed, and preferred a streamlined approach without unnecessary intermediary arithmetic blocks.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "direct value comparison",
+      "simplified logic setup",
+      "project efficiency"
+    ],
+    "pain_keywords": [
+      "confusion with comparator thresholds",
+      "unnecessary block usage"
+    ],
+    "feature_keywords": [
+      "counter integrated comparator",
+      "ON/OFF parameter settings"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

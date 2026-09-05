@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "branch_id": "8991088511",
+    "thread_id": "3055273936",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 716354670479166,
+      "user_name": "u37TXrVAYh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello, I have connected a Pt100 3-wire sensor to the [product_name] module and am displaying the value on an [product_name] operator device. Although the room temperature is approximately 21.5°C, the display shows 283. My program includes a PI regulator and multiple other functions, but for testing I am using only the analog input channel of the [product_name] module (AI6), which is linked to an analog marker. The message block points to this AI channel. The Pt100 appears functional, registering around 109 Ohms between the wires previously connected to specific terminals. Am I missing something here? Thank you in advance."
+    },
+    {
+      "comment_id": 891611309166045,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Did you scale the value after the analog input using an analog amplifier? The input returns a value between 0 and 1000 units, which corresponds to a temperature of -50.0 to 200.0°C if a decimal place is displayed on the operator device. A post-AI value of 283, once scaled, represents 20.8°C. Could you please upload your program as a ZIP file?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "There is user confusion regarding how temperature readings from a Pt100 sensor are processed through the [product_name] module and displayed on the operator device. The main challenge is understanding the scaling required to convert raw analog input values into accurate temperature readings, which results in unexpected outputs and uncertainty about correct interpretation.",
+    "user_expectations": "User expects the operator device to provide direct and precise temperature readings in degrees Celsius that align with actual room conditions, without additional manual calculations or scaling steps.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate display",
+      "simple setup",
+      "consistent sensor reading"
+    ],
+    "pain_keywords": [
+      "wrong temperature display",
+      "scaling confusion",
+      "unit mismatch"
+    ],
+    "feature_keywords": [
+      "AI channel",
+      "scaling",
+      "numerical temperature display"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

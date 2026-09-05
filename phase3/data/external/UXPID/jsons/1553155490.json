@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "1553155490",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 525233370934794,
+      "user_name": "RtzdO9PfxI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "I'm trying out a [product_name] device for the first time and am unsure whether I'm missing something or if I'm facing software or hardware limits. For example, when working with analog values within mathematical functions that are nested inside other functions, why do I need to connect an analog contact to an analog output or flag? In simulation, it seems to work without this connection, but when I attempt to download to the device, I get errors. Shouldn't the simulation also flag this issue so it aligns with real hardware behavior? Additionally, after downloading to the [product_name] device, I'm unable to view live values online because the software says the program differs, even though I believe it does not. Is this a known issue? Thank you."
+    },
+    {
+      "comment_id": 801576838968438,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "The compiler requires signals to be 'terminated' somewhere. Analog outputs or flags used for termination don't actually need to be in use or physically attached. Similarly, digital signals also need termination, and you can use an 'analog threshold trigger' or an open connector (X) for this purpose. This reflects a design decision by [company_name]. Hopefully, future versions of the [product_name] will introduce an analog termination block. The [product_name] programming software permits you to test incomplete segments, with simulator exceptions ignored that the hardware download will not accept. Once you download, a complete program is required. The software compares offline and online versions and blocks online viewing if there are any mismatches, even those involving block parameters. I hope this clarifies things for you. Best regards, [user_name]."
+    },
+    {
+      "comment_id": 519513361528161,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 7,
+      "comment_body": "Hello, Regarding question 3: Usually, the selected [product_name] version in your [product_name] software project does not match the connected hardware device. Update to the latest available version of [product_name] software and choose the correct hardware in the program. This should resolve the issue and enable online testing."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are unclear about why analog values must be terminated to outputs or flags within the [product_name] environment. The software simulation allows such cases without error, but downloading to the hardware enforces proper termination, leading to late error detection. Offline and online program mismatches further obstruct real-time monitoring. Users expect consistency between simulation and hardware and want error indications at the simulation stage.",
+    "user_expectations": "Users want simulations to detect and alert them to all errors that will occur on the hardware, especially relating to analog termination requirements. They also expect reliable monitoring and comparison between offline and hardware programs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate simulation",
+      "seamless online monitoring",
+      "user-friendly error detection"
+    ],
+    "pain_keywords": [
+      "inconsistent simulation",
+      "lack of early error detection",
+      "hardware-software mismatch"
+    ],
+    "feature_keywords": [
+      "analog termination",
+      "simulation accuracy",
+      "online monitoring",
+      "hardware selection"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

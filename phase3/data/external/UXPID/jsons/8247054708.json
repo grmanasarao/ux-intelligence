@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "branch_id": "8247054708",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 348794160350011,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello, I'm using a [product_name] with a communication module in a remote setup and want to receive notifications (SMS/email) if something goes wrong, and monitor the system remotely. I'm considering the [product_name] communication module for this purpose. One critical feature is notifying about power outages, so I'm searching for a 24V power supply with backup (such as supercapacitor or a small battery) that could keep the module running long enough to send an SMS. My plan is to connect a relay's normally open contact (powered by 230V) to a digital input, so when mains power drops the relay opens, input goes low, and an SMS is sent. I assume only a few seconds of backup are needed, but if anyone has experience on how quickly such a solution can trigger notification, please share. As an alternative, I looked at the Advantech ICR 3211B, which features a built-in supercapacitor and can support last-gasp SMS notifications (see [url]). I feel it offers several advantages for a similar price, such as allowing OpenVPN client configuration (making a public IP unnecessary), and deploying custom applications (like Node-red, MQTT, etc). Integrating it with [product_name] would require more work compared to the native module, but switching to a newer [product_name] version with cloud connectivity could make the module sufficient for my needs (mainly SMS and internet, no need for VPN). Any advice is appreciated, thank you!"
+    },
+    {
+      "comment_id": 848116283822000,
+      "user_name": "cZQANX744b",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hi, Your idea for powering the communication module during power outage to send SMS notifications is feasible. For backup power, options range from batteries and capacitors to a UPS—anything that supplies enough power for the module to complete SMS transmission. Regarding the Advantech device: it should work well with an AWS solution. With NodeRed, you should be able to set up communication with your [product_name] using either S7 or Modbus TCP protocols. If you're familiar with AWS programming, you could also use a generic LTE router with a LAN interface. Notification from AWS upon a [product_name] power failure shouldn't be a problem, because any configured data sent by [product_name] to AWS contains a timestamp. Just monitor this timestamp, and if it doesn't update as expected, it means connectivity is lost. Then trigger SMS or email alerts from AWS as needed. Hope this helps."
+    },
+    {
+      "comment_id": 538460762990272,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Thank you for your response [user_name], We've chosen to use the [product_name] communication module mainly because it's compact and fits easily into the existing cabinet, while the Advantech module was a bit too deep and the placement of its Ethernet ports was problematic. I looked into supercapacitor-based UPS options and found several (see [url], [url], [url]). They're all similarly priced, but feel excessive for our needs. The module requires at most 125mA at 24V and 250mA at 12V; simulations show a 47000uF capacitor could power it for around 3–5 seconds before dropping below 11V. I made a simple charging circuit using two transistors to limit charging current, but our 24V power supply already features current limiting based on its datasheet. Its internal capacitors might provide enough power for a few hundred milliseconds, but given the module's slow startup/shutdown, that's likely insufficient for sending notifications. No field testing yet. All parts for my hardware workaround cost about €20, mostly for the supercap. If it works reliably, I may share the schematics here. I like your idea of monitoring timestamps in Amazon cloud and notifying accordingly, but I prefer to keep things local. Still, I'll explore it alongside my hardware solution. Cheers!"
+    },
+    {
+      "comment_id": 828611560374681,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Another concern with the communication module is a vague warning in the manual that left a poor impression after I'd already decided to use it. Does anyone have details about these rare cases mentioned? The manual lacks specifics. I expected industrial-grade reliability for a device in this price range, not behavior akin to a DIY Raspberry Pi setup. Currently, the only way to put the device in safe status is by holding the SET button with a tool for over 5 but less than 10 seconds, or via the web interface—only if someone is present. If this is a real reliability issue, why can't it be set via one of the inputs when mains fails and backup power is available? That would allow an SMS to be sent and the device to enter safe status before losing power. As things stand, this feature is impractical unless preconfigured. Sorry if this reads as a rant—I expected more from [company_name]."
+    },
+    {
+      "comment_id": 619076225889344,
+      "user_name": "cZQANX744b",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hi, One more thing to mention: The duration you need to power the communication module with emergency backup depends on its configuration. For example, if you set the watchdog time between the module and [product_name] to 10 seconds, you'll need to supply power for at least 10 seconds plus the time needed to send the SMS. Also, ensure the emergency power solution works reliably. The module might draw significantly more current when sending—not unlike earlier GPRS modems—so keep that in mind. Regarding the warning in the manual, I haven't personally come across it. It's probably best to file a support request to [company_name] for detailed clarification. Hope this helps and good luck."
+    },
+    {
+      "comment_id": 477100246841075,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Thanks, [user_name]! Very useful input. I have now issued an official Support Request and will see what [company_name] responds. I've set the process image update interval to 10 seconds, but can't find a proper watchdog function in the manual. It seems the module might trigger a diagnostic event on lost communication, but I can't find a way to use it for custom messaging. My plan: a simple relay with a 230V coil driven by mains, and a normally open contact connected to 24V and module input I1. When the mains fails, the relay opens, input I1 goes low, and triggers SMS. I'll definitely verify that my hardware solution lets SMSes go out before installing. The components have arrived, and I plan to test this in the next week."
+    },
+    {
+      "comment_id": 593399899312358,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "I stumbled across this old thread and was curious how you resolved the issue. I'm now starting a new project with the new communication interface module from [company_name]. I would have used the older module, but [company_name] never released a North American model. Previously I used an Insys Imon U-300, but since that's 3G only, it won't work after the 3G shutdown. I addressed the power backup by using batteries, though this might be more than you need or take up too much cabinet space. It's inexpensive though. My setup: batteries and charger/power supply at the cabinet bottom; incoming power monitoring relay below."
+    },
+    {
+      "comment_id": 470568184431628,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hi [user_name]! Glad you found this thread! I never posted an update after solving my issue, so here goes: Batteries weren't an option for me because space was limited in the cabinet (it couldn't even fit the Advantech module, which had more features and built-in backup). I discovered that the existing device's power supply had robust current limiting and handled unlimited capacitive loads per datasheet ([url]). This let me build a supercap circuit with just a diode (I used two 1N4001s in parallel for 2A charging, though that was likely excessive) and a 47mF/40V capacitor. I used a relay with 230V AC coil on mains to signal the module input when power failed. This power supply's own capacitance held output for about a second after loss of mains, enough for one SMS (usually), but I needed to notify at least four numbers. Adding the 47mF capacitor extended backup to ~5s (I'll share a photo next post). That was sufficient for 4–5 SMS, though not emails, which fit my requirements."
+    },
+    {
+      "comment_id": 387655177347337,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Here's an oscilloscope screenshot of the backup supply circuit mentioned earlier: Blue channel = relay to module input I1 Red channel = PCB to module power L+"
+    },
+    {
+      "comment_id": 804806458624883,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "On the 'sudden disconnection of the power supply' warning I mentioned earlier, I raised an official support ticket with [company_name] in Sweden. They forwarded my query to Germany, and I eventually received a follow-up reply. The Swedish product manager for [product_name] also got in touch and provided a much more detailed answer, assuring me of the reliability of the communication module (and its sibling, which apparently shares the same hardware). They mentioned that in numerous deployments, power cycling wasn't problematic. According to them, the manual could have been clearer or reworded. I haven't checked the latest documentation, so I'm unsure about any updates. After these clarifications, I proceeded with the module, and it's worked without issues since last June."
+    },
+    {
+      "comment_id": 244698579660043,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Thanks for your reply and details. This info could be useful for future projects. For the project I referenced, the client required operation during power failure. The battery backup provides about 2–4 days of runtime, depending on transmission volume. In the new communication module from [company_name], a supercapacitor is included, granting about 30 seconds of run time. It can automatically send SMS notifications on power on and power off. I'm still learning the system; so far, only power on/off SMS works. It won't send emails."
+    },
+    {
+      "comment_id": 203640273321245,
+      "user_name": "jDpa2QBoto",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Thanks! Appreciate you sharing. If days of autonomy are needed, then batteries make sense. What exactly is a [company_name] CMI? I'm unfamiliar with that. Edit: Realized you meant the CIM after reading your other posts. It looks interesting, with a supercap and more built-in LAN ports. However, lack of email support and different configuration compared to the previous communication module might be limiting for some requirements. No email notifications is a dealbreaker for my current application."
+    },
+    {
+      "comment_id": 340926564965845,
+      "user_name": "vzUKN9b1lm",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Yes, it's the [company_name] CIM (not CMI), thanks for the correction. I'm disappointed; the CIM lacks both email capability and onboard I/Os compared to the previous communication module, and it doesn't match the functionality of the Imon U-310 (despite being more expensive once fully equipped). The U-310 could directly manage I/Os and flags by number without address configuration, and could combine inputs with timers/counters to trigger SMS or email. I haven't checked the 2040's current price but believe CIM is even pricier when adding the needed cellular module and antenna accessories. If [company_name] wanted to rush the CIM to market without email support, they should've at least allowed SMS-to-email bypass, which many cellular networks use. Entering an email address instead of a phone number should route SMS to the intended email, but CIM restricts recipient field to numbers only. While I'm not fully satisfied with the CIM, I'm glad at least there's an option for North America. Years ago, it was promised the older module would be released here, but it still hasn't happened."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users explored how to integrate [product_name] and associated communication modules for remote SMS/email alerts during power outages. They experimented with supercapacitor-based power retention to enable modules to complete notifications before shutdown. The native communication module was praised for its compactness and easy compatibility, though concerns arose about unclear reliability notes in the manual and lack of input-triggered safe status. Support reassurances from [company_name] and hardware-focused solutions addressed most reliability and notification needs.",
+    "user_expectations": "Users expect the communication module to reliably notify in case of power loss via SMS, and to offer configurable safe-status functionality. Preferences include robust, industrial reliability and seamless integration, even if it means forgoing advanced third-party features. Compactness and native support are prioritized over broader feature sets from competing devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote notification",
+      "compact installation",
+      "reliable SMS alerting",
+      "easy integration",
+      "robustness"
+    ],
+    "pain_keywords": [
+      "manual clarity",
+      "safe status usability",
+      "trigger limitations",
+      "power loss handling",
+      "space constraints"
+    ],
+    "feature_keywords": [
+      "SMS/email notification",
+      "safe status triggering",
+      "input-triggered actions",
+      "compact design",
+      "power backup integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "4": "Hardware Reliability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

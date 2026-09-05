@@ -1,0 +1,191 @@
+{
+  "metadata": {
+    "branch_id": "9706633966",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 984594256747754,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Here’s my setup: I have six inputs, each connected to a knob that selects one of four settings, along with on and off buttons. There are twelve relays and two analog outputs. The program is designed to transfer different values from one user-defined function (UDF) to another based on the knob settings. Parameters passed between UDFs are times in seconds and counts ranging from 5 to 10. While time values are being transmitted with no trouble, the count values, though generated in the first UDF, aren’t being read by the second UDF. I tried mapping these to different VM addresses without success and can’t pinpoint the problem. I’m wondering if the target UDF might not accept values from two separate UDFs. Hoping someone can assist, [user_name]."
+    },
+    {
+      "comment_id": 275436086036570,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Screenshots won’t help in this case. Please upload your program and the UDFs as a ZIP file."
+    },
+    {
+      "comment_id": 510977661574457,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Hello, sorry for the confusion. I’m sharing the program itself now. There are UDFs named Chooser and Counter which should send values to all UDFs on the right. Currently, for testing, only one UDF on the right, named 551, is connected."
+    },
+    {
+      "comment_id": 575135905493679,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "The values do get transferred from one UDF to another."
+    },
+    {
+      "comment_id": 491491342784312,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I could have clarified better—while the values are being transferred, they aren’t being picked up by the up counter. The timer does receive its value, but the up counter doesn’t read its value."
+    },
+    {
+      "comment_id": 275427147547638,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "In my current version, there are two settings to choose from. If you simulate, swapping between program 1 and 2 clearly changes the activation time for the 551 UDF outputs—from 120 seconds in program 1 to 5 seconds in program 2. However, for both programs, the counter doesn’t increment to the target value, and instead stops after one cycle. The UDF should count how many times it toggles the outputs, but it only toggles once. This inconsistency contrasts with previous tests where hardcoding the values in the 551 UDF worked flawlessly."
+    },
+    {
+      "comment_id": 946877566023877,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "You initially questioned if values would transfer to subsequent UDFs. They do. You didn’t mention that the next UDF (551) isn’t functioning as expected. I can’t quickly test your UDF logic without knowing your design intent. The UDFs lack documentation."
+    },
+    {
+      "comment_id": 489787173633063,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Since the problem wasn’t clear to me, my initial statement was incorrect—sorry about that. The program is still being developed and lacks detailed comments in the UDFs and blocks. Here’s a brief overview of how the right-side UDFs work: The 551 UDF receives start and stop values from the left, has three timers and two counters. The first timer activates the ON cycle output, the second activates the OFF cycle output. When both timers finish the required count—stored in ON and OFF counter blocks—a pause timer runs once. Afterwards, the Cycle Finished output is activated and the UDF is done. To manage timer and counter values externally, I used an analog MUX block based on input state and split time and counter values into two UDFs, due to parameter restrictions. These UDFs reliably pass their values to the main UDF, but this is where issues arise: although the timer correctly receives its value, the up counter within the receiving UDF does not. I’ve tried every adjustment, but the 551 UDF never receives its ON/OFF count value."
+    },
+    {
+      "comment_id": 128640388930492,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "No need to apologize, you didn’t trouble me. To clarify: Did you first create the UDF circuit as a regular program, test it, and then copy the relevant blocks into the UDF? If yes, this could be the problem. I’ve encountered similar issues where UDFs don’t function properly after blocks are copied. In my experience, rebuilding the UDF from scratch, following the template rather than copying, resolved it."
+    },
+    {
+      "comment_id": 932147751015918,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Thanks for your suggestion. I’ll try rebuilding the UDF without copying and update you on the outcome."
+    },
+    {
+      "comment_id": 611317199682708,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Looking forward to hearing your results."
+    },
+    {
+      "comment_id": 698892378688984,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "After extensive testing, I discovered that a counter within a UDF does not accept values from outside, so it never increments. This seems to be a bug in the [product_name] Soft Comfort software suite. It complicates my project more than anticipated. To explain: when I place a counter both inside and outside a UDF, the external counter works correctly, but the internal one does not."
+    },
+    {
+      "comment_id": 957801857774875,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I created a small example with two UDFs and a program. The attached screen recording shows that the counter in the Counter UDF counts down properly. I think your issue may be setting up down counters (using the LOW block on the Counter Input DIR) but not defining a start value—so it defaults to zero. A counter can’t decrement from zero."
+    },
+    {
+      "comment_id": 757236992526961,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I am getting closer to a solution and noticed the same issue in your example. If I use a clean program and assign the values directly to the counter, it works: the output only turns on when the threshold is reached. But when the counter gets values from another source, the output is HIGH immediately, without waiting for the threshold. I made a sample program—see the counter’s output: it’s ON the entire time when values are sent in, but behaves correctly when hardcoded. Problem identified, but no solution yet."
+    },
+    {
+      "comment_id": 820902029499604,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Second test: same UDFs, but now set to count up. The counter and its output work as they should."
+    },
+    {
+      "comment_id": 328114307022004,
+      "user_name": "EjVyq37KAn",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "That solved the issue. Didn’t expect that to be the cause. Now the project runs smoothly :) Thanks for everyone’s help."
+    },
+    {
+      "comment_id": 427124614127848,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I did further tests. The counter activates if only the ON parameter is set as a reference. If the OFF parameter is also referenced, it functions as expected. However, if the OFF parameter is less than ON, the OFF value must be at least 1, not zero."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing issues when passing count values between user-defined functions in a [company_name] programming environment. Time values transfer and are read without problem, but count values aren’t picked up by the receiving counter, especially when passed dynamically from other UDFs. This leads to inconsistent outcomes between simulations and actual use, with hardcoded values working reliably. The root cause may involve how UDFs are constructed—whether blocks are copied or assembled individually—with no visible system error messages.",
+    "user_expectations": "Users expect both time and count parameters to transfer reliably between UDFs and be properly processed by counters within destination functions, without requiring hardcoded values. Consistency in logic control and ease of development are key for users.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "consistent parameter passing",
+      "modular control logic",
+      "dynamic configuration"
+    ],
+    "pain_keywords": [
+      "counter value transfer fails",
+      "inconsistent UDF behavior",
+      "UDF parameter passing restrictions",
+      "difficulty debugging"
+    ],
+    "feature_keywords": [
+      "UDF parameter transfer",
+      "counter block integration",
+      "timer block integration",
+      "modular UDF design"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

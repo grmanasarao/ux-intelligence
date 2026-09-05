@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "branch_id": "9460756905",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 883025429766677,
+      "user_name": "fW66tMIjJU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I am connecting to a [product_name] device using a node-based setup to retrieve data. Before investing significant time in modifying my functions, are the following possible with [product_name] via S7 (snap7) communications? - PLC status - CPU info - PLC date/time (get/set) - Retrieve block info/data There are a few more functions, but these are the most important. Currently, I can access Input/Output/Markers but not counters or timers. I have also read about Modbus functionality—would it be better or easier to use Modbus in this case?"
+    },
+    {
+      "comment_id": 191714189761241,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello, Fundamentally, S7 and Modbus focus on function block parameters, and your experience with either matters. To access data from [product_name] function blocks like counters: In your [product_name] program, use the VM mapping tool. Select the required FB (like a counter) and assign a VM address that's available. Valid VM addresses range from VB0 to VB850. Refer to the documentation for more details. Then, use your software to read the VM address configured in the VM mapping table. If you need to specify a DB number, only DB1 is available in [product_name]. Hope this helps."
+    },
+    {
+      "comment_id": 196440034339818,
+      "user_name": "fW66tMIjJU",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thank you for the reply. I have experience with both protocols, but I don't have access to [product_name] software since the device is managed by another company as a production system. I'm aiming to read settings like time, counters, inputs, etc. I can successfully read inputs, outputs, and markers, but nothing else works. Is [product_name] fully compatible with S7, or only partially? Can I set time/date or retrieve PLC status (Run/Stop) with S7 or Modbus?"
+    },
+    {
+      "comment_id": 244851904877447,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello, If the VM mapping for function block parameters hasn't been configured and you lack access to the [product_name] program, you won't be able to read or write those parameters. There's also no way to execute RUN/STOP or Reset commands via Modbus or S7. [product_name] uses a distinct structure compared to S7 or Modbus; it allows data \"exchange\" only through VM mapping and has some \"pre-configured\" information available. This pre-configured data can be found by opening the help section in [product_name] configuration software and searching \"VM.\" The documentation lists VM addresses for reading/writing this data. Categories include I, AI, Q, AQ, M, AM, Ni, NQ, NAI, NQ, NAQ, and date&time. Hope this clarifies things."
+    },
+    {
+      "comment_id": 953842865564605,
+      "user_name": "fW66tMIjJU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hi, If VM mapping for function block parameters isn't set up and you can't access the [product_name] program, reading or writing these parameters is not possible. Also, there's no function for RUN/STOP or reset via Modbus or S7. [product_name] has a unique structure and only allows limited data \"exchange\" through VM mapping, alongside some pre-configured information. You can find these details by consulting the [product_name] configuration software and searching for \"VM.\" Regarding your comment about S7 compatibility, now I see why it behaves this way. I can perform actions such as reading/writing time or switching Run/Stop directly from the [product_name] software. Is it possible to use the same communication setup as the software itself? I've captured packets via Wireshark, but haven't analyzed them fully. Is there an existing protocol base for this communication?"
+    },
+    {
+      "comment_id": 398286954344738,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "These links might offer some assistance: [url] [product_name] [article_no] Snap7 discussion."
+    },
+    {
+      "comment_id": 850112612092977,
+      "user_name": "fW66tMIjJU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "I've spent weeks reviewing these resources and similar posts. Recently had a breakthrough—the WireShark analysis helped move things forward. Using the Packet Sender program, I sent specific ASCII/HEX data (see example below) via TCP on port 10005 (may vary per device), which successfully toggled run/stop modes. I've now identified four working commands with this approach. Still deciphering response meanings, but that's for later. Appreciate your help."
+    },
+    {
+      "comment_id": 726565090623658,
+      "user_name": "RrpBNMIsYI",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Thanks, that was helpful. What additional commands have you managed to test?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are trying to use S7 (Snap7) communications for detailed access to [product_name] controllers but encounter restrictions since [product_name] doesn't fully support S7 protocols. Without programming or VM mapping configuration, many advanced functions such as accessing counters, timers, or issuing RUN/STOP commands are unavailable through traditional protocols. Users experiment with direct packet manipulation and leverage pre-configured VM addresses, but limited documentation and protocol clarity present ongoing challenges.",
+    "user_expectations": "Users expect [product_name] devices to offer comprehensive, S7-compatible remote access to parameters including status, CPU information, date/time (get/set), block information, counters, and timers via standard communication methods. They seek documentation or protocol guidance enabling those functions, similar to the control available in [product_name] configuration software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "advanced remote monitoring",
+      "comprehensive protocol access",
+      "S7-like integration",
+      "status/counter/timer read/write"
+    ],
+    "pain_keywords": [
+      "incomplete compatibility",
+      "restricted access",
+      "poor documentation",
+      "unable to access advanced functions"
+    ],
+    "feature_keywords": [
+      "VM-mapping",
+      "pre-configured V-addresses",
+      "protocol command documentation",
+      "S7/Modbus access",
+      "programmatic Run/Stop"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "branch_id": "8480530923",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 323237565657796,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, I am experiencing an issue when sending ON values from my operator panel to a counter. While most values transfer correctly from delay settings to the controller, sending a value such as 4 for ON results in something like 238798 being received instead. Does anyone have advice on how to address this type of problem? Thanks in advance!"
+    },
+    {
+      "comment_id": 820188117999548,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "We can assist if you upload your [product_name] program and the automation project zipped together."
+    },
+    {
+      "comment_id": 563305689214843,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "I've attached a [document] with screenshots showing the relevant section that uses the counter."
+    },
+    {
+      "comment_id": 413070379830741,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "This is what I anticipated. You're correctly mapping the parameter in the controller system, assigning a double word (VD14) in DInt format. In your automation project, however, you're only referencing one word, VW14, which is incorrect. You need to use double word VD14 and select the DInt format within the variable list. By writing only to VW14, data is placed in the higher-order word and causes the incorrect value of 238798."
+    },
+    {
+      "comment_id": 885937012630418,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Thanks a lot, that solved the previous issue. I changed it to VW24 in both systems, otherwise adjusting VW16 caused further changes. Now, however, I'm facing the same issue with my interval on-delay timer: setting it to 60 minutes gives a display value of 36:00 in the operator panel. This is defined as a word in the controller and as an integer in the automation project."
+    },
+    {
+      "comment_id": 989903029572237,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "The core issue is that timer values aren't shown in mm:ss format. The value sent represents total seconds, given that the time base in your case is set to seconds. For example, 60 minutes equals 3600 seconds, and if the automation system interprets 3600 as a time value it displays 36:00."
+    },
+    {
+      "comment_id": 294590065383954,
+      "user_name": "HsJkjJ9udh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hello! Some time ago, I encountered this same interval timer issue. Initially, the timer wasn't integrated into the operator panel, but now it needs to be for a new project. The problem persists: within the controller, an ON-delay set as [minutes;seconds] shows 36:00 on the operator panel for 60 minutes, and using [hours;minutes], 1:00 on the display equals 1 hour and 40 minutes in the controller. This makes sense technically, but ideally the value should not be entered using a different time base on the interface. Although I know the data type should be 'time' in the operator panel UI, I can't select it—possibly due to the panel type or because this controller model doesn't support it with an S7 screen. Is there an alternative solution? Thank you in advance!"
+    },
+    {
+      "comment_id": 339882728582666,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "The controller system transmits the timer value as an integer using the selected time base, not a specific format. This cannot be changed. For example, with a minutes time base, entering the value in the controller as \"h:m\"—so 1 hour and 40 minutes—results in a value of 100 (since 1 x 60 + 40 = 100) being sent to the operator panel."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants face consistent data type mismatches and time format confusion when transferring values between controllers and operator panel devices, especially for counters and timers. Misunderstandings around proper data handling and differing display formats create inaccurate readings. The inability to select an expected 'time' data type for certain operator panel models further challenges users synchronizing timer functions.",
+    "user_expectations": "Users hope for straightforward and reliable configuration when exchanging data between controllers and operator panels, expecting accurate representation of counters and timers regardless of underlying data types or time bases.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate value transfer",
+      "correct time formatting",
+      "seamless integration"
+    ],
+    "pain_keywords": [
+      "incorrect value display",
+      "data type mismatch",
+      "time base confusion",
+      "unsupported data type"
+    ],
+    "feature_keywords": [
+      "data type selection",
+      "counter preset",
+      "timer configuration",
+      "time format display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "30": "Data Persistence Confusion"
+  }
+}

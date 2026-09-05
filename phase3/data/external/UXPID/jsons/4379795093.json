@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "4379795093",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 499412548869623,
+      "user_name": "wAwdQpppPt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Hello, I was informed it's possible to use a 5kΩ potentiometer to adjust a timer parameter in a [product_name] device with article number [article_no]. Is this correct? I've previously used an encoder with pins I5-I6 and I'm unsure about the procedure, or if this setup is possible with my [product_name]."
+    },
+    {
+      "comment_id": 295359592014885,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "Yes, that's possible. Refer to the attached image. When you connect the potentiometer to I7, it acts as analogue input AI1. If you connect it to I8, it acts as AI2. Would you like a sample circuit for the [product_name]?"
+    },
+    {
+      "comment_id": 113115853333333,
+      "user_name": "wAwdQpppPt",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "From the image, it looks like the main difference is adding a 6.6kΩ potentiometer at 24VDC to get the full operating range. So, for example, I can use I7 as AI1 to control the timer parameter, correct? I would appreciate a circuit example if it's not too much trouble."
+    },
+    {
+      "comment_id": 150105477480126,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "You don't need a 6.6kΩ potentiometer but rather a 5kΩ potentiometer with a 6.6kΩ series resistor. Since the analogue input handles up to 10V, the extra 14V should drop across this series resistor. In this example, the maximum timer value would be 1000 seconds (16 minutes and 40 seconds)."
+    },
+    {
+      "comment_id": 283553025974769,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 1,
+      "comment_body": "The exact potentiometer value is not critical; values between 1k and 10kΩ work well. Remember, the analogue input only functions within the 0 to 10 Volt range. If the potentiometer is connected directly to 24 VDC, you'll only be able to use about 40% of its range correctly. To maximize the operative range, add a resistor in series with the positive connection to the potentiometer, sized approximately 1.4 times the potentiometer's value. Any input higher than 10V will be read as 10V on the [product_name]. The analogue value must not exceed the maximum input voltage of [product_name], which is 28V."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Community members addressed how to connect a potentiometer to the analogue inputs of a [product_name] module for controlling a timer parameter. They clarified details on component choice, voltage scaling, and safe wiring practices to ensure full potentiometer utilization. Discussions highlight that analog input setup may be unclear to users, suggesting examples and documentation could be improved.",
+    "user_expectations": "The user wants straightforward guidance and confirmation on wiring a potentiometer for analog control of a timer parameter in a [product_name] module, including specific component requirements and connection details.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "analog parameter control",
+      "full potentiometer range",
+      "timer adjustment"
+    ],
+    "pain_keywords": [
+      "component selection confusion",
+      "wiring uncertainty",
+      "limited documentation"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "timer parameter mapping",
+      "voltage compatibility"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

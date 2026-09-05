@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "8038508690",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 433078928190151,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I'm getting started with [product_name] and trying to connect it to a Maple Systems touch-screen HMI, but I'm running into difficulties. My setup uses an [product_name] input module to read a sensor value, which then feeds into an analog threshold trigger. Depending on this value, certain outputs are activated. I want to show the 'Threshold On' value from this trigger on the HMI screen, but I'm unsure how to access this value. Is there a VM address associated with this parameter? My goal is to have the value (e.g., 230, displayed as 23.0) visible on the HMI. Appreciate any guidance!"
+    },
+    {
+      "comment_id": 231801575890093,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "You need to use Parameter VM Mapping. Go to Tools > Parameter VM Parameter to assign it."
+    },
+    {
+      "comment_id": 545881771614639,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Thanks for your suggestion. What kind of address should I use for this? My address list includes DI, DO, AI, AQ, M, AM, NI, NQ, NAI, and NAQ, but I’m not sure where the value fits in. I’ve already mapped two parameters, but now need to identify which VM locations hold the relevant values. Thanks again. Update: According to the help file, it looks like these addresses begin with VW, but I still don’t know how to fully specify them."
+    },
+    {
+      "comment_id": 122049743267316,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "For [product_name], the VM address range from 0-850 is available for user assignments. This means: Bit addresses: V0.0 - V850.7, Byte addresses: VB0 - VB850, Word addresses: VW0 - VW849, and Double Word addresses: VD0 - VD847. Note that VD0 covers V0.0 - V3.7, VB0 - VB3, and VW0 - VW2. For example, if you use VW0, you cannot use bits V0.0 - V1.7 or VB0 and VB1 for other functions."
+    },
+    {
+      "comment_id": 528852048378827,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "This answers my question, thank you! Could you clarify what VD0 refers to?"
+    },
+    {
+      "comment_id": 786696549840375,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "VD0 represents a double word in the VM area, meaning it’s 32 bits. Within [product_name], I’m familiar with using VDx for counter values, like those from an up/down counter. If you need to communicate this value with an external device, such as transferring it, you’d use a VDx address."
+    },
+    {
+      "comment_id": 344902320010381,
+      "user_name": "9RN3ORoApK",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Understood. I have more to learn about this topic. Thanks once again for your help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find it difficult to map internal analog threshold trigger parameters to VM addresses for external display on an HMI. The available documentation and user interface are not clear about which VM addresses are linked to specific parameter values, resulting in confusion and slowing down the learning process. Successfully assigning and using VM memory locations requires specific steps and a good understanding of memory management in the product.",
+    "user_expectations": "Users want a straightforward and clear method for assigning and recognizing VM addresses for internal analog threshold trigger values, so these can be easily accessed and displayed on a connected HMI.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter accessibility",
+      "data visualization on HMI",
+      "ease of configuration"
+    ],
+    "pain_keywords": [
+      "unclear mapping process",
+      "lack of VM address guidance",
+      "steep learning curve"
+    ],
+    "feature_keywords": [
+      "VM address mapping",
+      "analog threshold trigger",
+      "external display integration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

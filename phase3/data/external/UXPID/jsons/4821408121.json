@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "4821408121",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 889345536051366,
+      "user_name": "Croe8miXXL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello, I'm reaching out to share my experience as a macOS user trying to install [product_name] on macOS 15. I compiled these steps based on information from other threads, as the usual instructions needed a few tweaks to work for me. My setup is a MacBook Pro with an Intel processor. Key references included: • How to install [product_name] on Mac? • [product_name] upgrade process on macOS The installer requires Java 8, but the application itself needs Java 11. Both Amazon Corretto 8 and 11 work well. If you use Homebrew, some basic shell commands will help install them. Next, download the update installer from the support portal, unzip the files, and find the proper folder. Use Terminal to set the binary as executable and to remove the quarantine flag from the necessary files. This helps overcome macOS's damaged app warnings. Start the installer using Java 8. If you have a previous version, point the installer to its location when prompted. After installation, the app itself should be launched with Java 11 set as the active version. Just point to your install directory and run the app—it should now function correctly. I hope this guide helps others on macOS. For [company_name] staff: please consider updating this software to better support macOS."
+    },
+    {
+      "comment_id": 131625825896033,
+      "user_name": "s2fqmO9Jri",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Thank you! I needed to make some changes to get things working: 1. When setting the Java version for installation, it should be Corretto 8, not Corretto 11. 2. When adjusting quarantine settings, don't include the InstData folder in the directory change. 3. Opening Setup.app directly still gave me the damaged file message, but using Finder, holding Control, and choosing Open provided an option to bypass the warning. Appreciate the help!"
+    },
+    {
+      "comment_id": 763432546322812,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "Just to clarify, two versions of Corretto Java are involved in this process. Corretto 8 is needed for the installer, while Corretto 11 is required for the actual use of [product_name] after installation. If Corretto 8 isn't needed for other apps, you may uninstall it after setup—this worked fine for me."
+    },
+    {
+      "comment_id": 854143467645487,
+      "user_name": "V1Sfsbydk2",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I followed the methods described, but Setup.app still shows as broken no matter whether I open it from Terminal or Finder. Does anyone know a workaround for this situation?"
+    },
+    {
+      "comment_id": 682717182377147,
+      "user_name": "UZggux4tiy",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "Same for me—I did all the steps but keep getting the damaged file warning. My Mac is not using an Intel processor."
+    },
+    {
+      "comment_id": 335444247976102,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 4,
+      "comment_body": "I had a similar error on macOS 14, and found these steps helpful: • The download sometimes misses execution permissions on the Setup file inside Setup.app, causing 'Unable to open Setup' errors. You can fix this with 'chmod', or by unzipping with third-party tools like TheUnarchiver. • If you see 'Unable to open Setup because it is damaged', it's because the installer isn't signed. Remove it from quarantine using 'xattr -d', and then Control-click/open in Finder. • The installer needs Corretto 8 for installation; after setup, switch to Corretto 11 for running the app, using the Intel x64 version for compatibility. Oracle JDK 11 also works but may have menu issues. • If you wish to run both versions of [product_name], you'll need to manage which Java version each uses. I tested on both M2 MacBooks and i9 iMacs, using macOS 15."
+    },
+    {
+      "comment_id": 551594386313615,
+      "user_name": "Xz3G0aQ3ID",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 8,
+      "comment_body": "Here's what allowed me to get Setup.app running: • Go to Apple menu > System Settings > Privacy & Security. • In Security, click 'Open Anyway' when available (about an hour after trying to open). • Enter your password to confirm. Afterwards, you can launch the app normally as an authorized application."
+    },
+    {
+      "comment_id": 646454522432523,
+      "user_name": "q7lH9zMKOb",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 9,
+      "comment_body": "Based on my previous notes, this workaround is specifically needed on macOS 13. On macOS 11 and 14, it wasn't necessary for me, and I haven't tested on macOS 12."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "macOS users face notable challenges installing and running [product_name] on the latest operating systems. Difficulties include handling multiple Java versions, resolving signature and quarantine issues, and differing hardware architectures. Many steps need to be performed manually, such as adjusting file permissions, decompressing with specific tools, and altering security settings, making installation complex and error-prone. Users find the application outdated for current macOS standards and frequently encounter 'damaged app' warnings.",
+    "user_expectations": "Users expect an easy, direct installation and running process for [product_name] on recent macOS versions. They want compatibility for both Intel and ARM-based Macs without needing elaborate manual steps or workarounds.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "seamless installation",
+      "macOS compatibility",
+      "modern user experience"
+    ],
+    "pain_keywords": [
+      "code signing problems",
+      "complex installation",
+      "Java version dependency",
+      "Intel/ARM incompatibility",
+      "damaged file error",
+      "manual interventions required"
+    ],
+    "feature_keywords": [
+      "automatic macOS installation",
+      "native Apple Silicon support",
+      "robust code signing",
+      "built-in Java handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "MacOS": [
+        "15",
+        "14"
+      ]
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "28": "Installation Flexibility",
+    "22": "Usability Improvement Suggestions"
+  }
+}

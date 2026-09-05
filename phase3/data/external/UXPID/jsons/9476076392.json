@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "branch_id": "9476076392",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 104008447916681,
+      "user_name": "dzgSkdn0qE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello! I'm following the manual related to SMS commands. When attempting to set the value of the BM variables, I send a message with the format <password>; [product_name] = <signal name>, <value>. For example: <password>; [product_name] = Q1,1. In the CMR diagnostics, it reports that the SMS from the number has invalid parameters and I can't trigger any input or output. I would appreciate assistance resolving this issue. Best regards."
+    },
+    {
+      "comment_id": 282734112282056,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello [user_name], you are using an incorrect keyword for changing the digital output on the CMR itself. The [product_name]=xxxx command is intended for updating the values stored in the BM variables memory, not for directly controlling CMR outputs. To switch the digital outputs on the CMR, use the following structure and keyword: <password>; OUTPUT=O<1/2>,<1/0>, or <password>; OUTPUT=<signal name>,<1/0>, or <password>; OUTPUT=<signal name>,<constant name>. In your case, the message should be: <password>;OUTPUT=Q1,1. Please make sure not to include spaces in the SMS command. You can refer to the manual on page 184 from the January 2021 English version."
+    },
+    {
+      "comment_id": 502453594736261,
+      "user_name": "dzgSkdn0qE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Thank you for your help! I am able to activate the outputs on the CMR, but my goal is to activate the outputs of the BM module via SMS, if that's allowed."
+    },
+    {
+      "comment_id": 701379079553788,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello, apologies for the earlier confusion. It's not possible to directly write digital outputs of the BM module. The CMR can only interact with BM by accessing its variables memory. You can read BM variables like DQ and DI, but only to trigger actions at the CMR. To achieve your goal, you need to link your target DQ on the BM module with a network output/input (though I'm not completely certain, it likely needs to be a network output) and assign it to a variable memory signal in the CMR. You can then write that signal at the CMR using your previously mentioned syntax. Hope this clarifies things for you. Best regards."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The primary challenge is users being confused about the capability to control BM module outputs remotely via SMS through a CMR module. There is a lack of clarity on whether outputs are managed directly or via variable memory, and the required SMS syntax is not sufficiently detailed in documentation. This leads to unsuccessful attempts and frustration, as direct control of BM outputs via SMS is not supported, which limits functionality compared to user expectations.",
+    "user_expectations": "Users are hoping to activate outputs on the BM module using straightforward SMS commands sent through the CMR module, based on the manual's guidance.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote output control",
+      "SMS automation",
+      "easy integration"
+    ],
+    "pain_keywords": [
+      "command confusion",
+      "manual ambiguity",
+      "output control limitation"
+    ],
+    "feature_keywords": [
+      "SMS command",
+      "output activation",
+      "BM variable mapping",
+      "diagnostics"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "8": "Documentation Clarity",
+    "13": "Integration Limitations"
+  }
+}

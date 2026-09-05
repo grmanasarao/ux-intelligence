@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "branch_id": "3035761595",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 992547142827765,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Hello, Is there a way to show this on the display? -------------------------------------------- | Today Counter : 13 | | Yesterday Total Count : 50 | -------------------------------------------- The Today Counter tracks how often D1 is triggered. At day's end, it's reset to zero, but before resetting, the value transfers to Yesterday Total Count for display. Also, can these values be kept after uploading the datalog? Whenever I upload, they reset to zero."
+    },
+    {
+      "comment_id": 472971127043971,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Which [product_name] are you using?"
+    },
+    {
+      "comment_id": 930257345361019,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "When uploading a data log, the [product_name] needs to be in STOP mode, followed by a restart as it goes to RUN. If the counters aren't configured with remanence, restarting will erase them."
+    },
+    {
+      "comment_id": 864913931105973,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Here's a solution that works with [article_no] models."
+    },
+    {
+      "comment_id": 612973868182073,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "[product_name] version 8. I'll review your example. Thanks."
+    },
+    {
+      "comment_id": 924557718093508,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "There's a small error. The remanence setting must be enabled on the MIN / MAX block (B004)."
+    },
+    {
+      "comment_id": 458036293717708,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "I'm using [article_no]. The Mathematical Instruction doesn't support references. How can I achieve this?"
+    },
+    {
+      "comment_id": 495186970384388,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Understood. [url]"
+    },
+    {
+      "comment_id": 432397910767323,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "The reference function works in [article_no] models, unlike earlier versions. [url]"
+    },
+    {
+      "comment_id": 878856716111452,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Your program works well, but you can remove several blocks and it still functions. It also works on [article_no]."
+    },
+    {
+      "comment_id": 558683610821664,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Does your program retain the previous day's count even during a power outage?"
+    },
+    {
+      "comment_id": 849975924168866,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Does your program retain the previous day's count even during a power outage? No, it only works when the device is continuously powered."
+    },
+    {
+      "comment_id": 843296065117175,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 9,
+      "comment_body": "Does your program retain the previous day's count even during a power outage? No, only with constant power. That's why there are multiple blocks. The negative edge (B005) after the positive edge (B002) ensures the counter (B001) isn't deleted when the value is stored. The MIN / MAX block (B004) provides fail-safe storage. The analog amplifier (B007) is needed because the MIN / MAX block (B004) always shows a decimal in the text, so B007 formats the display value."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are working on daily counters that display and transfer values between 'today' and 'yesterday', requiring safe persistence after uploads and device restarts. The major challenge is that counter data resets due to insufficient remanence settings. There is also difficulty with referencing between logic blocks and maintaining value integrity, especially for power failure scenarios.",
+    "user_expectations": "Users expect the [product_name] device to reliably preserve today’s and yesterday’s counter values through data uploads and restarts, ideally with automatic handling. They also seek an easy method for referencing and moving values between logic blocks.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data retention",
+      "automatic value transfer",
+      "persistent counters"
+    ],
+    "pain_keywords": [
+      "loss of counter data",
+      "remanence configuration confusion",
+      "reference setup difficulty"
+    ],
+    "feature_keywords": [
+      "counter remanence",
+      "block referencing",
+      "displayed counters"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

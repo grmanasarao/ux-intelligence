@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "2616884203",
+    "thread_id": "4479534060",
+    "publication_year": 2012,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 792603921167915,
+      "user_name": "DCWI3Rk4cv",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Hello! I configured S7 communication with [product_name] as a client and another controller as a server, which worked well. Is it possible to set up S7 communication with [product_name] as the server and the other controller as the client? I tried, but was unsuccessful; it seems [product_name]'s VM memory isn't recognized by STEP 7. I addressed the VM memory as DB1.DBB0 and used the standard blocks PUT FB15 and GET FB14. Best regards."
+    },
+    {
+      "comment_id": 812039197900054,
+      "user_name": "R40RVeEty3",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], If you need bidirectional communication between [product_name] and another controller, use [product_name] as the client and the other as the server. Assign the same read and write address for the other controller. For example: In your ethernet client properties, you can set up: ID | Operate | Length(bytes) | Address(Local) | Address(Remote) | 1 | Read | 1 | VB0 | DB1.DBB0 | 2 | Write | 1 | VB2 | DB1.DBB0 | This means if you want to read a value from the other controller, use VB0. If you want to write a value, use VB2. Hope this helps. For more information, refer to the attached image. Regards,"
+    },
+    {
+      "comment_id": 132622962352748,
+      "user_name": "DCWI3Rk4cv",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Hello! Thank you for your response. I followed your advice, and now everything works. I use S7 communication between [product_name] and another controller to change the setpoint value in a PI controller. In this setup, [product_name] as a client constantly reads the new setpoint from the other controller and writes it to its EEPROM. However, since EEPROM allows only a limited number of write cycles (around a million or less), it may eventually fail. How can I ensure the new setpoint value is transmitted only once? Best regards."
+    },
+    {
+      "comment_id": 660649196307921,
+      "user_name": "R40RVeEty3",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2012,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], I appreciate your careful consideration regarding the read/write limits of EEPROM. However, based on my understanding of [product_name]'s firmware, all memory handling (reading and writing) is managed internally by the firmware, and using VBx, DBx.DBBx does not access the EEPROM directly. Therefore, you shouldn't be concerned about excessive EEPROM wear. Regards,"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users discussed configuring S7 communication between [product_name] and another controller. Initial questions concerned the possibility of using [product_name] as a server. Guidance established that using it as a client is reliable, with specific instructions provided. Concerns about repeated EEPROM writes were addressed, with one user explaining that firmware handles memory management and avoids unnecessary wear.",
+    "user_expectations": "The user expects to be able to configure [product_name] as either client or server and wants to be reassured that continuous data exchanges will not lead to premature EEPROM failure.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable communication setup",
+      "memory safety",
+      "flexibility in configuration"
+    ],
+    "pain_keywords": [
+      "EEPROM wear risk",
+      "client/server role restriction"
+    ],
+    "feature_keywords": [
+      "S7 communication",
+      "EEPROM handling",
+      "client/server configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "4": "Hardware Reliability"
+  }
+}

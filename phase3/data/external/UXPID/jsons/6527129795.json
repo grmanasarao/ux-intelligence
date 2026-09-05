@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "6527129795",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 156563188726791,
+      "user_name": "Hv3x6aOhen",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "I have a counter that measures pulses from input S0 to input S1, which acts as a limit. (Initial setup) There's a second counter tallying pulses while either output Q1 or Q2 is active (motor operation). This functions as a software encoder and works correctly. When S0 becomes active, it resets the position using the reset input from a function block. I want to add another reset: if S1 is active, the counter should set itself to the limit counter value. I am able to write counter values through VM mapping from [product_name] Web Editor, but I can't do this in [product_name] Soft Comfort (LSC). Is it possible to write a value directly to a memory location? My program is functional, but I am concerned that extended operation could result in position offset, so having two recalibration points would be more reliable than just one. Thank you"
+    },
+    {
+      "comment_id": 103803883797219,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 2,
+      "comment_body": "To my knowledge, writing to the counter parameter directly within an LSC program is not possible. This can only be done by accessing the parameter in a message text or by using Parameter-VM-Mapping for remote changes."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread discusses a limitation in [product_name] Soft Comfort where users cannot directly write or reset a counter's value within an LSC program. This affects precision and long-term stability, leading to concerns about position offsets and calibration reliability. The use of VM mapping from [product_name] Web Editor is possible but does not fully address all needs.",
+    "user_expectations": "The user hopes for a way to programmatically assign specific values to a counter's memory address in [product_name] Soft Comfort, aiming to improve recalibration and accuracy directly from LSC code.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise recalibration",
+      "automated reset",
+      "long-term accuracy"
+    ],
+    "pain_keywords": [
+      "inability to write counter value",
+      "potential position offset",
+      "need for two recalibration points"
+    ],
+    "feature_keywords": [
+      "counter write function",
+      "memory address access",
+      "LSC program flexibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "2948728483",
+    "thread_id": "3055273936",
+    "publication_year": 2006,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 417444163547183,
+      "user_name": "lcEqkTDBh5",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2006,
+      "comment_month": 7,
+      "comment_body": "Is it possible to connect NPN-type capacitor sensors to the [product_name] inputs?"
+    },
+    {
+      "comment_id": 195843079780274,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], Can you provide more details about your sensor, such as the output signal (frequency, voltage, etc.), or a datasheet? I understand the concepts of capacitors, sensors, and NPN transistors, but need clarification on your specific application. Generally, there are [product_name] versions that accept signals like 0-10V, 0-20mA, 4-20mA, and PT100 sensors, and they can also count frequencies up to 2KHz in some cases."
+    },
+    {
+      "comment_id": 902252990547399,
+      "user_name": "lcEqkTDBh5",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 8,
+      "comment_body": "Can [product_name] handle an NPN sensor?"
+    },
+    {
+      "comment_id": 942918029894606,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], You can download the manual here: [url] On page 32, you'll find the specifications for [product_name] inputs: - Status 0 if signal is below 5 VDC - Status 1 if signal is above 8 or 12 VDC Hope this helps. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 290148080268255,
+      "user_name": "GODWCQCj3U",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2006,
+      "comment_month": 8,
+      "comment_body": "Yes, you can connect an NPN capacitor sensor to a [product_name] that features 24 V AC/DC inputs."
+    },
+    {
+      "comment_id": 134759464944364,
+      "user_name": "ir3YdPp0nI",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I'm still not clear… Is it possible to use both NPN and PNP sensors with the same [product_name] 24RCE/24RCEo unit (for example, connecting 2 NPN sensors and 3 PNP sensors to one [product_name])? Is it possible to mix [product_name] modules/units that have NPN capabilities with ones that do not (for example, main [product_name] 24RCE linked to a DM8, with NPN sensors to the base and PNP sensors to the expansion)? How should NPN sensors be wired?"
+    },
+    {
+      "comment_id": 708428164838692,
+      "user_name": "cZQANX744b",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "Hi, It seems there is some confusion. Generally, you can connect anything to [product_name] as long as the connector fits! You mentioned NTC, PTC (for temperature measurement?). For [product_name], no NTC/PTC modules or functions are available. Since NTC/PTC are resistors whose value changes with temperature, you can technically use them by driving a current through the NTC/PTC and measuring voltage via an analog input on [product_name] BM or an AM2 analog module. However, keep in mind [product_name] only has a resolution of 1000 steps, so the measurement range may be limited. Using a sensor with a 0-10V or 0/4-20mA output, or a PT100/1000 with an AM2 RTD module, is recommended for better accuracy in temperature measurements. Hope this helps."
+    },
+    {
+      "comment_id": 789437495524108,
+      "user_name": "ir3YdPp0nI",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I would like to connect NPN-type inductive proximity sensors similar to those found here: [url]"
+    },
+    {
+      "comment_id": 839267335804549,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "You cannot directly connect NPN sensors, but there is a workaround. NPN sensors mostly operate in the negative side of the supply, which does not work well with [product_name]. However, by placing a resistor (about 1000 Ohm) between the positive supply and digital input of [product_name], then connecting the NPN sensor between the digital input and negative supply, it will function. The exact resistor value depends on the characteristics of your sensor. Remember to invert this input in the programming software ([product_name] software), which is straightforward. If possible, consider using PNP sensors, as they generally connect directly to [product_name]."
+    },
+    {
+      "comment_id": 670434855305600,
+      "user_name": "ir3YdPp0nI",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 3,
+      "comment_body": "I was able to rent a sample [product_name] 24R v4 from [company_name]. We tested it with our sensors successfully. The wiring was: - 24VDC from power supply, M to P1 and L+ to P2 on [product_name] - 3-wire proximity inductive sensor: blue to M/P1, brown to L+/P2, and I1..I8 to black on [product_name]. This allowed us to use all our NPN 24VDC sensors with [product_name] 24R without issues. Finally: 1. Is it possible to connect [version_no] extension modules to [product_name] v4? 2. Can any extension module with transistor outputs be used on [product_name] 24R with inverted polarity? (Wiring: 24VDC power supply M to P1 and L+ to P2 on [product_name] 24R, and L+ to L+ plus M to M on the second module, e.g. DM8 24)? The module appears to function, but I'm not sure about how the communication interface behaves between modules and [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are discussing whether various NPN capacitor and other sensors can be connected to [product_name] inputs. There is evident confusion about supported input types in different [product_name] models, correct wiring for NPN sensors, and interoperability between modules with different sensor capabilities. Users have shared both successful and challenging experiences, identifying a lack of clear documentation and guidance when combining modules or sensor types.",
+    "user_expectations": "Users expect [product_name] to support both NPN and PNP sensors, enable flexible wiring, and ensure that base and expansion modules from different series connect without compatibility issues.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "sensor compatibility",
+      "input flexibility",
+      "module interoperability"
+    ],
+    "pain_keywords": [
+      "wiring confusion",
+      "compatibility uncertainty",
+      "documentation gap"
+    ],
+    "feature_keywords": [
+      "digital input",
+      "analog input",
+      "module expansion",
+      "inversion logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

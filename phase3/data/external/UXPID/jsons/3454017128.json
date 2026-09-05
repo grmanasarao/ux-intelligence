@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "branch_id": "3454017128",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 135592237414440,
+      "user_name": "3plE7T6mui",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, I need to send a set of data (96 values, updated every 15 minutes) from an Excel or text file to a [product_name] device to control another component with these values. Is there a way to transfer this data to [product_name], or do I need a different solution? Thanks,"
+    },
+    {
+      "comment_id": 150168201331180,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "If you can develop something yourself (for example, using C++ or Java), it might be possible to send data from Excel or a text file to [product_name]. However, this isn't supported by the standard [product_name] software. Also, what is the SAVP2240?"
+    },
+    {
+      "comment_id": 719325917630851,
+      "user_name": "3plE7T6mui",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thanks for your reply. The SAVP2240 is a type of power regulator—I've attached an example for reference."
+    },
+    {
+      "comment_id": 702304917351356,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Why do you want to transfer data using Excel or a text file? Is it required for your application, or are there other options?"
+    },
+    {
+      "comment_id": 103033281704367,
+      "user_name": "3plE7T6mui",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "It's not strictly necessary to use Excel or a text file. I'm new to this and thought that method would be simplest. If there's a better way, I'd gladly use it—I just don't know what other options are available."
+    },
+    {
+      "comment_id": 155356249374029,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "You could use the built-in web server. The basic web server mirrors the [product_name] or display interface (the display doesn't need to be physically present). You can then use it for data entry. With the latest [product_name] version, there's an advanced web server that lets you create your own web pages and specify values, such as setpoints."
+    },
+    {
+      "comment_id": 440405612782969,
+      "user_name": "3plE7T6mui",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thank you very much, I will give this solution a try."
+    },
+    {
+      "comment_id": 785195141184285,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "But for 96 values? The device only supports 400 blocks."
+    },
+    {
+      "comment_id": 617606681115097,
+      "user_name": "3plE7T6mui",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Yes, unfortunately, I need to use 96 values. I hadn't considered memory limitations yet—this might become an issue."
+    },
+    {
+      "comment_id": 143416445518913,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I'm concerned as well. I'm not sure that [product_name] is the right fit for a project of this scope."
+    },
+    {
+      "comment_id": 583005462731949,
+      "user_name": "8RYb477Ela",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Perhaps you could find a solution using a display panel with recipe management. With recipes, you can define sets of analog values and switch between them using the display. Recipes are usually selected by name or number—you might want to research HMI devices with built-in communication capabilities, such as those compatible with [company_name] automation protocols. Regards, [user_name]"
+    },
+    {
+      "comment_id": 298321700042260,
+      "user_name": "CD04c4pHIz",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "[company_name] does not provide an official API for [product_name]. As shared by other users, there are no current plans to release one. However, you could use a middleware server or third-party solution (for example, [url]). Your [product_name] must be accessible via the internet. Data can be read from inputs like I1-I4, M1-M4, AI1-AI4, AM1-AM4, and you can trigger function keys. The actual data and function depend on your [product_name] program configuration. You can generate a key and use a URL to retrieve or update data. It's possible to send API commands to update your variables (such as the 96 values) with new information."
+    },
+    {
+      "comment_id": 828963169043261,
+      "user_name": "3plE7T6mui",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "A quick update and another question—thanks to the guidance here, I've successfully sent a few values (tested with 6) to the [product_name] device using HMI recipe functions and can easily adjust them through the web server."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are uncertain about how to transfer a large batch of data (96 variables, updated frequently) from external files into a [product_name] automation device. Out-of-the-box software from [company_name] doesn't support straightforward importing from Excel or text files. Concerns were raised about memory limitations and whether [product_name] is suitable for high-volume data tasks.",
+    "user_expectations": "The user hopes for a simple and direct solution to import large sets of values from Excel or text files into a [product_name] device for controlling processes, ideally without custom programming or running into memory constraints.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy data import",
+      "automated device control",
+      "large dataset handling"
+    ],
+    "pain_keywords": [
+      "manual data entry",
+      "memory limitation",
+      "lack of direct import feature"
+    ],
+    "feature_keywords": [
+      "bulk data import",
+      "web server data entry",
+      "display mirroring"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "29": "Scalability Limitations"
+  }
+}

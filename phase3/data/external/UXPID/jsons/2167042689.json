@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "branch_id": "2167042689",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 694941124947558,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Does anyone have a clear method to communicate with Modbus using [product_name]? I have an energy monitor that uses Modbus and I'm working with a Waveshare converter to connect it to the network. The device address is 1 and the IP is 192.168.1.200. From the address list, the voltage reading is at 0002/0010. Which bit should I use for [product_name], is it 0002? Another question: when connecting Modbus, should I use HR or IR inputs for [product_name], and what do these terms mean? I think I'm supposed to assign the data as network analog input, but it’s unclear how to represent the voltage. Also, can I use a PLC for programming and add Modbus data afterward? I may have more questions soon."
+    },
+    {
+      "comment_id": 990045150276711,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "With the limited information provided, it's difficult to offer effective assistance."
+    },
+    {
+      "comment_id": 102837702657251,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Thanks for your help."
+    },
+    {
+      "comment_id": 631403000234562,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Can you clarify further?"
+    },
+    {
+      "comment_id": 816448327059864,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "I've made some progress but haven't succeeded yet. My Waveshare RS485 converter is set to address 1 and IP 192.168.1.200, with port 502 as recommended for Modbus. The data I want is at 0002/0010; I believe this corresponds to address 2, but sometimes the count starts at 0, so I've tried 1 too with no result. I've used the Network Analogue Input set to Remote, following previous setup, but I still get nothing. The display shows the amplifier reading as 0.00. What else should I check or try to get the device data or proof it's working?"
+    },
+    {
+      "comment_id": 838523597903053,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 779447876056039,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 681847129855650,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "What is the Modbus device you're using? Please specify the manufacturer and type."
+    },
+    {
+      "comment_id": 571596470926332,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "OB115-MOD power energy meter by [company_name], and the converter is a Waveshare RS232/485/422 to RJ45 converter."
+    },
+    {
+      "comment_id": 732193249994667,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "I've never read such an unclear manual as the one for the OB115-Mod Single Phase Energy Meter. There's no detail about whether the registers are Input or Holding, and no clarity about whether the data format is Float or DInt. The only info is that values are 4 bytes (32 bits), so you can't use an analog network input for reading. Keep in mind that Modbus addressing for [product_name] starts at 1."
+    },
+    {
+      "comment_id": 984776751026445,
+      "user_name": "URv7DMLeoy",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "I tried a float/integer converter but the setup varies, and once again it's unclear if I should use HR or IR registers. Thanks anyway."
+    },
+    {
+      "comment_id": 944056672308941,
+      "user_name": "w8ny1LcQUj",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "This topic has been closed. Further discussion can be found here: Modbus - Float Integer. Kind regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users face considerable challenges integrating a Modbus energy meter with [product_name] due to vague documentation and confusion about register addressing and data formats. The manual for the energy meter lacks essential technical information about whether registers are Input or Holding types and the data format used. This results in failed attempts to retrieve and correctly show voltage readings with [product_name]. There is also uncertainty about configuring network inputs and combining Modbus data within PLC logic, leading to unclear solutions for Modbus integration.",
+    "user_expectations": "Users expect clear, step-by-step instructions to reliably read Modbus data (such as voltage) from an energy meter into [product_name]. They seek guidance on addressing, register type (HR, IR), and how to properly display collected data within the program logic.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "definitive Modbus integration",
+      "clear instructions",
+      "successful voltage reading/display"
+    ],
+    "pain_keywords": [
+      "unclear documentation",
+      "register addressing confusion",
+      "unknown data format",
+      "feature incompatibility"
+    ],
+    "feature_keywords": [
+      "network analogue input",
+      "Modbus HR/IR register selection",
+      "PLC logic integration",
+      "address and data mapping"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance",
+    "13": "Integration Limitations"
+  }
+}

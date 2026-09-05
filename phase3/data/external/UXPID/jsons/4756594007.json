@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "4756594007",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 144780643301337,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "The SD Card logging is limited to 20,000 lines per file with a maximum of 50 files, amounting to 1 million seconds – about 11 days in total. However, each line can contain multiple parameter values (tested up to 32), meaning you can aggregate up to 32 seconds’ worth of data into one line. By collecting data every second for 32 parameters and then writing a single log line, it is possible to extend the effective logging period and even have several days in reserve. This method is not ideal, as it saves only one parameter per aggregation, but it clarifies the limitations of SD Card logging. A similar technique may be used to overcome the 500ms record delay and allow somewhat faster data logging."
+    },
+    {
+      "comment_id": 882172530611223,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Can you clarify your point for us?"
+    },
+    {
+      "comment_id": 181975128702182,
+      "user_name": "dRPPgdzUvZ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "Is this advice for [product_name]? Please provide additional details."
+    },
+    {
+      "comment_id": 774873245825305,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "This is not exactly advice, but rather an explanation of how to approach the existing limits. Information from the [product_name] manual regarding \"Data Log\" includes: 20,000 lines per file, up to 50 files, minimum 500ms between logs (recommended by [company_name]), though faster SD Cards may allow quicker writes, 32 parameters per line (confirmed through testing). For further details, refer to the \"Data Log\" section or related user forum discussions on SD card read/write."
+    },
+    {
+      "comment_id": 411156716557264,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "I’m still having trouble understanding your main message."
+    },
+    {
+      "comment_id": 812069746707695,
+      "user_name": "hdgQxCSSbM",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "This comes from the Tips and Tricks section. If you follow the manual exactly, you might not see the workaround. It’s similar to how storing an analog value requires using a counter, which isn’t very efficient. The original idea involves buffering (similar to a shift register) to save data for a longer period on the SD card without losing detail. For example, recording a single analog input every second over two months would normally only retain the last 11 days of data (since the data log operates as a ring buffer). Using the suggested technique could help overcome this limitation."
+    },
+    {
+      "comment_id": 301607655980555,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 1,
+      "comment_body": "That’s accurate. The project’s goal is to monitor accumulator charge/discharge current and possibly voltage over an extended period. While the SD card can be replaced, it’s best to avoid frequent swaps. Maximum records and intervals have been carefully calculated. According to manuals and user discussions, a 500ms interval is acceptable – especially since the analog input rate for [product_name] is 300ms. Using this approach, digital inputs could be recorded every 10ms (then saved every 500ms). It’s worth investigating whether the 500ms limit is due to [product_name] processing or SD card hardware, as SD cards can perform differently."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are discussing the SD card data logging restrictions in [product_name] controllers, specifically file and row limits, and minimum logging intervals. They share practical strategies like consolidating multiple data points before logging to effectively extend storage time. There is uncertainty about whether constraints are imposed by [company_name] recommendations, hardware, or SD card abilities, and some users request clearer documentation and explanations.",
+    "user_expectations": "Users hope to record frequent and detailed data over an extended timeframe, with minimal SD card replacements and without reducing the quality or reliability of the logged data.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "long-term data logging",
+      "maximize storage window",
+      "less frequent SD card replacement"
+    ],
+    "pain_keywords": [
+      "logging limits",
+      "file and line cap",
+      "500ms record interval restriction",
+      "documentation lacks details"
+    ],
+    "feature_keywords": [
+      "SD Card logging",
+      "data log interval",
+      "parameter per line aggregation",
+      "analog/digital input sampling"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "8": "Documentation Clarity"
+  }
+}

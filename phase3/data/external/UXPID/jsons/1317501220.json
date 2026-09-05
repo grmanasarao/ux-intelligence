@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "branch_id": "1317501220",
+    "thread_id": "1723880927",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 681631628687390,
+      "user_name": "0ZPm97MMhs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello, I started a new thread since my question differs from my previous one. I hope that's alright. I'm experimenting with the \"Data transfer settings\" in [product_name] [version_no] and can subscribe to the output (Q) to check if the light is on. Publishing an update to that same output (Q) doesn't change the value, even though the documentation suggests it should work. Doing the same for a memory value (M) works—I confirmed this using \"Tools\" -> \"I/O status\" where I can see my publish action updated the memory bit from 0 to 1 and back, so the MQTT publish seems correct. So I'm wondering: why doesn't the output (Q) update? Shouldn't changing it be possible, or do I need to trigger some kind of input or other logic block to turn on the lights? I marked the \"Writable\" checkbox for both the output and the memory value for testing. The \"Writable\" option can't be checked for the input (I). Help resources only seem to show tests with virtual memory values. I also checked VM mapping since it was recommended, but I only found that you can map a memory value to a block parameter. I couldn't find a method to trigger a logic block so the output (Q) is activated. Thanks again."
+    },
+    {
+      "comment_id": 513355870711113,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], I don't have direct experience with the latest version yet. Is it possible you're encountering a common issue? Inputs (I) can't be written to externally. You can write to outputs (Q) and flags (M), but only if they're not being used by the program—meaning nothing is logically connected to their inputs within your project. Best regards, [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 435562699614284,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "It's not possible to write to physical, digital inputs remotely. I mentioned this before in another one of your threads. You can only remotely write to physical digital outputs or flags, provided they aren't used in the program or don't have connected logic on the input side."
+    },
+    {
+      "comment_id": 349940970427883,
+      "user_name": "0ZPm97MMhs",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "I understand now—that wasn't clear to me before. Your example images helped a lot, especially the first one, as it matches my current setup. I'll look for a different solution. Thanks again to both of you!"
+    },
+    {
+      "comment_id": 276243375103191,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 2,
+      "comment_body": "It's challenging to give specific advice without seeing what you've programmed or knowing exactly what you want to achieve. You may need to use a network input in parallel with the physical input."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are finding it unclear how digital outputs can be written remotely using MQTT in [product_name] [version_no], particularly when outputs are controlled by program logic that prevents remote access, despite settings allowing 'writability'. Documentation and help sections lack adequate explanations about such logic connections and restrictions, resulting in confusion and frustration. Including visual examples and clear guidance about dependencies and required triggers could improve usability.",
+    "user_expectations": "Users expect to be able to control digital outputs remotely in the same way as memory values when configured as writable, and anticipate that documentation and user interfaces will accurately reflect any limitations or dependencies. Clear instructions on how program logic can restrict remote write access are desired.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "remote control",
+      "output toggling",
+      "clarity",
+      "feature understanding"
+    ],
+    "pain_keywords": [
+      "unexpected behavior",
+      "remote write limitation",
+      "documentation gap",
+      "configuration confusion"
+    ],
+    "feature_keywords": [
+      "MQTT data write",
+      "Writable setting",
+      "Output Q control",
+      "Memory value M write",
+      "I/O status monitoring"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "2016263083",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 293239780239123,
+      "user_name": "Bi3Dldqyun",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "Hello, I am new to PLCs and working with [company_name] [product_name] operator device and [product_name] controller. I want to use the function keys to turn lights on and off, with some conditions applied. My function block diagram is in picture 1. I set the function keys to \"Switch\" mode (see picture 2), but after uploading the project, the buttons act as momentary pushbuttons instead. The software simulation works as expected, but the function keys on the actual device do not. How can I resolve this issue? Thank you in advance. [IMAGE] [IMAGE]"
+    },
+    {
+      "comment_id": 628239583956404,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "The function keys on the [product_name] operator device are physical keys, not switches. The hardware does not allow changing this behavior. You can switch between button and switch modes in the simulation software, but this does not affect how the keys work on the real device. [IMAGE]"
+    },
+    {
+      "comment_id": 543205915775064,
+      "user_name": "Bi3Dldqyun",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "I found a solution—you can use a \"pulse relay\" to achieve this functionality. See the image below. [IMAGE]"
+    },
+    {
+      "comment_id": 323997828898101,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 10,
+      "comment_body": "This information is already widely known."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users noticed that the simulated behavior of function keys does not match their actual performance on the hardware. While the simulation software allows toggling between 'switch' and 'pushbutton' modes, in practice the function keys remain momentary buttons, leading to confusion and inconsistent user experiences between simulation and device operation.",
+    "user_expectations": "Users expect the 'switch' mode simulated for function keys to be available on real [product_name] operator device hardware, so the keys would toggle outputs rather than acting only as momentary buttons.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "toggle output",
+      "simulate switch",
+      "hardware-software consistency"
+    ],
+    "pain_keywords": [
+      "hardware constraint",
+      "inconsistent simulation",
+      "non-replicated feature"
+    ],
+    "feature_keywords": [
+      "function keys",
+      "switch mode",
+      "momentary pushbutton",
+      "pulse relay"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

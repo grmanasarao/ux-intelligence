@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "branch_id": "8535778901",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 536762996937238,
+      "user_name": "09bgNfvpax",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I am connecting [product_name] [version_no] as a Modbus slave with a solar inverter acting as master. Reading and writing to the inverter registers works properly, but I'm encountering two key issues: Modbus communication persists even when [product_name] is stopped, and remote writing occurs at fixed intervals rather than being triggerable on demand. Both situations could pose risks in certain scenarios."
+    },
+    {
+      "comment_id": 998614912040716,
+      "user_name": "09bgNfvpax",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Does anyone know if there is a method to programmatically start or stop [product_name]'s Modbus communication from the executing program?"
+    },
+    {
+      "comment_id": 351706802985094,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "From my understanding, this functionality is not available. I conducted a test setup using one [product_name] [version_no] as a Modbus slave and another [product_name] [version_no] as a client. Data exchange flows correctly when the slave is in RUN mode, but as soon as the slave switches to STOP, the client no longer receives data."
+    },
+    {
+      "comment_id": 399219885991617,
+      "user_name": "09bgNfvpax",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Thank you for clarifying. Reading from the remote device continuously isn't an issue since the remote state doesn't change. However, nonstop writing could alter remote device behavior unexpectedly, so values in memory used for transmission must be accurate every cycle, since transmission can't be paused while calculations are made. Is this correct? It would be beneficial to have a Modbus block with enable/error connectors in future releases. Thanks again."
+    },
+    {
+      "comment_id": 513673631427434,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Once [product_name] is put in STOP mode, it can't update VM memory anymore."
+    },
+    {
+      "comment_id": 984402777927802,
+      "user_name": "09bgNfvpax",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Yes, when in STOP mode, VM positions aren't updated, but [product_name] writes a value of 00 to the remote device, which causes undesired results. My setup involves a Modbus TCP device simulator on PC to monitor and log transmissions without affecting actual hardware. In [product_name], I set up a Modbus connection to read one word from register [article_no] of the remote device and save to a local memory, and write another word from a local memory to register [article_no] on the remote unit. My logic connects these memories properly, and in RUN mode, everything works smoothly; values are transferred with a 5-second interval. But switching to STOP causes the remote device register to become 00 solely due to [product_name] entering STOP, which could be problematic for actuators. Ideally, writing should only be triggered when the program logic determines it's safe, allowing for greater control. Waiting for a future update addressing this. Thank you and best regards, [user_name]."
+    },
+    {
+      "comment_id": 151676339011117,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "When configured as a server, [product_name] does not initiate writes to the remote device; instead, the remote system requests data from [product_name]. Communication to remote devices runs in the background regardless of whether [product_name] is in RUN or STOP mode. Unlike traditional PLCs, you can't use your program to control telegram sending."
+    },
+    {
+      "comment_id": 511867545594318,
+      "user_name": "09bgNfvpax",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I see now that [product_name] cannot be treated as a conventional PLC. Thanks for your replies. Regards."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants identified that Modbus communication in [product_name] [version_no] continues even when the device is stopped, causing constant reading and, more critically, unwanted writing of default values to connected equipment. This lack of control can lead to unsafe operating conditions. Unlike more advanced PLCs, there is currently no way to programmatically enable, disable, or selectively trigger Modbus writes, leaving users with limited options for safe communication management.",
+    "user_expectations": "Users expect improved programmatic control over Modbus communication, especially write operations, so that data is transmitted to remote devices only when their logic determines it is appropriate, even if the device is in STOP mode. This would enhance safety and functional flexibility.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "safe control",
+      "programmatic enable/disable",
+      "custom write triggering",
+      "operational predictability"
+    ],
+    "pain_keywords": [
+      "continuous writes",
+      "lack of control",
+      "unsafe behavior",
+      "cannot disable Modbus programmatically"
+    ],
+    "feature_keywords": [
+      "Modbus write control",
+      "communication enable/disable",
+      "STOP mode behavior",
+      "error handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "27": "Safety Compliance Concerns"
+  }
+}

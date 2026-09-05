@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "1101762093",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 291681528876403,
+      "user_name": "7BBJFM3na0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "In simulation, the program runs correctly. My hardware setup from left to right: [product_name] [article_no], [product_name] AM2 (using external 24V power supply), and [product_name] DM16 24R (also with external 24V power supply). I wanted to switch the inputs/outputs from the simulation to the actual hardware, but I can't locate the modules in the software list. How can I determine if I've selected Q1 on the [product_name] [article_no] or Q1 on the DM16 24R? Not sure if this issue is caused by the software or the hardware."
+    },
+    {
+      "comment_id": 267047915867894,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "On the base module, the outputs are always Q1 to Q4. For the first digital expansion module: DM8 has Q5 to Q8, DM16 provides Q5 to Q12. On the second digital expansion module: DM8 adds Q9 to Q12, DM16 goes from Q13 to Q20."
+    },
+    {
+      "comment_id": 602577449617767,
+      "user_name": "qworx6qEkk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello [user_name], are you referring to Q1-Q4?"
+    },
+    {
+      "comment_id": 737894596026252,
+      "user_name": "7BBJFM3na0",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "It seems for my configuration, the second digital module (third in the row) will use Q5 to Q12. I assume the same applies to digital inputs and the analog input. When adding one module, the software always displays additional I/Os, even if they’re physically unavailable (like Q13-Q20)."
+    },
+    {
+      "comment_id": 145862626176300,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Yes, sometimes my typing is quicker than my thinking."
+    },
+    {
+      "comment_id": 935842894684807,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Input and output address numbering is always sequential, regardless of where the module is attached. For example: base module, then DM8, AM2, DM16. Base module: I1-I8, Q1-Q4; DM8: I9-I12, Q5-Q8; DM16: I13-I20, Q9-Q16. In the LSC software, you can program for inputs and outputs that don't physically exist, as LSC does not check whether they’re present."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are finding it challenging to align physical input and output modules with their representations in the software when configuring [company_name] devices and their expansion modules. Continuous and automatic numbering can create confusion, especially when extra simulated I/Os appear that do not physically exist, and the software does not verify the module's availability.",
+    "user_expectations": "Users want the software to clearly indicate and differentiate outputs and inputs between the base module and the expansion modules, making it easy to identify them in simulation and hardware environments.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "clear I/O mapping",
+      "easy hardware-software correlation",
+      "accurate configuration"
+    ],
+    "pain_keywords": [
+      "confusing module identification",
+      "non-existent I/Os in software",
+      "unclear output mapping",
+      "interface ambiguity"
+    ],
+    "feature_keywords": [
+      "I/O mapping",
+      "continuous numbering",
+      "simulation-to-hardware alignment"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

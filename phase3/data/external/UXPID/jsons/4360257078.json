@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "4360257078",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 217426689741726,
+      "user_name": "KyuKgZFgSR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Hello everyone, Is it possible to perform mathematical equations in [product_name]? I have a temperature sensor connected using a 4-20 mA signal. For reference: 0.1 mA corresponds to 0.78°C. I want to display a value X on the screen calculated as: X = 28 * (1 + 0.00336 * Temperature value). Appreciate any guidance."
+    },
+    {
+      "comment_id": 463355506281102,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Do you mean: X = 28 * (1 + 0.00336 * Temperature value)?"
+    },
+    {
+      "comment_id": 577748441260183,
+      "user_name": "KyuKgZFgSR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Yes, that's correct."
+    },
+    {
+      "comment_id": 296131419967420,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Could you share the sensor range? Specifically: What temperature does 4 mA represent? And what temperature does 20 mA represent?"
+    },
+    {
+      "comment_id": 402621768081681,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "The issue with [product_name] is that it handles only fixed numbers. Floating point calculations are restricted to mathematical instructions. For example, a value like 0.00336 can't be directly used because only values between -32768 and 32767 are supported. Which type of sensor are you using and what range does your 4 to 20 mA represent? As an example: You could enter 336 divided by 10,000, resulting in 0.0336. If you need 0.0036, you'd have to use 100,000, but since the upper limit is 32,767, that's not possible."
+    },
+    {
+      "comment_id": 244764948992775,
+      "user_name": "KyuKgZFgSR",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "Thanks for your response. For this sensor, 4 mA equals -25°C and 20 mA equals 100°C, following a linear relationship. The actual formula is: X = 28.084 * e^(0.0336 * T) = 249.44 when T is 65°C. Alternatively, you can write it as: X = 28.084 * [1 + 0.0336*T + (0.0336*T*0.0336*T)/2 + (0.0336*T*0.0336*T*0.0336*T)/6 + ... (Taylor series expansion) ...] = 249.41 for T = 65°C. There are many terms to compute for accuracy. I don't think it's possible to achieve this level of calculation directly in [product_name]."
+    },
+    {
+      "comment_id": 598829050732266,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "If the relationship is linear, you only need to use the analog amplification and you don't have to perform complex calculations. I'll provide an example for you later."
+    },
+    {
+      "comment_id": 205649449243895,
+      "user_name": "KyuKgZFgSR",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "There is a linear relationship between the analog input and temperature conversion, but the connection between X and temperature is non-linear. As shown by the formula, it involves an exponential function. It's specifically the X value that I need displayed on the [product_name] screen."
+    },
+    {
+      "comment_id": 869892386341066,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 5,
+      "comment_body": "If the relationship is non-linear, you won't be able to achieve this in [product_name]. It only supports fixed-point numbers and does not handle exponential functions. For such requirements, you should consider using [version_no] instead."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user aims to implement complex mathematical functions, including exponentials and floating-point math, in a [product_name] device. However, responses clarify that [product_name] is limited to basic fixed-point arithmetic and cannot perform advanced operations like exponentials or handle small coefficients accurately. Other users suggest alternative controllers better suited for such mathematical tasks due to architectural constraints.",
+    "user_expectations": "The user expects [product_name] to support advanced mathematical computation, including exponentials and precise handling of floating-point coefficients for value display.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "advanced calculations",
+      "accurate display",
+      "sensor data processing"
+    ],
+    "pain_keywords": [
+      "floating-point limitation",
+      "no exponential function support",
+      "input range constraints"
+    ],
+    "feature_keywords": [
+      "floating-point arithmetic",
+      "exponential function",
+      "analog input processing",
+      "screen display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

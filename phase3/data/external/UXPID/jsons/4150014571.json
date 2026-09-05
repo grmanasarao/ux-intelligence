@@ -1,0 +1,201 @@
+{
+  "metadata": {
+    "branch_id": "4150014571",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 891980478170684,
+      "user_name": "1NYoYYtirP",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello all, I'm facing an issue with my program. I control my [product_name] PLC as follows: if M1 is 1, then Q1 is on; if M1 is 0, then Q1 is off. However, when I disconnect the power, Q1 always turns off although M1 was set to 1 before. Are there solutions to ensure Q1 remains on after power restoration, if M1 was previously set to 1? Thanks. Attached is a project image."
+    },
+    {
+      "comment_id": 226285431971574,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Who is responsible for setting M1 to high? Is it done by a remote device?"
+    },
+    {
+      "comment_id": 316313481734972,
+      "user_name": "1NYoYYtirP",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Yes, that's correct. I use Modbus TCP and set M1 to 1 from Modbus Poll."
+    },
+    {
+      "comment_id": 436335254203542,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Is this similar to the problem discussed in another thread about making the PLC remember the last value it read from a slave device?"
+    },
+    {
+      "comment_id": 530696400311120,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello. The picture you've shared doesn't align with your text description, and the circuit is not meaningful in context. Making Q1 remain on after a power outage may not be ideal from a safety perspective—please ensure this does not lead to unsafe situations. Using an SR latch with a retentive attribute can help retain state through outages. Alternatively, if possible, consider using two triggers from your communication partner: one to activate Q1, another to deactivate Q1. This allows Q1's state to be controlled securely over the network. If communications fail, Q1 holds its last state, aiding the power-up process. Another method involves two communication bits: one for communication status and one for Q1's state, so Q1 can be turned off if comms are lost for too long. If you can make the communication bit change as a pulse, the PLC can verify comms health, avoiding control errors if comms are lost."
+    },
+    {
+      "comment_id": 506775894152736,
+      "user_name": "cZQANX744b",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello, a [product_name] version [version_no] includes extra retentive memory (VRx) that could be used to address your requirement."
+    },
+    {
+      "comment_id": 195431086448287,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I'm not sure how this helps in your scenario. Since the client triggers outputs via communications, how could the VRx area be used to retain output state after a reboot?"
+    },
+    {
+      "comment_id": 437693861723819,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I agree with [user_name]. I did a small test: I wrote MB0 from a remote [product_name] into the VRB0 of the [product_name] [version_no]. Any change in MB0 was reflected in VRB0. When remote M1 and M2 are high, VRX0.0 and VRX0.1 in [product_name] [version_no] are also high. After switching the [product_name] [version_no] to stop, then setting M1 and M2 in the remote [product_name] to low, and switching [product_name] [version_no] to run, VRX0.0 and VRX0.1 are then also low. So, what's the purpose of the retentive function?"
+    },
+    {
+      "comment_id": 603998715117588,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Thank you, [user_name], for making this test. It often takes time to re-establish communication after a power loss. I can't tell when [product_name] updates VRx from network data. Could you please perform these two additional tests? A) 1. M1 is set to true on one side. 2. The network connection is broken. 3. What is VR0.0's state? B) 1. M1 is set to true. 2. Other side goes to STOP. 3. Connection is broken. 4. Other side goes back to RUN. 5. What is VR0.0's state? No video needed—your feedback is trusted."
+    },
+    {
+      "comment_id": 190271700200871,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "For case A: When M1 on the remote [product_name] is set high and then the Ethernet cable is disconnected, VR0.0 on [product_name] [version_no] stays high and drops to low after about 10 seconds. Reconnecting the cable immediately sets VR0.0 back to high. For case B: With M1 high and VR0.0 high, switch [product_name] [version_no] to STOP and disconnect cable, then back to RUN. VR0.0 is high and then drops to low after 1 second."
+    },
+    {
+      "comment_id": 403399352980614,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Thank you, [user_name], for your time. The retentive behavior of the VR0.0 bit is not really useful here, at least not in a direct sense."
+    },
+    {
+      "comment_id": 580716796272125,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I wonder how the retentive function is intended to operate. The NI block has only one input. If VRx is really retentive, it would maintain its state when set—even if the input goes low. But how would you reset it afterwards?"
+    },
+    {
+      "comment_id": 877351286566753,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Yes, that's an accurate point."
+    },
+    {
+      "comment_id": 151955255157787,
+      "user_name": "cZQANX744b",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello, using the attached program, I did a test with a [product_name] [version_no]. Both bits were set to 1 via online test, then I did a power cycle. After restart, VR0.0 still held a signal of 1, but V0.0 had lost the signal. So, retention via VR in [product_name] [version_no] works as long as no other device changes VR0.0."
+    },
+    {
+      "comment_id": 539003498711769,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Thanks for your input on this case. In my view, changing bit states in online test doesn't accurately mimic the real scenario described. The method used by [user_name] is better. Perhaps a communication partner could reproduce the force on/off feature from the online test, but as a new user I'm unsure how another [product_name] or Modbus TCP device would accomplish this. The VR bits demonstrate retentive behavior, but it's not clear how to leverage this function for the user's benefit. Would you consider my summary of the client's request?"
+    },
+    {
+      "comment_id": 196109557335795,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "I don't think that's a realistic test. The claimed retention isn't the true definition of retentive. I conducted another test with two real [product_name] PLCs. In the remote [product_name], Q1 and Q9 are activated by I1. QB0 (Q1-Q8) is sent to VB0 of the [product_name] [version_no], QB1 (Q9-Q16) to VRB0. In the [product_name] [version_no], V0.0 activates Q1, VR0.0 activates Q2. If I keep I1 in the remote [product_name] on and cycle the power for [product_name] [version_no], both Q1 and Q2 in [product_name] [version_no] switch on. What's the use of the retention, if transmission signals can't change?"
+    },
+    {
+      "comment_id": 337791662285653,
+      "user_name": "cZQANX744b",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "Hello, as long as you're actively transferring I1 like in your test, that's clear—after power is restored, your second [product_name] transfers I1 to your remote [product_name] [version_no] when the connection is restored. Could you try to not actively transfer I1? That is, disconnect power from the remote [product_name] [version_no], disconnect the other [product_name], and power up the remote [product_name] [version_no]. In this state, I1 isn't transferred. What happens to QB0 and QB1? I think this is similar to starting an online test, using a data table to write 1 to V0.0 and VR0.0 (active transfer), then power cycling, and checking V0.0 and VR0.0 without changes. V0.0 shows 0, VR0.0 shows 1."
+    },
+    {
+      "comment_id": 315517871268512,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 8,
+      "comment_body": "With the same test steps: On the remote [product_name], I1 switches Q1 and Q9. QB0 goes to VB0, QB1 to VRB0 of [product_name] [version_no]. In [product_name] [version_no], V0.0 triggers Q1, VR0.0 triggers Q2. First test: Switch I1 on the remote [product_name], Q1 and Q9 are on, Q1 and Q2 on [product_name] [version_no] are on. Then power off [product_name] [version_no], switch I1 off on the remote [product_name], power on [product_name] [version_no]. Q1 and Q2 on [product_name] [version_no] are off. Second test: I1 on the remote [product_name] is on, Q1 and Q9 also on. Q1 and Q2 switched on in [product_name] [version_no]. Power off [product_name] [version_no], unplug network cable from the remote [product_name], power up [product_name] [version_no] again. Q1 and Q2 on [product_name] [version_no] are off."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report that the [product_name] PLC output does not retain its ON state after a power outage, even if the memory bit triggering it was ON before loss of power. Using retentive memory options available in [product_name] version [version_no] did not ensure state retention when relying on distributed network data such as Modbus TCP. There is uncertainty about how retentive memory interacts with network communication recovery, and various tests show output states are not always preserved after power cycles or network interruptions. Discussions include balancing retention, communication reliability, and system safety.",
+    "user_expectations": "Users expect that if Q1 was ON because M1=1 via remote Modbus TCP before a power loss, Q1 should automatically return to ON when power is restored, providing seamless output state retention across power cycles.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automatic output state retention",
+      "power loss recovery",
+      "distributed network reliability"
+    ],
+    "pain_keywords": [
+      "output state lost after reboot",
+      "retentive memory limitations with communications",
+      "delayed communications recovery",
+      "network interruption handling"
+    ],
+    "feature_keywords": [
+      "retentive outputs",
+      "communication-triggered outputs",
+      "Modbus TCP integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "10": "Performance Predictability",
+    "4": "Hardware Reliability"
+  }
+}

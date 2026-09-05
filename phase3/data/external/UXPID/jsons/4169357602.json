@@ -1,0 +1,202 @@
+{
+  "metadata": {
+    "branch_id": "4169357602",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 165604416757855,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I'm new to the [product_name] environment and would appreciate advice on configuring an analog threshold trigger. I'm currently using a [article_no] module. My setup includes a pressure transducer with a range of 0-5 PSI and 4-20mA output. I'm converting this to a 2-10V signal via a 500 ohm resistor, but I'm uncertain about what measurement range, gain, and offset values to use. I need the output to activate (1) when the PSI reading is at or above 0.22 PSI, and deactivate (0) for any value below 0.22 PSI."
+    },
+    {
+      "comment_id": 680591852354988,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Switching exactly at 0.22 PSI without hysteresis will cause instability, as the output could toggle frequently. Also, with your 0-5 PSI sensor, setting the switch point so low (0.22 PSI) puts you within the lowest portion of the measuring range, where tolerances can be significant. A sensor with a range better suited to your switching point, such as 0-0.5 PSI, would be more accurate."
+    },
+    {
+      "comment_id": 434322870471008,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Here's a sample method for scaling your signal."
+    },
+    {
+      "comment_id": 221131833894196,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I'll describe my scenario in detail: It's a tank filling process with low level indicated by 6 inches of water (0.22 PSI), where the output will control a pilot light signaling low tank level. The high level is at 4 feet of water (1.73 PSI), with the output controlling the fill pump. When the tank is below 6 inches, the low level output remains off (0), turning on the low level pilot light. When the tank reaches 6 inches, the low output activates (1), turning off the pilot light. If the tank is below 4 feet, the high level output is off (0), letting the pump operate. Once 4 feet is reached, the output turns on (1), stopping the pump."
+    },
+    {
+      "comment_id": 385707889573562,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "The same issue applies to the pump control. Below 1.73 PSI, the pump turns on; above that, it switches off. Without hysteresis, the pump may repeatedly toggle."
+    },
+    {
+      "comment_id": 834691169951779,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I'm receiving an error message when attempting to open your example."
+    },
+    {
+      "comment_id": 343297122269267,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "If you don't have [product_name] [version_no], programming a [product_name] [version_no] device requires the matching software version."
+    },
+    {
+      "comment_id": 577667010895245,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Pump control is handled manually—the operator must first press the fill button. As long as the tank level remains below 4 feet (1.73 PSI), the pump can be turned on and the operator can leave. The pump continues running until 4 feet is reached; it won't turn back on unless the fill button is pressed again."
+    },
+    {
+      "comment_id": 401912360819959,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I've faced this connectivity issue twice today—trouble linking the PLC to my PC via ethernet cable. I read that this could be due to not having the latest software version. I couldn't download the newest release since I wasn't registered. Is there a quicker way to access the latest version without waiting for registration approval?"
+    },
+    {
+      "comment_id": 851215670894798,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "If the previous advice relates solely to the signal light, it will continue to toggle around 1.73 PSI. Alternatively, buying a new DVD with the software is an option, though it's uncertain if this would be any faster. The question remains: how can [product_name] [version_no] be programmed without [product_name] [version_no] software?"
+    },
+    {
+      "comment_id": 484983957753223,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Could you send a screenshot showing the parameter settings?"
+    },
+    {
+      "comment_id": 366722637270273,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Which [product_name] software version do you have? I’m able to convert the program for [product_name] version 8.0, 8.1.1, or any 8.2.x series."
+    },
+    {
+      "comment_id": 286630494028242,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I'm using version 8.2.1."
+    },
+    {
+      "comment_id": 548843107304369,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Here’s an example compatible with [product_name] version 8.2.1."
+    },
+    {
+      "comment_id": 665863167474193,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thanks! Could you also explain how you determined the required settings?"
+    },
+    {
+      "comment_id": 446781764081264,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "The A/D converter translates any analog input signal to a scale of 0-1000 units. For a 4-20 mA (or 2-10 V) input, only the 200-1000 units are valid for measurements, the units below 200 correspond to 0-4 mA (or 0-2 V). Select the sensor type as '4-20 mA.' In your situation, set the minimum to '0' and the maximum to '5000' (for three decimal places on the display). The software automatically calculates gain and offset."
+    },
+    {
+      "comment_id": 333997341669583,
+      "user_name": "OUFfYSv3o7",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I'm unclear on the threshold setting you used—220. This would mean the high level setting would be 1730, which exceeds the measurement range. Should my low threshold be 22? This would make the high value 173."
+    },
+    {
+      "comment_id": 495556963817198,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "It seems you're having trouble with the settings. The minimum is 0 mpsi and the maximum is 5000 mpsi, representing 0.000 to 5.000 PSI (three decimal places). 0.22 PSI equals 220 mpsi, and 1.73 PSI equals 1730 mpsi."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report difficulties configuring analog threshold triggers with [product_name] modules, particularly due to lack of hysteresis, mismatched sensor ranges, and tolerance issues when measuring at the lower end of the sensor’s range. Software version compatibility is problematic—matching hardware requires specific programming software versions, and access is often slowed by registration requirements. There is confusion regarding scaling, gain, and offset, and a risk of outputs toggling rapidly due to the configuration.",
+    "user_expectations": "Users expect straightforward instructions and an intuitive setup for analog threshold configuration, reliable output response at defined pressure values, stable performance without rapid state changes, and hassle-free access to compatible programming software.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "reliable analog threshold detection",
+      "compatibility",
+      "easy setup"
+    ],
+    "pain_keywords": [
+      "rapid switching",
+      "software access issues",
+      "sensor tolerance",
+      "configuration uncertainty"
+    ],
+    "feature_keywords": [
+      "analog threshold trigger",
+      "hysteresis",
+      "signal scaling",
+      "software version compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "22": "Usability Improvement Suggestions",
+    "23": "File Accessibility Barriers"
+  }
+}

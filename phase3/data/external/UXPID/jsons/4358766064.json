@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "4358766064",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 472497580702902,
+      "user_name": "gka9Haauyt",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "How can you export a variable, for example a counter value, from the PLC and import it into Excel using the [product_name]?"
+    },
+    {
+      "comment_id": 378871681588455,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Have you downloaded the [product_name]? You should also have a [document] that explains the steps."
+    },
+    {
+      "comment_id": 474176690779847,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "In your program, you need to transfer the counter value using Parameter VM Mapping in the VM Memory. The value type should be a DInt, and in VM it will then be a VD. For example: Map the counter value to VD0 via Parameter VM Mapping. In Excel, you can access it with this formula: =LOGOVAR(\"VD0\")"
+    },
+    {
+      "comment_id": 919004730885887,
+      "user_name": "gka9Haauyt",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "What steps do you follow to set up VM mapping?"
+    },
+    {
+      "comment_id": 287792142068299,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Go to Tools > Parameter VM Mapping in the software."
+    },
+    {
+      "comment_id": 292497245596317,
+      "user_name": "gka9Haauyt",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I've managed to get the required data, but the values shown in Excel are much higher than those displayed on the PLC."
+    },
+    {
+      "comment_id": 956194922137674,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "It's possible you have assigned multiple variables to the same location in the VM area. Without seeing your program, it's hard to be sure. VD0 was just an example. If other variables in your VM area overlap the address range for VD0, this can cause double or multiple assignments. When using VD0, you shouldn't use the following at the same time: V bits (V0.0 to V3.7), V bytes (VB0 to VB3), or V-words (VW0, VW1, VW2, VW3)."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are using a [product_name] to bring real-time counter values from a PLC into Excel. Main challenges include setting up variable mappings correctly and understanding memory addressing, as some users experience discrepancies between values seen in Excel and those in the PLC, possibly due to overlapping or conflicting variable assignments.",
+    "user_expectations": "Users expect a straightforward and reliable process for transferring counter data from the PLC to Excel via the [product_name], including simple configuration for mapping variables and correct representation of the imported values.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "automated data logging",
+      "accurate value display",
+      "Excel integration"
+    ],
+    "pain_keywords": [
+      "incorrect data mapping",
+      "value discrepancies",
+      "configuration complexity"
+    ],
+    "feature_keywords": [
+      "VM Mapping",
+      "variable assignment",
+      "Excel data export"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "30": "Data Persistence Confusion"
+  }
+}

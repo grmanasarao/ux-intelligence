@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "6555733635",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 319386180508928,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "Hello. In my project, I set up polling of three registers via Modbus with a 'Synchronize interval' configured at 250ms. However, the actual polling period shown on the oscilloscope is 320ms. What could be the reason for this discrepancy?"
+    },
+    {
+      "comment_id": 875823420030282,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "It may be that the [product_name] requires more time than you configured. Try using larger intervals, such as 500ms or 1s, and observe if the timing aligns better. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 105731809787905,
+      "user_name": "Vng8lXnq5v",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 9,
+      "comment_body": "After running several experiments, I found the polling period is always a multiple of 80ms. For example, setting the period to 200ms results in an actual period of 240ms. The interval between requests is 40ms; with 3 requests, if you do not select the checkbox, the period is rounded to 160ms, not 80ms. It seems there is some kind of internal rounding. It's frustrating that [company_name] doesn't provide complete product documentation. The help section gives little information about communication functions, such as details on register numbering, which must be specified differently than expected."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main usability issue is that users experience a difference between the polling interval they set and what actually occurs in practice due to internal processing times and rounding. Documentation does not sufficiently explain the product's communication timing or register addressing, leaving users unable to achieve precise control and feeling frustrated by insufficient information.",
+    "user_expectations": "Users expect that the polling interval they configure should be accurate and reflected in the device's behavior, along with clear documentation on timing details and communication. They also want thorough explanations about register addressing and related technical settings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise timing",
+      "accurate documentation",
+      "clear communication setup"
+    ],
+    "pain_keywords": [
+      "interval mismatch",
+      "poor documentation",
+      "register addressing confusion"
+    ],
+    "feature_keywords": [
+      "Modbus polling",
+      "Synchronize interval",
+      "help documentation",
+      "register addressing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

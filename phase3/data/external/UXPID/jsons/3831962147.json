@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "3831962147",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 353526454919632,
+      "user_name": "oDJLXhQjgo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, I am using [product_name] [version_no] software together with a [product_name] relay. I need to count the seconds while a servo motor is ON using a stopwatch timer. At 1,080,000 seconds, a specific event should occur. For testing, I'd like to set the \"Current Time\" of the stopwatch timer instead of waiting 300 hours. How can I force the \"Current Time\" of this timer in [product_name] [version_no] during online testing? Editing the Data Table at address VD2 does not seem to work. Any advice would be appreciated. Thank you."
+    },
+    {
+      "comment_id": 722877278869107,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "This approach won't work. The stopwatch can only count up to 65,535. What block are you planning to use for comparing with 1,080,000? The arithmetic limit is 32,767. You might need to create a custom stopwatch using two up/down counters: one counting seconds up to 60 (minutes), and another counting minutes up to 18,000. For online tests, you could indirectly set the counter to start from a value like 17,999. Regards, [user_name]"
+    },
+    {
+      "comment_id": 623815322298157,
+      "user_name": "oDJLXhQjgo",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Thank you for your suggestion. I modified my solution as recommended, and now it works well. Thanks again."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered a restriction while working with the stopwatch timer in [product_name] [version_no] software and hardware. Specifically, they could not set a high time value for testing purposes due to the maximum count limit of the timer. Feedback from another user clarified that both the stopwatch and arithmetic blocks have upper bounds, requiring an alternative approach using counters. This highlights the need for clearer documentation on product limitations and better support for advanced simulation scenarios.",
+    "user_expectations": "The user wishes to manually set the stopwatch timer's value during online simulations to efficiently test for extended durations without waiting for actual passage of time.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "efficient testing",
+      "time simulation",
+      "test automation"
+    ],
+    "pain_keywords": [
+      "manual waiting",
+      "feature limitation",
+      "simulation restriction"
+    ],
+    "feature_keywords": [
+      "Stopwatch Timer",
+      "force current time",
+      "counter maximum value",
+      "Data Table editing",
+      "Online Test"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "29": "Scalability Limitations",
+    "15": "Product Availability Transparency"
+  }
+}

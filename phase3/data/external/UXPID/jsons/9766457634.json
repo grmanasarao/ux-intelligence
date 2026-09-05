@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "9766457634",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 597185247806666,
+      "user_name": "OKIzB9V7t2",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "I want to connect a linear actuator to a [product_name] PLC system. I have a [product_name] analog module, another analog output module, a relay module, a power supply unit (24V/4A), and a 12V transformer. The actuator model is Glideforce GF23-120504-3-65 High-Speed LD. I believe it needs to be wired through the transformer, but I'm unsure. Any wiring diagram or advice would be appreciated. Thank you."
+    },
+    {
+      "comment_id": 171677389909561,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "The actuator operates at 12V DC, so a dedicated 12V DC power supply is needed. The actuator also draws a significant current (7A). The relays in the [product_name] system offer only make contacts, not changeover contacts, so you will need to add coupling relays externally."
+    },
+    {
+      "comment_id": 480103759666187,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Hello [user_name], I've attached the wiring diagram."
+    },
+    {
+      "comment_id": 964004955803342,
+      "user_name": "OKIzB9V7t2",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thank you for the diagram. If I want the actuator to operate through the PLC, it appears the PLC and actuator are just using separate power supplies. Would I need to interface it with the analog output module?"
+    },
+    {
+      "comment_id": 973731087044042,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Is there confusion about the wiring diagram? The program in the [product_name] PLC controls the coupling relays K1 and K2, using their changeover contacts. Activating K1 (and not K2) drives the actuator backwards, while activating K2 (and not K1) drives it forwards."
+    },
+    {
+      "comment_id": 618806779201783,
+      "user_name": "OKIzB9V7t2",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "I understand now, thank you for clarifying."
+    },
+    {
+      "comment_id": 581546383162068,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Including diodes is essential for protection. For example, you can use a diode type like 1N4007."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users discuss the wiring and integration of a high-current linear actuator with [product_name] PLC modules, focusing on the required voltage supply, actuator current demands, and the use of additional relays to properly connect PLC outputs to the actuator. The thread highlights confusion about how PLC and actuator are wired together—particularly regarding coupling relays and output modules—but guidance from other users provides clarity. It is evident that clearer example diagrams and documentation would benefit similar integration projects.",
+    "user_expectations": "The user seeks straightforward guidance and a wiring diagram for safely and effectively controlling a high-current actuator using [product_name] PLC modules. Clear steps, correct module usage, and protection circuit information are expected.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "successful actuator integration",
+      "correct wiring",
+      "safe operation"
+    ],
+    "pain_keywords": [
+      "unclear wiring",
+      "high current power requirements",
+      "uncertain PLC-actuator integration"
+    ],
+    "feature_keywords": [
+      "wiring scheme",
+      "coupling relays",
+      "diode protection",
+      "analog output modules"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

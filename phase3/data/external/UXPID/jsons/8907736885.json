@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "branch_id": "8907736885",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 389928769555733,
+      "user_name": "Wo0XBU2B9t",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello, I am working with [product_name] and its web server, but I've run into an issue. I've set up a weekly schedule with configurable on and off times and the ability to select which days it should be active. I created the web page using [product_name] Web Editor and assigned each parameter as either analog or digital. However, when I access the web page from a browser and choose the days for operation, the analog values for on and off times appear as random values. I've attached my programming for both the [product_name] and the Web Editor in case anyone can assist. In the programming, I've defined VM parameters and linked the tags in Web Editor. Thanks for your help. Regards."
+    },
+    {
+      "comment_id": 185418346657783,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], welcome to the forum. Without the Web Editor project, it's difficult to give an exact answer. However, I did notice something in your [product_name] program. You're using VW50 for the weekly timer in VM mapping, which consists of bytes VB50 and VB51. The byte VB50 includes bits V50.0 to V50.7, which are actually assigned for the digital values of weekdays. Assigning the same memory space for both digital weekdays and analog times will not work."
+    },
+    {
+      "comment_id": 922600249203184,
+      "user_name": "Wo0XBU2B9t",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 9,
+      "comment_body": "Thanks for your help. The error has been resolved. We will stay in touch."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users described an issue where configuring a weekly schedule via the web interface using [product_name] Web Editor caused random analog values for on/off times when specific days were selected. The problem stemmed from overlapping memory usage between digital day selection and analog time values, specifically using the same variable word memory for both. Collaborative troubleshooting led to a quick identification and resolution of the issue.",
+    "user_expectations": "Users expect that when configuring weekly schedules in the web interface, the selection of days and input of on/off times should be reliable, with the entered values matching the intended parameters stored in [product_name] memory.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "web-based control",
+      "custom schedule",
+      "precise configuration"
+    ],
+    "pain_keywords": [
+      "random analog values",
+      "memory address conflict",
+      "unexpected behavior"
+    ],
+    "feature_keywords": [
+      "weekly schedule",
+      "on/off time",
+      "day selection",
+      "VM mapping",
+      "tag assignment"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

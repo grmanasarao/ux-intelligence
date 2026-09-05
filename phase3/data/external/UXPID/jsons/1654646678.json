@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "1654646678",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 557366904260151,
+      "user_name": "OzkPYy1NKX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "Hello, I am looking for assistance. I am working with a [company_name] [product_name] and want to connect a Phoenix IL ETH BK DI8 DO4 2TX-PAC modbus coupler to the project. My main issue is that the modbus coupler only supports FC3,4,6,16,23 and what would typically be accessed with fc1/2 can only be reached via holding registers. Using the network analog input allows me to read the integer value of the 16-bit word, but I am unsure how to determine which inputs and outputs are on. I can write to the Phoenix digital outputs with a mathematical instruction FB, but I need to figure out how to read the states back correctly. I have attached an example showing the [product_name] inputs being switched, converting these to an analog value, processing it with math, and sending it to the network analog output. Each [product_name] input toggles the associated Phoenix output on/off accordingly. Any guidance would be greatly appreciated."
+    },
+    {
+      "comment_id": 821676524292552,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "You may want to try this approach."
+    },
+    {
+      "comment_id": 279629178661204,
+      "user_name": "OzkPYy1NKX",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "That solved the issue! Thank you, [user_name]. For those wanting to repeat the configuration on the base module IL ETH BK DI8 DO4 2TX-PAC, with no additional I/O: Phoenix inputs: 8000 = 8001 on the [product_name] Phoenix outputs: 8001 = 8002 on the [product_name] Thanks again!"
+    },
+    {
+      "comment_id": 172924223641620,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 6,
+      "comment_body": "I utilized the HR number from your sample. The [product_name] applies an offset of +1."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user successfully connected a Phoenix modbus coupler with a [company_name] [product_name], leveraging analog network input and support from the forum. Initial difficulties included interpreting modbus register values for digital I/O control and handling register offsets and mapping between Phoenix and [product_name] modules. Guidance provided by another member quickly clarified the required offset, enabling seamless integration.",
+    "user_expectations": "The user is seeking a straightforward method for decoding modbus register values to accurately reflect digital I/O states, ensuring easy integration and control between the hardware systems.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "register mapping",
+      "modbus integration",
+      "digital I/O control"
+    ],
+    "pain_keywords": [
+      "register offset confusion",
+      "modbus register interpretation"
+    ],
+    "feature_keywords": [
+      "modbus",
+      "network analog input",
+      "math instruction FB",
+      "digital input/output mapping"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "3": "User Guidance"
+  }
+}

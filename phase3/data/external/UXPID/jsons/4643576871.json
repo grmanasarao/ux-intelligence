@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "4643576871",
+    "thread_id": "1723880927",
+    "publication_year": 2008,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 333165958190874,
+      "user_name": "Zc8MSUoQ1I",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Is it possible to add a decimal point on the display? I want to monitor a water meter using a pulse switch, with one pulse per 100 liters. The display should show values from 0.0 to 9999.9 cubic meters. I’ve attached my current example. Thank you for your help."
+    },
+    {
+      "comment_id": 290293341568682,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], Yes, but you need to transfer the counter value using an analog multiplexer block to convert it to an analog value. This lets you set the decimal position in each analog block, which effectively divides the value by ten for each position. For processing pulse inputs, you must translate values into physical units. Using the threshold trigger block in [product_name] isn’t ideal for this, so I wrote my own - refer to: \"Display of scaled High Speed Input Values\" I hope you find this useful for your application. Best regards [user_name]"
+    },
+    {
+      "comment_id": 571992061661535,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Hello, Here’s a suggestion to address your question: To adjust the digits after the decimal point, change the analog multiplexer properties. Hope this helps. Regards [user_name]"
+    },
+    {
+      "comment_id": 912332611260355,
+      "user_name": "Zc8MSUoQ1I",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Thank you [user_name], Your solution with the multiplexer resolves the decimal point issue. I will test it. On the computer simulator, the display shows from 0.0 up to 99999.9. However, in live testing on the [product_name], the range is only 0.0 to 3276.7 when using an analog multiplexer. Is there any other function that can increase the display range to 99999.9 on the [product_name] screen? Thank you, Best regards"
+    },
+    {
+      "comment_id": 366841784575496,
+      "user_name": "Zc8MSUoQ1I",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Thank you [user_name], The main issue seems to be the 32,767 limit. Is there no workaround for this? Thank you."
+    },
+    {
+      "comment_id": 233940874976583,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], That’s one of the limitations of [product_name]: all analog blocks have a relatively small value range (16-bit including sign), from -32,768 to 32,767, and you can set the decimal point position for display in a textbox. However, there is an exception—the \"comparator\" block. Check the attachment example. It’s possible to perform calculations with analog amplifiers and add two absolute values (up to 32,767 each) to get results from -65,534 to 65,534, but these can only be displayed in a textbox! Best regards [user_name]"
+    },
+    {
+      "comment_id": 947585675399662,
+      "user_name": "Zc8MSUoQ1I",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 9,
+      "comment_body": "Thanks. I decided to use two displays. Now the range works, and decimals are shown. In the example, I am counting three items: Display 1: 999999 m³ Display 2: 0.999 m³ Display 3: Reset"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users identified the constraint on analog blocks in [product_name] due to 16-bit value limits, which restricts accurate water meter readings with decimals. This affects the ability to display large numbers with decimal precision unless alternatives, such as using multiple displays, are applied. The discussions underline issues with value scaling, decimal point management, and differences between simulation and actual hardware operation.",
+    "user_expectations": "The user seeks to display water meter readings with decimal precision, up to at least 99999.9 on the [product_name] screen. They expect both hardware and software to allow flexible scaling and decimal placement for their application.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "decimal display",
+      "wide range",
+      "accurate monitoring",
+      "flexible configuration"
+    ],
+    "pain_keywords": [
+      "limited display range",
+      "decimal placement",
+      "hardware constraints"
+    ],
+    "feature_keywords": [
+      "analog block range",
+      "decimal point position",
+      "display scaling",
+      "multiple displays"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

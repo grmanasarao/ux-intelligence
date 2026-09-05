@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "branch_id": "7247381006",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 784025490761506,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I believe this issue should be straightforward, but I can't seem to resolve it. I'm trying to set the setpoint for a PI controller using an analogue flag that is assigned through an HMI. The value range is -500 to 2500 (representing -50.0 °C to 250.0 °C). In simulation mode, the input value works correctly. However, using an analogue amplifier disrupts the value. Any help with getting this value properly into the SP field would be greatly appreciated."
+    },
+    {
+      "comment_id": 415066344744690,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "What type of HMI are you using? Wouldn't it be simpler to write directly to the VM area of the [product_name] instead of using an analog marker?"
+    },
+    {
+      "comment_id": 242669388336527,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "It's a Kinco HMI. The value can also be written directly into a VM. It's funny how focusing on one approach can make you overlook a simpler option. There goes three hours! Thanks again for your help."
+    },
+    {
+      "comment_id": 969551679312376,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Is your issue resolved now?"
+    },
+    {
+      "comment_id": 877584025341104,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "The problem is solved. Quick question: Can one VM value be assigned to several PI controllers in a program, or does each controller block need a unique VM address for the setpoint? Also, is there a way to copy the VM value from one address to another?"
+    },
+    {
+      "comment_id": 295813714456151,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "If you want to use the same setpoint for multiple controllers, that's no problem; it works fine. You can accomplish this using parameter VM mapping."
+    },
+    {
+      "comment_id": 284654306436126,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Is this done through an instruction block or via the settings table?"
+    },
+    {
+      "comment_id": 426150841969494,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "You can use Parameter-VM-Mapping (Tools > Parameter-VM-Mapping), or utilize a mathematical instruction and reference the value for the controllers. Would you like an example?"
+    },
+    {
+      "comment_id": 979607681157134,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "An example would be very helpful, if you have one."
+    },
+    {
+      "comment_id": 773025505847569,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "I've attached an example. On sheet 1, the value is handled by a mathematical instruction. On sheet 2, it's set directly in the SP parameter of the controllers."
+    },
+    {
+      "comment_id": 579486982911437,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "That's perfect, thank you! Just curious—do you work for [company_name]? Are you compensated for helping on this forum, or is it purely voluntary?"
+    },
+    {
+      "comment_id": 914760727765763,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 6,
+      "comment_body": "Actually, that's not the case. I'm not an employee of [company_name] and I don't receive any payment for my help here. The only thing I've received from [company_name] is an expert title."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user aimed to set a PI controller's setpoint using an analogue variable from an external HMI. The main issue was choosing the right way to link the variable, resulting in some confusion and lost time. Forum replies clarified that direct VM mapping avoids value distortion and is a more effective solution, and that assigning the same VM to multiple controller blocks is possible.",
+    "user_expectations": "The user seeks a dependable, straightforward way to transfer the HMI setpoint value to the PI controller inside the [product_name]—one that avoids distortion, is easy to configure, and can be readily extended to multiple controllers.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simple mapping",
+      "time savings",
+      "multi-controller setpoint",
+      "direct VM assignment"
+    ],
+    "pain_keywords": [
+      "complexity",
+      "confusion",
+      "time wastage",
+      "incorrect mapping",
+      "value distortion"
+    ],
+    "feature_keywords": [
+      "PI Controller block",
+      "Parameter-VM-Mapping",
+      "analogue flag variable",
+      "multi-controller setpoint"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

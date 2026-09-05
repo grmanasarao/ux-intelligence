@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "7514017540",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 889042498546266,
+      "user_name": "pYILig6YGT",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "A [product_name] driver is trying to use mathematical functions. The mathematical instruction block in [product_name] programming software [version_no] was utilized. The variable memory was set as follows: V1 - Word 8, V2 - Word 10, V3 - Word 12, V4 - Word 14. Operators were configured at bytes 18, 19, and 20. The engineering software setup allows changes to V1 and subsequent variables from the panel, but there is an issue with configuring the operators from the panel. A selection box was created for operator symbols, but selecting '+' did not affect [product_name] as expected. Assistance is requested, especially regarding similar difficulties when attempting to change time units with an asynchronous generator."
+    },
+    {
+      "comment_id": 980399944466591,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "For mathematical functions in [product_name], the EN input needs to be set High (1). Has this been done? If EN is Low (0), the mathematical function will not operate. For operator function, 8-bit bytes are required: 0 for '+', 1 for '-', 2 for 'x', 3 for '/'."
+    },
+    {
+      "comment_id": 556004643324717,
+      "user_name": "pYILig6YGT",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Yes, the EN input is set correctly. How can a list in the engineering software be used to switch between these operators?"
+    },
+    {
+      "comment_id": 961708571560405,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "You should create a display element (such as a textbox) that instructs users: Press 0 for '+', 1 for '-', 2 for 'x', and 3 for '/'. Use an input field for entering numbers."
+    },
+    {
+      "comment_id": 874734126263376,
+      "user_name": "pYILig6YGT",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "This approach has been implemented and works. The only remaining issue occurs on the operator panel when displaying negative results."
+    },
+    {
+      "comment_id": 512459738200117,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "It's possible the wrong data type was selected. In the tag table, the default datatype is Int (integer), but it should be SInt. Further examination of the datatype is recommended."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encountered challenges configuring mathematical operations and operator changes using [product_name] programming software and an engineering tool. Help was needed for enabling operator selection via the user interface. Implementation guidance led to resolving operator selection issues, but results for negative numbers were not displayed properly, likely due to an incorrect data type.",
+    "user_expectations": "Users expect smooth selection of mathematical operators from a list on the operator panel and accurate display of all calculation results, including negatives.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "panel operator control",
+      "correct calculation",
+      "proper datatype display"
+    ],
+    "pain_keywords": [
+      "UI operator mapping issue",
+      "datatype/configuration confusion",
+      "display error for negative numbers"
+    ],
+    "feature_keywords": [
+      "mathematical instruction block",
+      "operator selection",
+      "datatype selection",
+      "panel interface"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "22": "Usability Improvement Suggestions"
+  }
+}

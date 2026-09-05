@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "3764474604",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 693159259634368,
+      "user_name": "UXOAoA1apI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, There appears to be an error in [company_name] documentation concerning multi-phase connection for [product_name] inputs. After reviewing several documents, I've noticed conflicting information regarding this topic. I understand that you shouldn't mix the phases within the same four-input group, but it's unclear which phase should be used for power supply (L1) for the base and expansion modules. A diagram on page 48 of the [document] suggests the power supply (L1) can use different phases for the base and expansion modules, whereas the warning on page 41 indicates the phases for L1 of both modules must match. Another [document] claims the power supply (L1) can differ for the base and expansion modules, but the supply must come from the first input group on the module. However, on page 8 of a separate [document], it states the power supply (L1) must be identical for all modules and doesn't have to be from the first input group. These documents are inconsistent and contradict one another. These modules are part of my home automation setup. I'm using a [product_name] basic module with two expansion modules. All inputs on the basic and first expansion module will connect to L1, but the second expansion module's groups will use different phases (group 1 to L2, group 2 to L3). Which phase should I supply to the second expansion module?"
+    },
+    {
+      "comment_id": 940412929845430,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "From a purely electrical standpoint, it may be possible to use the phases as you described and it would technically work within groups. However, there are certain rules about minimum spacing between terminals and conductors on circuit boards. I can't specify these exact rules, but observing the terminal layout, the quad group terminals have extra spacing. According to the latest manual for [product_name] V[version_no], I found: 1. On base and DM16 expansion modules, the phase for power supply must be the same as for I1 to I4. Other phases may be used for I5 to I8. 2. For DM8 expansion modules, any phase can be used, but it must be the same for both supply and I1 to I4. If all three phases are needed, at least one DM8 expansion module is required. For practical wiring, I would recommend L1 for base supply and I1-I4, L2 for I5-I8, and L3 for extension supply and I1-I4. Regards, [user_name]"
+    },
+    {
+      "comment_id": 469486045420741,
+      "user_name": "udO0a0woU9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Based on my understanding, the key rule is using the same phase within each group of four inputs. So, you could supply L1 for general power, L2 for I1 to I4, and L3 for I5 to I8. The manual notes: “[product_name] and [product_name] expansion module each contains two input groups of four, totaling eight. Within each group, all inputs must run on the same phase; differing phases only allowed between groups.” I also suggest using a single neutral (N) for all [product_name] AC modules or a common M for DC types."
+    },
+    {
+      "comment_id": 295554976011203,
+      "user_name": "8RYb477Ela",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Looking at manual examples, it's clear the power supply usually shares its phase with I1–I4. Perhaps that's because it's unnecessary to have a phase without inputs? Chapter 2.3.1, page 41 of the [document], published 03/2019, addresses this. Am I supposed to use the same phase for the base and expansions' power supply? If so, there seems to be an error in the wiring diagrams on page 48. I understand users' confusion, as most can't cover every rule in detail. Regards, [user_name]"
+    },
+    {
+      "comment_id": 593282865190823,
+      "user_name": "UXOAoA1apI",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thanks to both of you for your quick replies. If I connect all power supplies—base and both expansions—to L1, and connect the input groups to any phase, am I conforming to the correct practice?"
+    },
+    {
+      "comment_id": 408346215239531,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I'd recommend wiring it as you've described to prevent regulatory issues. It's best to supply all [product_name] modules with one phase behind a single circuit breaker, and use one phase for inputs where doable. For most applications, a few interface relays will suffice. A better approach for new installations is using low voltage (e.g., DC24V) for both supply and inputs, but this depends on specific wiring scenarios since control and load voltages differ. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are struggling with contradictory documentation from [company_name] regarding multi-phase connections for [product_name] modules. There is confusion over whether base and expansion modules can be supplied by different phases or must use the same, resulting in uncertainty about proper implementation and compliance with safety and design requirements.",
+    "user_expectations": "Users are looking for clear, consistent guidance on supplying phases to [product_name] modules' power and inputs, ensuring their wiring is safe and adheres to standards.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "documentation clarity",
+      "safe wiring",
+      "compliance",
+      "phase flexibility"
+    ],
+    "pain_keywords": [
+      "contradictory documentation",
+      "uncertainty",
+      "risk of improper wiring"
+    ],
+    "feature_keywords": [
+      "multi-phase input grouping",
+      "power supply phase requirements",
+      "wiring guidance"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "27": "Safety Compliance Concerns"
+  }
+}

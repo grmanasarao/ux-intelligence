@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "9557663181",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 930221564735691,
+      "user_name": "w1bXwFZyrs",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 11,
+      "comment_body": "Hello, I would like to secure the following scenario. Imagine a [product_name] device connected to a network and controlling a machine via Q1. Internally, Q1 is linked to a network input (VM 0.0), and this device is not operating as a slave. Somewhere in the setup, an external device or SCADA system controls VM 0.0 on the [product_name]. Normally, when the user or an algorithm turns on the machine, VM 0.0 is set on the [product_name], and when turning off, it is cleared. Now, consider if the machine was turned on but the controlling device stops functioning due to reasons like power loss, failure, hang, network issues, or entering service mode. While an emergency stop button should be present near the [product_name], I am interested in a solution that can detect loss of connection and initiate an emergency procedure automatically. How can such a solution be implemented within the [product_name]?"
+    },
+    {
+      "comment_id": 922414945522785,
+      "user_name": "TWQZIf7WWD",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 11,
+      "comment_body": "You could configure a network input on the [product_name] and set it to diagnostic mode, then select the option for 'network access error'. While I haven't personally tried this, according to the help documentation, if a network error occurs, the network input will be activated, allowing you to trigger a safety action within the [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking reliable safety measures for situations where a [product_name] controller is managed remotely and the external controller suddenly becomes unreachable. The main concern is how to detect a loss of network control and trigger an emergency response inside the [product_name] to ensure operational safety. There is some uncertainty about the methods available to detect network failures and automate response procedures.",
+    "user_expectations": "The expectation is that the [product_name] device can automatically identify a lost connection with the external controller and carry out a fail-safe action that stops operation of the machine.",
+    "severity_expectation_level": "1",
+    "gain_keywords": [
+      "automatic safety",
+      "fail-safe operation",
+      "system reliability"
+    ],
+    "pain_keywords": [
+      "network loss",
+      "uncontrolled machine state",
+      "safety risk"
+    ],
+    "feature_keywords": [
+      "network input diagnostic",
+      "connection status detection",
+      "emergency procedure"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "14": "Automated Fault Detection and Recovery",
+    "27": "Safety Compliance Concerns"
+  }
+}

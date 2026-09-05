@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "5535691593",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 427944178347356,
+      "user_name": "6hTT62hC4B",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "I'm working on a scheduling program that should activate outputs at specific times on chosen weekdays. The goal is for website users to select days and input the exact time (hour and minute) they wish an output to be triggered. My approach connects three logic paths to an AND-gate. If the real time clock's day, hour, and minute match the user's selections, the AND-gate output activates. However, I'm facing two peculiar issues: the 'Tuesday' toggle button isn't functioning, and number entries in one field appear multiplied in another (such as entering a value in field C causing a value 256 times greater to show in field D). These fields correspond to separate network analog inputs with labels, yet no logic connects them directly. Any ideas on what's causing these problems and how to address them?"
+    },
+    {
+      "comment_id": 135560003962161,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Screenshots by themselves don't clarify the issue here. Please upload your [product_name] program and web editor project as a ZIP file. You mentioned using VW10 and VW11, which can lead to overlapping memory: VW10 uses VB10 and VB11, while VW11 uses VB11 and VB12. Notice how both access VB11 at the same time? This overlap is likely causing the multiplied input problem. Additionally, timer settings use BCD coding, so you need to enter them as Hex values in the web editor."
+    },
+    {
+      "comment_id": 676896069146001,
+      "user_name": "6hTT62hC4B",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "Thank you for the suggestion regarding overlapping memory—this resolved one of my issues. I've added the relevant project files. In the 'lwe1' folder, you'll find my web editor project, and 'Circuit Diagram 2' contains my function block diagram. Could you offer further insight into why the switch button for 'Tuesday' isn't functioning as expected?"
+    },
+    {
+      "comment_id": 593533752939147,
+      "user_name": "6hTT62hC4B",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "No need to address the previous question—I did more testing and will create a new post with updated details."
+    },
+    {
+      "comment_id": 225162585558743,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 7,
+      "comment_body": "The switch labeled \"Tuesday\" actually works. Regarding the stopwatches, you haven't changed their time base from seconds to minutes or hours; all currently use seconds. Please see the attached screen recording."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion centers on unexpected behaviors with numeric input fields and toggle buttons in a scheduling interface. Users experience input value discrepancies caused by overlapping memory addresses and confusion about how weekly toggles interact with the program logic versus simulator behavior. There's a further need for proper encoding of timer values in the web editor to ensure correct functionality.",
+    "user_expectations": "Users expect the web interface controls to interact seamlessly with the scheduling program, with weekly toggles and numeric fields functioning consistently and accurately. They seek straightforward solutions to ensure precise mapping between user actions and program logic.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "precise scheduling",
+      "accurate input",
+      "synchronized interface"
+    ],
+    "pain_keywords": [
+      "input value error",
+      "toggle button malfunction",
+      "memory overlap"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "analog input mapping",
+      "BCD coded time"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports",
+    "22": "Usability Improvement Suggestions",
+    "8": "Documentation Clarity"
+  }
+}

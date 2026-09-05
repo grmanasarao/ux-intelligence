@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "branch_id": "6975952318",
+    "thread_id": "1723880927",
+    "publication_year": 2018,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 256713095905720,
+      "user_name": "Gac23apcEx",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Hello, Is there a method to make the Analog Comparator's On and Off threshold settings persistent? I want these values to be editable from a customizable web interface. Currently, values come from VW0 (On threshold) and VW2 (Off threshold), but they reset to zero after each power cycle. Attaching an example: The B004 block parameters 'On' and 'Off' should be settable by the user and retain their values after power off. How can this be achieved? Regards, [user_name]"
+    },
+    {
+      "comment_id": 842475002894438,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "This occurs because the VM memory area of [product_name] does not have persistent storage. After the system powers off and is switched back on, the VM memory becomes empty."
+    },
+    {
+      "comment_id": 854635461719071,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "I've created a solution that may fit your needs. The setpoints for the Analog Comparator's \"ON\" and \"OFF\" parameters are saved in a MAX/MIN block if they are above zero and only when they change, which then writes them back to the VM area. This will help in cases of system stop or power failure. However, after downloading a new program, the values will still reset to zero."
+    },
+    {
+      "comment_id": 742888740210297,
+      "user_name": "Gac23apcEx",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "It's a bit of a workaround, but it appears to work well in the simulator! Thanks a lot! Having it reinitialize to zero after a program download is acceptable and not an issue."
+    },
+    {
+      "comment_id": 823942938935171,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 7,
+      "comment_body": "Just wanted to point that out. I don't have an HMI, so I could only test using the actual [product_name] and the web interface. It worked without problems."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants want the Analog Comparator's threshold values within [product_name] to be persistent following power cycles, since the current VM memory setup does not retain user input parameters. The ability to edit parameters through a web interface is critical for their applications. A workaround using MAX/MIN blocks is suggested and is suitable for power failure scenarios, although program downloads still reset values, which users find acceptable.",
+    "user_expectations": "Users expect the Analog Comparator thresholds to stay saved after losing power and to be editable via a web interface, instead of resetting to zero at each restart.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter retention",
+      "web-based customization",
+      "persistent settings"
+    ],
+    "pain_keywords": [
+      "data loss after power cycle",
+      "non-retentive memory",
+      "inconvenient parameter reset"
+    ],
+    "feature_keywords": [
+      "retentive parameter storage",
+      "web page parameter input",
+      "analog comparator thresholds"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "9": "Feature Requests"
+  }
+}

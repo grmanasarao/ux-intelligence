@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "4229022509",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 340020328666684,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello, I am experiencing difficulties with a control problem. I want the analog output AQ1 to be 100% only when the measured value is strictly between a specified setpoint (from a counter) and an input value ai3 from a temperature sensor. For instance, if the setpoint is 20°C and the measured value is 19°C, the output should be 100% for values between 19 and 20. Outside this range (such as below 19 or above 20), AQ1 should be set to 0. Can someone assist me with this?"
+    },
+    {
+      "comment_id": 177335171157452,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I'm not sure I fully understand your explanation. Do you mean the output should always be 100% when the measured value is exactly 1°C below the setpoint?"
+    },
+    {
+      "comment_id": 569070335671157,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "No, the output should be 100% only when the value is strictly between, for example, 19 and 20. With a setpoint of 20 and an actual temperature of 19, the output switches on when the reading falls within this narrow range—essentially, during the hysteresis phase."
+    },
+    {
+      "comment_id": 177169114590631,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I’m still unclear on your requirements. If the setpoint is 20 and the measured temperature is 19, where is the hysteresis? With whole numbers having a 1-degree difference, there’s not really any hysteresis."
+    },
+    {
+      "comment_id": 236396189850657,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "I am trying to resolve an issue where I have one missing digital output on my controller, but I do have a spare analog output (0-10V). I’d like to use this to control an LED that shows when the correct temperature is reached. The machine is a cooler with glycol circulation that can also heat, requiring control over both negative and positive temperature ranges (-20 to +30°C). The cooling compressor stays on, and a resistor provides heating to achieve the set temperature. This lets us maintain the target temperature within a margin of one degree. Now, my goal is for the LED indicator to turn on only when the temperature is exactly on target. Since I cannot switch the compressor (it’s always running) or the resistor (it only heats), I am asking about logic that enables this indicator to respond only when the measurement matches the setpoint."
+    },
+    {
+      "comment_id": 835553422505940,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Hello, If I understand correctly, try using this example—it might help clarify things and be of use to you."
+    },
+    {
+      "comment_id": 178487526895827,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Here is the solution I propose."
+    },
+    {
+      "comment_id": 641600283865132,
+      "user_name": "wMP4psiMzE",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Thank you for your suggestions and the code you shared! The solution isn't a perfect fit for my situation yet, but it helped point me in the right direction. I have uploaded my program. It may be a bit lengthy and not entirely according to best practice, but it's functional. Unfortunately, uploading my LSC program was not permitted."
+    },
+    {
+      "comment_id": 226730757525809,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Where did you upload the program—on your controller? I don’t see any attachments or uploads here in the forum."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are discussing control logic for an analog output used in a temperature control system, aiming for precise indication when the temperature falls within a tight setpoint range. The challenge is implementing logic so the analog output to an LED only activates when the measured temperature is strictly within this specified window, given constraints like one missing digital output and continuous operation of the compressor. There is also some confusion about the exact edge conditions and logic implementation among users.",
+    "user_expectations": "The user expects the analog output to indicate 100% (LED on) strictly when the measured temperature is within a narrow margin—between the setpoint and the actual measurement—and to remain off otherwise.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise temperature indication",
+      "effective use of analog output",
+      "clear signal when setpoint is exactly met"
+    ],
+    "pain_keywords": [
+      "hardware output limitation",
+      "confusing logic implementation",
+      "inability to upload and share code for review"
+    ],
+    "feature_keywords": [
+      "analog output AQ1",
+      "setpoint/counter integration",
+      "precise margin control",
+      "program upload"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "branch_id": "5196080556",
+    "thread_id": "1723880927",
+    "publication_year": 2022,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 616913385075554,
+      "user_name": "4HZdMEQHHC",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Hello experts, I was reading the [product_name] manual (version_no [version_no]) from [company_name] and encountered a confusing passage regarding the calculation rule for the up/down counter (found on page 178 of the manual and shown in the video I attached, highlighted in cyan color). Note: The system checks the counter limit value cyclically. If the pulse frequency at the fast digital inputs (I3, I4, I5 or I6) is higher than the scan cycle time, then the special function may only respond after the specified limit value has been surpassed. For instance, up to 100 pulses per cycle can be counted; 900 pulses have been counted so far. On = 950; Off = 10000. The output is triggered in the next cycle after reaching 1000. (If the Off value is 980, the output would not be triggered at all). I am uncertain if 900 pulses are counted in a single cycle or in total? Is the Off limit value really 10000 or should it be 1000? I also do not understand why the example uses 'Off = 980'. Is this just an illustrative choice? My main confusion is with the number 10000 for the Off limit. Is this correct? I am very confused and need help!"
+    },
+    {
+      "comment_id": 588309976530420,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "There are different functions depending on the On and Off values as described. If the On value is less than the Off value, then Q = 1 when On ≤ Counter < Off. In the manual's example, On = 950 and Off = 10000, meaning the output will be active between 950 and 9999. If Off = 980 and the fast input causes the counter to jump from 950 to 980 within one scan cycle, then the output stays off. Regards, [user_name]"
+    },
+    {
+      "comment_id": 101645340562041,
+      "user_name": "4HZdMEQHHC",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 5,
+      "comment_body": "Thank you. I managed to understand it myself, thankfully!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user was unsure how the up/down counter's threshold logic operates in [product_name] (version_no [version_no]) using the [company_name] manual, especially concerning fast digital inputs and their effect on output behavior. The confusion stemmed from the example values provided in the documentation. Another user clarified by explaining how the output responds within given ranges, helping to resolve the uncertainty. The main issue related to documentation clarity and understanding, particularly for users not fluent in English.",
+    "user_expectations": "The user seeks more straightforward documentation or built-in explanations regarding up/down counter logic in [product_name], focusing on how the counter works with different pulse rates and threshold values.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "documentation clarity",
+      "comprehension",
+      "correct configuration"
+    ],
+    "pain_keywords": [
+      "documentation confusion",
+      "example ambiguity",
+      "language barrier"
+    ],
+    "feature_keywords": [
+      "up/down counter",
+      "fast digital input",
+      "On/Off thresholds",
+      "counter logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

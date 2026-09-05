@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "6647042627",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 722988588266349,
+      "user_name": "OvULB9xY3u",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hello, I've come across several examples demonstrating a single [version_no] connected to [product_name] modules, but haven't found resources about setups with multiple connections, specifically beyond a direct link or using inter-module communication. My goal is to connect one [version_no] to ten [product_name] modules, but I'm facing difficulties configuring this, especially concerning the TSAP settings on the [version_no]. Is there any guidance or sample configuration available?"
+    },
+    {
+      "comment_id": 722639310430849,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I've made a basic sample where three [product_name] modules are networked with a [version_no]. Each [product_name] module operates as a client, while the [version_no] acts as the server. You need to enable PUT/GET communication in the server's protection settings, and deactivate the active connection on the opposing side. Attached are the relevant [product_name] network project and TIA [version_no] project files."
+    },
+    {
+      "comment_id": 149555590314720,
+      "user_name": "OvULB9xY3u",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Dear [user_name], Thank you for your helpful response; it provided exactly what I needed."
+    },
+    {
+      "comment_id": 439825907540742,
+      "user_name": "OvULB9xY3u",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "When setting up the TSAP on the [version_no], it seems I can't use 20 for the [product_name] TSAP. Is this a known issue, or is there an alternative to resolve it?"
+    },
+    {
+      "comment_id": 703214437855735,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "It's unlikely to be a software bug since it's working for me. Your screenshot doesn't clarify the issue. Please upload your [document] and your [product_name] project for review."
+    },
+    {
+      "comment_id": 483844114803633,
+      "user_name": "OvULB9xY3u",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I've identified a solution: If the TSAP for the PLC is initially set to 0, you can then use TSAP value 20 for the [product_name] module, after which it's possible to adjust the PLC TSAP to other values like 10 or 11."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are discussing issues with connecting a single [version_no] to several [product_name] modules, encountering configuration challenges on the control system side and limitations in acceptable TSAP values during setup. Solutions were shared indicating the process is not straightforward, with users finding restricted TSAP values in the configuration tools, which can lead to confusion. Once a workaround is discovered, attention shifts to implementation rather than concerns about possible software defects.",
+    "user_expectations": "Users are looking for clear and applicable examples for multi-device networking and seek flexibility when it comes to assigning TSAP values to achieve the desired communication structure.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "multi-device communication",
+      "configuration flexibility",
+      "clear examples"
+    ],
+    "pain_keywords": [
+      "tsap configuration limitation",
+      "lack of multi-device documentation",
+      "setup confusion"
+    ],
+    "feature_keywords": [
+      "TSAP parameter",
+      "PUT/GET communication",
+      "multi-client networking"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "branch_id": "9159876163",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 672548196555429,
+      "user_name": "9FErLzO6YL",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Is it possible to display the current value of a counter in the [product_name] Web Editor? I'm interested in showing the actual count, not just the status or completion."
+    },
+    {
+      "comment_id": 415839381512226,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Yes, this can be done using Parameter-VM-Mapping. The value is a DInt and uses VD in the mapping table."
+    },
+    {
+      "comment_id": 680875423943108,
+      "user_name": "9FErLzO6YL",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Could you share a simple example of a [product_name] ladder and Web Editor project?"
+    },
+    {
+      "comment_id": 161110631863651,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I can provide an example, but not tonight as it's late. In my example, I also included an on-delay timer for you."
+    },
+    {
+      "comment_id": 141197978482661,
+      "user_name": "9FErLzO6YL",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Good night!"
+    },
+    {
+      "comment_id": 894309364722978,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I've attached the example."
+    },
+    {
+      "comment_id": 829670655916084,
+      "user_name": "9FErLzO6YL",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thank you for the example, it works well. How did you determine the mapping for virtual words and double words? For instance, Counter 1 is mapped to VD10, VD14, VD18 & VD22. How was this decided? Was there a [document] from [company_name]? Similarly for timers, T002 is mapped to VW26, VW28 & VW30, and T003 to VW32, VW34 & VW36."
+    },
+    {
+      "comment_id": 896789069662822,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The mapping in the VM area is structured by bytes. Bit: Vx.y, where x is the byte number and y is the bit number in the byte. For example, V9.4 is byte 9, bit 4. A byte consists of 8 bits; VB0 covers V0.0 to V0.7. A word is 2 consecutive bytes; VW0 covers VB0 and VB1. A DWord is 2 consecutive words; VD0 covers VW0 and VW2 (VB0 to VB3). The VM area contains 851 bytes, from VB0 to VB850."
+    },
+    {
+      "comment_id": 282612012625436,
+      "user_name": "9FErLzO6YL",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Is the assignment sequence 'top down' or 'first in, first out'? Does C0001 start at VD10 because that's the first item read by the controller in the ladder code? If T002 was T001 (and C0001 was C0002), would it start at V10?"
+    },
+    {
+      "comment_id": 297880475257413,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "No, the addresses can be freely assigned. Just make sure not to duplicate or overlap assignments. For example, if you use bit signals V0.0 - V0.3, do not use VB0, VW0, or VD0 to avoid conflicts."
+    },
+    {
+      "comment_id": 644013190523595,
+      "user_name": "9FErLzO6YL",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Understood about the lengths and avoiding overlapping bytes. I see how VD's and VW's map to analog displays in the Web Editor, but I'm unsure how VD's and VW's are assigned to C0001, T002, and T003 in the ladder code."
+    },
+    {
+      "comment_id": 280547118376205,
+      "user_name": "9FErLzO6YL",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I think I've found the answer!"
+    },
+    {
+      "comment_id": 678713271640409,
+      "user_name": "9FErLzO6YL",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Navigate to Tools > Parameter VM Mapping. Thanks so much for your help!"
+    },
+    {
+      "comment_id": 297201894175194,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "That's what I mentioned in my initial reply: Tools > Parameter-VM-Mapping."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The discussion focuses on displaying real-time counter values in the [product_name] Web Editor, specifically how to utilize VM mapping to achieve this. Users share technical details and a practical project example, explaining VM addressing and mapping logic. Issues regarding address assignment and overlap prevention are clarified, with additional emphasis on finding official mapping instructions.",
+    "user_expectations": "The user wants to access and show live counter values in the web editor and is looking for clear, reliable documentation or explanations on how counters and timers are mapped in memory.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "display real-time counter values",
+      "clarity on memory mapping",
+      "precise address documentation"
+    ],
+    "pain_keywords": [
+      "unclear VM mapping documentation",
+      "risk of address overlap",
+      "complex address assignment"
+    ],
+    "feature_keywords": [
+      "counter value display",
+      "Parameter-VM-Mapping",
+      "virtual memory addressing",
+      "web editor integration"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

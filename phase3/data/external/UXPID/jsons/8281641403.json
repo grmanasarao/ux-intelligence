@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "branch_id": "8281641403",
+    "thread_id": "1723880927",
+    "publication_year": 2011,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 809848620970147,
+      "user_name": "Yp8eXMNCWg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hello! I encountered an issue showing the status of a latching relay in my program. After making a small test program, I couldn’t pinpoint the cause. I created a latching relay connected to two pushbuttons and an output, as well as a message text block configured to stay enabled. The message text displays the status of the inputs, output, and relay. The problem is that, while all other values are reflected correctly, the relay status simply follows one of the inputs instead of acting independently. I tried various solutions but found that displaying the status of an unused output works, though it’s not ideal because I don’t have that output available. It’s frustrating not understanding the root of this irregularity. Running [product_name] V7.0.30 and [product_name] [article_no]. Does anyone have suggestions? Please see the attached screenshot for the function block diagram and message text configuration. Regards, [user_name]."
+    },
+    {
+      "comment_id": 902174178594449,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "You need to invert the reset input of your RS block. It only functions if the second input is always ON. In the RS block, the reset input has priority over set, so if both are high, the output remains off. Next time, please post a ZIP file of your program here so the community can help test it. Check the attachment for details."
+    },
+    {
+      "comment_id": 948070025745893,
+      "user_name": "Yp8eXMNCWg",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Yes, I inverted the second input because my stop button is normally closed. The issue is, in the software simulation, everything operates as expected, but after downloading to the actual hardware, the problem appears. Regards,"
+    },
+    {
+      "comment_id": 421220650250154,
+      "user_name": "sTfQViFsyM",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "You should adjust the second input’s properties from switch (make contact) to push button. The break contact is your stop function, a normally closed button, as noted in your uploaded program. Check my sample—it might help. Remember you can change the display function in the message text block between false and high, regardless of the actual signal status. Good luck."
+    },
+    {
+      "comment_id": 302393668285339,
+      "user_name": "K5C0ktvEjp",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Hello [user_name], We're experiencing the same issue. The root cause is that you cannot use internal signals or flags as parameters for the message text function; only physical inputs and outputs work. This seems to be a software limitation in [product_name] ([version_no]). As a workaround, use any unused outputs as the parameter for ON/OFF display. Hopefully, a future update will address this. Regards, [user_name] Support Request: [url] Website: [url] Homepage Brazil: [url]"
+    },
+    {
+      "comment_id": 958193040147067,
+      "user_name": "sTfQViFsyM",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "Why is this considered a bug in [product_name] V7? Even in version 6, it wasn’t possible to display the ON/OFF status of an internal function block!"
+    },
+    {
+      "comment_id": 321802568443702,
+      "user_name": "2mCAXXap1Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2011,
+      "comment_month": 9,
+      "comment_body": "A [product_name] [article_no] can only display status text via digital I/O. You can’t use other signals to control the status text with this hardware, and it’s not a bug—it’s just not supported in this product generation. With [product_name] V7, using other signals works only on [product_name] [article_no], but the status window mistakenly suggests compatibility with both versions even though it solely works with the newer hardware. Hopefully this clarifies things. Regards"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are facing a limitation when trying to display the ON/OFF status of internal function blocks or flags using the message text feature in [product_name] software. Although the simulation displays status changes correctly, the actual hardware ([article_no]) only supports displaying the states of physical inputs and outputs, not internal blocks. This inconsistency between simulation and physical device leads to confusion and requires users to find workarounds such as using unused outputs, with uncertainty about whether it is a bug or an unsupported feature.",
+    "user_expectations": "Users expect the message text block to present real-time status updates for internal function blocks or flags, precisely as the simulation does, when the program is running on actual hardware.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time status monitoring",
+      "accurate display",
+      "internal logic visualization"
+    ],
+    "pain_keywords": [
+      "hardware-software inconsistency",
+      "unsupported feature",
+      "lack of feedback"
+    ],
+    "feature_keywords": [
+      "Message text status",
+      "function block output monitoring",
+      "digital I/O display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "30": "Data Persistence Confusion"
+  }
+}

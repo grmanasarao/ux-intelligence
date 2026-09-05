@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "branch_id": "1554465497",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 356825584260011,
+      "user_name": "AvIDAdn1Ay",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello everyone, I want to remotely upload the data log from the [product_name] PLC using a VPN tunnel, but without relying on [product_name] engineering software. The manual suggests that uploading is only possible with this software or by physically removing the microSD card from the CPU and copying the log file directly to a PC. Is there any alternative approach? I have a VPN connection to the CPU via the [product_name] communication module. Although I can work with [product_name] engineering software, the end user is not a programmer and would prefer to access data logs remotely at any time. Is there a way to achieve this using FTP, SMTP, or other methods? Here are the components I'm using: PLC: [product_name], [article_no], firmware [version_no] CMR: [product_name] [article_no], firmware [version_no] + SIM data card [product_name] engineering software [version_no] Regards!"
+    },
+    {
+      "comment_id": 176942602848398,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "There might be possibilities, but I'm not aware of alternatives other than [product_name] engineering software."
+    },
+    {
+      "comment_id": 409483596268431,
+      "user_name": "AvIDAdn1Ay",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Hello [user_name], when you mention possibilities, do you mean you know of other methods, or not? For instance, I've heard about [product_name] Access Tool, but I'm unfamiliar with its features. Could transferring the log file from the microSD card of the PLC to the microSD of the communication module work? Still, I believe the microSD card can't just be accessed like a typical USB or network drive in Windows. If the PLC design doesn't allow third-party programs or scripts to see it (and the CPU isn't transparent), then there really might not be a way. That's what I'm trying to clarify."
+    },
+    {
+      "comment_id": 725176724857151,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 2,
+      "comment_body": "Since [product_name] software allows this, it's technically feasible. There are also visualization apps created by companies other than [company_name] or by individuals. I didn't mean to imply more than that, and to reiterate, I don't know of another solution besides [product_name] engineering software."
+    },
+    {
+      "comment_id": 492277616199805,
+      "user_name": "cZQANX744b",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Hi, The PLC can record data on the microSD card in up to 50 log files. When the microSD is installed in the PLC, only the latest log can be read using the [product_name] engineering software. You can't access or transfer other log files. If this restriction is acceptable, the only potential solution is to use the communication module, initiate a VPN, connect with [product_name] engineering software, and try to upload the relevant datalog file. With certain module models, this can be very slow. As of now, this is the only official method offered by [company_name]. Hope this clarifies things."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users are looking for a way to remotely access and download data log files from a [product_name] PLC without using the official [product_name] engineering software, catering to users without programming backgrounds. Documentation currently restricts the procedure to either the official software or physically retrieving the microSD card, limiting remote access for non-technical users. The design of the PLC seems to intentionally prevent easy third-party program access for added security, which restricts remote flexibility.",
+    "user_expectations": "The expectation is to enable secure and straightforward remote retrieval of data log files, ideally using standard protocols such as FTP or SMTP, without needing specialized software or physical access to hardware. The solution should be accessible to non-programmers.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote log download",
+      "user simplicity",
+      "non-programmer access"
+    ],
+    "pain_keywords": [
+      "restricted access",
+      "lack of transparency",
+      "no simple remote solution",
+      "limited protocol support"
+    ],
+    "feature_keywords": [
+      "file transfer protocols",
+      "data log access",
+      "microSD log storage",
+      "remote upload"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {
+      "Windows": []
+    }
+  },
+  "topics": {
+    "23": "File Accessibility Barriers",
+    "22": "Usability Improvement Suggestions"
+  }
+}

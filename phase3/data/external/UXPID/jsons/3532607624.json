@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "3532607624",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 987543519921493,
+      "user_name": "R4uZLiRXmq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "I'm not sure if this is the correct place to ask, but my issue may be related to the way Modbus works with [company_name] products. I am communicating with a [product_name] using [version_no] through a SCADA system, and then reading those values using a [product_name]. The system writes data in word format (16 bits), while the [product_name] handles data in byte format. I understand that 16 bits equals 2 bytes, and a double word is 4 bytes. However, when I write a single word, it seems to change three registers in the [product_name], and depending on the value, only one register may reflect the intended value until it increases. Is there a workaround for this? I haven’t mapped any registers as I intended to use the default ones. It might be that the [product_name] is reading from the wrong starting position."
+    },
+    {
+      "comment_id": 438154840431180,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 10,
+      "comment_body": "In Modbus, a register consists of 16 bits, which equals 2 bytes or 1 word. If you write a single word, how do you expect the value to reflect changes across three registers?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user highlights unpredictable register changes when writing one word of data from a SCADA system to a [product_name] ([version_no]), resulting in unexpected modifications across three registers in a [product_name]. The problem appears to stem from differences in data size handling between the SCADA (uses 16-bit words) and the [product_name] (operates on bytes), causing mismatched data mapping or offset problems. The user relies on default register mapping without customization, adding to confusion.",
+    "user_expectations": "The user expects that writing a single word from SCADA will reliably update only the intended register in the [product_name], while other registers remain unaffected, and that default register mapping should work as expected.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "predictable register mapping",
+      "reliable data writing",
+      "default values working"
+    ],
+    "pain_keywords": [
+      "unexpected register changes",
+      "mapping confusion",
+      "data size mismatch"
+    ],
+    "feature_keywords": [
+      "register mapping",
+      "word vs byte data size",
+      "Modbus register handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

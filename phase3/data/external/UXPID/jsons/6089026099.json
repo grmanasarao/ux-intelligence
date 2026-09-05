@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "6089026099",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 903217942718632,
+      "user_name": "LzOuTyzyBI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Hello, Is there a way to have the timers run only after starting and only when I11 and/or I12 are active? Please see the attached logic diagram. Thanks. Kind regards, [user_name]"
+    },
+    {
+      "comment_id": 848893534841283,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Hello, Could you please clarify your issue? From what I understand, you want to use the result from block B049 to affect B001, but only if B049 is ON when the controller is in RUN mode. I might be misunderstanding, so please provide more details. Greetings."
+    },
+    {
+      "comment_id": 167735273208748,
+      "user_name": "LzOuTyzyBI",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Thank you for your insights! What I’d like to add is that I want the timers to stop running whenever I12 and I11 are not active (these are the sensors). The cycle should only operate if one or both sensors (i11 and i12) are active. Regards, [user_name]"
+    },
+    {
+      "comment_id": 561546290602891,
+      "user_name": "8IDBKUKXHq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], please use English. While Dutch is a lovely language, most users on this forum do not understand it well, myself included. I’ll attempt a translation (please correct if needed):"
+    },
+    {
+      "comment_id": 657783202058907,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], Which specific timers are you referring to, for example, which block numbers? Translation from [user_name]: The cycle should only run when one or two sensors (i11 and i12) are activated. Do you mean that the entire program should only work when these two digital inputs, I11 and I12, are active? Greetings, [user_name]"
+    },
+    {
+      "comment_id": 927326995165001,
+      "user_name": "LzOuTyzyBI",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Yes, that’s correct. The application is a shuttle system for a weaving machine I've built that moves from one side to the other. During transit, the cycle should pause and only continue once the shuttle arrives at the other side. Two sensors (i11 and i12) at either end detect the shuttle's arrival; the cycle should only proceed when the shuttle is present. See this video: [url] Is this possible? Thanks in advance. Kind regards."
+    },
+    {
+      "comment_id": 690050527399291,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], Now I see your program sets the outputs only when I11 or I12 is active. From what I understand, you want to link the Start/Stop function (I1 and I2) to dependencies on digital inputs I11 and I12. You can create these dependencies easily using AND logic functions, so that outputs activate only when all required digital inputs are true. Consider implementing this kind of logic in your program. Am I understanding your goal correctly? Greetings, [user_name]"
+    },
+    {
+      "comment_id": 207325429681380,
+      "user_name": "LzOuTyzyBI",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Yes, that's exactly what I want. Can those AND blocks be added between i1, i2 and i11, i12? I’d be very grateful for this help."
+    },
+    {
+      "comment_id": 350991447965122,
+      "user_name": "wriUNBeJqq",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], You can use multiple AND function blocks in your program, and you have flexibility in how you connect them. Please check the screenshot for an example of how you could link I1 and I2 to I11 and I12 for the appropriate dependencies. Greetings, [user_name]"
+    },
+    {
+      "comment_id": 533994434614269,
+      "user_name": "LzOuTyzyBI",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "Thanks! I’ll try that and update you!"
+    },
+    {
+      "comment_id": 406475816096508,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 10,
+      "comment_body": "It isn't possible to stop a timer once it’s running on this controller; that functionality isn't available. A timer starts on activation, and if you stop it, the next activation starts from zero. If you want a timer that can pause and resume, you'll need to build your own using asynchronous pulse generators and counters—this way, you can interrupt and resume timers during the program run. If it's too complicated, feel free to send me a private message."
+    },
+    {
+      "comment_id": 898698678253811,
+      "user_name": "LzOuTyzyBI",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Unfortunately, I can't get it to work. Can someone add this for me please? Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user wants to ensure that cycles and timers in an automated weaving machine operate only when specific sensors (I11 or I12) indicate shuttle presence. The discussion clarifies using logic blocks to create sensor-dependent conditions, with community members explaining how to use AND functions for the required input dependencies. The user was initially unsure about the logic implementation but received actionable guidance, with the main concern centered around establishing the correct conditional logic to match the user’s needs.",
+    "user_expectations": "The user expects a straightforward programming solution so that cycles and timers run only when one or both of the sensors (I11 or I12) detect the shuttle. The user seeks an approach that clearly ties the controller's logic execution to the states of these sensor inputs.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "conditional execution",
+      "sensor dependency",
+      "automated cycle control"
+    ],
+    "pain_keywords": [
+      "unclear logic",
+      "input dependency confusion",
+      "timer operation control"
+    ],
+    "feature_keywords": [
+      "input logic blocks",
+      "AND function",
+      "digital sensors",
+      "cycling condition"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

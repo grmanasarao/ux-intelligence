@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "branch_id": "1178810419",
+    "thread_id": "4479534060",
+    "publication_year": 2024,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 641711161440690,
+      "user_name": "9ZNRkWGiCk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Could someone assist with converting two Modbus register values into a voltage reading? I have verified that the raw values are correct, but I'm unsure how to display them as, for example, 236.5V from values like 17008 and 28784."
+    },
+    {
+      "comment_id": 583614171232610,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "It's difficult to provide help without knowing the data type used in these Modbus registers. Could you share the register table for the Modbus device, or provide a link to it?"
+    },
+    {
+      "comment_id": 753493346366763,
+      "user_name": "9ZNRkWGiCk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "Hello, my apologies for the oversight. For instance, I'm interested in register number 30001, which corresponds to the L1 to N voltage. Thanks in advance!"
+    },
+    {
+      "comment_id": 839462765767203,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "According to the documentation: 'All data in the smart meter is sent as 32-bit IEEE754 floating point numbers, using two Modbus registers for each value.' So, for register 30001 (and 30002) to get a value, you should read both as one double input register and apply the floating/integer converter to interpret the result."
+    },
+    {
+      "comment_id": 364995319071922,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "You might want to try this method."
+    },
+    {
+      "comment_id": 358355445547007,
+      "user_name": "9ZNRkWGiCk",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 1,
+      "comment_body": "The resolution factor was the issue—I had used 1.000 instead of the correct 0.100. Thanks so much for your help!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered challenges when trying to interpret voltage readings from Modbus register values. The confusion stemmed from the data encoding method, which uses 32-bit IEEE754 floating point numbers across two registers, and from not knowing the correct resolution factor to apply. After receiving clarification regarding data formatting and resolution, the user was able to resolve the problem.",
+    "user_expectations": "The user expects easy integration for Modbus register value conversion and clear, accessible documentation detailing data coding methods and required resolution factors for accurate readings.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate voltage display",
+      "correct value conversion",
+      "easy Modbus data handling"
+    ],
+    "pain_keywords": [
+      "register value confusion",
+      "data type interpretation",
+      "resolution ambiguity"
+    ],
+    "feature_keywords": [
+      "Modbus register reading",
+      "IEEE754 decoding",
+      "resolution setting",
+      "display formatting"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "branch_id": "5454064409",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 238504620447358,
+      "user_name": "giuvNEEDjB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "If I want to connect 6 or more [product_name] controllers performing various tasks to a PC acting as a SCADA Server, is it feasible to set up all controllers as slaves and keep the master mode for the third-party SCADA software? All programs are already developed with ladder logic."
+    },
+    {
+      "comment_id": 637849028911050,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I understand that by [product_name] A8, you mean the controllers from the [article_no] series. The master/slave arrangement for these controllers is specialized. The slave unit does not execute a program and acts as a hardware expansion for the master. As noted earlier, a network project cannot be built with ladder logic, only with function block diagram. If your programs use ladder logic, you will need to configure connections manually. Please specify how many controllers are involved and the SCADA software you are using."
+    },
+    {
+      "comment_id": 749326422231626,
+      "user_name": "giuvNEEDjB",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Currently, there are 4 controllers of [article_no] type, but eventually there could be 8 or more. The initial 4 units are programmed with ladder logic. Indusoft is used as the SCADA server, and I've tested one unit as master with the \"sieth\" driver successfully. The network also includes other PLCs like [version_no] and [version_no]. I have learned to use the network editor, but I prefer not to rewrite the first 4 programs in function block diagram, which is why I am seeking alternatives. How can manual connection setup be approached?"
+    },
+    {
+      "comment_id": 965251184697799,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "The [product_name] controller supports up to 16 connections to other controllers, with a maximum of 8 static connections and the remainder dynamic. For a server controller: 1 static link to the SCADA system, 7 static links to other client controllers. If you need more than 7 client controllers, the setup requires converting to a main server controller with an auxiliary server controller. Main server: 1 static link to SCADA, 1 static link to auxiliary server, 6 static links to clients. Auxiliary server: 1 static link to main server, 7 static links to clients."
+    },
+    {
+      "comment_id": 618843619556960,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello [user_name], I’ve prepared an example showing how to network a server [product_name] with 4 client controllers, including a screen recording for demonstration. Pay attention to which controller functions as server or client, the assigned IP addresses, TSAPs, the VM area bytes transmitted, and the data transmission directions indicated."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users aim to connect several [product_name] controllers to a PC-based SCADA server, intending to set all controllers as slaves while maintaining the SCADA software as master. They encounter specific master/slave networking limitations unique to these controllers, face constraints on maximum connections, and must address differences in programming environments. There is concern about reprogramming logic with function block diagrams since network projects are not supported in ladder logic, leading to challenges with manual connection setup.",
+    "user_expectations": "The user seeks to connect all controllers as slaves to a master SCADA server, retain the existing ladder logic programs without needing to redesign them in function block diagram, and establish network connections manually with minimal changes.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy network expansion",
+      "retain existing programming",
+      "centralized SCADA control"
+    ],
+    "pain_keywords": [
+      "reprogramming requirement",
+      "network setup limitations",
+      "master/slave constraint",
+      "manual configuration"
+    ],
+    "feature_keywords": [
+      "slave mode",
+      "networking",
+      "LAD support",
+      "connection management",
+      "static/dynamic connections",
+      "SCADA integration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

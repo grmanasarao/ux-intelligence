@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "8906163641",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 721727281321520,
+      "user_name": "fIU1mdryRM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Does anyone have suggestions for detecting when the first level in an analog ramp is achieved? I need to activate a timer and wait for a few seconds before increasing to the next level. Since the levels are set via the display, I can't rely on fixed values for comparison."
+    },
+    {
+      "comment_id": 235436203170167,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "The target value shown on the display serves as the stage reference. You can use an analog threshold trigger aligned with the reference value for the first stage."
+    },
+    {
+      "comment_id": 919586942134175,
+      "user_name": "fIU1mdryRM",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Thank you for your quick response. I'm still unclear on how to pass the level value to the threshold trigger. Please see the attached file."
+    },
+    {
+      "comment_id": 726430101214175,
+      "user_name": "RBMeyyMDHq",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Here's the updated approach. The value for Level 1 of the ramp function is assigned in B006 (parameter V1) and B007 holds the value for the threshold trigger. The display value in B006 can be changed with the parameter settings; while in the menu, you can hold down ESC for about 1 second to modify."
+    },
+    {
+      "comment_id": 775728127558386,
+      "user_name": "fIU1mdryRM",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 11,
+      "comment_body": "Thank you, the solution works as needed. I adjusted L1 in B001 to obtain its value from B006. The concept is clear now—appreciate your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user asked how to dynamically detect when a user-defined ramp level, set via the display, is reached in order to continue process control logic. The discussion covered using parameter references in threshold triggers and linking display changes to logic variables. After some clarification and minor adjustments, the user successfully implemented the solution.",
+    "user_expectations": "The user wants a way to detect when a displayed, user-adjusted ramp level is reached and to reliably trigger subsequent actions based on this detection.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "dynamic trigger",
+      "automated sequencing",
+      "user-parametrized control"
+    ],
+    "pain_keywords": [
+      "variable referencing",
+      "non-constant comparison",
+      "dynamic parameter mapping"
+    ],
+    "feature_keywords": [
+      "adjustable analog ramp",
+      "threshold trigger",
+      "display parameter access"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance"
+  }
+}

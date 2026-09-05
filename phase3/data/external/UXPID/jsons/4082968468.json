@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "4082968468",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 616521895832102,
+      "user_name": "h4OKPwiKSy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello everyone, I'm working with a [product_name] (8 digital inputs, 4 analog inputs, 4 outputs) and would like to learn more about displaying text on the device. My project involves allowing the operator to set the measurement range of their 0-10V sensors (e.g., 0-100 bars, 0-50A) directly on the device's display. I envision a menu where each analog input can be selected, then another menu would let the user choose the sensor's measurement range, like \"0-150\" or \"0-60\". Since using the ESC/OK hardware buttons in the program isn't possible, I'm wondering if there's a way to retrieve which range option was chosen. I'm new to the software and appreciate any ideas. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 323067509959419,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Here are some essential basics: Each analog input converts signals to a scale from 0 to 1000 units, whether you're working with voltage, current, or temperature sensors. To show the physical sensor range (like 0-150A) on the display, you'll need to connect the analog input to an analog amplifier and configure its parameters accordingly. Example configuration: For a 0-10V analog input with a sensor measuring 0 to 150A: Without decimal place: - Minimum: 0 - Maximum: 150 - Gain: 0.15 - Offset: 0 - Decimal places: 0 With one decimal place: - Minimum: 0 - Maximum: 1500 - Gain: 1.5 - Offset: 0 - Decimal places: 1 Note that only the current measured value appears on the display; ranges like \"0–150\" or \"0.0–150.0\" are not shown directly."
+    },
+    {
+      "comment_id": 919885958208973,
+      "user_name": "h4OKPwiKSy",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hi, thanks for your feedback. If I use the analog amplifier to convert the 0–1000 scale to match the sensor range, is there a way to display this converted value on the device screen (like what's shown in the attached image)? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 233401403623365,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Refer to the attached image."
+    },
+    {
+      "comment_id": 505488091179507,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "And here's an example project file."
+    },
+    {
+      "comment_id": 814573068288966,
+      "user_name": "h4OKPwiKSy",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thanks for your response. I have another question: Since I use multiple 0-10V sensors with different ranges, sometimes I use a 0-200bar sensor on analog input 1, and other times I switch to a 0-150A current sensor using the same input. Do I always need to reprogram the device, changing the analog amplifier values for each sensor, or can I adjust these ranges using the device display directly (for example, choosing the sensor range in the display so the program adapts automatically)? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 501552279384706,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "You can read and change the gain and offset parameters of the analog amplifier through the display. However, you cannot modify the sensor type or the number of decimal places from the display interface. Gain and offset determine which measurement range is shown. Each time you switch sensors, you'll need to manually calculate and enter the correct gain and offset."
+    },
+    {
+      "comment_id": 680334275995771,
+      "user_name": "h4OKPwiKSy",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Hello again, I tried creating a menu for users to manually change gain and offset via the display. During simulation, I can change settings, but on the real device, changes don't take effect. I've included a screenshot of the program in the attachment."
+    },
+    {
+      "comment_id": 437350976031934,
+      "user_name": "h4OKPwiKSy",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Also, here's the file from the configuration software."
+    },
+    {
+      "comment_id": 951166308619810,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "To make a parameter editable, you should place it within a message text, which you've already done. To modify a parameter: select the message text, then hold the ESC button for over 2 seconds—a black bar will appear in one of the input/output fields. Using the cursor up/down, you can navigate across fields. When you've chosen the field to edit, press the OK button. The black bar will become a blinking box; cursor up/down adjusts the value, cursor left/right shifts the digit. When finished, press OK to go back to the bar, then you may select another field or quit the routine by pressing ESC."
+    },
+    {
+      "comment_id": 236690003246303,
+      "user_name": "h4OKPwiKSy",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 7,
+      "comment_body": "Thank you!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users working with [product_name] (with display) and [product_name] face limitations when trying to dynamically adjust sensor measurement ranges and display values directly via the device menu. While gain and offset for analog amplifiers can be changed from the device's interface, parameters like sensor type and decimal places cannot be modified in real time. Users also note differences between simulation and actual hardware, with simulation allowing easier adjustment of parameters than the device due to confusing steps required for interaction.",
+    "user_expectations": "Users expect to be able to flexibly and intuitively modify sensor display ranges (gain/offset) and possibly change sensor types directly through the device display. They wish for a workflow as seamless as in the simulation software, eliminating the need for repeated reprogramming.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "simple sensor range adjustment",
+      "minimize reprogramming",
+      "real-time configuration"
+    ],
+    "pain_keywords": [
+      "complex value adjustment",
+      "limited on-device options",
+      "workflow mismatch between simulation and device",
+      "manual calculation requirement"
+    ],
+    "feature_keywords": [
+      "gain and offset editing",
+      "analog input menu",
+      "display integration",
+      "simulation vs device experience"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

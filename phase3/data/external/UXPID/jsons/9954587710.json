@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "branch_id": "9954587710",
+    "thread_id": "1723880927",
+    "publication_year": 2014,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 920497118839499,
+      "user_name": "vevgJRysqU",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm currently working with [product_name] [article_no] Ethernet and [product_name] HMI. Everything operates correctly, and I've been utilizing M flags to transmit and receive binary states from the HMI. For instance, I connect a flag to the RS latch output, enabling the HMI to track when the latch is active or inactive. After using all available 27 M flags and repurposing unused outputs Q as flags (since these are also straightforward to use in the HMI), I've run out of options. Is there an alternative method to communicate binary states, such as RS latch feedback, to the HMI from [product_name]? I considered using VM addresses for this purpose, but haven't found a solution yet. Thanks in advance for any suggestions. Regards, [user_name]"
+    },
+    {
+      "comment_id": 443651274190112,
+      "user_name": "tVv1jcuSKM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "You might want to optimize your logic or switch to [version_no] / [version_no] for improved flexibility."
+    },
+    {
+      "comment_id": 468412141339705,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Perhaps using the analog multiplexer function could help—this lets you set or read two flags, or assign different counter values using powers of two."
+    },
+    {
+      "comment_id": 438878867669520,
+      "user_name": "kHKPQQUtAt",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Consider using [version_no] and a comfort panel for improved performance. While [product_name] is affordable, its quality does not match that of [product_name] HMI."
+    },
+    {
+      "comment_id": 475636305847701,
+      "user_name": "kHKPQQUtAt",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "That sounds like a good approach."
+    },
+    {
+      "comment_id": 385242355613202,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "You can repurpose unused outputs as flags. Outputs such as Output 16, 15, 1, etc., can act as flags, even if your [product_name] lacks extension units."
+    },
+    {
+      "comment_id": 295591651428276,
+      "user_name": "vevgJRysqU",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "Thanks everyone for your input. To [user_name]: I've already optimized the logic, but it’s not sufficient—I must stick with [product_name] for this project. To [user_name]: Your suggestion is helpful, thank you. Regarding HMI type, the issue is not related—in my experience, [product_name] is affordable and works well. To [user_name]: I've already implemented your suggestion—thanks. The main challenge with using flags is their necessity when I need to feedback an output to an input in certain blocks; otherwise, the system shows the message that recursion is only permitted via outputs and flags. This seems inefficient. I also wondered if the memory map provided regions (like VM) that could function as flags, but couldn't locate relevant documentation. Regards, [user_name]"
+    },
+    {
+      "comment_id": 712498314165799,
+      "user_name": "fwo4nQvvxs",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "It's possible to program recursion using standard blocks—in the German section of the forum, there's a discussion on 'Feedback without markers or outputs.' Please refer to my response there! You can find the attached file [document] for a direct example. Best Regards"
+    },
+    {
+      "comment_id": 547910638025592,
+      "user_name": "R40RVeEty3",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2014,
+      "comment_month": 5,
+      "comment_body": "One workaround is encoding messages from the HMI by combining multiple flags. For example, with three flags (M1, M2, M3), you can represent eight different messages: 000, 001, 010, 011, 100, 101, 110, 111. Set up your HMI so that, for example, when Button1 is pressed, M1 = 0, M2 = 0, M3 = 1. Then, configure your [product_name] logic to activate Q1 in response. This method might be helpful. Regards,"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find that the limited number of flags available in [product_name] [article_no] Ethernet modules restricts communication with HMIs, especially in more complex projects. Key frustrations include the inability to use VM addresses as custom flags and system recursion constraints that only permit feedback via outputs and flags, which limit advanced logic possibilities. Users are exploring workarounds such as logic optimization, multiplexer functions, message encoding, and using outputs as flag substitutes, but generally view these solutions as imperfect and would prefer more flexible native options.",
+    "user_expectations": "Users expect the system to support a higher number of binary signals (flags) for HMI communication or to enable flexible use of memory—such as allowing VM addresses to serve as user-defined flags.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "more binary signals",
+      "greater flag flexibility",
+      "efficient HMI interaction"
+    ],
+    "pain_keywords": [
+      "flag quantity limitation",
+      "memory mapping inflexibility",
+      "forced use of outputs as surrogate flags"
+    ],
+    "feature_keywords": [
+      "M flags (binary flags)",
+      "Q outputs as flags",
+      "VM memory mapping",
+      "recursion feedback"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

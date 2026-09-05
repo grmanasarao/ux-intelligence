@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "branch_id": "5586999381",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 730393670600000,
+      "user_name": "aqhT6iuQVD",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I'm seeking advice about a [product_name] controller (firmware [version_no]). Initially, I configured an IP address (192.168.1.xx) for the device. Later, our network shifted to 192.168.2.xx, so I updated the IP in my program using [product_name] programming software and downloaded the changes. At first, it seemed fine, but recently the customer reported that the device was unreachable. Upon inspection, I discovered that after a reboot, the IP and gateway were reset to their original values (192.168.1.xx). Despite several attempts to change the configuration, including restoring defaults, the IP reverts to the initial setting whenever the device restarts. Am I missing a step, or is this a firmware issue? Hoping for some guidance."
+    },
+    {
+      "comment_id": 110994644332022,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Could it be that an SD card containing a program with the old IP address is inserted into the [product_name] controller? If so, this would explain the issue. Each time the device restarts, the program (and its network settings) are loaded from the SD card into memory."
+    },
+    {
+      "comment_id": 500502606340704,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Try manually setting the IP address in the [product_name] controller setup on the device's display, configure it to a static IP, and observe what happens after a reboot. Check if the address still changes."
+    },
+    {
+      "comment_id": 192073169482518,
+      "user_name": "tuLbKYc7ij",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "The issue might occur because SD card program copying is enabled and the loaded program contains an embedded IP configuration. You can test this by loading the program, running it, and then removing the SD card. If, after reinserting it, the address changes, it likely means the SD card program defines a different address. Alternatively, you can ensure consistent IP assignment by configuring your router to reserve an IP address for the controller’s MAC address."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "This discussion highlights challenges with keeping network settings persistent on [product_name] controllers, especially when IP changes are made using programming software but revert after reboot due to SD card program loading. The community identifies SD card mechanisms as a key factor, suggesting gaps in documentation and understanding about proper configuration management.",
+    "user_expectations": "The user anticipates that after updating the IP address via programming and downloading to the device, the new settings will remain even after restarts, maintaining network connectivity.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent configuration",
+      "network connectivity",
+      "reliable remote access"
+    ],
+    "pain_keywords": [
+      "settings revert",
+      "connectivity loss",
+      "unclear configuration persistence"
+    ],
+    "feature_keywords": [
+      "network settings persistence",
+      "SD card program loading",
+      "IP address configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

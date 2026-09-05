@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "6504544772",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 879289994639335,
+      "user_name": "4ORI56C94H",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "Hello everyone, I'm experiencing an issue with a timer in my program. When I set the timer on my PC using [product_name] V8.1, everything works as expected. However, when I try to change the timer Tx value from my [product_name] display, the value shown on the display updates, but the main module does not change accordingly. I attempted changing Tx in the settings menu, and while the new value appears on the display, the PLC still holds the value set in the software. This issue affects only the timer ON delay feature. The rest of the program functions correctly; I just need to be able to change the timer Tx value directly. Thanks for any assistance! Note: I've tried switching to admin and operator modes, but the problem remains. My PLC IP is 192.168.0.3 and the display IP is 192.168.0.2; communication works, and all other functions are fine. I've also tested with a different timer ON delay—same problem."
+    },
+    {
+      "comment_id": 216549989474200,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "Recently, another user reported a similar issue. Changing the delay time on the display does not update the main module value. In your situation, I recommend submitting a support request."
+    },
+    {
+      "comment_id": 167053601082798,
+      "user_name": "4ORI56C94H",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "Just to confirm, do I need to set the display IP to be numerically higher than the PLC IP?"
+    },
+    {
+      "comment_id": 886125126099643,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "That's not what I meant. I referenced the previous topic to show that someone else faces the same challenge. Unfortunately, I don't know how to resolve it, so I suggested opening a support request. It appears to be a bug in either the hardware or the software."
+    },
+    {
+      "comment_id": 740063741315684,
+      "user_name": "4ORI56C94H",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 3,
+      "comment_body": "Alternatively, you could try uploading the project and downloading it again. Here is the project F1 — you can change the display language to English. Project file available at: [url] I'm using [product_name] V8.1."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report a recurring problem: changing a timer value (Tx) through the display interface updates the display, but the main control module's value remains unchanged. This happens regardless of which operation mode is used, and communication between devices appears to be functioning otherwise. The underlying issue seems to be a lack of synchronization between the HMI and controller for live parameter updates.",
+    "user_expectations": "Users expect to make live adjustments to timer values via the display interface and see those changes immediately reflected in the actual operation of the controller module.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "runtime parameter adjustment",
+      "direct control from display",
+      "effective HMI interaction"
+    ],
+    "pain_keywords": [
+      "parameter change not updated",
+      "HMI and PLC value mismatch",
+      "timer update failure"
+    ],
+    "feature_keywords": [
+      "runtime value update",
+      "display-to-PLC synchronization",
+      "timer setting"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "19": "Bug Reports"
+  }
+}

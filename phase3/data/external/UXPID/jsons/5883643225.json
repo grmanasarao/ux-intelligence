@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "branch_id": "5883643225",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 805851465947137,
+      "user_name": "HPX7leKiuK",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I'm experiencing the same issue. The SMTP test passes, but the [product_name] shows a \"DNS fail\" status. Any support would be appreciated."
+    },
+    {
+      "comment_id": 968498319608984,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "The manual provides some guidance:"
+    },
+    {
+      "comment_id": 368310685677581,
+      "user_name": "HPX7leKiuK",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "It might be that the [product_name] doesn't have internet access. Does anyone know how to check if it's online—perhaps by pinging a site like Google.com? Thank you."
+    },
+    {
+      "comment_id": 409657132889305,
+      "user_name": "HPX7leKiuK",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Thank you [user_name] for the advice. All network settings appear correct; I tried both a custom DNS (8.8.8.8) and no DNS. The SMTP server configuration works on devices from other manufacturers, so that's not the issue. It seems the root problem is that the [product_name] cannot connect to the internet, but I’m unsure how to verify this (like pinging Google)."
+    },
+    {
+      "comment_id": 857779860629865,
+      "user_name": "HPX7leKiuK",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I found the solution myself. I was using a Teltonika RUT241 to connect the [product_name], and discovered the firewall was set to block all LAN devices from internet access. Once I updated the firewall settings, everything worked. Hopefully, this helps others facing a similar issue."
+    },
+    {
+      "comment_id": 729792031248316,
+      "user_name": "8i2GDrmZhv",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 9,
+      "comment_body": "Hello, your network settings for the device seem incorrect. Please adjust the network configuration for your [product_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The core issue was a 'DNS fail' status shown on the device while attempting to send emails through Gmail, despite successful SMTP testing. Users found it difficult to confirm if the device itself had internet connectivity, as there was no straightforward way to test this (such as a ping function). Eventually, the problem was traced to a firewall rule on an external router that blocked internet access to the device. Adjusting the firewall resolved the issue.",
+    "user_expectations": "Users anticipate dependable email capability from the device, along with accessible diagnostic options to verify internet and DNS connectivity. They also expect consistent functionality when compared to devices from other manufacturers.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "email notification",
+      "DNS connectivity",
+      "internet access",
+      "troubleshooting clarity"
+    ],
+    "pain_keywords": [
+      "DNS fail",
+      "unclear diagnostics",
+      "no internet access verification",
+      "firewall blockage"
+    ],
+    "feature_keywords": [
+      "email sending",
+      "SMTP",
+      "diagnostics",
+      "network access"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "branch_id": "9484947955",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 612924191840377,
+      "user_name": "jVZZQlx47h",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Hello, Sorry if this is a basic question. I am using a [product_name] module with maximum digital extension modules and have just added a newer [product_name] module. The earlier module is also connected to another S7-compatible device. Previously, I configured their connection using diagram mode, which has some particular setup requirements. I am not sure how to migrate everything to a network project. Currently, I am attempting to create two independent diagram mode programs—one for each module—communicating between them with network input/output blocks. However, I am having trouble understanding how to set this up. I created another server connection on the older module (configured with its own TSAP and restricted by IP address) and a client connection on the newer module using the same parameters. When I try to link network inputs on the newer module to the older one, I am unsure about parameter selection in diagram mode, and the option for network input isn’t available in the dropdown menu. The purpose of the TSAP field is also unclear—should it be set as the remote value? If anyone can provide guidance for my situation, I’d greatly appreciate it. Thanks."
+    },
+    {
+      "comment_id": 363284183653564,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Please upload your program files as a zipped archive."
+    },
+    {
+      "comment_id": 261412055478487,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Here is the issue: The older [product_name] module cannot send network outputs to another master module, only to a slave module. If you want to send a signal from one master module to another (regardless of version), you need to use a different approach."
+    },
+    {
+      "comment_id": 840020461800824,
+      "user_name": "jVZZQlx47h",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "Thanks for your help. Your feedback sent me in the right direction, and now things are becoming clearer. On the newer module, I can set a specific bit using a network output, while the other module’s network input can link to that bit. Linking a network input on one module to a network output on another—like remote variable binding—seems to be available in the [product_name] software’s network project feature. Alternatives I considered include using I/Q/M blocks for remote variable binding from the older module (I have enough flags for my needs), or employing local variable memory for network input and synchronizing these states using \"Ethernet Connections -> Data Transfer\". It turns out I needed a dedicated server connection with a unique TSAP on the older module server for every network input linked to a remote device on the newer module client. I didn’t realize each input needed its own connection. I’m curious whether choosing multiple TSAP/server connections versus a single client connection with data transfer impacts efficiency or power use. The first method seems more efficient, though perhaps less scalable? I've pieced this together from several sources and by experimenting. Are there any solid references or guides on this kind of network configuration? I haven’t found anything comprehensive. Thanks."
+    },
+    {
+      "comment_id": 583035933145514,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 12,
+      "comment_body": "In my view, the optimal solution is to integrate your older module’s program into a network project alongside the newer module. I've attached a brief example."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users configuring multiple [product_name] modules with digital expansion face confusion when setting up communication blocks outside a network project using diagram mode. Key usability issues include unclear configuration steps, a need for multiple server connections or TSAP settings, and insufficient guidance in selecting correct parameters in the software, leading to extensive trial-and-error.",
+    "user_expectations": "Users expect straightforward guidance and intuitive setup options for network input/output communication between [product_name] modules in diagram mode, plus information about network efficiency and a comprehensive reference for these networking configurations.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy configuration",
+      "clear documentation",
+      "efficient communication",
+      "network scalability"
+    ],
+    "pain_keywords": [
+      "unclear UI",
+      "lack of documentation",
+      "parameter confusion",
+      "network setup complexity"
+    ],
+    "feature_keywords": [
+      "NI/NQ blocks",
+      "diagram mode",
+      "network project",
+      "TSAP configuration",
+      "data transfer"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

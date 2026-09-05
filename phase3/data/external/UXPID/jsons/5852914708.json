@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "branch_id": "5852914708",
+    "thread_id": "1723880927",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 541497722323560,
+      "user_name": "DAixK7a17B",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Hello, I want to control a process and need a constant analog output voltage (for example, 5V). I was considering using a PI controller for this, but I'm having trouble getting it to work properly. Could you explain how to do this and provide some examples?"
+    },
+    {
+      "comment_id": 612079555853610,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "A PI regulator is meant for adjusting values (inputs/outputs). The integral part will continue changing the output, even when the input remains constant. If you simply need a fixed value at the analog output, you can use a mathematical instruction block."
+    },
+    {
+      "comment_id": 575220245512898,
+      "user_name": "DAixK7a17B",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Thank you, but I think I did not explain my question clearly. I have a sensor that provides a reading every second and it's connected to Analog Input 1, which I then connect to the PV of the PI controller. My setpoint is 50 degrees. If the temperature rises or falls suddenly, I want it to return quickly to the setpoint (50 degrees)."
+    },
+    {
+      "comment_id": 229602025202559,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "With this PI controller, it can be configured to regulate in only one direction. Depending on the control direction: either the output increases when the setpoint is exceeded, or the output increases when the setpoint is lower—each depending on the control deviation level. The controller cannot handle both deviations (higher and lower) at the same time; it only manages either up-regulation or down-regulation."
+    },
+    {
+      "comment_id": 655575605761860,
+      "user_name": "DAixK7a17B",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Thank you. I looked up the help section and found this: Dir = upwards/+ (examples 1 and 3): If the PV > SP, the function reduces the AQ value. If PV < SP, the function increases the AQ value. If I select + direction, does that fit my application? Could you clarify?"
+    },
+    {
+      "comment_id": 473478066876814,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "I'm unable to advise further since I do not have more specifics about your process. I don't know if the actual value exceeds the setpoint and should be reduced, or if it falls below and should be increased, or both. You need to describe your process in more detail."
+    },
+    {
+      "comment_id": 531973292505793,
+      "user_name": "DAixK7a17B",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Sorry, I was unclear. Yes, when the actual value goes above the setpoint, it should be decreased, and when it falls below, it should be increased. I need an analog output from 0-10V because the electronic board requires that range."
+    },
+    {
+      "comment_id": 722006066649140,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "This cannot be accomplished using the PI controller in [product_name] because it only allows 0-10V output for either up-regulation or down-regulation, not both."
+    },
+    {
+      "comment_id": 967709049745929,
+      "user_name": "DAixK7a17B",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Could using two PI controllers work? What's your opinion?"
+    },
+    {
+      "comment_id": 212108114503679,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "I think I see your point. When the setpoint is reached, you want 5V output. If the actual value is above the setpoint, output should be 0V. If below, output should be 10V."
+    },
+    {
+      "comment_id": 262451906767042,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "I've attached a possible solution."
+    },
+    {
+      "comment_id": 240675217651550,
+      "user_name": "DAixK7a17B",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "Thank you, I'm reviewing your program. For example, when the operator selects 30V as the power output, the electronic board needs 5V from the controller. During welding, if the voltage drops, the controller should increase the analog output, and if the voltage rises, it should decrease the analog output. We need a constant voltage."
+    },
+    {
+      "comment_id": 335770060803627,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "My view is to rethink your approach to solving the welding machine issue with [product_name]. That's why I previously asked for more details about your process."
+    },
+    {
+      "comment_id": 932006507505830,
+      "user_name": "DAixK7a17B",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 9,
+      "comment_body": "What do you think? Is this possible?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users discussed challenges with using the PI controller in [product_name] for maintaining an analog output at a fixed value. The main issue identified is that this PI controller can only handle up-regulation or down-regulation, but not both directions simultaneously. The original user hoped the controller would adjust the output to keep a set voltage and respond quickly whenever a sensor reading moved above or below the setpoint. The responses made it clear that the design only allows for one response direction per application, leading to some confusion and unmet control requirements.",
+    "user_expectations": "The user expects the PI controller within [product_name] to maintain a stable analog output (e.g., 5V) linked to a setpoint, and to adjust the signal in both directions as the sensor reading crosses above or below the setpoint.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate voltage control",
+      "quick response to deviations",
+      "stable process regulation"
+    ],
+    "pain_keywords": [
+      "cannot regulate both directions",
+      "controller limitation",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "PI controller",
+      "bi-directional regulation",
+      "analog output range"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "branch_id": "7115312186",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 283868936628073,
+      "user_name": "kBCuWh1VPh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello, Is it possible to download a program configured as a network project from SD card to a PLC? I want to implement Modbus TCP/IP by transferring a network project via SD card, but the PLC doesn't recognize the program unless it’s in .mnp format. Programs in diagram mode have worked fine for me. If a .mnp program can't be downloaded with the SD card, is there another method to add Modbus TCP/IP to a program that’s SD card-compatible? Thanks in advance."
+    },
+    {
+      "comment_id": 502058629025072,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "The [product_name] controller can load a program from an SD card only if it’s previously saved there in a specific format. Whether the project is a network setup or not doesn’t affect this; each [product_name] must have its respective program saved individually. The controller can load the program if the file is named \"LOGO_U_P.bin\". Save the LSC file using the \"Save as\" function directly in the SD card’s root directory, selecting \"Binary dump\" format. The software will automatically use the name \"LOGO_U_P\". [IMAGE]"
+    },
+    {
+      "comment_id": 537526203641690,
+      "user_name": "kBCuWh1VPh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Thanks for your response. I haven't had issues downloading diagram mode programs via SD card. My goal is to transfer a network project, similar to what’s possible with ethernet. I added a Modbus server connection in the network project so I can read PLC values, but with a diagram mode download, Modbus isn’t accessible. If I can’t transfer a network project by SD card, is there another SD card-based way to set up a Modbus connection?"
+    },
+    {
+      "comment_id": 151412070877589,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "You can’t directly transfer a [product_name] network project program via SD card. However, you can convert the program into a network project as follows: Option 1: Load the current diagram mode program from your [product_name], save it as a standard LSC file, then open a new network project and use the right-click context menu in the editor to import that LSC file. Option 2: Start a new network project, add a [product_name] of matching type in the editor, configure its IP address, then download the program from your [product_name]."
+    },
+    {
+      "comment_id": 475673818703267,
+      "user_name": "kBCuWh1VPh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hi [user_name], I think there’s a misunderstanding. I’m trying to use MODBUS TCP/IP on a [product_name] PLC. The Modbus setup works when I transfer the network project with an ethernet cable, but I want to know if it’s possible with an SD card instead."
+    },
+    {
+      "comment_id": 660079008923146,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I’m not sure I understand. How does SD card use relate to Modbus communication?"
+    },
+    {
+      "comment_id": 886473828169842,
+      "user_name": "kBCuWh1VPh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "To enable MODBUS communication with the PLC, I created a network project using [product_name] software, added my diagram in the project editor, and set up the Modbus server connection. When I download this configuration via ethernet, MODBUS works fine. However, transferring network projects via micro SD card isn’t supported. Is there a way to make MODBUS accessible in diagram mode, so I can use SD card transfer? I only need to read values from a single PLC."
+    },
+    {
+      "comment_id": 285287283538509,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Can you upload your network project as a ZIP file to the forum?"
+    },
+    {
+      "comment_id": 134350716973286,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "See attached file ..."
+    },
+    {
+      "comment_id": 925807925758722,
+      "user_name": "kBCuWh1VPh",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "This is exactly what I needed, thank you! I thought using a network project was required for Modbus communication until now."
+    },
+    {
+      "comment_id": 366189280462772,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Glad I could assist you ..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are unclear about how the SD card feature works with [product_name] controllers, particularly for transferring network projects that enable Modbus TCP/IP. The distinction between diagram mode and network project formats, and their suitability for SD card transfer, leads to confusion. Documentation or workflows regarding Modbus via SD card are seen as non-intuitive, causing uncertainty about available methods or necessary workarounds.",
+    "user_expectations": "Users want to transfer a network project with Modbus TCP/IP server functionality to their PLC using a micro SD card, similar to operations done over Ethernet. They also expect documentation or official instructions for enabling Modbus when using SD card transfer.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "enable modbus via SD card",
+      "efficient deployment",
+      "offline transfer"
+    ],
+    "pain_keywords": [
+      "format restriction",
+      "network project incompatibility",
+      "unclear workflow"
+    ],
+    "feature_keywords": [
+      "SD card transfer",
+      "Modbus TCP/IP",
+      "Network Project",
+      "Diagram Mode"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "2": "Product Compatibility"
+  }
+}

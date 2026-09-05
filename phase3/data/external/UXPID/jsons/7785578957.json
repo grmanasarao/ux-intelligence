@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "7785578957",
+    "thread_id": "4479534060",
+    "publication_year": 2022,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 552746161611792,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Hello, I have a question. I have a Victron ESS system where I occasionally want to set the grid setpoint to -800W. Adjusting this value is possible using Modbus TCP, but I am unsure how to send a command to the Victron system. My goal is to set the grid setpoint to -800W when input 1 is activated on the [product_name]. Can anyone assist with this? Thank you in advance."
+    },
+    {
+      "comment_id": 368226932069692,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "What should happen when input 1 switches to 0? Which value do you want transferred in that case? Should it be 0?"
+    },
+    {
+      "comment_id": 136929365606981,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Without further details, I can only recommend checking the attachment. I'm unclear on several points: - Can the Modbus device operate as a server? - What are the IP addresses of the [product_name] and the Modbus device? - If the Modbus device is the server, what is its slave address? - What is the starting register number, 0 or 1?"
+    },
+    {
+      "comment_id": 845212643794420,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Thank you for your time. I'll try to answer your questions: - Can the Modbus device act as a server? I don't think it's a Modbus server. - What are the IP addresses of the [product_name] and the Modbus device? [product_name]: 192.168.2.135 Victron: 192.168.2.152 - If the Modbus device is the server, what is its slave address? I don't know that. - What is the starting register number? For Victron, it's address + 1, so we need 2701."
+    },
+    {
+      "comment_id": 762016581628042,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Note: The [product_name] applies a +1 offset to addresses. If you want to write data from the [product_name] to the Modbus device, the [product_name] needs to be configured as the client."
+    },
+    {
+      "comment_id": 793038702818872,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "One question: Which specific [product_name] model do you have? Please provide the complete [article_no]."
+    },
+    {
+      "comment_id": 662185997402642,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "You have not responded to my previous question..."
+    },
+    {
+      "comment_id": 615935426984018,
+      "user_name": "H4KY2TGciF",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "When input 1 is deactivated, the setpoint should be 0 so no energy is fed back."
+    },
+    {
+      "comment_id": 143341108790684,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Alright, I'll create an example for you. Do you have an FS4 [product_name], or a [product_name] with [version_no]?"
+    },
+    {
+      "comment_id": 433344377661175,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2022,
+      "comment_month": 1,
+      "comment_body": "Here is the example..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user aims to manage grid setpoints on a Victron ESS system using Modbus TCP, interfaced with [product_name] hardware. The main difficulty involves integrating [product_name] with third-party Modbus TCP devices due to a lack of clear directions on address offsets, device roles, and parameter setup. Forum participants are seeking targeted instructions or examples to address interoperability, highlighting the need for simplified guidance for users unfamiliar with these configurations.",
+    "user_expectations": "The user is hoping for clear, step-by-step guidance or working examples to configure [product_name] so it can send specific values to a Victron ESS system via Modbus TCP. They expect a straightforward setup with minimal ambiguity, ideally enabling seamless integration and obvious parameter mapping.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "automation",
+      "remote control",
+      "Modbus integration",
+      "energy management"
+    ],
+    "pain_keywords": [
+      "integration complexity",
+      "configuration uncertainty",
+      "Modbus addressing confusion"
+    ],
+    "feature_keywords": [
+      "Modbus TCP communication",
+      "address offset",
+      "register writing",
+      "input-triggered actions"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

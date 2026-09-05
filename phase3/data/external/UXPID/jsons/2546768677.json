@@ -1,0 +1,212 @@
+{
+  "metadata": {
+    "branch_id": "2546768677",
+    "thread_id": "3055273936",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 687127550595676,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello, I have a question regarding PLCs. For a PLC with reference [article_no], is it possible to connect any kind of sensor such as a temperature or speed sensor? Or can you only use certain types of sensors?"
+    },
+    {
+      "comment_id": 593860811843469,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello, The attached screenshot shows the technical description of the [product_name] module in question. This is an analog input module that accepts signals in the ranges 0-10 V or 4-20 mA. Therefore, it supports sensors from any manufacturer that output a voltage or current signal within those ranges. To differentiate between sensors in your program, you need to scale the analog input signal to engineering units representing the physical value you are measuring (e.g., flow, speed, or temperature). See [url] for more information. Hope this helps. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 713538198136630,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "For PT100/1000 sensors, there is a dedicated analog input module, [product_name] ([article_no]). It has two channels and a fixed measurement range (-50°C to 200°C). Some [product_name] base modules offer four analog inputs (0-10V) onboard, which can also be used with a 500 Ω resistor to convert a 0/4-20mA signal to a 0/2-10V signal."
+    },
+    {
+      "comment_id": 590416450356218,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello, first, thank you for your response. I have a basic question: which function block is used to convert a voltage into a digital value for a speed sensor, for example, using this reference or link: [article_no], [url]. Also, the PT200/2000 probe does not seem to be the sensor type I am seeking. Sorry for responding so late to my earlier question."
+    },
+    {
+      "comment_id": 791115203282460,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "It's simply a 2-wire proximity switch, evaluated through a standard digital input. Keep in mind that the proximity switch requires a minimum load current of 6 mA, which a digital input on the [product_name] might not provide on its own. In this case, you need to connect an additional load in parallel to the input."
+    },
+    {
+      "comment_id": 465022956808687,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Are you certain it is only a proximity sensor? It mentions rotational speed evaluation and compact sensor housing. I think the sensor needs to be connected to an analog input, but I'm unsure if I can connect the analog signal directly to a display."
+    },
+    {
+      "comment_id": 270552527356790,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Yes, I'm sure it's digital. Reviewing the data sheet: Outputs - Number of outputs: 1, Output function: Normally open. Analog outputs typically don't mention 'normally open', that's specific to digital outputs."
+    },
+    {
+      "comment_id": 516280349826429,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Review the electrical connection information from the data sheet for the [product_name] sensor."
+    },
+    {
+      "comment_id": 372360448254723,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Thank you, I didn't notice that before. I'll look for a sensor with analog output instead. Could you answer my question in general terms without reference to a specific sensor?"
+    },
+    {
+      "comment_id": 778340265263235,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "It would help if you specify exactly what you want to achieve. Without knowing your objective or the type of sensor you plan to use, it’s difficult to provide a definite answer. Your original question was: 'Can you connect any sensor to a [company_name] PLC?' Please clarify your requirements."
+    },
+    {
+      "comment_id": 413285935470193,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Your responses have prompted me to consider other aspects of my program, so apologies for shifting topics. To clarify: I want to monitor both temperature and speed on an engine, and display this information on a [product_name] display. When considering this setup, I think I simply need to connect both sensors to two analog inputs (assuming they produce analog signals), then link the output to the display—is this correct? Please excuse my novice questions; I’m new to [product_name]."
+    },
+    {
+      "comment_id": 173681509455389,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "No need to apologize. It’s important to clarify the user's intentions so helpers can offer accurate guidance. If you need more detail on displaying temperature using PT100/1000 sensors, let’s address that first. Otherwise, we can focus on the speed display topic."
+    },
+    {
+      "comment_id": 496239739206474,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Yes, I have a question regarding PT100: Can a PT100/1000 sensor show temperature simply by being placed on an engine, for example?"
+    },
+    {
+      "comment_id": 771830134852933,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Yes, it can, but it depends on the temperature you wish to measure. Your question is similar to 'If I look out the window, can I see anything?'—the specifics matter."
+    },
+    {
+      "comment_id": 116109016623421,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I want to monitor the engine temperature."
+    },
+    {
+      "comment_id": 652070886040313,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Which specific engine temperature? Are you interested in bearing temperature, winding temperature, etc.? To measure these, the sensor should be installed inside the motor (e.g., windings or bearings). Placing the sensor externally will yield a temperature reading with limited relevance."
+    },
+    {
+      "comment_id": 156926876821044,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "I'm referring to the engine body temperature."
+    },
+    {
+      "comment_id": 223061349515222,
+      "user_name": "sIiO71oiQ8",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hello, Measuring the exterior (body) temperature of an engine won’t provide meaningful diagnostic insights. For evaluating a motor’s condition, monitoring the winding and bearing temperatures is critical—they indicate whether the motor is operating normally or experiencing issues. These measurements require installing sensors (PT100 in your case) inside the motor—directly on the windings or inside the bearing housing. Such installations are typically included by the manufacturer or can be added during motor rewinding. There are many resources on electric motor temperature monitoring, such as [url]. Hope this helps. Regards, [user_name]"
+    },
+    {
+      "comment_id": 769628039458149,
+      "user_name": "lBCJJGAgbf",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Sorry for any confusion. I do not want to monitor the electric motor’s temperature, but rather the temperature of the equipment attached to the motor for testing on a bench. I’ve researched PT100/1000 probes and found they are suitable, as I need the sensor to be in contact, not submerged. I initially hesitated due to the term 'probe' often implying immersion, but now understand surface contact is acceptable."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are seeking clarity on which sensors are compatible with certain [product_name] modules, especially regarding analog and digital input types. There is confusion over how to process signals and which modules or function blocks are appropriate for sensor integration. Community responses emphasize the need to match sensor output signals to module input specifications and mention the lack of consolidated information, leading to some uncertainty for end-users.",
+    "user_expectations": "Users want to be able to connect a wide range of sensors to their [product_name] modules and easily convert inputs to usable values, aiming for straightforward integration without extensive hardware expertise.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "compatibility",
+      "sensor flexibility",
+      "easy signal processing",
+      "broad application support"
+    ],
+    "pain_keywords": [
+      "lack of clarity",
+      "sensor compatibility confusion",
+      "complex signal requirements",
+      "insufficient documentation"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "signal scaling",
+      "sensor type compatibility",
+      "function blocks",
+      "input configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

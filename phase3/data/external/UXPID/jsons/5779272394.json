@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "branch_id": "5779272394",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 547235293427864,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Quick question: I have a program in [product_name] including various inputs and outputs, with some VM mapping for parameter inputs in function blocks. The [product_name] program allows use of AM parameters. However, I can't figure out in [product_name] portal how to add AM tags in the HMI tag table. I’ve managed the M flags but I’m stuck with AM. Any advice, or a reference to the help documentation covering tag types and conversion between [product_name] tags and portal nomenclature, would be greatly appreciated. Thanks"
+    },
+    {
+      "comment_id": 259304360663542,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Programming logic between [product_name] and [product_name] portal is fundamentally different. The AM data type in [product_name] is unique and can't be split into digital flag bits. Likewise, flag bits aren't accessible as analog flag words. They are distinct and don't correlate within portal tag architecture."
+    },
+    {
+      "comment_id": 903921830524839,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Your explanation is very insightful. To summarize, the interface designed using [product_name] isn't directly transferable. I’ll need to replace AM flags with network analog inputs in order to move setpoints and parameters into the [product_name] program."
+    },
+    {
+      "comment_id": 468559856700734,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "It's preferable to move setpoints or parameters using VM mapping. For example, saving setpoints in a parameter of a mathematical instruction ensures protection during power loss due to storage in the EEPROM of [product_name]."
+    },
+    {
+      "comment_id": 118823439749787,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Analog markers are best used solely for analog values intended for display on the web server, like actual temperature or pressure readings."
+    },
+    {
+      "comment_id": 431502418595620,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thanks. I kept thinking I was missing something. The help documentation for [product_name] mentions VM mapping and identifies AM1 as VM address 952. How does this connect to [product_name] portal and HMIs like KTP700? Essentially, it doesn't. So, use VM mapping for parameters and, when that's not possible, use network blocks. (statement and question)"
+    },
+    {
+      "comment_id": 781551392342247,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "When programming with [product_name], you can only directly access VM addresses ranging from 0 to 850. It's not possible to read or write VW952 in a [product_name] program. Note: AM1 refers to VW952 in [version_no], and to VW1118 in [version_no] (see attachment)."
+    },
+    {
+      "comment_id": 837455646375460,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thank you for sharing the table. It turns out the HMI can access the VW address and transfer values into [product_name]."
+    },
+    {
+      "comment_id": 191741899027169,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "That’s right—remote devices can reach VM areas beyond VB850. The [product_name] program, using parameter VM mapping or analog network IO, cannot."
+    },
+    {
+      "comment_id": 194227481770950,
+      "user_name": "ljdPwcj2cQ",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Thanks, that helped."
+    },
+    {
+      "comment_id": 542006604688976,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 8,
+      "comment_body": "Use the search function in the Online Help and enter 'VM'."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users find it challenging to integrate analog marker tags from [product_name] programs into HMI tag tables within [product_name] portal. This is mainly due to differing tag types, memory access limitations, and distinctions in program architecture. There is ongoing confusion about address ranges, tag mapping, and data compatibility, which affects setup efficiency and clarity regarding best practices.",
+    "user_expectations": "The user seeks a straightforward solution to import AM tags from [product_name] into the HMI tag table in [product_name] portal, as well as clear instructions or documentation on converting tag structures between [product_name] and portal systems.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "seamless tag mapping",
+      "parameter transfer",
+      "clarity in interface"
+    ],
+    "pain_keywords": [
+      "tag conversion confusion",
+      "memory/address limitations",
+      "data type mismatch"
+    ],
+    "feature_keywords": [
+      "AM tags",
+      "VM mapping",
+      "analog markers",
+      "HMI tag table"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "branch_id": "7872090713",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 876074032417289,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I've used many [article_no] modules for a project with adjustable waiting and spraying timers, set via two potentiometers. It worked well. Now the team wants to upgrade to the new [article_no] module and use an external [product_name] to remove the potentiometers, setting timers through the keyboard instead. My question may seem basic, but how are these values actually saved? I don't have the hardware right now but want to update my program in advance. It’s unclear to me how the device manages data retention in memory. Thanks."
+    },
+    {
+      "comment_id": 147721285430083,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "When you view timer settings in a message, you can modify them in configuration mode directly on the display or on the [product_name] using the cursor buttons."
+    },
+    {
+      "comment_id": 969504434501639,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Is there a way to change these settings without entering configuration mode? Entering config mode seems like reprogramming the device, right?"
+    },
+    {
+      "comment_id": 602121107817435,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "In configuration mode, you can only alter parameters if the [article_no] is in operator mode, not admin mode. To access configuration mode, hold the ESC button for over 2 seconds. The cursor then moves to the field to be adjusted. Confirm by pressing OK. You can adjust numbers using the cursor left/right and change values with up/down. Once set, confirm with OK again. In simulation, double-click on the field to edit. Would you like an example for [article_no] or another module?"
+    },
+    {
+      "comment_id": 925513579991255,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "This answers my question perfectly. Thanks a lot!"
+    },
+    {
+      "comment_id": 211117739174062,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Glad to help!"
+    },
+    {
+      "comment_id": 183084250120779,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "I have a related question. For a new project, I'll use a [article_no] to control curtains. The curtain moves up/down on a tube, requiring 15 turns for a full open/close cycle. I wanted to use a potentiometer dial to set the position from 0-100%, but needed to track the curtain’s location using an analog comparator. I tried a 5K multiturn potentiometer (10 turns) with 1:2 gearing, but it wasn't reliable, so I switched to rotary encoders with a counter. That should work, but when power is lost, I lose curtain position since I can't store the actual value. Is it possible to save this data?"
+    },
+    {
+      "comment_id": 448630626951779,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "That's not the right approach."
+    },
+    {
+      "comment_id": 184258143138041,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Are there alternative solutions?"
+    },
+    {
+      "comment_id": 861841835137889,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "With [product_name], how can analog values be saved non-volatilely? [url] English link: [url]"
+    },
+    {
+      "comment_id": 225334313986083,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Thank you, I've reviewed the schematic but am still finding it difficult to understand."
+    },
+    {
+      "comment_id": 701528476083728,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "On the German forum, users suggested using the block 'Min / Max' for remanent storage of analog values. Set the mode parameter to 3. As long as the EN input is connected to a 1, the block passes the input value to the output. When EN is 0, the last value is retained until EN goes back to 1. Remember to enable remanence."
+    },
+    {
+      "comment_id": 698767344488550,
+      "user_name": "kdnHqoVW4E",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 1,
+      "comment_body": "Actually, the correct answer is: Yes, you can store an analog value by using an up/down counter, setting its properties to retain values after power loss, and converting it to analog using an Analog MUX. It's straightforward once you understand it. Thanks for all the suggestions."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are discussing how to transition from analog potentiometer-based timer settings in [product_name] modules to settings entered via a keyboard interface on newer hardware. There is confusion about how parameter values are stored and retained, especially on device power loss. Users are seeking reliable ways to save positions for applications such as curtain controllers, asking about non-volatile memory capabilities and the easiest methods for parameter setting and retention without complex programming.",
+    "user_expectations": "Users want to set, store, and keep timer or position values in [product_name] modules using a keyboard interface such as [product_name], with persistence across power cycles, and without requiring complicated reprogramming.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter retention",
+      "easy input",
+      "keyboard configuration",
+      "reliability",
+      "persistent memory"
+    ],
+    "pain_keywords": [
+      "parameter loss on power down",
+      "unclear memory options",
+      "inconvenient configuration workflow",
+      "reliability issues with analog input"
+    ],
+    "feature_keywords": [
+      "non-volatile memory",
+      "parameter input",
+      "TDE keyboard",
+      "analog value storage",
+      "operator mode",
+      "configuration mode"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "3": "User Guidance"
+  }
+}

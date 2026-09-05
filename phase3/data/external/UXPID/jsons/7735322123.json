@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "branch_id": "7735322123",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 170477909806966,
+      "user_name": "oSoDNnpEVX",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 5,
+      "comment_body": "I am using a [product_name] [version_no] controller. My setup includes an Arduino Uno with an Ethernet shield W5100 and an HMI from Rievtech. I read data from the Arduino and transmit it to registers vw0-vw59, then display these values on the HMI. The data is visible for about one second, but then the values disappear from the HMI for approximately five seconds. The polling interval is set to 80ms by default. On the Arduino side, I update the values every five seconds. I want the values to remain stable and continuously visible on the HMI. I have experimented with changing delays in the Arduino but have not found a solution. Adjusting the polling interval in the PLC results in no values being displayed. Is there a way to configure the PLC to hold the value of vw0 until a new value is received?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user describes an issue where values read from Arduino and shown on the HMI temporarily vanish for several seconds. The values briefly appear and then disappear, indicating a lack of sustained value retention. Attempts to fix this via adjustments in both the Arduino and the controller did not resolve the problem. The core concern is retaining displayed values until updated data is received.",
+    "user_expectations": "The user expects that values communicated from Arduino remain stably displayed on the HMI, without periodic gaps or disappearance, and remain visible until a new value is received.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "continuous display",
+      "value persistence",
+      "stable connection"
+    ],
+    "pain_keywords": [
+      "unstable display",
+      "value dropout",
+      "data loss"
+    ],
+    "feature_keywords": [
+      "memory register VW0-VW59",
+      "Modbus TCP communication",
+      "value retention"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "branch_id": "8067214672",
+    "thread_id": "3055273936",
+    "publication_year": 2024,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 511888420291855,
+      "user_name": "5Va1AM9BKO",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello, Does anyone know why the message \"Error: program empty\" might appear after restarting a [product_name] controller with an SD card carrying a new program version? The card appears to be fine—I’ve formatted it via both Windows and Linux, tested smaller cards, and other programs upload without issues. Diagnostics through the [product_name] menu also report \"OK\". The update seems to remove the existing program but doesn’t install the new one from SD. This updated program is provided by a furnace manufacturer. Interestingly, both my furnace and my neighbor’s (which uses a newer controller and different program version) display this problem. The manufacturer has sent multiple copies and even shipped SD cards, but the same error persists. I tried a manual upload from the card but still received the \"Error: program empty\" message. Currently, my furnace is without a working program for winter. Luckily, I backed up my neighbor's old program to an SD card before attempting his update, so I was able to restore his setup after our tests failed. For further testing, I successfully installed two simple programs from two SD cards sequentially; the controller updated and started as expected. The manufacturer believes I might be doing something wrong, but the .bin files seem suspect to me—the size looks normal and the internal version number matches the correct furnace. For reference, my controller is [article_no] with firmware [version_no], and my neighbor’s is [article_no] with firmware [version_no]. Are there any other steps I should try, or advice to offer to the manufacturer? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 528679112265748,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hello [user_name], It seems the supplied program files might be problematic. If the manufacturer sent multiple versions, try comparing their contents closely; they could possibly be identical. To test whether the controller itself isn't faulty, you could attempt installing your neighbor's program (with caution since changes are unknown—avoid activating heating). If possible, try loading the file into the programming software, though it may be password protected. Since you're primarily a user, you may not have programming access. Manufacturers should have archived software versions; consider requesting those. Regards, [user_name]"
+    },
+    {
+      "comment_id": 500897186684923,
+      "user_name": "5Va1AM9BKO",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Thank you for your reply [user_name]. I did perform a detailed comparison and confirmed the files are different. I was unsure about testing with my neighbor’s program since our controllers are different models ([article_no] vs [article_no]). I suspected the program incompatibility was due to being for separate [version_no] controllers. I attempted loading it into the programming software but found it password protected. I’ve mostly learned about these controllers through use, rather than programming. I also found another user with a model closer to mine ([article_no]) and copied their program, but it wouldn't upload either. Should this have worked despite being a newer controller? Our wiring is identical, so it’s a safer test to try. Cheers, [user_name]"
+    },
+    {
+      "comment_id": 833894129307156,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "The controller is generally backwards compatible, so older programs usually work on newer hardware if you select the current controller type in the software. However, I can’t confirm if older programs can be loaded via SD card for your specific models since I typically transfer programs directly from the software and don't have an SD card handy for testing. Note that you can't load a new program onto a controller if a password-protected program is present. If that's the case with your neighbor’s hardware, you’ll need the password to delete the protected program on that model. Deletion via SD card is only possible for hardware with certain [version_no], from version 8.3 and 8.4 onwards. Regards, [user_name]"
+    },
+    {
+      "comment_id": 241875857523223,
+      "user_name": "5Va1AM9BKO",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "To clarify, the password protection was on the .bin files I tried to load into the software. I wanted to update the program over ethernet because the SD card method was failing. For reference, the controllers themselves do not have password protection. Regards,"
+    },
+    {
+      "comment_id": 172389401972129,
+      "user_name": "5Va1AM9BKO",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "I performed a test similar to what was happening with the manufacturer’s files. I started with a working program on the [product_name] controller and then tried uploading one saved for [version_no] via SD card. This erased the existing program but did not install the new one, showing \"Error: program empty\" during the run attempt. However, uploading a copy saved for [version_no] worked fine. Not sure if this is the main issue, but incompatible hardware version choices during export seem to be a factor. The manufacturer also sent new controllers for my neighbor and me, requesting the old ones for examination. Regards,"
+    },
+    {
+      "comment_id": 811693374418202,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 1,
+      "comment_body": "I tested SD card uploads with a [product_name] controller ([version_no]). I downloaded the active program from the controller, then changed the hardware in the programming software from [version_no] to [version_no]. After saving and transferring it to the SD card, the controller would not start and showed the \"Empty program\" error. Changing the target type back to the matching hardware version, saving, and uploading worked, and the controller started as expected. This highlights the importance of matching hardware types when exporting programs for transfer."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users repeatedly encounter failures when uploading new programs from SD cards onto [company_name] controllers, specifically receiving the error 'Error: program empty.' Attempts to install provided .bin files often result in the deletion of the original program, but the new one is not loaded. The primary causes appear to be incompatibility between exported .bin files and controller hardware versions, as well as password protection on some files that prevents further troubleshooting. Confusion regarding hardware and software version matching, along with limited feedback from the manufacturer, leads to user frustration and unresolved issues.",
+    "user_expectations": "Users anticipate dependable installation of new programs from SD cards, compatibility between supplied program files and their controller hardware, clear troubleshooting steps or guidance from the manufacturer, and informative feedback when incompatibilities or errors arise.",
+    "severity_expectation_level": "1",
+    "gain_keywords": [
+      "successful update",
+      "program reliability",
+      "compatibility",
+      "clear error messaging"
+    ],
+    "pain_keywords": [
+      "update failure",
+      "compatibility confusion",
+      "no program running",
+      "unclear error cause",
+      "password protection"
+    ],
+    "feature_keywords": [
+      "SD card program upload",
+      "hardware version selection",
+      "program compatibility",
+      "error handling",
+      "firmware awareness",
+      "password protection"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {
+      "Windows": [],
+      "Linux": []
+    }
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

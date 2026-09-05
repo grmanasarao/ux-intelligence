@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "7264822511",
+    "thread_id": "3055273936",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 960718149735237,
+      "user_name": "4dTLq0JnSF",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Can anyone assist? I have connected a [product_name] module to an HMI panel. I used [product_name] engineering software version [version_no] to configure the HMI panel. The hours counter set up in the [product_name] module works correctly on its local display, showing hours and minutes. Now, I want the HMI panel to show the same data, but it doesn't work. Can someone tell me the correct tag in the engineering software for the HMI panel?"
+    },
+    {
+      "comment_id": 493783224508871,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Can you specify what is not working—does the HMI not display anything, or is the displayed format incorrect?"
+    },
+    {
+      "comment_id": 581595615002309,
+      "user_name": "4dTLq0JnSF",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "Hello again. On the HMI panel, the IO field labeled xxxx.OT adds minutes directly; for example, 1 hour (60 min) plus 30 min gives a result of 90, instead of showing it as 1:30. I hope someone can help."
+    },
+    {
+      "comment_id": 608178754047481,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "When using the h:m format, the [product_name] module sends the total number of minutes to the HMI (for example, 1 hour 30 minutes is transmitted as 90 minutes; 5 hours 45 minutes would be 345). This behavior cannot be changed in the [product_name] module's program. I'm not sure if it can be adjusted on the HMI configuration side. Alternatively, you would need to create a custom operating hours counter using multiple counters in the [product_name] module and send hours and minutes separately."
+    },
+    {
+      "comment_id": 908276371547992,
+      "user_name": "4dTLq0JnSF",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 2,
+      "comment_body": "It's a tough day and night; I've managed a similar solution in the [product_name] module. Thanks. Best regards, [user_name]."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are experiencing issues with displaying an hours counter in h:m format on an HMI panel connected to a [product_name] module. The value provided by the [product_name] module is communicated as total minutes, which does not meet the desired display format (e.g., 1:30 appears as 90). This data format mismatch between source and display causes confusion and usability problems.",
+    "user_expectations": "Users expect the HMI panel to present operating time clearly in hours and minutes (h:m), replicating what is shown on the [product_name] module’s own display.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "readable hour-minute display",
+      "intuitive HMI data"
+    ],
+    "pain_keywords": [
+      "format mismatch",
+      "non-intuitive display",
+      "manual workaround required"
+    ],
+    "feature_keywords": [
+      "hour counter",
+      "display format conversion",
+      "TAG mapping",
+      "HMI IO field"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

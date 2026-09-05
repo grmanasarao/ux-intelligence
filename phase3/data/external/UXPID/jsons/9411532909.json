@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "branch_id": "9411532909",
+    "thread_id": "1723880927",
+    "publication_year": 2013,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 870906889102071,
+      "user_name": "I0mmsstC45",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "The message displays properly on the PLC’s onboard display and the function keys work, but on the [product_name] text display module it always shows 'No message for current charset!' Can anyone assist?"
+    },
+    {
+      "comment_id": 210979762500323,
+      "user_name": "sjsrlBXaEY",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, Which language are you using?"
+    },
+    {
+      "comment_id": 380344298609502,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Hello, I haven’t personally used the [product_name] text display before. It would help if you provide a screenshot. Go to FILE > MESSAGE TEXT SETTINGS. The issue may relate to those settings. There are options for character set 1 and character set 2, similar to a language selection. Within your text display block, link messages to a character set and display device (PLC or text display). If you only used character set 1 but your text display is set to character set 2, you’ll get this error. Activate the program simulation to confirm. Let us know if this helps."
+    },
+    {
+      "comment_id": 685674315947336,
+      "user_name": "I0mmsstC45",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Thanks for your reply. I am using English in my code. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 303612488702603,
+      "user_name": "I0mmsstC45",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Thank you for checking. The attachment includes all the images you mentioned, but the problem still isn’t solved. I hope you can review it. Thank you. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 304184728188024,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Thank you for sharing the PDF file; I believe it will help us find the answer soon. (Also, someone should show you how to make screen captures at some point!) The instrument (text display or PLC) uses a specific character set. Access the text display’s internal settings in the hardware. The TD menu structure is described in Appendix D2 of the [product_name] system manual, available at [url]. Make sure to set the character set to the correct one. The same applies to the PLC’s internal display—you must tell the device which character set to use. Alternatively, set all your messages for both character set 1 and 2. I hope this helps—let us know your outcome."
+    },
+    {
+      "comment_id": 927530442391238,
+      "user_name": "I0mmsstC45",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Thank you very much! You were right—I just needed to enter the internal settings on the TD hardware and set the character set to 1. Now everything works! Down key > ESC > Msg Config > CurrCharSet > CharSet 1. Thanks again! Best regards, [user_name]"
+    },
+    {
+      "comment_id": 480320729076953,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Glad to have assisted you. Please remember to continue contributing to the forum and share your experiences; we all learn from each other."
+    },
+    {
+      "comment_id": 480754462180886,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "[user_name], As a side tip, consider using MWSnap for screen captures ([url]). It’s an older but reliable program that I find useful for documenting operator panel functionality. If you like the software, donating to the original creator would be appreciated."
+    },
+    {
+      "comment_id": 404873935081757,
+      "user_name": "I0mmsstC45",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Thank you, [user_name], for the suggestion. I’ve used this screen capture tool before—it’s very helpful. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 413378994334066,
+      "user_name": "2YjzLWwIRj",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 7,
+      "comment_body": "Dear [user_name], Thank you for your feedback. You likely have expertise to share, especially around using non-western languages on panels. We hope you’ll keep contributing your knowledge and bringing new challenges to the forum."
+    },
+    {
+      "comment_id": 568586903417700,
+      "user_name": "8hbF1crrLy",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I was about to post a similar issue and realized that one flag in my code (M27) automatically switches character sets. Using M flags, M27 is assigned once you reach that number, and isn’t skipped automatically. Be certain you aren’t unintentionally using M27!"
+    },
+    {
+      "comment_id": 977906358857827,
+      "user_name": "8RYb477Ela",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "The best way to avoid accidental use of special flags is manual assignment at a low signal level when starting your program, which helps with integrated UDFs where the flag numbers aren’t readily visible. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main issue was that the [product_name] text display module kept showing 'No message for current charset!' even though the PLC display functioned correctly. Discussion focused on misaligned character set settings between the configuration software and the hardware module. Once the character set configuration on the hardware matched that of message programming, the issue was resolved. The thread highlighted a usability challenge—users can easily miss these settings, resulting in confusion and error messages.",
+    "user_expectations": "Users expect message content to appear consistently across both PLC and text display modules without additional complicated configuration. They assume that programming in English should work by default and that errors caused by character set mismatches should be prevented or clearly signposted.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "message display works",
+      "easy configuration",
+      "consistent user experience"
+    ],
+    "pain_keywords": [
+      "error message",
+      "charset mismatch",
+      "unexpected configuration step"
+    ],
+    "feature_keywords": [
+      "character set settings",
+      "message display",
+      "hardware-software synchronization"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

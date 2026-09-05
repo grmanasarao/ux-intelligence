@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "1522713644",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 156896040805867,
+      "user_name": "b9MperhIhR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Hello, I'm unable to view the data for analog flag 'AM45' in the data log, although when running the program, the value of function block 'B251' appears on the device display. How can I make this function block value visible in the data log? I've attached a reference image. Thanks."
+    },
+    {
+      "comment_id": 256365819658328,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "No attachment found. Please upload your project as a ZIP file."
+    },
+    {
+      "comment_id": 567592904931398,
+      "user_name": "b9MperhIhR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "I've uploaded the image for reference. Thanks."
+    },
+    {
+      "comment_id": 643213330868684,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "As previously mentioned: Please upload your project file as a ZIP archive."
+    },
+    {
+      "comment_id": 448768744839558,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "The image alone doesn't show how the PI controller is configured or operates. Without the project file, it's difficult for anyone to assist further."
+    },
+    {
+      "comment_id": 808665703603465,
+      "user_name": "b9MperhIhR",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "I've uploaded the ZIP file containing the project. Thanks."
+    },
+    {
+      "comment_id": 600688179928411,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "You've uploaded only a portion of your project, and the \"Data Log\" block isn't present. Could you clarify exactly what you mean? If the PI controller functions as intended, can you observe the output value in flag M45 as well?"
+    },
+    {
+      "comment_id": 637717903972182,
+      "user_name": "b9MperhIhR",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "At first, I can see the value of flag 'AM45', but after a few seconds it remains at 0. However, the value of block 'B251' continues to change and is visible on the display. Thanks."
+    },
+    {
+      "comment_id": 760013754321518,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "It appears you might not fully understand how the PI controller operates. The PI controller functions in a single direction—either upwards or downwards. According to your settings, it's configured for upward control. This means if the process value (PV) is less than the setpoint (SP), the controller outputs a value to M45. In your scenario, PV is 107, but you've applied a gain of 2.43 and an offset of 58, resulting in a value of 202. The SP is set to 0. Therefore, the PI controller doesn't work because the PV greatly exceeds the SP."
+    },
+    {
+      "comment_id": 610063041132189,
+      "user_name": "b9MperhIhR",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "I understand your point. My main requirement is to display the PV value in the data log. Is there a way to achieve this? Thanks."
+    },
+    {
+      "comment_id": 810982856269151,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "Could you clarify what you mean by \"data log\"? There is no \"Data Log\" block present in your project ..."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread discusses a user's issue with recording and viewing a specific function block value related to a PI controller in the data log using [product_name] programming software. While the changing value is visible on the device's display, it isn't captured in the data log, highlighting a misunderstanding about how to set up and log controller values. The responses focus on clarifying configuration and data logging procedures, but the user's expectations of simple, transparent value logging remain unmet.",
+    "user_expectations": "The user seeks the ability to log and view real-time process values from the PI controller in the data log, similar to how they are monitored on the device display. The user is looking for an uncomplicated solution to select and record any function block value for future analysis and troubleshooting.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "data logging",
+      "PV monitoring",
+      "program transparency"
+    ],
+    "pain_keywords": [
+      "incomplete data logging",
+      "lack of visibility",
+      "unclear configuration",
+      "PI controller misunderstanding"
+    ],
+    "feature_keywords": [
+      "data log",
+      "function block output",
+      "PI controller",
+      "PV value"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

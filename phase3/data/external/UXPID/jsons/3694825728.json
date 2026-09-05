@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "branch_id": "3694825728",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 817355127923184,
+      "user_name": "tDslqAnPgb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello. I am wrapping up an old [product_name] project (with a 10-inch [product_name] panel). I started with a larger configuration that included many traditional blocks and user-defined blocks—over 250 in total. Although it worked in the simulator, it failed to function correctly in the actual hardware; the machine did not operate as expected. I modified the program with the aim of ensuring proper functionality and also updated the software to [version_no]. After a month of working on it, I've noticed that things run smoothly in simulation, but the program crashes completely on the real machine, or unexpected machine movements occur not present in the code. While monitoring in real-time on the PC, I observed resonance or flickering between user-defined functions during operation. Currently, the machine operates with 228 blocks used. However, if multiple work orders are issued quickly with no pauses, the controller acts erratically—results are incorrect, counters are off, etc. My questions are: Can a controller degrade in quality after sitting unused in its box for five years? Is it possible for a serious crash (like running the faulty program for about a minute) to cause lasting errors in the controller’s operation? Thanks in advance."
+    },
+    {
+      "comment_id": 685775724919233,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Your questions are mainly theoretical, making it difficult for members to provide definite answers. So, I can only offer some educated guesses. Simulation does not perfectly reflect reality, and not all programs that run in a simulator will function identically on the actual [product_name] hardware. Also, some programs running on the real hardware may not perform the same in simulation, though these cases are rare. From previous community discussions, issues with certain models ([article_no]) arose when programs used more than 200 blocks. Personally, I do not believe that a controller stored in its packaging for five years will have degraded functionality. It is also unlikely that a program crash would cause persistent errors in the controller."
+    },
+    {
+      "comment_id": 548980725520188,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello. It appears you’re experiencing timing overlaps or glitches in processing. Within simulation, generating triggers (work orders) without pause is more challenging; simulation usually allows enough time for each processing cycle to finish cleanly. Try incorporating counters and timers to analyze how multiple work orders submitted in succession, without pauses, affect performance. Attached is an example highlighting a timing glitch—one memory bit block delays the signal by one scan cycle. The attachment is an animation. Wishing you good health."
+    },
+    {
+      "comment_id": 610774993669888,
+      "user_name": "tDslqAnPgb",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Thanks for your input. I agree—the program is quite large, and I’ve been reducing its size where possible. I still have questions on software functionality and operational principles. One unresolved issue is signal transmission between user-defined functions (see attached file). The attachment shows two blocks, B004 and B003 (edge detection and relay functions). The edge detection block consistently sends pulses (Q1 output) to another user-defined function without any errors. However, when replacing the relay block with edge detection, the pulses fail to transmit correctly—they’re missing or sporadic. I tried several variations before Q1, but the outcome was the same. My ongoing question is: why can’t I use two edge detection blocks before a Q1 output in a single user-defined function? Is there an underlying rule for this?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Members report considerable differences between simulation results and actual hardware execution when working with [product_name] controllers, especially in complex setups with numerous blocks and user-defined functions. Larger programs and specific block combinations can trigger unpredictable behaviors such as anomalies in machine operation, inaccurate outputs, and system instability during fast work order processing. There is ongoing uncertainty regarding signal transfer rules within user-defined functions, stemming from unclear documentation and inconsistent block performance in real-time conditions.",
+    "user_expectations": "Users anticipate reliable, error-free operation of complex programs on real [product_name] controllers as seen in simulation, along with definitive guidelines for using blocks within user-defined functions. Additionally, they seek assurance that hardware integrity is unaffected by storage duration or brief program crashes.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable execution",
+      "clear documentation",
+      "error-free operation",
+      "consistent simulation and real hardware behavior"
+    ],
+    "pain_keywords": [
+      "unreliable real-world performance",
+      "inconsistent simulation vs. real hardware",
+      "signal transmission issues",
+      "lack of documentation",
+      "timing glitches"
+    ],
+    "feature_keywords": [
+      "UDF blocks",
+      "And-Edge",
+      "Wiping relay",
+      "signal transmission",
+      "simulator",
+      "block count limit"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "8": "Documentation Clarity"
+  }
+}

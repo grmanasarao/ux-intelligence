@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "branch_id": "9232949182",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 157254780593234,
+      "user_name": "e71h6EMEkd",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello, I'm new to the forum and seeking help to complete my first automation program. I have a few questions: 1) I want to set up analog fault detection for my pressure sensor (4-20 mA, 0-10 BAR). If a fault occurs, I expect to receive a message on my [product_name]. I'm unsure what mA value should define a fault. Can I set 3 mA as the fault threshold in [product_name] software? 2) I have an hour counter tracking pump operation time. I want to reset the 'operating time' using buttons on the [product_name] display. How can I achieve this? Thanks in advance for any help!"
+    },
+    {
+      "comment_id": 548065470182666,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Welcome to the forum! Please upload your [product_name] program as a ZIP file so I can directly review and help with proposed changes."
+    },
+    {
+      "comment_id": 594247952381721,
+      "user_name": "e71h6EMEkd",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thanks for your response! If you notice any issues in my program, please let me know. I really appreciate your assistance!"
+    },
+    {
+      "comment_id": 335241399922094,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "To set the OFF parameter for block B002 to represent 3 mA, use a value of -62. This configures the fault threshold. Also, ensure all block outputs are connected to another block's input, an open connector, a flag, or an output. For analog blocks, link outputs to another analog block's input, analog flag, or analog output. These connections are not required during simulation, but are necessary for program transfer to [product_name]."
+    },
+    {
+      "comment_id": 434662903188875,
+      "user_name": "e71h6EMEkd",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thank you for your support! 1) In simulation, I'm unable to input negative values—is this expected? 2) Can I now use INPUT C1 to reset the operation time via the display? To clarify, I want to reset the operating time after changing the pump due to a fault, but keep the total time visible on the [product_name] screen. 3) I noticed a marker M31 used for RED DISPLAY, but I don’t have an external display for this project. Will M31 still show a red alert on the standard built-in screen?"
+    },
+    {
+      "comment_id": 182116415736483,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "1) Yes, it's normal—negative values can't be entered when 4-20mA is selected as the sensor type. 2) Use the cursor key to reset maintenance intervals on blocks B016 and B019; for operating time reset, move the cursor from the 'R' connector to 'RAL'. 3) M31 marker relates to the text display ('TDE') from the [product_name] series, not the internal screen; you added it yourself."
+    },
+    {
+      "comment_id": 677003122824861,
+      "user_name": "e71h6EMEkd",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "I understand points 1 and 2, but about point 3: Is it possible to have a red screen for two different faults in my application? For example, I3 is for pump protection—if I3 isn’t active, a red screen should indicate a fault. If the pressure sensor fails, another red alert and message should appear. Can I configure these visual alerts using [product_name]?"
+    },
+    {
+      "comment_id": 777683727661128,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Just implement it as needed—please see the attachment for reference."
+    },
+    {
+      "comment_id": 791295849930845,
+      "user_name": "e71h6EMEkd",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thank you very much!"
+    },
+    {
+      "comment_id": 345136698191519,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "That sounds great."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users new to [product_name] software need clear guidance to set analog fault monitoring and reset the operation timer via the built-in display. They face challenges defining sensor fault thresholds, handling differences between simulation and hardware, and configuring outputs to display alerts. There is confusion regarding visual alerts (e.g., marker M31) and display types, as well as technical limitations in software settings.",
+    "user_expectations": "Users expect to set specific analog fault detection values, reset operational timers through the built-in display interface, and receive distinct visual alerts for different faults directly on the [product_name] screen.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "fault detection",
+      "visual alerts",
+      "maintenance tracking",
+      "easy reset function"
+    ],
+    "pain_keywords": [
+      "unclear fault value setting",
+      "simulation constraints",
+      "display configuration confusion"
+    ],
+    "feature_keywords": [
+      "analog input configuration",
+      "display-based reset",
+      "fault visualization",
+      "hour counter reset"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

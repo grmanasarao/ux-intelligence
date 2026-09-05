@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "branch_id": "8069879617",
+    "thread_id": "3055273936",
+    "publication_year": 2023,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 439754863410905,
+      "user_name": "uwzrpTs5oy",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "According to the manual ([document]), a micro SD card can store up to 50 data log files for each [product_name] base module. If you use the same card in another [product_name] base module, it can store another 50 log files for that module, though the total storage is determined by the SD card’s capacity. Each data log file can hold up to 20,000 lines. If the SD card runs out of space and a new file needs to be created, an error message will appear automatically. Question: I have 20 values to be logged every second, so I need 20 lines per second, meaning I will only be able to log for 1000 seconds on each data log file. Since an SD card can store up to 50 data log files, can I log data for 50,000 seconds (approx. 13.8 hours) in total? Is my calculation correct?"
+    },
+    {
+      "comment_id": 102262162848280,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Not exactly. If you log 20 values in the same second, those values are stored in one line, not in 20 separate lines."
+    },
+    {
+      "comment_id": 100454080460599,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 8,
+      "comment_body": "Attached is a data log file from an SD card (CSV format), along with an Excel file showing the imported data log."
+    },
+    {
+      "comment_id": 887261487672957,
+      "user_name": "uwzrpTs5oy",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Thank you for your quick reply! So, just to clarify, you can log as many values as needed every second for 20,000 seconds per data log file, and in total, that's 20,000 x 50 = 1,000,000 seconds (about 277 hours or 11.5 days) of data logs. If I set the logging interval to every 2 seconds, I would be able to log for 23 days, and when all 50 data log files are full, is the oldest file automatically overwritten? Is this understanding correct?"
+    },
+    {
+      "comment_id": 265371693158337,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "I do not believe that the oldest log file will be overwritten. When the SD card is full, further logging likely stops. You can monitor the status of the SD card in your program using a digital network input and display a message accordingly."
+    },
+    {
+      "comment_id": 744522247163373,
+      "user_name": "cZQANX744b",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "Hello, You can configure up to 32 signals or values for data logging; more than that cannot be set up. Hope this helps."
+    },
+    {
+      "comment_id": 128408930650759,
+      "user_name": "5JPplFsR5Z",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 9,
+      "comment_body": "I use a generic, larger SD card (I chose one of the older models) without any issue and am able to get at least xxxx data logging inputs in Excel. Remember to use the \"text to columns\" feature for proper viewing."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The conversation focuses on the data logging limits of the [product_name] base module with micro SD cards, such as the maximum number of log files and lines per file. Users discussed whether each value is stored as a separate line or if multiple values can be logged in a single line, and how file management behaves when SD card space is exhausted. There is also uncertainty regarding log file overwriting and configuring the maximum number of signals. Suggestions include monitoring SD card status programmatically and using larger SD cards for longer logging periods.",
+    "user_expectations": "Users are seeking clear information on how values are recorded per line, whether data log files are overwritten when the card is full, and want to optimize logging duration with available hardware.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "longer data logging duration",
+      "accurate capacity calculations",
+      "clarity on storage limits"
+    ],
+    "pain_keywords": [
+      "data logging capacity",
+      "overwriting unclear",
+      "documentation ambiguity",
+      "logging constraints"
+    ],
+    "feature_keywords": [
+      "data log file limit",
+      "lines per file",
+      "logging frequency",
+      "signal configuration",
+      "SD card management"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "branch_id": "5854169162",
+    "thread_id": "4479534060",
+    "publication_year": 2018,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 645445751791577,
+      "user_name": "0beBn8iNuE",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "Beginner question: My [product_name] model is [article_no]. I want to send the status of the M1 flag (0 or 1) to an [company_name] HMI or another [company_name] device. As per the [product_name] documentation, the VM address for M1 is V1104.0. My block diagram is simple: Input from push button, digital flag M1, and output Q1. My question is: What syntax should be used to map the M1 signal? When I try 1104, I get a comment: \"Automatically correct wrong address in line 1 from vb 1104 to vb 850.\" What am I doing wrong, and what is the vb850 address used for by default?"
+    },
+    {
+      "comment_id": 600110418072168,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2018,
+      "comment_month": 10,
+      "comment_body": "This can be a bit tricky. In the [product_name] program, users can only access the VM area ranging from 0 to 850 (byte-oriented). This includes: Bits from V0.0 to V850.7, Bytes from VB0 to VB850, Words from VW0 to VW849, and DWords from VD0 to VD847. You cannot enter VB1104 in the connection list, which is why you get that message—the maximum allowed is VB850. There isn't a universal mapping method for VM to external devices, since many factors influence this process. For your case, you don't need special VM mapping parameters. Just set up a connection in the [product_name] HMI development software using the [product_name] communication driver. Create the needed variables in your HMI, and that should work."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are often confused about how VM address mapping works within [product_name] systems, especially when connecting digital flags to [company_name] HMI devices. Limitations on VM address ranges and unclear syntax create challenges when transferring internal signals like M1 externally. Ambiguous documentation and automatic adjustments made by the software contribute to the uncertainty, making it difficult for users to achieve basic device communication.",
+    "user_expectations": "Users expect precise documentation and guidance on VM mapping restrictions and address syntax. They seek a direct and understandable approach for linking internal flags to HMI variables, without experiencing confusing auto-corrections or unclear feedback from the software.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "easy mapping",
+      "signal transfer",
+      "clarity"
+    ],
+    "pain_keywords": [
+      "address mapping confusion",
+      "unclear documentation",
+      "automatic correction ambiguity"
+    ],
+    "feature_keywords": [
+      "VM mapping",
+      "address range",
+      "digital flag",
+      "communication to HMI"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "2": "Product Compatibility"
+  }
+}

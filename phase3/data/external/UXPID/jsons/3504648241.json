@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "branch_id": "3504648241",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 505166693660871,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Good afternoon, I'm trying to connect to the [product_name] device using OpenVPN, but I'm encountering an SSL error. The certificates are not activated – if I need to add certificates, what's the process? Thank you. Regards, [user_name]"
+    },
+    {
+      "comment_id": 333815989122274,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Have you installed the latest firmware [version_no]? The sales and delivery release includes firmware [version_no] for [product_name] devices ([article_no]) along with a download link."
+    },
+    {
+      "comment_id": 138030167992600,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], which OpenVPN client are you using? The [product_name] does not support certificates for OpenVPN, only pre-shared key (PSK). To connect, just copy the OVPN config file to your client and run it. You might be using a client like OpenVPN Connect, which doesn't support PSK. Try OpenVPN GUI instead: [url]. Best regards"
+    },
+    {
+      "comment_id": 421921246198799,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Good morning, I've upgraded the software and tried the recommended OpenVPN client, but I'm still facing the same issue."
+    },
+    {
+      "comment_id": 705210049352632,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "You're using OpenVPN Connect, which won't work because it doesn't support PSK. If you're on a mobile phone, try 'OpenVPN for Android'. For computers, you should use OpenVPN GUI."
+    },
+    {
+      "comment_id": 344757781565525,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Yes, I've tried OpenVPN GUI, but only a basic display appeared. Also, nothing is shown when accessing through the web browser."
+    },
+    {
+      "comment_id": 155672362524878,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "The GUI is not experiencing certificate issues and visually appears fine, but it can't connect to the [product_name] for another reason. Is 192.168.10.35 your public IP for the WAN interface? That seems like a LAN interface IP for the [product_name]. Can you access the device through the WAN IP when the option Security > HTTPS > Enable WAN is active?"
+    },
+    {
+      "comment_id": 157456710478768,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Yes, that was the LAN address. I also tried the local endpoint and the mobile wireless IP, but the issue persists."
+    },
+    {
+      "comment_id": 753172883434257,
+      "user_name": "c4YIGWhfEQ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "OpenVPN on [product_name] works only over the WAN interface. You need a public WAN address on the device. Check if your SIM card provider assigns a public IP; otherwise, VPN won't work. If you have a dynamic public IP, DynDNS can help prevent config changes when the IP updates. With a public WAN IP, you should be able to establish the VPN link using OpenVPN GUI."
+    },
+    {
+      "comment_id": 976599604119506,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Good morning. Thanks for your help, but I'm seeing the same result with the public IP address (see attached). I tested pinging 10.8.0.1 and it worked, so connectivity to the server is present."
+    },
+    {
+      "comment_id": 110413175359870,
+      "user_name": "sMnHngJrTM",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Thanks everyone. The IP I was provided was private, not public. The issue is resolved."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter persistent challenges connecting [product_name] devices to a VPN using OpenVPN, mainly due to SSL errors, unclear certificate usage, and confusion arising from different OpenVPN clients and pre-shared key requirements. Troubleshooting involves firmware upgrades, clarifying steps for correct configuration, and distinguishing between public and private network addressing. Documentation and UI guidance are lacking, leading to repeated misunderstandings about network and client compatibility.",
+    "user_expectations": "Users expect seamless VPN connectivity for [product_name] devices without complicated certificate setups or compatibility problems with standard OpenVPN clients. They desire clear, straightforward instructions for configuration and prompt solutions when usual methods don't resolve their issues.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "remote connectivity",
+      "VPN access",
+      "simple setup",
+      "secure communication"
+    ],
+    "pain_keywords": [
+      "configuration errors",
+      "ssl error",
+      "client compatibility",
+      "documentation confusion",
+      "public IP requirement"
+    ],
+    "feature_keywords": [
+      "OpenVPN PSK support",
+      "WAN interface access",
+      "firmware versioning",
+      "SIM card/public IP handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance",
+    "8": "Documentation Clarity",
+    "12": "Network Configuration Challenges"
+  }
+}

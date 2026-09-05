@@ -1,0 +1,187 @@
+{
+  "metadata": {
+    "branch_id": "3553049385",
+    "thread_id": "1723880927",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 313466613652817,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 2,
+      "comment_body": "Hello, I've been experimenting with [product_name] Web Editor and noticed it doesn't offer historical trend functionality directly, as historical data isn't accessible (log files on SD card can only be accessed by [product_name] Soft Comfort). To address this, I implemented a workaround using both [product_name] Soft Comfort and [product_name] Web Editor, resulting in a 'historical trend' feature. Although this isn't the typical use for these tools, it’s working well. Whenever I connect to the device, I can view temperature data from the last 48 hours (one reading per hour), and I've added navigation buttons for the trend display. If anyone is interested in this solution, I’m happy to share more details, and there’s also a video available."
+    },
+    {
+      "comment_id": 593108157989566,
+      "user_name": "Wxx2zrClKi",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Hi, this sounds ideal for my needs. Could you please share how you created this? Thanks."
+    },
+    {
+      "comment_id": 114622889157098,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Sure, the setup relies on three main elements: 1. For storing measurements, I built an analog data shift buffer using 48 math blocks in sequence, each with the 'last value' property enabled. To simplify, I made a user-defined function (UDF) containing 6 connected blocks – with 8 UDFs, that gives 48 values. You can expand further, keeping in mind the hardware supports only a certain number of blocks. 2. I use a multiplexer to output 12 data values simultaneously. All 48 could be output at once if you assign enough Modbus data or analog flags, but I chose 12 for organization. I created a UDF for an 8-input multiplexer and used 12 multiplexers to manage data shifting in [product_name] Web Editor. 3. Since [product_name] Web Editor lacks built-in historical graph options – only supporting real-time trends stored in the browser or device web component – I used bar graphs, stacking 12 side by side as a visual workaround. Overall, it is resource-intensive, but relies solely on standard [product_name] Soft Comfort and [product_name] Web Editor features. It performs well, and ample resources remain for other functions. Just keep in mind a backup power source is recommended to prevent data loss. I use 12/24V hardware so standard batteries and chargers are compatible. Let me know if you need the programs."
+    },
+    {
+      "comment_id": 185862031197564,
+      "user_name": "Wxx2zrClKi",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Thanks for the explanation; that was very helpful. I’ve tried implementing it but may require further guidance since I'm new to [product_name]. If you’re willing to share your program, it would help me understand how everything fits together. The video of your [product_name] Web Editor setup matches what I’m aiming for. Any additional information would be greatly appreciated. Thanks again."
+    },
+    {
+      "comment_id": 511319431608892,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Hello, this project isn’t necessarily a beginner’s example, but it isn’t overly complex either. The part built in [product_name] Soft Comfort can be tested in the simulator using actual data. The save interval is set to 5 seconds. It’s not a complete solution, but a working proof-of-concept. Hardware used is [product_name] version [version_no], and newer versions should be compatible. I've uploaded an explanatory diagram of the [product_name] logic."
+    },
+    {
+      "comment_id": 777863946957430,
+      "user_name": "Ui7V3HVheA",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "[user_name], do you have example files for [product_name] Web Editor and [product_name] Soft Comfort from your temperature trend setup that you can share? I’m new to [product_name] Soft Comfort and following your instructions but would appreciate access to the programs. Thank you,"
+    },
+    {
+      "comment_id": 893335580887359,
+      "user_name": "Ui7V3HVheA",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 6,
+      "comment_body": "No worries, I’ve found your example."
+    },
+    {
+      "comment_id": 438897328877229,
+      "user_name": "Ui7V3HVheA",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "[user_name], I’ve tried modifying your historical trend example but am having trouble. I want to capture an average temperature every hour, store data for 12 hours, and display those values in [product_name] Web Editor. My aim is for each new temperature to overwrite the oldest, keeping 12 records displayed on the trend graph. Essentially, I need a rolling graph of the last 12 hours of average temperatures. Do you have any examples I could expand for this? Thank you, [user_name]"
+    },
+    {
+      "comment_id": 654472424803234,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Hello! What do you mean by 'few months'? For 12 latest hours, that’s possible—my example records 48 values, but you could push it up to 96 if hardware resources allow. Note: after a power loss, all records will be lost (so a backup battery might help)."
+    },
+    {
+      "comment_id": 114758362425362,
+      "user_name": "Ui7V3HVheA",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Sorry, I meant 12 hours, not months! I just need to display a rolling set of the latest 12 hours of average temperatures."
+    },
+    {
+      "comment_id": 583906367923601,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], based on your description, you’re seeking analog bucket chain memory and a graphic way to show values on the device web server. There’s plenty written on this in the German section of the forum. Check out [url] and [url]. This may help. Regards, [user_name] (translated with Google)"
+    },
+    {
+      "comment_id": 268426894211167,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Thanks, [user_name], but I still prefer my solution. Here's the simplified setup for 12 records. In [product_name] Web Editor, analog flags can display values either as bar graphs or figures. You can also monitor 10 variables simultaneously using the integrated web server. The integrated web server is excellent—even works with old Windows XP and IE8!"
+    },
+    {
+      "comment_id": 653042563063250,
+      "user_name": "Ui7V3HVheA",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "Thank you so much, [user_name]. Once you explained it, it was much clearer."
+    },
+    {
+      "comment_id": 671239739817562,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 7,
+      "comment_body": "I must say using the min/max block comes with the benefit of data retention. If retention is enabled, a short power outage won't erase saved information."
+    },
+    {
+      "comment_id": 637817792742724,
+      "user_name": "NBOBzB9Eya",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hi, I wanted to ask if you now have a finalized historical trend solution for [product_name] Web Editor? Thanks!"
+    },
+    {
+      "comment_id": 569822278681071,
+      "user_name": "sS3DeRo7qY",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 12,
+      "comment_body": "Hi, Sorry, the project is postponed for now. Perhaps a better method will be available soon in [product_name] Web Editor to create a proper historical graph instead of overlapping bar visuals (as seen in the video on my first post). I also considered a simple table for values."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users wish to visualize historical trends in [product_name] Web Editor, but the platform lacks direct support for this feature, as retrieving historic data is challenging. Workarounds are shared that use [product_name] Soft Comfort’s logic and the Web Editor’s graphical elements like bar graphs, although these require resource-intensive programming and specialized knowledge. Users recognize these solutions aren’t beginner-friendly and highlight the dependence on uninterrupted power to prevent data loss.",
+    "user_expectations": "Users expect [product_name] Web Editor to offer intuitive, built-in features for displaying historical trend data such as temperature readings, showing a customizable number of recent data points, and continuously retaining measurement history without requiring complex programming solutions.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "historical trend visualization",
+      "temperature monitoring",
+      "rolling data display",
+      "web interface"
+    ],
+    "pain_keywords": [
+      "no built-in historical trends",
+      "complex workaround",
+      "data loss on power outage",
+      "resource limitations",
+      "difficult for beginners"
+    ],
+    "feature_keywords": [
+      "historical trend",
+      "bar graph",
+      "data buffering",
+      "rolling window",
+      "data persistence"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "9": "Feature Requests",
+    "30": "Data Persistence Confusion",
+    "22": "Usability Improvement Suggestions"
+  }
+}

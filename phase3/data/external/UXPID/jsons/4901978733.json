@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "branch_id": "4901978733",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 197296025731246,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I am using a [product_name] logic module with display. In my program, I've set up timers whose values can be adjusted on the display using function keys—key up and down for timer 1 and 2, right and left for timer 3 and 4. However, when I increment one timer, both timers increase at the same time. Could you please advise how to ensure each timer can be set independently using the function keys?"
+    },
+    {
+      "comment_id": 129251580346832,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hi [user_name], welcome to the forum. Can you clarify what you mean by \"[product_name] logic module with display\"? Are you referring to the display on the [product_name] itself or an operator device? If you intend to assign multiple functions to the keys, you'll need to lock them appropriately, for example, using message text logic. Could you upload your program as a zipped file for review?"
+    },
+    {
+      "comment_id": 167720123871399,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Hello, please find the attached zip file. I want to assign separate function key settings for each timer and display the timer value on the [product_name] display."
+    },
+    {
+      "comment_id": 682690631609592,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "In the attachment is an example for counter C006. The counter value is shown in message text SF008. If you lock the keys based on the message text, then the cursor keys only control C006 when message text B008 is active. You will need to create locking conditions for each counter and timer, tailored to your application. One approach is to display all counters in separate message texts, create another counter, and use function keys (e.g., C1 and C2 to select, C3 and C4 to adjust values)."
+    },
+    {
+      "comment_id": 884245584527101,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Could you share the ladder logic for the following scenario? If I use a separate text block for each counter, how do I navigate to a separate message text screen for each?"
+    },
+    {
+      "comment_id": 600818434327383,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I have another question. I'm using the [product_name] for a crane application, and I want to show the weight on a large LED (7-segment display). Could you describe the communication protocol needed, and how to transfer the data? Any additional recommendations or logic would be appreciated."
+    },
+    {
+      "comment_id": 915012103096726,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "You need to create a menu that activates only one message text at a time. For example, you can scroll through message texts using keys like C1 and C2. Once a message text is selected, you can then adjust the setpoint using other keys (C3 and C4), but lock these keys to function only when the specific message text is active."
+    },
+    {
+      "comment_id": 587803869765894,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "[product_name] cannot generate custom protocols. It supports Ethernet TCP/IP with S7 protocol or Modbus TCP/IP only. Make sure your large LED display can work with one of these two protocols."
+    },
+    {
+      "comment_id": 361992405463057,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Please share a ladder diagram for the scenario mentioned—I am having trouble understanding your earlier explanation."
+    },
+    {
+      "comment_id": 162092898268860,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Sure, but I'll provide it later."
+    },
+    {
+      "comment_id": 175265163783932,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Okay."
+    },
+    {
+      "comment_id": 464814114848413,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 820823437280658,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Search for an LED display that supports one of the compatible connection types."
+    },
+    {
+      "comment_id": 830685155088838,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Can data be transferred directly, or do I need to use a function block in the program to handle conversion and transmission?"
+    },
+    {
+      "comment_id": 695581239374536,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "To which device do you intend to transfer data?"
+    },
+    {
+      "comment_id": 406588098373493,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Could you please share the information as soon as possible?"
+    },
+    {
+      "comment_id": 643755893378068,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "I mentioned earlier that I would provide it later. Is my response not quick enough?"
+    },
+    {
+      "comment_id": 532733546413358,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 17,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Since you seem to need this urgently, here is an example for you."
+    },
+    {
+      "comment_id": 288445919157380,
+      "user_name": "oPj6r0jedk",
+      "comment_position": 18,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 9,
+      "comment_body": "Thanks a lot for your support."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are having trouble configuring independent timer adjustments using function keys on a [product_name] logic module with display. When one timer value changes, others change as well, due to uncertainties with proper key assignments and locking logic. There are also challenges related to menu navigation, display management, and integrating external LED displays with limited communication protocol options.",
+    "user_expectations": "Users expect to adjust each timer separately using designated function keys and navigate between display menus for individual timers with ease. They also anticipate straightforward data communication between the [product_name] and an external LED display.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "independent timer control",
+      "intuitive display navigation",
+      "communication with external display"
+    ],
+    "pain_keywords": [
+      "function key confusion",
+      "lack of protocol flexibility",
+      "menu navigation difficulty"
+    ],
+    "feature_keywords": [
+      "function key assignment",
+      "locking mechanism",
+      "protocol compatibility",
+      "timer adjustment on display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "22": "Usability Improvement Suggestions",
+    "13": "Integration Limitations"
+  }
+}

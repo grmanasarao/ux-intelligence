@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "branch_id": "7476496385",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 742702380435561,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Hello, does anyone know why an analog threshold trigger isn't reacting as expected when set to -120? I attached a diagram. During simulation, sliding the analog input across the full range doesn't activate the trigger to 'positive' even after surpassing the threshold value. It only switches if I manually change the input value using the mouse, passing -120. I am building a function block diagram to monitor a 0-4V output from a frequency drive, and want the relay to latch when a certain voltage is exceeded until it's reset. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 292627171229890,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "I'm not entirely sure what you want to achieve. With the threshold set to switch ON at -120 and OFF at -119, the trigger acts exactly as configured. Are you aiming for the trigger to turn ON at -120 and for lower values, then OFF again at -119? If so, set the ON threshold to -200. Then, the trigger will stay ON for values from -200 to -120."
+    },
+    {
+      "comment_id": 927612105770428,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Thanks, that suggestion worked. Setting ON to -200 and OFF to -120, every time I slide the input from minimum to maximum, the block turns positive and my issue is solved. However, I'm still uncertain why it didn't work when set to ON: -121 and OFF: -120. The block should create a positive signal as I slide the input from max to min, passing the ON point—a brief pulse to activate the latching relay. But this doesn't happen unless I manually change the analog value with small arrow clicks during simulation."
+    },
+    {
+      "comment_id": 583012578927486,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "With the ON = -121 and OFF = -120 parameterization, the threshold trigger operates within just one unit. If the real [product_name] amplifies the signal and skips over this narrow range, it may miss the value (-121). The analog-to-digital converter requires time to process the analog signal."
+    },
+    {
+      "comment_id": 272152680878406,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Got it, that makes sense now. Thanks."
+    },
+    {
+      "comment_id": 813162628487879,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "Depending on the resolution and rounding in [product_name], after reaching -118, the next value could be -122 or in the opposite direction. Refer to the analog threshold trigger help: there are two ways to use it. If you set both ON and OFF to -120, the trigger activates and stays ON until the value drops back to -120 or below; this works well for your RS block. If the value fluctuates, you need a hysteresis—like ON at -120 and OFF at -130. The difference is the hysteresis: ON => OFF. I usually use an analog differential trigger with ON = my value and Delta = -10; delta serves as hysteresis, so only one setpoint is required. Regards, [user_name]"
+    },
+    {
+      "comment_id": 984339022447031,
+      "user_name": "X7HqF4fpMh",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 7,
+      "comment_body": "[user_name], that's a helpful explanation. I didn’t realize a narrow ON/OFF range could be missed in [product_name] processing. Thanks for the alternatives. I’ll try both the differential trigger and setting ON/OFF to the same value to see which is most reliable. Thanks, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum users discussed problems with analog threshold triggers missing activation when set to a very narrow ON/OFF range in simulation mode. The issue occurred because the product's resolution and rounding can cause the analog signal to skip over tightly defined thresholds, particularly during analog-to-digital conversion or slider changes. Manual, incremental input allowed the trigger to activate as expected. Various solutions, such as adjusting hysteresis or using differential triggers, were suggested to increase reliability.",
+    "user_expectations": "The user expects the analog threshold trigger to respond accurately whenever the input surpasses the set value, regardless of whether the input changes via slider, manual adjustment, or through actual hardware signals.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "reliable threshold detection",
+      "trigger accuracy",
+      "effective analog monitoring"
+    ],
+    "pain_keywords": [
+      "missed threshold",
+      "resolution limitations",
+      "unreliable simulation"
+    ],
+    "feature_keywords": [
+      "analog threshold trigger",
+      "hysteresis",
+      "differential trigger",
+      "input simulation"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "22": "Usability Improvement Suggestions"
+  }
+}

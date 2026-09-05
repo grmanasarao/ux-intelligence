@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "branch_id": "7776829678",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 202574955254511,
+      "user_name": "VuSbNCLXnq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Hello, I need assistance. I have a device on a Modbus line that only supports 0x10 for writing registers. However, my [company_name] [product_name] [version_no] device can’t write registers to it. I believe this is because [product_name] only writes registers over Modbus using code 0x06. Is it possible to make the device send writes using 0x10?"
+    },
+    {
+      "comment_id": 480215023688141,
+      "user_name": "VuSbNCLXnq",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I understand that code 0x10 writes multiple registers, while 0x06 writes only one. However, I need to write just a single register. How can I get [product_name] to write one register using code 0x10 instead of 0x06? The slave device I’m targeting does not support code 0x06."
+    },
+    {
+      "comment_id": 506879185024074,
+      "user_name": "VuSbNCLXnq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Here are my results when writing from my PC with software: 000001 12:53:40.227 02 10 00 02 00 01 02 00 00 B3 42 02 10 00 02 00 000002 12:53:40.267 01 A0 3A — everything works fine. When I attempt this from [product_name]: 000005 12:58:27.686 02 10 00 02 00 02 04 00 00 00 00 7D 32 02 90 03 000006 12:58:27.716 FC 01 — I send two words to force code 0x10, but it fails. This process is exhausting."
+    },
+    {
+      "comment_id": 567963124978147,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "You cannot manually set the function codes in [product_name]. Have you checked whether Modbus access is enabled in the general file properties?"
+    },
+    {
+      "comment_id": 242714767765400,
+      "user_name": "VuSbNCLXnq",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Sorry, I’m not familiar with file properties for Modbus access in [product_name]."
+    },
+    {
+      "comment_id": 557494764283281,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Go to File > Properties > Offline settings. See the screenshot."
+    },
+    {
+      "comment_id": 527327140679695,
+      "user_name": "VuSbNCLXnq",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Modbus access functions well. I can read all registers from my slave device using code 0x03. However, I need to write one register using code 0x10 (not 0x06), since my device only accepts code 0x10."
+    },
+    {
+      "comment_id": 216729902723455,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "[product_name] does not let you select these codes directly. Available functions include: Reading Input Register, Reading Holding Register, Writing Holding Register, Reading Discrete Inputs, Reading Coils, and Writing Coils. See the attached PDF from [user_name] for details."
+    },
+    {
+      "comment_id": 839492143764867,
+      "user_name": "VuSbNCLXnq",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I’m aware of these functions, but there seems to be some confusion. I am referring to codes F06 and F10 in this context. How can I use F16 (Decimal) rather than F06 for writing a single register?"
+    },
+    {
+      "comment_id": 825137925015795,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "As far as I know, there is no method for [product_name] to manually select function codes. You may want to submit a support request."
+    },
+    {
+      "comment_id": 316146390655705,
+      "user_name": "udO0a0woU9",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I agree with [user_name]. The current [product_name] can read/write Modbus TCP Holding registers, but users cannot choose which Modbus codes are used. The device is designed for ease of use, and typically users aren’t looking to specify details like function codes. More advanced controllers such as [product_name] offer greater flexibility, but are also more complicated."
+    },
+    {
+      "comment_id": 819402668678368,
+      "user_name": "8RYb477Ela",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Modbus communication usually follows a standard, but if you must write multiple registers, try reading adjacent registers and writing both together. This way, you maintain the data integrity for the register you don’t intend to modify. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faces limitations with a [company_name] hardware device that can only issue Modbus write commands using function code 0x06, whereas their connected Modbus slave requires code 0x10. The discussion highlights that the [product_name] device does not permit users to configure which Modbus function code is sent for writing, restricting interoperability with third-party equipment.",
+    "user_expectations": "The user hopes to configure the [company_name] device so it issues Modbus 'write register' commands using code 0x10 for compatibility with devices requiring this specific code.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "modbus compatibility",
+      "flexible protocol configuration",
+      "interoperability"
+    ],
+    "pain_keywords": [
+      "fixed function codes",
+      "incompatibility",
+      "lack of configurability"
+    ],
+    "feature_keywords": [
+      "modbus write function code selection",
+      "single register write behavior",
+      "Modbus protocol options"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

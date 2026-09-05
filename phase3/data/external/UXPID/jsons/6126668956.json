@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "branch_id": "6126668956",
+    "thread_id": "3055273936",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 687825963033635,
+      "user_name": "eyiasDHZFR",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "Hello, In typical operation, the [product_name] controller and its expansion module are powered by 24V. In case of a mains voltage failure, a 12V battery provides backup. 1. I understand that the expansion module will stop functioning with 12V, resulting in all outputs being off and inputs unavailable. 2. Will the controller itself continue working? I need its IO capability and also require it to communicate with the [product_name] communication module. Both communication modules are also backed up by 12V. 3. Additionally, there are two 230V [product_name] controllers on the network that will lose power. How will the software on the 12V controller respond to this? If I attempt to read or write IO or markers from the offline 230V controllers, will there be an error, timeout, or default to off? Thank you."
+    },
+    {
+      "comment_id": 153549699971582,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "1.) The expansion modules in question are only operational with supply voltages within approximately 20.4 to 28.8 VDC. However, there are alternative modules that work within a wider range, roughly 10.8 to 28.8 VDC. 2.) The controller also supports operation over the same voltage range (10.8 to 28.8 VDC). 3.) When power is lost on other networked controllers, the base module detects network input update failures via timeout, and changes network input states from active (1) to inactive (0). Standard reset settings aren’t defined for this case. Regarding flags, I only use specific operands and cannot confirm their behavior."
+    },
+    {
+      "comment_id": 824812589486302,
+      "user_name": "eyiasDHZFR",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "If mains power is lost, I do not need the IO from the expansion module. But does this also mean the controller itself will stop functioning?"
+    },
+    {
+      "comment_id": 266784349826787,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "The core controller operates independently of the expansion modules. With 12VDC backup, the main module continues to work."
+    },
+    {
+      "comment_id": 226173988345256,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 12,
+      "comment_body": "A possible solution could be using a step-up voltage regulator to raise the 12V from the battery to 24V for backup, helping to address issues with differing module voltage requirements. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum members discussed how the [product_name] controller and its expansion modules behave during power loss, with differences in voltage compatibility causing concerns. They clarified operational ranges, network communication timeouts, and proposed approaches—such as voltage regulators—to ensure continued function and communication when some modules lose power. Key user experience insights include the need for clear voltage requirements, reliable controller operation on backup, and predictable handling of IO/network outages.",
+    "user_expectations": "Users expect the main controller module to continue running on 12V backup even if the expansion module does not function. They seek explicit information on how IO and network communication are handled when other modules on the same network lose power.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "continuous operation",
+      "reliable backup",
+      "network clarity"
+    ],
+    "pain_keywords": [
+      "voltage incompatibility",
+      "unclear IO response",
+      "loss of expansion modules"
+    ],
+    "feature_keywords": [
+      "voltage range",
+      "network timeout handling",
+      "controller independence",
+      "expansion module compatibility"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability"
+  }
+}

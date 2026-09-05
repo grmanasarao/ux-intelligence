@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "3398510824",
+    "thread_id": "3055273936",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 952588753635919,
+      "user_name": "rOdK0b3T7E",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, today I set up an application with a pressure sensor (transducer) using a 4-20mA signal. When pressure drops below a certain threshold, a digital output triggers an inverter (7.5 kW) that operates a water pump. If the pressure surpasses the preset level monitored by the sensor, the inverter switches off until the pressure falls again—then the cycle repeats. The initial setup worked, but I noticed that starting the inverter causes fluctuations in the analog input value, which disrupts the program and leads to frequent switching of the inverter. If the inverter is off, the analog input remains steady. I connected the sensor to the analog input card using shielded wires, with the shield grounded at the cabinet. Is there anything else I can do to reduce interference?"
+    },
+    {
+      "comment_id": 420714965088077,
+      "user_name": "8RYb477Ela",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 12,
+      "comment_body": "It’s possible the problem isn’t electrical interference but rather pressure spikes. For hydraulic systems with pressure sensors, I typically use an analog differential trigger with a hysteresis value (for example, delta = -10), plus an on-delay to prevent reactions to transient pressure peaks. Please refer to the attached example and adjust the settings as needed."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users experience instability in analog sensor readings when the inverter starts, disrupting automated pump control. A more experienced user suggests that transient pressure spikes may be the cause, and software measures such as hysteresis and delay can improve stability.",
+    "user_expectations": "The user expects reliable analog sensor readings regardless of inverter activity and wants consistent, automatic pump operation.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable readings",
+      "reliable control",
+      "noise immunity"
+    ],
+    "pain_keywords": [
+      "analog interference",
+      "unstable process",
+      "noise problems"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "shielding",
+      "hysteresis",
+      "software filtering"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions"
+  }
+}

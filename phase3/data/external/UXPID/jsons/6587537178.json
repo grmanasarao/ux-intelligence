@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "branch_id": "6587537178",
+    "thread_id": "1723880927",
+    "publication_year": 2008,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 769300695046713,
+      "user_name": "egkrhSjFj3",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hello, I am working with [product_name] version [version_no] and [product_name] V5.0.21. My application includes 5 up/down counters that share the same threshold value, preset in the software. Is there a way to change the threshold value for all 5 counters at once online, or must I individually update each on the control screen? Thank you for your help. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 917575074246683,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], you can use the MUX function associated with [article_no]. Connect the threshold settings of all 5 counters to a MUX. Enter your desired threshold value as V1 in the MUX and display V1 in a message text. Changing V1 will update all 5 thresholds simultaneously. Hope this helps, [user_name]"
+    },
+    {
+      "comment_id": 696135741929247,
+      "user_name": "egkrhSjFj3",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hello [user_name], I would like to adjust the V1 value using the control screen. Is this possible? When I launch the program and press ESC, the cursor appears next to V1's value, but pressing OK does not allow me to modify it as usual. I'm unfamiliar with the analog function blocks—how can I actually change V1's value? Thank you for your response. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 243174514156058,
+      "user_name": "egkrhSjFj3",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], I resolved the issue by displaying the V1 value on the control screen instead of the amplified AQ value. However, there is occasional odd behavior after startup, both on device and in simulation. Sometimes, the up/down counter outputs are set to '1' after starting the program. I fixed this by clearing the counters using the startup flag M8. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 961949047450158,
+      "user_name": "hqFFoO8ibg",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2008,
+      "comment_month": 7,
+      "comment_body": "Hi [user_name], Yes, placing V1 from the MUX into the message text lets you modify it (hold ESC for 1 sec). The simulation behavior you mention is something I've also noticed; when you run the simulation for the first time, outputs can behave unexpectedly, but restarting the simulation resolves it—this issue seems limited to simulation and doesn't occur on the actual device. Connecting the startup flag to the counter reset inputs is a good practice to ensure proper operation. Regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user sought a way to update the threshold value for multiple counters simultaneously within their project using [product_name] and [product_name] V5.0.21. The main confusion involved whether one input could control all counters via the display, as well as unexpected output states after startup in both simulation and on hardware. Intuitive control grouping and clearer initial state behavior are recognized as usability issues.",
+    "user_expectations": "The user expects to conveniently adjust the shared threshold for all counters at once through the device screen and that counters should reliably start in the correct state after system startup.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "centralized parameter control",
+      "reliability",
+      "predictable startup state"
+    ],
+    "pain_keywords": [
+      "tedious manual updates",
+      "unexpected counter outputs",
+      "unclear simulation behavior"
+    ],
+    "feature_keywords": [
+      "online parameter editing",
+      "message text display",
+      "startup behavior",
+      "reset input",
+      "MUX function"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "22": "Usability Improvement Suggestions",
+    "10": "Performance Predictability"
+  }
+}

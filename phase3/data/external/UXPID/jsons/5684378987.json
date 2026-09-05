@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "branch_id": "5684378987",
+    "thread_id": "4479534060",
+    "publication_year": 2017,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 529771740951409,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Hello, I am French and will try to explain my issue in English. I have two [product_name] modules: They work correctly when set independently in main mode. I tried to connect them together to expand my programming options. The slave module is used for lighting. In slave mode, some push buttons aren't reliably detected when switching on or off; pressing the button sometimes works immediately but sometimes requires two or three attempts. This issue does not happen in the non-slave mode. For programming, I used a simple setup: input connected to a relay/switch block, then output. The modules are networked via Ethernet; I tested both direct connection and through a [company_name] switch, but the issue continued. Configuration: Main module: IP 192.168.1.10, subnet 255.255.255.0, gateway 192.168.1.10 (also tested .1). Slave module: IP 192.168.1.11, subnet 255.255.255.0, gateway 192.168.1.10 (tried .1 too). Does anyone know what's causing this and how to resolve it? Thank you for your help!"
+    },
+    {
+      "comment_id": 485958071321982,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "If you are using [product_name] modules in master-slave mode, only the master runs a program. The slave simply acts as hardware for the master. Why not use master/master mode instead? This way, each module has its own program, and you can exchange data using the VM area. The gateway address only matters if the modules are on different network segments, acting as a bridge. Since yours are on the same segment, the gateway is not necessary. Edit: Please upload your program as a zip file."
+    },
+    {
+      "comment_id": 539485299354912,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I've uploaded my program. The top section is the shutter program, and below that is for lighting."
+    },
+    {
+      "comment_id": 780373698856832,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Does anyone have ideas on how to solve my issue? Maybe an example program?"
+    },
+    {
+      "comment_id": 243088277754734,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Could you clarify your goal? Should I help convert from master/slave to master/master mode?"
+    },
+    {
+      "comment_id": 576258156484896,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Are you offering to do this for me? I didn't expect it! Yes, if you could turn my program into master/master mode (since this seems best for what I want), here’s what I’m hoping for: When I press I8 of my shutter, it activates Q8 of my lighting (NQ8 in slave program) for 10 seconds. Also, when clock B100 sends a pulse, it acts on B056. This example would help me program other functions as needed. Thank you so much!"
+    },
+    {
+      "comment_id": 654277868381967,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "I can convert your program to master/master mode and will work on it, just need a little patience ;-)"
+    },
+    {
+      "comment_id": 494810079895056,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "That's great! Thank you!"
+    },
+    {
+      "comment_id": 760745361476156,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Which IP address and subnet mask does your master module use? The slave uses 192.168.1.11—what is its subnet mask?"
+    },
+    {
+      "comment_id": 584931529232149,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Master IP: 192.168.1.10 Subnet: 255.255.255.0 Slave: 192.168.1.11, 255.255.255.0"
+    },
+    {
+      "comment_id": 369089677524508,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Here are the programs for master/master mode. The [product_name] [article_no] can only send network outputs to a slave, not another master. To send digital information from master to master, you need to establish a connection—one serves as server, the other as client. The VM area is used for data exchange. In the program, only one bit is sent from one master to the other via block B075 (master 1, server). If you want to exchange more bits between modules later, we’ll need another solution."
+    },
+    {
+      "comment_id": 862520885524319,
+      "user_name": "3uSzRnTyTB",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "Wonderful, it works just as I wanted! Thanks!"
+    },
+    {
+      "comment_id": 290916345863982,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2017,
+      "comment_month": 10,
+      "comment_body": "A new question from [user_name] is now a separate thread with the subject 'Exchange several digital information between [product_name]'. Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter unreliable push button detection when connecting two [product_name] modules in master-slave mode over Ethernet for expanded control functions. The issue, which interferes with expected operation, only occurs in slave mode—not when modules are used independently—suggesting it’s specific to how inputs are handled or network communication in this configuration.",
+    "user_expectations": "Users expect push button inputs on the slave [product_name] module to register and trigger on/off actions reliably and promptly, regardless of the operating mode. They also seek programming solutions that allow easy extension of control across connected modules without losing reliability for input response.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "reliable remote control",
+      "expandable programming",
+      "networked operation"
+    ],
+    "pain_keywords": [
+      "input not recognized",
+      "unreliable switch control",
+      "slave mode limitations"
+    ],
+    "feature_keywords": [
+      "master-slave mode",
+      "pushbutton input",
+      "Ethernet communication",
+      "program exchange"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability"
+  }
+}

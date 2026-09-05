@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "branch_id": "8307774765",
+    "thread_id": "1723880927",
+    "publication_year": 2025,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 999234627936314,
+      "user_name": "Jby3EcOyxq",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Any suggestions or ideas would be appreciated. I'm struggling to understand why my analog input amplifier blocks, with a -10VDC input on my [product_name] device ([version_no] running the latest firmware and using [version_no] [product_name]), are giving mismatched output values in VRW1 and VRW2. For example, when both the input and amplifier block output show 1000 (full scale), I expect the VRWs to also read 1000, but they read 771 and 768 instead. When the input is zero, the output is also close to zero as expected. It seems like some scaling is happening, but I can't identify why. The same logic on AI3 and AI4 works correctly—1000 in, 1000 out; zero in, zero out. Why are the VR stored words apparently getting scaled or changed? Any ideas? Thanks, [user_name] in New Zealand"
+    },
+    {
+      "comment_id": 872401653083010,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Your issue is due to an overlap in VRW address allocation. The memory addressing is byte-based rather than word-based and starts at address 0. When using words (2 bytes each), you need a gap of 2 between addresses—for example, VRW0, VRW2, VRW4, and so on. Incorrect allocation causes data overlap, while correct allocation avoids this issue."
+    },
+    {
+      "comment_id": 628326337483572,
+      "user_name": "Jby3EcOyxq",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Thank you very much for your help."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user encountered unexpected analog input values when working with amplifier blocks and VRW storage in [product_name], which was traced to overlapping VRW addressing resulting from byte-oriented memory management instead of word-oriented. This caused certain analog values stored in VRWs to be scaled incorrectly, affecting confidence in data reliability. Another user clarified that correct VRW usage requires word-aligned addressing to prevent overlaps.",
+    "user_expectations": "The user expects the amplifier block output to be accurately reflected in the corresponding VRW memory location, without any unintended scaling or changes. Consistent and reliable analog data storage across all channels and memory addresses is anticipated.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "accurate analog value storage",
+      "data consistency",
+      "reliable programming"
+    ],
+    "pain_keywords": [
+      "data mismatch",
+      "unexpected scaling",
+      "VRW addressing confusion"
+    ],
+    "feature_keywords": [
+      "VRW addressing",
+      "analog amplifier block",
+      "analog input channel mapping"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "24": "Data Integrity Concerns"
+  }
+}

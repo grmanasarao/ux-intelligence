@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "branch_id": "9383969266",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 235762814102529,
+      "user_name": "36gvNsJ7vo",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "Hi [company_name] team, I'm trying to use a [product_name] to read analog data from another Modbus device (acting as a server), process the value, and then manage a relay output based on the result. The Modbus device presents a real value across two 16-bit registers (31249 and 31250). Is there a method in [product_name] to read values from those two addresses and obtain an integer version of the real value, rounding or truncating the decimal part? Additionally, I want to perform a 'greater than' comparison and multiply the analog value. Are these functions supported in [product_name]? I've thoroughly searched online and on the forum for solutions. Any advice would be greatly appreciated."
+    },
+    {
+      "comment_id": 811445364947239,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 3,
+      "comment_body": "[product_name] systems are limited to integer calculations (-32,768 to 32,767), and results must remain within the integer range. Double Integer (DInt) is not supported for calculations. To work with 32-bit float values, you can use an F/I converter block to transform the float into an integer, provided the value fits the integer range. Mathematical functions and handling beyond basic integer operations are not natively supported."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users encounter limitations in [product_name]'s capability to handle Modbus float data and perform arithmetic directly, as these modules are restricted to integer values. The need for conversion from float to integer is essential, and more advanced numerical processing is not available, making basic mathematical operations after reading Modbus values challenging.",
+    "user_expectations": "Users expect to read merged float values from Modbus, convert them to integer format within [product_name], and perform operations like comparison and multiplication seamlessly, all without manual workarounds.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "modbus float handling",
+      "relay control",
+      "arithmetic operations"
+    ],
+    "pain_keywords": [
+      "data type limitation",
+      "no float calculation",
+      "modbus integration issues"
+    ],
+    "feature_keywords": [
+      "modbus register reading",
+      "float to integer conversion",
+      "comparison operation",
+      "multiplication operation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

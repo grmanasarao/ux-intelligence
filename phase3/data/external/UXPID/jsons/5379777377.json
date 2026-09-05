@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "5379777377",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 173700514379693,
+      "user_name": "BGFT2j11iu",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, I'm working on configuring [product_name] to send its input registers (I1-I16) to a Modbus TCP slave device using the VW address 1024 as referenced in the [product_name] software help. When I enter the address in the configuration table, I consistently get an out-of-range error. Is it possible to transfer all input registers as a word to the Modbus slave, or is it necessary to send each input bit separately to the coils? Thanks for any guidance."
+    },
+    {
+      "comment_id": 277533665353254,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Consider trying the following approach..."
+    },
+    {
+      "comment_id": 862344932175874,
+      "user_name": "BGFT2j11iu",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Thanks for your response. This solution writes to coils in the slave device, not to holding registers. I should have clarified earlier—I want to transfer the data as a single register into the holding registers of the slave device."
+    },
+    {
+      "comment_id": 389341277521019,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "There isn't a dedicated register for inputs on [product_name]. You can send the input statuses using network outputs in the VM word area, and then transfer this VM word to a holding register in the slave device."
+    },
+    {
+      "comment_id": 197206271772975,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "It's not possible to access those VM area addresses (like 1024) within the [product_name] program itself. The program only allows VM addresses up to 850.7; higher addresses such as 1024 can be reached only from external devices."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced a limitation when trying to write grouped input statuses from [product_name] to a Modbus TCP slave using an address promoted in the [product_name] software. Direct access to higher VM addresses is not available within the program, limiting straightforward Modbus word transfers and requiring alternate methods.",
+    "user_expectations": "The user expects to transfer all input statuses from [product_name] to a Modbus TCP slave's holding register as a single word by directly addressing as described in the software help.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "efficient data transfer",
+      "flexible Modbus integration",
+      "register mapping"
+    ],
+    "pain_keywords": [
+      "addressing limitation",
+      "unclear documentation",
+      "restricted memory access"
+    ],
+    "feature_keywords": [
+      "input register mapping",
+      "Modbus TCP register access",
+      "VM area accessibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "branch_id": "7125994325",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 752174001047849,
+      "user_name": "J7nkjhc0ha",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Good afternoon, I am seeking expert guidance. My task involves connecting a frequency converter via Modbus RTU to a [product_name] device from [company_name]; note that the frequency converter is from another manufacturer. I plan to use an RS485 to Ethernet converter (WAVESHARE) for integration, where I set up device number, data port (502), IP address, and baud rate (9600). A basic unmanaged switch (TP-LINK LS1005G) forms the local network. Both the [product_name] and converter share the IP 192.168.11.102. This setup successfully allowed me to read sensor data (temperature and humidity transmitter SHT20) using Modbus. However, I am only achieving read functionality—I cannot write to the Modbus device, despite this being possible. My current network analog input configuration, attached in the document, only lets me read. Here are my questions: How can I send both read and write requests to the Modbus device? For instance, the frequency converter supports function codes 0x03 (read multiple registers) and 0x06 (write single register). What steps, functions, and constants should I use? Is \"Configuring Modbus client connections\" necessary? How should I set up \"Data transfer\" if needed? In terms of specifics: - Rotation speed example: 32 Hz (decimal 320, hex 140) - Device address (Unit ID) is straightforward - Function code: 0x06 - Register address (example: 0x2001, responsible for rotation speed)—divided into two bytes: 0x20 and 0x01 - Is this the correct Modbus address? - Register value (rotation speed) in two bytes: 0x01 and 0x40—how do I send this? - CRC: what is it and how is it applied? Next, how do I receive and process responses from the Modbus device to extract rotation speed into a message? Thank you."
+    },
+    {
+      "comment_id": 336091767771460,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Please avoid submitting duplicate posts for the same issue."
+    },
+    {
+      "comment_id": 165784619245234,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 12,
+      "comment_body": "Thread closed due to duplicate question. The second post, regarding connecting a Modbus device to [product_name], was published in the [product_name] - Communication conference. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "A user is trying to implement two-way Modbus RTU communications between their [product_name] device and an external frequency converter with Modbus protocol over Ethernet. Currently, they can read but not write data. They are seeking detailed steps on setting up and executing Modbus writes (function code 0x06), register addressing, and CRC processes in the [product_name] environment. User-facing documentation or instructional support for bi-directional Modbus configuration seems lacking.",
+    "user_expectations": "User seeks clear, actionable documentation or UI instructions to enable both Modbus read and write operations, along with precise explanations of function codes, register addresses, and CRC handling within [product_name] for reliable, bi-directional communication.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "bi-directional Modbus communication",
+      "write register",
+      "remote control",
+      "data exchange"
+    ],
+    "pain_keywords": [
+      "incomplete documentation",
+      "unable to write",
+      "configuration complexity",
+      "register addressing confusion"
+    ],
+    "feature_keywords": [
+      "Modbus client functions",
+      "register write (0x06)",
+      "network analog input",
+      "data transfer configuration",
+      "CRC calculation"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

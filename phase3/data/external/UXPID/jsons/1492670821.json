@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "branch_id": "1492670821",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 985981567295635,
+      "user_name": "FjqhNgBuPc",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Hello everyone, I'm working to connect my [product_name] [article_no] with a panel called \"X2base 7 v2\" from [company_name]. From what I've learned, the iX Developer software doesn’t support [product_name] PLCs, and found info here: [url]. Despite trying, I can't get communication between the [product_name] and the panel to work. Has anyone successfully set up communication between [company_name] panels and [product_name]? Any advice would be appreciated."
+    },
+    {
+      "comment_id": 938533273877400,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "[product_name] (all [article_no]) can communicate via Ethernet TCP/IP using the S7 protocol. Devices with version [version_no] or newer also support Modbus TCP/IP communication."
+    },
+    {
+      "comment_id": 688133457156939,
+      "user_name": "FjqhNgBuPc",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Thanks for your reply. In iX-Developer, I see the following options: [IMAGE]. Is this the correct selection? When I try to assign the I1 input of [product_name], the software reports I1 isn’t a valid address. Can I use the I1 address directly as a tag, or do I need to use VM space as described in this source? [url]"
+    },
+    {
+      "comment_id": 577585720172338,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "[product_name] [version_no] communicates only via Ethernet TCP/IP with the S7 protocol. The T4A panel uses the S7IsoTCP driver, and the X2base 7 v2 panel includes this driver as well. You’ll likely need to use the same method. I’m not familiar with iX Developer, so I’m not sure if direct digital input access is possible."
+    },
+    {
+      "comment_id": 704868310519176,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Selecting S7 over TCP as your driver should work; address mapping is similar to s7-200. You might need to use I0.0 for I1 up to I0.7 for I8, I1.0 for I9 up to I1.7 for I16, etc. The same applies for Qx, Mx, and Vx. Usually there’s online help for the driver specifying usable operands. Analog signals use AIWx for inputs (AI1 could be AIW0), AQWx for outputs (AQ1 could be AQW0), and VWx/VDx for data mapping. These methods are typical for older HMI displays. For reference, see [url], where you can switch languages. Regards, [user_name]"
+    },
+    {
+      "comment_id": 786484553949697,
+      "user_name": "FjqhNgBuPc",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Following the instructions at [url], I have some questions. The article mentions using a software tool to configure communication for [product_name]. It says to set up Ethernet connections in the tool’s menu, using your device’s IP address. How do you set up communication between two [product_name] modules? Also, how do I set up \"Connection1(server)\" as shown in the illustration? [IMAGE] Thank you."
+    },
+    {
+      "comment_id": 706904765510939,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Which [product_name] software version are you using?"
+    },
+    {
+      "comment_id": 784698157399924,
+      "user_name": "FjqhNgBuPc",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "I’m using version [version_no]. Additionally, how do I identify my hardware type? My device is [article_no]. The online help for [product_name] software [version_no] says: If you have [version_no], do this… If you have [version_no], do this… If you have [version_no], do this… I’m confused about \"FS\"—is it a firmware version? Thanks for your support!"
+    },
+    {
+      "comment_id": 883447236141070,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Your device is a [product_name] with version [version_no]. In device selection, choose [product_name] [version_no]. To enable communication with the S7 protocol, you need to allow S7 access by going to File > Properties > Offline settings > General > Ethernet connections. [IMAGE] To set up a server connection, right-click on the Ethernet Connection and select \"Add server connection\", then \"S7 connection\". [IMAGE] This creates Connection1; double-click it to edit. [IMAGE]"
+    },
+    {
+      "comment_id": 184363652811567,
+      "user_name": "FjqhNgBuPc",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Thank you! When you say my device is [version_no], which hardware type does that correspond to—[version_no], [version_no], or something else? For VM mapping, which table should I use—[version_no] or [version_no]? [IMAGE]"
+    },
+    {
+      "comment_id": 977001787725690,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Since September 2014, all [product_name] devices are [version_no]."
+    },
+    {
+      "comment_id": 454312516424713,
+      "user_name": "FjqhNgBuPc",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 9,
+      "comment_body": "Thanks for the file—it’s very helpful!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users struggled to integrate a [product_name] [article_no] with a third-party HMI panel from [company_name] due to unclear compatibility and address mapping procedures. There was confusion regarding communication protocol support in both the [product_name] device and iX Developer software, particularly with address formats and hardware versions. This highlights a need for clearer documentation and guidance about third-party HMI integration, address selection for IO and VM space, and firmware/hardware version differences.",
+    "user_expectations": "Users want straightforward instructions for connecting [product_name] devices to third-party HMIs, simple and clear ways to map and read addresses for inputs and outputs, and reliable guidance for choosing correct hardware/software settings to ensure successful communication.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "successful HMI-PLC communication",
+      "easy address mapping",
+      "hardware version clarity"
+    ],
+    "pain_keywords": [
+      "protocol confusion",
+      "address mapping difficulty",
+      "version uncertainty",
+      "unsupported direct integration"
+    ],
+    "feature_keywords": [
+      "Ethernet TCP/IP communication",
+      "protocol selection (S7/Modbus)",
+      "address mapping (digital, analog, VM)",
+      "firmware handling"
+    ],
+    "overall_branch_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "branch_id": "2311597141",
+    "thread_id": "4479534060",
+    "publication_year": 2013,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 316116014364715,
+      "user_name": "tDslqAnPgb",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2013,
+      "comment_month": 8,
+      "comment_body": "I noticed an issue during communication: When the default HMI screen was active and the [product_name] module was reading fast encoder pulses, the HMI would crash. Turning off the display seemed to resolve the problem. I still wonder why the timing is so significant, as it doesn't seem necessary for my application."
+    },
+    {
+      "comment_id": 566954768602237,
+      "user_name": "TQKMwiXSLF",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 8,
+      "comment_body": "I haven't encountered this type of problem before, and since nobody else has responded, it appears that others are unfamiliar with it as well. There is a possibility that EMV interference could be the cause. I'm curious to know which components of [product_name] and HMI you're using."
+    },
+    {
+      "comment_id": 441858484075940,
+      "user_name": "tDslqAnPgb",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2013,
+      "comment_month": 9,
+      "comment_body": "In this project, I used [product_name] [article_no] and an HMI [product_name]. The [product_name] module was programmed with custom function blocks, which included several counter blocks. When the [article_no] module input received rapid encoder signals, the active HMI screen would randomly change, for instance, from screen 0 to screen 2 or 4, or to other screens. If I deleted all non-primary screens and kept only the main screen, the display would show a gray screen and required an HMI restart. This issue persisted for a long period and prevented proper machine operation until I eventually discovered the underlying cause. I wanted to share this experience so others encountering a similar issue might resolve it more quickly."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users report system instability when using [product_name] [article_no] with an HMI [product_name], especially while handling rapid encoder pulses and multiple HMI screens. This leads to screen crashes, unexpected screen changes, and restarts when only the main screen remains. The operational impact was significant, and while the problem might be linked to system timing or EMV interference, it appears closely associated with handling high-frequency inputs and multiple screens simultaneously.",
+    "user_expectations": "User anticipates stable HMI performance when processing rapid input pulses, regardless of screen or timing settings. They wish for clear management of multiple HMI screens and expect the system to remain operational and not require reboots, even with high-frequency inputs.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "system stability",
+      "correct screen display",
+      "reliable machine operation"
+    ],
+    "pain_keywords": [
+      "HMI crash",
+      "spontaneous screen changes",
+      "delayed machine startup",
+      "hard to diagnose"
+    ],
+    "feature_keywords": [
+      "encoder pulse handling",
+      "multiple HMI screens",
+      "UDF Counter block",
+      "screen timing/configuration"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "19": "Bug Reports"
+  }
+}

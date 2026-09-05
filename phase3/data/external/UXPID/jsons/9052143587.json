@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "branch_id": "9052143587",
+    "thread_id": "4479534060",
+    "publication_year": 2020,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 290738637139416,
+      "user_name": "KAVf95uM2C",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Hello, I'm working on a project with two [product_name] units connected to a network. I'd like to know if I can control both using a single [product_name] web project."
+    },
+    {
+      "comment_id": 372490758324247,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Yes, that's possible. However, only one [product_name] can communicate directly with the [product_name] web editor. To exchange data with the second [product_name], you'll need to transfer it through the unit connected to the web editor."
+    },
+    {
+      "comment_id": 699996253105671,
+      "user_name": "KAVf95uM2C",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "How do I transfer data from the second [product_name] (on the 1st floor) to the first one (Main - boiler room)? I’m adjusting the program for the second device. I want to manage the weekly timer and display the temperature (AI2) on the website, and possibly change temperature settings in block B010 (analog threshold trigger). For the weekly timer, I like the suggestion from this post: [url]"
+    },
+    {
+      "comment_id": 871923098542682,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "In principle, it's possible but has some limitations. Displaying values solely on the extended web server works fine. However, values that need to be both displayed and changed via the web server become problematic if they rely on data transferred from a second [product_name]. For items like weekly timer settings and switching days, these changes can only be made on the extended web server—not via the [product_name] panel or a [product_name] display. This applies to threshold trigger parameters as well."
+    },
+    {
+      "comment_id": 260722332609794,
+      "user_name": "KAVf95uM2C",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "So if I understand you, this method works, but the parameters will only be configurable through the web server. That's sufficient for me. How are these parameters actually copied to the main [product_name]?"
+    },
+    {
+      "comment_id": 231773507062823,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Based on your file, you've exchanged data between the two [product_name] devices using drag & drop. The software automatically establishes a connection, but for your particular function, you'll have to manually create a connection and input data into the connection table with the right transmission direction. The data should be stored in a VM memory area of the first [product_name] that isn't occupied, for example starting from VW200."
+    },
+    {
+      "comment_id": 761416986398894,
+      "user_name": "KAVf95uM2C",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Sorry, this is a bit too advanced for me... Could something like in the picture work, maybe starting by mapping parameter B009? How do I transfer that to the main [product_name] so it can be read by the web editor? Could you provide a practical example?"
+    },
+    {
+      "comment_id": 813854680479124,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Yes, that's possible but will take some time, so please be patient. It's not something that can be completed quickly."
+    },
+    {
+      "comment_id": 533485168033493,
+      "user_name": "KAVf95uM2C",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "No worries, I just wanted to be sure I was considering the right approach. Take all the time you need—I appreciate your help. Your expertise with [product_name] is impressive!"
+    },
+    {
+      "comment_id": 563218444807162,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Here is a practical example; I can’t test it myself since I only have one [product_name] at the moment."
+    },
+    {
+      "comment_id": 248299903576558,
+      "user_name": "KAVf95uM2C",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "Thank you for your effort—I’ll test it this evening. One more thing: is it normal for the main [product_name] diagram to be empty? Is there no required direct connection between the [product_name] devices?"
+    },
+    {
+      "comment_id": 427976160653478,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 5,
+      "comment_body": "The main [product_name] doesn't directly use the data from the second one. Instead, it facilitates data exchange between the web server and the second device through its connection."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Forum participants are looking to control and configure two [product_name] units from a unified web interface using the [product_name] web editor. While direct monitoring and parameter adjustment through the web server is viable for some settings, synchronizing and configuring both devices from one interface is complicated by underlying restrictions, especially for editable timers and analog threshold values.",
+    "user_expectations": "Users expect to monitor and adjust both [product_name] devices through a single web interface. They hope for a simple solution to exchange and configure parameters such as schedules and temperature triggers across the devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "centralized control",
+      "remote configuration",
+      "parameter monitoring"
+    ],
+    "pain_keywords": [
+      "complex setup",
+      "configuration limitations",
+      "manual data transfer"
+    ],
+    "feature_keywords": [
+      "weekly timer",
+      "temperature input (AI2)",
+      "analog threshold trigger (block B010)",
+      "parameter mapping",
+      "web-based configuration"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

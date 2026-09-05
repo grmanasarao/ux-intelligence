@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "branch_id": "8155034104",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 609765351362308,
+      "user_name": "27c66lA41l",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Good morning, I'm having trouble setting up MODBUS communication between my [company_name] [product_name] and a MODBUS client (MODBUSMASTER) on my PC. MODBUS is enabled under Access Control (set to \"Enabled\" or \"Unsecure\"). In Ethernet settings, I have added a MODBUS server connection. I've tried programming both in diagram mode and as a network project, following several YouTube tutorials. Current setup: - Program Logic: High input → Async Pulse Generator (1s on/off) → Q1 → X1 - Device IP Address: 192.168.0.3:502 - MODBUS Mode: TCP - Unit ID: 1 - Function Code: Read Coils (0x01) - Start Address: 8193 I'm looking for any signs of communication, but haven't received a response yet. My goal is to eventually integrate with Node-RED or RapidSCADA, but first I simply want to confirm MODBUS is functioning. I'll attach screenshots of my setup (I believe I can only upload one at a time). Any advice or suggestions would be greatly appreciated. Thanks!"
+    },
+    {
+      "comment_id": 657659246256411,
+      "user_name": "JVFpy6IiyM",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Try using address 8192."
+    },
+    {
+      "comment_id": 119410321402877,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "You can only upload one file per post. To attach multiple files, combine them into a ZIP archive and upload the archive."
+    },
+    {
+      "comment_id": 306226963076593,
+      "user_name": "27c66lA41l",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Tried that—still no communication. Thanks anyway!"
+    },
+    {
+      "comment_id": 680186988899872,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Which [product_name] version do you have? Please provide the full order number. I have tested this myself, including with QModMaster. Tested with [product_name] [version_no]: Works. Tested with [product_name] [version_no]: Does not work. The [product_name] [version_no] has firmware version [version_no]."
+    },
+    {
+      "comment_id": 554800310913407,
+      "user_name": "27c66lA41l",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "The part number is [article_no]. The firmware is version [version_no]. Thanks!"
+    },
+    {
+      "comment_id": 704539971992720,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I have tested with this exact [product_name]. It does not function. With a [product_name] [version_no] ([article_no]), it does work."
+    },
+    {
+      "comment_id": 152898208733912,
+      "user_name": "27c66lA41l",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "That's frustrating. I suppose I'll consider [version_no] instead of modbus."
+    },
+    {
+      "comment_id": 724130318659457,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "I suspect the issue is only with QModMaster as the client. I've connected with other [product_name], Eaton easyE4, etc., without problems."
+    },
+    {
+      "comment_id": 814569613205505,
+      "user_name": "tuLbKYc7ij",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "You could try ModbusHD. Remember, in Modbus TCP, 1 is subtracted from the register address. Also, you could use some programs I've uploaded to this forum meant to test Modbus TCP communication with [product_name] as the server. I've also used node-red (node-red-contrib-modbus) with [product_name] and have not encountered issues."
+    },
+    {
+      "comment_id": 937259771953238,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 3,
+      "comment_body": "Issue identified. While testing with several Modbus TCP master applications, I was unable to establish communication. Allowing [version_no] access as well suddenly made it work, even with QModMaster. I'm still unsure why [version_no] access is necessary for Modbus communication, and why this only applies when [product_name] is the server."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering issues when trying to establish MODBUS TCP communication between a [company_name] [product_name] device (notably [version_no] with firmware [version_no]) and MODBUS client software such as QModMaster. The same setup works with earlier versions of the hardware or with other client programs, pointing to inconsistencies possibly related to firmware or software compatibility. There is frustration due to limited troubleshooting information and unclear register addressing, making compatibility across device versions confusing.",
+    "user_expectations": "Users expect straightforward and reliable MODBUS TCP communication with their [company_name] [product_name] devices and desktop clients, requiring basic connectivity to be confirmed before moving on to further system integration.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "MODBUS connectivity",
+      "integration",
+      "communication validation"
+    ],
+    "pain_keywords": [
+      "incompatibility",
+      "no response",
+      "firmware issues",
+      "unclear troubleshooting"
+    ],
+    "feature_keywords": [
+      "MODBUS TCP",
+      "firmware version",
+      "server connection",
+      "register addressing"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity"
+  }
+}

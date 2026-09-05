@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "branch_id": "8818673092",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 328750233520984,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello everyone, I am working with a linear actuator that outputs its position as an analog 0-5V signal, and I read this from input I8. The actuator operates between 2-98 mm. I want it to start at 98 mm when the system powers up. Using the operator panel display, the desired position can be set. With the function keys on the display, I want users to move the actuator within the 2-98 mm range. Q1 activates forward movement, Q2 plus Q1 activates reverse. Also, I would like to know if it's possible to use Excel to input the target position. I am using a 12/24 VDC [product_name] [article_no]. Apologies for my English and thanks for any assistance."
+    },
+    {
+      "comment_id": 924604355603805,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "The initial part, controlling via the [product_name], is achievable. However, for getting target location information from Excel, with only [product_name] software it is not possible directly. You would need to implement your own solution."
+    },
+    {
+      "comment_id": 925504737956355,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Hello [user_name], I plan to set the actuator’s target as an analog signal. A challenge may arise if the actuator accelerates and moves too quickly when making small adjustments. I have a driver; if the target position is less than 10 units away, the movement should be slower. The programming will get more complex. I'm not experienced with analog signals, but I’ll attempt to build the program. Thank you for your response."
+    },
+    {
+      "comment_id": 508031230867607,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Where does Excel integration fit into this? Did I miss something? For speed changes, you can use an analog threshold or comparator to control this. The digital output can then determine the analog multiplexer’s output value."
+    },
+    {
+      "comment_id": 848481082087276,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I now plan to use sensors to determine the correct value and provide it as a 0-5V analog input to the [product_name]. I am considering removing both operator and Excel input options. The system will automatically decide how much to open or close. It’s a challenging task for me, but I’ll give it a try."
+    },
+    {
+      "comment_id": 820257928254607,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "A 0-5V sensor is not ideal for the [product_name] analog input, which expects 0-10V. It would be better to use a 0-10V sensor."
+    },
+    {
+      "comment_id": 841518888196084,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "I understand, but there are no alternatives for me. Is there any issue apart from sensitivity? My actuator only provides position as a 0-5V analog signal. Is this a problem for the [product_name]?"
+    },
+    {
+      "comment_id": 268915177228936,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "With a 0-5V signal, only half of the [product_name] input range is utilized, so the resolution is less precise. Additionally, this range is more prone to faults."
+    },
+    {
+      "comment_id": 342641787866674,
+      "user_name": "741fDZOdxJ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 1,
+      "comment_body": "Thanks for the information. I am working on it and requirements change frequently. If I can’t solve it, I’ll ask again."
+    },
+    {
+      "comment_id": 709680630983489,
+      "user_name": "SgWj7oPYu2",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "Noted."
+    },
+    {
+      "comment_id": 682541017787998,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 11,
+      "comment_body": "For me, this appears to be another type of spam ..."
+    },
+    {
+      "comment_id": 728139264295523,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "A new question by [user_name] was moved to a separate thread, titled: What settings are needed to receive data over Modbus TCP/IP? Best regards [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main technical challenge is integrating a 0-5V signal from a linear actuator with the [product_name] system, which is designed for 0-10V analog input. This results in decreased resolution and less precise control. Users sought to automate position setting and explore integration with Excel, but were informed this is not possible using just the current software, prompting a shift toward sensing and automated control.",
+    "user_expectations": "Users want accurate actuator control using the [product_name] module despite suboptimal input signals, ability to set positions via operator panel and Excel, and smooth automated operation based on sensor feedback.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "precise actuator control",
+      "automated movement",
+      "external setpoint integration"
+    ],
+    "pain_keywords": [
+      "signal compatibility",
+      "reduced resolution",
+      "integration limitation"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "external data interface",
+      "position setpoint"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations",
+    "9": "Feature Requests"
+  }
+}

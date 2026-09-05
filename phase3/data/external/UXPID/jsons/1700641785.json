@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "branch_id": "1700641785",
+    "thread_id": "4479534060",
+    "publication_year": 2023,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 236543900746394,
+      "user_name": "nZNAAcvwJZ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I'm working to set up a [product_name] communication module to send and receive SMS based on monitored events in another [product_name] controller. My previous networking experience was limited to connecting devices using physical I/Os and radio or cellular modem, which didn’t require any mapping. Configuring the communication module has been overwhelming. I managed to send SMS for power on/off events, but can’t trigger SMS for changes in any input, output, or flag. I did manage to get the connection status to show as active, so the problem seems to be with memory mapping. The manual covers this topic, but I'm still confused despite searching the forum and using Google Translate. I tried to follow an example in a [company_name] presentation, but it missed steps and didn’t cover digital I/Os. Could someone provide a simple example for sending SMS based on changes of input, output, or flag, and mapping these events? I’d also appreciate help on how to receive an SMS to change an output. I noticed examples showing more than one client or server when configuring connections—is this always required? I guessed the local and remote addressing settings but am unsure how they should be determined. Reference devices: [article_no] and [article_no]."
+    },
+    {
+      "comment_id": 486065552674921,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Welcome to the forum. Check out this [company_name] FAQ on setting up SMS with [product_name]."
+    },
+    {
+      "comment_id": 742065814055443,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Did you actually read the FAQ, or just the title? As I write this, I see you've deleted your previous post."
+    },
+    {
+      "comment_id": 136293846727825,
+      "user_name": "nZNAAcvwJZ",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I deleted my last post because I misunderstood your message, thinking the highlighted text was a question. Realized later it was a link, so I removed my reply and followed it instead. I believe I’ve tried what’s in the FAQ but the module still doesn’t respond to input or output signals from the controller. All the info seems to be there, but it’s not clear enough for me to follow. The FAQ says to create a client connection with a trigger tag, but doesn’t explain how. It looks like this could be done in several ways (e.g., via device management tools and by adding compatible devices). The only method that showed the connection as active was the last approach, which I used without understanding the transfer settings: address 0, length 1, direction to address VB0, length 1. That didn't give the desired result, but at least the connection works. I read somewhere that you can’t access the inputs and outputs directly—if that’s true, I may need something to simulate their behavior. I’m getting closer, but I’m still unsure about the data transfer configuration."
+    },
+    {
+      "comment_id": 981856318537324,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Typically, there’s no issue reading the state of physical inputs or outputs. However, you cannot write to physical inputs. Outputs can only be controlled this way if not used in the program."
+    },
+    {
+      "comment_id": 958143131745623,
+      "user_name": "nZNAAcvwJZ",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "I reconfigured the project using diagram mode based on instructions from the SMS setup FAQ: [url] and used another document for reference: [url]. The configuration seems correct except for the data mapping, which is still wrong. It’s been a long time since I dealt with bits and words; I previously did projects without networking. I can find examples for mapped function blocks, but nothing showing basic I/O mapping for this simple SMS task. The communication module does send SMS when powering on/off, and I once triggered an SMS with an input by accident, but haven’t been able to duplicate it."
+    },
+    {
+      "comment_id": 885571076641698,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "See the attached file—it may help you understand memory mapping. Also, check out the online help and search for VM."
+    },
+    {
+      "comment_id": 957021230144805,
+      "user_name": "nZNAAcvwJZ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Thanks for your reply. I have that document and others, but when it comes to filling in setup details, I tend to get it wrong. If you look at my configuration, you’ll probably see obvious errors. I’ve tried different methods but haven’t achieved working results yet."
+    },
+    {
+      "comment_id": 272035008016706,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "You're reading from a memory address and writing to it three times in a row—this won’t work."
+    },
+    {
+      "comment_id": 908989893524995,
+      "user_name": "nZNAAcvwJZ",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2023,
+      "comment_month": 3,
+      "comment_body": "Thank you for your help. I can now read from the [product_name] controller and send an SMS. I still can't receive an SMS to change an output on the controller, so I’ll start a new post about that."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user faced considerable challenges setting up the communication module for SMS alerts triggered by changes in controller inputs, outputs, and flags, especially with memory mapping and configuring data transfers. Documentation and FAQs did not provide sufficient clarity for users lacking networking expertise; detailed, step-by-step guidance for mapping I/Os and setting up client/server connections (including addressing settings) was missing. Users made incremental progress but struggled with errors and mapping concepts before partially achieving SMS notifications.",
+    "user_expectations": "The user asks for clear, beginner-level instructions and practical examples for mapping controller inputs, outputs, and flags for SMS-triggered event control, as well as for receiving SMS to change outputs. The user also seeks clarification on how to configure client/server connections and determine appropriate addressing values.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "automated SMS alerts",
+      "remote control",
+      "input/output monitoring",
+      "simple configuration"
+    ],
+    "pain_keywords": [
+      "complex VM mapping",
+      "incomplete documentation",
+      "confusing data transfer",
+      "I/O access misunderstandings"
+    ],
+    "feature_keywords": [
+      "SMS notification",
+      "VM mapping",
+      "S7 client/server configuration",
+      "TSAP address",
+      "I/O handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

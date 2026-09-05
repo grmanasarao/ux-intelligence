@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "7871714360",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 222612956290725,
+      "user_name": "x9pBxKE2rz",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I have a User Defined Function (UDF) that behaves as expected in UDF simulation, but fails to work on the actual device. I checked the following: hardware version, swapped inverted bits for High flags, and connected all networks (as the software sometimes has trouble with disconnected networks for analog inputs). Are there additional rules for UDF usage beyond those specified in the manual? Is it necessary for all open inputs to be assigned HIGH or LOW flags?"
+    },
+    {
+      "comment_id": 638924005840002,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "Could you upload the UDF?"
+    },
+    {
+      "comment_id": 823028632154391,
+      "user_name": "x9pBxKE2rz",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "UDF"
+    },
+    {
+      "comment_id": 280251589362575,
+      "user_name": "x9pBxKE2rz",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "There are two approaches to creating a delay-off function in a UDF: 1) Use the delay-off function with a rising edge to trigger the delayed off — trigger duration should be less than 2ms. 2) Apply the delayed-on function and use logic to invert the output. The second method operates correctly on the programmable controller; the first method does not. Could this be the underlying problem?"
+    },
+    {
+      "comment_id": 942192840160605,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "I'm wondering if the UDF needs to be designed in such a complex way. Could you provide details about the specific application?"
+    },
+    {
+      "comment_id": 592342230032231,
+      "user_name": "x9pBxKE2rz",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 4,
+      "comment_body": "The UDF is configured according to the specifications. The issue seems related to timing within the UDF on the device, but I managed to resolve it using the last suggested approach."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users addressed a technical issue where a User Defined Function (UDF) performed correctly in simulation using [product_name] software but failed on actual hardware. Troubleshooting steps included reviewing manual guidelines, testing different delay-off logic approaches, and confirming device compatibility. Discussion highlights that discrepancies in UDF execution between simulation and real hardware—especially related to timing and input handling—can cause confusion and impact user workflows.",
+    "user_expectations": "User wants the UDF to function consistently in both simulation and on actual hardware, with dependable behavior and timing for application tasks.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "hardware-software consistency",
+      "timing reliability",
+      "UDF clarity"
+    ],
+    "pain_keywords": [
+      "simulation-hardware inconsistency",
+      "timing discrepancy",
+      "unclear UDF rules"
+    ],
+    "feature_keywords": [
+      "UDF",
+      "delay-off function",
+      "simulation",
+      "timing"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "10": "Performance Predictability"
+  }
+}

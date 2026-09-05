@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "branch_id": "5990749811",
+    "thread_id": "1723880927",
+    "publication_year": 2016,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 738979051907359,
+      "user_name": "pAF9djTrfc",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Why am I unable to modify the Gain/Offset values for an analog amplifier using the [product_name] operator device? I am able to adjust settings for all other blocks except the analog amplifier. Thanks, [user_name]"
+    },
+    {
+      "comment_id": 752991465268122,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "The GAIN and OFFSET parameters can be shown but not modified directly. To allow changes via the [product_name] operator device, you need to implement your own analog amplifier logic in your program."
+    },
+    {
+      "comment_id": 308076524995855,
+      "user_name": "pAF9djTrfc",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Hello, thank you for your response. Could you provide an example? Thanks, [user_name]"
+    },
+    {
+      "comment_id": 757657514135828,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "See the attached example. In B003, the GAIN value is set via the [product_name] operator device. In B005, the OFFSET is set the same way. B002 performs the analog amplification calculation. For GAIN in B003, use 2 decimal places. For example, to input 1.25, enter 125 in the operator device. B002 multiplies the B001 value by 125, then divides by 100 using the parameter V3. B001 retrieves the analog input for B002 and has no other function; it should remain unchanged in the program."
+    },
+    {
+      "comment_id": 524692733562696,
+      "user_name": "pAF9djTrfc",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2016,
+      "comment_month": 4,
+      "comment_body": "Thanks, I implemented a similar solution. Thanks, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The thread discusses a restriction on modifying Gain and Offset values for an analog amplifier block via the operator device. While parameters for other blocks can be edited through this device, Gain/Offset for analog amplifiers must be handled differently. A contributor clarifies that direct changes are not supported and suggests programming a custom solution as a workaround.",
+    "user_expectations": "The user wants the ability to adjust Gain and Offset parameters for the analog amplifier block using the operator device, matching the functionality available for other blocks.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "parameter adjustment",
+      "remote configuration",
+      "flexibility"
+    ],
+    "pain_keywords": [
+      "limited access",
+      "manual workaround",
+      "inconsistent functionality"
+    ],
+    "feature_keywords": [
+      "Gain/Offset adjustment",
+      "Analog Amplifier block",
+      "TDE access"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "13": "Integration Limitations"
+  }
+}

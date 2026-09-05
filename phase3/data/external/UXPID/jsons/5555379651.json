@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "branch_id": "5555379651",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 735554484930893,
+      "user_name": "9aQLYcgnHY",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I have four [product_name] devices communicating through a network switch. Three are standard models while the fourth is an FS version. The [product_name] CMR module is also connected to this switch. My goal is to use the CMR for SMS control and to utilize its VPN capability for remote support when I am not at home. SMS control works fine: I have set up forwarding so that everything requiring SMS control in devices 1-3 is routed to device 4, whose IP address I entered in the CMR for SMS use. Web server controls for devices 1-3 are also forwarded to device 4 using network inputs/outputs, and this setup is functioning well. However, my main concern is remote download/upload access to all four devices when connecting through the CMR's VPN. I plan to specify the CMR as the gateway in all four devices, but I am unsure if I will be able to reach all of them via VPN this way. Below are my IP address configurations: CMR IP Address: 192.168.1.43 CMR Subnet Mask: 255.255.255.0 Device 1 IP Address: 192.168.1.44 Device 1 Gateway: 192.168.1.43 Device 1 Subnet Mask: 255.255.255.0 Device 2 IP Address: 192.168.1.45 Device 2 Gateway: 192.168.1.43 Device 2 Subnet Mask: 255.255.255.0 Device 3 IP Address: 192.168.1.46 Device 3 Gateway: 192.168.1.43 Device 3 Subnet Mask: 255.255.255.0 Device 4 IP Address: 192.168.1.47 Device 4 Gateway: 192.168.1.43 Device 4 Subnet Mask: 255.255.255.0"
+    },
+    {
+      "comment_id": 380492096375911,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "The CMR module can only directly communicate with one [product_name] device at a time, not multiple."
+    },
+    {
+      "comment_id": 643542099778526,
+      "user_name": "9aQLYcgnHY",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "Thank you for your reply."
+    },
+    {
+      "comment_id": 959091754307694,
+      "user_name": "9aQLYcgnHY",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 6,
+      "comment_body": "I believe I may have found a workaround. Since I can access the CMR's web server remotely and all four [product_name] devices share the same network as the CMR, I could change the IP address setting in the CMR to whichever device I want to monitor at the time. Is this assumption correct?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user aims to remotely manage four [product_name] controllers via VPN using a CMR module, but faces a limitation as the CMR can only communicate with a single device at a time. SMS and web controls are already routed successfully, yet full remote download/upload access to all devices through one VPN session is uncertain. The discussion reflects good understanding of networking but highlights unclear feasibility of multi-device VPN access without further changes.",
+    "user_expectations": "The user hopes to remotely access, download, and upload to all four [product_name] devices through the CMR module's VPN, ideally without needing further onsite configuration or having to individually readdress the devices.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "remote access",
+      "upload/download via VPN",
+      "centralized control"
+    ],
+    "pain_keywords": [
+      "multi-device VPN limitation",
+      "unclear remote access capability"
+    ],
+    "feature_keywords": [
+      "VPN access",
+      "network gateway setting",
+      "remote engineering"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "13": "Integration Limitations"
+  }
+}

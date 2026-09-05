@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "branch_id": "7754396844",
+    "thread_id": "3055273936",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 389454831826892,
+      "user_name": "6pyAJFIIFI",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hello everyone, I've researched some topics in this forum regarding my goal, which is to measure water conductivity using [product_name]. I have two instrumentation options: a conductive cell with 4 wires or two pieces of stainless steel with known electrical resistance. Does anyone know if there is a [company_name] module that converts electrical resistance to a 4-20mA signal? Would using amplifier isolation help with this?"
+    },
+    {
+      "comment_id": 738508487185514,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "[product_name] does not include a module for direct resistance measurement. The analog module AM2 RTD is specifically for PT100 / 1000 resistors, only measuring resistance within a temperature range from -50 to 200 °C. Can you clarify your intended application? Do you have a link or datasheet for the conductivity cell?"
+    },
+    {
+      "comment_id": 446651554303335,
+      "user_name": "6pyAJFIIFI",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Hi [user_name], thank you for your response. Basically, I need to measure water conductivity at two stages of the filtration process to perform a calculation. Depending on the result, the pump speed adjusts, and certain solenoids open or close. These values (conductivity 1, conductivity 2, and calculated result) should be accessible on the HMI panel. Thanks a lot."
+    },
+    {
+      "comment_id": 563351973261939,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "My main question remains: without detailed sensor data, it's impossible to determine whether [product_name] can process its output signal."
+    },
+    {
+      "comment_id": 637661554779353,
+      "user_name": "6pyAJFIIFI",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "Understood. I've attached the datasheet for the cell. We have other options, but this one appears most suitable for our use case."
+    },
+    {
+      "comment_id": 675256365593148,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "This datasheet does not indicate the output signal. The sensor lacks a transmitter, so it cannot be used with [product_name]."
+    },
+    {
+      "comment_id": 894092017942345,
+      "user_name": "6pyAJFIIFI",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "I found transmitters that output a 4-20mA signal, but they significantly increase the overall cost. Another choice via an online marketplace offers questionable documentation, uncertain quality, and lacks guarantees. This weekend, I contacted companies specializing in isolating amplifiers; responses are expected next week. With these modules, I hope to convert the cell’s electrical resistance into a 4-20mA signal. Another alternative is a Burket cell (not inexpensive but possible), with more information found in its datasheet. Are there solutions for [product_name] with this cell type?"
+    },
+    {
+      "comment_id": 134291619025147,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 6,
+      "comment_body": "[product_name] cannot process sensors lacking transmitters, as these have no 0-10V or 0/4-20mA output. The base module can only work with 0-10V signals directly. By using a 500 ohm resistor, it can also handle 0/4-20mA signals. The analog expansion module supports direct evaluation of both 0-10V and 0/4-20mA signals. The AM2 RTD module is necessary for PT100 / 1000."
+    },
+    {
+      "comment_id": 134835151577427,
+      "user_name": "6pyAJFIIFI",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "Hello, I found a conductivity cell that aligns with our concept, but it seems there isn't a [product_name] module to convert the cell’s electrical resistance into a 4-20mA or 0-5V signal. Is there any [company_name] PLC that offers a module for this conversion? Please advise. Regards,"
+    },
+    {
+      "comment_id": 779504519324302,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "I am not aware of any [company_name] PLC able to convert the resistance from a conductivity cell. These sensors are complex and require dedicated converters. Why not contact the sensor manufacturer ([url])?"
+    },
+    {
+      "comment_id": 996689216405225,
+      "user_name": "6pyAJFIIFI",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 7,
+      "comment_body": "We have already reached out, but using those cells and displays would make our project much more expensive. Additionally, we want all interfaces managed within a single HMI, not with extra displays. Thanks again!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users aim to measure water conductivity but realize that [company_name] does not provide modules capable of directly converting resistance from conductivity cells into 4-20mA or 0-5V signals. Some available analog modules are limited to temperature sensors, and third-party transmitters would increase cost and complexity. The lack of clear documentation about which sensors are compatible with [product_name] leads to further confusion, prompting users to explore external converters or transmitters. Concerns are raised regarding the cost, reliability, and documentation of alternative transmitter products.",
+    "user_expectations": "Users expect [company_name] to offer a hardware solution or accessory capable of directly converting electrical resistance from a conductivity cell into a signal (4-20mA or 0-10V) suitable for [product_name] input. They desire straightforward, reliable, and well-documented integration for water conductivity measurements.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "direct integration",
+      "cost-effective measurement",
+      "reliable conductivity data",
+      "automation of filtration process"
+    ],
+    "pain_keywords": [
+      "lack of native support",
+      "expensive add-on solutions",
+      "uncertain compatibility",
+      "limited hardware functionality"
+    ],
+    "feature_keywords": [
+      "resistance to analog conversion",
+      "analog signal processing",
+      "sensor compatibility"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "18": "Cost Optimization"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "branch_id": "2337723268",
+    "thread_id": "1723880927",
+    "publication_year": 2020,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 502578067942437,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hello! Apologies if there are any language mistakes, as English isn't my native language. I'm new to programming with [product_name] and have some questions. I am sending temperature data from Arduino to [product_name] using MODBUS and need to read these values as floats, but to use them in [product_name] I need to convert them to integers. I'm not very familiar with memory mapping yet, so maybe there's an error there. I believe the number received from Modbus is stored at VW2 (since a long value = 2, it occupies VW0 and VW2). Could someone explain how to handle this value at VW2? The manual outlines these common steps for converting float/integer: 1) Transfer float data via Modbus to VM. 2) Convert float data in VM to integer using a converter. 3) Work with the converted integer. 4) Convert back to float if needed. Are these the correct steps I should follow? If possible, could you provide a simple example? I would appreciate it very much. Thanks."
+    },
+    {
+      "comment_id": 772630397249340,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "The addressing in [product_name]'s VM memory is byte-oriented. To input a 32-bit float, you need to use 4 bytes—transfer VB0 to VB3 (VW0 + VW2). For conversion, use the F/I converter at VM0. To reverse it (integer to float), use an I/F converter—enter VM4 so it covers VB4 to VB7 (VW4 + VW6). These 4 bytes must then be sent to two Modbus registers."
+    },
+    {
+      "comment_id": 843374608838722,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Hi [user_name], thank you for your reply! I am already using VM=0 with the float/integer converter, as shown in my code, but it's not working. I’m unsure about your point on 'inputting a 32-bit float via VB0 to VB3 (VW0 + VW2)'. If I send data from HR=11 to VW0 (long=2), shouldn’t the data be available at VB3? In the data table, I see bits marked V3.0 to VB3.7, but only receive float values up to 255. I've attached my [product_name] code."
+    },
+    {
+      "comment_id": 662809901278868,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "To clarify: VM memory is addressed by byte, while Modbus holding registers are addressed by word. A 32-bit Modbus value consists of 4 bytes (2 words), using two consecutive registers, e.g. HR11 and HR12. Similarly, in [product_name]'s VM memory, it uses 4 bytes or 2 words. For transfer, only the start address for the VM region in [product_name] is set; a 32-bit value from HR11 gets written to VW0, and HR12 to VW2. The converted integer is shown on the output (Aq) of the F/I converter, not at the VM locations themselves. Additional notes: In [product_name], holding registers start at address 1; if Arduino starts at 0, add an offset of 1 to the connection table. That means Arduino's register 11 is HR12 on [product_name] if Arduino starts at 0, and HR11 otherwise. I do not know if the Arduino Unit ID is 255, and you must make sure the F/I converter uses the correct resolution for your integer values."
+    },
+    {
+      "comment_id": 709608893249753,
+      "user_name": "cZQANX744b",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "You can experiment in simulation mode. Make a program using F/I (VD0), followed by an analog amplifier. Add a message display tied to the analog amplifier parameter. During simulation, add VD0 to the data table as a float format. Enter a test value like 1.2 in the 'new value' column. The resulting value will show in the message text. Adjust the F/I properties or the amplifier as needed. Note that [product_name] does not support floating-point calculations directly, so further processing must be done using integers. Hope this is helpful."
+    },
+    {
+      "comment_id": 462131545959226,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Check the example attached for float and double handling with a message showing the result. This sample uses a diagram rather than forming a network project; if I have a single Modbus partner, I prefer diagrams. Change your program as you like. In your code, remove the direction from [product_name] to Modbus unless you are sure the holding register can be written safely. In my example, play with HR numbers (+/-1) to get the needed value, and adjust IP addresses as necessary. Regards, [user_name]"
+    },
+    {
+      "comment_id": 900300266078194,
+      "user_name": "BrJqikL2qa",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2020,
+      "comment_month": 3,
+      "comment_body": "Thank you very much to everyone who replied. I will try the suggestions."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is unfamiliar with [product_name] and struggles to convert float data received via Modbus from an Arduino. They are uncertain about how to map byte-oriented VM memory to word-oriented Modbus registers and how [product_name] software manages and displays floating-point data. There is a gap in beginner-friendly documentation and clear examples for handling these conversions in [product_name].",
+    "user_expectations": "The user wants to read float data from Modbus, convert it to integer within [product_name], and use it for logic or calculations. They expect simple, clear instructions or step-by-step working examples to understand this conversion process.",
+    "severity_expectation_level": "5",
+    "gain_keywords": [
+      "data integration",
+      "float handling",
+      "easy conversion",
+      "reliable communication"
+    ],
+    "pain_keywords": [
+      "confusing memory addressing",
+      "no float support",
+      "lack of examples",
+      "unclear data conversion"
+    ],
+    "feature_keywords": [
+      "float/integer converter",
+      "VM memory mapping",
+      "Modbus register handling",
+      "simulation mode"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "3": "User Guidance",
+    "8": "Documentation Clarity"
+  }
+}

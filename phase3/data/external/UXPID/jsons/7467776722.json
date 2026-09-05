@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "branch_id": "7467776722",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 527414744295845,
+      "user_name": "1lbP7FUhvf",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I am using [product_name] [version_no]. My setup uses an hour counter to track the running time of a motor (output Q1). My requirement is that total running hours should be preserved even if the panel is switched off for maintenance. However, even though the retentivity option is selected, it cannot be changed. I am programming in ladder logic. I tried both keeping the RAL input open and connecting R and RAL together during resting time but it hasn't solved the issue."
+    },
+    {
+      "comment_id": 100110601279865,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "For the hour counter in [product_name], retentivity is always active and cannot be switched off, which is why the setting is greyed out."
+    },
+    {
+      "comment_id": 109674424748788,
+      "user_name": "1lbP7FUhvf",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "I understand and I actually prefer it this way, since I can use the 'R' input to reset if needed. The issue is that the hour count is resetting automatically when the PLC loses power. I want the counter to keep the previous value and add new running time, retaining the total until it is reset manually. This is not happening—the hour counter does not keep its value, despite showing retentivity as enabled."
+    },
+    {
+      "comment_id": 679203218145504,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "This shouldn't happen unless something in your program isn't correct. The hour counter only resets when either the hours counter's RAL input gets a positive edge, or when you transfer a program to the [product_name]."
+    },
+    {
+      "comment_id": 186841503113997,
+      "user_name": "1lbP7FUhvf",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Thank you for your response. I will keep the RAL input disconnected, load the program into the PLC, and check the result on the actual machine."
+    },
+    {
+      "comment_id": 817251387551602,
+      "user_name": "8RYb477Ela",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Have you checked how accurate the original operating hour counters are? If your motor's maximum runtime is 59 seconds each time, you may end up with 0h 0m recorded after years, since [company_name] only counts full minutes. Any time less than a minute is lost. There's an attached ladder logic example for better accuracy, with a small display delay of one minute, but it's still an improvement over the default behavior."
+    },
+    {
+      "comment_id": 903691382033146,
+      "user_name": "1lbP7FUhvf",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "Thank you for your suggestion to load the program into the PLC and test it in real conditions. After doing so, I found the timer does retain its value. The retention may not work during simulation on a laptop. Regarding manual resetting of the hour counter, I connected both 'R' and RAL inputs and applied a single impulse to reset the value to zero. Is this acceptable, or should I use just a single positive impulse to either RAL or R to reset it? Could someone clarify how R and RAL inputs function differently?"
+    },
+    {
+      "comment_id": 457863721996235,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 3,
+      "comment_body": "See the attached example."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are utilizing the built-in hour counter in [product_name] [version_no] modules to monitor motor runtime. One user faced issues with the hour counter resetting after power cycles, despite expecting retentivity. There was confusion about the correct usage of 'R' and 'RAL' inputs in the counter, with additional concern about operating hour measurement accuracy and the behavior of retentivity in real operation versus simulation. Overall, the thread highlights misunderstandings about integrated retention settings and requests clarification about their actual functionality.",
+    "user_expectations": "The user wants the hour counter to reliably retain values after power loss and only reset when triggered manually. Clear instructions and differences between the 'R' and 'RAL' inputs in the counter are also expected.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "persistent hour tracking",
+      "manually controlled reset",
+      "runtime accuracy"
+    ],
+    "pain_keywords": [
+      "counter resets after power loss",
+      "unclear reset input function",
+      "simulation does not reflect real device behavior",
+      "minute-precision loss"
+    ],
+    "feature_keywords": [
+      "hour counter retentivity",
+      "manual reset",
+      "R and RAL function",
+      "ladder logic"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}

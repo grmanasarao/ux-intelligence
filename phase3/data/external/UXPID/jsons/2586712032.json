@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "branch_id": "2586712032",
+    "thread_id": "1723880927",
+    "publication_year": 2015,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 175249799010173,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I have two questions about the special flag M8 (power reset): 1) What is the relationship between the power reset and the retentive flag for special functions? For instance, if I set the R parameter for a latching relay and connect the R (reset) pin to M8 (power reset), what will happen? Does the power reset clear the latching relay and then restore its state from before the power failure, or does it overwrite the retained state? 2) Is it possible to access M8 (power reset) from within a user-defined function (UDF)? Sometimes it's necessary to reset a pulse relay at startup, but if the relay is inside a UDF, direct access to M8 seems unavailable. I appreciate any advice."
+    },
+    {
+      "comment_id": 487188480828989,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "The special flag M8 serves as a startup indicator. After a device restarts, M8 goes high only during the initial cycle, which is useful for triggering specific actions right after startup."
+    },
+    {
+      "comment_id": 582653699319310,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "However, the core question remains: Is this executed before or after the retention process? If it's after, will it overwrite the retained state?"
+    },
+    {
+      "comment_id": 168949546056581,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Please refer to the attached document for further details."
+    },
+    {
+      "comment_id": 172668263521162,
+      "user_name": "pAaRH4rKYU",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "If you use an RS relay with retention enabled, and the relay is ON when the device loses power, after power is restored, the RS relay will also be ON. But if you connect the R input to the M8 flag, the RS relay will be OFF during the first cycle after power-up and will stay OFF until you set it again. When powering up any programmable logic device, the initial step sets all retentive values (timers, counters, relays, etc.) to those stored before power loss. The program then proceeds with the first cycle: 1. Read all input statuses and store in registers 2. Execute the program, writing outputs to registers 3. Update outputs with the values in the registers 4. Repeat from step 1 Throughout one cycle, the input status remains consistent. Any input change during step 2 will be processed in the following cycle. If you want M8 used in both the main program and in a UDF, you need to first utilize M8 in the main program and connect it as an input to your UDF."
+    },
+    {
+      "comment_id": 370430754883274,
+      "user_name": "Oy1Km9n4pW",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2015,
+      "comment_month": 11,
+      "comment_body": "Thanks everyone! 1) If I understand correctly, the retentive function executes before any part of the program. This means the elements' states are first restored, and then the circuit behavior, such as power reset via M8, begins. 2) Unfortunately, my user-defined function doesn't have enough I/O pins to accommodate M8 as an input."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are unsure about how the M8 (power reset) flag interacts with retentive relays on [product_name], specifically whether the previous state is kept or overwritten on startup. There is also concern about accessing M8 from within user-defined functions when available input/output pins are limited. The main issues involve unclear documentation and interface restrictions regarding special function flags and UDF integration.",
+    "user_expectations": "Users want explicit clarification about retentive flag behavior during power reset, and they hope for greater flexibility in using system flags such as M8 within user-defined functions, even in situations with limited I/O availability.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "predictable startup",
+      "circuit control",
+      "system flexibility"
+    ],
+    "pain_keywords": [
+      "system flag access limitations",
+      "insufficient documentation",
+      "UDF I/O pin constraints"
+    ],
+    "feature_keywords": [
+      "special function flags",
+      "retentive relay",
+      "UDF inputs",
+      "startup sequence"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "8": "Documentation Clarity",
+    "22": "Usability Improvement Suggestions"
+  }
+}

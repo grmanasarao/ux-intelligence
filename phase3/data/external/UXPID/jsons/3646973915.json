@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "branch_id": "3646973915",
+    "thread_id": "4479534060",
+    "publication_year": 2025,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 372198012479071,
+      "user_name": "2eEWVE567V",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Hello all, I'm trying to read data from my inverter ([product_name]: SolaX X3-Hybrid-5.0-D). In the Network View, I added my [product_name] ([article_no]) and the inverter as a Modbus-compatible device. Within the diagram editor, I added a network analog input block, set it to remote device, selected the inverter, and configured the values. Port 502, Unit ID 1, Modbus type IR, Modbus address 28 (Battery %). The [product_name] and inverter are connected, and the block is green. When I click on the line between them, it shows that the inverter sends data to NAI1. Next, I connected an analog threshold trigger to the NAI1 block. I set it to no sensor, gain 0.1, maximum 100, on 94, off 90. The battery is at 95%, but nothing happens. There is a Q output as well. I added message texts, selected the threshold, but nothing responds. So it seems ready, but I'm not sure if I'm receiving any data, the correct data, or how to proceed from here. If the battery reaches 95%, the Q1 physical output on the [product_name] should close a relay coil to power an electrical socket. This is my goal for now. Thanks for any assistance."
+    },
+    {
+      "comment_id": 555780192545597,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Do you have a link to the Modbus register documentation for this inverter?"
+    },
+    {
+      "comment_id": 392535343614406,
+      "user_name": "2eEWVE567V",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Yes. [url] See from page 24."
+    },
+    {
+      "comment_id": 114915634182413,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "In [product_name], Modbus addresses start from 1, while in the inverter Modbus addresses start from 0. Try reading IR29 instead of IR28."
+    },
+    {
+      "comment_id": 977791637113754,
+      "user_name": "2eEWVE567V",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 886816934708215,
+      "user_name": "2eEWVE567V",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "Thank you! I tried, but it still doesn't work."
+    },
+    {
+      "comment_id": 430657181699598,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "The inverter and [product_name] are on different IP subnets. They both need to be within the same IP subnet. Inverter: 192.168.1.103 [product_name]: 192.168.0.3 You can either change the inverter's IP address to 192.168.0.103, or set the [product_name]'s IP to 192.168.1.3."
+    },
+    {
+      "comment_id": 569700780253922,
+      "user_name": "2eEWVE567V",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "No change. How can I check if they're actually connected?"
+    },
+    {
+      "comment_id": 440433706676873,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 6,
+      "comment_body": "You're showing only a circuit screenshot, not one from 'Online test' mode. I'm not certain which values are expected or which are live online."
+    },
+    {
+      "comment_id": 827648559895664,
+      "user_name": "2eEWVE567V",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": ""
+    },
+    {
+      "comment_id": 836211988348563,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2025,
+      "comment_month": 7,
+      "comment_body": "This screenshot doesn’t show actual values in the Online test mode."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is working to retrieve battery data from a third-party inverter via Modbus using a [product_name] PLC, facing difficulties in confirming communication and properly configuring Modbus settings. There is uncertainty due to limited feedback and diagnostics in the system, making it challenging to determine whether the connection and automation are functioning correctly.",
+    "user_expectations": "The user hopes for simple setup and immediate verification of Modbus data transfer between the [product_name] and inverter, with visible feedback or diagnostics indicating any issues. Real-time data and reliable automation triggers are central to their expectations.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "real-time data verification",
+      "automation",
+      "networked device control"
+    ],
+    "pain_keywords": [
+      "data absence",
+      "diagnostic uncertainty",
+      "configuration ambiguity",
+      "lack of feedback"
+    ],
+    "feature_keywords": [
+      "Modbus integration",
+      "data visualization",
+      "relay control",
+      "threshold trigger",
+      "online diagnostics"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges",
+    "10": "Performance Predictability"
+  }
+}

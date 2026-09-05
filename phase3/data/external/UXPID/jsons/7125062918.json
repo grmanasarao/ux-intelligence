@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "branch_id": "7125062918",
+    "thread_id": "1723880927",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 722968506976762,
+      "user_name": "rF5TTMnam0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, I connected a power supply with 230 V AC to L1 and N, a switch button to I1 (24 V DC), a controller with 8 digital inputs and 4 digital outputs, and a contactor to Q1. In my program, I used a normally open contact and relay coil with a ladder diagram setup. After downloading and starting the program, pressing the switch button (24 V DC) does not activate the relay coil. Has anyone experienced this issue? Why is the relay not turning on? Thank you for any suggestions."
+    },
+    {
+      "comment_id": 419129230475333,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, If you have a controller designed for 230V inputs, don’t you need 230V input signals? Please check the manual for details. See chapter 2.3.3. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 458377818470772,
+      "user_name": "rF5TTMnam0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, I used 24 V DC to input I1 and connected the relay coil (24 V DC) to Q1. The main power supply is 230 V AC. Could someone advise where the problem might be with the relay coil not switching on? Thank you in advance for any suggestions."
+    },
+    {
+      "comment_id": 858849135341508,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, Are you able to see the input activating in your controller? It seems that the input might not be registering as 'high'. If your controller is intended for 230V operation, 24V is likely too low. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 850580790143776,
+      "user_name": "8RYb477Ela",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "You cannot use 24V input signals with a 230V controller module. If you need 24V input signals, consider switching to a version that supports 12/24V inputs, and use an extra 24V power supply for both the controller and the inputs. Relay outputs can be used as needed with any voltage, as described in the manual. Regards, [user_name]"
+    },
+    {
+      "comment_id": 948060809373517,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Alternatively, you could use a 24VDC coupling relay that switches 230VAC through the contacts."
+    },
+    {
+      "comment_id": 952756054102427,
+      "user_name": "rF5TTMnam0",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, If I remove the push button from input I1 and the corresponding contact from the program, then download the updated program, the relay coil does switch on. If the controller operates with 230 V AC, how does it activate the relay coil? Is this scenario correct? Is it acceptable to connect 230 V AC to I1 and Q1 outputs? An image of the situation is attached."
+    },
+    {
+      "comment_id": 688987317649491,
+      "user_name": "udDAXl3OHm",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello, Your program setup is fine, but you must have at least 80V on the input for activation. Refer to previous comments above. Best regards, [user_name]"
+    },
+    {
+      "comment_id": 783741926232504,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "The inputs of a 230VAC controller module require either 115 or 230 VAC/VDC. Supplying only 24 VDC is insufficient for the controller to detect a high signal."
+    },
+    {
+      "comment_id": 847216046050417,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "See the attached file."
+    },
+    {
+      "comment_id": 509171747563679,
+      "user_name": "rF5TTMnam0",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thank you all for your help and explanations. Best regards, [user_name]"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users faced issues because they supplied a 24V DC input signal to a controller that requires much higher voltage (115-230V) at its inputs. This mismatch prevented proper input detection, causing relay activation not to work as expected. Community responses referenced documentation and emphasized verifying input voltage specifications when wiring controller systems.",
+    "user_expectations": "The user expected the controller module to recognize a 24V DC input signal at I1 and activate the relay output per their program. They also sought clarity on wiring standards and compatibility for signal voltages with the controller.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "correct relay triggering",
+      "functional input recognition",
+      "wiring compatibility"
+    ],
+    "pain_keywords": [
+      "input voltage mismatch",
+      "misunderstood requirements",
+      "relay not triggered",
+      "ambiguous documentation"
+    ],
+    "feature_keywords": [
+      "input voltage threshold",
+      "relay outputs",
+      "ladder diagram programming"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility"
+  }
+}

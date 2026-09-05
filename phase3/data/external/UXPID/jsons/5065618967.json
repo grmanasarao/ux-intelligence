@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "branch_id": "5065618967",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 122717889981969,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello all, I'm working with a [product_name] to process analog data from a sensor. I'm using an AI block connected to a NAQ. My goal is to acquire data using Node-Red and the S7 protocol. The sensor's displayed value doesn't match the Node-Red value; for example, the temperature sensor shows 46.6, but Node-Red reads 307. I've tried reading INT and WORD formats from both VM and blocks at different addresses (DB1,INT1406 ; DB1,WORD1406 ; DB1,INT0; DB1,WORD0), but still get 307. I'm stuck—does anyone know what might be causing this?"
+    },
+    {
+      "comment_id": 259173342372702,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "What is the data format of the temperature sensor output?"
+    },
+    {
+      "comment_id": 177899687207883,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I'm not certain of the format. The sensor is an IFM TN2435. The datasheet ([url]) doesn't specify the data format, and I'm unsure how to find the data type in [product_name]Soft. I just see the raw value as 46.6."
+    },
+    {
+      "comment_id": 454585181232952,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "According to the sensor's datasheet, the temperature range is -50.0 to 150.0 °C. You need to scale the AI value to fit this range."
+    },
+    {
+      "comment_id": 900037524296171,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thanks! Communication looks fine, but the [product_name] doesn't read the values correctly. I've replicated the block properties, but now [product_name] shows 75 while the actual reading is 19.7. Any idea why?"
+    },
+    {
+      "comment_id": 915272897817024,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Which version of the sensor are you using? Is it a 4-20 mA output or a 0-10 V output? Which AI module are you using—on the base module or an AM2 module? And how is the wiring set up?"
+    },
+    {
+      "comment_id": 423789563708099,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Just to clarify, does a sensor measurement of 46.6 correspond to a value of 466? Is that correct?"
+    },
+    {
+      "comment_id": 777412108770261,
+      "user_name": "xFsmjynPcp",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "A new topic has been posted by [user_name] in a separate thread regarding reading data from Node-Red using DB1,WORD0. Best regards [user_name]"
+    },
+    {
+      "comment_id": 476175278731231,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Yes, [product_name] only displays decimal points on its screen."
+    },
+    {
+      "comment_id": 767657472398945,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "The output is 4-20mA. I'm using an AM2 module, and I've just rechecked the wiring—everything appears correct."
+    },
+    {
+      "comment_id": 898940491825413,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Please upload your project as a ZIP file."
+    },
+    {
+      "comment_id": 959982758591527,
+      "user_name": "l5jCAo2Oty",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Thank you for your help, [user_name]. Upon closer inspection, I found a wiring issue. Everything is functioning properly now!"
+    },
+    {
+      "comment_id": 964400325251560,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Glad to hear it's resolved!"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Participants are facing challenges with analog data reading and scaling while connecting a [product_name] system to an external sensor and using Node-Red with the S7 protocol. The main issue is a mismatch between sensor readings and Node-Red values despite experimenting with data formats and addresses. Users are also unsure about correct data formats, scaling methods, and module setup.",
+    "user_expectations": "Users expect easy and reliable transfer of analog sensor values through [product_name] to Node-Red, with output readings precisely mirroring sensor measurements and minimal need for manual troubleshooting or configuration.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "accurate analog value",
+      "data consistency",
+      "easy sensor integration",
+      "reliable communication"
+    ],
+    "pain_keywords": [
+      "incorrect data values",
+      "scaling confusion",
+      "data type uncertainty",
+      "non-matching display values"
+    ],
+    "feature_keywords": [
+      "analog input",
+      "S7 protocol",
+      "value scaling",
+      "AI block",
+      "decimals handling"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "3": "User Guidance"
+  }
+}

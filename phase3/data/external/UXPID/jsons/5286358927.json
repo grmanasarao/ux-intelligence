@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "branch_id": "5286358927",
+    "thread_id": "4479534060",
+    "publication_year": 2019,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 675856087283093,
+      "user_name": "Xts0wYz8z0",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hello everyone, I've read several posts on this topic, but I still don't have a clear answer. I'm trying to use a [product_name] as a master/server to connect with some non-[company_name] devices. Currently there's a value in a register on another device that I'm attempting to read to see how the process works, but I haven't had any success yet. I've created a network project, added the [product_name] and a \"ModBus-compatible device\" with the correct addresses. I have tried wiring the two devices using the display pins, configuring network inputs and outputs, and setting up server and client connections using the pins (by pins, I mean the blue squares below the [product_name] image). I'm sure there's something simple I'm overlooking, but I can't figure out what it is. [product_name] Details: IP Address: [hidden] Subnet Mask: [hidden] Default gateway: [hidden] ModBus Device (Aspar MOD-ETH): IP Address: [hidden] Subnet Mask: [hidden] Default gateway: [hidden] This device can only use values at 1000-1099. I initially thought this might be an issue, but the addresses the [product_name] can access seem to be available, although it stores them in its own assigned addresses. Is this correct? Sorry for the lengthy post, I wanted to make things clear. Any assistance or advice would be greatly appreciated."
+    },
+    {
+      "comment_id": 509658459061652,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "I've attached a screenshot. The [product_name] acts as the master (client) while the Modbus device is the slave (server). A few details remain unclear: - Which register are you accessing? - Is the value from a holding register or an input register? - What is the register address? Additionally, I don’t know the unit ID. I'm unfamiliar with that specific Modbus device. Do you have a [url] or some form of documentation/manual for it?"
+    },
+    {
+      "comment_id": 390626899913264,
+      "user_name": "Xts0wYz8z0",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thanks for your reply. The register address is 1020, it's a holding register and the unit ID is 2. The device is an RTU to TCP gateway, and I'm working according to section 10.2 in its manual, which can be found at [url]. Based on that information, do you notice any issues with the attached screenshot? Thank you."
+    },
+    {
+      "comment_id": 453678047571288,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "You may need to take an offset into account. In the [product_name], Modbus addresses typically start at 1, not 0. If they also begin at 1 in your Modbus device, things will match. Otherwise, you might need to set HR1021 instead of HR1020 in your connection table."
+    },
+    {
+      "comment_id": 198290041164420,
+      "user_name": "Xts0wYz8z0",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Thank you very much! Changing it to 1021 solved the problem."
+    },
+    {
+      "comment_id": 271921008131351,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2019,
+      "comment_month": 11,
+      "comment_body": "Hi [user_name], Glad to hear it's working now."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users explored challenges when establishing Modbus communication between a [product_name] module and a third-party Modbus device. The primary usability issue involved confusion over address mapping and register offsets when reading Modbus data, leading to failed attempts until the register mapping was corrected.",
+    "user_expectations": "Users expect seamless and straightforward Modbus communication with third-party devices by configuring the necessary parameters in their network project, specifically anticipating easy mapping and access to Modbus registers without confusion over addressing.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "Reliable Modbus communication",
+      "Correct data reading",
+      "Interoperability"
+    ],
+    "pain_keywords": [
+      "Address mapping confusion",
+      "Interoperability issue",
+      "Register offset ambiguity"
+    ],
+    "feature_keywords": [
+      "Modbus master",
+      "Register addressing",
+      "TCP/IP communication"
+    ],
+    "overall_thread_sentiment": "neutral",
+    "os_system": {}
+  },
+  "topics": {
+    "12": "Network Configuration Challenges"
+  }
+}

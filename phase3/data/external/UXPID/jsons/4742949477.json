@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "4742949477",
+    "thread_id": "4479534060",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 604185618608634,
+      "user_name": "2znD0YmTvg",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I have a project with two [product_name] devices connected via LAN Ethernet. The main program runs on the first [product_name], while the second serves as an input extension. On the second [product_name], I use five digital inputs that are always set HIGH to manage pumps and valves. If any input changes to LOW, the main program on the first [product_name] halts operations and displays an error on the [product_name] operator panel. The issue is that after 20–30 minutes of continuous operation, all five inputs on the second [product_name] briefly drop to LOW before returning to HIGH, which is enough to trigger an error. I replaced the second [product_name] with another unit, and then the problem reoccurred after 3–4 hours. It seems like a communication glitch, but I'm unsure. Any advice or insights would be appreciated."
+    },
+    {
+      "comment_id": 830252125266462,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Which [product_name] devices are you using exactly? Please provide the full [article_no]. What are the firmware versions for the [product_name] devices?"
+    },
+    {
+      "comment_id": 514103881901545,
+      "user_name": "oQrjgnJ1GW",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Hello, One option is to add a heartbeat signal to monitor if the connection drops. You can find more details at [url]. Alternatively, you could use a delay function (TOF) in the first [product_name] for 1 second to control your pumps. If the connection loss is shorter than one second, the pumps won't stop; if longer, the system stops and resolves the issue."
+    },
+    {
+      "comment_id": 371564237596708,
+      "user_name": "2znD0YmTvg",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Sorry for answering late. FIRST [product_name]: [article_no], firmware: [version_no] SECOND [product_name]: [article_no], firmware: [version_no]"
+    },
+    {
+      "comment_id": 886016158499138,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "It appears to be a LAN connectivity issue. Are there drives (VFDs) operating nearby?"
+    },
+    {
+      "comment_id": 775791855678682,
+      "user_name": "2znD0YmTvg",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "I'll perform the test when I'm close to the [product_name] devices. I considered using a time delay block, but that's only a short-term workaround. I'd like to understand the underlying cause for future reference. I double-checked: I'm not actually losing my input signals. Roughly once per hour, the second [product_name] doesn't send the input status to the first [product_name], or the first [product_name] fails to receive it at times. I can share my project file if someone is willing to review it. Maybe I’m missing something."
+    },
+    {
+      "comment_id": 803907066746014,
+      "user_name": "2znD0YmTvg",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "There are four VFDs in another cabinet, which is located about 5 meters away from my cabinet containing the [product_name] devices. It does seem to be a LAN connection issue, as I’m not losing HIGH inputs on the second [product_name]. I just don’t know how to fix it."
+    },
+    {
+      "comment_id": 353719475883599,
+      "user_name": "uhRKIiu19Y",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "Can you describe your network setup? What type of network cable do you use (Cat x)? Have you grounded the cable on one or both ends? If both, try clamping off one side. Are your [product_name] devices running the latest firmware? Are the filters and earthing of other components (for EMC) correct? Is anything happening at the time of the issue? Are all electrical connections secure? Do your network cables run parallel to any power lines? Factors such as these can individually or collectively lead to disturbances."
+    },
+    {
+      "comment_id": 582270710061141,
+      "user_name": "s2AnoXDJyh",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 11,
+      "comment_body": "You could add ON/OFF delay function blocks in your main [product_name] program to slow down network input status changes. A lost connection for less than one second should not be an issue."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The user is experiencing brief, periodic loss of input signals between two interconnected [product_name] modules via LAN Ethernet, resulting in false error notifications and operational disruptions. Community members suspect communication issues, potentially due to network setup, electromagnetic interference, or hardware configuration. Temporary fixes have been proposed, but the root cause remains unresolved. The user's primary concern is achieving reliable communication for accurate fault detection.",
+    "user_expectations": "The user requires consistent and dependable communication between the two [product_name] units, ensuring that genuine input changes are correctly recognized and false errors do not occur.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "stable communication",
+      "error-free monitoring",
+      "system reliability"
+    ],
+    "pain_keywords": [
+      "communication loss",
+      "false error triggers",
+      "input signal dropouts"
+    ],
+    "feature_keywords": [
+      "LAN Ethernet communication",
+      "firmware version",
+      "digital input monitoring",
+      "error display"
+    ],
+    "overall_thread_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "10": "Performance Predictability",
+    "14": "Automated Fault Detection and Recovery"
+  }
+}

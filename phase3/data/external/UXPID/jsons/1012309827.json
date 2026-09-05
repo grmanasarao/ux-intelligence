@@ -1,0 +1,198 @@
+{
+  "metadata": {
+    "branch_id": "1012309827",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Unsolved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 305217808512744,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "My network project is progressing well as I planned. I'm using [product_name] V16 software and [product_name] V8.3.0. I now have an HMI panel. I believe my VM mapping is correct and want to display the results of Controle (IP 192.168.0.63) on my HMI. The HMI layout is in testing, and adjustments are still needed. When I try to compile, I receive errors that I don't understand since I'm not experienced in this field. Loading the program gives me a message: 'Components with a different version are installed on the target device.' Suggestions haven't resolved the issue. I feel I've overlooked something, but I can't identify it. Attached is my network project and my HMI concept. Tutorials online haven't been very helpful. What am I missing? Each [product_name] module is in a different location."
+    },
+    {
+      "comment_id": 471381782469291,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "This is my concept for the HMI panel."
+    },
+    {
+      "comment_id": 351735780592192,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "You only included the .ap16 file in your archive, which is not sufficient. You need to ZIP the entire [product_name] project folder."
+    },
+    {
+      "comment_id": 181208859562826,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "It's better to use the 'archive' function in [product_name]. Go to Project > Archive, which creates a compressed file with the .zap16 extension."
+    },
+    {
+      "comment_id": 226946629677418,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Hello. This appears to be an HMI-related issue. Please upload screenshots of the error messages and specify when they occur, as this will help others assist you. My guess is the configured device in your project is not the same as your actual HMI panel. It’s possible you’re using a project built in [product_name] V16 while your device is still on V15. Usually, you can choose to upgrade the program or keep it at the current version. A screenshot would clarify the situation. Good luck."
+    },
+    {
+      "comment_id": 419330552473920,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "@[user_name]: That's a good idea, thank you. To add: The forum doesn't allow posting ZAP files directly. Please ZIP the ZAP file before uploading."
+    },
+    {
+      "comment_id": 406326724073305,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I'll do my best and will share it here once I locate it. Thanks for the support."
+    },
+    {
+      "comment_id": 482144088742849,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Let's hope for a positive outcome."
+    },
+    {
+      "comment_id": 308925053785379,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Here’s the information I found in the settings: Device: HMI panel, Image version: 15.01.00.00_24.01, Bootloader version: 02.16, Bootloader release date: 2017.09.05, PN X1: E0-DC-A0-E5-21-26."
+    },
+    {
+      "comment_id": 310556850570086,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 9,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "So if I'm trying to resolve this, it seems there is a software compatibility issue between [product_name] V16 and the HMI panel. The forum is large, and I can't immediately locate an upgrade or solution for the HMI. Is there an upgrade available, or am I searching too extensively? I’ve spent about a month and a half on this, and it's becoming discouraging. I hope not to regret my investment."
+    },
+    {
+      "comment_id": 876221772744875,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 10,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "The main problem is the version difference between the panel's operating system and your project. Your HMI has Image version 15.1.0.0, and your [product_name] project has Image version 16.0.0.0. You have two options: 1) Swap the image version in [product_name] (see attached video), or 2) Update the operating system of your panel (refer to [url]). There are also issues in your tag table: you’ve defined variables from the [product_name] module as 'Word', but the correct data type is 'Int'. 'Word' refers to the data width (two bytes/16 bits), but for analog values, 'Int' is used (-32,768 to 32,767). In [product_name], a word is unsigned (0 to 65535), while an Int is signed (-32,768 to 32,767). Also, make sure the display formats in your I/O fields match the 'Int' data type."
+    },
+    {
+      "comment_id": 681099481030664,
+      "user_name": "SGCXZg4aa9",
+      "comment_position": 11,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "Regarding option 2 for the HMI issue: upgrade the device to V16. It may take some time to update, but you'll get the latest features."
+    },
+    {
+      "comment_id": 596091013554057,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 12,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "@[user_name]: Thanks for your help. When I tried 'Change device', I couldn’t locate that option. No worries—I started a new project and selected the right version. As for the tag table, I assumed 'Word' from [product_name] applied in [product_name] WinCC too, but I'll make adjustments in the future."
+    },
+    {
+      "comment_id": 613396742971954,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 13,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "@[user_name]: Appreciate your willingness to help. I tried highlighting 'fit' and 'upgrade', but kept seeing the 'image mismatch' error."
+    },
+    {
+      "comment_id": 597689280455220,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 14,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "What does this message mean exactly? Can’t you find the function? Right-click on 'HMI_1 [KTP700 Basic PN]' and a context menu will appear, where you can select 'Change device / version.'"
+    },
+    {
+      "comment_id": 811564001181960,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 15,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I looked several times but couldn't find it. So, I started a new project and chose version 15.1. Out of curiosity, I checked the 'change' option and found I could edit it now. Not sure why, but my project works now, and that’s the most important thing. Thanks again for the advice."
+    },
+    {
+      "comment_id": 821473442353536,
+      "user_name": "EX0GmnjvRQ",
+      "comment_position": 16,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 1,
+      "comment_body": "I discovered something odd in [product_name]. After starting a new project with the correct HMI version (15.1), I reloaded my first project with errors. Now, I'm able to select 'change device / version.' It's not immediately obvious which version the HMI panel uses. Is upgrading to .ap16 recommended? Are there significant differences between versions?"
+    }
+  ],
+  "analysis": {
+    "insight_summary": "The main challenge involves a version mismatch between the [product_name] V16 project and the HMI panel's current firmware, resulting in error messages when loading projects. The user feels unsure due to limited guidance, insufficient in-tool instructions, and generic tutorials that don't address the issue. This has led to frustration and doubts about the value of their purchase.",
+    "user_expectations": "The user anticipates a smooth workflow for transferring and running projects built in [product_name] V16 on their HMI panel, along with clear instructions to resolve any version conflicts. Improved documentation and easier troubleshooting resources are also desired.",
+    "severity_expectation_level": "3",
+    "gain_keywords": [
+      "project transfer",
+      "clear troubleshooting",
+      "compatibility",
+      "guidance",
+      "seamless HMI integration"
+    ],
+    "pain_keywords": [
+      "version mismatch",
+      "unclear error messaging",
+      "insufficient guidance",
+      "upgrade difficulty",
+      "project deployment blocked",
+      "frustration"
+    ],
+    "feature_keywords": [
+      "project load",
+      "version compatibility",
+      "error handling",
+      "HMI deployment",
+      "upgrade process"
+    ],
+    "overall_branch_sentiment": "negative",
+    "os_system": {}
+  },
+  "topics": {
+    "2": "Product Compatibility",
+    "8": "Documentation Clarity",
+    "3": "User Guidance"
+  }
+}

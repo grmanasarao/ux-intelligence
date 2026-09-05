@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "branch_id": "6807883867",
+    "thread_id": "1723880927",
+    "publication_year": 2021,
+    "branch_status": "Solved",
+    "branch_type": "question"
+  },
+  "content": [
+    {
+      "comment_id": 120215968278871,
+      "user_name": "6pYEnqgvPS",
+      "comment_position": 0,
+      "is_reply": false,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Hello. I am working with an off-timer and want to display the remaining time on the HMI. When I assign the process value, it shows incorrectly, possibly due to a scaling issue, since the timer works in hours and minutes. How can I properly scale the timer in [product_name]?"
+    },
+    {
+      "comment_id": 636529848721355,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 1,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "This does not appear to be a scaling issue. If your timer in the [product_name] program is formatted as \"hh:mm\", the underlying value is in minutes. The value transferred to the HMI is the total time in minutes. For example, a total time of 8 hours and 55 minutes equals 535 minutes (8 x 60 + 55 = 535). If you want to display hours and minutes separately, you must convert this minute total in [product_name] and pass each part to the HMI individually."
+    },
+    {
+      "comment_id": 846254827176672,
+      "user_name": "8RYb477Ela",
+      "comment_position": 2,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Here is an example of splitting seconds into minutes and seconds. The process for converting minutes into hours and minutes is similar."
+    },
+    {
+      "comment_id": 151834684116788,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 3,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "You can also use the user-defined function (UDF) I have attached for splitting time values."
+    },
+    {
+      "comment_id": 565365332172022,
+      "user_name": "6pYEnqgvPS",
+      "comment_position": 4,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Thank you both. How can I set the timer from the HMI in hours and minutes?"
+    },
+    {
+      "comment_id": 251440880733394,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 5,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "To do this, you need four numeric fields in [product_name]: one input/output field for hours, one for minutes, one output field showing remaining hours, and one output for remaining minutes. Example files and the UDF are attached."
+    },
+    {
+      "comment_id": 257841517113599,
+      "user_name": "6pYEnqgvPS",
+      "comment_position": 6,
+      "is_reply": true,
+      "comment_year": 2021,
+      "comment_month": 5,
+      "comment_body": "Thank you!"
+    },
+    {
+      "comment_id": 588954382776033,
+      "user_name": "sScZO7oMjw",
+      "comment_position": 7,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "Hi, When using an OFF-Delay timer, its output is a single word value. If you use an hour counter with a double word output, can this be split into hours and minutes as well? Best regards, [user_name]"
+    },
+    {
+      "comment_id": 261300600118735,
+      "user_name": "FhKkJZ9eE1",
+      "comment_position": 8,
+      "is_reply": true,
+      "comment_year": 2024,
+      "comment_month": 3,
+      "comment_body": "This will work only if the maximum minutes value remains below 32,768."
+    }
+  ],
+  "analysis": {
+    "insight_summary": "Users are encountering challenges when showing remaining time from an OFF-Delay timer set in [product_name] on an HMI, mainly due to the need for proper conversion between total minutes and hours/minutes displays. There is additional confusion when working with different data types (single word vs. double word), especially when switching from timers to hour counters. These discussions highlight the lack of clear guidance regarding value conversion and proper field setup for time displays.",
+    "user_expectations": "Users expect a straightforward method for transferring timer values from [product_name] to the HMI and displaying them as hours and minutes. They also wish to set timer values directly via the HMI and seek clarification regarding compatibility with different types of time counters.",
+    "severity_expectation_level": "4",
+    "gain_keywords": [
+      "easy time display",
+      "intuitive HMI setup",
+      "seamless data transfer"
+    ],
+    "pain_keywords": [
+      "incorrect value display",
+      "format conversion",
+      "data type limitations"
+    ],
+    "feature_keywords": [
+      "time scaling",
+      "input/output fields for time",
+      "word/double word handling",
+      "HMI timer display"
+    ],
+    "overall_thread_sentiment": "positive",
+    "os_system": {}
+  },
+  "topics": {
+    "30": "Data Persistence Confusion",
+    "8": "Documentation Clarity"
+  }
+}
