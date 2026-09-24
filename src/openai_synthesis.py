@@ -4,11 +4,37 @@ import json
 import os
 from typing import Any
 
+import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv()
 
+
+def _get_secret(name: str, default: str | None = None) -> str | None:
+    value = os.getenv(name)
+    if value:
+        return value
+
+    try:
+        value = st.secrets.get(name)
+        if value:
+            return str(value)
+    except Exception:
+        pass
+
+    return default
+
+
+OPENAI_API_KEY = _get_secret("OPENAI_API_KEY")
+
+if OPENAI_API_KEY:
+    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+
+OPENAI_MODEL = _get_secret("OPENAI_MODEL")
+
+if OPENAI_MODEL:
+    os.environ["OPENAI_MODEL"] = OPENAI_MODEL
 DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.6-luna")
 
 SYSTEM_INSTRUCTIONS = """You are an expert UX research synthesis assistant.
